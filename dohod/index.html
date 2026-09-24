@@ -1676,6 +1676,25 @@ section.dark .ill{border-color:rgba(255,255,255,.12);}
 .prac .ill{display:block;width:100%;max-width:700px;height:auto;border-radius:16px;margin-bottom:16px;}
 .author{margin-top:18px;max-width:680px;font-family:'Newsreader',Georgia,serif;font-style:italic;color:#535A6E;padding-left:.9rem;border-left:2px solid #DCEAE4;}
 #reg{padding-top:1.2rem;}
+
+/* desktop fix 24.09 (Даша msg 6400): у блоков расшифровки нет картинки, поэтому одна колонка по центру,
+   иначе левая половина пустая, а несколько абзацев в одной grid-области налезают друг на друга */
+@media(min-width:769px){
+  .variant .wrap{max-width:860px;}
+  .variant .r-head .wrap{display:block;}
+  .variant .vofen{max-width:none;margin-top:4px;}
+  .variant .rblk:not(:has(> .ill)){display:block;}
+  .variant .rblk:not(:has(> .ill)) > h2{margin:0 0 18px !important;}
+  .variant .rblk + .rblk{margin-top:48px;}
+  .variant .rtext{max-width:none;}
+  .intens .wrap{max-width:1000px;}
+  .intens .rblk{display:block;}
+  .intens .rblk + .rblk{margin-top:0;}
+  .intens .it-grid{margin-top:28px;}
+  .intens .rblk > h2{margin:0 0 16px !important;font-size:1.8rem !important;}
+  #reg .wrap{display:block;}
+  #reg .wrap > .gcf-card{position:static;margin:0 auto;max-width:600px;}
+}
 </style>
 </head>
 <body>
