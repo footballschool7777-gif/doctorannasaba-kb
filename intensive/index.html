@@ -1316,6 +1316,502 @@ section.e26.hero{
 .gcw-modal.show{display:flex;}
 .gcw-box{position:relative;background:#fff;border-radius:18px;width:min(560px,100%);max-height:92vh;overflow:auto;padding:28px 20px 20px;}
 .gcw-close{position:absolute;top:8px;right:12px;border:0;background:none;font-size:28px;line-height:1;cursor:pointer;color:#15211A;}
+
+/* ── модалка формы регистрации (как ltShowModalBlock на оригинале) ── */
+.gcf-overlay{position:fixed;inset:0;z-index:300;display:none;align-items:flex-start;justify-content:center;
+  overflow-y:auto;background:rgba(14,22,30,.66);padding:40px 16px;-webkit-overflow-scrolling:touch;}
+.gcf-overlay.show{display:flex;}
+.gcf-overlay .lt-block.lt-form{width:min(92vw,540px);margin:auto;}
+.gcf-overlay .modal-block-content.block-box{position:relative;}
+.gcf-close{position:absolute;top:10px;right:14px;z-index:2;border:0;background:none;font-size:30px;line-height:1;
+  color:#1a1a2e;cursor:pointer;opacity:.55;}
+.gcf-close:hover{opacity:1;}
+.gcf-overlay .builder-item{margin-bottom:14px;}
+.gcf-overlay .f-input{display:block;width:100%;}
+.gcf-overlay button[type="submit"][disabled]{opacity:.7;cursor:wait;}
+body.gcf-lock{overflow:hidden;}
+</style>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ================================
+   THERAPEUTIC GROUP — GETCOURSE FORM
+================================ */
+
+.tg-gc-form,
+.lt-block.lt-form:has(#tg-gc-form-thergroup){
+  --tg-dark:#1a1a2e;
+  --tg-accent:#F5A623;
+  --tg-accent-dark:#d48d0e;
+  --tg-white:#ffffff;
+  --tg-bg:#f8f7f4;
+  --tg-soft:#fff8ec;
+  --tg-text:#1a1a1a;
+  --tg-muted:#666666;
+  --tg-line:rgba(26,26,46,.12);
+  --tg-radius:18px;
+  --tg-shadow:0 18px 48px rgba(26,26,46,.14);
+  font-family:'Inter',Arial,sans-serif !important;
+}
+
+/* карточка формы */
+.tg-gc-form .modal-block-content.block-box,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .modal-block-content.block-box{
+  width:min(92vw,540px) !important;
+  max-width:540px !important;
+  margin:0 auto !important;
+  padding:42px 32px 40px !important;
+  border-radius:18px !important;
+  background:
+    radial-gradient(520px 240px at 50% -120px, rgba(245,166,35,.18), transparent 72%),
+    #ffffff !important;
+  border:1px solid rgba(26,26,46,.08) !important;
+  box-shadow:var(--tg-shadow) !important;
+  overflow:hidden !important;
+}
+
+/* убираем лишние внутренние отступы GetCourse */
+.lt-block.lt-form:has(#tg-gc-form-thergroup) form,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .lt-form,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .builder,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .part-userField,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .f-input-wrapper{
+  width:100% !important;
+  max-width:100% !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  background:transparent !important;
+  box-sizing:border-box !important;
+}
+
+/* шапка формы */
+.tg-form-head,
+.tg-form-head *{
+  box-sizing:border-box;
+}
+
+.tg-form-head{
+  width:100%;
+  max-width:540px;
+  margin:0 auto 24px;
+  padding:0;
+  color:var(--tg-text);
+  font-family:'Inter',Arial,sans-serif;
+  text-align:center;
+}
+
+.tg-form-head__badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  max-width:100%;
+  margin:0 auto 18px;
+  padding:6px 14px;
+  border-radius:999px;
+  background:rgba(245,166,35,.10);
+  border:1px solid rgba(245,166,35,.95);
+  color:#d48d0e;
+  font-size:11px;
+  line-height:1.2;
+  font-weight:800;
+  letter-spacing:.7px;
+  text-transform:uppercase;
+  white-space:normal;
+}
+
+.tg-form-head h2{
+  max-width:420px;
+  margin:0 auto 10px !important;
+  padding:0 !important;
+  color:var(--tg-text) !important;
+  font-size:clamp(28px,4vw,38px) !important;
+  line-height:1.08 !important;
+  font-weight:800 !important;
+  letter-spacing:-.04em !important;
+}
+
+.tg-form-head__price{
+  margin:0 auto 12px;
+  color:var(--tg-text);
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:24px;
+  line-height:1.25;
+}
+.tg-form-head__price strong{
+  font-weight:700;
+  white-space:nowrap;
+}
+.tg-form-head__note{
+  max-width:500px;
+  margin:0 auto;
+  color:var(--tg-muted);
+  font-size:14px;
+  line-height:1.5;
+}
+.tg-form-head__note strong {
+  color: var(--tg-text);
+}
+
+/* поля */
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .form-field{
+  margin-bottom:14px !important;
+}
+
+.lt-block.lt-form:has(#tg-gc-form-thergroup) input[type="text"],
+.lt-block.lt-form:has(#tg-gc-form-thergroup) input[type="email"],
+.lt-block.lt-form:has(#tg-gc-form-thergroup) input[type="tel"],
+.lt-block.lt-form:has(#tg-gc-form-thergroup) input[type="phone"],
+.lt-block.lt-form:has(#tg-gc-form-thergroup) input[type="number"],
+.lt-block.lt-form:has(#tg-gc-form-thergroup) textarea,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) select,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .form-control,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .f-input{
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-height:48px !important;
+  margin:0 auto 14px !important;
+  padding:13px 14px !important;
+  border:1.5px solid rgba(26,26,46,.16) !important;
+  border-radius:8px !important;
+  background:#fff !important;
+  color:var(--tg-text) !important;
+  font-family:'Inter',Arial,sans-serif !important;
+  font-size:15px !important;
+  line-height:1.25 !important;
+  font-weight:400 !important;
+  outline:none !important;
+  box-shadow:none !important;
+  box-sizing:border-box !important;
+  transition:border-color .2s ease, box-shadow .2s ease, background .2s ease !important;
+}
+
+.lt-block.lt-form:has(#tg-gc-form-thergroup) textarea{
+  min-height:96px !important;
+  resize:vertical !important;
+}
+
+.lt-block.lt-form:has(#tg-gc-form-thergroup) input:focus,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) textarea:focus,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) select:focus,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .form-control:focus,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .f-input:focus{
+  border-color:var(--tg-accent) !important;
+  box-shadow:0 0 0 4px rgba(245,166,35,.13) !important;
+}
+
+.lt-block.lt-form:has(#tg-gc-form-thergroup) input::placeholder,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) textarea::placeholder{
+  color:rgba(26,26,26,.48) !important;
+}
+
+/* кнопка */
+.lt-block.lt-form:has(#tg-gc-form-thergroup) button[type="submit"],
+.lt-block.lt-form:has(#tg-gc-form-thergroup) input[type="submit"],
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .btn,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .btn-success,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .btn-primary{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-height:54px !important;
+  margin:8px auto 18px !important;
+  padding:15px 20px !important;
+  border:0 !important;
+  border-radius:8px !important;
+  background:linear-gradient(180deg,#F5A623 0%,#F2A11E 100%) !important;
+  color:var(--tg-dark) !important;
+  font-family:'Inter',Arial,sans-serif !important;
+  font-size:15px !important;
+  line-height:1.2 !important;
+  font-weight:800 !important;
+  text-align:center !important;
+  text-decoration:none !important;
+  box-shadow:0 10px 24px rgba(245,166,35,.22) !important;
+  cursor:pointer !important;
+  box-sizing:border-box !important;
+  transition:background .2s ease, transform .15s ease, box-shadow .2s ease !important;
+}
+
+.lt-block.lt-form:has(#tg-gc-form-thergroup) button[type="submit"]:hover,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) input[type="submit"]:hover,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .btn:hover,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .btn-success:hover,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .btn-primary:hover{
+  background:linear-gradient(180deg,#F1A01D 0%,#d48d0e 100%) !important;
+  transform:translateY(-1px) !important;
+  box-shadow:0 14px 30px rgba(245,166,35,.28) !important;
+}
+
+/* блок предложений / тарифов */
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .part-offer,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .field-type-system-offer,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .offers,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .form-position-list{
+  width:100% !important;
+  max-width:100% !important;
+  margin:0 0 18px !important;
+  padding:0 !important;
+  box-sizing:border-box !important;
+}
+
+/* строки тарифов */
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .form-position,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .offer-position,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .field-type-system-offer .radio,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .part-offer .radio{
+  position:relative !important;
+  display:flex !important;
+  align-items:flex-start !important;
+  gap:8px !important;
+  width:100% !important;
+  max-width:100% !important;
+  margin:0 0 8px !important;
+  padding:11px 12px !important;
+  border-radius:10px !important;
+  border:1px solid rgba(26,26,46,.08) !important;
+  background:#fff !important;
+  color:var(--tg-text) !important;
+  box-sizing:border-box !important;
+  overflow:hidden !important;
+  line-height:1.35 !important;
+}
+
+/* выбранный тариф */
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .form-position.selected,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .offer-position.selected,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .form-position:has(input:checked),
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .offer-position:has(input:checked),
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .field-type-system-offer .radio:has(input:checked),
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .part-offer .radio:has(input:checked){
+  background:linear-gradient(180deg,#fffde8 0%,#fff9cf 100%) !important;
+  border-color:rgba(245,166,35,.45) !important;
+}
+
+/* радио */
+.lt-block.lt-form:has(#tg-gc-form-thergroup) input[type="radio"]{
+  flex:0 0 auto !important;
+  width:13px !important;
+  height:13px !important;
+  margin:3px 4px 0 0 !important;
+  accent-color:var(--tg-accent) !important;
+}
+
+/* текст тарифов */
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .form-position label,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .offer-position label,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .field-type-system-offer .radio label,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .part-offer .radio label{
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  color:var(--tg-text) !important;
+  font-family:'Inter',Arial,sans-serif !important;
+  font-size:12px !important;
+  line-height:1.35 !important;
+  font-weight:800 !important;
+  text-align:left !important;
+  white-space:normal !important;
+  overflow-wrap:break-word !important;
+  box-sizing:border-box !important;
+}
+
+/* цена внутри тарифа */
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .form-position-price,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .price,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .offer-price{
+  display:block !important;
+  width:100% !important;
+  margin-top:2px !important;
+  color:var(--tg-dark) !important;
+  font-size:12px !important;
+  line-height:1.25 !important;
+  font-weight:800 !important;
+  text-align:right !important;
+  white-space:normal !important;
+}
+
+/* чекбоксы согласий */
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .checkbox,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .field-type-checkbox,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .part-html{
+  width:100% !important;
+  max-width:100% !important;
+  margin:0 0 10px !important;
+  padding:0 !important;
+  color:var(--tg-muted) !important;
+  font-family:'Inter',Arial,sans-serif !important;
+  font-size:11px !important;
+  line-height:1.45 !important;
+  text-align:left !important;
+  box-sizing:border-box !important;
+}
+
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .checkbox label,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .field-type-checkbox label{
+  display:flex !important;
+  align-items:flex-start !important;
+  gap:8px !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  color:var(--tg-text) !important;
+  font-family:'Inter',Arial,sans-serif !important;
+  font-size:11px !important;
+  line-height:1.45 !important;
+  font-weight:700 !important;
+  text-align:left !important;
+}
+
+.lt-block.lt-form:has(#tg-gc-form-thergroup) input[type="checkbox"]{
+  flex:0 0 auto !important;
+  width:13px !important;
+  height:13px !important;
+  margin:2px 2px 0 0 !important;
+  accent-color:var(--tg-accent) !important;
+}
+
+.lt-block.lt-form:has(#tg-gc-form-thergroup) a{
+  color:var(--tg-text) !important;
+  text-decoration:underline !important;
+  text-underline-offset:2px !important;
+}
+
+/* ошибки */
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .error,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .error-summary,
+.lt-block.lt-form:has(#tg-gc-form-thergroup) .has-error .help-block{
+  color:#c0392b !important;
+  font-family:'Inter',Arial,sans-serif !important;
+  font-size:11px !important;
+  line-height:1.35 !important;
+}
+
+/* ПК */
+@media (min-width:769px){
+  .lt-block.lt-form:has(#tg-gc-form-thergroup) .modal-block-content.block-box{
+    padding:42px 32px 40px !important;
+  }
+}
+
+/* телефон */
+@media (max-width:600px){
+  .lt-block.lt-form:has(#tg-gc-form-thergroup) .modal-block-content.block-box{
+    width:calc(100vw - 32px) !important;
+    max-width:calc(100vw - 32px) !important;
+    padding:34px 32px 34px !important;
+    border-radius:14px !important;
+  }
+
+  .tg-form-head{
+    margin:0 auto 20px;
+  }
+
+  .tg-form-head__badge{
+    font-size:10px;
+    padding:6px 12px;
+  }
+
+  .tg-form-head h2{
+    font-size:30px !important;
+    max-width:290px;
+  }
+
+  .lt-block.lt-form:has(#tg-gc-form-thergroup) input[type="text"],
+  .lt-block.lt-form:has(#tg-gc-form-thergroup) input[type="email"],
+  .lt-block.lt-form:has(#tg-gc-form-thergroup) input[type="tel"],
+  .lt-block.lt-form:has(#tg-gc-form-thergroup) input[type="phone"],
+  .lt-block.lt-form:has(#tg-gc-form-thergroup) input[type="number"],
+  .lt-block.lt-form:has(#tg-gc-form-thergroup) textarea,
+  .lt-block.lt-form:has(#tg-gc-form-thergroup) select,
+  .lt-block.lt-form:has(#tg-gc-form-thergroup) .form-control,
+  .lt-block.lt-form:has(#tg-gc-form-thergroup) .f-input{
+    min-height:48px !important;
+    font-size:14px !important;
+  }
+}
+
+
+/* УБИРАЕМ БЕЛУЮ ПОДЛОЖКУ МОДАЛКИ GETCOURSE ВОКРУГ ФОРМЫ */
+
+/* сам popup-контейнер GetCourse */
+body .modal-dialog:has(#tg-gc-form-thergroup),
+body .modal-content:has(#tg-gc-form-thergroup),
+body .modal-body:has(#tg-gc-form-thergroup),
+body .lt-modal-window:has(#tg-gc-form-thergroup),
+body .lt-modal-content:has(#tg-gc-form-thergroup),
+body .popup-window:has(#tg-gc-form-thergroup),
+body .popup-content:has(#tg-gc-form-thergroup){
+  background:transparent !important;
+  background-color:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+}
+
+/* убираем именно внутренние отступы модалки, которые дают белую рамку */
+body .modal-content:has(#tg-gc-form-thergroup),
+body .modal-body:has(#tg-gc-form-thergroup),
+body .lt-modal-content:has(#tg-gc-form-thergroup),
+body .popup-content:has(#tg-gc-form-thergroup){
+  padding:0 !important;
+  overflow:visible !important;
+}
+
+/* центрируем саму модалку */
+body .modal-dialog:has(#tg-gc-form-thergroup),
+body .lt-modal-window:has(#tg-gc-form-thergroup),
+body .popup-window:has(#tg-gc-form-thergroup){
+  width:min(92vw,540px) !important;
+  max-width:540px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+/* наша карточка формы остаётся белой и красивой */
+body .lt-block.lt-form:has(#tg-gc-form-thergroup) .modal-block-content.block-box{
+  width:100% !important;
+  max-width:540px !important;
+  margin:0 auto !important;
+  background:
+    radial-gradient(520px 240px at 50% -120px, rgba(245,166,35,.18), transparent 72%),
+    #ffffff !important;
+  border:1px solid rgba(26,26,46,.08) !important;
+  box-shadow:0 18px 48px rgba(26,26,46,.14) !important;
+  border-radius:18px !important;
+  overflow:hidden !important;
+}
+
+/* чтобы внутренний блок GetCourse не добавлял свою белую простыню */
+body .lt-block.lt-form:has(#tg-gc-form-thergroup),
+body .lt-block.lt-form:has(#tg-gc-form-thergroup) .lt-block-wrapper,
+body .lt-block.lt-form:has(#tg-gc-form-thergroup) .container,
+body .lt-block.lt-form:has(#tg-gc-form-thergroup) .row{
+  background:transparent !important;
+  background-color:transparent !important;
+  box-shadow:none !important;
+  border:none !important;
+}
+
+/* мобильная страховка */
+@media (max-width:600px){
+  body .modal-dialog:has(#tg-gc-form-thergroup),
+  body .lt-modal-window:has(#tg-gc-form-thergroup),
+  body .popup-window:has(#tg-gc-form-thergroup){
+    width:calc(100vw - 32px) !important;
+    max-width:calc(100vw - 32px) !important;
+  }
+
+  body .lt-block.lt-form:has(#tg-gc-form-thergroup) .modal-block-content.block-box{
+    width:100% !important;
+    max-width:100% !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1581,6 +2077,54 @@ section.e26.hero{
   </div>
 </div>
 
+
+<!-- ===== ФОРМА РЕГИСТРАЦИИ GETCOURSE =====
+     Та же форма, что на doctor-saba.com/intensive: блок b-b8537, форма ltForm9336614, id 2246957800.
+     Отправка обычным POST (полный переход на doctor-saba.com), без ajax. Сессионные поля
+     оригинала (подпись запроса, csrf, данные сессии) сюда не переносятся. -->
+<div class="gcf-overlay" id="gcfModal" aria-hidden="true">
+  <div class="lt-block lt-view form02 lt-form lt-form-normal lt-modal-block tg-gc-form" data-code="b-b8537">
+    <div class="modal-block-content block-box" role="dialog" aria-modal="true" aria-label="Регистрация на интенсив">
+      <button type="button" class="gcf-close" aria-label="Закрыть">×</button>
+      <form id="ltForm9336614" class="lt-normal-form lt-form-inner lt-form" data-id="2246957800"
+            action="https://doctor-saba.com/pl/lite/block-public/process?id=2246957800" method="post" target="_self" accept-charset="UTF-8">
+        <input type="hidden" name="formParams[setted_offer_id]" class="external-value offer_id" value="">
+        <input type="hidden" name="formParams[willCreatePaidDeal]" value="0">
+        <input type="hidden" name="__gc__internal__form__helper" value="https://doctor-saba.com/intensive">
+        <input type="hidden" name="__gc__internal__form__helper_ref" value="">
+
+        <div class="form-content"><div class="builder">
+          <div class="builder-item part-html">
+            <div class="tg-gc-form" id="tg-gc-form-thergroup">
+              <div class="tg-form-head">
+                <div class="tg-form-head__badge" id="tg-start-badge"><span data-idate>25 сентября</span>&nbsp;в 18:00 · онлайн-интенсив</div>
+                <h2>Система перехода в новую реальность за 24 часа</h2>
+                <div class="tg-form-head__price">Для Вас участие за <strong>0 ₽</strong></div>
+                <div class="tg-form-head__note">
+                  Введите данные, нажмите на кнопку «Записаться» и <strong>НЕ ЗАКРЫВАЙТЕ СТРАНИЦУ</strong>.<br>
+                  После регистрации вы попадете на следующую страницу, где получите доступ в закрытый канал интенсива и бонусы.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="builder-item part-userField"><div class="field-content">
+            <input type="text" maxlength="60" class="f-input" placeholder="Введите ваш эл. адрес" name="formParams[email]" value="" inputmode="email" autocomplete="email" required>
+          </div></div>
+          <div class="builder-item part-userField"><div class="field-content">
+            <input type="text" maxlength="60" class="f-input" placeholder="Введите ваше имя" name="formParams[full_name]" value="" autocomplete="name" required>
+          </div></div>
+          <div class="builder-item part-userField"><div class="field-content">
+            <input type="text" maxlength="60" class="f-input" placeholder="Введите ваш телефон" name="formParams[phone]" value="" inputmode="tel" autocomplete="tel">
+          </div></div>
+          <div class="builder-item part-button text-center">
+            <button type="submit" class="btn f-btn button-md btn-success" style="color:white;">Записаться за 0 ₽</button>
+          </div>
+        </div></div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast" aria-live="polite">
   <div class="tav" id="toastAv">О</div>
   <div class="tbody">
@@ -1597,7 +2141,7 @@ section.e26.hero{
   /* ── НАСТРОЙКИ ─────────────────────────────────────────
      Старт интенсива: всегда ЗАВТРА в 18:00 по Москве (Europe/Moscow, UTC+3).
      Дата пересчитывается у посетителя; в HTML без JS стоит дата на момент сборки (2026-09-25).
-     REG_URL - куда ведут кнопки «Записаться», пока нет виджета.  */
+     REG_URL - запасной адрес кнопок «Записаться», если JS не сработал.  */
   var START_HOUR_MSK = 18;
   var MONTHS = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
   function mskToday(){
@@ -1676,7 +2220,7 @@ section.e26.hero{
     if (byDate < seatsLeft){ seatsLeft = byDate; renderSeats(true); }
   }, 60000);
 
-  /* регистрация */
+  /* регистрация: WIDGET_SRC задан -> окно с виджетом GetCourse, иначе -> модалка с формой ltForm9336614 */
   var widgetModal = null;
   function buildWidgetModal(){
     widgetModal = document.createElement('div');
@@ -1693,14 +2237,39 @@ section.e26.hero{
     widgetModal.querySelector('.gcw-close').addEventListener('click', close);
     widgetModal.addEventListener('click', function(ev){ if (ev.target === widgetModal) close(); });
   }
-  function openReg(e){
-    if (!WIDGET_SRC) return; /* обычный переход по ссылке REG_URL */
-    if (e){ e.preventDefault(); }
-    if (!widgetModal) buildWidgetModal();
-    widgetModal.classList.add('show');
+  var formModal = document.getElementById('gcfModal');
+  function closeForm(){
+    formModal.classList.remove('show'); formModal.setAttribute('aria-hidden','true');
+    document.body.classList.remove('gcf-lock');
   }
+  function openForm(){
+    formModal.classList.add('show'); formModal.setAttribute('aria-hidden','false');
+    document.body.classList.add('gcf-lock');
+    var first = formModal.querySelector('input.f-input');
+    if (first && window.matchMedia('(min-width:700px)').matches) first.focus();
+  }
+  formModal.querySelector('.gcf-close').addEventListener('click', closeForm);
+  formModal.addEventListener('click', function(ev){ if (ev.target === formModal) closeForm(); });
+  document.addEventListener('keydown', function(ev){ if (ev.key === 'Escape') closeForm(); });
+  /* защита от двойного нажатия: отправка одна, дальше полный переход на GetCourse */
+  var gcForm = document.getElementById('ltForm9336614');
+  gcForm.addEventListener('submit', function(){
+    var b = gcForm.querySelector('button[type="submit"]');
+    setTimeout(function(){ b.disabled = true; }, 0);
+    setTimeout(function(){ b.disabled = false; }, 8000);
+  });
+  function openReg(e){
+    if (e){ e.preventDefault(); }
+    if (WIDGET_SRC){
+      if (!widgetModal) buildWidgetModal();
+      widgetModal.classList.add('show');
+      return;
+    }
+    openForm();
+  }
+  window.openGCPopup = openReg;
   document.querySelectorAll('[data-reg]').forEach(function(a){
-    a.href = REG_URL;
+    a.href = REG_URL;           /* без JS - запасной переход на страницу GetCourse */
     a.removeAttribute('target');
     a.addEventListener('click', openReg);
   });
