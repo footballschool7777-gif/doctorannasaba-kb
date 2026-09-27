@@ -1737,7 +1737,7 @@ section.e26.hero{
 </script>
 
 <!-- Регистрация: виджет GetCourse 1661609 (копия формы /intensive, те же поля, авторизация, заказ, UTM в заказ) -->
-<div id="reg-modal" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.6);overflow:auto;-webkit-overflow-scrolling:touch">
+<div id="reg-modal" style="visibility:hidden;opacity:0;pointer-events:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.6);overflow:auto;-webkit-overflow-scrolling:touch">
   <div style="max-width:600px;margin:6vh auto;background:#fff;border-radius:16px;padding:24px 16px;position:relative">
     <button type="button" id="reg-close" aria-label="Закрыть" style="position:absolute;top:8px;right:12px;border:0;background:none;font-size:28px;line-height:1;cursor:pointer;color:#333">&times;</button>
     <script id="77a89ed04463689b0ff5d4078c1efd168a6e7f90" src="https://doctor-saba.com/pl/lite/widget/script?id=1661609"></script>
@@ -1746,8 +1746,8 @@ section.e26.hero{
 <script>
 (function(){
   var m=document.getElementById('reg-modal');
-  function open(e){ if(e){e.preventDefault();e.stopPropagation();} m.style.display='block'; document.body.style.overflow='hidden'; }
-  function close(){ m.style.display='none'; document.body.style.overflow=''; }
+  function open(e){ if(e){e.preventDefault();e.stopPropagation();} m.style.visibility='visible';m.style.opacity='1';m.style.pointerEvents='auto'; document.body.style.overflow='hidden'; }
+  function close(){ m.style.visibility='hidden';m.style.opacity='0';m.style.pointerEvents='none'; document.body.style.overflow=''; }
   window.ltShowModalBlock=function(){ open(); };
   document.getElementById('reg-close').addEventListener('click',close);
   m.addEventListener('click',function(e){ if(e.target===m) close(); });
