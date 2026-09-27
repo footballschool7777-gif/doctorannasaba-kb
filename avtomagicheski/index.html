@@ -664,7 +664,7 @@ body.lock{overflow:hidden}
 
 // payment popup: GetCourse form widgets load inside the dialog; products without a widget keep the plain link
 (function(){
-  var W={}, pay=document.getElementById('pay'), slot=document.getElementById('paySlot');
+  var W={"key1": {"id": "eccc2b3e4c51c44810617cadc820625a267e2828", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661701", "wid": "1661701"}}, pay=document.getElementById('pay'), slot=document.getElementById('paySlot');
   function close(){pay.classList.remove('open');document.body.classList.remove('lock');slot.innerHTML=''}
   pay.addEventListener('click',function(e){if(e.target===pay||e.target.classList.contains('pay-x'))close()});
   addEventListener('keydown',function(e){if(e.key==='Escape')close()});
@@ -677,10 +677,13 @@ body.lock{overflow:hidden}
     document.getElementById('payTitle').textContent=(t?t.textContent:'Оплата').replace(/\s+/g,' ').trim();
     document.getElementById('payPrice').textContent=price?price.textContent:'';
     slot.innerHTML='<div class="pay-wait">Загружаем форму оплаты…</div>';
-    var sc=document.createElement('script'); sc.id=w.id; sc.src=w.src;
-    sc.onload=function(){var x=slot.querySelector('.pay-wait'); if(x) setTimeout(function(){x.remove()},600)};
-    slot.appendChild(sc);
     pay.classList.add('open');document.body.classList.add('lock');
+    var sc=document.createElement('script'); sc.id=w.id; sc.src=w.src;
+    sc.onload=function(){
+      document.dispatchEvent(new Event('StartWidget'+w.wid));
+      var x=slot.querySelector('.pay-wait'); if(x) setTimeout(function(){x.remove()},800);
+    };
+    slot.appendChild(sc);
   });
 })();
 </script>
