@@ -32,59 +32,40 @@
 
   /* layout */
   .ty{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:clamp(1.6rem,5vw,3.5rem) 0}
-  .ty-card{width:100%;max-width:680px;padding:clamp(.4rem,2vw,1rem);text-align:center;position:relative}
+  .ty-card{width:100%;max-width:640px;padding:clamp(.4rem,2vw,1rem);text-align:center;position:relative}
 
-  .eyebrow{display:inline-flex;align-items:center;gap:.55rem;font-size:15px;letter-spacing:.22em;text-transform:uppercase;
+  .eyebrow{display:inline-flex;align-items:center;gap:.55rem;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;
     font-weight:700;color:var(--green);margin-bottom:1.4rem}
   .eyebrow::before{content:"";width:26px;height:2px;background:var(--green);border-radius:2px}
 
   /* progress */
   .progress-wrap{margin-bottom:1.8rem}
   .progress-top{display:flex;justify-content:flex-end;align-items:baseline;margin-bottom:.5rem}
-  .progress-top .pct{font-family:var(--display);font-weight:700;font-size:28px;color:var(--green)}
+  .progress-top .pct{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--green)}
   .progress{height:12px;background:#fff;border:1px solid var(--line);border-radius:30px;overflow:hidden}
   .progress .fill{height:100%;width:0;border-radius:30px;
     background:linear-gradient(90deg,var(--green),var(--amber-2));
     transition:width 1.3s cubic-bezier(.2,.7,.2,1)}
 
-  h1{font-family:var(--display);font-weight:700;font-size:32px;line-height:1.18;
+  h1{font-family:var(--display);font-weight:700;font-size:clamp(1.4rem,3.6vw,2rem);line-height:1.18;
     letter-spacing:-.015em;color:var(--ink);text-wrap:balance;max-width:24ch;margin:0 auto}
 
-  /* описание под заголовком */
-  .desc{max-width:540px;margin:1.2rem auto 0;color:var(--ink-soft);font-size:18px;line-height:1.7}
-  .desc strong{color:var(--ink);font-weight:700}
-  .desc .bonus-list{display:inline-block;text-align:left;margin-top:0.5rem;padding-left:0;list-style:none}
-  .desc .bonus-list li{position:relative;padding-left:1.5rem;margin-bottom:0.4rem;font-size:18px}
-  .desc .bonus-list li::before{content:"✦";position:absolute;left:0;color:var(--amber-2);font-weight:700}
-
-  /* кнопка */
-  .mbtns{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:2.2rem}
+  /* messenger buttons */
+  .mbtns{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+  @media(max-width:520px){.mbtns{grid-template-columns:1fr}}
   .mbtn{display:flex;align-items:center;justify-content:center;gap:.7rem;font-family:var(--body);
-    font-weight:700;font-size:20px;color:#fff !important;text-decoration:none !important;
-    padding:1.2rem 1.4rem;border-radius:14px;cursor:pointer;
+    font-weight:700;font-size:1.08rem;color:#fff !important;text-decoration:none !important;
+    padding:1.15rem 1.4rem;border-radius:14px;cursor:pointer;
     transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s;box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
-  .mbtn svg{width:26px;height:26px;flex:0 0 auto}
+  .mbtn svg{width:24px;height:24px;flex:0 0 auto}
   .mbtn:hover{transform:translateY(-2px)}
   .mbtn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
   .mbtn.tg{background:linear-gradient(180deg,#2AABEE,#229ED9);box-shadow:0 16px 32px -14px rgba(34,158,217,.65),inset 0 1px 0 rgba(255,255,255,.3)}
   .mbtn.tg:hover{box-shadow:0 22px 42px -14px rgba(34,158,217,.8),inset 0 1px 0 rgba(255,255,255,.3)}
-  @media(max-width:520px){
-    .mbtn{font-size:18px;padding:.95rem .8rem;gap:.45rem}
-    .mbtn svg{width:22px;height:22px}
-    h1{font-size:26px}
-    .desc{font-size:16px}
-    .desc .bonus-list li{font-size:16px}
-    .eyebrow{font-size:13px}
-    .progress-top .pct{font-size:24px}
-  }
-  @media(max-width:360px){
-    .ty-card{padding:1.7rem 1.2rem}
-    .mbtn{font-size:16px;padding:.9rem .6rem}
-    .mbtn svg{width:19px;height:19px}
-    h1{font-size:22px}
-    .desc{font-size:15px}
-    .desc .bonus-list li{font-size:15px}
-  }
+  .mbtn.max{background:linear-gradient(180deg,#2E8C76,#1F6A57);box-shadow:0 16px 32px -14px rgba(31,106,87,.6),inset 0 1px 0 rgba(255,255,255,.25)}
+  .mbtn.max:hover{box-shadow:0 22px 42px -14px rgba(31,106,87,.75),inset 0 1px 0 rgba(255,255,255,.25)}
+  @media(max-width:520px){.mbtn{font-size:.92rem;padding:.95rem .8rem;gap:.45rem;white-space:nowrap}.mbtn svg{width:19px;height:19px}}
+  @media(max-width:360px){.ty-card{padding:1.7rem 1.2rem}.mbtn{font-size:.86rem;padding:.9rem .6rem}.mbtn svg{width:17px;height:17px}}
 
   @media (prefers-reduced-motion:reduce){.progress .fill{transition:none}.mbtn{transition:none}}
 </style>
@@ -103,21 +84,16 @@
         <div class="progress"><div class="fill" id="fill"></div></div>
       </div>
 
-      <h1>Завершите регистрацию</h1>
-
-      <div class="desc">
-        <p>Перейдите по кнопке ниже в закрытый TG-канал, интенсив будет доступен именно в нём.</p>
-        <p style="margin-top:0.6rem;">Также, в TG-канале интенсива уже вас ждут <strong>2 бонуса</strong>:</p>
-        <ul class="bonus-list">
-          <li>тот, который был обещан на странице регистрации;</li>
-          <li>подарочная аудиопрактика, которая усилит эффект первого бонуса.</li>
-        </ul>
-      </div>
+      <h1>Выберите мессенджер, где вам удобнее проходить интенсив и получить бонусы</h1>
 
       <div class="mbtns">
-        <a href="https://t.me/sba_NR" class="mbtn tg">
+        <a href="https://doctor-saba.com/tlgrm?bot=doctor_saba_bot" class="mbtn tg">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.6l-2.96 13.96c-.22 1-.81 1.24-1.64.77l-4.53-3.34-2.19 2.1c-.24.24-.45.45-.92.45l.33-4.62 8.41-7.6c.37-.32-.08-.5-.57-.18L7.3 13.05l-4.47-1.4c-.97-.3-.99-.97.2-1.44l17.48-6.74c.81-.3 1.52.18 1.26 1.13z"></path></svg>
-          Перейти в TG-канал интенсива
+          Перейти в Telegram
+        </a>
+        <a href="https://doctor-saba.com/pl/maxstart?botId=1816" class="mbtn max">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z"></path></svg>
+          Перейти в MAX
         </a>
       </div>
     </div>
