@@ -4,343 +4,532 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>АВТОМАГИЧЕСКИ — аудиопрактики</title>
+<title>АВТОМАГИЧЕСКИ — аудиопрактики доктора Анны Саба</title>
+<meta name="description" content="Полный каталог аудиопрактик АВТОМАГИЧЕСКИ: шесть ключей к деньгам, здоровью, психике, отношениям и новой реальности.">
+<meta property="og:image" content="img/hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#14302b; --ink2:#1d423b; --cream:#f7f1e8; --paper:#fffaf3; --coral:#e2704f; --coral2:#c95a3b;
-  --gold:#c9a45c; --text:#2a2723; --muted:#7b746b; --line:#e7ddcf;
+  --bg:#f4f6f9; --panel:#dfe8f1; --panel2:#e9eff6; --ink:#2d3036; --muted:#6c727c; --slate:#4b5260; --slate2:#3d434f;
+  --gold1:#ffe6a6; --gold2:#f6c766; --gold3:#e9ad3f;
+  --iri:linear-gradient(100deg,#ffe7b0 0%,#fbd3d8 28%,#dce6f7 55%,#e9f3dc 78%,#ffe7b0 100%);
+  --r:34px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:Manrope,system-ui,sans-serif;color:var(--text);background:var(--cream);line-height:1.55;font-size:17px}
-.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
-h1,h2,h3,h4{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.1}
-a{color:inherit}
-.btn{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-weight:600;padding:15px 30px;border-radius:40px;transition:.2s;white-space:nowrap}
-.btn:hover{background:var(--coral2);transform:translateY(-1px)}
-.btn.gold{background:var(--gold);color:var(--ink)}
-.btn.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.5)}
+body{font-family:Montserrat,system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:16px;line-height:1.5;overflow-x:hidden}
+img{display:block;max-width:100%}
+h1,h2,h3,.pill,.btn-iri,.btn-buy,.sum-title,.caps{font-family:Unbounded,Montserrat,sans-serif;font-weight:300;text-transform:uppercase;letter-spacing:.02em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* buttons */
+.btn-iri{display:inline-flex;align-items:center;justify-content:center;min-width:220px;padding:20px 34px;border-radius:60px;background:var(--iri);background-size:300% 100%;color:#2b2b2b;text-decoration:none;font-size:13px;font-weight:400;box-shadow:0 10px 30px -10px rgba(233,173,63,.55),inset 0 0 0 1px rgba(255,255,255,.7);animation:iri 7s linear infinite;transition:transform .3s,box-shadow .3s}
+.btn-iri:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 18px 40px -12px rgba(233,173,63,.7),inset 0 0 0 1px #fff}
+.btn-iri.white{background:#fff;animation:none}
+@keyframes iri{to{background-position:300% 0}}
+.btn-buy{display:block;text-align:center;padding:13px;border-radius:14px;background:linear-gradient(180deg,var(--gold1),var(--gold2));color:#2b2b2b;text-decoration:none;font-size:12px;font-weight:400;box-shadow:0 8px 18px -10px rgba(233,173,63,.9),inset 0 1px 0 rgba(255,255,255,.8);position:relative;overflow:hidden;transition:transform .25s}
+.btn-buy:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);transform:translateX(-120%);transition:transform .8s}
+.btn-buy:hover{transform:translateY(-2px)}
+.btn-buy:hover:after{transform:translateX(120%)}
 
 /* hero */
-.hero{background:radial-gradient(ellipse at 80% 20%,#2c5a50 0%,var(--ink) 55%);color:#f3ece0;padding:28px 0 90px;position:relative;overflow:hidden}
-.hero:after{content:"";position:absolute;right:-160px;top:40px;width:560px;height:560px;border-radius:50%;border:1px solid rgba(201,164,92,.35);box-shadow:0 0 0 60px rgba(201,164,92,.05),0 0 0 140px rgba(201,164,92,.03)}
-.top{display:flex;justify-content:space-between;align-items:center;font-size:14px;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
-.hero-in{position:relative;z-index:1;padding-top:80px;max-width:760px}
-.kicker{color:var(--gold);letter-spacing:.2em;text-transform:uppercase;font-size:14px;font-weight:600}
-.hero h1{font-size:clamp(34px,10.2vw,112px);letter-spacing:.02em;margin:14px 0 22px;font-weight:700}
-.hero p.sub{font-size:clamp(19px,2.2vw,23px);max-width:620px;opacity:.92}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
-.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:70px;position:relative;z-index:1}
-.fact{border-top:1px solid rgba(255,255,255,.2);padding-top:14px}
-.fact b{display:block;font-family:"Cormorant Garamond",serif;font-size:40px;color:var(--gold);line-height:1}
-.fact span{font-size:15px;opacity:.8}
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:stretch;overflow:hidden;color:#2f3645;background:#c9d2de}
+.hero-bg{position:absolute;inset:-4%;background:url(img/hero.jpg) center/cover no-repeat;transform:scale(1.08);animation:breathe 18s ease-in-out infinite alternate;will-change:transform}
+@keyframes breathe{to{transform:scale(1.16) translate(-1.5%,-1%)}}
+.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(244,246,249,.55),rgba(244,246,249,0) 55%),linear-gradient(180deg,rgba(244,246,249,0) 70%,rgba(244,246,249,1) 100%)}
+#dust{position:absolute;inset:0;z-index:2;pointer-events:none}
+.hero-in{position:relative;z-index:3;width:100%;display:flex;flex-direction:column;justify-content:space-between;padding:38px 20px 70px}
+.hero h1{font-size:clamp(34px,8.2vw,118px);line-height:.98;font-weight:300;background:linear-gradient(100deg,#2f3645 0%,#4a5570 45%,#9a7a3c 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 24px rgba(255,255,255,.7))}
+.hero h1 span{display:block;animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}
+.hero h1 span:nth-child(2){padding-left:12%;animation-delay:.15s}
+.hero h1 span:nth-child(3){text-align:right;animation-delay:.3s;font-size:.42em;letter-spacing:.3em;margin-top:.5em}
+@keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;animation:rise 1.2s .6s both}
+.hero-bottom p{max-width:340px;font-size:17px;font-weight:500;color:#2f3645;text-shadow:0 1px 14px rgba(255,255,255,.9)}
+.hero-btns{display:flex;flex-direction:column;gap:14px}
+.author{position:absolute;left:calc(50% - 54px);bottom:60px;z-index:3;width:108px;height:108px;border-radius:50%;background:var(--iri);background-size:300% 100%;animation:iri 7s linear infinite,spin 30s linear infinite;display:grid;place-items:center;text-align:center;color:#333;font:400 10px/1.3 Unbounded,sans-serif;text-transform:uppercase;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.author b{display:block;font-size:13px}
 
-/* sections */
-section{padding:84px 0}
-.h2{font-size:clamp(34px,5vw,54px);margin-bottom:14px}
-.intro{color:var(--muted);max-width:660px;margin-bottom:40px}
+/* section titles */
+.sec{padding:100px 0}
+.h2{font-size:clamp(28px,4.4vw,52px);text-align:center;line-height:1.12}
+.sub{text-align:center;color:var(--muted);margin:14px auto 0;max-width:640px;text-transform:uppercase;font-size:13px;letter-spacing:.14em}
 
 /* how */
-.how{background:var(--paper)}
-.table{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}
-.row{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:10px;padding:18px 24px;border-top:1px solid var(--line);align-items:center}
-.row:first-child{border-top:0;background:var(--ink);color:#f3ece0;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
-.row b{font-weight:600}
-.row .p{font-weight:700;color:var(--coral2)}
-.note{margin-top:18px;color:var(--muted);font-size:15px}
+.how-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:50px}
+.how-card{background:#fff;border-radius:26px;padding:26px 22px;box-shadow:0 20px 40px -30px rgba(60,80,110,.35);position:relative;overflow:hidden}
+.how-card:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:var(--iri);background-size:300% 100%;animation:iri 7s linear infinite}
+.how-card b{display:block;font:300 22px/1.15 Unbounded,sans-serif;margin:8px 0 12px}
+.how-card small{color:var(--muted);font-size:13px;display:block}
+.how-card .t{font-weight:600;font-size:14px}
+.how-note{text-align:center;color:var(--muted);font-size:14px;margin-top:22px}
 
-/* nav of keys */
-.keys-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.keys-nav a{display:flex;gap:14px;align-items:center;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;font-weight:600;transition:.2s}
-.keys-nav a:hover{border-color:var(--coral);transform:translateY(-2px)}
-.keys-nav i{font-style:normal;font-family:"Cormorant Garamond",serif;font-size:30px;color:var(--coral);width:30px}
+/* key nav */
+.nav{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:46px}
+.nav a{position:relative;height:190px;border-radius:26px;overflow:hidden;text-decoration:none;color:#fff;display:flex;align-items:flex-end;padding:22px}
+.nav img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+.nav a:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(45,55,75,.75),rgba(45,55,75,0) 70%)}
+.nav a:hover img{transform:scale(1.08)}
+.nav i{position:absolute;top:16px;left:20px;z-index:1;font:300 44px Unbounded,sans-serif;font-style:normal;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.3)}
+.nav span{position:relative;z-index:1;font:400 15px/1.25 Unbounded,sans-serif;text-transform:uppercase}
 
-/* key */
-.key{border-top:1px solid var(--line)}
-.key:nth-of-type(even){background:var(--paper)}
-.key-head{display:grid;grid-template-columns:1fr auto;gap:8px 40px;align-items:end;margin-bottom:36px}
-.key-num{grid-column:1/-1;color:var(--coral);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:14px}
-.key h3{font-size:clamp(34px,4.6vw,52px)}
-.key .lead{color:var(--muted);max-width:620px;grid-column:1}
-.key-buy{grid-column:2;grid-row:2/4;display:flex;flex-direction:column;align-items:flex-end;gap:12px;text-align:right}
-.key-buy b{display:block;font-family:"Cormorant Garamond",serif;font-size:42px;line-height:1}
-.key-buy span{font-size:14px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px}
-.card h4{font-size:25px;hyphens:auto;-webkit-hyphens:auto}
-.card p{font-size:15.5px;flex:1}
-.card-foot{display:flex;flex-direction:column;gap:2px;border-top:1px dashed var(--line);padding-top:12px;font-size:14px}
-.price{font-weight:700;font-size:17px}
-.price.muted{font-weight:500;font-size:14px;color:var(--muted)}
-.acc{color:var(--muted)}
-.key6{background:var(--ink)!important;color:#f3ece0}
-.key6 .lead,.key6 .key-buy span{color:#c9c2b5}
-.key6 .key-num{color:var(--gold)}
-.card.dark{background:var(--ink2);border-color:rgba(255,255,255,.1);color:#efe8dc}
+/* key panels */
+.key{padding:34px 0}
+.panel{max-width:1180px;margin:0 auto;background:var(--panel);border-radius:44px;padding:70px 50px 50px;position:relative}
+.panel.dark{background:linear-gradient(160deg,#3d4452,#2b303b);color:#eef1f6}
+.tab{position:absolute;top:-30px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 22px 16px;border-radius:0 0 34px 34px}
+.pill{display:inline-block;padding:20px 38px;border-radius:40px;background:var(--iri);background-size:300% 100%;animation:iri 7s linear infinite;font-size:13px;color:#2b2b2b;box-shadow:0 10px 30px -14px rgba(0,0,0,.25)}
+.key h3{text-align:center;font-size:clamp(22px,3vw,34px);margin-top:14px}
+.lead{text-align:center;color:var(--muted);max-width:640px;margin:14px auto 40px}
+.dark .lead{color:#b9c0cc}
+.grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;max-width:960px;margin:0 auto}
+.grid>.card{flex:0 0 calc((100% - 40px)/3)}
+.grid.four{max-width:none}
+.grid.four>.card{flex-basis:calc((100% - 60px)/4)}
+
+/* cards */
+.card{background:#fff;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 40px -34px rgba(60,80,110,.55);transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
+.card:hover{transform:translateY(-8px);box-shadow:0 34px 60px -30px rgba(60,80,110,.6),0 0 0 1px rgba(246,199,102,.5)}
+.card-img{position:relative;height:170px;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s}
+.card:hover .card-img img{transform:scale(1.08)}
+.card-img:after{content:"";position:absolute;inset:auto 0 0;height:60px;background:linear-gradient(0deg,#fff,rgba(255,255,255,0))}
+.seal{position:absolute;top:14px;right:14px;z-index:1;width:74px;height:74px;display:grid;place-items:center;text-align:center;font-size:10px;line-height:1.2;font-weight:600;color:#5b4520;
+  background:radial-gradient(circle at 35% 30%,#fff3cf,#f6c766 70%);clip-path:polygon(50% 0,61% 7%,75% 5%,82% 17%,95% 25%,93% 39%,100% 50%,93% 61%,95% 75%,82% 83%,75% 95%,61% 93%,50% 100%,39% 93%,25% 95%,18% 83%,5% 75%,7% 61%,0 50%,7% 39%,5% 25%,18% 17%,25% 5%,39% 7%);animation:bob 5s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-4px) rotate(4deg)}}
+.card-body{padding:6px 22px 22px;display:flex;flex-direction:column;flex:1;gap:12px}
+.card h4{font-size:21px;font-weight:600}
+.card p{font-size:14px;flex:1}
+.card u{text-decoration-color:var(--gold3)}
+.card-price{display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+.card-price span{font-size:11px;color:var(--muted);line-height:1.2}
+.card-price b{font:400 26px Unbounded,sans-serif;letter-spacing:-.02em}
+.card.dark{background:rgba(255,255,255,.06);color:#eef1f6;border:1px solid rgba(255,255,255,.1)}
+.card.dark .card-img:after{background:linear-gradient(0deg,#353b48,rgba(53,59,72,0))}
+
+/* key summary card */
+.sum{background:linear-gradient(165deg,#555c69,#3f4552);color:#eef1f6;padding:22px;gap:10px}
+.sum .gold{color:var(--gold2);font:300 22px Unbounded,sans-serif;text-transform:none}
+.sum-title{font-size:12px;line-height:1.35;text-transform:none;font-family:Montserrat;font-weight:500}
+.sum ul{list-style:none;columns:2;column-gap:12px;font-size:11px;color:#c9ced8}
+.sum li:before{content:"• ";color:var(--gold2)}
+.sum .card-price span{color:#c9ced8}
+.sum .card-price b{color:#fff}
+.sum .acc{font-size:12px;color:#aeb5c1;flex:0}
+.orbit{position:relative;height:150px;margin:0 6px 8px}
+.orbit svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.orbit line{stroke:rgba(246,199,102,.55);stroke-width:.4;stroke-dasharray:1.4 1.2;animation:dash 6s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-26}}
+.orbit img{position:absolute;width:52px;height:52px;border-radius:50%;object-fit:cover;transform:translate(-50%,-50%);border:2px solid rgba(255,255,255,.8);box-shadow:0 0 18px rgba(246,199,102,.55);animation:bob 6s ease-in-out infinite}
+.orbit img:nth-child(odd){animation-delay:-3s}
 
 /* package */
-.pack{background:linear-gradient(135deg,#f3dfc6,#f7ece0 60%,#fff6ea);}
-.pack-box{background:#fff;border-radius:26px;padding:48px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;box-shadow:0 30px 60px -30px rgba(20,48,43,.35)}
-.pack ol{margin:22px 0 0 22px;display:grid;gap:8px;font-weight:600}
-.pack-price{background:var(--ink);color:#f3ece0;border-radius:20px;padding:32px;display:flex;flex-direction:column;justify-content:center;gap:10px}
-.pack-price b{font-family:"Cormorant Garamond",serif;font-size:58px;color:var(--gold);line-height:1}
-.gift{margin-top:26px;border:1.5px dashed var(--coral);border-radius:18px;padding:22px 26px;background:rgba(255,255,255,.6)}
-.gift b{color:var(--coral2)}
+.pack{padding:110px 0}
+.pack-box{max-width:1180px;margin:0 auto;border-radius:48px;position:relative;overflow:hidden;background:#fff;display:grid;grid-template-columns:1.05fr 1fr;box-shadow:0 50px 90px -60px rgba(60,80,110,.7)}
+.pack-img{position:relative;min-height:520px;background:url(img/pack5.jpg) center/cover}
+.pack-img:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,0) 60%,#fff)}
+.pack-txt{padding:60px 56px;display:flex;flex-direction:column;gap:18px;justify-content:center}
+.pack-txt h2{font-size:clamp(28px,3.6vw,44px);line-height:1.08}
+.pack-txt ol{list-style:none;counter-reset:k;display:grid;gap:10px}
+.pack-txt li{counter-increment:k;display:flex;gap:14px;align-items:center;font-weight:600}
+.pack-txt li:before{content:counter(k);flex:0 0 34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--iri);background-size:300% 100%;animation:iri 7s linear infinite;font:400 13px Unbounded,sans-serif}
+.pack-price{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.pack-price b{font:300 52px/1 Unbounded,sans-serif}
+.pack-price span{color:var(--muted);font-size:14px}
+.gift{margin-top:6px;padding:16px 20px;border-radius:18px;background:var(--panel2);font-size:14px}
 
-/* when */
-.when{background:var(--paper)}
-.when-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.when-grid div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
-.when-grid b{display:block;font-family:"Cormorant Garamond",serif;font-size:34px;color:var(--coral)}
-.cta{background:var(--ink);color:#f3ece0;text-align:center}
-.cta p{opacity:.85;max-width:560px;margin:0 auto 30px}
-footer{background:#0e231f;color:#9d978d;font-size:13.5px;padding:30px 0}
+/* key 6 */
+.k6-buy{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:34px;padding:28px 34px;border-radius:26px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
+.k6-buy span{display:block;font-size:13px;color:#b9c0cc}
+.k6-buy b{display:block;font:300 44px/1.1 Unbounded,sans-serif;color:var(--gold2)}
+.k6-buy small{color:#b9c0cc}
+
+/* cta */
+.cta{position:relative;margin:110px 20px 0;border-radius:48px 48px 0 0;overflow:hidden;color:#fff;text-align:center;padding:120px 20px}
+.cta-bg{position:absolute;inset:0;background:url(img/hero.jpg) center/cover;filter:saturate(.9)}
+.cta:before{content:"";position:absolute;inset:0;z-index:1;background:rgba(60,70,95,.45)}
+.cta>*:not(.cta-bg){position:relative;z-index:2}
+.cta .h2{color:#fff}
+.cta p{max-width:540px;margin:18px auto 34px;font-size:17px}
+footer{background:#2b303b;color:#9aa1ad;font-size:13px;padding:34px 0;margin:0 20px;text-align:center}
 footer p+p{margin-top:8px}
 
-@media(max-width:860px){
-  body{font-size:16px}
-  .facts,.keys-nav,.when-grid{grid-template-columns:1fr 1fr}
-  .key-head{grid-template-columns:1fr}
-  .key-buy{grid-column:1;grid-row:auto;align-items:flex-start;text-align:left;flex-direction:row;justify-content:space-between;width:100%;align-items:center}
-  .pack-box{grid-template-columns:1fr;padding:28px}
-  .row{grid-template-columns:1fr;gap:2px;padding:16px 18px}
-  .row:first-child{display:none}
-  section{padding:60px 0}
-  .hero-in{padding-top:48px}
+/* reveal */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+@media(max-width:980px){
+  .how-grid{grid-template-columns:repeat(2,1fr)}
+  .grid>.card,.grid.four>.card{flex-basis:calc((100% - 20px)/2)}
+  .pack-box{grid-template-columns:1fr}.pack-img{min-height:300px}.pack-img:after{background:linear-gradient(0deg,#fff,rgba(255,255,255,0) 50%)}
+  .panel{border-radius:34px;padding:64px 22px 30px}
 }
-@media(max-width:520px){
-  .facts,.keys-nav,.when-grid{grid-template-columns:1fr}
-  .key-buy{flex-direction:column;align-items:flex-start}
+@media(max-width:640px){
+  .sec{padding:70px 0}
+  .how-grid,.nav{grid-template-columns:1fr}
+  .grid>.card,.grid.four>.card{flex-basis:100%}
+  .nav a{height:150px}
+  .hero-bottom{flex-direction:column;align-items:stretch}
+  .btn-iri{width:100%}
+  .author{display:none}
+  .hero-bg{background-position:74% center}
+  .pack-txt{padding:30px 22px}
+  .pack-price b{font-size:40px}
+  .key{padding:26px 10px}
+  .tab{padding:0 12px 12px}
+  .pill{padding:16px 28px}
+  .cta{margin:70px 10px 0;padding:80px 18px}
+  footer{margin:0 10px}
 }
 </style>
 </head>
 <body>
 
 <header class="hero">
-  <div class="wrap">
-    <div class="top"><span>Доктор Анна Саба</span><span>Аудиопрактики</span></div>
-    <div class="hero-in">
-      <div class="kicker">Полный каталог аудиопрактик</div>
-      <h1>АВТОМАГИЧЕСКИ</h1>
-      <p class="sub">Аудиопрактики для тех, кто хочет менять деньги, здоровье, отношения и состояние без постоянного преодоления себя.</p>
-      <div class="hero-btns"><a class="btn" href="#keys">Выбрать ключ</a><a class="btn ghost" href="#pack">Пакет «5 ключей»</a></div>
-    </div>
-    <div class="facts">
-      <div class="fact"><b>6</b><span>тематических ключей</span></div>
-      <div class="fact"><b>25</b><span>аудиопрактик</span></div>
-      <div class="fact"><b>от 1 месяца</b><span>доступа к записи</span></div>
+  <div class="hero-bg"></div>
+  <canvas id="dust"></canvas>
+  <div class="author"><div>Доктор<b>Анна Саба</b>аудио&shy;практики</div></div>
+  <div class="wrap hero-in">
+    <h1><span>Авто</span><span>магически</span><span>аудиопрактики</span></h1>
+    <div class="hero-bottom">
+      <p>Для тех, кто хочет менять деньги, здоровье, отношения и состояние без постоянного преодоления себя.</p>
+      <div class="hero-btns">
+        <a class="btn-iri" href="#keys">Выбрать ключ</a>
+        <a class="btn-iri white" href="#pack">Пакет «5 ключей»</a>
+      </div>
     </div>
   </div>
 </header>
 
-<section class="how">
+<section class="sec" id="how">
   <div class="wrap">
-    <h2 class="h2">Как устроены покупка и доступ</h2>
-    <p class="intro">Можно взять одну практику, целый ключ или сразу пять ключей.</p>
-    <div class="table">
-      <div class="row"><span>Что покупаете</span><span>Цена</span><span>Доступ</span></div>
-      <div class="row"><b>Одна аудиопрактика из ключей 1–5</b><span class="p">11 990 ₽, две практики по 22 990 ₽</span><span>1 месяц</span></div>
-      <div class="row"><b>Один тематический ключ целиком</b><span class="p">39 990 ₽ или 59 990 ₽</span><span>3 месяца</span></div>
-      <div class="row"><b>Пакет «5 ключей» — ключи 1–5</b><span class="p">199 990 ₽</span><span>12 месяцев</span></div>
-      <div class="row"><b>Пакет «5 ключей» в подарок к ПКТ</b><span class="p">без отдельной оплаты</span><span>6 месяцев</span></div>
-      <div class="row"><b>Ключ 6 «Для продвинутых»</b><span class="p">59 990 ₽ за 4 практики</span><span>3 месяца</span></div>
+    <h2 class="h2 reveal">Как устроены<br>покупка и доступ</h2>
+    <p class="sub reveal">одна практика, целый ключ или сразу пять</p>
+    <div class="how-grid">
+      <div class="how-card reveal"><span class="t">Одна практика</span><b>11 990 ₽</b><small>две практики по 22 990 ₽</small><small>доступ 1 месяц</small></div>
+      <div class="how-card reveal"><span class="t">Ключ целиком</span><b>39 990 ₽</b><small>или 59 990 ₽</small><small>доступ 3 месяца</small></div>
+      <div class="how-card reveal"><span class="t">Пакет «5 ключей»</span><b>199 990 ₽</b><small>ключи 1–5</small><small>доступ 12 месяцев</small></div>
+      <div class="how-card reveal"><span class="t">Подарок к ПКТ</span><b>0 ₽</b><small>пакет «5 ключей»</small><small>доступ 6 месяцев</small></div>
+      <div class="how-card reveal"><span class="t">Ключ 6</span><b>59 990 ₽</b><small>4 практики вместе</small><small>доступ 3 месяца</small></div>
     </div>
-    <p class="note">Практики из ключей 1–5 продаются и по отдельности. Шестой ключ продаётся только целиком и в пакет «5 ключей» не входит.</p>
+    <p class="how-note reveal">Практики из ключей 1–5 продаются и по отдельности. Шестой ключ продаётся только целиком и в пакет «5 ключей» не входит.</p>
   </div>
 </section>
 
-<section id="keys">
+<section class="sec" id="keys" style="padding-top:0">
   <div class="wrap">
-    <h2 class="h2">Шесть ключей</h2>
-    <p class="intro">Каждый ключ посвящён одной сфере жизни. Выберите свою.</p>
-    <nav class="keys-nav"><a href="#key1"><i>1</i>Автомагические деньги</a><a href="#key2"><i>2</i>Автомагическое здоровье</a><a href="#key3"><i>3</i>Автомагическая психика</a><a href="#key4"><i>4</i>Автомагические отношения</a><a href="#key5"><i>5</i>Твоя лучшая автомагическая реальность</a><a href="#key6"><i>6</i>Для продвинутых</a></nav>
+    <h2 class="h2 reveal">Шесть ключей<br>АВТОМАГИЧЕСКИ</h2>
+    <p class="sub reveal">каждый ключ — одна сфера жизни</p>
+    <nav class="nav"><a class="reveal" href="#key1"><img src="img/dengi-baza.jpg" alt=""><i>1</i><span>Автомагические деньги</span></a><a class="reveal" href="#key2"><img src="img/ideal-ves.jpg" alt=""><i>2</i><span>Автомагическое здоровье</span></a><a class="reveal" href="#key3"><img src="img/stress-baza.jpg" alt=""><i>3</i><span>Автомагическая психика</span></a><a class="reveal" href="#key4"><img src="img/luchshiy-seks.jpg" alt=""><i>4</i><span>Автомагические отношения</span></a><a class="reveal" href="#key5"><img src="img/zhizn-v-kaif.jpg" alt=""><i>5</i><span>Твоя лучшая автомагическая реальность</span></a><a class="reveal" href="#key6"><img src="img/key6.jpg" alt=""><i>6</i><span>Для продвинутых</span></a></nav>
   </div>
 </section>
 
 <section class="key" id="key1">
-  <div class="wrap">
-    <div class="key-head">
-      <span class="key-num">Ключ 1</span>
-      <h3>Автомагические деньги</h3>
-      <p class="lead">Для тех, кому страх и сомнения мешают поднимать чек, говорить о деньгах и выходить на новый уровень дохода.</p>
-      <div class="key-buy"><div><b>39 990 ₽</b><span>весь ключ, доступ 3 месяца</span></div>
-        <a class="btn" href="#buy" data-product="key1">Купить ключ</a></div>
-    </div>
+  <div class="panel">
+    <div class="tab"><span class="pill">Ключ 1:</span></div>
+    <h3 class="reveal">Автомагические деньги</h3>
+    <p class="lead reveal">Для тех, кому страх и сомнения мешают говорить о деньгах и заявлять о себе.</p>
     <div class="grid">
-<article class="card">
-  <h4>«Деньги база»</h4>
-  <p>Уходят страхи «у меня не получится», которые мешали действовать: поднимать чек, договариваться о повышении, обсуждать деньги. Двигаться к новому финансовому уровню становится легче.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/dengi-baza.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Деньги база</h4>
+    <p><u>Результат:</u> Уходит страх «у меня не получится», который мешал действовать: поднимать чек, договариваться о повышении, обсуждать деньги.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="dengi-baza">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Деньги про»</h4>
-  <p>Вы перестаёте отвлекаться на чужое мнение и сравнение себя с другими. Освобождается энергия, меняется взгляд на свои возможности, появляется мышление лидера. Рост дохода идёт от нового восприятия себя, а не от постоянного преодоления.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/dengi-pro.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Деньги про</h4>
+    <p><u>Результат:</u> Вы меньше отвлекаетесь на чужое мнение и сравнение себя с другими. Меняется взгляд на свои возможности, появляется лидерское мышление.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="dengi-pro">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Проявленность»</h4>
-  <p>Вы спокойно заявляете о себе в соцсетях, в профессиональном сообществе, среди коллег. Уходит синдром самозванца, рассказывать о своей экспертности становится легко.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/proyavlennost.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Проявленность</h4>
+    <p><u>Результат:</u> Вы спокойнее заявляете о себе в соцсетях, в профессиональном сообществе, среди коллег. Уходит синдром самозванца, рассказывать о своей экспертности становится легче.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="proyavlennost">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Предназначение»</h4>
-  <p>Больше энергии и ясности в том, какое дело ваше: через что вы можете реализоваться и зарабатывать больше.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/prednaznachenie.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Предназначение</h4>
+    <p><u>Результат:</u> Больше энергии и яснее понимание, какое дело ваше: через что вы можете реализоваться и зарабатывать.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="prednaznachenie">Купить</a>
+  </div>
+</article>
+<article class="card sum reveal">
+  <div class="orbit"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="50" y1="12" x2="86" y2="38"/><line x1="50" y1="12" x2="72" y2="82"/><line x1="50" y1="12" x2="28" y2="82"/><line x1="86" y1="38" x2="72" y2="82"/><line x1="86" y1="38" x2="28" y2="82"/><line x1="72" y1="82" x2="28" y2="82"/></svg><img src="img/dengi-baza.jpg" alt="" style="left:50%;top:12%"><img src="img/dengi-pro.jpg" alt="" style="left:86%;top:38%"><img src="img/proyavlennost.jpg" alt="" style="left:72%;top:82%"><img src="img/prednaznachenie.jpg" alt="" style="left:28%;top:82%"></div>
+  <h4 class="gold">Ключ №1</h4>
+  <p class="sum-title">«Автомагические деньги»</p>
+  <ul><li>Деньги база</li><li>Деньги про</li><li>Проявленность</li><li>Предназначение</li></ul>
+  <div class="card-price"><span>Цена<br>за ключ №1:</span><b>39 990 ₽</b></div>
+  <p class="acc">Доступ 3 месяца</p>
+  <a class="btn-buy" href="#buy" data-product="key1">Купить ключ</a>
 </article>
     </div>
   </div>
 </section>
 <section class="key" id="key2">
-  <div class="wrap">
-    <div class="key-head">
-      <span class="key-num">Ключ 2</span>
-      <h3>Автомагическое здоровье</h3>
-      <p class="lead">Восемь практик о теле, энергии, сне и привычках.</p>
-      <div class="key-buy"><div><b>59 990 ₽</b><span>весь ключ, доступ 3 месяца</span></div>
-        <a class="btn" href="#buy" data-product="key2">Купить ключ</a></div>
-    </div>
+  <div class="panel">
+    <div class="tab"><span class="pill">Ключ 2:</span></div>
+    <h3 class="reveal">Автомагическое здоровье</h3>
+    <p class="lead reveal">Восемь практик о теле, энергии, сне и привычках.</p>
     <div class="grid">
-<article class="card">
-  <h4>«Идеальный вес»</h4>
-  <p>Меньше переедания, еда перестаёт управлять днём. Вы едите столько, сколько нужно телу. Практику слушают один раз в день.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/ideal-ves.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Идеальный вес</h4>
+    <p><u>Результат:</u> Меньше переедания и мыслей о еде. Легче есть столько, сколько нужно телу. Практику слушают один раз в день.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="ideal-ves">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Афродита»</h4>
-  <p>Уверенность в себе, ощущение собственной красоты и привлекательности. Практика работает с состоянием, в котором женщина чувствует себя красивой.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/afrodita.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Афродита</h4>
+    <p><u>Результат:</u> Уверенность в себе, ощущение собственной красоты и привлекательности. Эта практика также входит в ключи «Автомагическая психика» и «Твоя лучшая автомагическая реальность».</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="afrodita">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Могучий иммунитет»</h4>
-  <p>Практика настраивает на поддержку собственной иммунной защиты организма.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/immunitet.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Могучий иммунитет</h4>
+    <p><u>Результат:</u> Больше доверия к своему телу и меньше тревоги за здоровье.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="immunitet">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Тайна жизненных сил»</h4>
-  <p>Возвращаются энергия, радость и интерес к жизни. Меньше мыслей о собственной ненужности и бессмысленности происходящего.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/tayna-sil.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Тайна жизненных сил</h4>
+    <p><u>Результат:</u> Возвращаются энергия, радость и интерес к жизни. Эта практика также входит в ключ «Автомагическая психика».</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="tayna-sil">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Цветущее здоровье»</h4>
-  <p>Опора на собственные ресурсы организма в восстановлении, чтобы оно шло мягче.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/cvetushchee.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Цветущее здоровье</h4>
+    <p><u>Результат:</u> Помогает восстанавливать силы, опираясь на собственные ресурсы.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="cvetushchee">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Истинная свобода»</h4>
-  <p>Для тех, кто хочет расстаться с вредной привычкой: курением, алкоголем. Становится меньше само желание к ней возвращаться, без постоянной борьбы с собой.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/svoboda.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Истинная свобода</h4>
+    <p><u>Результат:</u> Для тех, кто хочет расстаться с вредной привычкой: курением, алкоголем. Желание вернуться к ней слабеет.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="svoboda">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Здоровый безмятежный сон»</h4>
-  <p>Естественное засыпание, глубокий сон, полноценное восстановление и лёгкое пробуждение.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/son.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Здоровый безмятежный сон</h4>
+    <p><u>Результат:</u> Естественное засыпание, глубокий сон, полноценное восстановление и лёгкое пробуждение.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="son">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Согласие с миром»</h4>
-  <p>Расслабление, меньше телесного напряжения и ощущения постоянной борьбы.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/soglasie.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Согласие с миром</h4>
+    <p><u>Результат:</u> Расслабление, меньше напряжения в теле и ощущения постоянной борьбы.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="soglasie">Купить</a>
+  </div>
+</article>
+<article class="card sum reveal">
+  <div class="orbit"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="50" y1="8" x2="84" y2="26"/><line x1="50" y1="8" x2="88" y2="66"/><line x1="50" y1="8" x2="60" y2="92"/><line x1="50" y1="8" x2="26" y2="88"/><line x1="50" y1="8" x2="10" y2="56"/><line x1="50" y1="8" x2="22" y2="20"/><line x1="50" y1="8" x2="50" y2="50"/><line x1="84" y1="26" x2="88" y2="66"/><line x1="84" y1="26" x2="60" y2="92"/><line x1="84" y1="26" x2="26" y2="88"/><line x1="84" y1="26" x2="10" y2="56"/><line x1="84" y1="26" x2="22" y2="20"/><line x1="84" y1="26" x2="50" y2="50"/><line x1="88" y1="66" x2="60" y2="92"/><line x1="88" y1="66" x2="26" y2="88"/><line x1="88" y1="66" x2="10" y2="56"/><line x1="88" y1="66" x2="22" y2="20"/><line x1="88" y1="66" x2="50" y2="50"/><line x1="60" y1="92" x2="26" y2="88"/><line x1="60" y1="92" x2="10" y2="56"/><line x1="60" y1="92" x2="22" y2="20"/><line x1="60" y1="92" x2="50" y2="50"/><line x1="26" y1="88" x2="10" y2="56"/><line x1="26" y1="88" x2="22" y2="20"/><line x1="26" y1="88" x2="50" y2="50"/><line x1="10" y1="56" x2="22" y2="20"/><line x1="10" y1="56" x2="50" y2="50"/><line x1="22" y1="20" x2="50" y2="50"/></svg><img src="img/ideal-ves.jpg" alt="" style="left:50%;top:8%"><img src="img/afrodita.jpg" alt="" style="left:84%;top:26%"><img src="img/immunitet.jpg" alt="" style="left:88%;top:66%"><img src="img/tayna-sil.jpg" alt="" style="left:60%;top:92%"><img src="img/cvetushchee.jpg" alt="" style="left:26%;top:88%"><img src="img/svoboda.jpg" alt="" style="left:10%;top:56%"><img src="img/son.jpg" alt="" style="left:22%;top:20%"><img src="img/soglasie.jpg" alt="" style="left:50%;top:50%"></div>
+  <h4 class="gold">Ключ №2</h4>
+  <p class="sum-title">«Автомагическое здоровье»</p>
+  <ul><li>Идеальный вес</li><li>Афродита</li><li>Могучий иммунитет</li><li>Тайна жизненных сил</li><li>Цветущее здоровье</li><li>Истинная свобода</li><li>Здоровый безмятежный сон</li><li>Согласие с миром</li></ul>
+  <div class="card-price"><span>Цена<br>за ключ №2:</span><b>59 990 ₽</b></div>
+  <p class="acc">Доступ 3 месяца</p>
+  <a class="btn-buy" href="#buy" data-product="key2">Купить ключ</a>
 </article>
     </div>
   </div>
 </section>
 <section class="key" id="key3">
-  <div class="wrap">
-    <div class="key-head">
-      <span class="key-num">Ключ 3</span>
-      <h3>Автомагическая психика</h3>
-      <p class="lead">Спокойствие, опора и лёгкость вместо тревоги и гиперконтроля.</p>
-      <div class="key-buy"><div><b>39 990 ₽</b><span>весь ключ, доступ 3 месяца</span></div>
-        <a class="btn" href="#buy" data-product="key3">Купить ключ</a></div>
-    </div>
+  <div class="panel">
+    <div class="tab"><span class="pill">Ключ 3:</span></div>
+    <h3 class="reveal">Автомагическая психика</h3>
+    <p class="lead reveal">Спокойствие, лёгкость и энергия вместо тревоги и гиперконтроля.</p>
     <div class="grid">
-<article class="card">
-  <h4>«Стрессоустойчивость база»</h4>
-  <p>Спокойствие, уверенность и внутренняя стабильность. Повседневные трудности переносятся легче, жизнь перестаёт требовать постоянного напряжения.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/stress-baza.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Стрессоустойчивость база</h4>
+    <p><u>Результат:</u> Спокойствие, уверенность и внутренняя стабильность. Повседневные трудности переносятся легче, уходит ощущение, что жизнь требует постоянного напряжения.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="stress-baza">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Внутренняя лёгкость»</h4>
-  <p>Меньше тревоги и гиперконтроля, больше доверия. Уходит необходимость всё держать на себе и перепроверять, внимание идёт на нужные действия.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/legkost.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Внутренняя лёгкость</h4>
+    <p><u>Результат:</u> Меньше тревоги, больше доверия. Пропадает потребность всё держать на себе и перепроверять, легче сосредоточиться на нужном.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="legkost">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Тайна жизненных сил»</h4>
-  <p>Возвращаются энергия, радость и интерес к жизни. Эта же практика входит в ключ «Автомагическое здоровье».</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/tayna-sil.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Тайна жизненных сил</h4>
+    <p><u>Результат:</u> Возвращаются энергия, радость и интерес к жизни. Эта практика также входит в ключ «Автомагическое здоровье».</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="tayna-sil">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Афродита»</h4>
-  <p>Уверенность в себе, ощущение собственной красоты и привлекательности. Практика входит и в другие ключи.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/afrodita.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Афродита</h4>
+    <p><u>Результат:</u> Уверенность в себе, ощущение собственной красоты и привлекательности. Эта практика также входит в ключи «Автомагическое здоровье» и «Твоя лучшая автомагическая реальность».</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="afrodita">Купить</a>
+  </div>
+</article>
+<article class="card sum reveal">
+  <div class="orbit"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="50" y1="12" x2="86" y2="38"/><line x1="50" y1="12" x2="72" y2="82"/><line x1="50" y1="12" x2="28" y2="82"/><line x1="86" y1="38" x2="72" y2="82"/><line x1="86" y1="38" x2="28" y2="82"/><line x1="72" y1="82" x2="28" y2="82"/></svg><img src="img/stress-baza.jpg" alt="" style="left:50%;top:12%"><img src="img/legkost.jpg" alt="" style="left:86%;top:38%"><img src="img/tayna-sil.jpg" alt="" style="left:72%;top:82%"><img src="img/afrodita.jpg" alt="" style="left:28%;top:82%"></div>
+  <h4 class="gold">Ключ №3</h4>
+  <p class="sum-title">«Автомагическая психика»</p>
+  <ul><li>Стрессоустойчивость база</li><li>Внутренняя лёгкость</li><li>Тайна жизненных сил</li><li>Афродита</li></ul>
+  <div class="card-price"><span>Цена<br>за ключ №3:</span><b>39 990 ₽</b></div>
+  <p class="acc">Доступ 3 месяца</p>
+  <a class="btn-buy" href="#buy" data-product="key3">Купить ключ</a>
 </article>
     </div>
   </div>
 </section>
 <section class="key" id="key4">
-  <div class="wrap">
-    <div class="key-head">
-      <span class="key-num">Ключ 4</span>
-      <h3>Автомагические отношения</h3>
-      <p class="lead">Для тех, кто хочет отношений, в которых отдыхают, а не воюют.</p>
-      <div class="key-buy"><div><b>39 990 ₽</b><span>весь ключ, доступ 3 месяца</span></div>
-        <a class="btn" href="#buy" data-product="key4">Купить ключ</a></div>
-    </div>
+  <div class="panel">
+    <div class="tab"><span class="pill">Ключ 4:</span></div>
+    <h3 class="reveal">Автомагические отношения</h3>
+    <p class="lead reveal">Практики о близости, отношениях и выборе партнёра.</p>
     <div class="grid">
-<article class="card">
-  <h4>«Лучший секс»</h4>
-  <p>«В результате этой практики вы начинаете заниматься самым лучшим сексом в собственной жизни».</p>
-  <div class="card-foot"><span class="price">22 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/luchshiy-seks.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Лучший секс</h4>
+    <p><u>Результат:</u> Больше удовольствия от секса и близости.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>22 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="luchshiy-seks">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Лучшие отношения»</h4>
-  <p>Глубокие и поддерживающие отношения, в которых вы отдыхаете и восстанавливаете силы, а не боретесь друг с другом.</p>
-  <div class="card-foot"><span class="price">22 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/luchshie-otnosheniya.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Лучшие отношения</h4>
+    <p><u>Результат:</u> Глубокие и поддерживающие отношения, в которых вы с партнёром отдыхаете и восстанавливаете силы, а не воюете друг с другом.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>22 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="luchshie-otnosheniya">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Афродита. Подарки»</h4>
-  <p>Вы чувствуете себя женщиной, которой хочется дарить внимание и подарки. Рядом появляются достойные мужчины.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/afrodita-podarki.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Афродита. Подарки</h4>
+    <p><u>Результат:</u> Вы чувствуете себя привлекательной женщиной, которой хочется дарить внимание и подарки.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="afrodita-podarki">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Оберег от мудаков»</h4>
-  <p>Вы перестаёте зацикливаться на бывшем партнёре и повторять прежний выбор. Начинаете замечать достойных мужчин вместо знакомых неудачных сценариев.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/obereg.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Оберег от мудаков</h4>
+    <p><u>Результат:</u> Вы перестаёте зацикливаться на бывшем партнёре и повторять прежний выбор. Начинаете замечать достойных мужчин, а не возвращаться к знакомому сценарию.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="obereg">Купить</a>
+  </div>
+</article>
+<article class="card sum reveal">
+  <div class="orbit"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="50" y1="12" x2="86" y2="38"/><line x1="50" y1="12" x2="72" y2="82"/><line x1="50" y1="12" x2="28" y2="82"/><line x1="86" y1="38" x2="72" y2="82"/><line x1="86" y1="38" x2="28" y2="82"/><line x1="72" y1="82" x2="28" y2="82"/></svg><img src="img/luchshiy-seks.jpg" alt="" style="left:50%;top:12%"><img src="img/luchshie-otnosheniya.jpg" alt="" style="left:86%;top:38%"><img src="img/afrodita-podarki.jpg" alt="" style="left:72%;top:82%"><img src="img/obereg.jpg" alt="" style="left:28%;top:82%"></div>
+  <h4 class="gold">Ключ №4</h4>
+  <p class="sum-title">«Автомагические отношения»</p>
+  <ul><li>Лучший секс</li><li>Лучшие отношения</li><li>Афродита. Подарки</li><li>Оберег от мудаков</li></ul>
+  <div class="card-price"><span>Цена<br>за ключ №4:</span><b>39 990 ₽</b></div>
+  <p class="acc">Доступ 3 месяца</p>
+  <a class="btn-buy" href="#buy" data-product="key4">Купить ключ</a>
 </article>
     </div>
   </div>
 </section>
 <section class="key" id="key5">
-  <div class="wrap">
-    <div class="key-head">
-      <span class="key-num">Ключ 5</span>
-      <h3>Твоя лучшая автомагическая реальность</h3>
-      <p class="lead">Меньше сомнений, больше удовольствия от жизни и действий.</p>
-      <div class="key-buy"><div><b>39 990 ₽</b><span>весь ключ, доступ 3 месяца</span></div>
-        <a class="btn" href="#buy" data-product="key5">Купить ключ</a></div>
-    </div>
+  <div class="panel">
+    <div class="tab"><span class="pill">Ключ 5:</span></div>
+    <h3 class="reveal">Твоя лучшая автомагическая реальность</h3>
+    <p class="lead reveal">Удовольствие от жизни и решения без долгих сомнений.</p>
     <div class="grid">
-<article class="card">
-  <h4>«Жизнь в кайф»</h4>
-  <p>Больше лёгкости и удовольствия от жизни. Уходят угнетающие чувства и негативные установки, появляется согласие с собой и миром.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/zhizn-v-kaif.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Жизнь в кайф</h4>
+    <p><u>Результат:</u> Больше лёгкости и удовольствия от жизни. Меньше угнетающих чувств и негативных установок, появляется согласие с собой.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="zhizn-v-kaif">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Афродита»</h4>
-  <p>Уверенность в себе, ощущение собственной красоты и привлекательности. Практика входит также в ключи «Здоровье» и «Психика».</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/afrodita.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Афродита</h4>
+    <p><u>Результат:</u> Уверенность в себе, ощущение собственной красоты и привлекательности. Эта практика также входит в ключи «Автомагическое здоровье» и «Автомагическая психика».</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="afrodita">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Твоя лучшая жизнь»</h4>
-  <p>Меньше сомнений и тревоги перед действием. Сокращается расстояние между решением и делом: подумали и сделали. Жизнь складывается в вашу сторону.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/luchshaya-zhizn.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Твоя лучшая жизнь</h4>
+    <p><u>Результат:</u> Меньше сомнений и тревоги перед действием. Сокращается расстояние между решением и делом: «подумали – сделали». Появляется ощущение, что жизнь складывается так, как вам подходит.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="luchshaya-zhizn">Купить</a>
+  </div>
 </article>
-<article class="card">
-  <h4>«Властелин»</h4>
-  <p>Мужская уверенность в себе, ощущение надёжности, силы и привлекательности.</p>
-  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+<article class="card reveal">
+  <div class="card-img"><img src="img/vlastelin.jpg" alt="" loading="lazy"><span class="seal">1 месяц<br>доступа</span></div>
+  <div class="card-body">
+    <h4>Властелин</h4>
+    <p><u>Результат:</u> Практика для мужчин: уверенность в себе, ощущение надёжности, силы и привлекательности.</p>
+    <div class="card-price"><span>Стоимость<br>практики:</span><b>11 990 ₽</b></div>
+    <a class="btn-buy" href="#buy" data-product="vlastelin">Купить</a>
+  </div>
+</article>
+<article class="card sum reveal">
+  <div class="orbit"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="50" y1="12" x2="86" y2="38"/><line x1="50" y1="12" x2="72" y2="82"/><line x1="50" y1="12" x2="28" y2="82"/><line x1="86" y1="38" x2="72" y2="82"/><line x1="86" y1="38" x2="28" y2="82"/><line x1="72" y1="82" x2="28" y2="82"/></svg><img src="img/zhizn-v-kaif.jpg" alt="" style="left:50%;top:12%"><img src="img/afrodita.jpg" alt="" style="left:86%;top:38%"><img src="img/luchshaya-zhizn.jpg" alt="" style="left:72%;top:82%"><img src="img/vlastelin.jpg" alt="" style="left:28%;top:82%"></div>
+  <h4 class="gold">Ключ №5</h4>
+  <p class="sum-title">«Твоя лучшая автомагическая реальность»</p>
+  <ul><li>Жизнь в кайф</li><li>Афродита</li><li>Твоя лучшая жизнь</li><li>Властелин</li></ul>
+  <div class="card-price"><span>Цена<br>за ключ №5:</span><b>39 990 ₽</b></div>
+  <p class="acc">Доступ 3 месяца</p>
+  <a class="btn-buy" href="#buy" data-product="key5">Купить ключ</a>
 </article>
     </div>
   </div>
@@ -348,61 +537,101 @@ footer p+p{margin-top:8px}
 
 <section class="pack" id="pack">
   <div class="wrap">
-    <div class="pack-box">
-      <div>
-        <div class="kicker" style="color:var(--coral)">Выгоднее всего</div>
-        <h2 class="h2" style="margin-top:10px">Пакет «5 ключей»</h2>
-        <p>Все пять тематических ключей целиком, на целый год.</p>
+    <div class="pack-box reveal">
+      <div class="pack-img"></div>
+      <div class="pack-txt">
+        <span class="pill" style="align-self:flex-start">Выгоднее всего</span>
+        <h2>Пакет<br>«5 ключей»</h2>
         <ol>
-          <li>«Автомагические деньги»</li>
-          <li>«Автомагическое здоровье»</li>
-          <li>«Автомагическая психика»</li>
-          <li>«Автомагические отношения»</li>
-          <li>«Твоя лучшая автомагическая реальность»</li>
+          <li>Автомагические деньги</li>
+          <li>Автомагическое здоровье</li>
+          <li>Автомагическая психика</li>
+          <li>Автомагические отношения</li>
+          <li>Твоя лучшая автомагическая реальность</li>
         </ol>
-      </div>
-      <div class="pack-price">
-        <span>Стоимость пакета</span>
-        <b>199 990 ₽</b>
-        <span>Доступ 12 месяцев. Ключ 6 приобретается отдельно.</span>
-        <a class="btn" href="#buy" data-product="pack5" style="margin-top:14px;text-align:center">Купить пакет</a>
+        <div class="pack-price"><b>199 990 ₽</b><span>доступ 12 месяцев</span></div>
+        <a class="btn-iri" href="#buy" data-product="pack5">Купить пакет</a>
+        <div class="gift"><b>В подарок к ПКТ.</b> Участники ПКТ получают пакет «5 ключей» без отдельной оплаты, доступ 6 месяцев. Ключ 6 приобретается отдельно.</div>
       </div>
     </div>
-    <div class="gift"><b>В подарок к ПКТ.</b> Участники ПКТ получают пакет «5 ключей» без отдельной оплаты, доступ 6 месяцев.</div>
   </div>
 </section>
 
 <section class="key key6" id="key6">
-  <div class="wrap">
-    <div class="key-head">
-      <span class="key-num">Ключ 6</span>
-      <h3>Для продвинутых</h3>
-      <p class="lead">Четыре практики продаются только вместе. Доступ 3 месяца. В пакет «5 ключей» этот ключ не входит.</p>
-      <div class="key-buy"><div><b>59 990 ₽</b><span>4 практики, доступ 3 месяца</span></div>
-        <a class="btn gold" href="#buy" data-product="key6">Купить ключ 6</a></div>
+  <div class="panel dark">
+    <div class="tab"><span class="pill">Ключ 6:</span></div>
+    <h3 class="reveal">Для продвинутых</h3>
+    <p class="lead reveal">Выдерживать сильный стресс, решаться на смелые шаги и опираться на себя. Четыре практики продаются только вместе, в пакет «5 ключей» этот ключ не входит.</p>
+    <div class="grid four">
+<article class="card dark reveal">
+  <div class="card-img"><img src="img/stress-pro.jpg" alt="" loading="lazy"></div>
+  <div class="card-body"><h4>Стрессоустойчивость PRO</h4><p><u>Результат:</u> Силы, чтобы выдержать сильный стресс.</p></div>
+</article>
+<article class="card dark reveal">
+  <div class="card-img"><img src="img/tyazhelyy-lyuks.jpg" alt="" loading="lazy"></div>
+  <div class="card-body"><h4>Тяжёлый люкс</h4><p><u>Результат:</u> Дорогие вещи, комфорт и роскошь начинают восприниматься как естественные для вас.</p></div>
+</article>
+<article class="card dark reveal">
+  <div class="card-img"><img src="img/luchshaya-versiya.jpg" alt="" loading="lazy"></div>
+  <div class="card-body"><h4>Лучшая версия себя</h4><p><u>Результат:</u> Вы решаетесь на то, на что раньше не осмеливались, и больше довольны собой и своей жизнью.</p></div>
+</article>
+<article class="card dark reveal">
+  <div class="card-img"><img src="img/skrytaya-sila.jpg" alt="" loading="lazy"></div>
+  <div class="card-body"><h4>Скрытая сила</h4><p><u>Результат:</u> Ощущение собственной силы, которое помогает браться за сложные задачи.</p></div>
+</article>
     </div>
-    <div class="grid">
-<article class="card dark"><h4>«Стрессоустойчивость PRO»</h4><p>Внутренний ресурс, чтобы выдерживать сильный стресс и сохранять контроль над собой.</p></article>
-<article class="card dark"><h4>«Тяжёлый люкс»</h4><p>Вы разрешаете себе более высокий уровень жизни. Дорогие вещи, комфорт и роскошь начинают восприниматься как естественные для вас.</p></article>
-<article class="card dark"><h4>«Лучшая версия себя»</h4><p>Вы решаетесь на то, на что раньше не осмеливались. Меньше страха и тревоги, больше удовлетворённости собой и своей жизнью.</p></article>
-<article class="card dark"><h4>«Скрытая сила»</h4><p>Внутренняя опора и ощущение собственной силы, которые помогают справляться со сложными задачами.</p></article>
-    </div>
+    <div class="k6-buy reveal"><div><span>Цена за ключ №6</span><b>59 990 ₽</b><small>4 практики, доступ 3 месяца</small></div>
+      <a class="btn-iri" href="#buy" data-product="key6">Купить ключ 6</a></div>
   </div>
 </section>
 
 <section class="cta" id="buy">
-  <div class="wrap">
-    <h2 class="h2">Выберите свой ключ</h2>
-    <p>Оставьте заявку, и менеджер поможет подобрать практики и оформить доступ.</p>
-    <a class="btn" href="#buy" data-product="lead">Оставить заявку</a>
-  </div>
+  <div class="cta-bg"></div>
+  <h2 class="h2 reveal">Выберите<br>свой ключ</h2>
+  <p class="reveal">Оставьте заявку, и менеджер поможет подобрать практики и оформить доступ.</p>
+  <a class="btn-iri reveal" href="#buy" data-product="lead">Оставить заявку</a>
 </section>
-
 <footer>
-  <div class="wrap">
-    <p>© АВТОМАГИЧЕСКИ. Аудиопрактики доктора Анны Саба.</p>
-    <p>Описания отражают ожидаемый эффект практик и не являются гарантией результата. Аудиопрактики не заменяют медицинскую помощь, диагностику и лечение.</p>
-  </div>
+  <p>© АВТОМАГИЧЕСКИ. Аудиопрактики доктора Анны Саба.</p>
+  <p>Описания отражают ожидаемый эффект практик и не являются гарантией результата. Аудиопрактики не заменяют медицинскую помощь, диагностику и лечение.</p>
 </footer>
+
+<script>
+// scroll reveal with a small stagger inside each row
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in')});return}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting)return;
+      var el=en.target, sib=el.parentNode?[].indexOf.call(el.parentNode.children,el):0;
+      el.style.transitionDelay=Math.min(sib%4,3)*90+'ms';
+      el.classList.add('in'); io.unobserve(el);
+    });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){io.observe(el)});
+})();
+// golden dust drifting over the hero
+(function(){
+  var c=document.getElementById('dust'); if(!c||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var x=c.getContext('2d'),W,H,P=[],dpr=Math.min(window.devicePixelRatio||1,2);
+  function size(){W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
+  size(); addEventListener('resize',size);
+  var N=Math.round(Math.min(140,W/8));
+  for(var i=0;i<N;i++)P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.4,v:Math.random()*.35+.1,a:Math.random()*6.28,s:Math.random()*.02+.005});
+  function tick(){
+    x.clearRect(0,0,W,H);
+    for(var i=0;i<P.length;i++){var p=P[i];p.a+=p.s;p.y-=p.v;p.x+=Math.sin(p.a)*.4;if(p.y<-10){p.y=H+10;p.x=Math.random()*W}
+      var g=.55+.45*Math.sin(p.a*3);x.beginPath();x.fillStyle='rgba(255,221,150,'+(.25+.6*g)+')';x.shadowColor='rgba(255,210,120,.9)';x.shadowBlur=8*p.r;x.arc(p.x,p.y,p.r,0,6.283);x.fill()}
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+// gentle parallax of the hero image
+(function(){
+  var bg=document.querySelector('.hero-bg'); if(!bg)return;
+  addEventListener('scroll',function(){var y=scrollY; if(y<innerHeight) bg.style.translate='0 '+(y*.25)+'px'},{passive:true});
+})();
+</script>
 </body>
 </html>
