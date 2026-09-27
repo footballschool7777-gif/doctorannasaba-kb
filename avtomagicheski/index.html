@@ -205,6 +205,12 @@ body.lock{overflow:hidden}
   .cta{margin:70px 10px 0;padding:80px 18px}
   footer{margin:0 10px}
 }
+/* fix 27.09: long words must not be cut in narrow cards */
+h1,h2,h3,h4,.card h4{overflow-wrap:break-word}
+.grid.four>.card h4{font-size:17px;letter-spacing:-.01em;hyphens:auto;-webkit-hyphens:auto}
+.row summary{white-space:nowrap}
+@media(max-width:1180px){.grid.four>.card{flex-basis:calc((100% - 20px)/2)}}
+@media(max-width:640px){.grid.four>.card{flex-basis:100%}}
 </style>
 </head>
 <body>
