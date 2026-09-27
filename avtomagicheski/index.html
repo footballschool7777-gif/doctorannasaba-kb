@@ -680,7 +680,7 @@ body.lock{overflow:hidden}
     pay.classList.add('open');document.body.classList.add('lock');
     var sc=document.createElement('script'); sc.id=w.id; sc.src=w.src;
     sc.onload=function(){
-      document.dispatchEvent(new Event('StartWidget'+w.wid));
+      var f=window['startWidget'+w.id]; if(typeof f==='function') f(); else document.dispatchEvent(new Event('StartWidget'+w.id));
       var x=slot.querySelector('.pay-wait'); if(x) setTimeout(function(){x.remove()},800);
     };
     slot.appendChild(sc);
