@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="ru" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<title>АВТОМАГИЧЕСКИ — аудиопрактики доктора Анны Саба</title>
+<meta name="description" content="Полный каталог аудиопрактик АВТОМАГИЧЕСКИ: шесть ключей к деньгам, здоровью, психике, отношениям и новой реальности.">
+<meta property="og:image" content="../avtomagicheski/img/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f6f9; --panel:#dfe8f1; --panel2:#e9eff6; --ink:#2d3036; --muted:#6c727c; --slate:#4b5260; --slate2:#3d434f;
+  --gold1:#ffe6a6; --gold2:#f6c766; --gold3:#e9ad3f;
+  --iri:linear-gradient(100deg,#ffe7b0 0%,#fbd3d8 28%,#dce6f7 55%,#e9f3dc 78%,#ffe7b0 100%);
+  --r:34px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Montserrat,system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:16px;line-height:1.5;overflow-x:hidden}
+img{display:block;max-width:100%}
+h1,h2,h3,.pill,.btn-iri,.btn-buy,.sum-title,.caps{font-family:Unbounded,Montserrat,sans-serif;font-weight:300;text-transform:uppercase;letter-spacing:.02em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* buttons */
+.btn-iri{display:inline-flex;align-items:center;justify-content:center;min-width:220px;padding:20px 34px;border-radius:60px;background:var(--iri);background-size:300% 100%;color:#2b2b2b;text-decoration:none;font-size:13px;font-weight:400;box-shadow:0 10px 30px -10px rgba(233,173,63,.55),inset 0 0 0 1px rgba(255,255,255,.7);animation:iri 7s linear infinite;transition:transform .3s,box-shadow .3s}
+.btn-iri:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 18px 40px -12px rgba(233,173,63,.7),inset 0 0 0 1px #fff}
+.btn-iri.white{background:#fff;animation:none}
+@keyframes iri{to{background-position:300% 0}}
+.btn-buy{display:block;text-align:center;padding:13px;border-radius:14px;background:linear-gradient(180deg,var(--gold1),var(--gold2));color:#2b2b2b;text-decoration:none;font-size:12px;font-weight:400;box-shadow:0 8px 18px -10px rgba(233,173,63,.9),inset 0 1px 0 rgba(255,255,255,.8);position:relative;overflow:hidden;transition:transform .25s}
+.btn-buy:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);transform:translateX(-120%);transition:transform .8s}
+.btn-buy:hover{transform:translateY(-2px)}
+.btn-buy:hover:after{transform:translateX(120%)}
+
+/* hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:stretch;overflow:hidden;color:#2f3645;background:#c9d2de}
+.hero-bg{position:absolute;inset:-4%;background:url(../avtomagicheski/img/hero.jpg) center/cover no-repeat;transform:scale(1.08);animation:breathe 18s ease-in-out infinite alternate;will-change:transform}
+@keyframes breathe{to{transform:scale(1.16) translate(-1.5%,-1%)}}
+.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(244,246,249,.55),rgba(244,246,249,0) 55%),linear-gradient(180deg,rgba(244,246,249,0) 70%,rgba(244,246,249,1) 100%)}
+#dust{position:absolute;inset:0;z-index:2;pointer-events:none}
+.hero-in{position:relative;z-index:3;width:100%;display:flex;flex-direction:column;justify-content:space-between;padding:38px 20px 70px}
+.hero h1{font-size:clamp(34px,8.2vw,118px);line-height:.98;font-weight:300;color:#2f3645;text-shadow:0 2px 24px rgba(255,255,255,.8)}
+.hero h1 span:nth-child(2){color:#3d4863}
+.hero h1 span:nth-child(3){color:#8a6a2e}
+.hero h1 span{display:block;animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}
+.hero h1 span:nth-child(2){padding-left:12%;animation-delay:.15s}
+.hero h1 span:nth-child(3){text-align:right;animation-delay:.3s;font-size:.42em;letter-spacing:.3em;margin-top:.5em}
+@keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;animation:rise 1.2s .6s both}
+.hero-bottom p{max-width:340px;font-size:17px;font-weight:500;color:#2f3645;text-shadow:0 1px 14px rgba(255,255,255,.9)}
+.hero-btns{display:flex;flex-direction:column;gap:14px}
+.author{position:absolute;left:calc(50% - 54px);bottom:60px;z-index:3;width:108px;height:108px;border-radius:50%;background:var(--iri);background-size:300% 100%;animation:iri 7s linear infinite,spin 30s linear infinite;display:grid;place-items:center;text-align:center;color:#333;font:400 10px/1.3 Unbounded,sans-serif;text-transform:uppercase;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.author b{display:block;font-size:13px}
+
+/* section titles */
+.sec{padding:100px 0}
+.h2{font-size:clamp(28px,4.4vw,52px);text-align:center;line-height:1.12}
+.sub{text-align:center;color:var(--muted);margin:14px auto 0;max-width:640px;text-transform:uppercase;font-size:13px;letter-spacing:.14em}
+
+/* how */
+.how-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:50px}
+.how-card{background:#fff;border-radius:26px;padding:26px 22px;box-shadow:0 20px 40px -30px rgba(60,80,110,.35);position:relative;overflow:hidden}
+.how-card:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:var(--iri);background-size:300% 100%;animation:iri 7s linear infinite}
+.how-card b{display:block;font:300 22px/1.15 Unbounded,sans-serif;margin:8px 0 12px}
+.how-card small{color:var(--muted);font-size:13px;display:block}
+.how-card .t{font-weight:600;font-size:14px}
+.how-note{text-align:center;color:var(--muted);font-size:14px;margin-top:22px}
+
+/* key nav */
+.nav{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:46px}
+.nav a{position:relative;height:190px;border-radius:26px;overflow:hidden;text-decoration:none;color:#fff;display:flex;align-items:flex-end;padding:22px}
+.nav img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+.nav a:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(45,55,75,.75),rgba(45,55,75,0) 70%)}
+.nav a:hover img{transform:scale(1.08)}
+.nav i{position:absolute;top:16px;left:20px;z-index:1;font:300 44px Unbounded,sans-serif;font-style:normal;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.3)}
+.nav span{position:relative;z-index:1;font:400 15px/1.25 Unbounded,sans-serif;text-transform:uppercase}
+
+/* key panels */
+.key{padding:34px 0}
+.panel{max-width:1180px;margin:0 auto;background:var(--panel);border-radius:44px;padding:70px 50px 50px;position:relative}
+.panel.dark{background:linear-gradient(160deg,#3d4452,#2b303b);color:#eef1f6}
+.tab{position:absolute;top:-30px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 22px 16px;border-radius:0 0 34px 34px}
+.pill{display:inline-block;padding:20px 38px;border-radius:40px;background:var(--iri);background-size:300% 100%;animation:iri 7s linear infinite;font-size:13px;color:#2b2b2b;box-shadow:0 10px 30px -14px rgba(0,0,0,.25)}
+.key h3{text-align:center;font-size:clamp(22px,3vw,34px);margin-top:14px}
+.lead{text-align:center;color:var(--muted);max-width:640px;margin:14px auto 40px}
+.dark .lead{color:#b9c0cc}
+.grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;max-width:960px;margin:0 auto}
+.grid>.card{flex:0 0 calc((100% - 40px)/3)}
+.grid.four{max-width:none}
+.grid.four>.card{flex-basis:calc((100% - 60px)/4)}
+
+/* cards */
+.card{background:#fff;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 40px -34px rgba(60,80,110,.55);transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
+.card:hover{transform:translateY(-8px);box-shadow:0 34px 60px -30px rgba(60,80,110,.6),0 0 0 1px rgba(246,199,102,.5)}
+.card-img{position:relative;height:170px;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s}
+.card:hover .card-img img{transform:scale(1.08)}
+.card-img:after{content:"";position:absolute;inset:auto 0 0;height:60px;background:linear-gradient(0deg,#fff,rgba(255,255,255,0))}
+.seal{position:absolute;top:14px;right:14px;z-index:1;width:74px;height:74px;display:grid;place-items:center;text-align:center;font-size:10px;line-height:1.2;font-weight:600;color:#5b4520;
+  background:radial-gradient(circle at 35% 30%,#fff3cf,#f6c766 70%);clip-path:polygon(50% 0,61% 7%,75% 5%,82% 17%,95% 25%,93% 39%,100% 50%,93% 61%,95% 75%,82% 83%,75% 95%,61% 93%,50% 100%,39% 93%,25% 95%,18% 83%,5% 75%,7% 61%,0 50%,7% 39%,5% 25%,18% 17%,25% 5%,39% 7%);animation:bob 5s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-4px) rotate(4deg)}}
+.card-body{padding:6px 22px 22px;display:flex;flex-direction:column;flex:1;gap:12px}
+.card h4{font-size:21px;font-weight:600}
+.card p{font-size:14px;flex:1}
+.card u{text-decoration-color:var(--gold3)}
+.card-price{display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+.card-price span{font-size:11px;color:var(--muted);line-height:1.2}
+.card-price b{font:400 26px Unbounded,sans-serif;letter-spacing:-.02em}
+.card.dark{background:rgba(255,255,255,.06);color:#eef1f6;border:1px solid rgba(255,255,255,.1)}
+.card.dark .card-img:after{background:linear-gradient(0deg,#353b48,rgba(53,59,72,0))}
+
+/* key summary card */
+.sum{background:linear-gradient(165deg,#555c69,#3f4552);color:#eef1f6;padding:22px;gap:10px}
+.sum .gold{color:var(--gold2);font:300 22px Unbounded,sans-serif;text-transform:none}
+.sum-title{font-size:12px;line-height:1.35;text-transform:none;font-family:Montserrat;font-weight:500}
+.sum ul{list-style:none;columns:2;column-gap:12px;font-size:11px;color:#c9ced8}
+.sum li:before{content:"• ";color:var(--gold2)}
+.sum .card-price span{color:#c9ced8}
+.sum .card-price b{color:#fff}
+.sum .acc{font-size:12px;color:#aeb5c1;flex:0}
+.orbit{position:relative;height:150px;margin:0 6px 8px}
+.orbit svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.orbit line{stroke:rgba(246,199,102,.55);stroke-width:.4;stroke-dasharray:1.4 1.2;animation:dash 6s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-26}}
+.orbit img{position:absolute;width:52px;height:52px;border-radius:50%;object-fit:cover;transform:translate(-50%,-50%);border:2px solid rgba(255,255,255,.8);box-shadow:0 0 18px rgba(246,199,102,.55);animation:bob 6s ease-in-out infinite}
+.orbit img:nth-child(odd){animation-delay:-3s}
+
+/* package */
+.pack{padding:110px 0}
+.pack-box{max-width:1180px;margin:0 auto;border-radius:48px;position:relative;overflow:hidden;background:#fff;display:grid;grid-template-columns:1.05fr 1fr;box-shadow:0 50px 90px -60px rgba(60,80,110,.7)}
+.pack-img{position:relative;min-height:520px;background:url(../avtomagicheski/img/pack5.jpg) center/cover}
+.pack-img:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,0) 60%,#fff)}
+.pack-txt{padding:60px 56px;display:flex;flex-direction:column;gap:18px;justify-content:center}
+.pack-txt h2{font-size:clamp(28px,3.6vw,44px);line-height:1.08}
+.pack-txt ol{list-style:none;counter-reset:k;display:grid;gap:10px}
+.pack-txt li{counter-increment:k;display:flex;gap:14px;align-items:center;font-weight:600}
+.pack-txt li:before{content:counter(k);flex:0 0 34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--iri);background-size:300% 100%;animation:iri 7s linear infinite;font:400 13px Unbounded,sans-serif}
+.pack-price{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.pack-price b{font:300 52px/1 Unbounded,sans-serif}
+.pack-price span{color:var(--muted);font-size:14px}
+.gift{margin-top:6px;padding:16px 20px;border-radius:18px;background:var(--panel2);font-size:14px}
+
+/* key 6 */
+.k6-buy{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:34px;padding:28px 34px;border-radius:26px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
+.k6-buy span{display:block;font-size:13px;color:#b9c0cc}
+.k6-buy b{display:block;font:300 44px/1.1 Unbounded,sans-serif;color:var(--gold2)}
+.k6-buy small{color:#b9c0cc}
+
+/* cta */
+.cta{position:relative;margin:110px 20px 0;border-radius:48px 48px 0 0;overflow:hidden;color:#fff;text-align:center;padding:120px 20px}
+.cta-bg{position:absolute;inset:0;background:url(../avtomagicheski/img/hero.jpg) center/cover;filter:saturate(.9)}
+.cta:before{content:"";position:absolute;inset:0;z-index:1;background:rgba(60,70,95,.45)}
+.cta>*:not(.cta-bg){position:relative;z-index:2}
+.cta .h2{color:#fff}
+.cta p{max-width:540px;margin:18px auto 34px;font-size:17px}
+footer{background:#2b303b;color:#9aa1ad;font-size:13px;padding:34px 0;margin:0 20px;text-align:center}
+footer p+p{margin-top:8px}
+
+
+/* payment popup */
+.pay{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(40,48,64,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.pay.open{display:flex;animation:fade .3s ease}
+@keyframes fade{from{opacity:0}}
+.pay-box{position:relative;width:100%;max-width:520px;max-height:calc(100vh - 32px);overflow:auto;background:#fff;border-radius:28px;padding:30px 24px 24px;box-shadow:0 40px 80px -30px rgba(20,30,50,.6);animation:pop .4s cubic-bezier(.2,.7,.2,1)}
+@keyframes pop{from{transform:translateY(30px) scale(.97);opacity:0}}
+.pay-box:before{content:"";position:absolute;inset:0 0 auto;height:5px;border-radius:28px 28px 0 0;background:var(--iri);background-size:300% 100%;animation:iri 7s linear infinite}
+.pay-x{position:absolute;top:12px;right:14px;width:40px;height:40px;border:0;border-radius:50%;background:var(--panel2);font-size:22px;line-height:40px;cursor:pointer;color:#333}
+.pay-title{font:400 18px/1.25 Unbounded,sans-serif;text-transform:uppercase;padding-right:40px}
+.pay-price{font:300 30px Unbounded,sans-serif;margin:8px 0 14px}
+.pay-slot{min-height:320px}
+.pay-slot iframe{width:100%!important;border:0}
+.pay-wait{color:var(--muted);font-size:14px;text-align:center;padding:40px 0}
+body.lock{overflow:hidden}
+/* reveal */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+@media(max-width:980px){
+  .how-grid{grid-template-columns:repeat(2,1fr)}
+  .grid>.card,.grid.four>.card{flex-basis:calc((100% - 20px)/2)}
+  .pack-box{grid-template-columns:1fr}.pack-img{min-height:300px}.pack-img:after{background:linear-gradient(0deg,#fff,rgba(255,255,255,0) 50%)}
+  .panel{border-radius:34px;padding:64px 22px 30px}
+}
+@media(max-width:640px){
+  .sec{padding:70px 0}
+  .how-grid,.nav{grid-template-columns:1fr}
+  .grid>.card,.grid.four>.card{flex-basis:100%}
+  .nav a{height:150px}
+  .hero-bottom{flex-direction:column;align-items:stretch}
+  .btn-iri{width:100%}
+  .author{width:88px;height:88px;font-size:8px;left:auto;right:20px;top:auto;bottom:440px}
+  .author b{font-size:11px}
+  .hero h1 span:nth-child(3){letter-spacing:.16em;font-size:.4em}
+  .hero-bg{background-position:74% center}
+  .pack-txt{padding:30px 22px}
+  .pack-price b{font-size:40px}
+  .key{padding:26px 10px}
+  .tab{padding:0 12px 12px}
+  .pill{padding:16px 28px}
+  .cta{margin:70px 10px 0;padding:80px 18px}
+  footer{margin:0 10px}
+}
+
+/* ===== catalog v3: tabs + compact rows ===== */
+.shop-sec{padding:0 0 40px}
+.ktabs{position:sticky;top:0;z-index:30;margin:40px auto 0;max-width:1180px;padding:12px 20px;background:rgba(244,246,249,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.ktabs-in{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:4px 2px}
+.ktabs-in::-webkit-scrollbar{display:none}
+.kt{flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:7px 18px 7px 7px;border-radius:40px;background:#fff;border:1px solid #e3e8ef;color:var(--ink);text-decoration:none;font:500 13px/1.15 Montserrat,sans-serif;cursor:pointer;transition:all .3s;box-shadow:0 6px 16px -12px rgba(60,80,110,.5)}
+.kt img{width:38px;height:38px;border-radius:50%;object-fit:cover}
+.kt i{font:400 12px Unbounded,sans-serif;font-style:normal;color:var(--gold3)}
+.kt:hover{transform:translateY(-2px);border-color:var(--gold2)}
+.kt.on{background:linear-gradient(160deg,#3d4452,#2b303b);color:#fff;border-color:transparent;box-shadow:0 10px 24px -12px rgba(43,48,59,.8),0 0 0 2px var(--gold2)}
+.kt.on i{color:var(--gold2)}
+.kt.alt{background:var(--iri);background-size:300% 100%;animation:iri 7s linear infinite;border-color:transparent}
+.shop{max-width:1180px;margin:26px auto 0;padding:0 20px}
+.js .kp{display:none}
+.js .kp.on{display:grid;animation:kin .55s cubic-bezier(.2,.7,.2,1)}
+@keyframes kin{from{opacity:0;transform:translateY(18px)}}
+.kp{display:grid;grid-template-columns:380px 1fr;gap:26px;align-items:start;margin-bottom:40px;scroll-margin-top:90px}
+.offer{position:sticky;top:96px;border-radius:32px;overflow:hidden;color:#eef1f6;background:linear-gradient(165deg,#4a5160,#2b303b);box-shadow:0 40px 70px -40px rgba(30,40,60,.8)}
+.offer-img{position:relative;height:210px;overflow:hidden}
+.offer-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.05);transition:transform 6s ease}
+.kp.on .offer-img img{transform:scale(1.14)}
+.offer-img:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#3d4452 0%,rgba(61,68,82,.2) 60%,rgba(61,68,82,0))}
+.offer-num{position:absolute;left:24px;top:18px;z-index:1;font:300 64px/1 Unbounded,sans-serif;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.35)}
+.offer-b{padding:4px 26px 26px;display:flex;flex-direction:column;gap:14px}
+.offer-tag{align-self:flex-start;padding:7px 14px;border-radius:30px;background:rgba(246,199,102,.16);color:var(--gold2);font:400 10px Unbounded,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.offer h3{font:300 22px/1.2 Unbounded,sans-serif;text-transform:uppercase;text-align:left;margin:0}
+.offer p.l{font-size:14px;color:#c3c9d4}
+.offer ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.offer li{font-size:12px;padding:5px 11px;border-radius:20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1)}
+.offer-price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding-top:6px;border-top:1px solid rgba(255,255,255,.1)}
+.offer-price b{font:300 38px/1.1 Unbounded,sans-serif;color:#fff}
+.offer-price s{color:#9aa2b0;font-size:15px}
+.offer small{color:#aeb5c1;font-size:12px;margin-top:-6px}
+.offer .btn-iri{width:100%;min-width:0}
+.list{display:flex;flex-direction:column;gap:12px}
+.list-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 6px 4px}
+.list-h b{font:400 15px Unbounded,sans-serif;text-transform:uppercase}
+.list-h span{color:var(--muted);font-size:13px}
+.row{background:#fff;border-radius:22px;padding:14px;box-shadow:0 18px 36px -30px rgba(60,80,110,.6);border:1px solid transparent;transition:border-color .3s,box-shadow .3s,transform .3s}
+.row:hover{border-color:rgba(246,199,102,.7);box-shadow:0 26px 46px -30px rgba(60,80,110,.7);transform:translateX(4px)}
+.row-top{display:grid;grid-template-columns:72px 1fr auto;gap:16px;align-items:center}
+.row-top img{width:72px;height:72px;border-radius:18px;object-fit:cover}
+.row h4{font:600 17px/1.25 Montserrat,sans-serif}
+.row-meta{font-size:12px;color:var(--muted);margin-top:3px}
+.row-buy{display:flex;align-items:center;gap:14px}
+.pr{font:400 19px Unbounded,sans-serif;white-space:nowrap}
+.row .btn-buy{padding:12px 22px;border-radius:40px}
+.row details{margin:10px 0 0 88px}
+.row summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#8a6a2e;user-select:none}
+.row summary::-webkit-details-marker{display:none}
+.row summary:after{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-3px);transition:transform .3s}
+.row details[open] summary:after{transform:rotate(225deg) translate(-2px,-1px)}
+.row details p{font-size:14px;color:#474c55;margin-top:8px;animation:kin .4s ease}
+.row u{text-decoration-color:var(--gold3)}
+.hint{text-align:center;color:var(--muted);font-size:13px;margin-top:14px}
+@media(max-width:980px){
+  .kp{grid-template-columns:1fr}
+  .offer{position:relative;top:0;display:grid;grid-template-columns:200px 1fr}
+  .offer-img{height:auto;min-height:100%}
+}
+@media(max-width:640px){
+  .ktabs{padding:8px 10px}
+  .kt{padding:5px 14px 5px 5px;font-size:12px}.kt img{width:30px;height:30px}
+  .shop{padding:0 10px}
+  .offer{display:block;border-radius:26px}
+  .offer-img{height:150px}
+  .offer-num{font-size:48px}
+  .offer-b{padding:4px 18px 20px}
+  .offer-price b{font-size:32px}
+  .row{padding:12px;border-radius:20px}
+  .row-top{grid-template-columns:56px 1fr;gap:12px}
+  .row-top img{width:56px;height:56px;border-radius:14px}
+  .row-buy{grid-column:1/-1;justify-content:space-between}
+  .row details{margin:10px 0 0}
+  .row:hover{transform:none}
+}
+
+.save{align-self:flex-start;margin-top:-4px;padding:6px 12px;border-radius:20px;background:linear-gradient(180deg,var(--gold1),var(--gold2));color:#4a3712;font:600 12px Montserrat,sans-serif}
+@media(min-width:981px){.ktabs-in{flex-wrap:wrap;justify-content:center;overflow:visible}}
+.shop-sec+.pack{padding-top:40px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-bg"></div>
+  <canvas id="dust"></canvas>
+  <div class="author"><div>Доктор<b>Анна Саба</b>аудио&shy;практики</div></div>
+  <div class="wrap hero-in">
+    <h1><span>Авто</span><span>магически</span><span>аудиопрактики</span></h1>
+    <div class="hero-bottom">
+      <p>Для тех, кто хочет менять деньги, здоровье, отношения и состояние без постоянного преодоления себя.</p>
+      <div class="hero-btns">
+        <a class="btn-iri" href="#keys">Выбрать ключ</a>
+        <a class="btn-iri white" href="#pack">Пакет «5 ключей»</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="sec" id="how">
+  <div class="wrap">
+    <h2 class="h2 reveal">Как устроены<br>покупка и доступ</h2>
+    <p class="sub reveal">одна практика, целый ключ или сразу пять</p>
+    <div class="how-grid">
+      <div class="how-card reveal"><span class="t">Одна практика</span><b>11 990 ₽</b><small>две практики по 22 990 ₽</small><small>доступ 1 месяц</small></div>
+      <div class="how-card reveal"><span class="t">Ключ целиком</span><b>39 990 ₽</b><small>или 59 990 ₽</small><small>доступ 3 месяца</small></div>
+      <div class="how-card reveal"><span class="t">Пакет «5 ключей»</span><b>199 990 ₽</b><small>ключи 1–5</small><small>доступ 12 месяцев</small></div>
+      <div class="how-card reveal"><span class="t">Подарок к ПКТ</span><b>0 ₽</b><small>пакет «5 ключей»</small><small>доступ 6 месяцев</small></div>
+      <div class="how-card reveal"><span class="t">Ключ 6</span><b>59 990 ₽</b><small>4 практики вместе</small><small>доступ 3 месяца</small></div>
+    </div>
+    <p class="how-note reveal">Практики из ключей 1–5 продаются и по отдельности. Шестой ключ продаётся только целиком и в пакет «5 ключей» не входит.</p>
+  </div>
+</section>
+
+<section class="shop-sec" id="keys">
+  <div class="wrap">
+    <h2 class="h2">Шесть ключей<br>АВТОМАГИЧЕСКИ</h2>
+    <p class="sub">каждый ключ — одна сфера жизни</p>
+  </div>
+  <div class="ktabs"><div class="ktabs-in"><a class="kt on" href="#key1" data-k="1"><img src="../avtomagicheski/img/dengi-baza.jpg" alt=""><span><i>1</i> Деньги</span></a><a class="kt" href="#key2" data-k="2"><img src="../avtomagicheski/img/ideal-ves.jpg" alt=""><span><i>2</i> Здоровье</span></a><a class="kt" href="#key3" data-k="3"><img src="../avtomagicheski/img/stress-baza.jpg" alt=""><span><i>3</i> Психика</span></a><a class="kt" href="#key4" data-k="4"><img src="../avtomagicheski/img/luchshiy-seks.jpg" alt=""><span><i>4</i> Отношения</span></a><a class="kt" href="#key5" data-k="5"><img src="../avtomagicheski/img/zhizn-v-kaif.jpg" alt=""><span><i>5</i> Реальность</span></a><a class="kt" href="#key6"><img src="../avtomagicheski/img/key6.jpg" alt=""><span><i>6</i> Для продвинутых</span></a><a class="kt alt" href="#pack"><span style="padding-left:10px">Пакет «5 ключей»</span></a></div></div>
+  <div class="shop">
+<div class="kp on" id="key1" data-k="1">
+  <aside class="offer">
+    <div class="offer-img"><img src="../avtomagicheski/img/dengi-baza.jpg" alt=""><span class="offer-num">1</span></div>
+    <div class="offer-b">
+      <span class="offer-tag">Ключ целиком</span>
+      <h3>Автомагические деньги</h3>
+      <p class="l">Для тех, кому страх и сомнения мешают поднимать чек, говорить о деньгах и выходить на новый уровень дохода.</p>
+      <ul><li>Деньги база</li><li>Деньги про</li><li>Проявленность</li><li>Предназначение</li></ul>
+      <div class="offer-price"><b>39 990 ₽</b><s>47 960 ₽</s></div>
+      <span class="save">Выгода 7 970 ₽</span>
+      <small>за 4 практики вместе · доступ 3 месяца</small>
+      <a class="btn-iri" href="https://doctor-saba.com/avtomagicheski-key1" data-product="key1">Купить ключ</a>
+    </div>
+  </aside>
+  <div class="list">
+    <div class="list-h"><b>Практики по отдельности</b><span>4 шт.</span></div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/dengi-baza.jpg" alt="" loading="lazy">
+    <div><h4>Деньги база</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-dengi-baza" data-product="dengi-baza">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Уходят страхи «у меня не получится», которые мешали действовать: поднимать чек, договариваться о повышении, обсуждать деньги. Двигаться к новому финансовому уровню становится легче.</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/dengi-pro.jpg" alt="" loading="lazy">
+    <div><h4>Деньги про</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-dengi-pro" data-product="dengi-pro">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Вы перестаёте отвлекаться на чужое мнение и сравнение себя с другими. Освобождается энергия, меняется взгляд на свои возможности, появляется мышление лидера. Рост дохода идёт от нового восприятия себя, а не от постоянного преодоления.</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/proyavlennost.jpg" alt="" loading="lazy">
+    <div><h4>Проявленность</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-proyavlennost" data-product="proyavlennost">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Вы спокойно заявляете о себе в соцсетях, в профессиональном сообществе, среди коллег. Уходит синдром самозванца, рассказывать о своей экспертности становится легко.</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/prednaznachenie.jpg" alt="" loading="lazy">
+    <div><h4>Предназначение</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-prednaznachenie" data-product="prednaznachenie">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Больше энергии и ясности в том, какое дело ваше: через что вы можете реализоваться и зарабатывать больше.</p></details>
+</div>
+  </div>
+</div>
+<div class="kp" id="key2" data-k="2">
+  <aside class="offer">
+    <div class="offer-img"><img src="../avtomagicheski/img/ideal-ves.jpg" alt=""><span class="offer-num">2</span></div>
+    <div class="offer-b">
+      <span class="offer-tag">Ключ целиком</span>
+      <h3>Автомагическое здоровье</h3>
+      <p class="l">Восемь практик о теле, энергии, сне и привычках.</p>
+      <ul><li>Идеальный вес</li><li>Афродита</li><li>Могучий иммунитет</li><li>Тайна жизненных сил</li><li>Цветущее здоровье</li><li>Истинная свобода</li><li>Здоровый безмятежный сон</li><li>Согласие с миром</li></ul>
+      <div class="offer-price"><b>59 990 ₽</b><s>95 920 ₽</s></div>
+      <span class="save">Выгода 35 930 ₽</span>
+      <small>за 8 практик вместе · доступ 3 месяца</small>
+      <a class="btn-iri" href="https://doctor-saba.com/avtomagicheski-key2" data-product="key2">Купить ключ</a>
+    </div>
+  </aside>
+  <div class="list">
+    <div class="list-h"><b>Практики по отдельности</b><span>8 шт.</span></div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/ideal-ves.jpg" alt="" loading="lazy">
+    <div><h4>Идеальный вес</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-ideal-ves" data-product="ideal-ves">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Меньше переедания, еда перестаёт управлять днём. Вы едите столько, сколько нужно телу. Практику слушают один раз в день.</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/afrodita.jpg" alt="" loading="lazy">
+    <div><h4>Афродита</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-afrodita" data-product="afrodita">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Уверенность в себе, ощущение собственной красоты и привлекательности. Практика работает с состоянием, в котором женщина чувствует себя красивой.</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/immunitet.jpg" alt="" loading="lazy">
+    <div><h4>Могучий иммунитет</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-immunitet" data-product="immunitet">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Практика настраивает на поддержку собственной иммунной защиты организма.</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/tayna-sil.jpg" alt="" loading="lazy">
+    <div><h4>Тайна жизненных сил</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-tayna-sil" data-product="tayna-sil">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Возвращаются энергия, радость и интерес к жизни. Меньше мыслей о собственной ненужности и бессмысленности происходящего.</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/cvetushchee.jpg" alt="" loading="lazy">
+    <div><h4>Цветущее здоровье</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-cvetushchee" data-product="cvetushchee">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Опора на собственные ресурсы организма в восстановлении, чтобы оно шло мягче.</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/svoboda.jpg" alt="" loading="lazy">
+    <div><h4>Истинная свобода</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-svoboda" data-product="svoboda">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Для тех, кто хочет расстаться с вредной привычкой: курением, алкоголем. Становится меньше само желание к ней возвращаться, без постоянной борьбы с собой.</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/son.jpg" alt="" loading="lazy">
+    <div><h4>Здоровый безмятежный сон</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-son" data-product="son">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Естественное засыпание, глубокий сон, полноценное восстановление и лёгкое пробуждение.</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/soglasie.jpg" alt="" loading="lazy">
+    <div><h4>Согласие с миром</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-soglasie" data-product="soglasie">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Расслабление, меньше телесного напряжения и ощущения постоянной борьбы.</p></details>
+</div>
+  </div>
+</div>
+<div class="kp" id="key3" data-k="3">
+  <aside class="offer">
+    <div class="offer-img"><img src="../avtomagicheski/img/stress-baza.jpg" alt=""><span class="offer-num">3</span></div>
+    <div class="offer-b">
+      <span class="offer-tag">Ключ целиком</span>
+      <h3>Автомагическая психика</h3>
+      <p class="l">Спокойствие, опора и лёгкость вместо тревоги и гиперконтроля.</p>
+      <ul><li>Стрессоустойчивость база</li><li>Внутренняя лёгкость</li><li>Тайна жизненных сил</li><li>Афродита</li></ul>
+      <div class="offer-price"><b>39 990 ₽</b><s>47 960 ₽</s></div>
+      <span class="save">Выгода 7 970 ₽</span>
+      <small>за 4 практики вместе · доступ 3 месяца</small>
+      <a class="btn-iri" href="https://doctor-saba.com/avtomagicheski-key3" data-product="key3">Купить ключ</a>
+    </div>
+  </aside>
+  <div class="list">
+    <div class="list-h"><b>Практики по отдельности</b><span>4 шт.</span></div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/stress-baza.jpg" alt="" loading="lazy">
+    <div><h4>Стрессоустойчивость база</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-stress-baza" data-product="stress-baza">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Спокойствие, уверенность и внутренняя стабильность. Повседневные трудности переносятся легче, жизнь перестаёт требовать постоянного напряжения.</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/legkost.jpg" alt="" loading="lazy">
+    <div><h4>Внутренняя лёгкость</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-legkost" data-product="legkost">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Меньше тревоги и гиперконтроля, больше доверия. Уходит необходимость всё держать на себе и перепроверять, внимание идёт на нужные действия.</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/tayna-sil.jpg" alt="" loading="lazy">
+    <div><h4>Тайна жизненных сил</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-tayna-sil" data-product="tayna-sil">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Возвращаются энергия, радость и интерес к жизни. Эта же практика входит в ключ «Автомагическое здоровье».</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/afrodita.jpg" alt="" loading="lazy">
+    <div><h4>Афродита</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-afrodita" data-product="afrodita">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Уверенность в себе, ощущение собственной красоты и привлекательности. Практика входит и в другие ключи.</p></details>
+</div>
+  </div>
+</div>
+<div class="kp" id="key4" data-k="4">
+  <aside class="offer">
+    <div class="offer-img"><img src="../avtomagicheski/img/luchshiy-seks.jpg" alt=""><span class="offer-num">4</span></div>
+    <div class="offer-b">
+      <span class="offer-tag">Ключ целиком</span>
+      <h3>Автомагические отношения</h3>
+      <p class="l">Для тех, кто хочет отношений, в которых отдыхают, а не воюют.</p>
+      <ul><li>Лучший секс</li><li>Лучшие отношения</li><li>Афродита. Подарки</li><li>Оберег от мудаков</li></ul>
+      <div class="offer-price"><b>39 990 ₽</b><s>69 960 ₽</s></div>
+      <span class="save">Выгода 29 970 ₽</span>
+      <small>за 4 практики вместе · доступ 3 месяца</small>
+      <a class="btn-iri" href="https://doctor-saba.com/avtomagicheski-key4" data-product="key4">Купить ключ</a>
+    </div>
+  </aside>
+  <div class="list">
+    <div class="list-h"><b>Практики по отдельности</b><span>4 шт.</span></div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/luchshiy-seks.jpg" alt="" loading="lazy">
+    <div><h4>Лучший секс</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">22 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-luchshiy-seks" data-product="luchshiy-seks">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> «В результате этой практики вы начинаете заниматься самым лучшим сексом в собственной жизни».</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/luchshie-otnosheniya.jpg" alt="" loading="lazy">
+    <div><h4>Лучшие отношения</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">22 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-luchshie-otnosheniya" data-product="luchshie-otnosheniya">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Глубокие и поддерживающие отношения, в которых вы отдыхаете и восстанавливаете силы, а не боретесь друг с другом.</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/afrodita-podarki.jpg" alt="" loading="lazy">
+    <div><h4>Афродита. Подарки</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-afrodita-podarki" data-product="afrodita-podarki">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Вы чувствуете себя женщиной, которой хочется дарить внимание и подарки. Рядом появляются достойные мужчины.</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/obereg.jpg" alt="" loading="lazy">
+    <div><h4>Оберег от мудаков</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-obereg" data-product="obereg">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Вы перестаёте зацикливаться на бывшем партнёре и повторять прежний выбор. Начинаете замечать достойных мужчин вместо знакомых неудачных сценариев.</p></details>
+</div>
+  </div>
+</div>
+<div class="kp" id="key5" data-k="5">
+  <aside class="offer">
+    <div class="offer-img"><img src="../avtomagicheski/img/zhizn-v-kaif.jpg" alt=""><span class="offer-num">5</span></div>
+    <div class="offer-b">
+      <span class="offer-tag">Ключ целиком</span>
+      <h3>Твоя лучшая автомагическая реальность</h3>
+      <p class="l">Меньше сомнений, больше удовольствия от жизни и действий.</p>
+      <ul><li>Жизнь в кайф</li><li>Афродита</li><li>Твоя лучшая жизнь</li><li>Властелин</li></ul>
+      <div class="offer-price"><b>39 990 ₽</b><s>47 960 ₽</s></div>
+      <span class="save">Выгода 7 970 ₽</span>
+      <small>за 4 практики вместе · доступ 3 месяца</small>
+      <a class="btn-iri" href="https://doctor-saba.com/avtomagicheski-key5" data-product="key5">Купить ключ</a>
+    </div>
+  </aside>
+  <div class="list">
+    <div class="list-h"><b>Практики по отдельности</b><span>4 шт.</span></div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/zhizn-v-kaif.jpg" alt="" loading="lazy">
+    <div><h4>Жизнь в кайф</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-zhizn-v-kaif" data-product="zhizn-v-kaif">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Больше лёгкости и удовольствия от жизни. Уходят угнетающие чувства и негативные установки, появляется согласие с собой и миром.</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/afrodita.jpg" alt="" loading="lazy">
+    <div><h4>Афродита</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-afrodita" data-product="afrodita">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Уверенность в себе, ощущение собственной красоты и привлекательности. Практика входит также в ключи «Здоровье» и «Психика».</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/luchshaya-zhizn.jpg" alt="" loading="lazy">
+    <div><h4>Твоя лучшая жизнь</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-luchshaya-zhizn" data-product="luchshaya-zhizn">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Меньше сомнений и тревоги перед действием. Сокращается расстояние между решением и делом: подумали и сделали. Жизнь складывается в вашу сторону.</p></details>
+</div>
+<div class="row">
+  <div class="row-top">
+    <img src="../avtomagicheski/img/vlastelin.jpg" alt="" loading="lazy">
+    <div><h4>Властелин</h4><div class="row-meta">Аудиопрактика · доступ 1 месяц</div></div>
+    <div class="row-buy"><b class="pr">11 990 ₽</b><a class="btn-buy" href="https://doctor-saba.com/avtomagicheski-vlastelin" data-product="vlastelin">Купить</a></div>
+  </div>
+  <details><summary>Что даёт практика</summary><p><u>Результат:</u> Мужская уверенность в себе, ощущение надёжности, силы и привлекательности.</p></details>
+</div>
+  </div>
+</div>
+  </div>
+</section>
+
+
+<section class="pack" id="pack">
+  <div class="wrap">
+    <div class="pack-box reveal">
+      <div class="pack-img"></div>
+      <div class="pack-txt">
+        <span class="pill" style="align-self:flex-start">Выгоднее всего</span>
+        <h2>Пакет<br>«5 ключей»</h2>
+        <ol>
+          <li>Автомагические деньги</li>
+          <li>Автомагическое здоровье</li>
+          <li>Автомагическая психика</li>
+          <li>Автомагические отношения</li>
+          <li>Твоя лучшая автомагическая реальность</li>
+        </ol>
+        <div class="pack-price"><b>199 990 ₽</b><span>доступ 12 месяцев</span></div>
+        <a class="btn-iri" href="https://doctor-saba.com/avtomagicheski-pack5" data-product="pack5">Купить пакет</a>
+        <div class="gift"><b>В подарок к ПКТ.</b> Участники ПКТ получают пакет «5 ключей» без отдельной оплаты, доступ 6 месяцев. Ключ 6 приобретается отдельно.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="key key6" id="key6">
+  <div class="panel dark">
+    <div class="tab"><span class="pill">Ключ 6:</span></div>
+    <h3 class="reveal">Для продвинутых</h3>
+    <p class="lead reveal">Четыре практики продаются только вместе. Доступ 3 месяца. В пакет «5 ключей» этот ключ не входит.</p>
+    <div class="grid four">
+<article class="card dark reveal">
+  <div class="card-img"><img src="../avtomagicheski/img/stress-pro.jpg" alt="" loading="lazy"></div>
+  <div class="card-body"><h4>Стрессоустойчивость PRO</h4><p><u>Результат:</u> Внутренний ресурс, чтобы выдерживать сильный стресс и сохранять контроль над собой.</p></div>
+</article>
+<article class="card dark reveal">
+  <div class="card-img"><img src="../avtomagicheski/img/tyazhelyy-lyuks.jpg" alt="" loading="lazy"></div>
+  <div class="card-body"><h4>Тяжёлый люкс</h4><p><u>Результат:</u> Вы разрешаете себе более высокий уровень жизни. Дорогие вещи, комфорт и роскошь начинают восприниматься как естественные для вас.</p></div>
+</article>
+<article class="card dark reveal">
+  <div class="card-img"><img src="../avtomagicheski/img/luchshaya-versiya.jpg" alt="" loading="lazy"></div>
+  <div class="card-body"><h4>Лучшая версия себя</h4><p><u>Результат:</u> Вы решаетесь на то, на что раньше не осмеливались. Меньше страха и тревоги, больше удовлетворённости собой и своей жизнью.</p></div>
+</article>
+<article class="card dark reveal">
+  <div class="card-img"><img src="../avtomagicheski/img/skrytaya-sila.jpg" alt="" loading="lazy"></div>
+  <div class="card-body"><h4>Скрытая сила</h4><p><u>Результат:</u> Внутренняя опора и ощущение собственной силы, которые помогают справляться со сложными задачами.</p></div>
+</article>
+    </div>
+    <div class="k6-buy reveal"><div><span>Цена за ключ №6</span><b>59 990 ₽</b><small>4 практики, доступ 3 месяца</small></div>
+      <a class="btn-iri" href="https://doctor-saba.com/avtomagicheski-key6" data-product="key6">Купить ключ 6</a></div>
+  </div>
+</section>
+
+<section class="cta" id="buy">
+  <div class="cta-bg"></div>
+  <h2 class="h2 reveal">Выберите<br>свой ключ</h2>
+  <p class="reveal">Оставьте заявку, и менеджер поможет подобрать практики и оформить доступ.</p>
+  <a class="btn-iri reveal" href="https://doctor-saba.com/avtomagicheski-zayavka" data-product="lead">Оставить заявку</a>
+</section>
+<footer>
+  <p>© АВТОМАГИЧЕСКИ. Аудиопрактики доктора Анны Саба.</p>
+  <p>Описания отражают ожидаемый эффект практик и не являются гарантией результата. Аудиопрактики не заменяют медицинскую помощь, диагностику и лечение.</p>
+</footer>
+
+<div class="pay" id="pay" role="dialog" aria-modal="true">
+  <div class="pay-box">
+    <button class="pay-x" type="button" aria-label="Закрыть">×</button>
+    <div class="pay-title" id="payTitle"></div>
+    <div class="pay-price" id="payPrice"></div>
+    <div class="pay-slot" id="paySlot"></div>
+  </div>
+</div>
+
+<script>
+// scroll reveal with a small stagger inside each row
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in')});return}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting)return;
+      var el=en.target, sib=el.parentNode?[].indexOf.call(el.parentNode.children,el):0;
+      el.style.transitionDelay=Math.min(sib%4,3)*90+'ms';
+      el.classList.add('in'); io.unobserve(el);
+    });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){io.observe(el)});
+})();
+// golden dust drifting over the hero
+(function(){
+  var c=document.getElementById('dust'); if(!c||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var x=c.getContext('2d'),W,H,P=[],dpr=Math.min(window.devicePixelRatio||1,2);
+  function size(){W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
+  size(); addEventListener('resize',size);
+  var N=Math.round(Math.min(140,W/8));
+  for(var i=0;i<N;i++)P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.4,v:Math.random()*.35+.1,a:Math.random()*6.28,s:Math.random()*.02+.005});
+  function tick(){
+    x.clearRect(0,0,W,H);
+    for(var i=0;i<P.length;i++){var p=P[i];p.a+=p.s;p.y-=p.v;p.x+=Math.sin(p.a)*.4;if(p.y<-10){p.y=H+10;p.x=Math.random()*W}
+      var g=.55+.45*Math.sin(p.a*3);x.beginPath();x.fillStyle='rgba(255,221,150,'+(.25+.6*g)+')';x.shadowColor='rgba(255,210,120,.9)';x.shadowBlur=8*p.r;x.arc(p.x,p.y,p.r,0,6.283);x.fill()}
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+// gentle parallax of the hero image
+(function(){
+  var bg=document.querySelector('.hero-bg'); if(!bg)return;
+  addEventListener('scroll',function(){var y=scrollY; if(y<innerHeight) bg.style.translate='0 '+(y*.25)+'px'},{passive:true});
+})();
+
+
+// catalog tabs: one key on screen, deep links #key1..#key5 open their tab
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.kt[data-k]')), panes=[].slice.call(document.querySelectorAll('.kp'));
+  function show(k,scroll){
+    tabs.forEach(function(t){t.classList.toggle('on',t.dataset.k===k)});
+    panes.forEach(function(p){p.classList.toggle('on',p.dataset.k===k)});
+    var t=document.querySelector('.kt[data-k="'+k+'"]'); if(t&&t.scrollIntoView) t.parentNode.scrollTo({left:t.offsetLeft-20,behavior:'smooth'});
+    if(scroll){var s=document.querySelector('.shop'); scrollTo({top:s.getBoundingClientRect().top+scrollY-90,behavior:'smooth'})}
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(e){e.preventDefault();show(t.dataset.k,true);history.replaceState(null,'','#key'+t.dataset.k)})});
+  function fromHash(){var m=location.hash.match(/^#key([1-5])$/); if(m) show(m[1],true)}
+  addEventListener('hashchange',fromHash); fromHash();
+  document.querySelectorAll('.kt:not([data-k])').forEach(function(t){t.classList.remove('on')});
+})();
+// safety: never leave content hidden if the reveal observer does not fire
+setTimeout(function(){document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')})},2500);
+
+// payment popup: GetCourse form widgets load inside the dialog; products without a widget keep the plain link
+(function(){
+  var W={"key1": {"id": "eccc2b3e4c51c44810617cadc820625a267e2828", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661701", "wid": "1661701"}, "key2": {"id": "8ae91cc0771b1604d61a53aac9174a64f11aa551", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661704", "wid": "1661704"}, "key3": {"id": "98c7fd91ee744829374ada8394a4bff23e9df1b2", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661706", "wid": "1661706"}, "key4": {"id": "43ddb3bd5892bc14aa10cf0da29da5971c1fd400", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661703", "wid": "1661703"}, "key5": {"id": "29a094de228b8de5a937274e0d97f3d2983ff745", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661705", "wid": "1661705"}, "key6": {"id": "99c482fbe2c8b62c23257d83c7c7a8dfdd2ad519", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661702", "wid": "1661702"}, "pack5": {"id": "0d3e2b74d35ed04a39bf964f3157cc69aa25d084", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661707", "wid": "1661707"}, "dengi-baza": {"id": "4278e5f0e030cd40cc4b73cc304f984c1a8edb25", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661708", "wid": "1661708"}, "dengi-pro": {"id": "ebc735003a96f2746a8bb0ad47165c0c29d359ca", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661713", "wid": "1661713"}, "proyavlennost": {"id": "9986b908dafe6cd9bb7cb468768b5f067a824c3b", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661712", "wid": "1661712"}, "prednaznachenie": {"id": "f8f29d04191f7787033977e2827154a9d8a77cfc", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661714", "wid": "1661714"}, "ideal-ves": {"id": "c6a879010800ec939afd08496c9c6b084a407c52", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661709", "wid": "1661709"}, "afrodita": {"id": "dcb71171903a256f4aa16f1c82f88155100b5fcc", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661710", "wid": "1661710"}, "immunitet": {"id": "0ecd07943b1c40f03337eb4abcff85d09335a2dd", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661711", "wid": "1661711"}, "tayna-sil": {"id": "865c66109bcd26f8dfbced0c63ef4c50f16babfa", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661715", "wid": "1661715"}, "cvetushchee": {"id": "c4e9e7433a281daf9a1e6848b7c27837f387dc32", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661716", "wid": "1661716"}, "svoboda": {"id": "1e2c7de6f7218c9540214f1edb128a7fbdccbd14", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661717", "wid": "1661717"}, "son": {"id": "04cef16755a6963871b82c2cc5acee4b6af0d8b5", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661720", "wid": "1661720"}, "soglasie": {"id": "d9e57cf09a6b1d4410b24f509631c25415ff591a", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661718", "wid": "1661718"}, "stress-baza": {"id": "d11d213c3bc86dac41193daf72fd04541b1b097e", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661721", "wid": "1661721"}, "legkost": {"id": "68de5ac339ceb45c791f679de57ea1cdc0517b0d", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661719", "wid": "1661719"}, "luchshiy-seks": {"id": "d360332cc0d7a94e7fb696e0e9d57da564027230", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661722", "wid": "1661722"}, "luchshie-otnosheniya": {"id": "ef0d8bb5a5d3d1a2af1c81aa64f3228cd22aa9c2", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661727", "wid": "1661727"}, "afrodita-podarki": {"id": "877a0b131e15f0914c7d2be76b729951541653a8", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661726", "wid": "1661726"}, "obereg": {"id": "30a102fc84596b9d25046db46006511eb0361146", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661725", "wid": "1661725"}, "zhizn-v-kaif": {"id": "ddee6f0891d0a5035d9fc2992d34231a97f36ba8", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661728", "wid": "1661728"}, "luchshaya-zhizn": {"id": "e05487f1bf97c1617d3c48a5575493845c80a054", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661724", "wid": "1661724"}, "vlastelin": {"id": "788727a56d92e1bce5a52109b7fe8725e2ae5748", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661723", "wid": "1661723"}, "lead": {"id": "403890954ce8e7e91a86519056a29df2d1334501", "src": "https://doctor-saba.com/pl/lite/widget/script?id=1661729", "wid": "1661729"}}, pay=document.getElementById('pay'), slot=document.getElementById('paySlot');
+  function close(){pay.classList.remove('open');document.body.classList.remove('lock');slot.innerHTML=''}
+  pay.addEventListener('click',function(e){if(e.target===pay||e.target.classList.contains('pay-x'))close()});
+  addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[data-product]'); if(!a)return;
+    var w=W[a.dataset.product]; if(!w)return;
+    e.preventDefault();
+    var card=a.closest('.row,.offer,.card,.pack-txt,.k6-buy'), t=card&&card.querySelector('h4,h3,h2,span');
+    var price=card&&card.querySelector('.pr,.offer-price b,.card-price b,.pack-price b,.k6-buy b');
+    document.getElementById('payTitle').textContent=(t?t.textContent:'Оплата').replace(/\s+/g,' ').trim();
+    document.getElementById('payPrice').textContent=price?price.textContent:'';
+    slot.innerHTML='<div class="pay-wait">Загружаем форму оплаты…</div>';
+    pay.classList.add('open');document.body.classList.add('lock');
+    var sc=document.createElement('script'); sc.id=w.id; sc.src=w.src;
+    sc.onload=function(){
+      var f=window['startWidget'+w.id]; if(typeof f==='function') f(); else document.dispatchEvent(new Event('StartWidget'+w.id));
+      var x=slot.querySelector('.pay-wait'); if(x) setTimeout(function(){x.remove()},800);
+    };
+    slot.appendChild(sc);
+  });
+})();
+</script>
+</body>
+</html>
