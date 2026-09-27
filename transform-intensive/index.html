@@ -2631,6 +2631,8 @@ body .lt-block.lt-form:has(#tg-gc-form-thergroup) .row{
     var sc = document.createElement('script');
     if (WIDGET_ID) sc.id = WIDGET_ID;
     sc.src = WIDGET_SRC;
+    /* скрипт виджета GC стартует по DOMContentLoaded; при позднем подключении запускаем его событием */
+    sc.onload = function(){ if (WIDGET_ID) document.dispatchEvent(new Event('StartWidget' + WIDGET_ID)); };
     widgetModal.querySelector('.gcw-body').appendChild(sc);
     function close(){ widgetModal.classList.remove('show'); }
     widgetModal.querySelector('.gcw-close').addEventListener('click', close);
