@@ -160,6 +160,21 @@ h1,h2,h3,.pill,.btn-iri,.btn-buy,.sum-title,.caps{font-family:Unbounded,Montserr
 footer{background:#2b303b;color:#9aa1ad;font-size:13px;padding:34px 0;margin:0 20px;text-align:center}
 footer p+p{margin-top:8px}
 
+
+/* payment popup */
+.pay{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(40,48,64,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.pay.open{display:flex;animation:fade .3s ease}
+@keyframes fade{from{opacity:0}}
+.pay-box{position:relative;width:100%;max-width:520px;max-height:calc(100vh - 32px);overflow:auto;background:#fff;border-radius:28px;padding:30px 24px 24px;box-shadow:0 40px 80px -30px rgba(20,30,50,.6);animation:pop .4s cubic-bezier(.2,.7,.2,1)}
+@keyframes pop{from{transform:translateY(30px) scale(.97);opacity:0}}
+.pay-box:before{content:"";position:absolute;inset:0 0 auto;height:5px;border-radius:28px 28px 0 0;background:var(--iri);background-size:300% 100%;animation:iri 7s linear infinite}
+.pay-x{position:absolute;top:12px;right:14px;width:40px;height:40px;border:0;border-radius:50%;background:var(--panel2);font-size:22px;line-height:40px;cursor:pointer;color:#333}
+.pay-title{font:400 18px/1.25 Unbounded,sans-serif;text-transform:uppercase;padding-right:40px}
+.pay-price{font:300 30px Unbounded,sans-serif;margin:8px 0 14px}
+.pay-slot{min-height:320px}
+.pay-slot iframe{width:100%!important;border:0}
+.pay-wait{color:var(--muted);font-size:14px;text-align:center;padding:40px 0}
+body.lock{overflow:hidden}
 /* reveal */
 .reveal{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
@@ -601,6 +616,15 @@ footer p+p{margin-top:8px}
   <p>Описания отражают ожидаемый эффект практик и не являются гарантией результата. Аудиопрактики не заменяют медицинскую помощь, диагностику и лечение.</p>
 </footer>
 
+<div class="pay" id="pay" role="dialog" aria-modal="true">
+  <div class="pay-box">
+    <button class="pay-x" type="button" aria-label="Закрыть">×</button>
+    <div class="pay-title" id="payTitle"></div>
+    <div class="pay-price" id="payPrice"></div>
+    <div class="pay-slot" id="paySlot"></div>
+  </div>
+</div>
+
 <script>
 // scroll reveal with a small stagger inside each row
 (function(){
@@ -636,6 +660,28 @@ footer p+p{margin-top:8px}
 (function(){
   var bg=document.querySelector('.hero-bg'); if(!bg)return;
   addEventListener('scroll',function(){var y=scrollY; if(y<innerHeight) bg.style.translate='0 '+(y*.25)+'px'},{passive:true});
+})();
+
+// payment popup: GetCourse form widgets load inside the dialog; products without a widget keep the plain link
+(function(){
+  var W={}, pay=document.getElementById('pay'), slot=document.getElementById('paySlot');
+  function close(){pay.classList.remove('open');document.body.classList.remove('lock');slot.innerHTML=''}
+  pay.addEventListener('click',function(e){if(e.target===pay||e.target.classList.contains('pay-x'))close()});
+  addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[data-product]'); if(!a)return;
+    var w=W[a.dataset.product]; if(!w)return;
+    e.preventDefault();
+    var card=a.closest('.card,.pack-txt,.k6-buy'), t=card&&card.querySelector('h4,h2,span');
+    var price=card&&card.querySelector('.card-price b,.pack-price b,.k6-buy b');
+    document.getElementById('payTitle').textContent=(t?t.textContent:'Оплата').replace(/\s+/g,' ').trim();
+    document.getElementById('payPrice').textContent=price?price.textContent:'';
+    slot.innerHTML='<div class="pay-wait">Загружаем форму оплаты…</div>';
+    var sc=document.createElement('script'); sc.id=w.id; sc.src=w.src;
+    sc.onload=function(){var x=slot.querySelector('.pay-wait'); if(x) setTimeout(function(){x.remove()},600)};
+    slot.appendChild(sc);
+    pay.classList.add('open');document.body.classList.add('lock');
+  });
 })();
 </script>
 </body>
