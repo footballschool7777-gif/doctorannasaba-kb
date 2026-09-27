@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>АВТОМАГИЧЕСКИ — аудиопрактики</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#14302b; --ink2:#1d423b; --cream:#f7f1e8; --paper:#fffaf3; --coral:#e2704f; --coral2:#c95a3b;
+  --gold:#c9a45c; --text:#2a2723; --muted:#7b746b; --line:#e7ddcf;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Manrope,system-ui,sans-serif;color:var(--text);background:var(--cream);line-height:1.55;font-size:17px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+h1,h2,h3,h4{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.1}
+a{color:inherit}
+.btn{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-weight:600;padding:15px 30px;border-radius:40px;transition:.2s;white-space:nowrap}
+.btn:hover{background:var(--coral2);transform:translateY(-1px)}
+.btn.gold{background:var(--gold);color:var(--ink)}
+.btn.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.5)}
+
+/* hero */
+.hero{background:radial-gradient(ellipse at 80% 20%,#2c5a50 0%,var(--ink) 55%);color:#f3ece0;padding:28px 0 90px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-160px;top:40px;width:560px;height:560px;border-radius:50%;border:1px solid rgba(201,164,92,.35);box-shadow:0 0 0 60px rgba(201,164,92,.05),0 0 0 140px rgba(201,164,92,.03)}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:14px;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+.hero-in{position:relative;z-index:1;padding-top:80px;max-width:760px}
+.kicker{color:var(--gold);letter-spacing:.2em;text-transform:uppercase;font-size:14px;font-weight:600}
+.hero h1{font-size:clamp(34px,10.2vw,112px);letter-spacing:.02em;margin:14px 0 22px;font-weight:700}
+.hero p.sub{font-size:clamp(19px,2.2vw,23px);max-width:620px;opacity:.92}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:70px;position:relative;z-index:1}
+.fact{border-top:1px solid rgba(255,255,255,.2);padding-top:14px}
+.fact b{display:block;font-family:"Cormorant Garamond",serif;font-size:40px;color:var(--gold);line-height:1}
+.fact span{font-size:15px;opacity:.8}
+
+/* sections */
+section{padding:84px 0}
+.h2{font-size:clamp(34px,5vw,54px);margin-bottom:14px}
+.intro{color:var(--muted);max-width:660px;margin-bottom:40px}
+
+/* how */
+.how{background:var(--paper)}
+.table{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}
+.row{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:10px;padding:18px 24px;border-top:1px solid var(--line);align-items:center}
+.row:first-child{border-top:0;background:var(--ink);color:#f3ece0;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.row b{font-weight:600}
+.row .p{font-weight:700;color:var(--coral2)}
+.note{margin-top:18px;color:var(--muted);font-size:15px}
+
+/* nav of keys */
+.keys-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.keys-nav a{display:flex;gap:14px;align-items:center;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;font-weight:600;transition:.2s}
+.keys-nav a:hover{border-color:var(--coral);transform:translateY(-2px)}
+.keys-nav i{font-style:normal;font-family:"Cormorant Garamond",serif;font-size:30px;color:var(--coral);width:30px}
+
+/* key */
+.key{border-top:1px solid var(--line)}
+.key:nth-of-type(even){background:var(--paper)}
+.key-head{display:grid;grid-template-columns:1fr auto;gap:8px 40px;align-items:end;margin-bottom:36px}
+.key-num{grid-column:1/-1;color:var(--coral);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:14px}
+.key h3{font-size:clamp(34px,4.6vw,52px)}
+.key .lead{color:var(--muted);max-width:620px;grid-column:1}
+.key-buy{grid-column:2;grid-row:2/4;display:flex;flex-direction:column;align-items:flex-end;gap:12px;text-align:right}
+.key-buy b{display:block;font-family:"Cormorant Garamond",serif;font-size:42px;line-height:1}
+.key-buy span{font-size:14px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.card h4{font-size:25px;hyphens:auto;-webkit-hyphens:auto}
+.card p{font-size:15.5px;flex:1}
+.card-foot{display:flex;flex-direction:column;gap:2px;border-top:1px dashed var(--line);padding-top:12px;font-size:14px}
+.price{font-weight:700;font-size:17px}
+.price.muted{font-weight:500;font-size:14px;color:var(--muted)}
+.acc{color:var(--muted)}
+.key6{background:var(--ink)!important;color:#f3ece0}
+.key6 .lead,.key6 .key-buy span{color:#c9c2b5}
+.key6 .key-num{color:var(--gold)}
+.card.dark{background:var(--ink2);border-color:rgba(255,255,255,.1);color:#efe8dc}
+
+/* package */
+.pack{background:linear-gradient(135deg,#f3dfc6,#f7ece0 60%,#fff6ea);}
+.pack-box{background:#fff;border-radius:26px;padding:48px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;box-shadow:0 30px 60px -30px rgba(20,48,43,.35)}
+.pack ol{margin:22px 0 0 22px;display:grid;gap:8px;font-weight:600}
+.pack-price{background:var(--ink);color:#f3ece0;border-radius:20px;padding:32px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.pack-price b{font-family:"Cormorant Garamond",serif;font-size:58px;color:var(--gold);line-height:1}
+.gift{margin-top:26px;border:1.5px dashed var(--coral);border-radius:18px;padding:22px 26px;background:rgba(255,255,255,.6)}
+.gift b{color:var(--coral2)}
+
+/* when */
+.when{background:var(--paper)}
+.when-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.when-grid div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+.when-grid b{display:block;font-family:"Cormorant Garamond",serif;font-size:34px;color:var(--coral)}
+.cta{background:var(--ink);color:#f3ece0;text-align:center}
+.cta p{opacity:.85;max-width:560px;margin:0 auto 30px}
+footer{background:#0e231f;color:#9d978d;font-size:13.5px;padding:30px 0}
+footer p+p{margin-top:8px}
+
+@media(max-width:860px){
+  body{font-size:16px}
+  .facts,.keys-nav,.when-grid{grid-template-columns:1fr 1fr}
+  .key-head{grid-template-columns:1fr}
+  .key-buy{grid-column:1;grid-row:auto;align-items:flex-start;text-align:left;flex-direction:row;justify-content:space-between;width:100%;align-items:center}
+  .pack-box{grid-template-columns:1fr;padding:28px}
+  .row{grid-template-columns:1fr;gap:2px;padding:16px 18px}
+  .row:first-child{display:none}
+  section{padding:60px 0}
+  .hero-in{padding-top:48px}
+}
+@media(max-width:520px){
+  .facts,.keys-nav,.when-grid{grid-template-columns:1fr}
+  .key-buy{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="top"><span>Доктор Анна Саба</span><span>Аудиопрактики</span></div>
+    <div class="hero-in">
+      <div class="kicker">Полный каталог аудиопрактик</div>
+      <h1>АВТОМАГИЧЕСКИ</h1>
+      <p class="sub">Аудиопрактики для тех, кто хочет менять деньги, здоровье, отношения и состояние без постоянного преодоления себя.</p>
+      <div class="hero-btns"><a class="btn" href="#keys">Выбрать ключ</a><a class="btn ghost" href="#pack">Пакет «5 ключей»</a></div>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>6</b><span>тематических ключей</span></div>
+      <div class="fact"><b>25</b><span>аудиопрактик</span></div>
+      <div class="fact"><b>от 1 месяца</b><span>доступа к записи</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="how">
+  <div class="wrap">
+    <h2 class="h2">Как устроены покупка и доступ</h2>
+    <p class="intro">Можно взять одну практику, целый ключ или сразу пять ключей.</p>
+    <div class="table">
+      <div class="row"><span>Что покупаете</span><span>Цена</span><span>Доступ</span></div>
+      <div class="row"><b>Одна аудиопрактика из ключей 1–5</b><span class="p">зависит от записи</span><span>1 месяц</span></div>
+      <div class="row"><b>Один тематический ключ целиком</b><span class="p">39 990 ₽ или 59 990 ₽</span><span>3 месяца</span></div>
+      <div class="row"><b>Пакет «5 ключей» — ключи 1–5</b><span class="p">199 990 ₽</span><span>12 месяцев</span></div>
+      <div class="row"><b>Пакет «5 ключей» в подарок к ПКТ</b><span class="p">без отдельной оплаты</span><span>6 месяцев</span></div>
+      <div class="row"><b>Ключ 6 «Для продвинутых»</b><span class="p">59 990 ₽ за 4 практики</span><span>3 месяца</span></div>
+    </div>
+    <p class="note">Практики из ключей 1–5 продаются и по отдельности. Шестой ключ продаётся только целиком и в пакет «5 ключей» не входит.</p>
+  </div>
+</section>
+
+<section id="keys">
+  <div class="wrap">
+    <h2 class="h2">Шесть ключей</h2>
+    <p class="intro">Каждый ключ посвящён одной сфере жизни. Выберите свою.</p>
+    <nav class="keys-nav"><a href="#key1"><i>1</i>Автомагические деньги</a><a href="#key2"><i>2</i>Автомагическое здоровье</a><a href="#key3"><i>3</i>Автомагическая психика</a><a href="#key4"><i>4</i>Автомагические отношения</a><a href="#key5"><i>5</i>Твоя лучшая автомагическая реальность</a><a href="#key6"><i>6</i>Для продвинутых</a></nav>
+  </div>
+</section>
+
+<section class="key" id="key1">
+  <div class="wrap">
+    <div class="key-head">
+      <span class="key-num">Ключ 1</span>
+      <h3>Автомагические деньги</h3>
+      <p class="lead">Для тех, кому страх и сомнения мешают поднимать чек, говорить о деньгах и выходить на новый уровень дохода.</p>
+      <div class="key-buy"><div><b>39 990 ₽</b><span>весь ключ, доступ 3 месяца</span></div>
+        <a class="btn" href="#buy" data-product="key1">Купить ключ</a></div>
+    </div>
+    <div class="grid">
+<article class="card">
+  <h4>«Деньги база»</h4>
+  <p>Уходят страхи «у меня не получится», которые мешали действовать: поднимать чек, договариваться о повышении, обсуждать деньги. Двигаться к новому финансовому уровню становится легче.</p>
+  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Деньги про»</h4>
+  <p>Вы перестаёте отвлекаться на чужое мнение и сравнение себя с другими. Освобождается энергия, меняется взгляд на свои возможности, появляется мышление лидера. Рост дохода идёт от нового восприятия себя, а не от постоянного преодоления.</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Проявленность»</h4>
+  <p>Вы спокойно заявляете о себе в соцсетях, в профессиональном сообществе, среди коллег. Уходит синдром самозванца, рассказывать о своей экспертности становится легко.</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Предназначение»</h4>
+  <p>Больше энергии и ясности в том, какое дело ваше: через что вы можете реализоваться и зарабатывать больше.</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+    </div>
+  </div>
+</section>
+<section class="key" id="key2">
+  <div class="wrap">
+    <div class="key-head">
+      <span class="key-num">Ключ 2</span>
+      <h3>Автомагическое здоровье</h3>
+      <p class="lead">Восемь практик о теле, энергии, сне и привычках.</p>
+      <div class="key-buy"><div><b>59 990 ₽</b><span>весь ключ, доступ 3 месяца</span></div>
+        <a class="btn" href="#buy" data-product="key2">Купить ключ</a></div>
+    </div>
+    <div class="grid">
+<article class="card">
+  <h4>«Идеальный вес»</h4>
+  <p>Меньше переедания, еда перестаёт управлять днём. Вы едите столько, сколько нужно телу. Практику слушают один раз в день.</p>
+  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Афродита»</h4>
+  <p>Уверенность в себе, ощущение собственной красоты и привлекательности. Практика работает с состоянием, в котором женщина чувствует себя красивой.</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Могучий иммунитет»</h4>
+  <p>Практика настраивает на поддержку собственной иммунной защиты организма.</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Тайна жизненных сил»</h4>
+  <p>Возвращаются энергия, радость и интерес к жизни. Меньше мыслей о собственной ненужности и бессмысленности происходящего.</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Цветущее здоровье»</h4>
+  <p>Опора на собственные ресурсы организма в восстановлении, чтобы оно шло мягче.</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Истинная свобода»</h4>
+  <p>Для тех, кто хочет расстаться с вредной привычкой: курением, алкоголем. Становится меньше само желание к ней возвращаться, без постоянной борьбы с собой.</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Здоровый безмятежный сон»</h4>
+  <p>Естественное засыпание, глубокий сон, полноценное восстановление и лёгкое пробуждение.</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Согласие с миром»</h4>
+  <p>Расслабление, меньше телесного напряжения и ощущения постоянной борьбы.</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+    </div>
+  </div>
+</section>
+<section class="key" id="key3">
+  <div class="wrap">
+    <div class="key-head">
+      <span class="key-num">Ключ 3</span>
+      <h3>Автомагическая психика</h3>
+      <p class="lead">Спокойствие, опора и лёгкость вместо тревоги и гиперконтроля.</p>
+      <div class="key-buy"><div><b>39 990 ₽</b><span>весь ключ, доступ 3 месяца</span></div>
+        <a class="btn" href="#buy" data-product="key3">Купить ключ</a></div>
+    </div>
+    <div class="grid">
+<article class="card">
+  <h4>«Стрессоустойчивость база»</h4>
+  <p>Спокойствие, уверенность и внутренняя стабильность. Повседневные трудности переносятся легче, жизнь перестаёт требовать постоянного напряжения.</p>
+  <div class="card-foot"><span class="price">11 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Внутренняя лёгкость»</h4>
+  <p>Меньше тревоги и гиперконтроля, больше доверия. Уходит необходимость всё держать на себе и перепроверять, внимание идёт на нужные действия.</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Тайна жизненных сил»</h4>
+  <p>Возвращаются энергия, радость и интерес к жизни. Эта же практика входит в ключ «Автомагическое здоровье».</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Афродита»</h4>
+  <p>Уверенность в себе, ощущение собственной красоты и привлекательности. Практика входит и в другие ключи.</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+    </div>
+  </div>
+</section>
+<section class="key" id="key4">
+  <div class="wrap">
+    <div class="key-head">
+      <span class="key-num">Ключ 4</span>
+      <h3>Автомагические отношения</h3>
+      <p class="lead">Для тех, кто хочет отношений, в которых отдыхают, а не воюют.</p>
+      <div class="key-buy"><div><b>39 990 ₽</b><span>весь ключ, доступ 3 месяца</span></div>
+        <a class="btn" href="#buy" data-product="key4">Купить ключ</a></div>
+    </div>
+    <div class="grid">
+<article class="card">
+  <h4>«Лучший секс»</h4>
+  <p>«В результате этой практики вы начинаете заниматься самым лучшим сексом в собственной жизни».</p>
+  <div class="card-foot"><span class="price">22 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Лучшие отношения»</h4>
+  <p>Глубокие и поддерживающие отношения, в которых вы отдыхаете и восстанавливаете силы, а не боретесь друг с другом.</p>
+  <div class="card-foot"><span class="price">22 990 ₽</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Афродита. Подарки»</h4>
+  <p>Вы чувствуете себя женщиной, которой хочется дарить внимание и подарки. Рядом появляются достойные мужчины.</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Оберег от мудаков»</h4>
+  <p>Вы перестаёте зацикливаться на бывшем партнёре и повторять прежний выбор. Начинаете замечать достойных мужчин вместо знакомых неудачных сценариев.</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+    </div>
+  </div>
+</section>
+<section class="key" id="key5">
+  <div class="wrap">
+    <div class="key-head">
+      <span class="key-num">Ключ 5</span>
+      <h3>Твоя лучшая автомагическая реальность</h3>
+      <p class="lead">Меньше сомнений, больше удовольствия от жизни и действий.</p>
+      <div class="key-buy"><div><b>39 990 ₽</b><span>весь ключ, доступ 3 месяца</span></div>
+        <a class="btn" href="#buy" data-product="key5">Купить ключ</a></div>
+    </div>
+    <div class="grid">
+<article class="card">
+  <h4>«Жизнь в кайф»</h4>
+  <p>Больше лёгкости и удовольствия от жизни. Уходят угнетающие чувства и негативные установки, появляется согласие с собой и миром.</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Афродита»</h4>
+  <p>Уверенность в себе, ощущение собственной красоты и привлекательности. Практика входит также в ключи «Здоровье» и «Психика».</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Твоя лучшая жизнь»</h4>
+  <p>Меньше сомнений и тревоги перед действием. Сокращается расстояние между решением и делом: подумали и сделали. Жизнь складывается в вашу сторону.</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+<article class="card">
+  <h4>«Властелин»</h4>
+  <p>Мужская уверенность в себе, ощущение надёжности, силы и привлекательности.</p>
+  <div class="card-foot"><span class="price muted">цена по запросу</span><span class="acc">Доступ 1 месяц</span></div>
+</article>
+    </div>
+  </div>
+</section>
+<section class="key key6" id="key6">
+  <div class="wrap">
+    <div class="key-head">
+      <span class="key-num">Ключ 6</span>
+      <h3>Для продвинутых</h3>
+      <p class="lead">Четыре практики продаются только вместе. Доступ 3 месяца. В пакет «5 ключей» этот ключ не входит.</p>
+      <div class="key-buy"><div><b>59 990 ₽</b><span>4 практики, доступ 3 месяца</span></div>
+        <a class="btn gold" href="#buy" data-product="key6">Купить ключ 6</a></div>
+    </div>
+    <div class="grid">
+<article class="card dark"><h4>«Стрессоустойчивость PRO»</h4><p>Внутренний ресурс, чтобы выдерживать сильный стресс и сохранять контроль над собой.</p></article>
+<article class="card dark"><h4>«Тяжёлый люкс»</h4><p>Вы разрешаете себе более высокий уровень жизни. Дорогие вещи, комфорт и роскошь начинают восприниматься как естественные для вас.</p></article>
+<article class="card dark"><h4>«Лучшая версия себя»</h4><p>Вы решаетесь на то, на что раньше не осмеливались. Меньше страха и тревоги, больше удовлетворённости собой и своей жизнью.</p></article>
+<article class="card dark"><h4>«Скрытая сила»</h4><p>Внутренняя опора и ощущение собственной силы, которые помогают справляться со сложными задачами.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="pack" id="pack">
+  <div class="wrap">
+    <div class="pack-box">
+      <div>
+        <div class="kicker" style="color:var(--coral)">Выгоднее всего</div>
+        <h2 class="h2" style="margin-top:10px">Пакет «5 ключей»</h2>
+        <p>Все пять тематических ключей целиком, на целый год.</p>
+        <ol>
+          <li>«Автомагические деньги»</li>
+          <li>«Автомагическое здоровье»</li>
+          <li>«Автомагическая психика»</li>
+          <li>«Автомагические отношения»</li>
+          <li>«Твоя лучшая автомагическая реальность»</li>
+        </ol>
+      </div>
+      <div class="pack-price">
+        <span>Стоимость пакета</span>
+        <b>199 990 ₽</b>
+        <span>Доступ 12 месяцев. Ключ 6 приобретается отдельно.</span>
+        <a class="btn" href="#buy" data-product="pack5" style="margin-top:14px;text-align:center">Купить пакет</a>
+      </div>
+    </div>
+    <div class="gift"><b>В подарок к ПКТ.</b> Участники ПКТ получают пакет «5 ключей» без отдельной оплаты, доступ 6 месяцев.</div>
+  </div>
+</section>
+
+<section class="when">
+  <div class="wrap">
+    <h2 class="h2">Сроки доступа</h2>
+    <p class="intro">О дате открытия записей сообщим отдельно.</p>
+    <div class="when-grid">
+      <div><b>1 месяц</b>одна запись</div>
+      <div><b>3 месяца</b>целый ключ</div>
+      <div><b>12 месяцев</b>купленный пакет «5 ключей»</div>
+      <div><b>6 месяцев</b>пакет в подарок к ПКТ</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="buy">
+  <div class="wrap">
+    <h2 class="h2">Выберите свой ключ</h2>
+    <p>Оставьте заявку, и менеджер поможет подобрать практики и оформить доступ.</p>
+    <a class="btn" href="#buy" data-product="lead">Оставить заявку</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© АВТОМАГИЧЕСКИ. Аудиопрактики доктора Анны Саба.</p>
+    <p>Описания отражают ожидаемый эффект практик и не являются гарантией результата. Аудиопрактики не заменяют медицинскую помощь, диагностику и лечение.</p>
+  </div>
+</footer>
+</body>
+</html>
