@@ -1,142 +1,119 @@
-<!doctype html>
-<html lang="ru">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Можно выбрать только 2 пункта: расшифровка · Анна Саба</title>
-<meta name="description" content="Отметьте 2 пункта из ролика и получите расшифровку своего сочетания: какое желание за ним стоит, что может мешать и одно действие на неделю с понятным результатом. Например, меньше тревоги о деньгах или звонок от близких без напоминаний.">
-<meta property="og:title" content="Что может мешать получить то, что вы выбрали, и что сделать на этой неделе, чтобы сдвинуть это с места">
-<meta property="og:description" content="Отметьте 2 пункта из ролика и получите расшифровку своего сочетания: какое желание за ним стоит, что может мешать и одно действие на неделю с понятным результатом. Например, меньше тревоги о деньгах или звонок от близких без напоминаний.">
-<meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&family=PT+Serif:ital,wght@0,400;1,400&display=swap">
-<style>
-:root{--bg:#F4F1EC;--surface:#fff;--text:#1c1c1f;--muted:#6b6470;--acc:#7B2338;--acc-ink:#fff;--cream:#FBF5EA;--line:rgba(0,0,0,.09);
---fd:'Inter Tight',system-ui,sans-serif;--fb:'Inter',system-ui,-apple-system,sans-serif;--fs:'PT Serif',Georgia,serif;}
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Что может мешать получить то, что вы выбрали, и что сделать на этой неделе, чтобы сдвинуть это с места · Анна Саба</title><meta name="description" content="Отметьте 2 пункта из ролика и получите расшифровку своего сочетания: какое желание за ним стоит, что может мешать и одно действие на неделю с понятным результатом. Например, меньше тревоги о деньгах или звонок от близких без напоминаний."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Nunito:wght@400;600;700;800&display=swap"><style>
+:root{--bg:#F6EDE6;--card:#FFFFFF;--tint:#F6E3DA;--line:#EBDDD3;--text:#2D2320;--muted:#5F514C;--accent:#984B36;--accent-2:#C98470;--on-accent:#FFFFFF;
+--shadow:0 1px 2px rgba(80,40,30,.06),0 8px 24px -12px rgba(80,40,30,.22);--head:'Lora',Georgia,serif;--body:'Nunito',system-ui,sans-serif}
+:root[data-theme=dark]{--bg:#1C1716;--card:#272020;--tint:#3A2A26;--line:#3E3230;--text:#F0E6E0;--muted:#C6B6AE;--accent:#D98C74;--accent-2:#D98C74;--on-accent:#221A18;--shadow:none}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--text);font:17px/1.55 var(--fb);}
-.wrap{max-width:680px;margin:0 auto;padding:0 16px}
-header.top{padding:18px 0 6px}
-.brand{font:800 14px/1 var(--fd);letter-spacing:.14em;text-transform:uppercase}
-.brand i{display:inline-block;width:9px;height:9px;background:var(--acc);margin:0 7px 1px;vertical-align:middle}
-.eyebrow{font:600 12px/1 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin:22px 0 10px}
-h1{font:800 clamp(28px,7.4vw,40px)/1.12 var(--fd);margin:0 0 14px;letter-spacing:-.01em}
-h2{font:800 clamp(23px,5.6vw,30px)/1.18 var(--fd);margin:0 0 12px}
-.sub{font:400 19px/1.5 var(--fs);margin:0 0 18px;border-left:4px solid var(--acc);padding-left:14px}
-.author{display:flex;gap:12px;align-items:center;color:var(--muted);font-size:14.5px;line-height:1.4}
-.author img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 18%;flex:none}
-section{padding:26px 0}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 18px;box-shadow:0 8px 26px rgba(40,20,30,.06)}
-.how{margin:0 0 16px;color:#38323c}
-.pick-h{font:700 18px/1.3 var(--fd);margin:0 0 10px}
-.pts{display:flex;flex-direction:column;gap:9px}
-.pt{appearance:none;text-align:left;font:500 16.5px/1.35 var(--fb);color:var(--text);background:var(--cream);border:2px solid #eadfcb;border-radius:12px;padding:12px 14px;cursor:pointer;transition:border-color .15s,background .15s}
-.pt b{color:var(--acc);margin-right:4px}
-.pt[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
-.pt[aria-pressed="true"] b{color:#fff}
-.cnt{font-size:14px;color:var(--muted);margin:10px 2px 0}
-#res{display:none;margin-top:20px}
+body{margin:0;background:var(--bg);color:var(--text);font:400 18px/1.62 var(--body);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+p{margin:0 0 14px}
+.hd{position:sticky;top:0;z-index:50;background:var(--bg);box-shadow:0 1px 0 var(--line)}
+.hd-in{max-width:680px;margin:0 auto;height:58px;padding:0 16px;display:flex;align-items:center;gap:12px}
+.logo{font-family:var(--head);font-weight:700;font-size:20px}
+.hd-nav{display:none;gap:18px;font-size:15px;color:var(--muted)}
+.sp{flex:1}
+.tgl{width:38px;height:38px;border:0;border-radius:12px;display:grid;place-items:center;background:var(--card);color:var(--text);cursor:pointer;padding:0;box-shadow:var(--shadow)}
+.tgl svg{width:16px;height:16px}.tgl .ic-sun{display:none}
+:root[data-theme=dark] .tgl .ic-sun{display:block}:root[data-theme=dark] .tgl .ic-moon{display:none}
+.hd-btn{font-weight:800;font-size:15px;padding:9px 16px;border-radius:12px;background:var(--accent);color:var(--on-accent)}
+@media(min-width:640px){.hd-nav{display:flex}}
+main{max-width:600px;margin:0 auto;padding:16px 16px 0}
+.card{background:var(--card);border-radius:22px;padding:22px 18px;box-shadow:var(--shadow);margin:0 0 14px}
+.who{display:flex;align-items:center;gap:14px;margin:0 0 18px}
+.who img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center 18%;box-shadow:0 0 0 3px var(--tint)}
+.who .nm{font-family:var(--head);font-weight:700;font-size:19px;line-height:1.2}
+.who .cap{font-size:15px;color:var(--muted);margin:0}
+h1{font-family:var(--head);font-weight:700;font-size:34px;line-height:1.15;margin:0 0 14px}
+.lead{font-size:19px;margin:0 0 16px}
+.chip{display:inline-block;background:var(--tint);color:var(--text);font-size:15px;font-weight:700;padding:8px 14px;border-radius:14px;margin:0}
+.steps-how{counter-reset:s;list-style:none;margin:0;padding:0}
+.steps-how li{counter-increment:s;position:relative;padding:0 0 0 50px;margin:0 0 16px;min-height:34px}
+.steps-how li:last-child{margin:0}
+.steps-how li::before{content:counter(s);position:absolute;left:0;top:-2px;width:34px;height:34px;border-radius:50%;background:var(--accent);color:var(--on-accent);font-weight:800;font-size:16px;display:grid;place-items:center}
+section{padding:26px 0 0}
+h2{font-family:var(--head);font-weight:700;font-size:28px;line-height:1.2;margin:0 0 14px;padding:0 2px}
+.det{background:var(--card);border-radius:18px;box-shadow:var(--shadow);margin:0 0 12px;overflow:hidden}
+.det summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:14px 50px 14px 14px;position:relative;font-weight:800;font-size:18px;line-height:1.3}
+.det summary::-webkit-details-marker{display:none}
+.det summary::after{content:'+';position:absolute;right:14px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:var(--tint);color:var(--accent);display:grid;place-items:center;font-size:20px;font-weight:700;line-height:1}
+.det[open] summary::after{content:'\2212'}
+.num{flex:none;min-width:48px;height:48px;padding:0 8px;border-radius:14px;background:var(--tint);color:var(--accent);font-family:var(--head);font-weight:700;font-size:18px;display:grid;place-items:center;white-space:nowrap}
+.det .in{padding:0 16px 16px}
+.kv{border-top:1px solid var(--line);padding:12px 0 0;margin:12px 0 0}
+.kv h4{margin:0 0 4px;font-size:15px;font-weight:800;color:var(--accent)}
+.kv p{margin:0}
+.phr{margin:10px 0 0;padding:0;list-style:none}
+.phr li{background:var(--tint);border-radius:18px 18px 18px 4px;padding:10px 14px;margin:8px 0;font-family:var(--head);font-style:italic;font-weight:500;font-size:18px;line-height:1.45}
+.note{font-size:15.5px;color:var(--muted);margin:4px 2px 0}
+.safety{background:var(--tint);border-radius:16px;padding:14px 16px;font-size:16px;margin:12px 0 0}
+.cta{background:var(--card);border-radius:24px;box-shadow:var(--shadow);margin:30px 0 14px;overflow:hidden;padding:0 18px 22px}
+.cta .eyebrow{margin:0 -18px 18px;background:var(--accent);color:var(--on-accent);font-weight:800;font-size:15px;padding:12px 18px}
+.cta .ttl{font-family:var(--head);font-weight:700;font-size:26px;line-height:1.22;margin:0 0 10px}
+.cta .sub{color:var(--muted)}
+.cta h3{font-family:var(--head);font-weight:700;font-size:20px;margin:22px 0 8px}
+.cta ul{margin:0;padding:0;list-style:none}
+.cta li{position:relative;padding-left:32px;margin:0 0 10px}
+.cta li::before{content:'';position:absolute;left:0;top:4px;width:22px;height:22px;border-radius:50%;background:var(--tint)}
+.cta li::after{content:'';position:absolute;left:8px;top:8px;width:5px;height:10px;border-right:2.5px solid var(--accent);border-bottom:2.5px solid var(--accent);transform:rotate(45deg)}
+.price{background:var(--tint);border-radius:16px;padding:14px 16px;font-size:18px;margin:22px 0 16px}
+.promo{background:var(--accent);color:var(--on-accent);padding:1px 10px;border-radius:8px;letter-spacing:.05em}
+.cta-btn{display:block;text-align:center;background:var(--accent);color:var(--on-accent);font-weight:800;font-size:19px;padding:18px 16px;border-radius:16px;box-shadow:0 10px 22px -10px rgba(152,75,54,.8)}
+.after{font-size:15.5px;color:var(--muted);text-align:center;margin:12px 0 0}
+.author-sec{background:var(--card);border-radius:22px;padding:20px 18px 8px;box-shadow:var(--shadow);margin:0 0 26px}
+.author{display:flex;gap:14px;align-items:center;margin:0 0 12px}
+.author img{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center 18%}
+.author .nm{font-family:var(--head);font-weight:700;font-size:20px}
+.author .cap{color:var(--muted);margin:0}
+.ft{padding:22px 0 30px;border-top:1px solid var(--line)}
+.ft-in{max-width:600px;margin:0 auto;padding:0 16px;display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center}
+.ft-links{display:flex;gap:20px;font-size:16px;font-weight:700}
+.ft-links a{color:var(--accent)}
+.ft-bot{flex-basis:100%;font-size:14px;color:var(--muted)}
+
+strong{font-weight:800;color:var(--text)}
+mark{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 92%,transparent 92%);color:inherit;padding:0 3px;border-radius:4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+:root{--hl:#F7D9C8}:root[data-theme=dark]{--hl:#5A3A30}
+.lead strong,.card strong{color:var(--accent)}
+
+.stk{position:fixed;left:0;right:0;bottom:0;z-index:150;padding:10px 12px calc(10px + env(safe-area-inset-bottom));transform:translateY(120%);transition:transform .35s ease;pointer-events:none}
+.stk.on{transform:none;pointer-events:auto}
+.stk-in{max-width:600px;margin:0 auto;background:var(--card);border-radius:20px;box-shadow:0 12px 34px -8px rgba(60,30,20,.45);padding:12px 12px 12px 16px;display:flex;align-items:center;gap:12px;position:relative}
+.stk-t{flex:1;min-width:0;font-size:14.5px;line-height:1.3;color:var(--muted)}
+.stk-t b{display:block;font-family:var(--head);font-size:16px;color:var(--text);font-weight:700}
+.stk-b{flex:none;background:var(--accent);color:var(--on-accent);font-weight:800;font-size:16px;padding:12px 16px;border-radius:14px}
+.stk-x{position:absolute;top:-10px;right:-4px;width:28px;height:28px;border-radius:50%;border:0;background:var(--card);color:var(--muted);box-shadow:var(--shadow);font-size:18px;line-height:1;cursor:pointer}
+body.has-stk .ft{padding-bottom:110px}
+.psh{position:fixed;left:0;right:0;bottom:0;z-index:160;padding:10px 12px calc(12px + env(safe-area-inset-bottom));transform:translateY(130%);transition:transform .35s ease;pointer-events:none}
+.psh.on{transform:none;pointer-events:auto}
+.psh-in{max-width:600px;margin:0 auto;background:var(--card);border-radius:18px;box-shadow:0 12px 34px -8px rgba(60,30,20,.45);padding:12px 14px;display:flex;align-items:center;gap:12px;cursor:pointer}
+.psh-ic{flex:none;width:40px;height:40px;border-radius:50%;background:var(--tint);color:var(--accent);display:grid;place-items:center;font-weight:800;font-size:18px}
+.psh-t{font-size:15px;line-height:1.35;color:var(--text)}
+
+.gcw-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(21,18,24,.66);padding:16px}
+.gcw-modal.show{display:flex}
+.gcw-box{position:relative;background:#fff;color:#1c1c1f;border-radius:18px;width:min(560px,100%);max-height:92vh;overflow:auto;padding:28px 20px 20px}
+.gcw-close{position:absolute;top:8px;right:12px;border:0;background:none;font-size:28px;line-height:1;cursor:pointer;color:#1c1c1f}
+
+.pts{display:flex;flex-direction:column;gap:10px;margin:6px 0 0}
+.pt{appearance:none;text-align:left;font:600 17px/1.35 var(--body);color:var(--text);background:var(--tint);border:2px solid transparent;border-radius:14px;padding:13px 14px;cursor:pointer}
+.pt b{color:var(--accent);margin-right:4px}
+.pt[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+.pt[aria-pressed="true"] b{color:var(--on-accent)}
+.pick-h{font-family:var(--head);font-weight:700;font-size:21px;margin:14px 0 6px}
+.cnt{font-size:15px;color:var(--muted);margin:10px 2px 0}
+#res{display:none;margin-top:14px}
 #res.on{display:block;animation:fi .35s ease}
 @keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.r-title{font:800 24px/1.2 var(--fd);color:var(--acc);margin:0 0 14px}
-.r-pair{font-size:13.5px;color:var(--muted);margin:0 0 6px;letter-spacing:.02em}
-.r-row{margin:0 0 14px}
-.r-row .lb{display:block;font:700 12px/1 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.r-row p{margin:0}
-.r-step{background:var(--cream);border-radius:12px;padding:14px}
-.r-un{border-top:1px solid var(--line);margin-top:16px;padding-top:14px;font-size:15.5px;color:#38323c}
-.bridge p{margin:0 0 12px}
-.ev .lead{font:400 18px/1.5 var(--fs);margin:0 0 16px}
-.ev h3{font:700 18px/1.3 var(--fd);margin:20px 0 10px}
-.chk{list-style:none;padding:0;margin:0}
-.chk li{position:relative;padding-left:26px;margin:0 0 7px}
-.chk li:before{content:"";position:absolute;left:2px;top:.5em;width:12px;height:7px;border-left:2.5px solid var(--acc);border-bottom:2.5px solid var(--acc);transform:rotate(-45deg)}
-.dots{margin:10px 0 0;padding-left:20px}
-.dots li{margin:0 0 5px}
-.steps{list-style:none;padding:0;margin:0}
-.steps li{display:flex;gap:12px;margin:0 0 12px}
-.sn{flex:none;width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;font:700 14px/28px var(--fd);text-align:center}
-.bonuses{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
-.bonus{background:#faf8f5;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:15.5px}
-.bonus.hot{border:2px solid var(--acc);background:#fff}
-.bhot{display:block;font:700 11.5px/1 var(--fb);letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:6px}
-.price{text-align:center;margin:22px 0 12px;font-size:16px}
-.price s{color:var(--muted)}
-.zero{color:var(--acc);font-size:1.15em}
-.promo{display:flex;justify-content:center;align-items:center;gap:10px;margin:0 0 14px;font-size:14.5px;color:var(--muted)}
-.promo code{font:700 16px/1 var(--fd);color:var(--text);background:var(--cream);border:1.5px dashed var(--acc);border-radius:8px;padding:8px 12px;letter-spacing:.06em}
-.promo button{border:0;background:none;color:var(--acc);font:600 14px var(--fb);cursor:pointer;text-decoration:underline}
-.cta{display:block;width:100%;text-align:center;background:var(--acc);color:var(--acc-ink);font:700 18px/1.2 var(--fd);padding:17px 16px;border-radius:14px;text-decoration:none;box-shadow:0 8px 22px rgba(123,35,56,.28)}
-.cta:active{transform:translateY(1px)}
-.note{text-align:center;font-size:13.5px;color:var(--muted);margin:10px 0 0}
-footer{padding:26px 0 40px;text-align:center;color:var(--muted);font-size:13.5px}
-/* GetCourse widget modal, same as /transform-intensive/ */
-.gcw-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(30,14,20,.62);padding:16px}
-.gcw-modal.show{display:flex}
-.gcw-box{position:relative;background:#fff;border-radius:18px;width:min(560px,100%);max-height:92vh;overflow:auto;padding:28px 20px 20px}
-.gcw-close{position:absolute;top:8px;right:12px;border:0;background:none;font-size:28px;line-height:1;cursor:pointer;color:#15211A}
-</style>
-</head>
-<body>
-<header class="top"><div class="wrap"><div class="brand">Анна<i></i>Саба</div></div></header>
-<main>
-<section style="padding-top:4px"><div class="wrap">
-<div class="eyebrow">Что скрывает ваше бессознательное · 3 минуты</div>
-<h1>Что может мешать получить то, что вы выбрали, и что сделать на этой неделе, чтобы сдвинуть это с места</h1>
-<p class="sub">Отметьте 2 пункта из ролика и получите расшифровку своего сочетания: какое желание за ним стоит, что может мешать и одно действие на неделю с понятным результатом. Например, меньше тревоги о деньгах или звонок от близких без напоминаний.</p>
-<div class="author"><img src="../media/anna.jpg" alt="Анна Саба" width="56" height="56"><span>Анна Саба, врач, психотерапевт. 10 лет практики, более 7 000 клиентов.</span></div>
-</div></section>
-
-<section id="pick"><div class="wrap"><div class="card">
-<p class="how">Выбор из пяти хороших вариантов нередко подсказывает, чего сейчас не хватает больше всего. Когда понятно, какое желание стоит за выбором и что может мешать, легче выбрать одно действие, которое сдвинет именно его, а не браться за всё сразу. Это не диагноз, а подсказка.</p>
-<p class="pick-h">Отметьте 2 пункта</p>
-<div class="pts">
-<button type="button" class="pt" data-n="1" aria-pressed="false"><b>1.</b> Мужчина, рядом с которым спокойно</button>
+.r-pair{font-size:15px;color:var(--muted);margin:0 0 4px}
+.r-title{font-family:var(--head);font-weight:700;font-size:25px;line-height:1.2;color:var(--accent);margin:0 0 6px}
+.r-un{border-top:1px solid var(--line);margin-top:14px;padding-top:12px;font-size:16.5px}
+.r-un ul{margin:8px 0 0;padding-left:20px}
+.steps3{list-style:none;padding:0;margin:0}.steps3 li{padding-left:0}.steps3 li::before,.steps3 li::after{display:none}
+</style><script>(function(){var d=document.documentElement;function set(t){d.setAttribute('data-theme',t);}var q=(location.search.match(/[?&]theme=(dark|light)/)||[])[1];var s=null;try{s=localStorage.getItem('vi-theme');}catch(e){}set(q||s||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));document.addEventListener('click',function(e){var b=e.target.closest('.tgl');if(!b)return;var n=d.getAttribute('data-theme')==='dark'?'light':'dark';set(n);try{localStorage.setItem('vi-theme',n);}catch(err){}});})();</script></head><body><header class="hd"><div class="hd-in"><a class="logo" href="/">Анна Саба</a><nav class="hd-nav"><a href="/">Все материалы</a><a href="/about/">Обо мне</a></nav><span class="sp"></span><button class="tgl" type="button" aria-label="Сменить тему"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/></svg></button><a class="hd-btn" href="#intensiv">Интенсив</a></div></header><main><div class="card hero"><div class="who"><img src="/media/anna-smile-bw.jpg" alt="Анна Саба"><div><div class="nm">Анна Саба</div><p class="cap">врач, психотерапевт</p></div></div><h1>Что может мешать получить то, что вы выбрали, и что сделать на этой неделе, чтобы сдвинуть это с места</h1><p class="lead">Отметьте 2 пункта из ролика и получите расшифровку своего сочетания: какое желание за ним стоит, что может мешать и одно действие на неделю с понятным результатом. Например, меньше тревоги о деньгах или звонок от близких без напоминаний.</p><p class="chip">Читать 3 минуты</p></div><section id="pick"><h2>Ваши 2 пункта</h2><div class="card"><p>Выбор из пяти хороших вариантов нередко подсказывает, чего сейчас не хватает больше всего. Когда понятно, какое желание стоит за выбором и что может мешать, легче выбрать одно действие, которое сдвинет именно его, а не браться за всё сразу. Это не диагноз, а подсказка.</p><p class="pick-h">Отметьте 2 пункта</p><div class="pts"><button type="button" class="pt" data-n="1" aria-pressed="false"><b>1.</b> Мужчина, рядом с которым спокойно</button>
 <button type="button" class="pt" data-n="2" aria-pressed="false"><b>2.</b> Дети, которые звонят сами</button>
 <button type="button" class="pt" data-n="3" aria-pressed="false"><b>3.</b> Лёгкость в теле и крепкое здоровье</button>
 <button type="button" class="pt" data-n="4" aria-pressed="false"><b>4.</b> Деньги без вечного «а хватит ли»</button>
-<button type="button" class="pt" data-n="5" aria-pressed="false"><b>5.</b> Дело, в котором вы на своём месте</button>
-</div>
-<p class="cnt" id="cnt">Выбрано 0 из 2</p>
-<div id="res" aria-live="polite">
-<p class="r-pair" id="rPair"></p>
-<h2 class="r-title" id="rTitle"></h2>
-<div class="r-row"><span class="lb">Что стоит за выбором</span><p id="rW"></p></div>
-<div class="r-row r-step"><span class="lb">Что сделать на этой неделе</span><p id="rO"></p></div>
-<div class="r-row"><span class="lb">Что это даст</span><p id="rS"></p></div>
-<div class="r-un" id="rUn"></div>
-</div>
-</div></div></section>
-
-<section class="bridge"><div class="wrap">
-<h2>Почему желаемое не приходит, даже когда ясно, чего хотите</h2>
-<p>Расшифровка показала, что может мешать, а действие на неделю поможет сдвинуться. Но если желаемое не приходит годами, за этим нередко стоят старые страхи и убеждения, и одним действием их не убрать.</p><p>На онлайн-интенсиве я показываю, как их найти и начать с ними работать, и вы уходите с пошаговым планом в сфере, которая сейчас важнее: деньги, отношения, здоровье или своё дело.</p>
-</div></section>
-
-<section class="ev" id="intensiv"><div class="wrap"><div class="card">
-<div class="eyebrow" style="margin-top:0">Онлайн-интенсив Анны Саба</div>
-<h2>Система перехода в новую реальность за 24 часа</h2>
-<p class="lead">Ближайший поток. Для финансов, отношений, здоровья и своего дела.</p>
-<h3>Кому подойдёт, если</h3>
-<ul class="chk"><li>Чувствуете, что пора что-то менять, но не знаете, как</li><li>Есть ощущение «вот-вот получится», но это «вот-вот» никак не наступает</li><li>Многое пробовали, но откатывались назад</li></ul>
-<h3>Что получите</h3>
-<p style="margin:0">Пошаговый план к своему результату в одной сфере. Например, решиться поднять цену или попросить прибавку; строить отношения, не оглядываясь на «меня не выберут»; начать возвращать силы, когда тело живёт в тревоге и зажиме; понять своё дело и начать действовать.</p>
-<h3>Что будет: 3 эфира</h3>
-<ol class="steps"><li><span class="sn">1</span><span><b>«Свобода от прошлого»</b><br>находите то, что годами держало на месте.</span></li><li><span class="sn">2</span><span><b>«Энергия и уровень счастья»</b><br>видите, куда каждый день утекают силы, и учитесь их возвращать.</span></li><li><span class="sn">3</span><span><b>«Как получать желаемое без откатов и саботажа»</b><br>ставите свою цель, получаете пошаговый план и первые действия.</span></li></ol>
-<h3>Метод</h3>
-<p style="margin:0">КПТ, когнитивно-поведенческая терапия, помогает найти убеждения, которые мешают. ДПДГ (EMDR 3.0), десенсибилизация и переработка движением глаз, работает с реакцией тела: страхом, тревогой, зажимом.</p>
-<h3>4 бонуса сразу после записи</h3>
-<ul class="bonuses"><li class="bonus hot"><span class="bhot">Ближе всего к вашей расшифровке</span><span>Расстановочная практика «Почему у меня до сих пор нет того, чего я хочу», 20 минут: помогает понять, что мешает получить желаемое.</span></li><li class="bonus"><span>Демонстрационная сессия ДПДГ, 40 минут: почувствуете, как работает метод, и поймёте, подходит ли он вам.</span></li><li class="bonus"><span>Доступ в чат «Автомагически»: ежедневная практика внимания, чтобы замечать возможности, а не только проблемы.</span></li><li class="bonus"><span>Тест «Где мой затык и что мешает выйти на новый уровень?» с расшифровкой: покажет, какая установка держит на месте и в какой сфере, и что с этим делать.</span></li></ul>
-<p class="price">Обычная цена <s>4&nbsp;990&nbsp;₽</s>, по промокоду <b>ВЫБОР</b> участие <b class="zero">0&nbsp;₽</b>, в форме записи уже стоит 0 ₽.</p>
-<div class="promo"><span>Промокод</span><code>ВЫБОР</code><button type="button" id="copyPromo">копировать</button></div>
-<a class="cta" href="https://doctor-saba.com/intensive?utm_source=kb&amp;utm_medium=magnet&amp;utm_campaign=dva_punkta" data-reg>Записаться за 0 ₽</a>
-<p class="note">Откроется здесь же, на этой странице.</p>
-</div></div></section>
-</main>
-<footer>Анна Саба, врач, психотерапевт</footer>
-<script>
+<button type="button" class="pt" data-n="5" aria-pressed="false"><b>5.</b> Дело, в котором вы на своём месте</button></div><p class="cnt" id="cnt">Выбрано 0 из 2</p><div id="res" aria-live="polite"><p class="r-pair" id="rPair"></p><h2 class="r-title" id="rTitle"></h2><div class="kv"><h4>Что стоит за выбором</h4><p id="rW"></p></div><div class="kv"><h4>Что сделать на этой неделе</h4><p><strong id="rO"></strong></p></div><div class="kv"><h4>Что это даст</h4><p><mark id="rS"></mark></p></div><div class="r-un" id="rUn"></div></div></div></section><section><h2>Почему желаемое не приходит, даже когда ясно, чего хотите</h2><div class="card"><p>Расшифровка показала, что может мешать, а действие на неделю поможет сдвинуться. Но если желаемое не приходит годами, за этим нередко стоят старые страхи и убеждения, и одним действием их не убрать.</p><p>На онлайн-интенсиве я показываю, как их найти и начать с ними работать, и вы уходите с пошаговым планом в сфере, которая сейчас важнее: деньги, отношения, здоровье или своё дело.</p></div></section><section class="cta" id="intensiv"><p class="eyebrow">Онлайн-интенсив Анны Саба</p><h2 class="ttl">Система перехода в новую реальность за 24 часа</h2><p class="sub">Ближайший поток. Для финансов, отношений, здоровья и своего дела.</p><h3>Кому подойдёт, если</h3><ul><li>Чувствуете, что пора что-то менять, но не знаете, как</li><li>Есть ощущение «вот-вот получится», но это «вот-вот» никак не наступает</li><li>Многое пробовали, но откатывались назад</li></ul><h3>Что получите</h3><p><strong>Пошаговый план к своему результату в одной сфере.</strong> Например, решиться поднять цену или попросить прибавку; строить отношения, не оглядываясь на «меня не выберут»; начать возвращать силы, когда тело живёт в тревоге и зажиме; понять своё дело и начать действовать.</p><h3>Что будет: 3 эфира</h3><ul><li><b>«Свобода от прошлого»</b><br>находите то, что годами держало на месте.</li><li><b>«Энергия и уровень счастья»</b><br>видите, куда каждый день утекают силы, и учитесь их возвращать.</li><li><b>«Как получать желаемое без откатов и саботажа»</b><br>ставите свою цель, получаете пошаговый план и первые действия.</li></ul><h3>Метод</h3><p>КПТ, когнитивно-поведенческая терапия, помогает найти убеждения, которые мешают. ДПДГ (EMDR 3.0), десенсибилизация и переработка движением глаз, работает с реакцией тела: страхом, тревогой, зажимом.</p><h3>4 бонуса сразу после записи</h3><ul><li>Расстановочная практика «Почему у меня до сих пор нет того, чего я хочу», 20 минут: помогает понять, что мешает получить желаемое.</li><li>Демонстрационная сессия ДПДГ, 40 минут: почувствуете, как работает метод, и поймёте, подходит ли он вам.</li><li>Доступ в чат «Автомагически»: ежедневная практика внимания, чтобы замечать возможности, а не только проблемы.</li><li>Тест «Где мой затык и что мешает выйти на новый уровень?» с расшифровкой: покажет, какая установка держит на месте и в какой сфере, и что с этим делать.</li></ul><p class="price">Обычная цена 4 990 ₽. По промокоду <b class="promo">ВЫБОР</b> участие 0 ₽.</p><a class="cta-btn" href="#" data-reg>Записаться за 0 ₽</a><p class="after">Форма откроется здесь же, в ней уже стоит 0 ₽.</p></section><section class="author-sec"><div class="author"><img src="/media/anna-smile-bw.jpg" alt="Анна Саба" loading="lazy"><div><div class="nm">Анна Саба</div><p class="cap">врач, психотерапевт</p></div></div><p>10 лет практики, более 7000 клиентов. Сеченовский университет, центр имени Сербского, РУДН.</p></section></main><div class="psh" id="psh" role="status"><div class="psh-in"><span class="psh-ic">✓</span><div class="psh-t"></div></div></div><script>window.PSH_MSGS=[];</script><div class="stk" id="stk"><div class="stk-in"><button class="stk-x" type="button" aria-label="Скрыть">×</button><div class="stk-t"><b>Интенсив «Система перехода в новую реальность за 24 часа»</b>По промокоду ВЫБОР – 0 ₽</div><a class="stk-b" href="#" data-reg>Записаться</a></div></div><script>
 (function(){
   var D = {"points": ["Мужчина, рядом с которым спокойно", "Дети, которые звонят сами", "Лёгкость в теле и крепкое здоровье", "Деньги без вечного «а хватит ли»", "Дело, в котором вы на своём месте"], "d": {"12": {"t": "«Хочу, чтобы обо мне заботились»", "w": "Такой выбор нередко делают те, кто первыми звонят, напоминают и сглаживают углы. Хочется получать заботу просто так, а может мешать привычка всё делать самой и ждать, что другие догадаются.", "o": "Вместо того чтобы снова звонить первой, прямо попросите близкого: «Позвони мне в воскресенье».", "s": "Вы проверите, как близкие откликаются на прямую просьбу. Нередко это первый звонок, которого не пришлось ждать, и меньше обиды за «опять я первая»."}, "13": {"t": "«Хочу выдохнуть»", "w": "Спокойный мужчина и лёгкость в теле могут говорить об одном: хочется расслабиться. Может мешать то, что тело годами держится в напряжении, будто всё время нужно быть начеку.", "o": "Каждый вечер найдите место в теле, где больше всего напряжения, и сделайте 5 медленных выдохов, каждый длиннее вдоха.", "s": "Тело начнёт вспоминать, как отпускать напряжение. Часто так легче засыпать, к вечеру меньше раздражения и проще быть рядом с человеком, не держа оборону."}, "14": {"t": "«Хочу на кого-то опереться»", "w": "Мужчину и деньги без тревоги нередко выбирают те, кто привык отвечать за всё сама. Может мешать страх: «если я расслаблюсь, всё развалится».", "o": "Отдайте одно дело другому человеку, например покупку продуктов или запись к врачу, и не переделывайте после него.", "s": "Вы проверите на деле, что будет, если не держать всё самой. Чаще всего ничего не рушится. Освободятся время и силы, и станет проще принимать помощь."}, "15": {"t": "«Хочу быть собой и не подстраиваться»", "w": "Спокойный мужчина и дело на своём месте говорят об одном: хочется, чтобы вас принимали такой, какая вы есть. Может мешать привычка соглашаться, чтобы никого не расстроить.", "o": "Скажите одно спокойное «нет» там, где обычно соглашаетесь. Начните с мелочи.", "s": "Меньше сил уйдёт на чужие ожидания, и станет видно, кто остаётся рядом, когда вы говорите своё. Это первый шаг и к спокойным отношениям, и к делу, где не нужно подстраиваться."}, "23": {"t": "«Хочу, чтобы силы оставались и на меня»", "w": "Дети и собственное тело в одном выборе могут говорить о том, что силы уходят в основном на других. Может мешать ощущение, что время на себя нужно заслужить.", "o": "3 раза по 15 минут займитесь тем, что нравится именно вам, и отметьте это в календаре заранее.", "s": "В неделе появится время, когда силы восполняются, и к близким проще приходить не выжатой. В таком состоянии общение часто становится теплее с обеих сторон."}, "24": {"t": "«Хочу, чтобы у моих всё было хорошо»", "w": "Дети и деньги рядом часто значат одно: хочется быть спокойной за близких. Может мешать ощущение, что спокойнее станет, только когда всё будет обеспечено, и это «когда» всё отодвигается.", "o": "Выпишите, что у вас уже есть на случай трудностей: люди, умения, опыт, запасы.", "s": "Тревогу «а хватит ли» обычно легче выдерживать, потому что запас прочности будет перед глазами. На спокойную голову проще решать и про деньги, и про помощь детям."}, "25": {"t": "«Хочу, чтобы меня ценили»", "w": "Дети, которые звонят сами, и дело, где вы на своём месте, говорят о признании. Может мешать давний опыт: внимание получаешь, только если очень стараться.", "o": "Запишите 3 случая за последний месяц, когда вас благодарили или когда вы были довольны собой.", "s": "Вы начнёте замечать признание, которое уже есть, и меньше зависеть от чужой похвалы. Станет легче просить о своём: о звонке, о прибавке, о цене за работу."}, "34": {"t": "«Хочу почувствовать почву под ногами»", "w": "Здоровье и деньги – две главные опоры безопасности. Может мешать то, что психика давно бережёт силы на всякий случай: экономит, пересчитывает, перепроверяет.", "o": "В течение дня замечайте, когда тянет пересчитать деньги или проверить самочувствие, и что вы чувствуете в этот момент.", "s": "Вы увидите, в какие моменты включается тревога, и начнёте отличать настоящий повод от привычки. Меньше сил уйдёт на проверки, больше останется на жизнь. Если самочувствие беспокоит всерьёз, покажитесь врачу."}, "35": {"t": "«Хочу делать своё и не выдыхаться»", "w": "Энергия и своё дело идут в паре. Может мешать то, что много сил уходит на чужие задачи. Если усталость не проходит неделями, стоит проверить здоровье у врача.", "o": "Каждый вечер записывайте, после какого дела сил стало больше, а после какого – меньше.", "s": "Через неделю будет список дел, которые дают силы, и тех, что их забирают. С ним проще решить, что оставить, а что отдать или убрать, чтобы на своё хватало энергии."}, "45": {"t": "«Хочу зарабатывать любимым делом»", "w": "Деньги и своё место рядом говорят о желании, чтобы доход приносило то, что нравится. Может мешать тихая установка: «за то, что нравится, много не платят».", "o": "Назовите одно своё умение, за которое вас уже благодарят или о котором просят, и напишите, сколько готовы за него брать. Это можно сделать, даже если вы работаете по найму.", "s": "У вас появится первое конкретное предложение, с которым можно выйти к людям, и станет видно, где любимое дело уже может приносить деньги."}}, "unchosen": "Теперь посмотрите на 3 пункта, которые вы отпустили. Иногда там то, что уже есть, а иногда то, что вы давно отложили. Если какой-то пункт было жалко отпускать, запишите его в заметки: возможно, это ваш следующий шаг, когда выбранное сдвинется."};
   var sel = [];
@@ -173,37 +150,75 @@ footer{padding:26px 0 40px;text-align:center;color:var(--muted);font-size:13.5px
   var m = /[?&]v=([1-5])([1-5])/.exec(location.search);
   if (m && m[1] !== m[2]){ sel = [+m[1], +m[2]]; render(false); }
 
-  /* promo copy */
-  var cp = document.getElementById('copyPromo');
-  cp.addEventListener('click', function(){
-    try { navigator.clipboard.writeText('ВЫБОР').then(function(){ cp.textContent = 'скопирован'; }); } catch(e){}
-  });
-
-  /* GetCourse widget popup, same widget as /transform-intensive/ */
+})();
+</script>
+<footer class="ft"><div class="ft-in"><a class="logo" href="/">Анна Саба</a><nav class="ft-links"><a href="/">Все материалы</a><a href="/about/">Обо мне</a></nav><div class="ft-bot">Анна Саба · @dr.saba_dusalieva</div></div></footer>
+<script>
+(function(){
+  var REG_URL = 'https://doctor-saba.com/intensive?utm_source=kb&utm_medium=magnet&utm_campaign=dva_punkta';
   var WIDGET_SRC = 'https://doctor-saba.com/pl/lite/widget/script?id=1661629';
   var WIDGET_ID  = '4ae3c60fe1628793aa6d41afd43f6c731db91193';
   var modal = null;
   function build(){
     modal = document.createElement('div');
     modal.className = 'gcw-modal';
-    modal.innerHTML = '<div class="gcw-box" role="dialog" aria-modal="true"><button type="button" class="gcw-close" aria-label="Закрыть">×</button><div class="gcw-body"></div></div>';
+    modal.innerHTML = '<div class="gcw-box" role="dialog" aria-modal="true">'
+      + '<button type="button" class="gcw-close" aria-label="Закрыть">×</button>'
+      + '<div class="gcw-body"></div></div>';
     document.body.appendChild(modal);
     var sc = document.createElement('script');
-    sc.id = WIDGET_ID; sc.src = WIDGET_SRC;
+    sc.id = WIDGET_ID;
+    sc.src = WIDGET_SRC;
+    // the GC widget boots on DOMContentLoaded; when injected late, fire its start event
     sc.onload = function(){ document.dispatchEvent(new Event('StartWidget' + WIDGET_ID)); };
     modal.querySelector('.gcw-body').appendChild(sc);
     function close(){ modal.classList.remove('show'); }
     modal.querySelector('.gcw-close').addEventListener('click', close);
     modal.addEventListener('click', function(ev){ if (ev.target === modal) close(); });
+    document.addEventListener('keydown', function(ev){ if (ev.key === 'Escape') close(); });
   }
+  function openReg(ev){
+    if (ev) ev.preventDefault();
+    if (!modal) build();
+    modal.classList.add('show');
+  }
+  window.openGCPopup = openReg;
   document.querySelectorAll('[data-reg]').forEach(function(a){
-    a.addEventListener('click', function(ev){
-      ev.preventDefault();
-      if (!modal) build();
-      modal.classList.add('show');
-    });
+    a.href = REG_URL;  // no-JS fallback
+    a.addEventListener('click', openReg);
   });
 })();
 </script>
-</body>
-</html>
+
+<script>
+(function(){
+  var bar=document.getElementById('stk'), target=document.getElementById('intensiv');
+  if(!bar||!target)return;
+  var armed=false, closed=false, atTarget=false;
+  try{closed=sessionStorage.getItem('stk-closed')==='1';}catch(e){}
+  function upd(){bar.classList.toggle('on',armed&&!closed&&!atTarget&&!busy);if(atTarget&&psh)psh.classList.remove('on');}
+  function arm(){if(!armed){armed=true;document.body.classList.add('has-stk');upd();}}
+  setTimeout(arm,40000);
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-innerHeight;
+    if(h>0&&scrollY/h>=0.15)arm();
+  },{passive:true});
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){atTarget=es[0].isIntersecting||es[0].boundingClientRect.top<0;upd();},{threshold:0}).observe(target);
+  }
+  bar.querySelector('.stk-x').addEventListener('click',function(){closed=true;try{sessionStorage.setItem('stk-closed','1');}catch(e){}upd();});
+  // truthful nudges: sticky bar slides away while one is shown
+  var psh=document.getElementById('psh'), msgs=window.PSH_MSGS||[], k=0, busy=false;
+  function show(){
+    if(!armed||atTarget||busy||!msgs.length||document.querySelector('.gcw-modal.show'))return;
+    busy=true; psh.querySelector('.psh-t').textContent=msgs[k++%msgs.length];
+    bar.classList.remove('on'); psh.classList.add('on');
+    setTimeout(function(){psh.classList.remove('on');setTimeout(function(){busy=false;upd();},400);},6000);
+  }
+  if(psh){
+    psh.addEventListener('click',function(){psh.classList.remove('on');if(window.openGCPopup)window.openGCPopup();});
+    setTimeout(function(){show();setInterval(show,28000);},52000);
+  }
+})();
+</script>
+</body></html>
