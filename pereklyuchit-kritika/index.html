@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Как переключить внутреннего критика и меньше ругать себя · Анна Саба</title><meta name="description" content="3 шага по 5 минут в день на неделю: записать фразу критика, дописать факты в свою пользу и замечать сделанное, чтобы легче браться за новое, не дожидаясь идеала."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Nunito:wght@400;600;700;800&display=swap"><style>
+:root{--bg:#F6EDE6;--card:#FFFFFF;--tint:#F6E3DA;--line:#EBDDD3;--text:#2D2320;--muted:#5F514C;--accent:#984B36;--accent-2:#C98470;--on-accent:#FFFFFF;
+--shadow:0 1px 2px rgba(80,40,30,.06),0 8px 24px -12px rgba(80,40,30,.22);--head:'Lora',Georgia,serif;--body:'Nunito',system-ui,sans-serif}
+:root[data-theme=dark]{--bg:#1C1716;--card:#272020;--tint:#3A2A26;--line:#3E3230;--text:#F0E6E0;--muted:#C6B6AE;--accent:#D98C74;--accent-2:#D98C74;--on-accent:#221A18;--shadow:none}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 18px/1.62 var(--body);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+p{margin:0 0 14px}
+.hd{position:sticky;top:0;z-index:50;background:var(--bg);box-shadow:0 1px 0 var(--line)}
+.hd-in{max-width:680px;margin:0 auto;height:58px;padding:0 16px;display:flex;align-items:center;gap:12px}
+.logo{font-family:var(--head);font-weight:700;font-size:20px}
+.hd-nav{display:none;gap:18px;font-size:15px;color:var(--muted)}
+.sp{flex:1}
+.tgl{width:38px;height:38px;border:0;border-radius:12px;display:grid;place-items:center;background:var(--card);color:var(--text);cursor:pointer;padding:0;box-shadow:var(--shadow)}
+.tgl svg{width:16px;height:16px}.tgl .ic-sun{display:none}
+:root[data-theme=dark] .tgl .ic-sun{display:block}:root[data-theme=dark] .tgl .ic-moon{display:none}
+.hd-btn{font-weight:800;font-size:15px;padding:9px 16px;border-radius:12px;background:var(--accent);color:var(--on-accent)}
+@media(min-width:640px){.hd-nav{display:flex}}
+main{max-width:600px;margin:0 auto;padding:16px 16px 0}
+.card{background:var(--card);border-radius:22px;padding:22px 18px;box-shadow:var(--shadow);margin:0 0 14px}
+.who{display:flex;align-items:center;gap:14px;margin:0 0 18px}
+.who img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center 18%;box-shadow:0 0 0 3px var(--tint)}
+.who .nm{font-family:var(--head);font-weight:700;font-size:19px;line-height:1.2}
+.who .cap{font-size:15px;color:var(--muted);margin:0}
+h1{font-family:var(--head);font-weight:700;font-size:34px;line-height:1.15;margin:0 0 14px}
+.lead{font-size:19px;margin:0 0 16px}
+.chip{display:inline-block;background:var(--tint);color:var(--text);font-size:15px;font-weight:700;padding:8px 14px;border-radius:14px;margin:0}
+.steps-how{counter-reset:s;list-style:none;margin:0;padding:0}
+.steps-how li{counter-increment:s;position:relative;padding:0 0 0 50px;margin:0 0 16px;min-height:34px}
+.steps-how li:last-child{margin:0}
+.steps-how li::before{content:counter(s);position:absolute;left:0;top:-2px;width:34px;height:34px;border-radius:50%;background:var(--accent);color:var(--on-accent);font-weight:800;font-size:16px;display:grid;place-items:center}
+section{padding:26px 0 0}
+h2{font-family:var(--head);font-weight:700;font-size:28px;line-height:1.2;margin:0 0 14px;padding:0 2px}
+.det{background:var(--card);border-radius:18px;box-shadow:var(--shadow);margin:0 0 12px;overflow:hidden}
+.det summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:14px 50px 14px 14px;position:relative;font-weight:800;font-size:18px;line-height:1.3}
+.det summary::-webkit-details-marker{display:none}
+.det summary::after{content:'+';position:absolute;right:14px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:var(--tint);color:var(--accent);display:grid;place-items:center;font-size:20px;font-weight:700;line-height:1}
+.det[open] summary::after{content:'\2212'}
+.num{flex:none;min-width:48px;height:48px;padding:0 8px;border-radius:14px;background:var(--tint);color:var(--accent);font-family:var(--head);font-weight:700;font-size:18px;display:grid;place-items:center;white-space:nowrap}
+.det .in{padding:0 16px 16px}
+.kv{border-top:1px solid var(--line);padding:12px 0 0;margin:12px 0 0}
+.kv h4{margin:0 0 4px;font-size:15px;font-weight:800;color:var(--accent)}
+.kv p{margin:0}
+.phr{margin:10px 0 0;padding:0;list-style:none}
+.phr li{background:var(--tint);border-radius:18px 18px 18px 4px;padding:10px 14px;margin:8px 0;font-family:var(--head);font-style:italic;font-weight:500;font-size:18px;line-height:1.45}
+.note{font-size:15.5px;color:var(--muted);margin:4px 2px 0}
+.safety{background:var(--tint);border-radius:16px;padding:14px 16px;font-size:16px;margin:12px 0 0}
+.cta{background:var(--card);border-radius:24px;box-shadow:var(--shadow);margin:30px 0 14px;overflow:hidden;padding:0 18px 22px}
+.cta .eyebrow{margin:0 -18px 18px;background:var(--accent);color:var(--on-accent);font-weight:800;font-size:15px;padding:12px 18px}
+.cta .ttl{font-family:var(--head);font-weight:700;font-size:26px;line-height:1.22;margin:0 0 10px}
+.cta .sub{color:var(--muted)}
+.cta h3{font-family:var(--head);font-weight:700;font-size:20px;margin:22px 0 8px}
+.cta ul{margin:0;padding:0;list-style:none}
+.cta li{position:relative;padding-left:32px;margin:0 0 10px}
+.cta li::before{content:'';position:absolute;left:0;top:4px;width:22px;height:22px;border-radius:50%;background:var(--tint)}
+.cta li::after{content:'';position:absolute;left:8px;top:8px;width:5px;height:10px;border-right:2.5px solid var(--accent);border-bottom:2.5px solid var(--accent);transform:rotate(45deg)}
+.price{background:var(--tint);border-radius:16px;padding:14px 16px;font-size:18px;margin:22px 0 16px}
+.promo{background:var(--accent);color:var(--on-accent);padding:1px 10px;border-radius:8px;letter-spacing:.05em}
+.cta-btn{display:block;text-align:center;background:var(--accent);color:var(--on-accent);font-weight:800;font-size:19px;padding:18px 16px;border-radius:16px;box-shadow:0 10px 22px -10px rgba(152,75,54,.8)}
+.after{font-size:15.5px;color:var(--muted);text-align:center;margin:12px 0 0}
+.author-sec{background:var(--card);border-radius:22px;padding:20px 18px 8px;box-shadow:var(--shadow);margin:0 0 26px}
+.author{display:flex;gap:14px;align-items:center;margin:0 0 12px}
+.author img{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center 18%}
+.author .nm{font-family:var(--head);font-weight:700;font-size:20px}
+.author .cap{color:var(--muted);margin:0}
+.ft{padding:22px 0 30px;border-top:1px solid var(--line)}
+.ft-in{max-width:600px;margin:0 auto;padding:0 16px;display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center}
+.ft-links{display:flex;gap:20px;font-size:16px;font-weight:700}
+.ft-links a{color:var(--accent)}
+.ft-bot{flex-basis:100%;font-size:14px;color:var(--muted)}
+
+strong{font-weight:800;color:var(--text)}
+mark{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 92%,transparent 92%);color:inherit;padding:0 3px;border-radius:4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+:root{--hl:#F7D9C8}:root[data-theme=dark]{--hl:#5A3A30}
+.lead strong,.card strong{color:var(--accent)}
+
+.stk{position:fixed;left:0;right:0;bottom:0;z-index:150;padding:10px 12px calc(10px + env(safe-area-inset-bottom));transform:translateY(120%);transition:transform .35s ease;pointer-events:none}
+.stk.on{transform:none;pointer-events:auto}
+.stk-in{max-width:600px;margin:0 auto;background:var(--card);border-radius:20px;box-shadow:0 12px 34px -8px rgba(60,30,20,.45);padding:12px 12px 12px 16px;display:flex;align-items:center;gap:12px;position:relative}
+.stk-t{flex:1;min-width:0;font-size:14.5px;line-height:1.3;color:var(--muted)}
+.stk-t b{display:block;font-family:var(--head);font-size:16px;color:var(--text);font-weight:700}
+.stk-b{flex:none;background:var(--accent);color:var(--on-accent);font-weight:800;font-size:16px;padding:12px 16px;border-radius:14px}
+.stk-x{position:absolute;top:-10px;right:-4px;width:28px;height:28px;border-radius:50%;border:0;background:var(--card);color:var(--muted);box-shadow:var(--shadow);font-size:18px;line-height:1;cursor:pointer}
+body.has-stk .ft{padding-bottom:110px}
+.psh{position:fixed;left:0;right:0;bottom:0;z-index:160;padding:10px 12px calc(12px + env(safe-area-inset-bottom));transform:translateY(130%);transition:transform .35s ease;pointer-events:none}
+.psh.on{transform:none;pointer-events:auto}
+.psh-in{max-width:600px;margin:0 auto;background:var(--card);border-radius:18px;box-shadow:0 12px 34px -8px rgba(60,30,20,.45);padding:12px 14px;display:flex;align-items:center;gap:12px;cursor:pointer}
+.psh-ic{flex:none;width:40px;height:40px;border-radius:50%;background:var(--tint);color:var(--accent);display:grid;place-items:center;font-weight:800;font-size:18px}
+.psh-t{font-size:15px;line-height:1.35;color:var(--text)}
+
+.gcw-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(21,18,24,.66);padding:16px}
+.gcw-modal.show{display:flex}
+.gcw-box{position:relative;background:#fff;color:#1c1c1f;border-radius:18px;width:min(560px,100%);max-height:92vh;overflow:auto;padding:28px 20px 20px}
+.gcw-close{position:absolute;top:8px;right:12px;border:0;background:none;font-size:28px;line-height:1;cursor:pointer;color:#1c1c1f}
+.lst{margin:0 0 14px;padding-left:22px}.lst li{margin:0 0 8px}.pic{display:block;width:100%;max-height:300px;object-fit:cover;border-radius:16px;margin:4px 0 14px}section>.safety{margin:0 0 14px}
+.hero-cover{padding:0;overflow:hidden}
+.hero-cover .cov{display:block;width:100%;max-height:360px;object-fit:cover}
+.hero-cover .hin{padding:18px 18px 22px}
+.hero-quote blockquote{margin:0 0 16px;font-family:var(--head);font-style:italic;font-size:24px;line-height:1.35;color:var(--accent);border-left:4px solid var(--accent);padding:2px 0 2px 14px}
+.hero-arch{text-align:center}
+.hero-arch .arch{width:170px;height:220px;margin:0 auto 14px;border-radius:90px 90px 16px 16px;overflow:hidden;box-shadow:0 0 0 4px var(--tint)}
+.hero-arch .arch img{width:100%;height:100%;object-fit:cover;object-position:center 18%}
+.hero-arch .cap{color:var(--muted);margin:0 0 12px}
+:root{--bg:#F1EEF6;--tint:#E5DEF1;--line:#DDD6EA;--text:#27213A;--muted:#5A5270;--accent:#6A4C9C;--accent-2:#A58FD0;--hl:#E2D6F5}:root[data-theme=dark]{--bg:#18151F;--card:#221E2B;--tint:#342B45;--line:#3B3350;--text:#EEE9F7;--muted:#BDB3D1;--accent:#B9A0EB;--on-accent:#1C1528;--hl:#4A3A6A}</style><script>(function(){var d=document.documentElement;function set(t){d.setAttribute('data-theme',t);}var q=(location.search.match(/[?&]theme=(dark|light)/)||[])[1];var s=null;try{s=localStorage.getItem('vi-theme');}catch(e){}set(q||s||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));document.addEventListener('click',function(e){var b=e.target.closest('.tgl');if(!b)return;var n=d.getAttribute('data-theme')==='dark'?'light':'dark';set(n);try{localStorage.setItem('vi-theme',n);}catch(err){}});})();</script></head><body><header class="hd"><div class="hd-in"><a class="logo" href="/">Анна Саба</a><nav class="hd-nav"><a href="/">Все материалы</a><a href="/about/">Обо мне</a></nav><span class="sp"></span><button class="tgl" type="button" aria-label="Сменить тему"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/></svg></button><a class="hd-btn" href="#intensiv">Интенсив</a></div></header><main><div class="card hero hero-arch"><div class="arch"><img src="/media/anna-smile-bw.jpg" alt="Анна Саба"></div><div class="nm">Анна Саба</div><p class="cap">врач, психотерапевт</p><h1>Как переключить внутреннего критика и меньше ругать себя</h1><p class="lead">3 шага по 5 минут в день на неделю: записать фразу критика, дописать факты в свою пользу и замечать сделанное, чтобы легче браться за новое, не дожидаясь идеала.</p><p class="chip">Читать 2-3 минуты</p></div><section><h2>Критик – это привычка замечать плохое</h2><div class="card"><p>Помните кольцо из ролика? Мозг сам выбирает, в какую сторону оно крутится, пока вы не переведёте взгляд. С внутренним критиком похоже. <strong>У многих внимание по привычке смотрит на то, что не получилось.</strong> Это привычка, а не правда о вас, <mark>и её можно тренировать.</mark></p></div></section><section><h2>Как читать</h2><div class="card"><p>Каждый день по 5 минут: шаги 1 и 2 – когда звучит критик, шаг 3 – перед сном. Всё записывайте в одну заметку в телефоне: в конце недели перечитаете её целиком.</p></div><details class="det" open><summary><span class="num">1</span>Запишите фразу критика</summary><div class="in"><p>Когда внутри звучит «не доделала», «могла лучше», «опять я», запишите фразу дословно и добавьте:</p><ul class="phr"><li>«Это мнение критика. Проверю фактами»</li></ul><p>Что это даст: <strong>вы замечаете фразу и не соглашаетесь с ней автоматически.</strong></p></div></details><details class="det"><summary><span class="num">2</span>Допишите 2 факта в свою пользу</summary><div class="in"><p>Под фразой критика допишите 2 факта, которые с ней спорят. Если двух нет, хватит одного. Например:</p><ul class="phr"><li>«Не доделала отчёт» → «Сделала 3 раздела из 4. Предупредила руководителя заранее»</li></ul><p>Что это даст: <strong>картина становится честной, а не только плохой.</strong> <mark>Силы, которые уходили на самобичевание, остаются на дело.</mark></p></div></details><details class="det"><summary><span class="num">3</span>Вечерний список «сделала»</summary><div class="in"><p>Перед сном запишите 3 дела, которые получились за день, даже маленьких: ответила на письмо, дошла до спортзала, закончила задачу.</p><p>Что это даст: <strong>внимание учится замечать сделанное.</strong> <mark>Проще начать новое, не дожидаясь идеального момента.</mark></p></div></details></section><section><h2>В конце недели</h2><div class="card"><p>Перечитайте заметку: сколько фраз критика вы поймали, сколько фактов дописали, сколько дел записали вечером. <strong>Обычно сделанного оказывается больше, чем говорил критик.</strong> <mark>С этим списком проще взяться за то, что откладывали.</mark></p></div><p class="safety">Если мысли о себе не отпускают неделями и мешают жить, покажитесь врачу.</p></section><section><h2>Если критик звучит громко</h2><div class="card"><p>Шаги тренируют внимание. <strong>Бывает, что даже с ними критик звучит громко и часто: тогда стоит поискать, откуда он берётся.</strong> На интенсиве я показываю, как это найти, и <mark>вы уходите с пошаговым планом действий.</mark></p></div></section><section class="cta" id="intensiv"><p class="eyebrow">Ближайший поток · онлайн</p><h2 class="ttl">Интенсив «Система перехода в новую реальность за 24 часа»</h2><p class="sub">3 эфира с домашними заданиями. Автор – Анна Саба, врач, психотерапевт, 10 лет практики, более 7000 клиентов.</p><h3>Что будет</h3><ul><li>«Свобода от прошлого». Находим и убираем то, что годами держало вас на месте.</li><li>«Энергия и уровень счастья». Видите, куда каждый день утекают силы, и возвращаете себе энергию.</li><li>«Как получать желаемое без откатов и саботажа». Ставите свою цель и получаете пошаговый план.</li></ul><h3>К чему приведёт</h3><ul><li>начинаете действовать, а не откладывать</li><li>стыд и вина перестают решать за вас</li><li>находите, откуда тянется голос критика</li></ul><h3>Для кого</h3><ul><li>не можете начать, пока всё не станет идеально</li><li>ругаете себя за ошибки</li><li>многое пробовали, а критик возвращался</li></ul><h3>Подарки сразу после регистрации</h3><ul><li>Демо-сессия ДПДГ, 40 минут – попробуете метод на себе.</li><li>Расстановочная практика «Почему у меня до сих пор нет того, чего я хочу», 20 минут – показывает скрытые причины, из-за которых желаемое не приходит.</li><li>Тест «Где мой затык» с расшифровкой – покажет, какая установка держит вас на месте.</li><li>Чат «Автомагически» – ежедневная практика внимания в кругу единомышленников.</li></ul><p class="price">Обычная цена 4 990 ₽. По промокоду <b class="promo">РАЗВОРОТ</b> участие 0 ₽.</p><a class="cta-btn" href="#" data-reg>Записаться по промокоду РАЗВОРОТ</a><p class="after">Форма откроется здесь же, подарки придут сразу после регистрации.</p></section><section class="author-sec"><div class="author"><img src="/media/anna-smile-bw.jpg" alt="Анна Саба" loading="lazy"><div><div class="nm">Анна Саба</div><p class="cap">врач, психотерапевт</p></div></div><p>10 лет практики, более 7000 клиентов. Сеченовский университет, центр имени Сербского, РУДН.</p></section></main><div class="psh" id="psh" role="status"><div class="psh-in"><span class="psh-ic">✓</span><div class="psh-t"></div></div></div><script>window.PSH_MSGS=[];</script><div class="stk" id="stk"><div class="stk-in"><button class="stk-x" type="button" aria-label="Скрыть">×</button><div class="stk-t"><b>Интенсив «Система перехода в новую реальность за 24 часа»</b>По промокоду РАЗВОРОТ – 0 ₽</div><a class="stk-b" href="#" data-reg>Записаться</a></div></div><footer class="ft"><div class="ft-in"><a class="logo" href="/">Анна Саба</a><nav class="ft-links"><a href="/">Все материалы</a><a href="/about/">Обо мне</a></nav><div class="ft-bot">Анна Саба · @dr.saba_dusalieva</div></div></footer>
+<script>
+(function(){
+  var REG_URL = 'https://doctor-saba.com/intensive?utm_source=kb&utm_medium=magnet&utm_campaign=pereklyuchit-kritika';
+  var WIDGET_SRC = 'https://doctor-saba.com/pl/lite/widget/script?id=1661629';
+  var WIDGET_ID  = '4ae3c60fe1628793aa6d41afd43f6c731db91193';
+  var modal = null;
+  function build(){
+    modal = document.createElement('div');
+    modal.className = 'gcw-modal';
+    modal.innerHTML = '<div class="gcw-box" role="dialog" aria-modal="true">'
+      + '<button type="button" class="gcw-close" aria-label="Закрыть">×</button>'
+      + '<div class="gcw-body"></div></div>';
+    document.body.appendChild(modal);
+    var sc = document.createElement('script');
+    sc.id = WIDGET_ID;
+    sc.src = WIDGET_SRC;
+    // the GC widget boots on DOMContentLoaded; when injected late, fire its start event
+    sc.onload = function(){ document.dispatchEvent(new Event('StartWidget' + WIDGET_ID)); };
+    modal.querySelector('.gcw-body').appendChild(sc);
+    function close(){ modal.classList.remove('show'); }
+    modal.querySelector('.gcw-close').addEventListener('click', close);
+    modal.addEventListener('click', function(ev){ if (ev.target === modal) close(); });
+    document.addEventListener('keydown', function(ev){ if (ev.key === 'Escape') close(); });
+  }
+  function openReg(ev){
+    if (ev) ev.preventDefault();
+    if (!modal) build();
+    modal.classList.add('show');
+  }
+  window.openGCPopup = openReg;
+  document.querySelectorAll('[data-reg]').forEach(function(a){
+    a.href = REG_URL;  // no-JS fallback
+    a.addEventListener('click', openReg);
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var bar=document.getElementById('stk'), target=document.getElementById('intensiv');
+  if(!bar||!target)return;
+  var armed=false, closed=false, atTarget=false;
+  try{closed=sessionStorage.getItem('stk-closed')==='1';}catch(e){}
+  function upd(){bar.classList.toggle('on',armed&&!closed&&!atTarget&&!busy);if(atTarget&&psh)psh.classList.remove('on');}
+  function arm(){if(!armed){armed=true;document.body.classList.add('has-stk');upd();}}
+  setTimeout(arm,40000);
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-innerHeight;
+    if(h>0&&scrollY/h>=0.15)arm();
+  },{passive:true});
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){atTarget=es[0].isIntersecting||es[0].boundingClientRect.top<0;upd();},{threshold:0}).observe(target);
+  }
+  bar.querySelector('.stk-x').addEventListener('click',function(){closed=true;try{sessionStorage.setItem('stk-closed','1');}catch(e){}upd();});
+  // truthful nudges: sticky bar slides away while one is shown
+  var psh=document.getElementById('psh'), msgs=window.PSH_MSGS||[], k=0, busy=false;
+  function show(){
+    if(!armed||atTarget||busy||!msgs.length||document.querySelector('.gcw-modal.show'))return;
+    busy=true; psh.querySelector('.psh-t').textContent=msgs[k++%msgs.length];
+    bar.classList.remove('on'); psh.classList.add('on');
+    setTimeout(function(){psh.classList.remove('on');setTimeout(function(){busy=false;upd();},400);},6000);
+  }
+  if(psh){
+    psh.addEventListener('click',function(){psh.classList.remove('on');if(window.openGCPopup)window.openGCPopup();});
+    setTimeout(function(){show();setInterval(show,28000);},52000);
+  }
+})();
+</script>
+</body></html>
