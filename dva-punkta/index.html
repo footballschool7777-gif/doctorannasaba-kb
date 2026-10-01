@@ -254,6 +254,7 @@ mark{background:linear-gradient(transparent 55%,var(--hl) 55%)}
       + '<button type="button" class="gcw-close" aria-label="Закрыть">×</button>'
       + '<div class="gcw-body"></div></div>';
     document.body.appendChild(modal);
+    if (!/utm_/.test(location.search)) { try { history.replaceState(null, '', location.pathname + (location.search ? location.search + '&' : '?') + REG_URL.split('?')[1] + location.hash); } catch (e) {} }
     var sc = document.createElement('script');
     sc.id = WIDGET_ID;
     sc.src = WIDGET_SRC;

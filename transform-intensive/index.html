@@ -2628,6 +2628,7 @@ body .lt-block.lt-form:has(#tg-gc-form-thergroup) .row{
       + '<button type="button" class="gcw-close" aria-label="Закрыть">×</button>'
       + '<div class="gcw-body"></div></div>';
     document.body.appendChild(widgetModal);
+    if (!/utm_/.test(location.search)) { try { history.replaceState(null, '', location.pathname + (location.search ? location.search + '&' : '?') + REG_URL.split('?')[1] + location.hash); } catch (e) {} }
     var sc = document.createElement('script');
     if (WIDGET_ID) sc.id = WIDGET_ID;
     sc.src = WIDGET_SRC;
