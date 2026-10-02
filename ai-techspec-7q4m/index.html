@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>ИИ-техспец для онлайн-школы на GetCourse</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f0f11;--card:rgba(255,255,255,.045);--line:rgba(255,255,255,.09);--gold:#c9a44a;--gold2:#e8cc82;--muted:#9a9aa3;--txt:#f4f4f5;--sub:#cfcfd4;--green:#5ee08f;--red:#f58b8b}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-snap-type:y mandatory;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+section{min-height:100vh;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;justify-content:center;padding:9vh 9vw;overflow:hidden;
+background:radial-gradient(70vw 50vh at 90% -10%,rgba(201,164,74,.13),transparent 60%),radial-gradient(60vw 50vh at -10% 110%,rgba(201,164,74,.06),transparent 60%),var(--bg)}
+section:before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:7vw 7vw;opacity:.25;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%);pointer-events:none}
+.in{position:relative;z-index:1;max-width:1500px;width:100%;margin:0 auto}
+.k{font-size:clamp(12px,1.05vw,17px);letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:2.2vh}
+h1{font-family:'Playfair Display',serif;font-size:clamp(40px,6.4vw,112px);line-height:1.02;font-weight:700;letter-spacing:-.01em}
+h2{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,70px);line-height:1.1;font-weight:700;margin-bottom:5vh;max-width:1300px}
+.g{color:var(--gold2)}
+.lead{font-size:clamp(17px,1.7vw,29px);line-height:1.5;color:var(--sub);max-width:1100px;margin-top:3.5vh}
+.bar{height:2px;width:clamp(120px,22vw,380px);background:linear-gradient(90deg,var(--gold),transparent);margin-top:4vh}
+.pg{position:absolute;right:4vw;bottom:4vh;font-size:13px;letter-spacing:.2em;color:var(--muted);z-index:2}
+.grid{display:grid;gap:clamp(14px,1.8vw,30px)}
+.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}.c2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.c3,.c4,.c2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(18px,2.2vw,38px);backdrop-filter:blur(4px);transition:transform .35s,border-color .35s}
+.card:hover{transform:translateY(-4px);border-color:rgba(201,164,74,.45)}
+.card .i{font-size:clamp(26px,2.4vw,40px);margin-bottom:1.6vh}
+.card .t{font-size:clamp(17px,1.5vw,25px);font-weight:700;margin-bottom:1vh}
+.card p{font-size:clamp(14px,1.15vw,19px);line-height:1.55;color:var(--sub)}
+.big{font-family:'Playfair Display',serif;font-size:clamp(44px,5.6vw,96px);font-weight:700;color:var(--gold2);line-height:1}
+.bl{font-size:clamp(14px,1.15vw,19px);color:var(--sub);margin-top:1.4vh;line-height:1.45}
+.pain{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,1.5vw,24px);margin-bottom:4vh}
+@media(max-width:900px){.pain{grid-template-columns:1fr}}
+.chip{display:flex;gap:16px;align-items:flex-start;background:rgba(245,139,139,.06);border:1px solid rgba(245,139,139,.22);border-radius:18px;padding:clamp(14px,1.6vw,26px);font-size:clamp(15px,1.3vw,22px);line-height:1.45}
+.chip b{color:var(--red);font-size:1.3em;line-height:1}
+.steps{display:grid;gap:2.6vh}
+.st{display:flex;gap:clamp(14px,1.6vw,30px);align-items:flex-start}
+.n{flex:0 0 clamp(44px,3.6vw,62px);height:clamp(44px,3.6vw,62px);border-radius:50%;border:1.5px solid var(--gold);color:var(--gold2);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:clamp(16px,1.4vw,24px)}
+.st .t{font-size:clamp(17px,1.6vw,27px);font-weight:700;margin-bottom:.6vh}
+.st p{font-size:clamp(14px,1.2vw,20px);color:var(--sub);line-height:1.5}
+.case{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,26px)}
+@media(max-width:900px){.case{grid-template-columns:1fr}}
+.case .card .t.r{color:var(--red)}.case .card .t.o{color:var(--gold2)}.case .card .t.ok{color:var(--green)}
+.arrow{font-size:clamp(20px,2vw,34px);color:var(--gold);align-self:center;text-align:center}
+.note{margin-top:4.5vh;font-size:clamp(16px,1.5vw,25px);color:var(--sub)}
+.note b{color:var(--gold2)}
+.quote{border-left:3px solid var(--gold);padding:.5vh 0 .5vh 2.4vw;font-size:clamp(18px,1.9vw,32px);line-height:1.45;font-weight:500;max-width:1250px}
+.cta{display:inline-block;margin-top:5vh;padding:clamp(14px,1.4vw,22px) clamp(26px,2.6vw,44px);border-radius:100px;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#141414;font-weight:800;font-size:clamp(15px,1.3vw,22px);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;box-shadow:0 10px 40px rgba(201,164,74,.25)}
+.ghost{position:absolute;right:-3vw;top:6vh;font-family:'Playfair Display',serif;font-size:clamp(200px,34vw,620px);color:rgba(201,164,74,.06);line-height:.9;font-weight:700;pointer-events:none;z-index:0}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.reveal.on{opacity:1;transform:none}
+.nav{position:fixed;right:1.6vw;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:10}
+.nav a{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22);display:block;transition:.3s}
+.nav a.on{background:var(--gold);height:22px;border-radius:6px}
+@media(max-width:900px){.nav{display:none}section{padding:8vh 6vw}}
+@media print{html{scroll-snap-type:none}section{min-height:auto;height:100vh;page-break-after:always}.reveal{opacity:1;transform:none}.nav{display:none}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav"></nav>
+<section id="s1"><div class="ghost">AI</div><div class="in">
+<div class="k reveal">GetCourse · онлайн-школы</div>
+<h1 class="reveal">ИИ-техспец<br>для онлайн-школы<br><span class="g">на GetCourse</span></h1>
+<div class="bar reveal"></div>
+<p class="lead reveal">Помощник, который берёт технические задачи школы в работу сразу, называет срок и сдаёт результат со ссылкой.</p></div></section>
+<section id="s2"><div class="in"><div class="k reveal">Знакомо</div>
+<h2 class="reveal">Мелкие технические задачи копятся быстрее, чем их успевают закрыть</h2>
+<div class="pain"><div class="chip reveal"><b>!</b><span>Ученица пишет, что не открывается урок.</span></div><div class="chip reveal"><b>!</b><span>Бот прислал одно и то же сообщение несколько раз.</span></div><div class="chip reveal"><b>!</b><span>Место для видео в GetCourse заканчивается.</span></div><div class="chip reveal"><b>!</b><span>Запись эфира нужна к вечеру.</span></div></div>
+<p class="lead reveal">Часто всё это делает один человек между другими делами, а ученики ждут ответа.</p></div></section>
+<section id="s3"><div class="in"><div class="k reveal">Решение</div>
+<h2 class="reveal">Работает в GetCourse школы под отдельной учётной записью</h2>
+<div class="grid c3">
+<div class="card reveal"><div class="i">💬</div><div class="t">Задача словами</div><p>В Telegram: текстом, скриншотом или ссылкой.</p></div>
+<div class="card reveal"><div class="i">⏱</div><div class="t">Срок сразу</div><p>Агент называет время готовности, как только берёт задачу.</p></div>
+<div class="card reveal"><div class="i">🔗</div><div class="t">Готово со ссылкой</div><p>Результат приходит ссылкой на готовое: урок, рассылку, заказ.</p></div>
+</div>
+<p class="lead reveal" style="font-size:clamp(15px,1.35vw,23px)">Сотрудникам он не мешает: у каждого свой вход.</p></div></section>
+<section id="s4"><div class="in"><div class="k reveal">Зона ответственности</div>
+<h2 class="reveal">Что агент берёт на себя</h2><div class="grid c4"><div class="card reveal"><div class="i">🎓</div><div class="t">Ученики</div><p>Продлить доступ, перенести старт, добавить в группу, подготовить ответ на обращение.</p></div><div class="card reveal"><div class="i">📚</div><div class="t">Уроки</div><p>Создать урок, выложить запись эфира, открыть урок только нужным ученикам.</p></div><div class="card reveal"><div class="i">🤖</div><div class="t">Боты</div><p>Найти, почему сообщение не дошло или пришло несколько раз.</p></div><div class="card reveal"><div class="i">✉️</div><div class="t">Рассылки</div><p>Собрать письмо или сообщение в Telegram и MAX, поставить на время, проверить, что дошло.</p></div><div class="card reveal"><div class="i">🎞</div><div class="t">Место для видео</div><p>Убрать лишнее, перенести записи в Kinescope школы.</p></div><div class="card reveal"><div class="i">🎥</div><div class="t">Zoom</div><p>Создать встречу, забрать запись, считать участников во время эфира.</p></div><div class="card reveal"><div class="i">📊</div><div class="t">Цифры</div><p>Таблица платежей за месяц, утренняя сводка по регистрациям.</p></div></div></div></section>
+<section id="s5"><div class="in"><div class="k reveal">Факты, а не обещания</div>
+<h2 class="reveal">Один рабочий день агента, 2 октября 2026</h2><div class="grid c4"><div class="reveal"><div class="big"><span data-to="32">32</span><span style="font-size:.5em"> ГБ</span></div><div class="bl">Места в GetCourse освобождено, уроки работают как прежде.</div></div><div class="reveal"><div class="big"><span data-to="3381">3 381</span></div><div class="bl">Устаревший файл со списками учеников удалён: меньше лишних копий личных данных в аккаунте.</div></div><div class="reveal"><div class="big"><span data-to="104">104</span></div><div class="bl">Сценария ботов в 50 автоворонках проверены по журналу отправок, где видно каждое сообщение и ответ мессенджера.</div></div><div class="reveal"><div class="big"><span data-to="16">16</span></div><div class="bl">Учеников, которым не доходили сообщения с картинками в MAX, найдены, причина установлена.</div></div></div></div></section>
+<section id="s6"><div class="in"><div class="k reveal">Кейс</div>
+<h2 class="reveal">Почему ученице пришло одинаковое сообщение 11 раз</h2><div class="case"><div class="card reveal"><div class="t r">Было</div><p>Вечернее сообщение бота приходило ученице 11 раз подряд, и она решила, что бот сломался.</p></div><div class="card reveal"><div class="t o">Причина</div><p>В схеме бота несколько веток вели в одно и то же сообщение, и каждая отправляла его заново.</p></div><div class="card reveal"><div class="t ok">Стало</div><p>Агент свёл ветки в одну. Проверка на той же ученице: пришло одно сообщение, 10 повторов не ушли.</p></div></div>
+<p class="note reveal"><b>От вопроса до исправления около часа.</b></p></div></section>
+<section id="s7"><div class="in"><div class="k reveal">Метод</div>
+<h2 class="reveal">Как агент работает, чтобы ничего не сломать</h2><div class="steps"><div class="st reveal"><div class="n">1</div><div><p style="font-size:clamp(16px,1.5vw,25px);color:var(--txt)">Сначала проверяет факты: карточку ученика, историю заказа, что реально ушло человеку.</p></div></div><div class="st reveal"><div class="n">2</div><div><p style="font-size:clamp(16px,1.5vw,25px);color:var(--txt)">Показывает план: что поменяется и кого это коснётся.</p></div></div><div class="st reveal"><div class="n">3</div><div><p style="font-size:clamp(16px,1.5vw,25px);color:var(--txt)">Перед правкой сохраняет копию схемы, а удалённые файлы остаются в корзине GetCourse.</p></div></div><div class="st reveal"><div class="n">4</div><div><p style="font-size:clamp(16px,1.5vw,25px);color:var(--txt)">После правки открывает урок или сообщение так, как их увидит ученик.</p></div></div></div></div></section>
+<section id="s8"><div class="in"><div class="k reveal">Безопасность</div>
+<h2 class="reveal">Что агент не делает без согласования</h2>
+<div class="grid c2">
+<div class="card reveal"><div class="i">🛑</div><div class="t">Только после «да»</div><p>Не удаляет данные и файлы<br>Не отправляет ученикам неутверждённый текст<br>Не меняет работающие автоворонки и лендинги<br>Ничего не покупает</p></div>
+<div class="card reveal"><div class="i">🔒</div><div class="t">Доступы и деньги</div><p>Пароли хранятся в защищённом месте и не попадают в переписку.<br>Возврат денег только по решению владельца школы.</p></div>
+</div></div></section>
+<section id="s9"><div class="in"><div class="k reveal">Честно</div>
+<h2 class="reveal">Ошибается и исправляется в тот же час</h2>
+<div class="quote reveal">При проверке автоворонок агент назвал дублем две ветки бота, которые на деле рассчитаны на разных учеников. Техспец школы заметила это сразу.</div>
+<p class="lead reveal">Через час правило уже было в памяти агента: дубль подтверждается только журналом отправок. Со следующей задачи агент проверяет именно так.</p></div></section>
+<section id="s10"><div class="ghost">→</div><div class="in">
+<div class="k reveal">Следующий шаг</div>
+<h1 class="reveal" style="font-size:clamp(36px,5vw,90px)">Проверьте агента на задачах своей школы</h1>
+<div class="bar reveal"></div>
+<p class="lead reveal">Пришлите три технические задачи, которые сейчас ждут решения. Агент разберёт каждую и назовёт план и срок.</p>
+<a class="cta reveal" href="#">Написать: [контакт]</a></div></section>
+<script>
+document.querySelectorAll('[data-to]').forEach(c=>{if(!matchMedia('print').matches)c.textContent='0'});
+const secs=[...document.querySelectorAll('section')],nav=document.getElementById('nav');
+secs.forEach((s,i)=>{const a=document.createElement('a');a.href='#'+s.id;nav.appendChild(a);const p=document.createElement('div');p.className='pg';p.textContent=String(i+1).padStart(2,'0')+' / '+String(secs.length).padStart(2,'0');s.appendChild(p)});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.reveal').forEach((r,i)=>setTimeout(()=>r.classList.add('on'),i*110));const i=secs.indexOf(e.target);[...nav.children].forEach((a,j)=>a.classList.toggle('on',j===i));e.target.querySelectorAll('[data-to]').forEach(c=>{if(c.dataset.done)return;c.dataset.done=1;const to=+c.dataset.to,t0=performance.now();const f=t=>{const k=Math.min(1,(t-t0)/1400);c.textContent=Math.round(to*(1-Math.pow(1-k,3))).toLocaleString('ru-RU');if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)})}}),{threshold:.45});
+secs.forEach(s=>io.observe(s));
+document.addEventListener('keydown',e=>{const i=secs.findIndex(s=>Math.abs(s.getBoundingClientRect().top)<innerHeight/2);if(['ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();secs[Math.min(i+1,secs.length-1)].scrollIntoView()}if(['ArrowUp','PageUp'].includes(e.key)){e.preventDefault();secs[Math.max(i-1,0)].scrollIntoView()}});
+if(matchMedia('print').matches)document.querySelectorAll('.reveal').forEach(r=>r.classList.add('on'));
+</script>
+</body>
+</html>
