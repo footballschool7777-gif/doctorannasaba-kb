@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Диагностическая сессия · 990 ₽ вместо 10 000 ₽ · Институт психического здоровья Анны Саба</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F1EFE7; --paper-2:#E9E6DA;
+  --pine:#17322A; --pine-2:#0F231D;
+  --ink:#141D17; --muted:#42504A; --paper-dim:#D3D8CF;
+  --brass:#A8834A; --brass-2:#C7A96B; --gold:#EBD6A4;
+  --amber:#E2A54E; --amber-2:#D6913A;
+  --wine:#5E1A2C; --wine-2:#7E2338;
+  --line:rgba(28,38,31,.16); --line-strong:rgba(28,38,31,.34); --line-dark:rgba(241,239,231,.2);
+  --serif:'Prata',Georgia,serif; --sans:'Manrope',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-size:16px;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+
+/* ===== ЛОГОТИПНАЯ СТРОКА ===== */
+.brandline{position:relative;z-index:2;font-size:.8rem;font-weight:600;letter-spacing:.02em;
+  color:var(--paper-dim);line-height:1.5;margin-bottom:clamp(26px,4vw,42px);max-width:52ch}
+.brandline b{color:var(--gold);font-weight:700}
+@media(max-width:560px){.brandline{font-size:.74rem;margin-bottom:22px}}
+
+/* ===== ОБЩЕЕ ===== */
+section{padding:clamp(56px,7vw,104px) 0}
+section.dark{background:var(--pine-2);color:#fff}
+section.deep{background:var(--pine);color:#fff}
+.wrap{width:min(1120px,90vw);margin:0 auto}
+.narrow{width:min(880px,90vw);margin:0 auto}
+
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.16;text-wrap:balance}
+h1{font-size:clamp(2rem,4.4vw,3.5rem)}
+h2{font-size:clamp(1.65rem,3.1vw,2.6rem);max-width:24ch}
+h2.wide{max-width:32ch}
+h3{font-size:clamp(1.2rem,2vw,1.6rem)}
+.acc{color:var(--brass)}
+.dark .acc,.deep .acc{color:var(--gold)}
+
+.eyebrow{display:flex;align-items:center;gap:14px;font-size:.63rem;font-weight:800;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--brass);margin-bottom:20px}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor;flex:none}
+.dark .eyebrow,.deep .eyebrow{color:var(--brass-2)}
+
+.lead{font-size:clamp(1.02rem,1.3vw,1.18rem);line-height:1.7;color:var(--muted);margin-top:20px;max-width:62ch}
+.dark .lead,.deep .lead{color:var(--paper-dim)}
+.lead b{color:var(--ink)}
+.dark .lead b,.deep .lead b{color:#fff}
+.hl{font-weight:700;color:var(--ink);background:linear-gradient(transparent 60%,rgba(226,165,78,.38) 0);padding:0 .06em}
+.dark .hl,.deep .hl{color:#fff;background:linear-gradient(transparent 60%,rgba(226,165,78,.32) 0)}
+
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--amber);color:var(--pine-2);
+  border:0;border-radius:999px;padding:19px 34px;cursor:pointer;text-decoration:none;
+  font-family:var(--sans);font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  box-shadow:0 14px 34px rgba(226,165,78,.28);transition:.2s}
+.cta:hover{background:var(--amber-2);transform:translateY(-1px)}
+.cta.block{display:flex;width:100%}
+.cta-note{margin-top:12px;font-size:.85rem;line-height:1.5;color:var(--muted)}
+.dark .cta-note,.deep .cta-note{color:var(--paper-dim)}
+
+.secdiv{display:flex;align-items:center;gap:16px;margin:44px 0 26px}
+.secdiv::before,.secdiv::after{content:"";height:1px;background:var(--line-strong);flex:1}
+.dark .secdiv::before,.dark .secdiv::after,.deep .secdiv::before,.deep .secdiv::after{background:var(--line-dark)}
+.secdiv span{font-size:.62rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--brass);white-space:nowrap}
+.dark .secdiv span,.deep .secdiv span{color:var(--brass-2)}
+
+/* ===== ЭКРАН 1 ===== */
+.hero{background:var(--pine-2);color:#fff;position:relative;overflow:hidden;padding-top:clamp(48px,6vw,80px)}
+.hero::after{content:"";position:absolute;inset:auto -10% -40% auto;width:70vw;height:70vw;max-width:900px;max-height:900px;
+  background:radial-gradient(circle,rgba(168,131,74,.20),transparent 62%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,4vw,56px);align-items:start;position:relative;z-index:1}
+@media(max-width:960px){
+  .hero-grid{display:flex;flex-direction:column;gap:30px}
+  .hero-left{display:contents}
+  .hero-a{order:1}
+  .pricecard{order:2}
+  .hero-b{order:3}
+}
+.tagline{display:inline-block;border:1px solid var(--line-dark);border-radius:999px;padding:10px 18px;
+  font-size:.62rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+.h1sub{margin-top:22px;font-size:clamp(1.02rem,1.4vw,1.2rem);line-height:1.65;color:var(--paper-dim);max-width:54ch}
+.checks{list-style:none;margin-top:28px;display:flex;flex-direction:column;gap:14px}
+.checks li{position:relative;padding-left:38px;font-size:1.02rem;line-height:1.55;color:#fff}
+.checks li::before{content:"✓";position:absolute;left:0;top:-1px;width:24px;height:24px;border-radius:50%;
+  background:rgba(226,165,78,.18);border:1px solid var(--amber);color:var(--amber);
+  display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800}
+.resultbox{margin-top:30px;padding:22px 26px;border-left:4px solid var(--gold);background:rgba(255,255,255,.05);border-radius:0 14px 14px 0}
+.resultbox b{display:block;font-size:.6rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-2);margin-bottom:10px}
+.resultbox span{font-family:var(--serif);font-size:clamp(1.05rem,1.7vw,1.35rem);line-height:1.5;color:#fff}
+.resultbox i{font-style:normal;color:var(--gold)}
+
+@media(max-width:620px){
+  h1{font-size:1.62rem;line-height:1.24}
+  .h1sub{font-size:.95rem;line-height:1.58;margin-top:18px}
+  .tagline{font-size:.56rem;letter-spacing:.12em;padding:9px 14px;margin-bottom:18px}
+  .checks li{font-size:.97rem}
+  .checks{margin-top:22px;gap:12px}
+  .offerstrip{margin-top:20px;padding:16px 18px;gap:14px}
+  .os-txt{font-size:.9rem}
+  h2{font-size:1.55rem;line-height:1.24}
+}
+@media(max-width:400px){
+  h1{font-size:1.5rem}
+}
+
+/* карточка цены */
+.offerstrip{margin-top:26px;display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+  background:rgba(226,165,78,.12);border:1px solid var(--amber);border-radius:16px;padding:20px 26px}
+.os-price{display:flex;align-items:baseline;gap:14px}
+.os-price s{font-size:1.05rem;color:var(--paper-dim);opacity:.75}
+.os-price b{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4vw,2.7rem);line-height:1;color:var(--gold)}
+.os-txt{font-size:.95rem;line-height:1.55;color:#fff}
+.os-txt span{font-weight:800;letter-spacing:.12em;color:var(--gold)}
+.herocta{margin-top:30px}
+
+.pricecard{background:var(--paper);color:var(--ink);border-radius:20px;padding:28px 28px 24px;
+  box-shadow:0 28px 70px rgba(0,0,0,.42)}
+
+/* мини-список бонусов в карточке */
+.minib{margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+.mb-lab{font-size:.56rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin-bottom:12px}
+.mb-row{display:flex;align-items:flex-start;gap:9px;padding:8px 0;border-bottom:1px dashed rgba(28,38,31,.18);font-size:.85rem;line-height:1.4}
+.mb-row:last-of-type{border-bottom:0}
+.mb-n{flex:none;width:19px;height:19px;border-radius:50%;background:var(--pine);color:var(--gold);
+  font-family:var(--serif);font-size:.66rem;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.mb-t{flex:1;color:var(--ink)}
+.mb-o{flex:none;color:rgba(28,38,31,.45);font-size:.78rem;white-space:nowrap}
+.mb-f{flex:none;font-family:var(--serif);font-size:.92rem;color:#2F7A52;white-space:nowrap}
+.mb-sum{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;
+  background:var(--pine);border-radius:10px;padding:12px 16px;color:var(--paper);font-size:.88rem}
+.mb-sum s{color:var(--paper-dim);opacity:.8}
+.mb-sum b{font-family:var(--serif);font-size:1.35rem;color:var(--gold);font-weight:400}
+.mb-link{display:inline-block;margin-top:12px;font-size:.76rem;font-weight:700;color:var(--brass);text-decoration:none;border-bottom:1px solid rgba(168,131,74,.4)}
+.mb-link:hover{color:var(--amber-2)}
+.minib.off{opacity:.45}
+.minib.off .mb-f,.minib.off .mb-sum b{color:var(--muted)}
+.pc-lab{font-size:.58rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--brass)}
+.pc-price{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-top:14px}
+.pc-old{font-family:var(--serif);font-size:1.5rem;color:var(--muted);text-decoration:line-through;text-decoration-thickness:2px;opacity:.8}
+.pc-new{font-family:var(--serif);font-size:clamp(2.4rem,5vw,3.1rem);line-height:1;color:var(--brass)}
+.pc-disc{background:var(--wine);color:#fff;border-radius:999px;padding:7px 14px;font-size:.58rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.promo{margin-top:18px;border:1px dashed var(--amber);background:rgba(226,165,78,.12);border-radius:12px;padding:16px 18px;text-align:center}
+.promo-lab{font-size:.56rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--brass)}
+.promo-code{font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.1rem);letter-spacing:.1em;color:var(--ink);line-height:1.1;margin-top:6px}
+.copybtn{margin-top:12px;background:transparent;border:1px solid var(--line-strong);color:var(--ink);border-radius:999px;padding:10px 18px;
+  font-family:var(--sans);font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:.2s}
+.copybtn:hover{border-color:var(--amber);color:var(--brass)}
+.pc-rows{margin-top:20px;border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:11px}
+.pc-row{display:flex;align-items:center;gap:12px;font-size:.9rem;line-height:1.45;color:var(--muted)}
+.pc-row b{color:var(--ink)}
+.pc-row i{flex:none;font-style:normal;color:var(--brass);font-size:.8rem}
+.pc-timer{margin-top:18px;display:flex;align-items:center;gap:14px;background:var(--pine);border-radius:12px;padding:14px 18px;color:#fff}
+.pc-timer .dig{font-family:var(--serif);font-size:1.8rem;line-height:1;color:var(--gold);font-variant-numeric:tabular-nums;min-width:3.2ch}
+.pc-timer .cap{font-size:.78rem;line-height:1.45;color:var(--paper-dim)}
+.pc-timer.off .dig{color:var(--paper-dim)}
+.pc-cta{margin-top:18px}
+.pc-foot{margin-top:12px;font-size:.78rem;line-height:1.5;color:var(--muted);text-align:center}
+
+
+/* ===== СФЕРЫ · ВЫПАДАЮЩИЕ СПИСКИ ===== */
+.sph-hint{margin-top:-8px;margin-bottom:16px;font-size:.9rem;line-height:1.55;color:var(--paper-dim)}
+.sphacc{display:flex;flex-direction:column;gap:10px}
+.sph{border:1px solid var(--line-dark);border-radius:14px;background:rgba(255,255,255,.04);overflow:hidden;transition:border-color .2s}
+.sph.open{border-color:var(--amber);background:rgba(226,165,78,.08)}
+.sph-h{width:100%;display:flex;align-items:center;gap:14px;padding:17px 20px;background:none;border:0;cursor:pointer;
+  font-family:var(--sans);color:#fff;text-align:left;transition:background .2s}
+.sph-h:hover{background:rgba(255,255,255,.04)}
+.sph-n{flex:none;font-family:var(--serif);font-size:.9rem;color:var(--brass-2)}
+.sph.open .sph-n{color:var(--amber)}
+.sph-t{flex:1;font-family:var(--serif);font-size:clamp(1.1rem,1.7vw,1.32rem);line-height:1.2}
+.sph-c{flex:none;font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-2);opacity:.85}
+.sph-h i{flex:none;font-style:normal;font-size:.95rem;color:var(--amber);transition:transform .3s ease}
+.sph.open .sph-h i{transform:rotate(180deg)}
+.sph-b{display:none;padding:0 20px 18px 20px}
+.sph.open .sph-b{display:block;animation:sphin .3s ease}
+@keyframes sphin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.sph-b ul{list-style:none;border-top:1px solid var(--line-dark);padding-top:12px}
+.sph-b li{position:relative;padding:9px 0 9px 22px;font-size:.96rem;line-height:1.5;color:var(--paper-dim);
+  border-bottom:1px dashed rgba(241,239,231,.12)}
+.sph-b li:last-child{border-bottom:0}
+.sph-b li::before{content:"";position:absolute;left:2px;top:17px;width:6px;height:6px;border-radius:50%;background:var(--amber)}
+@media(max-width:520px){
+  .sph-c{display:none}
+  .sph-h{padding:15px 16px;gap:11px}
+  .sph-b{padding:0 16px 16px 16px}
+}
+
+/* ===== СЕТКИ И КАРТОЧКИ ===== */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+@media(max-width:880px){.grid3{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.grid3,.grid2{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+.dark .card,.deep .card{background:rgba(255,255,255,.05);border-color:var(--line-dark)}
+.card .cn{font-family:var(--serif);font-size:1.15rem;color:var(--brass);display:block;margin-bottom:10px}
+.dark .card .cn,.deep .card .cn{color:var(--gold)}
+.card .ct{font-size:.99rem;line-height:1.6;color:var(--muted)}
+.dark .card .ct,.deep .card .ct{color:var(--paper-dim)}
+.card .ct b{color:var(--ink)}
+.dark .card .ct b,.deep .card .ct b{color:#fff}
+
+/* тайминг встречи */
+.tl{margin-top:28px;display:flex;flex-direction:column;gap:2px}
+.tl-row{display:grid;grid-template-columns:minmax(0,168px) 1fr;gap:24px;align-items:start;padding:18px 0;border-top:1px solid var(--line)}
+.dark .tl-row,.deep .tl-row{border-color:var(--line-dark)}
+.tl-row:last-child{border-bottom:1px solid var(--line)}
+.dark .tl-row:last-child,.deep .tl-row:last-child{border-color:var(--line-dark)}
+.tl-t{font-family:var(--serif);font-size:1.05rem;color:var(--brass);line-height:1.35}
+.dark .tl-t,.deep .tl-t{color:var(--gold)}
+.tl-x{font-size:1rem;line-height:1.6;color:var(--muted)}
+.dark .tl-x,.deep .tl-x{color:var(--paper-dim)}
+.tl-x b{color:var(--ink)}
+.dark .tl-x b,.deep .tl-x b{color:#fff}
+@media(max-width:640px){.tl-row{grid-template-columns:1fr;gap:6px}}
+
+.care{margin-top:26px;font-size:.95rem;line-height:1.65;color:var(--muted);padding-left:18px;border-left:2px solid var(--line-strong)}
+.dark .care,.deep .care{color:var(--paper-dim);border-color:var(--line-dark)}
+.care b{color:var(--ink)}
+.dark .care b,.deep .care b{color:#fff}
+
+.punch{display:flex;align-items:center;gap:18px;margin-top:32px;font-family:var(--serif);
+  font-size:clamp(1.15rem,2vw,1.6rem);line-height:1.4;color:var(--brass)}
+.punch::before{content:"";width:56px;height:2px;background:var(--amber);flex:none}
+.dark .punch,.deep .punch{color:var(--gold)}
+
+/* ===== БОНУСЫ ===== */
+.bonuscard{margin-top:30px;background:var(--paper);color:var(--ink);border-radius:20px;padding:clamp(24px,3.4vw,36px);
+  box-shadow:0 24px 56px rgba(0,0,0,.36)}
+.btimer{display:flex;align-items:center;gap:22px;flex-wrap:wrap;padding-bottom:22px;border-bottom:2px solid rgba(28,38,31,.14)}
+.btimer .tdig{font-family:var(--serif);font-size:clamp(2.3rem,6vw,3.1rem);color:var(--wine-2);line-height:1;font-variant-numeric:tabular-nums;min-width:3.4ch}
+.btimer .tcap{flex:1;min-width:250px;font-size:.98rem;line-height:1.55}
+.btimer .tcap b{color:var(--wine-2);font-weight:900}
+ol.bonlist{list-style:none;margin-top:6px}
+.bon{padding:16px 0 14px;border-bottom:1px dashed rgba(28,38,31,.24)}
+.bon:last-child{border-bottom:none}
+.bon-head{display:flex;align-items:center;gap:12px}
+.bon-n{flex:none;width:26px;height:26px;border-radius:50%;background:var(--pine);color:var(--gold);
+  font-family:var(--serif);font-size:.85rem;display:flex;align-items:center;justify-content:center}
+.bon-t{font-size:1.02rem;line-height:1.4}
+.bon-t b{font-weight:800}
+.bon-dots{flex:1;min-width:18px;border-bottom:1px dotted rgba(28,38,31,.4);transform:translateY(-3px)}
+.bon-p{flex:none;font-size:.95rem;color:rgba(28,38,31,.5);white-space:nowrap}
+.bon-free{flex:none;font-family:var(--serif);font-size:1.15rem;color:#2F7A52;white-space:nowrap}
+.bon-more{margin:10px 0 0 38px;display:inline-flex;align-items:center;gap:7px;background:none;
+  border:1px solid rgba(28,38,31,.25);border-radius:999px;padding:5px 13px;cursor:pointer;
+  font-family:var(--sans);font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:#8A6A33;transition:.2s}
+.bon-more:hover{background:rgba(28,38,31,.06);border-color:rgba(28,38,31,.45)}
+.bon-more i{font-style:normal;font-size:.82rem;transition:transform .3s ease}
+.bon.open .bon-more i{transform:rotate(180deg)}
+.bon-d{display:none;margin:14px 0 3px 38px;padding-left:16px;border-left:2px solid rgba(28,38,31,.2)}
+.bon.open .bon-d{display:block;animation:bond .35s ease}
+@keyframes bond{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.bon-d p{font-size:.96rem;line-height:1.7;color:rgba(20,29,23,.82);margin-bottom:11px}
+.bon-d p:last-child{margin-bottom:0}
+.bon-d b{font-weight:800;color:var(--ink)}
+.sum{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;margin-top:24px;
+  background:var(--pine);border-radius:14px;padding:20px 26px;color:var(--paper);font-size:1rem;line-height:1.55}
+.sum-t{flex:1;min-width:220px}
+.sum s{color:var(--paper-dim);opacity:.75}
+.sum b{flex:none;font-family:var(--serif);font-size:2.1rem;color:var(--gold);font-weight:400}
+.bnote{margin-top:14px;font-size:.85rem;line-height:1.55;color:rgba(20,29,23,.7)}
+.bexp{display:none;font-size:1rem;line-height:1.6}
+.bonuscard.expired .btimer,.bonuscard.expired ol.bonlist,.bonuscard.expired .sum,.bonuscard.expired .bnote{display:none}
+.bonuscard.expired .bexp{display:block}
+@media(max-width:640px){
+  .bon-head{flex-wrap:wrap}
+  .bon-t{flex:1 0 calc(100% - 38px)}
+  .bon-dots{display:none}
+  .bon-p{margin-left:38px}
+  .bon-free{margin-left:auto}
+  .bon-more,.bon-d{margin-left:0}
+  .sum b{font-size:1.8rem}
+}
+
+/* ===== ТАБЛИЦА ЦЕНЫ ===== */
+.ptable{margin-top:22px;border:1px solid var(--line-strong);border-radius:14px;overflow:hidden}
+.pt-row{display:grid;grid-template-columns:1fr 110px 120px;gap:14px;align-items:center;padding:16px 22px;border-bottom:1px solid var(--line);background:#fff}
+.pt-n{font-size:.97rem;line-height:1.5}
+.pt-p{font-family:var(--serif);font-size:1.15rem;color:var(--brass);text-align:right}
+.pt-p.free{color:#2F7A52}
+.pt-o{font-size:.95rem;color:var(--muted);text-decoration:line-through;text-align:right}
+.pt-total{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px;background:var(--pine);color:var(--paper)}
+.pt-tl{font-size:1rem}
+.pt-tl b{color:var(--gold);font-family:var(--serif);font-size:1.35rem;margin-left:4px}
+.pt-tr{font-size:.98rem;color:var(--paper-dim)}
+.pt-new{font-family:var(--serif);font-size:1.6rem;color:var(--gold);margin-right:8px}
+.pt-tr s{opacity:.7}
+@media(max-width:680px){
+  .pt-row{grid-template-columns:1fr auto;row-gap:6px}
+  .pt-n{grid-column:1/-1}
+  .pt-p{text-align:left}
+}
+.seats{margin-top:24px;display:flex;flex-direction:column;gap:10px}
+.st-row{display:flex;align-items:center;gap:11px;font-size:.98rem;color:var(--muted)}
+.st-row b{color:var(--brass);font-size:1.15rem;font-family:var(--serif)}
+.st-dot{width:10px;height:10px;flex:none;border-radius:50%;background:#5FBE86;animation:stpulse 1.8s infinite}
+@keyframes stpulse{0%,100%{box-shadow:0 0 0 0 rgba(95,190,134,.6)}50%{box-shadow:0 0 0 8px rgba(95,190,134,0)}}
+
+.whycheap{margin-top:30px;background:var(--paper-2);border:1px solid var(--line);border-radius:16px;padding:26px 28px}
+.whycheap b{display:block;font-family:var(--serif);font-size:1.15rem;color:var(--ink);margin-bottom:10px}
+.whycheap p{font-size:.99rem;line-height:1.68;color:var(--muted)}
+
+/* ===== ФИНАЛ ===== */
+.final{text-align:center}
+.final h2{margin:0 auto;max-width:22ch}
+.final .lead{margin-left:auto;margin-right:auto;text-align:center}
+.final .eyebrow{justify-content:center}
+.final .eyebrow::after{content:"";width:34px;height:1px;background:currentColor;flex:none}
+.finrow{margin-top:34px;display:flex;flex-direction:column;align-items:center;gap:12px}
+
+footer{background:var(--pine-2);color:var(--paper-dim);padding:34px 0 100px;border-top:1px solid var(--line-dark);font-size:.82rem;line-height:1.6}
+@media(min-width:721px){footer{padding-bottom:34px}}
+
+/* ===== ЛИПКАЯ ПАНЕЛЬ НА МОБИЛЬНОМ ===== */
+.stick{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;align-items:center;gap:14px;
+  padding:12px clamp(14px,4vw,20px);background:color-mix(in srgb,var(--pine-2) 96%,transparent);
+  backdrop-filter:blur(8px);border-top:1px solid var(--line-dark);color:#fff}
+.stick .sp{font-family:var(--serif);font-size:1.25rem;color:var(--gold);line-height:1}
+.stick .ss{font-size:.66rem;color:var(--paper-dim);margin-top:3px}
+.stick .cta{flex:1;padding:15px 18px;font-size:.66rem;box-shadow:none}
+@media(max-width:720px){.stick{display:flex}}
+
+/* ===== МОДАЛКА ===== */
+.mbg{position:fixed;inset:0;z-index:999999;background:rgba(10,18,14,.72);backdrop-filter:blur(4px);overflow-y:auto;
+  display:flex;align-items:flex-start;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s}
+@media(min-height:800px){.mbg{align-items:center}}
+.mbg.on{opacity:1;pointer-events:auto}
+.reg-modal{width:min(520px,100%);background:var(--paper);border-radius:20px;
+  padding:clamp(26px,4vw,38px);position:relative;transform:translateY(14px);transition:transform .25s}
+.mbg.on .reg-modal{transform:none}
+.mclose{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line-strong);
+  background:transparent;cursor:pointer;font-size:16px;color:var(--ink);line-height:1}
+.mclose:hover{background:var(--paper-2)}
+.reg-modal h3{margin-bottom:10px}
+.mlead{font-size:.95rem;line-height:1.6;color:var(--muted)}
+.mprice{margin-top:18px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  background:var(--paper-2);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.mprice b{font-family:var(--serif);font-size:1.6rem;color:var(--brass);font-weight:400}
+.mprice s{color:var(--muted)}
+.mprice span{font-size:.8rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-left:auto}
+.field{margin-top:16px}
+.field label{display:block;font-size:.58rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin-bottom:8px}
+.field input,.field select{width:100%;font-family:var(--sans);font-size:1rem;color:var(--ink);background:#fff;
+  border:1px solid var(--line-strong);border-radius:12px;padding:15px 16px;outline:none;transition:.2s}
+.field input:focus,.field select:focus{border-color:var(--amber);box-shadow:0 0 0 3px rgba(226,165,78,.22)}
+.field .err{margin-top:7px;font-size:.8rem;color:var(--wine-2);display:none}
+.field.bad input{border-color:var(--wine-2)}
+.field.bad .err{display:block}
+.magree{margin-top:16px;font-size:.76rem;line-height:1.55;color:var(--muted)}
+.mok{display:none;text-align:center;padding:14px 0}
+.mok .ic{width:62px;height:62px;margin:0 auto 18px;border-radius:50%;background:rgba(47,122,82,.14);border:1px solid #2F7A52;
+  color:#2F7A52;display:flex;align-items:center;justify-content:center;font-size:26px}
+.reg-modal.done .mform{display:none}
+.reg-modal.done .mok{display:block}
+</style>
+</head>
+<body>
+<!-- ЭКРАН 1 · ПЕРВЫЙ ЭКРАН -->
+<section class="hero dark" id="top">
+  <div class="wrap">
+    <div class="brandline">Протокол диагностики разработала <b>Анна Саба</b>, врач-психиатр, психотерапевт</div>
+  </div>
+
+  <div class="wrap hero-grid">
+    <div class="hero-left">
+     <div class="hero-a">
+      <div class="tagline">Индивидуальная диагностическая сессия · онлайн · 1 час</div>
+
+      <h1>За 1 час вы узнаете корневую причину своего застоя <span class="acc">и получите пошаговый план на 4 недели</span></h1>
+
+      <div class="offerstrip">
+        <div class="os-price"><s>10 000 ₽</s><b>990 ₽</b></div>
+        <div class="os-txt">по промокоду <span>ЗНАК</span><br><span id="osBonus" style="font-weight:400;letter-spacing:0;color:#fff">плюс 5 бонусов на 29 950 ₽ в подарок</span></div>
+      </div>
+
+      <p class="h1sub">Прямой путь к выдающемуся результату за 1 месяц без страхов и саботажа. Даже если вы раньше пробовали, и у вас не получалось. Встречу проводит сертифицированный психолог Института по авторской методологии Анны Саба.</p>
+
+      <ul class="checks">
+        <li>Вы увидите, <b>что именно вас сдерживает</b> на пути к результату</li>
+        <li>Найдёте <b>корневую причину</b> проблем в выбранной сфере</li>
+        <li>Узнаете, как <b>быстро и без откатов</b> устранить этот барьер</li>
+      </ul>
+
+     </div>
+
+     <div class="hero-b">
+      <div class="herocta">
+        <button class="cta" data-reg>Записаться за 990 ₽ вместо 10 000 ₽</button>
+        <div class="cta-note">Время встречи выбираете вы. Ближайшие слоты - уже завтра.</div>
+      </div>
+
+      <div class="resultbox">
+        <b>В результате встречи</b>
+        <span>У вас на руках будет <i>пошаговый план действий по реализации своего запроса за 1 месяц</i>. Останется лишь применить.</span>
+      </div>
+
+      <div class="secdiv"><span>Запросы, с которыми приходят</span></div>
+      <p class="sph-hint">Выберите свою сферу и посмотрите, с чем именно приходят на диагностику</p>
+
+      <div class="sphacc">
+        <div class="sph">
+          <button class="sph-h" type="button"><span class="sph-n">01</span><span class="sph-t">Финансы</span><span class="sph-c">Примеры запросов</span><i>↓</i></button>
+          <div class="sph-b"><ul>
+            <li>Удвоить доход в ближайший месяц</li>
+            <li>Выйти на доход 500 000 ₽ в месяц</li>
+            <li>Пробить финансовый потолок, который стоит уже несколько лет</li>
+            <li>Перестать работать на износ и зарабатывать меньше, чем могу</li>
+            <li>Научиться называть свою настоящую цену без внутреннего торга</li>
+            <li>Понять, почему при росте дохода каждый раз откатываюсь назад</li>
+            <li>Перестать сливать деньги и начать откладывать</li>
+            <li>Разрешить себе крупные покупки без чувства вины</li>
+          </ul></div>
+        </div>
+
+        <div class="sph">
+          <button class="sph-h" type="button"><span class="sph-n">02</span><span class="sph-t">Отношения</span><span class="sph-c">Примеры запросов</span><i>↓</i></button>
+          <div class="sph-b"><ul>
+            <li>Наладить отношения с мужем</li>
+            <li>Построить отношения, где мужчина ценит, дарит подарки и заботится</li>
+            <li>Перестать притягивать один и тот же тип мужчин</li>
+            <li>Встретить своего человека после долгого одиночества</li>
+            <li>Выйти из отношений, которые давно пора закончить, и не винить себя</li>
+            <li>Перестать ссориться по одному и тому же кругу</li>
+            <li>Научиться говорить о своих желаниях вместо того, чтобы терпеть</li>
+            <li>Наладить отношения с матерью или с детьми</li>
+          </ul></div>
+        </div>
+
+        <div class="sph">
+          <button class="sph-h" type="button"><span class="sph-n">03</span><span class="sph-t">Здоровье</span><span class="sph-c">Примеры запросов</span><i>↓</i></button>
+          <div class="sph-b"><ul>
+            <li>Выздороветь и перестать жить на таблетках</li>
+            <li>Понять, что стоит за симптомом, который врачи не находят</li>
+            <li>Убрать хроническое напряжение: спина, шея, челюсть</li>
+            <li>Справиться с тревогой и бессонницей</li>
+            <li>Понять, что именно запускает обострения, и перестать гадать</li>
+            <li>Перестать откладывать себя и своё тело на потом</li>
+            <li>Выйти из состояния «обследования чистые, а болит»</li>
+          </ul></div>
+        </div>
+
+        <div class="sph">
+          <button class="sph-h" type="button"><span class="sph-n">04</span><span class="sph-t">Предназначение</span><span class="sph-c">Примеры запросов</span><i>↓</i></button>
+          <div class="sph-b"><ul>
+            <li>Понять, чего я хочу на самом деле</li>
+            <li>Найти своё дело и реализоваться в нём</li>
+            <li>Проверить свою цель: моя она или навязанная</li>
+            <li>Перестать жить чужую жизнь</li>
+            <li>Понять, куда идти дальше, когда прежнее уже не радует</li>
+            <li>Выйти из состояния «это всё не моё»</li>
+          </ul></div>
+        </div>
+
+        <div class="sph">
+          <button class="sph-h" type="button"><span class="sph-n">05</span><span class="sph-t">Энергия</span><span class="sph-c">Примеры запросов</span><i>↓</i></button>
+          <div class="sph-b"><ul>
+            <li>Перестать просыпаться уже уставшей</li>
+            <li>Понять, куда утекает энергия, и перекрыть слив</li>
+            <li>Восстановиться после выгорания</li>
+            <li>Найти силы на себя, а не только на всех остальных</li>
+            <li>Перестать жить через «надо»</li>
+            <li>Вернуть интерес и желание что-то делать</li>
+          </ul></div>
+        </div>
+
+        <div class="sph">
+          <button class="sph-h" type="button"><span class="sph-n">06</span><span class="sph-t">Реализация</span><span class="sph-c">Примеры запросов</span><i>↓</i></button>
+          <div class="sph-b"><ul>
+            <li>Открыть своё дело</li>
+            <li>Начать заявлять о себе и перестать прятаться</li>
+            <li>Довести до конца то, что годами не заканчивается</li>
+            <li>Снять саботаж и прокрастинацию</li>
+            <li>Перестать бояться выйти на новый уровень</li>
+            <li>Показывать свои результаты, а не обесценивать их</li>
+          </ul></div>
+        </div>
+      </div>
+     </div>
+    </div>
+
+    <!-- КАРТОЧКА ЦЕНЫ -->
+    <div class="pricecard">
+      <div class="pc-lab">Стоимость по промокоду</div>
+      <div class="pc-price">
+        <span class="pc-old">10 000 ₽</span>
+        <span class="pc-new">990 ₽</span>
+        <span class="pc-disc">−90%</span>
+      </div>
+
+      <div class="promo">
+        <div class="promo-lab">Ваш промокод</div>
+        <div class="promo-code" id="pcode">ЗНАК</div>
+        <button class="copybtn" type="button" data-copy="pcode">Скопировать промокод</button>
+      </div>
+
+      <div class="pc-timer" id="pcTimer">
+        <div class="dig" id="tdig2">10:00</div>
+        <div class="cap" id="tcap2">осталось, чтобы забрать <b>5 бонусов</b> ценностью 29 950 ₽ в подарок</div>
+      </div>
+
+      <div class="minib" id="minib">
+        <div class="mb-lab">Что вы забираете вместе с диагностикой</div>
+        <div class="mb-row"><span class="mb-n">1</span><span class="mb-t">Расстановочная сессия «Расслабься, поле сделает всё за тебя»</span><s class="mb-o">9 990 ₽</s><span class="mb-f">0 ₽</span></div>
+        <div class="mb-row"><span class="mb-n">2</span><span class="mb-t">3-дневный марафон «Выдающийся результат за 3 дня»</span><s class="mb-o">4 990 ₽</s><span class="mb-f">0 ₽</span></div>
+        <div class="mb-row"><span class="mb-n">3</span><span class="mb-t">«Деньги ×2: как выйти на новый финансовый уровень»</span><s class="mb-o">4 990 ₽</s><span class="mb-f">0 ₽</span></div>
+        <div class="mb-row"><span class="mb-n">4</span><span class="mb-t">Аудиопрактика на энергию и изобилие</span><s class="mb-o">4 990 ₽</s><span class="mb-f">0 ₽</span></div>
+        <div class="mb-row"><span class="mb-n">5</span><span class="mb-t">Аудиопрактика на повышение самооценки</span><s class="mb-o">4 990 ₽</s><span class="mb-f">0 ₽</span></div>
+        <div class="mb-sum"><span>Бонусы на <s>29 950 ₽</s></span><b>0 ₽</b></div>
+        <a class="mb-link" href="#bonuses">Что внутри каждого бонуса ↓</a>
+      </div>
+
+      <button class="cta block pc-cta" data-reg>Записаться за 990 ₽</button>
+    </div>
+  </div>
+</section>
+
+<!-- ЭКРАН 2 · ЧТО ВЫ ПОЛУЧИТЕ ЗА ЧАС -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Что вы получаете за 1 час</div>
+    <h2 class="wide">За 1 час вы узнаете корневую причину своего застоя, свои вторичные выгоды <span class="acc">и получите пошаговый план на 4 недели</span></h2>
+
+    <div class="grid3">
+      <div class="card"><span class="cn">01</span><div class="ct"><b>Правильно сформулированный запрос.</b> Половина результата. Ошиблись с запросом - весь год уйдёт не туда.</div></div>
+      <div class="card"><span class="cn">02</span><div class="ct"><b>Корневую причину вашего застоя.</b> Не ту, что лежит на поверхности, а настоящую. В 95% случаев это не то, что вам кажется.</div></div>
+      <div class="card"><span class="cn">03</span><div class="ct"><b>Ваши вторичные выгоды.</b> То, ради чего мозг держится за проблему и водит вас по кругу.</div></div>
+      <div class="card"><span class="cn">04</span><div class="ct"><b>Куда сливается ваша энергия</b> и каким способом восполнять её именно вам, исходя из вашего типа личности.</div></div>
+      <div class="card"><span class="cn">05</span><div class="ct"><b>Пошаговый план на 4 недели</b> под вашу цель, с учётом вашего типа личности - тогда не включаются саботаж и прокрастинация.</div></div>
+      <div class="card"><span class="cn">06</span><div class="ct"><b>Снятие саботажа «у меня не получится».</b> Разбираем прямо на встрече, а не оставляем вам домой.</div></div>
+    </div>
+
+    <div class="secdiv"><span>Час по минутам</span></div>
+
+    <div class="tl">
+      <div class="tl-row"><div class="tl-t">Первые ~10 мин</div><div class="tl-x">Формулируем запрос: <b>что именно вы хотите изменить</b> - доход, отношения, энергию, здоровье, реализацию.</div></div>
+      <div class="tl-row"><div class="tl-t">Основные ~35 мин</div><div class="tl-x">Находим <b>корневую причину</b>: что держит вас сильнее всего и откуда это взялось. Становится видно, почему затык в одной сфере тянет вниз остальные.</div></div>
+      <div class="tl-row"><div class="tl-t">Последние ~15 мин</div><div class="tl-x">Строим <b>план на 4 недели</b> и отдельно разбираем, что делать, если внутри звучит «у меня не получится».</div></div>
+    </div>
+
+    <div class="care"><b>Это не терапевтическая сессия.</b> Погружаться в тяжёлые воспоминания и проживать их на диагностике не придётся. Это спокойный структурный разбор вашей ситуации.</div>
+
+    <div class="secdiv"><span>Кто проводит</span></div>
+
+    <div class="grid2" style="margin-top:0">
+      <div class="card"><div class="ct"><b>Психологи Института психического здоровья Анны Саба.</b> Действующие практикующие специалисты и преподаватели института, ДПДГ-терапевты, обученные по её авторскому протоколу.</div></div>
+      <div class="card"><div class="ct">Найти настоящую причину, а не ту, что лежит на поверхности, - <b>отдельное умение</b>. Эти специалисты учились ему у Анны и работают строго по её методике, а не «как чувствуют».</div></div>
+    </div>
+
+    <div class="punch">Это не просто встреча с психологом, после которой вы разойдётесь. Со встречи вы выходите с названной причиной и планом действий на руках.</div>
+  </div>
+</section>
+
+<!-- ЭКРАН 3 · БОНУСЫ -->
+<section class="dark" id="bonuses">
+  <div class="wrap">
+    <div class="eyebrow">Бонусы за быстрое решение</div>
+    <h2 class="wide">Запишитесь по промокоду <span class="acc">в течение 10 минут</span> - и заберёте 5 бонусов на 29 950 ₽</h2>
+    <p class="lead">Доступ ко всем материалам приходит сразу после оплаты. Их можно пройти уже сегодня вечером, не дожидаясь встречи с психологом - и прийти на разбор подготовленной.</p>
+
+    <div class="bonuscard" id="bonuscard">
+      <div class="btimer">
+        <div class="tdig" id="tdig">10:00</div>
+        <div class="tcap">Для тех, кто запишется по промокоду в течение 10 минут, доступны бонусы ценностью <b>29 950 ₽</b></div>
+      </div>
+
+      <ol class="bonlist">
+        <li class="bon">
+          <div class="bon-head">
+            <span class="bon-n">1</span>
+            <div class="bon-t"><b>Расстановочная сессия «Расслабься, поле сделает всё за тебя»</b></div>
+            <span class="bon-dots"></span>
+            <s class="bon-p">9 990 ₽</s>
+            <span class="bon-free">0 ₽</span>
+          </div>
+          <button class="bon-more" type="button">Подробнее<i>↓</i></button>
+          <div class="bon-d">
+            <p>- сессия, на которой вы увидите <b>свою ситуацию со стороны</b> и прочувствуете, что значит <b>идти к цели без страха и саботажа</b>.</p>
+            <p><b>Эта сессия обладает ВАУ-эффектом.</b> Прочувствуете, когда пройдёте.</p>
+            <p>Делать можно <b>регулярно и самостоятельно</b>.</p>
+          </div>
+        </li>
+        <li class="bon">
+          <div class="bon-head">
+            <span class="bon-n">2</span>
+            <div class="bon-t"><b>3-дневный марафон «Выдающийся результат за 3 дня»</b></div>
+            <span class="bon-dots"></span>
+            <s class="bon-p">4 990 ₽</s>
+            <span class="bon-free">0 ₽</span>
+          </div>
+          <button class="bon-more" type="button">Подробнее<i>↓</i></button>
+          <div class="bon-d">
+            <p>- на нём вы получаете <b>авторские методики для самостоятельных проработок</b>, которые используются на обучающих программах Анны Саба.</p>
+            <p>Это своего рода <b>волшебный пендель</b> для тех, кто хочет быстрых изменений в любой сфере <b>без откатов и саботажа</b>.</p>
+            <p>Здесь вы получите <b>3 эфира</b>, <b>3 домашних задания</b>, аудиопрактики по программированию мозга, тесты для углубления в свой запрос и другие материалы, которые <b>ускорят ваши процессы</b>.</p>
+          </div>
+        </li>
+        <li class="bon">
+          <div class="bon-head">
+            <span class="bon-n">3</span>
+            <div class="bon-t"><b>«Деньги ×2: как выйти на новый финансовый уровень»</b></div>
+            <span class="bon-dots"></span>
+            <s class="bon-p">4 990 ₽</s>
+            <span class="bon-free">0 ₽</span>
+          </div>
+          <button class="bon-more" type="button">Подробнее<i>↓</i></button>
+          <div class="bon-d">
+            <p>- <b>терапевтическая практика</b> от Анны Саба.</p>
+          </div>
+        </li>
+        <li class="bon">
+          <div class="bon-head">
+            <span class="bon-n">4</span>
+            <div class="bon-t"><b>Аудиопрактика на энергию и изобилие</b></div>
+            <span class="bon-dots"></span>
+            <s class="bon-p">4 990 ₽</s>
+            <span class="bon-free">0 ₽</span>
+          </div>
+          <button class="bon-more" type="button">Подробнее<i>↓</i></button>
+          <div class="bon-d">
+            <p>- работает с нервной системой: снимает <b>хроническое напряжение</b> и возвращает ощущение, <b>что силы есть</b>.</p>
+          </div>
+        </li>
+        <li class="bon">
+          <div class="bon-head">
+            <span class="bon-n">5</span>
+            <div class="bon-t"><b>Аудиопрактика на повышение самооценки</b></div>
+            <span class="bon-dots"></span>
+            <s class="bon-p">4 990 ₽</s>
+            <span class="bon-free">0 ₽</span>
+          </div>
+          <button class="bon-more" type="button">Подробнее<i>↓</i></button>
+          <div class="bon-d">
+            <p>- переписывает убеждение <b>«недостаточности»</b> на уровне нервной системы.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="sum"><span class="sum-t">Для тех, кто успеет записаться по промокоду, 5 бонусов общей ценностью <s>29 950 ₽</s> достанутся бесплатно</span><b>0 ₽</b></div>
+      <div class="bnote">Оплатите диагностику, пока идёт отсчёт, и назовите промокод <b>ЗНАК</b> в чате с командой.</div>
+      <div class="bexp">Окно бонусов закрылось. Диагностика по-прежнему доступна за 990 ₽ - уже без пяти бонусов.</div>
+    </div>
+
+    <div style="margin-top:26px"><button class="cta" id="bonusCta" data-reg>Записаться и забрать 5 бонусов</button></div>
+  </div>
+</section>
+
+<!-- ЭКРАН 4 · ЦЕНА И ЗАПИСЬ -->
+<section id="price">
+  <div class="wrap">
+    <div class="eyebrow">Запись</div>
+    <h2>По промокоду <span class="acc">ЗНАК</span> вы получаете</h2>
+
+    <div class="ptable">
+      <div class="pt-row"><div class="pt-n">Диагностическая сессия с психологом Института, 1 час, онлайн</div><div class="pt-p">990 ₽</div><div class="pt-o">10 000 ₽</div></div>
+      <div class="pt-row"><div class="pt-n">Расстановочная сессия «Расслабься, поле сделает всё за тебя»</div><div class="pt-p free">0 ₽</div><div class="pt-o">9 990 ₽</div></div>
+      <div class="pt-row"><div class="pt-n">3-дневный марафон «Выдающийся результат за 3 дня»</div><div class="pt-p free">0 ₽</div><div class="pt-o">4 990 ₽</div></div>
+      <div class="pt-row"><div class="pt-n">«Деньги ×2: как выйти на новый финансовый уровень»</div><div class="pt-p free">0 ₽</div><div class="pt-o">4 990 ₽</div></div>
+      <div class="pt-row"><div class="pt-n">Аудиопрактика на энергию и изобилие</div><div class="pt-p free">0 ₽</div><div class="pt-o">4 990 ₽</div></div>
+      <div class="pt-row"><div class="pt-n">Аудиопрактика на повышение самооценки</div><div class="pt-p free">0 ₽</div><div class="pt-o">4 990 ₽</div></div>
+      <div class="pt-total"><div class="pt-tl">Итого ваша выгода <b>97%</b></div><div class="pt-tr"><span class="pt-new">990 ₽</span> вместо <s>39 950 ₽</s></div></div>
+    </div>
+
+    <div class="whycheap">
+      <b>Почему так дёшево</b>
+      <p>10 000 ₽ - реальная цена часа у психологов этого уровня, и она не нарисована. 990 ₽ вы платите не за час работы, а за своё решение: любая перемена начинается с решительного шага, и порог намеренно снижен, чтобы ваш мозг не успел его засаботировать.</p>
+    </div>
+
+    <div class="seats">
+      <div class="st-row"><span class="st-dot"></span>Промокод <b>ЗНАК</b> действует, пока есть свободные слоты у специалистов</div>
+      <div class="st-row" style="padding-left:21px">Время встречи выбираете вы. Ближайшие слоты - уже завтра.</div>
+    </div>
+
+    <div style="margin-top:28px">
+      <button class="cta" data-reg>Записаться за 990 ₽ вместо 10 000 ₽</button>
+      <div class="cta-note">1 час · онлайн · один на один. После оплаты команда свяжется и подберёт удобное время.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ЭКРАН 5 · ФИНАЛ -->
+<section class="deep final">
+  <div class="narrow">
+    <div class="eyebrow">Прямо сейчас</div>
+    <h2>Через год вы будете думать примерно о том же самом. <span class="acc">Или у вас будет план</span></h2>
+    <p class="lead">Ваш мозг предлагает: «потом», «подумаю», «сначала сама попробую». Это тот самый механизм, из-за которого вы до сих пор там, где вы есть. Не дайте ему решить и в этот раз.</p>
+    <p class="lead">Один час - против ещё одного года той же петли. А год - это 365 вечеров, каждый из которых снова пройдёт по знакомому кругу.</p>
+
+    <div class="finrow">
+      <button class="cta" data-reg>Забрать диагностику и 5 бонусов за 990 ₽</button>
+      <div class="cta-note">990 ₽ вместо 10 000 ₽ · промокод ЗНАК · бонусы на 29 950 ₽ при записи в течение 10 минут</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Институт психического здоровья доктора Анны Саба<br>Диагностическая сессия не заменяет медицинскую помощь и психотерапию.</div>
+</footer>
+
+<!-- ЛИПКАЯ ПАНЕЛЬ НА МОБИЛЬНОМ -->
+<div class="stick">
+  <div>
+    <div class="sp">990 ₽</div>
+    <div class="ss" id="stickNote">бонусы ещё 10:00</div>
+  </div>
+  <button class="cta" data-reg>Записаться</button>
+</div>
+
+
+<!-- МОДАЛКА ЗАЯВКИ -->
+<div class="mbg" id="regMbg">
+  <div class="reg-modal" id="regModal" role="dialog" aria-modal="true" aria-label="Запись на диагностику">
+    <button class="mclose" id="regClose" aria-label="Закрыть">✕</button>
+
+    <div class="mform">
+      <h3>Запись на диагностику</h3>
+      <p class="mlead">Оставьте контакты - команда свяжется с вами, подберёт удобное время и пришлёт ссылку на оплату по промокоду.</p>
+
+      <div class="mprice">
+        <b>990 ₽</b><s>10 000 ₽</s><span>Промокод ЗНАК</span>
+      </div>
+
+      <form id="regform" novalidate>
+        <div class="field" id="f-name">
+          <label for="i-name">Как вас зовут</label>
+          <input type="text" id="i-name" name="name" placeholder="Имя" autocomplete="name">
+          <div class="err">Напишите, пожалуйста, имя</div>
+        </div>
+        <div class="field" id="f-phone">
+          <label for="i-phone">Телефон</label>
+          <input type="tel" id="i-phone" name="phone" placeholder="+7 900 000-00-00" autocomplete="tel">
+          <div class="err">Проверьте номер: нужно не меньше 10 цифр</div>
+        </div>
+        <div class="field">
+          <label for="i-msg">Где удобнее связаться</label>
+          <select id="i-msg" name="messenger">
+            <option>Telegram</option>
+            <option>WhatsApp</option>
+            <option>Звонок по телефону</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="i-sphere">Сфера, с которой хотите разобраться</label>
+          <select id="i-sphere" name="sphere">
+            <option>Деньги и доход</option>
+            <option>Отношения</option>
+            <option>Энергия и силы</option>
+            <option>Здоровье</option>
+            <option>Реализация и предназначение</option>
+            <option>Пока не знаю, помогите определить</option>
+          </select>
+        </div>
+
+        <button class="cta block" type="submit" style="margin-top:22px">Отправить заявку</button>
+        <div class="magree">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Промокод <b>ЗНАК</b> закрепляется за вашей заявкой автоматически.</div>
+      </form>
+    </div>
+
+    <div class="mok">
+      <div class="ic">✓</div>
+      <h3>Заявка принята</h3>
+      <p class="mlead" style="margin-top:10px">Команда свяжется с вами в ближайшее время, подберёт удобное время встречи и пришлёт ссылку на оплату. Промокод <b>ЗНАК</b> уже закреплён за вашей заявкой.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openGCPopup(e) {
+  if (e) { e.preventDefault(); e.stopPropagation(); }
+  if (typeof ltShowModalBlock === 'function') {
+    ltShowModalBlock('b-0c48d');
+  } else {
+    console.error('GetCourse: функция ltShowModalBlock не найдена');
+  }
+}
+
+/* ===== МОДАЛКА ЗАЯВКИ ===== */
+var mbg = document.getElementById('regMbg');
+var _regModal = document.getElementById('regModal');
+var lastFocus = null;
+
+function openModal(){
+  lastFocus = document.activeElement;
+  mbg.classList.add('on');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function(){ var f = document.getElementById('i-name'); if(f) f.focus(); }, 260);
+}
+function closeModal(){
+  mbg.classList.remove('on');
+  document.body.style.overflow = '';
+  if(lastFocus) lastFocus.focus();
+}
+Array.prototype.slice.call(document.querySelectorAll('[data-reg]')).forEach(function(b){
+  b.addEventListener('click', openGCPopup);
+});
+document.getElementById('regClose').addEventListener('click', closeModal);
+mbg.addEventListener('click', function(e){ if(e.target === mbg) closeModal(); });
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && mbg.classList.contains('on')) closeModal(); });
+
+(function(){
+'use strict';
+
+/* ===== ТАЙМЕР БОНУСОВ ===== */
+/* Отсчёт стартует при открытии страницы и не сохраняется между визитами:
+   обновил страницу - снова полные 10 минут. */
+var T_LEN = 10*60*1000;
+var T0 = Date.now();
+var timerInt = null;
+
+var elDig  = document.getElementById('tdig');
+var elDig2 = document.getElementById('tdig2');
+var elCap2 = document.getElementById('tcap2');
+var elCard = document.getElementById('bonuscard');
+var elPcT  = document.getElementById('pcTimer');
+var elStick= document.getElementById('stickNote');
+var elBCta = document.getElementById('bonusCta');
+var elMini = document.getElementById('minib');
+var elOsB  = document.getElementById('osBonus');
+
+function two(n){ return String(n).padStart(2,'0'); }
+function tick(){
+  var left = T_LEN - (Date.now() - T0);
+  if(left <= 0){
+    elCard.classList.add('expired');
+    elPcT.classList.add('off');
+    if(elDig2) elDig2.textContent = '0:00';
+    if(elCap2) elCap2.innerHTML = 'окно бонусов закрылось, <b>цена 990 ₽</b> действует';
+    if(elStick) elStick.textContent = 'цена 990 ₽ действует';
+    if(elBCta) elBCta.textContent = 'Записаться за 990 ₽';
+    if(elMini) elMini.classList.add('off');
+    if(elOsB) elOsB.textContent = 'цена действует, пока есть свободные слоты';
+    clearInterval(timerInt);
+    return;
+  }
+  var m = Math.floor(left/60000), s = Math.floor(left%60000/1000);
+  var txt = m + ':' + two(s);
+  if(elDig)  elDig.textContent  = txt;
+  if(elDig2) elDig2.textContent = txt;
+  if(elStick) elStick.textContent = 'бонусы ещё ' + txt;
+}
+tick(); timerInt = setInterval(tick, 250);
+
+/* ===== РАСКРЫТИЕ БОНУСОВ ===== */
+Array.prototype.slice.call(document.querySelectorAll('.bon-more')).forEach(function(btn){
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var li = btn.closest('.bon');
+    if(!li) return;
+    var open = li.classList.toggle('open');
+    btn.childNodes[0].nodeValue = open ? 'Свернуть' : 'Подробнее';
+  });
+});
+
+/* ===== СФЕРЫ · РАСКРЫТИЕ ===== */
+Array.prototype.slice.call(document.querySelectorAll('.sph-h')).forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var box = btn.closest('.sph');
+    if(box) box.classList.toggle('open');
+  });
+});
+
+/* ===== КОПИРОВАНИЕ ПРОМОКОДА ===== */
+Array.prototype.slice.call(document.querySelectorAll('.copybtn')).forEach(function(btn){
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+    var src = document.getElementById(btn.getAttribute('data-copy'));
+    var code = src ? src.textContent.trim() : '';
+    var done = function(){
+      var old = btn.textContent;
+      btn.textContent = 'Скопировано ✓';
+      setTimeout(function(){ btn.textContent = old; }, 2200);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(code).then(done, done);
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = code; ta.style.position='absolute'; ta.style.left='-9999px';
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); }catch(err){}
+      document.body.removeChild(ta); done();
+    }
+  });
+});
+
+
+/* ===== ОТПРАВКА ФОРМЫ ===== */
+document.getElementById('regform').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  var fName = document.getElementById('f-name');
+  var fPhone= document.getElementById('f-phone');
+  var name  = document.getElementById('i-name').value.trim();
+  var phone = document.getElementById('i-phone').value.trim();
+  var digits= phone.replace(/\D/g,'').length;
+  var ok = true;
+
+  fName.classList.toggle('bad', !name); if(!name) ok = false;
+  fPhone.classList.toggle('bad', digits < 10); if(digits < 10) ok = false;
+  if(!ok) return;
+
+  var data = {
+    name: name,
+    phone: phone,
+    messenger: document.getElementById('i-msg').value,
+    sphere: document.getElementById('i-sphere').value,
+    promo: 'ЗНАК',
+    bonus: (T_LEN - (Date.now() - T0)) > 0 ? 'да, успел по таймеру' : 'нет, таймер истёк',
+    page: location.href
+  };
+
+  /* ===== СЮДА ПОДКЛЮЧАЕТСЯ ПРИЁМ ЗАЯВОК =====
+     Например, отправка на свой обработчик или в GetCourse:
+
+     fetch('https://ваш-домен/api/lead', {
+       method: 'POST',
+       headers: {'Content-Type': 'application/json'},
+       body: JSON.stringify(data)
+     });
+
+     Сейчас заявка просто выводится в консоль браузера. */
+  console.log('Заявка:', data);
+
+  _regModal.classList.add('done');
+});
+
+})();
+</script>
+
+<style>
+#gcw-ov{position:fixed;inset:0;z-index:9999;background:rgba(6,20,15,.82);display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 12px;visibility:hidden;opacity:0;pointer-events:none;transition:opacity .2s}
+#gcw-ov.on{visibility:visible;opacity:1;pointer-events:auto}
+#gcw-box{position:relative;width:100%;max-width:640px;background:#0e231c;border-radius:18px;padding:18px 6px 6px;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+#gcw-x{position:absolute;top:6px;right:12px;background:none;border:0;color:#fff;font-size:26px;line-height:1;cursor:pointer;z-index:2}
+#gcw-box iframe{width:100%!important;border:0}
+</style>
+<div id="gcw-ov" aria-hidden="true"><div id="gcw-box"><button id="gcw-x" type="button" aria-label="Закрыть">&times;</button>
+<script id="4913cb47ddedc00ecfc180fbd042b414d5f1453c" src="https://doctor-saba.com/pl/lite/widget/script?id=1664545"></script>
+</div></div>
+<script>
+(function(){
+  var ov=document.getElementById('gcw-ov');
+  function open(){ov.classList.add('on');ov.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+  function close(){ov.classList.remove('on');ov.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+  window.ltShowModalBlock=function(){open();};
+  document.getElementById('gcw-x').addEventListener('click',close);
+  ov.addEventListener('click',function(e){if(e.target===ov)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&ov.classList.contains('on'))close();});
+})();
+</script>
+
+</body>
+</html>
