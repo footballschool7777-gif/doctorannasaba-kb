@@ -768,7 +768,7 @@ footer a{color:#5b5670}
 }
 /* phones: the test block follows a little closer */
 @media(max-width:1000px){.offer{padding-bottom:0}.tst{margin-top:6px}.tst-stage{padding-top:16px;gap:10px}}
-</style>
+@media(max-width:1000px){.lab{height:484vh}}</style>
 <section class="lab" id="lab"><div class="lab-stage">
 <div class="lab-bg"></div><div class="lab-grid"></div><div class="lab-light"></div>
 <svg class="scene" id="labsvg" aria-hidden="true"><defs id="labdefs"></defs><g class="fl" data-c="#f6c766" data-n="Доход"></g><g class="fl" data-c="#f5a3b7" data-n="Отношения"></g><g class="fl" data-c="#b7a2f7" data-n="Потенциал"></g><g class="fl" data-c="#86e0c0" data-n="Здоровье"></g><g id="streams"></g><g id="center"></g></svg>
@@ -1156,7 +1156,7 @@ document.querySelectorAll('.au-st b[data-n]').forEach(x=>io.observe(x));})();</s
     if(AN)ann.style.opacity=1-seg(p,.6,.66);
   }
   const q=new URLSearchParams(location.search).get('p');
-  function onScroll(){if(q!==null)return;const r=sec.getBoundingClientRect(),h=r.height-innerHeight;render(cl(-r.top/h,0,1));}
+  function onScroll(){if(q!==null)return;const r=sec.getBoundingClientRect(),h=r.height-innerHeight,raw=cl(-r.top/h,0,1);if(innerWidth>1000){render(raw);return;}if(raw<.999){sec._tail=0;render(raw*.8);return;}if(sec._tail)return;sec._tail=1;const t0=performance.now();(function f(n){const k=Math.min(1,(n-t0)/1400);render(.8+.2*k);if(k<1&&sec._tail)requestAnimationFrame(f);})(t0);}
   let raf=0;addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(()=>{raf=0;onScroll();});},{passive:true});
   addEventListener('resize',()=>{layout();onScroll();});
   layout();if(q!==null)render(+q);else onScroll();
