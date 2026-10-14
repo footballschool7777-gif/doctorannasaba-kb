@@ -708,6 +708,36 @@ footer a{color:#5b5670}
 .pflask path[fill^="rgba(255,255,255"]{fill:rgba(255,255,255,.8);stroke:rgba(58,47,107,.55);stroke-width:3}
 .pflask rect[fill^="rgba(255,255,255"]{fill:rgba(58,47,107,.35)}
 
+/* captions that sit on dark photos stay light */
+.author-ph .cap small{color:#ffe6a6!important;text-shadow:0 2px 12px rgba(0,0,0,.7)!important}
+.author-ph .cap b{color:#fff!important;text-shadow:0 2px 16px rgba(0,0,0,.7)!important}
+.ft-magic:after{background:linear-gradient(180deg,rgba(11,9,18,0) 40%,rgba(11,9,18,.92) 82%)!important}
+.ft-magic .ft-t{color:#ffd75e!important;text-shadow:0 0 18px rgba(255,215,94,.55)!important}
+.ft-magic .ft-s{color:#f3eee4!important}
+/* drawn flasks in the feature cards get a dark outline */
+.ft-c svg [stroke^="rgba(255,255,255"]{stroke:rgba(58,47,107,.6)}
+.ft-c svg [fill="rgba(255,255,255,.05)"]{fill:rgba(255,255,255,.75)}
+.ft-s:before{background:#d99a1e;box-shadow:none}
+/* sphere icons: white disc, coloured ring, deeper icon */
+.wc-ico{background:#fff!important;border:1.5px solid var(--c)!important;box-shadow:0 10px 22px -12px var(--c)!important}
+.wc-ico svg{filter:brightness(.62) saturate(1.7)}
+/* bullets and markers that were light gold glow */
+.pg li:before{background:#d99a1e;box-shadow:0 0 0 4px rgba(217,154,30,.18);width:9px;height:9px;left:5px;top:.55em}
+/* test scene: the walking figure, its exit path and the new-reality label */
+.ts-man g{filter:none}.ts-man{color:#9a6a10!important}
+.ts-exit{stroke:#a8740f}.ts-new{filter:none;fill:#7a520a}
+.ts-loop{fill:#9a6a10}
+/* the burst: a coloured flash, a white one is lost on cream */
+.lab-flash{background:radial-gradient(circle at 50% 70%,#fff 0,rgba(246,199,102,.95) 22%,rgba(183,162,247,.6) 48%,rgba(245,163,183,0) 75%)}
+.lab #streams path{filter:saturate(1.8) brightness(.8)}
+/* screen after the burst: names and lines in ink, not pale gold */
+.lab-final .ofd b{color:#262238!important}.lab-final .ofd span,.offer .ofd span{color:#4b4658!important}
+@media(max-width:420px){.au-st b{font-size:19px!important}}
+
+/* timeline rows that are not lit yet stay legible on white */
+.key .panel.dark .row{opacity:.62}
+.key .panel.dark .row i{border:1.5px solid rgba(168,116,15,.5)}
+
 .lab-go{position:absolute;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:8;display:flex;flex-direction:column;align-items:center;gap:2px;padding:12px 22px 10px;border-radius:40px;background:rgba(255,255,255,.9);box-shadow:0 0 0 1px rgba(168,116,15,.45),0 14px 34px -12px rgba(90,70,140,.45);transition:opacity .4s;pointer-events:none}
 .lab-go span{font:500 12px var(--wide);letter-spacing:.18em;text-transform:uppercase;color:#262238;white-space:nowrap}
 .lab-go i{display:block;width:12px;height:12px;border-right:2px solid #c08a1e;border-bottom:2px solid #c08a1e;transform:rotate(45deg);animation:lgo 1.4s ease-in-out infinite;margin-top:-3px}
@@ -715,7 +745,7 @@ footer a{color:#5b5670}
 @keyframes lgo{0%,100%{transform:translateY(0) rotate(45deg)}50%{transform:translateY(6px) rotate(45deg)}}
 .lab-go.off{opacity:0}
 .swipe{display:none!important}
-
+@media(min-width:1001px){.lab-go{left:30%}}
 .lf-go{display:none}
 @media(max-width:1000px),(max-height:640px){
   .lab-final{align-items:flex-start;padding:max(14px,2.2svh) 16px 0}
@@ -1166,6 +1196,6 @@ document.querySelectorAll('.au-st b[data-n]').forEach(x=>io.observe(x));})();</s
 })();
 </script><script>
 (function(){const s=document.getElementById('lab'),g=document.getElementById('labgo');if(!s||!g)return;
-function t(){const r=s.getBoundingClientRect(),p=-r.top/Math.max(1,s.offsetHeight-innerHeight);g.classList.toggle('off',p>.78||r.bottom<innerHeight*.5);}
+function t(){const r=s.getBoundingClientRect(),p=-r.top/Math.max(1,s.offsetHeight-innerHeight);const f=s.querySelector('.lab-flash');g.classList.toggle('off',p>.6||r.bottom<innerHeight*.5||(f&&+getComputedStyle(f).opacity>.05));}
 addEventListener('scroll',t,{passive:true});t();})();
 </script></body></html>
