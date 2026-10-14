@@ -757,7 +757,18 @@ footer a{color:#5b5670}
   .lab-final .ofd b,.lab-final .ofd span{font-size:12.5px}
   .lab-final .lf-go{display:block;margin-top:12px}.lab-final .lf-go .btn-iri{width:100%;padding:17px 20px;font-size:13px}
 }
-@media(max-width:1000px),(max-height:640px){.offer .ofbtn [data-open]{display:none}}</style>
+@media(max-width:1000px),(max-height:640px){.offer .ofbtn [data-open]{display:none}}
+@media(max-width:1000px) and (min-height:740px){
+  .lab-final .ofx{display:flex;flex-direction:column;gap:10px}.lab-final .ofl{display:contents}
+  .lab-final .ofr{order:2}.lab-final .lf-go{order:3;margin-top:4px}
+  .lab-final .lf-more{display:block!important;order:4;margin-top:6px}
+  .lab-final .lf-more .ofpf,.lab-final .lf-more .ofbtn{display:none}
+  .lab-final .ofp{margin:0;padding:12px 16px;text-align:left}.lab-final .ofp p{font-size:15px;line-height:1.4}
+  .offer .ofp{display:none}
+}
+/* phones: the test block follows a little closer */
+@media(max-width:1000px){.offer{padding-bottom:0}.tst{margin-top:6px}.tst-stage{padding-top:16px;gap:10px}}
+</style>
 <section class="lab" id="lab"><div class="lab-stage">
 <div class="lab-bg"></div><div class="lab-grid"></div><div class="lab-light"></div>
 <svg class="scene" id="labsvg" aria-hidden="true"><defs id="labdefs"></defs><g class="fl" data-c="#f6c766" data-n="Доход"></g><g class="fl" data-c="#f5a3b7" data-n="Отношения"></g><g class="fl" data-c="#b7a2f7" data-n="Потенциал"></g><g class="fl" data-c="#86e0c0" data-n="Здоровье"></g><g id="streams"></g><g id="center"></g></svg>
