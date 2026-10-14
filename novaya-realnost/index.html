@@ -819,30 +819,26 @@ document.querySelectorAll('.au-st b[data-n]').forEach(x=>io.observe(x));})();</s
 <div class="arrows"><button type="button" data-dir="-1" aria-label="Назад">←</button><button type="button" data-dir="1" aria-label="Вперёд">→</button></div></section>
 <section class="sec" id="reg"><div class="wrap"><h2 class="h2">Выберите вариант участия</h2><div class="tgrid"><div class="tcard"><h3>БЕСПЛАТНО</h3><ul><li>3 прямых эфира, старт 23 ноября</li><li>Домашние задания</li><li>Дополнительные бонусные материалы</li><li>Чат участников программы</li><li>Участие в розыгрыше призов</li></ul>
 <div class="tprice"><b>0 ₽</b><s>990 ₽</s></div><button type="button" class="btn-iri " data-open>Иду за 0 ₽</button></div><div class="tcard vip"><h3>VIP</h3><ul class="tl-short"><li>3 прямых эфира, старт 23 ноября</li><li>4-й VIP-эфир «Магнит для масштаба»</li><li>Записи эфиров</li><li>Презентации эфиров</li><li>Домашние задания</li><li>Дополнительные бонусные материалы</li><li>Чат участников программы</li><li>Участие в розыгрыше призов</li></ul><p class="tb-k">Бонусы VIP</p><div class="tbs"><div class="tb"><b>Практика на 30 минут</b><p>«Прочувствуй свою новую реальность и узнай, что тебе не даёт в неё перейти»</p></div><div class="tb"><b>Личный разбор-диагностика именно вашей ситуации в любой сфере</b><p>Деньги, отношения, реализация, предназначение, здоровье.</p><details><summary>Подробнее</summary><p>Вы получите реалистичный пошаговый план действий по достижению своей цели без иллюзий и розовых очков, отталкиваясь от вашей реальности. Разборы проводят действующие психологи, выпускники «Института психического здоровья доктора Анны Саба».</p></details><span class="tb-tag">Средняя цена работы со специалистами такого уровня стоит ~ 15 000 ₽.</span></div><div class="tb"><b>Мастер-класс Анны Саба</b><p>«Пошаговый план: как выйти на новый уровень дохода, энергии и отношений, научиться помогать себе и близким и за 6 месяцев освоить востребованную профессию EMDR-терапевта с доходом ~300 000 рублей в месяц.»</p></div></div>
-<div class="tprice"><b>1 980 ₽</b><s>14 990 ₽</s></div><button type="button" class="btn-iri " data-open>Иду на VIP</button></div></div></div></section>
+<div class="tprice"><b>1 980 ₽</b><s>14 990 ₽</s></div><button type="button" class="btn-iri " data-vip disabled aria-disabled="true">Иду на VIP</button></div></div></div></section>
 <section class="cta"><div class="cta-bg" style="background-image:url(img/6258412b23.webp)"></div>
 <h2 class="h2">Система квантового перехода в&nbsp;авто<em class="cta-mag">маг</em>ическую реальность</h2><p class="pt">Даже если вы уже проходили много программ, и они не дали результата, и вы больше не верите, что у вас получится.</p><button type="button" class="btn-iri " data-open>Зарегистрироваться бесплатно</button></section>
 <footer><p>© 2026 ООО «Институт психического здоровья доктора Анны Саба» · ОГРН 1257700442911 · ИНН 7751373785</p>
 <p>Эл. почта: DR.ANNASABA@YANDEX.RU · Телефон: +7 917 039 6100 · <a href="https://ipzdas.ru/politika" style="color:inherit">Политика обработки персональных данных</a></p></footer>
 <div class="pay" id="modal"><div class="pay-box" role="dialog" aria-modal="true" aria-labelledby="mt">
 <button type="button" class="pay-x" id="mclose" aria-label="Закрыть">×</button><p class="pay-title" id="mt">Регистрируйтесь на программу</p>
-<form id="regform"><p style="font-size:14px;font-weight:600">Выберите, куда прислать ссылки на эфиры</p><div class="radios"><label class="radio"><input type="radio" name="msg" checked> Telegram</label><label class="radio"><input type="radio" name="msg" > Макс</label></div>
-<input class="fld" type="email" placeholder="Эл. адрес" required><input class="fld" type="text" placeholder="Имя" required>
-<input class="fld" type="tel" placeholder="Телефон" required>
-<button type="submit" class="btn-iri">Записаться</button>
-<p class="consent">Нажимая кнопку, я даю согласие на обработку персональных данных и на получение сообщений о программе</p><p class="consent">Для VIP – та же форма с оплатой и принятием договора-оферты.</p>
-<p class="done" id="fdone" hidden>Это макет: приём заявок подключим позже.</p></form></div></div>
+<div id="registration-widget"><script id="e8fc46b41d4b01299a40fce3772d1c62eabe0e25" src="https://doctor-saba.com/pl/lite/widget/script?id=1668830"></script></div></div></div>
+<style>.pay{display:flex;visibility:hidden;opacity:0;pointer-events:none}.pay.open{visibility:visible;opacity:1;pointer-events:auto}.pay-box{max-height:92dvh;overflow-y:auto}#registration-widget{min-height:400px}#registration-widget iframe{width:100%!important;border:0}button[data-vip]{cursor:not-allowed;opacity:.65}</style>
 <div class="qz" id="qz" role="dialog" aria-modal="true" aria-label="Подбор программы"><div class="qz-in">
 <div class="qz-top"><div class="qz-bar"><b id="qzbar"></b></div><button type="button" class="qz-x" id="qzx" aria-label="Закрыть">×</button></div>
 <div id="qzbody"></div></div></div><script>
 (function(){
-  const m=document.getElementById('modal'),f=document.getElementById('regform'),d=document.getElementById('fdone');
-  const open=()=>{m.classList.add('open');d.hidden=true;},close=()=>m.classList.remove('open');
+  const m=document.getElementById('modal');
+  const open=()=>{m.classList.add('open');},close=()=>m.classList.remove('open');
   document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',open));
   document.getElementById('mclose').addEventListener('click',close);
   m.addEventListener('click',e=>{if(e.target===m)close();});
   document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
-  f.addEventListener('submit',e=>{e.preventDefault();d.hidden=false;});
+
   const t=document.getElementById('track');
   document.querySelectorAll('.arrows button').forEach(a=>a.addEventListener('click',()=>t.scrollBy({left:+a.dataset.dir*340,behavior:'smooth'})));
   document.querySelectorAll('.day.vip').forEach(el=>{el.style.setProperty('background-image','none');});

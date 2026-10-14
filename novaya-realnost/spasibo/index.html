@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Завершите регистрацию · Институт доктора Анны Саба</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#E7ECEC;--paper-2:#F4F7F6;--card:#FFFFFF;
+    --ink:#13192A;--ink-soft:#535A6E;--line:rgba(19,25,42,.12);--line-soft:rgba(19,25,42,.07);
+    --green:#1F6A57;--green-deep:#103A30;--green-soft:#DCEAE4;
+    --amber:#DD8A2B;--amber-2:#E9A53F;
+    --display:'Bricolage Grotesque',-apple-system,sans-serif;
+    --body:'Hanken Grotesk',-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
+  ::selection{background:var(--green);color:#fff}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+  /* header */
+  header.bar{position:sticky;top:0;z-index:50;background:rgba(231,236,236,.85);
+    backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line-soft)}
+  .bar-in{display:flex;align-items:center;justify-content:center;gap:1rem;padding:.85rem 0;text-align:center}
+  .brand{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--display);font-weight:700;font-size:clamp(.6rem,2.7vw,1rem);letter-spacing:-.01em;color:var(--ink);white-space:nowrap}
+  .brand .mk{width:26px;height:26px;border-radius:7px;background:var(--green);display:grid;place-items:center;flex:0 0 auto}
+  .brand .mk svg{width:15px;height:15px;stroke:#fff}
+  @media(max-width:680px){.brand .mk{width:22px;height:22px}.brand{gap:.45rem}.bar .wrap{padding:0 14px}}
+
+  /* layout */
+  .ty{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:clamp(1.6rem,5vw,3.5rem) 0}
+  .ty-card{width:100%;max-width:640px;padding:clamp(.4rem,2vw,1rem);text-align:center;position:relative}
+
+  .eyebrow{display:inline-flex;align-items:center;gap:.55rem;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;
+    font-weight:700;color:var(--green);margin-bottom:1.4rem}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--green);border-radius:2px}
+
+  /* progress */
+  .progress-wrap{margin-bottom:1.8rem}
+  .progress-top{display:flex;justify-content:flex-end;align-items:baseline;margin-bottom:.5rem}
+  .progress-top .pct{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--green)}
+  .progress{height:12px;background:#fff;border:1px solid var(--line);border-radius:30px;overflow:hidden}
+  .progress .fill{height:100%;width:0;border-radius:30px;
+    background:linear-gradient(90deg,var(--green),var(--amber-2));
+    transition:width 1.3s cubic-bezier(.2,.7,.2,1)}
+
+  h1{font-family:var(--display);font-weight:700;font-size:clamp(1.4rem,3.6vw,2rem);line-height:1.18;
+    letter-spacing:-.015em;color:var(--ink);text-wrap:balance;max-width:24ch;margin:0 auto}
+
+  /* messenger buttons */
+  .mbtns{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+  @media(max-width:520px){.mbtns{grid-template-columns:1fr}}
+  .mbtn{display:flex;align-items:center;justify-content:center;gap:.7rem;font-family:var(--body);
+    font-weight:700;font-size:1.08rem;color:#fff !important;text-decoration:none !important;
+    padding:1.15rem 1.4rem;border-radius:14px;cursor:pointer;
+    transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s;box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+  .mbtn svg{width:24px;height:24px;flex:0 0 auto}
+  .mbtn:hover{transform:translateY(-2px)}
+  .mbtn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+  .mbtn.tg{background:linear-gradient(180deg,#2AABEE,#229ED9);box-shadow:0 16px 32px -14px rgba(34,158,217,.65),inset 0 1px 0 rgba(255,255,255,.3)}
+  .mbtn.tg:hover{box-shadow:0 22px 42px -14px rgba(34,158,217,.8),inset 0 1px 0 rgba(255,255,255,.3)}
+  .mbtn.max{background:linear-gradient(180deg,#2E8C76,#1F6A57);box-shadow:0 16px 32px -14px rgba(31,106,87,.6),inset 0 1px 0 rgba(255,255,255,.25)}
+  .mbtn.max:hover{box-shadow:0 22px 42px -14px rgba(31,106,87,.75),inset 0 1px 0 rgba(255,255,255,.25)}
+  @media(max-width:520px){.mbtn{font-size:.92rem;padding:.95rem .8rem;gap:.45rem;white-space:nowrap}.mbtn svg{width:19px;height:19px}}
+  @media(max-width:360px){.ty-card{padding:1.7rem 1.2rem}.mbtn{font-size:.86rem;padding:.9rem .6rem}.mbtn svg{width:17px;height:17px}}
+
+  @media (prefers-reduced-motion:reduce){.progress .fill{transition:none}.mbtn{transition:none}}
+</style>
+</head>
+<body>
+
+<main class="ty">
+  <div class="wrap">
+    <div class="ty-card">
+      <span class="eyebrow">Остался 1 шаг</span>
+
+      <div class="progress-wrap">
+        <div class="progress-top">
+          <span class="pct" id="pct">90%</span>
+        </div>
+        <div class="progress"><div class="fill" id="fill"></div></div>
+      </div>
+
+      <h1>Выберите мессенджер, где вам удобнее проходить интенсив и получить бонусы</h1>
+
+      <div class="mbtns">
+        <a href="https://doctor-saba.com/tlgrm?bot=doctor_saba_bot" class="mbtn tg">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.6l-2.96 13.96c-.22 1-.81 1.24-1.64.77l-4.53-3.34-2.19 2.1c-.24.24-.45.45-.92.45l.33-4.62 8.41-7.6c.37-.32-.08-.5-.57-.18L7.3 13.05l-4.47-1.4c-.97-.3-.99-.97.2-1.44l17.48-6.74c.81-.3 1.52.18 1.26 1.13z"></path></svg>
+          Перейти в Telegram
+        </a>
+        <a href="https://doctor-saba.com/pl/maxstart?botId=1816" class="mbtn max">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z"></path></svg>
+          Перейти в MAX
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // плавное заполнение прогресс-бара до 90% + счётчик
+  (function(){
+    var fill=document.getElementById('fill'),pct=document.getElementById('pct');
+    var target=90;
+    function run(){
+      fill.style.width=target+'%';
+      var start=null,dur=1300;
+      function step(t){
+        if(!start)start=t;
+        var p=Math.min((t-start)/dur,1);
+        pct.textContent=Math.round(p*target)+'%';
+        if(p<1)requestAnimationFrame(step);else pct.textContent=target+'%';
+      }
+      requestAnimationFrame(step);
+    }
+    if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){fill.style.width=target+'%';pct.textContent=target+'%';}
+    else setTimeout(run,250);
+  })();
+</script>
+</body>
+</html>
