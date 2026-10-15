@@ -703,11 +703,24 @@ html[data-theme=light] .gets em{background:linear-gradient(160deg,#d9a54c,#9a6a1
 .gains{list-style:none;padding:0;margin:0 0 16px;display:flex;flex-wrap:wrap;gap:8px}
 .gains li{position:relative;padding:6px 12px 6px 26px;border-radius:999px;background:rgba(201,162,92,.12);font-size:14.5px;line-height:1.25}
 .gains li:before{content:"";position:absolute;left:11px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--goldt)}
-@media(max-width:980px){.hero .notez{margin:0 0 8px;padding:4px 11px;font-size:12px}.hero .gains{gap:4px;margin:0 0 8px}.hero .gains li{font-size:12.5px;padding:3px 9px 3px 20px}.hero .gains li:before{left:8px;width:6px;height:6px;margin-top:-3px}.hero .lead0{margin-bottom:6px}.hero .lead2{font-size:12.5px;line-height:1.35}.hd .wrap .logo{max-width:300px;font-size:10.5px}.hero .stage{height:min(30vh,200px)}.hero .lit{left:17%;right:17%;top:3%;bottom:3%}.hero .lit img{object-position:60% 18%}.hero .stage .lit p.who{padding:26px 10px 8px}.hero .stage .lit p.who b{font-size:12px;line-height:1.25}.hero .stage .lit p.who span{font-size:11px}.hero .lead2.after{margin:10px 0 0;font-size:13px;line-height:1.38}section.hero{padding-top:14px}.hero .trust{margin:0 0 10px}.hero .trust img{width:32px;height:32px}.hero h1{margin-bottom:8px}}
+@media(max-width:980px){.hero .notez{margin:0 0 8px;padding:4px 11px;font-size:12px}.hero .gains{gap:4px;margin:0 0 8px}.hero .gains li{font-size:12.5px;padding:3px 9px 3px 20px}.hero .gains li:before{left:8px;width:6px;height:6px;margin-top:-3px}.hero .lead0{margin-bottom:6px}.hero .lead2{font-size:12.5px;line-height:1.35}.hd .wrap .logo{max-width:300px;font-size:10.5px}.hero .stage{height:min(20vh,136px)}.hero .stage .gains,.hero .gains{gap:4px 4px;margin:0 0 9px}.hero .gains li{font-size:12px;padding:3px 8px 3px 18px}.hero .gains li:before{left:7px}.hero p.lead0{font-size:13px;margin:0 0 5px}.hero .kick{margin-bottom:4px}.hero .lit{left:17%;right:17%;top:3%;bottom:3%}.hero .lit img{object-position:60% 34%}.hero .stage .lit p.who{padding:26px 10px 8px}.hero .stage .lit p.who b{font-size:12px;line-height:1.25}.hero .stage .lit p.who span{font-size:11px}.hero .lead2.after{margin:10px 0 0;font-size:13px;line-height:1.38}section.hero{padding-top:14px}.hero .trust{margin:0 0 10px}.hero .trust img{width:32px;height:32px}.hero h1{margin-bottom:8px}}
 .hero .lit p.who{display:flex;left:0;right:0;bottom:0;padding:44px 18px 16px;flex-direction:column;align-items:flex-start;gap:3px;background:linear-gradient(180deg,transparent,rgba(8,6,4,.86) 62%);font:600 14px var(--fb);letter-spacing:0;text-transform:none;color:#fff;text-align:left}
 .hero .lit p.who:before{display:none}.hero .lit p.who b{font:700 15px var(--fb);color:#f6dc9e}.hero .lit p.who span{opacity:.88;font-size:13px}
 .hero .lead2.after{margin:18px 0 0;font-size:14px}
 .hd .logo{display:none}.hd .wrap{justify-content:flex-end}
+.promise{position:relative;display:flex;gap:14px;margin:4px 0 20px;padding:18px 20px;border-radius:18px;background:linear-gradient(135deg,rgba(201,162,92,.16),rgba(201,162,92,.04) 55%,rgba(201,162,92,.12));isolation:isolate;overflow:hidden}
+.promise:before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:linear-gradient(120deg,#f6dc9e,rgba(201,162,92,.25) 30%,#c9a25c 60%,rgba(246,220,158,.3) 80%,#f6dc9e);background-size:220% 220%;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:prb 6s linear infinite;z-index:-1}
+.promise .pr-glow{position:absolute;width:160px;height:160px;right:-60px;top:-70px;border-radius:50%;background:radial-gradient(circle,rgba(246,220,158,.35),transparent 70%);z-index:-1;pointer-events:none}
+@keyframes prb{to{background-position:220% 0}}
+.pr-ic{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;color:#1a1208;background:linear-gradient(145deg,#f6dc9e,#c9a25c);box-shadow:0 6px 18px -6px rgba(201,162,92,.7)}
+.pr-ic svg{width:22px;height:22px}
+.pr-tx p{margin:0 0 6px;font-size:14.5px;line-height:1.42;color:var(--ink)}
+.pr-tx b{color:var(--goldt);font-weight:700}
+.pr-seal{display:inline-flex;align-items:center;gap:7px;margin-top:4px;font:700 11.5px var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--goldt)}
+.pr-seal:before{content:"";width:16px;height:1.5px;background:currentColor}
+@media(max-width:980px){.hero .promise{gap:10px;margin:2px 0 12px;padding:12px 13px;border-radius:15px}.hero .pr-ic{width:30px;height:30px;border-radius:9px}.hero .pr-ic svg{width:18px;height:18px}.hero .pr-tx p{font-size:12.5px;line-height:1.36;margin:0 0 4px}.hero .pr-seal{font-size:10px;margin-top:2px}}
+@media(max-width:370px){.hero .stage{height:min(18vh,112px)}.hero h1{font-size:23px}}
+@media(prefers-reduced-motion:reduce){.promise:before{animation:none}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.chart .new{stroke-dashoffset:0}}
 </style></head><body>
 <header class="hd"><div class="wrap"><a class="logo" href="#top"><i></i>Школа ментального здоровья доктора Анны Саба</a><button type="button" class="mini" data-open>Зарегистрироваться</button></div></header>
@@ -715,10 +728,10 @@ html[data-theme=light] .gets em{background:linear-gradient(160deg,#d9a54c,#9a6a1
  <div class="rv in">
   <p class="kick">4-дневный практикум</p>
   <h1>Система квантового перехода в <span class="gl">автоМАГическую реальность</span></h1>
-  <p class="notez">Метод от врача, не эзотерика</p>
   <p class="lead lead0">После практикума вы сможете быстро и легко:</p>
   <ul class="gains"><li>увеличить доход</li><li>построить счастливые отношения</li><li>укрепить здоровье</li><li>найти предназначение</li><li>реализовать свой потенциал</li></ul>
   <div class="chips"><span class="chip">Даты: 23–26 ноября</span><span class="chip">4 прямых эфира</span></div>
+  <div class="promise"><i class="pr-glow"></i><div class="pr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M8.8 12.2l2.2 2.2 4.4-4.6"/></svg></div><div class="pr-tx"><p>Даже если вы уже много что попробовали, и у вас не получалось или случались откаты, практикум будет вам полезен.</p><p>Вы получите <b>самые эффективные (в т.ч. секретные) и научно обоснованные инструменты</b> изменения реальности.</p><span class="pr-seal">Метод от врача, не эзотерика</span></div></div>
   <div class="acts"><button type="button" class="btn" data-open>Зарегистрироваться бесплатно<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button><a class="ghost" href="#film">Как это устроено ↓</a></div>
   <p class="fast">Запись за 20 секунд · ссылки придут в Telegram или Макс</p>
  </div>
