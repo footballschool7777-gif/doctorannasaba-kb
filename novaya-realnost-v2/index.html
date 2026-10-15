@@ -837,6 +837,19 @@ html[data-theme=dark] .hero .promise .pr-tx b,html[data-theme=dark] .hero .promi
 .lit>img,.lit>.spark,.lit>.glint,.lit>p.who{border-radius:inherit}
 .lit>img,.lit .hair{border-radius:18px}
 .hero .lit p.who{border-radius:0 0 18px 18px}
+/* price tickets: notches sit on the tear line, label without a stray frame (owner video 21:50) */
+.tc .nm{border:0;border-radius:0;margin:0;max-width:none;overflow:visible;background:none}
+.tc .tk-stub{position:relative}
+.tc:before,.tc:after{display:none}
+.tc .tk-stub:before,.tc .tk-stub:after{content:"";position:absolute;bottom:-16px;width:30px;height:30px;border-radius:50%;background:var(--bg);border:1px solid var(--line)}
+.tc .tk-stub:before{left:-45px;clip-path:inset(0 0 0 50%)}
+.tc .tk-stub:after{right:-45px;clip-path:inset(0 50% 0 0)}
+.tc.vip .tk-stub:before,.tc.vip .tk-stub:after{border-color:var(--gold)}
+@media(max-width:980px){.tc .tk-stub:before{left:-37px}.tc .tk-stub:after{right:-37px}}
+/* hero promise in the light theme: the VIP ticket colour, not dark brown */
+html[data-theme=light] .hero .promise{background:linear-gradient(165deg,color-mix(in srgb,var(--gold) 24%,var(--card)),var(--card) 70%)!important}
+html[data-theme=light] .hero .promise .pr-tx p{color:var(--ink)!important}
+html[data-theme=light] .hero .promise .pr-tx b,html[data-theme=light] .hero .promise .pr-seal{color:var(--goldt)!important}
 @media(prefers-reduced-motion:reduce){.promise:before{animation:none}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.chart .new{stroke-dashoffset:0}}
 </style></head><body>
