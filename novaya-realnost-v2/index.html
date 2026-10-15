@@ -830,6 +830,13 @@ html[data-theme=dark] .hero .promise .pr-tx b,html[data-theme=dark] .hero .promi
 @media(max-width:980px){.hero .gains li{padding-left:24px!important}.hero .gains li:before{width:12px!important;height:12px!important;margin-top:-6px!important;left:7px!important;background-size:8px!important}.wand{width:1.3em;height:1.3em;top:-1.1em;right:-2.3em}}
 @media(min-width:700px){.mbr{display:none}}
 @media(max-width:370px){.gets li p{font-size:14px;letter-spacing:-.01em}}
+/* owner video 15.10 21:48: shadow cut by hero edge + Safari not clipping photo corners while floating */
+@media(min-width:981px){section.hero{overflow:visible}}
+.lit{isolation:isolate}
+.lit:after{border-radius:18px}
+.lit>img,.lit>.spark,.lit>.glint,.lit>p.who{border-radius:inherit}
+.lit>img,.lit .hair{border-radius:18px}
+.hero .lit p.who{border-radius:0 0 18px 18px}
 @media(prefers-reduced-motion:reduce){.promise:before{animation:none}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.chart .new{stroke-dashoffset:0}}
 </style></head><body>
