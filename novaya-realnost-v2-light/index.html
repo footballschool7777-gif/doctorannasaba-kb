@@ -48,7 +48,7 @@ h3{font-size:clamp(18px,2vw,22px)}
 /* hero */
 .hero{padding:110px 0 70px;min-height:100svh;display:flex;align-items:center;overflow:hidden}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;width:100%}
-.hero h1{font-size:clamp(40px,7vw,86px);text-transform:uppercase;line-height:.98;letter-spacing:-.02em}
+.hero h1{font-size:clamp(40px,5vw,66px);text-transform:uppercase;line-height:.98;letter-spacing:-.02em}
 .hero h1 span{display:block}
 .hero h1 .gl{background:linear-gradient(100deg,var(--goldt),var(--gold) 40%,#fff3cf 50%,var(--gold) 60%,var(--goldt));background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gl 6s linear infinite}
 html[data-theme=light] .hero h1 .gl{background-image:linear-gradient(100deg,#8a5714,#b57a22 40%,#e3b45e 50%,#b57a22 60%,#8a5714)}
@@ -78,7 +78,6 @@ html[data-theme=light] .hero h1 .gl{background-image:linear-gradient(100deg,#8a5
 @keyframes float{50%{transform:translateY(-10px)}}
 .beam{position:absolute;left:50%;top:-30%;width:70%;height:60%;transform:translateX(-50%);background:radial-gradient(ellipse at top,var(--glow),transparent 70%);filter:blur(10px);z-index:1;pointer-events:none}
 html[data-theme=light] .reel{opacity:.9;background:#3a2c1a}
-html[data-theme=light] .reel b{background:linear-gradient(160deg,#e6cf9f,#b98c4c)!important;opacity:.55}
 /* film chooser */
 .film-sec{background:linear-gradient(180deg,var(--bg),var(--bg2) 50%,var(--bg))}
 .strip{position:relative;margin:40px auto 0;max-width:1000px;background:var(--frame);border-radius:14px;padding:24px 16px}
@@ -302,19 +301,173 @@ footer a{color:inherit}
  .hd .mini{padding:9px 14px;font-size:13px}
  .logo{font-size:12px}
 }
+
+/* ===== v2.1: images, lab, loop, timeline, tickets ===== */
+.reel b{background-size:cover!important;background-position:center!important;filter:saturate(.85)}
+.reel{opacity:.9}
+html[data-theme=light] .reel b{opacity:1!important;background-color:#3a2c1a}
+.reel b:nth-child(odd){filter:saturate(.6) brightness(.8)}
+.fr-in{background-size:cover;background-position:center;position:relative;overflow:hidden;justify-content:flex-end;padding-bottom:10px;color:#f4ede1!important}
+.fr-in:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.75))}
+.fr-in>*{position:relative}
+.fr svg{width:22px;height:22px}
+.fr em{text-shadow:0 1px 6px rgba(0,0,0,.7)}
+.fr.on .fr-in{background-size:cover}
+/* lab */
+.lab{overflow:hidden;color:#f4ede1;background:#0b0907}
+.lab-bg{position:absolute;inset:0;background:var(--lab) center/cover;opacity:.55;animation:kb 26s ease-in-out infinite alternate}
+.lab:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,transparent,rgba(8,6,4,.85) 75%);pointer-events:none}
+.lab .wrap{position:relative;z-index:2}
+.lab .lead{color:#d8cfbf}
+.lab .kick{color:#ecc67f}
+@keyframes kb{to{transform:scale(1.12) translateY(-2%)}}
+.dust{position:absolute;inset:0;z-index:1;pointer-events:none}
+.dust i{position:absolute;bottom:-10px;width:4px;height:4px;border-radius:50%;background:#f6dc9e;box-shadow:0 0 10px #f6dc9e;opacity:0;animation:up 9s linear infinite}
+.dust i:nth-child(3n){width:2px;height:2px}
+.dust i:nth-child(1){left:0%;animation-delay:0.00s;animation-duration:7s}.dust i:nth-child(2){left:37%;animation-delay:0.53s;animation-duration:8s}.dust i:nth-child(3){left:74%;animation-delay:1.06s;animation-duration:9s}.dust i:nth-child(4){left:11%;animation-delay:1.59s;animation-duration:10s}.dust i:nth-child(5){left:48%;animation-delay:2.12s;animation-duration:11s}.dust i:nth-child(6){left:85%;animation-delay:2.65s;animation-duration:7s}.dust i:nth-child(7){left:22%;animation-delay:3.18s;animation-duration:8s}.dust i:nth-child(8){left:59%;animation-delay:3.71s;animation-duration:9s}.dust i:nth-child(9){left:96%;animation-delay:4.24s;animation-duration:10s}.dust i:nth-child(10){left:33%;animation-delay:4.77s;animation-duration:11s}.dust i:nth-child(11){left:70%;animation-delay:5.30s;animation-duration:7s}.dust i:nth-child(12){left:7%;animation-delay:5.83s;animation-duration:8s}.dust i:nth-child(13){left:44%;animation-delay:6.36s;animation-duration:9s}.dust i:nth-child(14){left:81%;animation-delay:6.89s;animation-duration:10s}.dust i:nth-child(15){left:18%;animation-delay:7.42s;animation-duration:11s}.dust i:nth-child(16){left:55%;animation-delay:7.95s;animation-duration:7s}.dust i:nth-child(17){left:92%;animation-delay:8.48s;animation-duration:8s}.dust i:nth-child(18){left:29%;animation-delay:0.01s;animation-duration:9s}
+@keyframes up{10%{opacity:.9}90%{opacity:.6}to{transform:translateY(-110vh);opacity:0}}
+.flasks{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.fl{background:rgba(20,16,11,.6);border:1px solid rgba(232,194,122,.25);border-radius:26px;padding:26px;backdrop-filter:blur(6px);text-align:center}
+.fl svg{width:92px;height:128px;margin:0 auto 14px;overflow:visible}
+.fl .gl{fill:rgba(255,255,255,.04);stroke:#ecc67f;stroke-width:2.2;stroke-linejoin:round}
+.fl .liq{fill:url(#none);fill:#e8b75a;opacity:.85;transform:translateY(0);transition:transform 2.2s cubic-bezier(.2,.7,.2,1)}
+.fl.in .liq{transform:translateY(calc(-1 * var(--lv)))}
+.fl .liq{animation:wave 3s ease-in-out infinite alternate}
+@keyframes wave{to{opacity:.65}}
+.fl .bb{fill:#fff6dc;opacity:0;animation:bub 2.4s var(--d,0s) infinite}
+@keyframes bub{0%{opacity:0;transform:translateY(0)}20%{opacity:.9}100%{opacity:0;transform:translateY(-60px)}}
+.fl-n{font:600 13px var(--ft);color:#ecc67f;letter-spacing:.1em}
+.fl h3{margin:6px 0 8px;color:#fff}
+.fl p{color:#cfc5b4;font-size:15px}
+/* loop */
+.loopv{position:relative;max-width:780px;margin:40px auto 0;border-radius:30px;overflow:hidden;aspect-ratio:16/10;background:#0b0907;box-shadow:var(--shadow)}
+.loop-img{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.5;animation:kb 20s ease-in-out infinite alternate}
+.loopv:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(10,8,5,.35),rgba(10,8,5,.8))}
+.orbit{position:absolute;inset:0;margin:auto;height:100%;width:auto;z-index:2;overflow:visible}
+.orbit .ring{fill:none;stroke:rgba(244,237,225,.4);stroke-width:1.5;stroke-dasharray:3 6;animation:spin 40s linear infinite;transform-origin:150px 150px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.orbit .st{fill:#a99f8e}
+.orbit text{fill:#f4ede1;font:600 11px var(--fb);text-anchor:middle}
+.orbit .mid{font:600 15px var(--ft);fill:#f4ede1;opacity:.85}
+.orbit .runner{fill:#e5484d;filter:drop-shadow(0 0 6px #e5484d)}
+.orbit .exit{fill:none;stroke:#f6dc9e;stroke-width:3;stroke-linecap:round;stroke-dasharray:120;stroke-dashoffset:120;animation:ex 6s ease-in-out infinite;filter:drop-shadow(0 0 6px #f6dc9e)}
+@keyframes ex{0%,45%{stroke-dashoffset:120}75%,100%{stroke-dashoffset:0}}
+.orbit .ex{fill:#f6dc9e;font:700 12px var(--fb);letter-spacing:.12em;text-transform:uppercase;animation:exo 6s infinite}
+@keyframes exo{0%,60%{opacity:0}80%,100%{opacity:1}}
+/* timeline */
+.chart .tn circle{fill:var(--card);stroke:var(--gold);stroke-width:2.5;opacity:0;transition:opacity .4s calc(var(--k,0)*.28s),fill .4s calc(var(--k,0)*.28s)}
+.chart.in .tn circle{opacity:1;fill:var(--gold)}
+.chart .tn:last-of-type circle{r:9;filter:drop-shadow(0 0 8px var(--gold))}
+.chart .tn text{font:700 10.5px var(--fb);fill:var(--goldt);opacity:0;transition:opacity .4s calc(var(--k,0)*.28s + .2s)}
+.chart.in .tn text{opacity:1}
+.chart .ot{font:600 11px var(--fb);fill:var(--muted)}
+.chart .new{stroke-dasharray:520;stroke-dashoffset:520}
+.tl{list-style:none;display:grid;gap:4px;margin-top:18px;counter-reset:x}
+.tl li{display:flex;gap:12px;align-items:flex-start;padding:10px 6px;border-radius:14px;opacity:.35;transform:translateX(-6px);transition:opacity .5s,transform .5s,background .5s}
+.chart.in .tl li{opacity:1;transform:none}
+.chart.in .tl li:nth-child(1){transition-delay:0.00s}.chart.in .tl li:nth-child(2){transition-delay:0.28s}.chart.in .tl li:nth-child(3){transition-delay:0.56s}.chart.in .tl li:nth-child(4){transition-delay:0.84s}.chart.in .tl li:nth-child(5){transition-delay:1.12s}.chart.in .tl li:nth-child(6){transition-delay:1.40s}.chart.in .tl li:nth-child(7){transition-delay:1.68s}.chart.in .tl li:nth-child(8){transition-delay:1.96s}
+.tl li span{flex:0 0 30px;height:30px;border-radius:50%;display:grid;place-items:center;font:600 11px var(--ft);background:color-mix(in srgb,var(--gold) 20%,transparent);color:var(--goldt)}
+.tl li:last-child span{background:var(--gold);color:var(--btnink)}
+.tl b{display:block;font-size:15px;line-height:1.35}
+.tl small{color:var(--muted);font-size:13px}
+/* day images */
+.day{padding-top:0}
+.day-img{margin:0 -28px 20px;aspect-ratio:16/9;overflow:hidden;position:relative}
+.day-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 6s ease-out}
+.day.in .day-img img{transform:scale(1)}
+.day-img:after{content:"";position:absolute;inset:auto 0 0;height:50%;background:linear-gradient(transparent,var(--card))}
+.day.vip .day-img:after{background:linear-gradient(transparent,color-mix(in srgb,var(--gold) 16%,var(--card)))}
+.day-h{position:relative;margin-top:-46px;z-index:2}
+/* stay visuals */
+.sgrid>*,.dgrid>*,.tf>*{min-width:0}
+.rep{margin-top:16px;border-radius:14px;overflow:hidden;position:relative}
+.rep-t{display:flex;gap:6px;width:max-content;animation:slide 14s linear infinite}
+.rep-t i{width:110px;aspect-ratio:3/4;border-radius:8px;background-size:cover;background-position:center;filter:grayscale(1) brightness(.75)}
+@keyframes slide{to{transform:translateX(-464px)}}
+.rep span{position:absolute;left:10px;bottom:8px;font:700 10px var(--fb);letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.5);padding:4px 8px;border-radius:8px}
+.phone{position:relative;width:150px;height:220px;margin:16px auto 0;border-radius:26px;border:6px solid #1c1812;background:#1c1812;overflow:hidden;box-shadow:var(--shadow)}
+.ph-feed{display:flex;flex-direction:column;gap:6px;animation:feed 12s linear infinite}
+.ph-feed i{display:block;height:120px;border-radius:12px;background-size:cover;background-position:center}
+@keyframes feed{to{transform:translateY(-378px)}}
+.ph-like{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);font:700 11px var(--fb);color:#fff;background:rgba(0,0,0,.55);padding:4px 10px;border-radius:12px;white-space:nowrap;animation:pulse 2s infinite}
+.hg{display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:center;margin-top:16px}
+.hg svg{width:70px}
+.hg .hg-f{fill:none;stroke:var(--goldt);stroke-width:2.5;stroke-linecap:round}
+.hg .hg-top{fill:var(--gold);transform-origin:40px 44px;animation:sandt 6s linear infinite}
+.hg .hg-bot{fill:var(--gold);transform-origin:40px 110px;animation:sandb 6s linear infinite}
+.hg .hg-s{stroke:var(--gold);stroke-width:2;stroke-dasharray:3 4;animation:flow .6s linear infinite}
+@keyframes sandt{to{transform:scaleY(.1)}}
+@keyframes sandb{from{transform:scaleY(.15)}}
+@keyframes flow{to{stroke-dashoffset:-7}}
+.hg .rg{margin-top:0}
+.ba{position:relative;margin-top:16px;aspect-ratio:16/9;border-radius:14px;overflow:hidden}
+.ba-a,.ba-b{position:absolute;inset:0;background-size:cover;background-position:center}
+.ba-a{filter:grayscale(1) brightness(.7)}
+.ba-b{clip-path:inset(0 0 0 50%);animation:wipe 6s ease-in-out infinite alternate}
+@keyframes wipe{from{clip-path:inset(0 0 0 85%)}to{clip-path:inset(0 0 0 15%)}}
+.ba span{position:absolute;bottom:8px;font:700 10px var(--fb);letter-spacing:.12em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.5);padding:4px 8px;border-radius:8px}
+.ba-a span{left:8px}.ba-b span{right:8px;background:rgba(185,131,46,.85)}
+.ba-l{position:absolute;top:0;bottom:0;width:2px;background:#f6dc9e;box-shadow:0 0 12px #f6dc9e;animation:wl 6s ease-in-out infinite alternate}
+@keyframes wl{from{left:85%}to{left:15%}}
+/* tickets */
+.tc{position:relative;overflow:visible}
+.tc:before,.tc:after{content:"";position:absolute;top:96px;width:30px;height:30px;border-radius:50%;background:var(--bg);border:1px solid var(--line)}
+.tc:before{left:-16px;clip-path:inset(0 0 0 50%)}.tc:after{right:-16px;clip-path:inset(0 50% 0 0)}
+.tc.vip:before,.tc.vip:after{border-color:var(--gold)}
+.tk-stub{display:flex;justify-content:space-between;align-items:center;margin:-6px -4px 26px;padding-bottom:22px;border-bottom:2px dashed var(--line);font:700 12px var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.tk-stub b{font:600 14px var(--ft);color:var(--goldt);letter-spacing:.06em}
+.gift{overflow:hidden}
+.gift-w{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.gift-hl{margin-top:18px;font:600 clamp(20px,2.4vw,26px)/1.3 var(--ft)}
+.gift-hl b{background:linear-gradient(100deg,var(--goldt),var(--gold) 45%,#fff3cf 50%,var(--gold) 55%,var(--goldt));background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gl 4s linear infinite}
+.gift-cta{margin-top:26px}
+.tk-stage{position:relative;height:300px}
+.tk{position:absolute;display:flex;border-radius:22px;background:linear-gradient(135deg,#f6dc9e,#d6a24a 55%,#b9832e);color:#2a1c06;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.tk-back,.tk-back2{inset:30px 20px 30px 40px;opacity:.5}
+.tk-back{transform:rotate(-6deg)}.tk-back2{transform:rotate(5deg);opacity:.3}
+.tk-main{inset:20px 0 20px 10px;transform:rotate(-2deg);animation:float 6s ease-in-out infinite;transition:transform .45s}
+.tk-main.flip{transform:rotate(-2deg) rotateX(80deg)}
+.tk-l{flex:1;padding:24px 22px;display:flex;flex-direction:column;gap:6px;position:relative}
+.tk-r{flex:0 0 86px;border-left:2px dashed rgba(42,28,6,.35);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-weight:700}
+.tk-r b{font:600 16px var(--ft);writing-mode:vertical-rl;transform:rotate(180deg)}
+.bar{width:34px;height:70px;background:repeating-linear-gradient(0deg,#2a1c06 0 2px,transparent 2px 4px,#2a1c06 4px 5px,transparent 5px 8px);opacity:.7;margin-top:8px}
+.tk-k{font:700 10px var(--fb);letter-spacing:.16em;text-transform:uppercase;opacity:.75}
+.tk-name{font:600 clamp(20px,2.6vw,28px)/1.1 var(--ft)}
+.tk-d{font-size:13px;font-weight:700;opacity:.8}
+.tk-gift{margin-top:auto;position:relative;background:rgba(255,255,255,.35);border-radius:14px;padding:10px 14px;overflow:hidden}
+.tk-gift small{display:block;font:700 10px var(--fb);letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.tk-gift b{font:600 15px/1.25 var(--ft)}
+.tk-main.win .tk-gift{background:#1b1711;color:#f6dc9e;box-shadow:0 0 30px rgba(246,220,158,.8)}
+.scr{position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.7) 50%,transparent 70%);transform:translateX(-120%);animation:shine 2.6s infinite}
+.tk-mini{position:relative;margin:10px 0;min-height:150px;transform:rotate(-1deg)}
+.tk-mini .tk-r{flex-basis:64px}
+.ok p{margin-top:8px;color:var(--muted);font-weight:500;font-size:13px}
+@media(min-width:981px){.hero .wrap{grid-template-columns:1fr 1fr}.stage{max-height:none;height:min(78vh,680px);aspect-ratio:auto}.lit{left:10%;right:10%}}
+html[data-theme=light] .gift-hl b{background-image:linear-gradient(100deg,#8a5714,#c08a2e 45%,#e3b45e 50%,#c08a2e 55%,#8a5714)}
+@media(max-width:980px){.reel{width:24%}.reel.l{left:1%}.reel.r{right:1%}.lit{left:22%;right:22%}}
+@media(max-width:980px){.flasks{grid-template-columns:1fr}.gift-w{grid-template-columns:1fr}.tk-stage{height:270px;max-width:460px;width:100%;margin:0 auto}}
+@media(max-width:640px){
+ .fl{display:grid;grid-template-columns:64px 1fr;text-align:left;gap:0 16px;align-items:center;padding:18px}
+ .fl svg{width:56px;height:80px;margin:0;grid-row:span 3}
+ .fl h3{margin:2px 0 4px}
+ .loopv{aspect-ratio:1/1}
+ .day-img{margin:0 -20px 18px}
+ .tk-l{padding:18px 16px}.tk-r{flex-basis:64px}
+ .tc:before,.tc:after{top:86px}
+}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.chart .new{stroke-dashoffset:0}}
 </style></head><body>
-<header class="hd"><div class="wrap"><a class="logo" href="#top"><i></i>Анна Саба · Новая реальность</a><button type="button" class="mini" data-open>Зарегистрироваться</button></div></header>
+<header class="hd"><div class="wrap"><a class="logo" href="#top"><i></i>Анна Саба · лаборатория новой реальности</a><button type="button" class="mini" data-open>Зарегистрироваться</button></div></header>
 <section class="hero" id="top"><div class="wrap">
  <div class="rv in">
-  <p class="kick">Трансформационный практикум</p>
+  <p class="kick">Лаборатория новой реальности</p>
   <h1><span>Новая</span><span class="gl">реальность</span></h1>
   <p class="sub">Система квантового перехода в автомагическую реальность</p>
   <p class="lead">Через 4 дня вы перейдёте на высокий уровень <b class="g">энергии и вибраций</b>, а ваше желание станет следствием нового состояния сознания.</p>
   <div class="chips"><span class="chip">Даты: 23–26 ноября</span><span class="chip">4 прямых эфира</span><span class="chip">Участие бесплатно</span></div>
   <div class="acts"><button type="button" class="btn" data-open>Зарегистрироваться бесплатно<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button><a class="ghost" href="#film">Как это устроено ↓</a></div>
  </div>
- <div class="stage" aria-hidden="true"><div class="beam"></div><div class="reel l"><div><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div></div><div class="reel r"><div><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div></div>
+ <div class="stage" aria-hidden="true"><div class="beam"></div><div class="reel l"><div><b style="background-image:url(img/6bfe504283.webp)"></b><b style="background-image:url(img/d170d8eafd.webp)"></b><b style="background-image:url(img/fd1d332d77.webp)"></b><b style="background-image:url(img/a318865ffd.webp)"></b><b style="background-image:url(img/18b2838bcc.webp)"></b><b style="background-image:url(img/49efe58fa3.webp)"></b><b style="background-image:url(img/6bfe504283.webp)"></b><b style="background-image:url(img/d170d8eafd.webp)"></b><b style="background-image:url(img/fd1d332d77.webp)"></b><b style="background-image:url(img/a318865ffd.webp)"></b><b style="background-image:url(img/18b2838bcc.webp)"></b><b style="background-image:url(img/49efe58fa3.webp)"></b></div></div><div class="reel r"><div><b style="background-image:url(img/c6765e1d20.webp)"></b><b style="background-image:url(img/f21270f15d.webp)"></b><b style="background-image:url(img/a86ff979ba.webp)"></b><b style="background-image:url(img/2abaed7a90.webp)"></b><b style="background-image:url(img/6bfe504283.webp)"></b><b style="background-image:url(img/d170d8eafd.webp)"></b><b style="background-image:url(img/c6765e1d20.webp)"></b><b style="background-image:url(img/f21270f15d.webp)"></b><b style="background-image:url(img/a86ff979ba.webp)"></b><b style="background-image:url(img/2abaed7a90.webp)"></b><b style="background-image:url(img/6bfe504283.webp)"></b><b style="background-image:url(img/d170d8eafd.webp)"></b></div></div>
   <div class="lit"><img src="img/6258412b23.webp" alt=""><p>Одна реальность из бесконечности</p></div></div>
 </div></section>
 
@@ -322,7 +475,7 @@ footer a{color:inherit}
  <p class="kick">С чего начнём</p>
  <h2 class="rv">Выберите свой кадр</h2>
  <p class="lead rv">Все версии вашей жизни уже существуют, как кадры на плёнке. Свет падает на одну. Нажмите на ту сферу, которую хотите изменить первой.</p>
- <div class="strip rv"><div class="frames"><button type="button" class="fr" data-i="0" aria-pressed="false"><span class="fr-in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h16M7 15V9M12 15V5M17 15v-4"/></svg><em>Доход</em></span></button><button type="button" class="fr" data-i="1" aria-pressed="false"><span class="fr-in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><em>Отношения</em></span></button><button type="button" class="fr" data-i="2" aria-pressed="false"><span class="fr-in"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="12" r="5"/><circle cx="15" cy="12" r="5"/></svg><em>Пара</em></span></button><button type="button" class="fr" data-i="3" aria-pressed="false"><span class="fr-in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg><em>Предназначение</em></span></button><button type="button" class="fr" data-i="4" aria-pressed="false"><span class="fr-in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><em>Энергия</em></span></button><button type="button" class="fr" data-i="5" aria-pressed="false"><span class="fr-in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c5-3 8-7 8-11a8 8 0 0 0-16 0c0 4 3 8 8 11zM9 10h6M12 7v6"/></svg><em>Здоровье</em></span></button></div></div>
+ <div class="strip rv"><div class="frames"><button type="button" class="fr" data-i="0" aria-pressed="false"><span class="fr-in" style="background-image:url(img/5ab4dff443.webp)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h16M7 15V9M12 15V5M17 15v-4"/></svg><em>Доход</em></span></button><button type="button" class="fr" data-i="1" aria-pressed="false"><span class="fr-in" style="background-image:url(img/4fafd0d9a8.webp)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><em>Отношения</em></span></button><button type="button" class="fr" data-i="2" aria-pressed="false"><span class="fr-in" style="background-image:url(img/52b4efbd4b.webp)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="12" r="5"/><circle cx="15" cy="12" r="5"/></svg><em>Пара</em></span></button><button type="button" class="fr" data-i="3" aria-pressed="false"><span class="fr-in" style="background-image:url(img/c9a8531dc3.webp)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg><em>Предназначение</em></span></button><button type="button" class="fr" data-i="4" aria-pressed="false"><span class="fr-in" style="background-image:url(img/7f4761e18f.webp)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><em>Энергия</em></span></button><button type="button" class="fr" data-i="5" aria-pressed="false"><span class="fr-in" style="background-image:url(img/45a87ab829.webp)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c5-3 8-7 8-11a8 8 0 0 0-16 0c0 4 3 8 8 11zM9 10h6M12 7v6"/></svg><em>Здоровье</em></span></button></div></div>
  <div class="pick" id="pick" aria-live="polite"><p>Нажмите на кадр выше</p></div>
 </div></section>
 
@@ -333,9 +486,31 @@ footer a{color:inherit}
  <div class="stats"><div class="st rv"><b data-count="46,9">46,9</b><span class="u">%</span><p>времени голова занята не тем, что вы делаете. 2 250 человек, журнал Science, 2010</p></div><div class="st rv"><b data-count="2">2</b><span class="u"></span><p>недели тренировки внимания: мысли реже уходят в сторону, память работает лучше. 2013</p></div><div class="st rv"><b data-count="94">94</b><span class="u"></span><p>исследования сошлись: заранее решённое «если…, то…» заметно чаще доводит до цели. 2006</p></div><div class="st rv"><b data-count="7">7</b><span class="u"></span><p>дней тренировок хватило, чтобы на МРТ стала видна прибавка серого вещества. 2008</p></div></div>
 </div></section>
 
+<section class="lab" style="--lab:url(img/2a47c19aa2.webp)"><div class="lab-bg" aria-hidden="true"></div><div class="dust" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="wrap">
+ <div class="center"><p class="kick">Как это устроено</p><h2 class="rv">Лаборатория новой реальности</h2>
+ <p class="lead rv">Каждый эфир – эксперимент, который вы проводите на себе под руководством врача-психотерапевта. Ничего не нужно принимать на веру: вы сами замечаете, как меняется ваше состояние.</p></div>
+ <div class="flasks">
+  <div class="fl rv"><svg viewBox="0 0 100 140" aria-hidden="true"><path class="gl" d="M38 8h24M42 8v38L14 112c-5 11 2 22 14 22h44c12 0 19-11 14-22L58 46V8"/><clipPath id="c1"><path d="M42 8v38L14 112c-5 11 2 22 14 22h44c12 0 19-11 14-22L58 46V8z"/></clipPath><g clip-path="url(#c1)"><rect class="liq" x="0" y="140" width="100" height="140" style="--lv:92px"/><circle class="bb" cx="40" cy="128" r="3"/><circle class="bb" cx="56" cy="130" r="2" style="--d:.8s"/><circle class="bb" cx="48" cy="126" r="2.5" style="--d:1.6s"/></g></svg>
+   <span class="fl-n">01</span><h3>Диагностика</h3><p>Тест и индивидуальная расшифровка показывают, где ваш затык.</p></div>
+  <div class="fl rv"><svg viewBox="0 0 100 140" aria-hidden="true"><path class="gl" d="M38 8h24M42 8v60c-16 6-26 20-26 36 0 18 15 30 34 30s34-12 34-30c0-16-10-30-26-36V8"/><clipPath id="c2"><path d="M42 8v60c-16 6-26 20-26 36 0 18 15 30 34 30s34-12 34-30c0-16-10-30-26-36V8z"/></clipPath><g clip-path="url(#c2)"><rect class="liq" x="0" y="140" width="100" height="140" style="--lv:70px"/><circle class="bb" cx="44" cy="128" r="3" style="--d:.4s"/><circle class="bb" cx="58" cy="126" r="2"/><circle class="bb" cx="50" cy="130" r="2.5" style="--d:1.2s"/></g></svg>
+   <span class="fl-n">02</span><h3>Эксперимент</h3><p>4 эфира с практиками, которые меняют состояние прямо во время эфира.</p></div>
+  <div class="fl rv"><svg viewBox="0 0 100 140" aria-hidden="true"><path class="gl" d="M36 8h28M40 8v100c0 14 4 26 10 26s10-12 10-26V8"/><clipPath id="c3"><path d="M40 8v100c0 14 4 26 10 26s10-12 10-26V8z"/></clipPath><g clip-path="url(#c3)"><rect class="liq" x="0" y="140" width="100" height="140" style="--lv:118px"/><circle class="bb" cx="50" cy="128" r="3" style="--d:.2s"/><circle class="bb" cx="47" cy="124" r="2" style="--d:1s"/></g></svg>
+   <span class="fl-n">03</span><h3>Результат</h3><p>Новое состояние, которое остаётся с вами после программы.</p></div>
+ </div>
+</div></section>
+
 <section class="film-sec"><div class="wrap">
  <div class="center"><p class="kick">Почему так выходит</p>
  <h2 class="rv">Почему одни живут свою жизнь, а другие годами ходят по кругу?</h2></div>
+ <div class="loopv rv"><div class="loop-img" style="background-image:url(img/7ec264d104.webp)"></div>
+  <svg viewBox="0 0 300 300" class="orbit" aria-label="Один и тот же день по кругу: будильник, дорога, работа, усталость, телефон, сон">
+   <circle cx="150" cy="150" r="104" class="ring"/>
+   <path class="exit" d="M240 98C270 70 280 40 296 10"/>
+   <g transform="translate(150.0,46.0)"><circle r="4.5" class="st"/><text y="-12">Будильник</text></g><g transform="translate(240.1,98.0)"><circle r="4.5" class="st"/><text y="-12">Дорога</text></g><g transform="translate(240.1,202.0)"><circle r="4.5" class="st"/><text y="20">Работа</text></g><g transform="translate(150.0,254.0)"><circle r="4.5" class="st"/><text y="20">Усталость</text></g><g transform="translate(59.9,202.0)"><circle r="4.5" class="st"/><text y="20">Телефон</text></g><g transform="translate(59.9,98.0)"><circle r="4.5" class="st"/><text y="-12">Сон</text></g>
+   <circle r="7" class="runner"><animateMotion dur="6s" repeatCount="indefinite" path="M150 46a104 104 0 1 1 -0.1 0"/></circle>
+   <text x="150" y="146" class="mid">тот же</text><text x="150" y="166" class="mid">сценарий</text>
+   <text x="262" y="26" class="ex">выход</text>
+  </svg></div>
  <div class="why-list"><details class="wy rv" open><summary><span class="wy-i">01</span><h3>Повторяющийся сценарий – не результат силы воли.</h3><span class="pl"></span></summary><div class="wy-b"><p>Можно годами держать себя в руках и жить всё в том же сценарии: та же работа, тот же потолок в доходе, те же разговоры дома. Чем сильнее гоните мысль «у меня не выйдет», тем чаще она возвращается. Это показал психолог Дэниел Вегнер ещё в 1987 году.</p><p class="mark">Мысль уходит, когда вниманию есть куда перейти</p></div></details><details class="wy rv"><summary><span class="wy-i">02</span><h3>Повторяющийся сценарий – не результат удачи.</h3><span class="pl"></span></summary><div class="wy-b"><p>Кажется, что кому-то просто везёт. Психолог Ричард Уайзмен 10 лет изучал «везучих» и «невезучих» людей. Разница оказалась во внимании: тревога сужает взгляд, и человек не видит возможность, даже когда она прямо перед ним.</p><p class="mark">Тревога сужает взгляд</p></div></details><details class="wy rv"><summary><span class="wy-i">03</span><h3>Повторяющийся сценарий – не результат характера.</h3><span class="pl"></span></summary><div class="wy-b"><p>«Я просто такая» звучит как приговор. Но за этими словами стоят реакции, которые мозг повторял годами. Раз он их выучил, выучит и новые: связи между нейронами перестраиваются в любом возрасте.</p><p class="mark">Мозг учится новому в любом возрасте</p></div></details><div class="wy wy-last rv"><span class="wy-i">✓</span><h3>Повторяющийся сценарий – результат того, куда вы смотрите и что при этом чувствуете.</h3><p>Мозг всё время угадывает, что будет дальше, и замечает то, что совпадает с его ожиданием. Пока внутри старое состояние, каждый новый день его подтверждает. Поэтому на программе мы меняем не поведение силой, а состояние: на каждом эфире вы делаете практику, после которой по-другому видите и чувствуете.</p></div></div>
 </div></section>
 
@@ -349,21 +524,19 @@ footer a{color:inherit}
 
 <section class="film-sec"><div class="wrap br">
  <div><p class="kick">Что вы получите</p><h2 class="rv">Через 4 дня вы:</h2><ul class="gets rv"><li>Будете ясно понимать, чего хочется именно вам</li><li>Увидите, где действуете из страха, привычек или ожиданий других</li><li>Перестанете уменьшать свои желания до безопасного уровня</li><li>Заметите, в чём ваша собственная сила, способности и ресурсы</li><li>Научитесь избавляться от тревоги</li><li>Сможете выдерживать неопределённость будущего</li><li>Без сомнений пойдёте в больший масштаб в деньгах, отношениях, реализации</li></ul></div>
- <div class="chart rv"><svg viewBox="0 0 420 260" role="img" aria-label="Старая линия жизни идёт ровно, новая поднимается за 4 дня">
-  <defs><linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="#b9832e"/><stop offset="1" stop-color="#f6dc9e"/></linearGradient></defs>
-  <path class="old" d="M30 200H400"/><text x="300" y="224">старый сценарий</text>
-  <path class="new" d="M30 200C120 200 150 170 200 140S300 70 400 40"/>
-  <circle class="node" cx="30" cy="200" r="6"/><circle class="node" cx="130" cy="186" r="6"/><circle class="node" cx="215" cy="130" r="6"/><circle class="node" cx="300" cy="82" r="6"/><circle class="node" cx="400" cy="40" r="7"/>
-  <text x="18" y="232">старт</text><text x="118" y="172" class="gt">день 1</text><text x="200" y="116" class="gt">день 2</text><text x="286" y="68" class="gt">день 3</text><text x="342" y="24" class="gt">новая реальность</text>
- </svg></div>
+ <div class="chart rv"><svg viewBox="0 0 360 330" role="img" aria-label="Путь от старта до новой реальности: тест, расшифровка, 4 дня эфиров">
+<defs><linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="#b9832e"/><stop offset="1" stop-color="#f6dc9e"/></linearGradient></defs>
+<path class="old" d="M20 300H345"/><text x="232" y="322" class="ot">старый сценарий</text>
+<path class="new" id="tlp" d="M20 300C120 300 150 262 190 210S290 70 345 34"/><g class="tn" data-k="0"><circle r="7"/><text>Старт</text></g><g class="tn" data-k="1"><circle r="7"/><text>Тест</text></g><g class="tn" data-k="2"><circle r="7"/><text>Расшифровка</text></g><g class="tn" data-k="3"><circle r="7"/><text>День 1</text></g><g class="tn" data-k="4"><circle r="7"/><text>День 2</text></g><g class="tn" data-k="5"><circle r="7"/><text>День 3</text></g><g class="tn" data-k="6"><circle r="7"/><text>День 4 · VIP</text></g><g class="tn" data-k="7"><circle r="7"/><text>Новая реальность</text></g></svg>
+<ol class="tl"><li data-k="0"><span>01</span><div><b>Старт</b><small>Регистрация на программу</small></div></li><li data-k="1"><span>02</span><div><b>Тест</b><small>«Где мой затык и как выйти на новый уровень»</small></div></li><li data-k="2"><span>03</span><div><b>Расшифровка к тесту</b><small>Индивидуальная, сразу после теста</small></div></li><li data-k="3"><span>04</span><div><b>1-й день: эфир «Спусковой крючок»</b><small>23 ноября</small></div></li><li data-k="4"><span>05</span><div><b>2-й день: эфир «Бесконечный поток»</b><small>24 ноября</small></div></li><li data-k="5"><span>06</span><div><b>3-й день: эфир «Новая реальность»</b><small>25 ноября</small></div></li><li data-k="6"><span>07</span><div><b>4-й день VIP: эфир «Магнит для масштаба»</b><small>26 ноября</small></div></li><li data-k="7"><span>08</span><div><b>Твоя новая реальность</b><small>Новое состояние остаётся с вами</small></div></li></ol></div>
 </div></section>
 
 <section id="days"><div class="wrap">
  <p class="kick">Программа</p>
- <h2 class="rv">3 дня прямых эфиров + VIP-день</h2>
+ <h2 class="rv">4 дня прямых эфиров</h2>
  <p class="lead rv">Каждый день: эфир с Анной, практика прямо на эфире и результат, который вы чувствуете в тот же вечер.</p>
  <div class="dtabs"><button type="button" class="dtab on" data-d="0">1</button><button type="button" class="dtab" data-d="1">2</button><button type="button" class="dtab" data-d="2">3</button><button type="button" class="dtab vip" data-d="3">4</button></div>
- <div class="dgrid"><article class="day rv" id="day0"><div class="day-h"><span class="day-n">01</span><span class="day-l">день</span><span class="live">LIVE</span></div><p class="day-d">23 ноября</p><h3>Спусковой крючок</h3><ul><li><b>Найдёте глубинную причину,</b> которая блокирует ваш рост, и скрытые выгоды, которые откатывают вас назад</li></ul><p class="day-note"><span>Практика:</span> Практика в эфире снимает ограничения и освобождает от груза прошлого</p></article><article class="day rv" id="day1"><div class="day-h"><span class="day-n">02</span><span class="day-l">день</span><span class="live">LIVE</span></div><p class="day-d">24 ноября</p><h3>Бесконечный поток</h3><ul><li><b>Прочувствуете то,</b> чего хотите от души на самом деле, без чужих правил</li><li><b>Получите энергию на свою истинную цель:</b> появятся силы и желание действовать</li></ul><p class="day-note"><span>Практика:</span> Практика в эфире защищает от саботажа и откатов, чтобы вы не бросили на полпути</p></article><article class="day rv" id="day2"><div class="day-h"><span class="day-n">03</span><span class="day-l">день</span><span class="live">LIVE</span></div><p class="day-d">25 ноября</p><h3>Новая реальность</h3><ul><li><b>Войдёте в новое состояние</b> и закрепитесь в нём: уверенность, что желаемое уже есть, без тревог и сомнений</li><li><b>Выйдете на новый уровень вибраций,</b> который притягивает в жизнь нужные события</li></ul><p class="day-note"><span>Практика:</span> Практика в эфире делает так, чтобы новое состояние оставалось с вами надолго</p></article><article class="day rv vip" id="day3"><div class="day-h"><span class="day-n">04</span><span class="day-l">день</span><span class="live">VIP · LIVE</span></div><p class="day-d">26 ноября</p><h3>Магнит для масштаба</h3><ul><li><b>Снимете ограничения,</b> осознанные и бессознательные, которые держат вас в привычном</li><li><b>Станете магнитом</b> для удачных и автомагических событий</li></ul><p class="day-note"><span>Практика:</span> Для тех, кто хочет проявляться и идти в масштаб</p></article></div>
+ <div class="dgrid"><article class="day rv" id="day0"><div class="day-img"><img src="img/3b5ff32783.webp" alt="" loading="lazy"></div><div class="day-h"><span class="day-n">01</span><span class="day-l">день</span><span class="live">LIVE</span></div><p class="day-d">23 ноября</p><h3>Спусковой крючок</h3><ul><li><b>Найдёте глубинную причину,</b> которая блокирует ваш рост, и скрытые выгоды, которые откатывают вас назад</li></ul><p class="day-note"><span>Практика:</span> Практика в эфире снимает ограничения и освобождает от груза прошлого</p></article><article class="day rv" id="day1"><div class="day-img"><img src="img/3577329a00.webp" alt="" loading="lazy"></div><div class="day-h"><span class="day-n">02</span><span class="day-l">день</span><span class="live">LIVE</span></div><p class="day-d">24 ноября</p><h3>Бесконечный поток</h3><ul><li><b>Прочувствуете то,</b> чего хотите от души на самом деле, без чужих правил</li><li><b>Получите энергию на свою истинную цель:</b> появятся силы и желание действовать</li></ul><p class="day-note"><span>Практика:</span> Практика в эфире защищает от саботажа и откатов, чтобы вы не бросили на полпути</p></article><article class="day rv" id="day2"><div class="day-img"><img src="img/4dc269ed0c.webp" alt="" loading="lazy"></div><div class="day-h"><span class="day-n">03</span><span class="day-l">день</span><span class="live">LIVE</span></div><p class="day-d">25 ноября</p><h3>Новая реальность</h3><ul><li><b>Войдёте в новое состояние</b> и закрепитесь в нём: уверенность, что желаемое уже есть, без тревог и сомнений</li><li><b>Выйдете на новый уровень вибраций,</b> который притягивает в жизнь нужные события</li></ul><p class="day-note"><span>Практика:</span> Практика в эфире делает так, чтобы новое состояние оставалось с вами надолго</p></article><article class="day rv vip" id="day3"><div class="day-img"><img src="img/746b032bbe.webp" alt="" loading="lazy"></div><div class="day-h"><span class="day-n">04</span><span class="day-l">день</span><span class="live">VIP · LIVE</span></div><p class="day-d">26 ноября</p><h3>Магнит для масштаба</h3><ul><li><b>Снимете ограничения,</b> осознанные и бессознательные, которые держат вас в привычном</li><li><b>Станете магнитом</b> для удачных и автомагических событий</li></ul><p class="day-note"><span>Практика:</span> Для тех, кто хочет проявляться и идти в масштаб</p></article></div>
  <div class="center-cta"><button type="button" class="btn" data-open>Записаться на программу<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></div>
 </div></section>
 
@@ -378,20 +551,33 @@ footer a{color:inherit}
 <section><div class="wrap">
  <p class="kick">Результаты учеников</p><h2 class="rv">Было и стало</h2>
  <div class="cs-wrap"><div class="arr"><button type="button" data-dir="-1" aria-label="Назад"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" data-dir="1" aria-label="Вперёд"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
- <div class="cs-track"><article class="cs"><div class="cs-h"><span class="ava">В</span><div><b>Валерия</b><small>через 1 месяц</small></div><span class="tag">энергия 5 → 8</span></div><p class="pt">Было</p><ul class="was"><li>Подъём около 5 утра, к вечеру усталость</li><li>Раздражение на мужа</li><li>«Надо что-то менять, а что – не знаю»</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Раздражение на мужа пропало, муж сам это заметил</li><li>Спокойно оставляет мужа с дочкой и занимается своими делами</li><li>Регулярно тренируется, читает вторую книгу для себя</li></ul></article><article class="cs"><div class="cs-h"><span class="ava">Г</span><div><b>Галина</b><small>через 1 месяц</small></div><span class="tag">доход × 1,5</span></div><p class="pt">Было</p><ul class="was"><li>Каждый день одна мысль: «Когда я уже отдохну»</li><li>Сомнение, что «снова может не получиться»</li><li>Фиксация на недостатках внешности</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Доход вырос в 1,5 раза – и в августе, и в сентябре</li><li>Ушла фиксация на внешности, перестала переедать</li></ul></article><article class="cs"><div class="cs-h"><span class="ava">С</span><div><b>Светлана</b><small>через 1 месяц</small></div><span class="tag">тревога 5 → 1</span></div><p class="pt">Было</p><ul class="was"><li>Годами в голове звучало чужое «Кому ты нужна»</li><li>Не могла отстоять свои границы</li><li>Чужое мнение было важнее своего</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Говорит увереннее и отстаивает свои границы</li><li>Страх неудачи ушёл, появился азарт пробовать новое</li><li>«Главное, что я думаю о себе сама»</li></ul></article><article class="cs"><div class="cs-h"><span class="ava">Е</span><div><b>Екатерина</b><small>результат ученицы</small></div><span class="tag">доход × 2,5</span></div><p class="pt">Было</p><ul class="was"><li>Практикующий психолог, хотелось большего</li><li>Упёрлась в потолок</li><li>Не было понимания, как оплатить рассрочку</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Доход вырос в 2,5 раза</li><li>Купила ещё одну квартиру</li><li>Запись заполнена на месяц вперёд</li></ul></article><article class="cs"><div class="cs-h"><span class="ava">Т</span><div><b>Татьяна</b><small>результат ученицы</small></div><span class="tag">500 000 ₽</span></div><p class="pt">Было</p><ul class="was"><li>Впереди долг в миллион – наследство от бывшего мужа</li><li>До программы – 0 ₽</li><li>Пятидневка плюс подработка</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>После программы – 500 000 ₽</li><li>Платёж по долгу отложили до 2027 года</li><li>Пошли заказы по её цене, никто не торговался</li></ul></article><article class="cs"><div class="cs-h"><span class="ava">О</span><div><b>Ольга</b><small>результат ученицы</small></div><span class="tag">сделка за месяц</span></div><p class="pt">Было</p><ul class="was"><li>Сделка по продаже недвижимости висела полгода</li><li>Доход стоял на месте</li><li>Сил и настроения – ноль</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Сделку закрыла за месяц</li><li>Нашла хорошую квартиру в рамках бюджета</li><li>Доход растёт</li></ul></article><article class="cs"><div class="cs-h"><span class="ava">А</span><div><b>Анна Маркина</b><small>результат ученицы</small></div><span class="tag">250 000 ₽/мес</span></div><p class="pt">Было</p><ul class="was"><li>Декрет, ребёнок на руках</li><li>Своего дохода нет</li><li>Тревога за будущее</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Через 2 месяца – 100 000 ₽/мес</li><li>Через 6 месяцев – 250 000 ₽/мес</li><li>Занимается любимым делом, совмещает с декретом</li></ul></article><article class="cs"><div class="cs-h"><span class="ava">Г</span><div><b>Гульфия</b><small>результат ученицы</small></div><span class="tag">своя жизнь</span></div><p class="pt">Было</p><ul class="was"><li>Чувствовала, что всем должна, убирала свои желания</li><li>Работала там, где не нравилось</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Ушла с нелюбимой работы</li><li>Начала слышать себя и понимать, чего хочет</li><li>Наладила отношения с отцом</li></ul></article><article class="cs"><div class="cs-h"><span class="ava">А</span><div><b>Анаит</b><small>через 2 недели</small></div><span class="tag">чек выше</span></div><p class="pt">Было</p><ul class="was"><li>Хотела заработать конкретную сумму</li><li>Не проявлялась, и деньги не шли</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Через 2 недели подняла чек</li><li>Собрала свой курс</li><li>Посты начали писаться легко</li></ul></article></div><div class="dots"></div></div>
+ <div class="cs-track"><article class="cs"><div class="cs-h"><img class="ava" src="img/77eb02b05c.webp" alt="" loading="lazy"><div><b>Светлана</b><small>через 1 месяц</small></div><span class="tag">тревога 5 → 1</span></div><p class="pt">Было</p><ul class="was"><li>Годами в голове звучало чужое «Кому ты нужна»</li><li>Не могла отстоять свои границы</li><li>Чужое мнение было важнее своего</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Говорит увереннее и отстаивает свои границы</li><li>Страх неудачи ушёл, появился азарт пробовать новое</li><li>«Главное, что я думаю о себе сама»</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/716927855f.webp" alt="" loading="lazy"><div><b>Екатерина</b><small>результат ученицы</small></div><span class="tag">доход × 2,5</span></div><p class="pt">Было</p><ul class="was"><li>Практикующий психолог, хотелось большего</li><li>Упёрлась в потолок</li><li>Не было понимания, как оплатить рассрочку</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Доход вырос в 2,5 раза</li><li>Купила ещё одну квартиру</li><li>Запись заполнена на месяц вперёд</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/7d038953eb.webp" alt="" loading="lazy"><div><b>Татьяна</b><small>результат ученицы</small></div><span class="tag">500 000 ₽</span></div><p class="pt">Было</p><ul class="was"><li>Впереди долг в миллион – наследство от бывшего мужа</li><li>До программы – 0 ₽</li><li>Пятидневка плюс подработка</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>После программы – 500 000 ₽</li><li>Платёж по долгу отложили до 2027 года</li><li>Пошли заказы по её цене, никто не торговался</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/d82c339dbb.webp" alt="" loading="lazy"><div><b>Анна Маркина</b><small>результат ученицы</small></div><span class="tag">250 000 ₽/мес</span></div><p class="pt">Было</p><ul class="was"><li>Декрет, ребёнок на руках</li><li>Своего дохода нет</li><li>Тревога за будущее</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Через 2 месяца – 100 000 ₽/мес</li><li>Через 6 месяцев – 250 000 ₽/мес</li><li>Занимается любимым делом, совмещает с декретом</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/87764a16ed.webp" alt="" loading="lazy"><div><b>Ольга</b><small>результат ученицы</small></div><span class="tag">от 100 000 ₽/мес</span></div><p class="pt">Было</p><ul class="was"><li>Инженер-конструктор, в 49 выучилась на массажиста</li><li>Поняла, что физически долго так не сможет</li><li>Не понимала, чем заниматься дальше</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>На основной работе доход вырос на 50%</li><li>Доп. доход от практики ДПДГ 3.0 – от 100 000 ₽/мес</li><li>Решилась на ремонт за 5 миллионов</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/084bab18c9.webp" alt="" loading="lazy"><div><b>Анаит</b><small>через 2 недели</small></div><span class="tag">чек выше</span></div><p class="pt">Было</p><ul class="was"><li>Хотела заработать конкретную сумму</li><li>Не проявлялась, и деньги не шли</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Через 2 недели подняла чек</li><li>Собрала свой курс</li><li>Посты начали писаться легко</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/fd436e5881.webp" alt="" loading="lazy"><div><b>Гульфия</b><small>результат ученицы</small></div><span class="tag">своя жизнь</span></div><p class="pt">Было</p><ul class="was"><li>Чувствовала, что всем должна, убирала свои желания</li><li>Работала там, где не нравилось</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Ушла с нелюбимой работы</li><li>Начала слышать себя и понимать, чего хочет</li><li>Наладила отношения с отцом</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/7b2fe5a159.webp" alt="" loading="lazy"><div><b>Ольга</b><small>результат ученицы</small></div><span class="tag">10 000 ₽ за встречу</span></div><p class="pt">Было</p><ul class="was"><li>Доход 0 ₽, только накопления от прошлой работы</li><li>Страх перед неизвестностью</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Освоила новую профессию с нуля</li><li>Одна встреча с клиентом – 10 000 ₽</li><li>Поняла, что хочет быть психологом</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/840b5b56c2.webp" alt="" loading="lazy"><div><b>Светлана</b><small>результат ученицы</small></div><span class="tag">чек 30 000 ₽</span></div><p class="pt">Было</p><ul class="was"><li>Хотела набрать практику и закрепить знания</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Стала увереннее, чек вырос до 30 000 ₽</li><li>Отношения стали лучше: научилась говорить словами, а не молчать</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/59ec69540c.webp" alt="" loading="lazy"><div><b>Ксения</b><small>результат ученицы</small></div><span class="tag">своё дело</span></div><p class="pt">Было</p><ul class="was"><li>Давно хотела получить профессию психолога</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Закрыла рассрочку, пока ещё училась</li><li>Делает то, что чувствует, не подстраиваясь под чужие ожидания</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/d2ba8f3ed0.webp" alt="" loading="lazy"><div><b>Кристина</b><small>результат ученицы</small></div><span class="tag">клиенты сами</span></div><p class="pt">Было</p><ul class="was"><li>Опыта в психологии нет</li><li>Клиентов 0, доход 0</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Клиенты приходят сами, по рекомендациям</li><li>Появились планы на свои программы</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/6729f4bb12.webp" alt="" loading="lazy"><div><b>Аминат</b><small>результат ученицы</small></div><span class="tag">своя система</span></div><p class="pt">Было</p><ul class="was"><li>Хотела помогать женщинам, но не хватало навыков</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Перестала спасать клиенток: видит в них сильных людей</li><li>Выстроила свою систему работы с клиентами</li></ul></article></div><div class="dots"></div></div>
 </div></section>
 
 <section class="film-sec"><div class="wrap">
  <div class="center"><p class="kick">Если оставить всё как есть</p><h2 class="rv">Во что обходится жизнь по старому сценарию</h2></div>
- <div class="sgrid"><article class="sy rv"><span class="sy-n">01</span><svg viewBox="0 0 240 30" class="sv"><path d="M10 15H230" class="ln"/><circle cx="10.0" cy="15" r="4" class="dt" style="--j:0"/><circle cx="46.6" cy="15" r="4" class="dt" style="--j:1"/><circle cx="83.2" cy="15" r="4" class="dt" style="--j:2"/><circle cx="119.80000000000001" cy="15" r="4" class="dt" style="--j:3"/><circle cx="156.4" cy="15" r="4" class="dt" style="--j:4"/><circle cx="193.0" cy="15" r="4" class="dt" style="--j:5"/><circle cx="229.60000000000002" cy="15" r="4" class="dt" style="--j:6"/></svg><h3>Решит привычка</h3><p>Утро, дорога, разговоры и траты идут по накатанной.</p><p class="mark">И с каждым таким днём старый сценарий крепнет.</p></article><article class="sy rv"><span class="sy-n">02</span><div class="tiles"><i></i><i></i><i></i></div><h3>Мечта в ленте</h3><p>Квартира, море, любимое дело так и лежат картинками в телефоне. Смотреть на них приятно.</p><p class="mark">Только каждое «потом» отодвигает их ещё немного.</p></article><article class="sy rv"><span class="sy-n">03</span><div class="rg"><p><small>Сразу после события</small>жалеют о сделанном</p><p class="on"><small>Спустя годы</small>жалеют о том, на что не решились</p></div><h3>Сожаление копится тихо</h3><p>Психологи Корнеллского университета выяснили: сразу после события люди жалеют о сделанном, а спустя годы – о том, на что так и не решились.</p><p class="mark">Гилович и Медвек, 1995</p></article><article class="sy rv"><span class="sy-n">04</span><svg viewBox="0 0 240 70" class="sv2"><path d="M10 58H230" class="ln old"/><path d="M10 58C90 58 140 40 230 8" class="ln new"/><circle cx="230" cy="8" r="5" class="dt"/></svg><h3>Четыре дня всё равно пройдут</h3><p>Потом наступит обычное утро. Одни встретят его теми же, что вчера.</p><p class="mark">Другие за эти дни сделают четыре шага в новую реальность.</p></article></div>
+ <div class="sgrid"><article class="sy rv"><span class="sy-n">01</span><div class="rep"><div class="rep-t"><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i></div><span>понедельник · понедельник · понедельник</span></div><h3>Решит привычка</h3><p>Утро, дорога, разговоры и траты идут по накатанной.</p><p class="mark">И с каждым таким днём старый сценарий крепнет.</p></article><article class="sy rv"><span class="sy-n">02</span><div class="phone"><div class="ph-feed"><i style="background-image:url(img/b75a06c47c.webp)"></i><i style="background-image:url(img/f1e7287f86.webp)"></i><i style="background-image:url(img/5648f22be7.webp)"></i><i style="background-image:url(img/b75a06c47c.webp)"></i><i style="background-image:url(img/f1e7287f86.webp)"></i><i style="background-image:url(img/5648f22be7.webp)"></i></div><span class="ph-like">♡ сохранено</span></div><h3>Мечта в ленте</h3><p>Квартира, море, любимое дело так и лежат картинками в телефоне. Смотреть на них приятно.</p><p class="mark">Только каждое «потом» отодвигает их ещё немного.</p></article><article class="sy rv"><span class="sy-n">03</span><div class="hg"><svg viewBox="0 0 80 120" aria-hidden="true"><path d="M14 6h52M14 114h52M18 6c0 30 44 30 44 54S18 84 18 114M62 6c0 30-44 30-44 54s44 24 44 54" class="hg-f"/><path d="M24 14h32c-2 14-14 20-16 30-2-10-14-16-16-30z" class="hg-top"/><path d="M40 62v40" class="hg-s"/><path d="M22 110c4-12 12-16 18-16s14 4 18 16z" class="hg-bot"/></svg><div class="rg"><p><small>Сразу после события</small>жалеют о сделанном</p><p class="on"><small>Спустя годы</small>жалеют о том, на что не решились</p></div></div><h3>Сожаление копится тихо</h3><p>Психологи Корнеллского университета выяснили: сразу после события люди жалеют о сделанном, а спустя годы – о том, на что так и не решились.</p><p class="mark">Гилович и Медвек, 1995</p></article><article class="sy rv"><span class="sy-n">04</span><div class="ba"><div class="ba-a" style="background-image:url(img/46f5b35470.webp)"><span>тот же день</span></div><div class="ba-b" style="background-image:url(img/b75a06c47c.webp)"><span>новая реальность</span></div><i class="ba-l"></i></div><h3>Четыре дня всё равно пройдут</h3><p>Потом наступит обычное утро. Одни встретят его теми же, что вчера.</p><p class="mark">Другие за эти дни сделают четыре шага в новую реальность.</p></article></div>
+</div></section>
+
+<section class="gift"><div class="wrap gift-w">
+ <div><p class="kick">После регистрации</p><h2 class="rv">Ваш личный билет с подарком</h2>
+  <p class="lead rv">Сразу после регистрации на почту придёт личный билет с вашим именем. В каждом билете спрятан свой подарок, и он у всех разный.</p>
+  <p class="gift-hl rv">В одном из билетов – <b>iPhone</b></p>
+  <div class="gift-cta rv"><button type="button" class="btn" data-open>Получить свой билет<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></div></div>
+ <div class="tk-stage" aria-hidden="true">
+  <div class="tk tk-back2"></div><div class="tk tk-back"></div>
+  <div class="tk tk-main"><div class="tk-l"><p class="tk-k">Лаборатория новой реальности</p><p class="tk-name">Билет: <b id="tkname">Мария</b></p><p class="tk-d">23–26 ноября · 4 эфира с Анной Саба</p>
+   <div class="tk-gift"><small>Ваш подарок</small><b id="tkgift">Метафорические карты</b><i class="scr"></i></div></div>
+   <div class="tk-r"><span>№</span><b id="tkno">0147</b><div class="bar"></div></div></div>
+ </div>
 </div></section>
 
 <section id="price"><div class="wrap">
  <div class="center"><p class="kick">Участие</p><h2 class="rv">Выберите вариант участия</h2></div>
  <div class="tf">
-  <article class="tc rv"><p class="nm">Бесплатно</p><h3>Участие</h3><ul><li>3 прямых эфира, старт 23 ноября</li><li>Домашние задания</li><li>Дополнительные бонусные материалы</li><li>Чат участников программы</li><li>Участие в розыгрыше призов</li></ul>
+  <article class="tc rv"><div class="tk-stub"><span>Билет</span><b>№ 0001</b></div><p class="nm">Бесплатно</p><h3>Участие</h3><ul><li>3 прямых эфира, старт 23 ноября</li><li>Домашние задания</li><li>Дополнительные бонусные материалы</li><li>Чат участников программы</li><li>Участие в розыгрыше призов</li></ul>
    <div class="price"><b>0 ₽</b><s>990 ₽</s></div><button type="button" class="btn" data-open>Иду за 0 ₽<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></article>
-  <article class="tc vip rv"><p class="nm">VIP</p><h3>Всё и сразу</h3><ul><li>3 прямых эфира, старт 23 ноября</li><li>4-й VIP-эфир «Магнит для масштаба»</li><li>Записи и презентации эфиров</li><li>Домашние задания и бонусные материалы</li><li>Чат участников, розыгрыш призов</li></ul>
+  <article class="tc vip rv"><div class="tk-stub"><span>VIP-билет</span><b>№ 0001</b></div><p class="nm">VIP</p><h3>Всё и сразу</h3><ul><li>3 прямых эфира, старт 23 ноября</li><li>4-й VIP-эфир «Магнит для масштаба»</li><li>Записи и презентации эфиров</li><li>Домашние задания и бонусные материалы</li><li>Чат участников, розыгрыш призов</li></ul>
    <div class="bonus"><b>Бонус</b><p>Практика на 30 минут «Прочувствуй свою новую реальность и узнай, что тебе не даёт в неё перейти»</p></div>
    <div class="bonus"><b>Бонус</b><p>Личный разбор-диагностика вашей ситуации: деньги, отношения, реализация, предназначение, здоровье. Вы получите пошаговый план без розовых очков.<small>Разборы проводят действующие психологи, выпускники Института. Средняя цена такой работы ~15 000 ₽.</small></p></div>
    <div class="bonus"><b>Бонус</b><p>Мастер-класс Анны Саба: как выйти на новый уровень дохода, энергии и отношений и за 6 месяцев освоить профессию EMDR-терапевта.<small>Доход зависит от ваших действий и не гарантирован.</small></p></div>
@@ -419,7 +605,7 @@ footer a{color:inherit}
  <input type="email" placeholder="Эл. адрес" required><input type="text" placeholder="Имя" required><input type="tel" placeholder="Телефон" required>
  <button type="submit" class="btn">Записаться<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button>
  <small>Нажимая кнопку, я даю согласие на обработку персональных данных и на получение сообщений о программе</small>
- <p class="ok" id="ok" hidden>Это макет: приём заявок подключим позже.</p></form></div></div>
+ <div class="ok" id="ok" hidden><div class="tk tk-mini"><div class="tk-l"><p class="tk-k">Ваш личный билет</p><p class="tk-name"><b id="okname"></b></p><div class="tk-gift"><small>Подарок</small><b>откроется в письме</b></div></div><div class="tk-r"><span>№</span><b id="okno"></b></div></div><p>Это макет: приём заявок подключим позже.</p></div></form></div></div>
 <script>
 (function(){
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -446,6 +632,11 @@ const m=$('#md'),ok=$('#ok');function openM(){m.classList.add('open');ok.hidden=
 function closeM(){m.classList.remove('open');document.body.style.overflow=''}
 $$('[data-open]').forEach(b=>b.addEventListener('click',openM));$('#mdx').addEventListener('click',closeM);
 m.addEventListener('click',e=>{if(e.target===m)closeM()});addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
-$('#rf').addEventListener('submit',e=>{e.preventDefault();ok.hidden=false});
+$('#rf').addEventListener('submit',e=>{e.preventDefault();$('#okname').textContent=$('#rf input[type=text]').value||'Ваше имя';$('#okno').textContent=String(100+Math.floor(Math.random()*9800)).padStart(4,'0');ok.hidden=false});
+// personal ticket demo
+const NM=['Мария','Елена','Ольга','Анна','Наталья','Ирина'],GF=["Метафорические карты", "Мерч с фразами Анны Саба", "iPhone", "Практика «Прочувствуй свою новую реальность»", "Личный разбор с психологом"];let ti=0;const tn=$('#tkname'),tg=$('#tkgift'),tno=$('#tkno'),tm=$('.tk-main');
+if(tm&&!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(()=>{ti++;tm.classList.add('flip');setTimeout(()=>{tn.textContent=NM[ti%NM.length];tg.textContent=GF[ti%GF.length];tno.textContent=String(147+ti*311%9000).padStart(4,'0');tm.classList.toggle('win',GF[ti%GF.length]==='iPhone');tm.classList.remove('flip')},450)},2600);
+// timeline nodes along the curve
+const tp=$('#tlp');if(tp){const L=tp.getTotalLength(),fr=[0,.12,.25,.38,.52,.66,.82,1];$$('.tn').forEach((g,k)=>{const pt=tp.getPointAtLength(L*fr[k]);g.setAttribute('transform',`translate(${pt.x},${pt.y})`);const t=g.querySelector('text');t.setAttribute('y',k%2?22:-14);t.setAttribute('text-anchor',k===0?'start':k===7?'end':'middle');g.style.setProperty('--k',k)})}
 })();
 </script></body></html>
