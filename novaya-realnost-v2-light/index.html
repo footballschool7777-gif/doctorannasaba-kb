@@ -372,8 +372,8 @@ html[data-theme=light] .reel b{opacity:1!important;background-color:#3a2c1a}
 .tl small{color:var(--muted);font-size:13px}
 /* day images */
 .day{padding-top:0}
-.day-img{margin:0 -28px 20px;aspect-ratio:16/9;overflow:hidden;position:relative}
-.day-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 6s ease-out}
+.day-img{margin:0 -28px 20px;aspect-ratio:3/2;overflow:hidden;position:relative}
+.day-img img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;transform:scale(1.08);transition:transform 6s ease-out}
 .day.in .day-img img{transform:scale(1)}
 .day-h{position:relative}
 /* stay visuals */
@@ -606,6 +606,32 @@ article.wy .mark{margin-top:auto;padding-top:14px}
 .coin:nth-child(7){--dx:-80px;--dy:10px}.coin:nth-child(8){--dx:80px;--dy:-10px}
 .br .journey{max-width:440px;justify-self:center;width:100%}
 @media(max-width:640px){.logo{font-size:11.5px;line-height:1.25;max-width:190px}.doc-l{padding-right:56px}.tk-gift b{font-size:14px}}
+
+/* v2.3 premium gets + figure */
+.gets{gap:10px}
+.gets li{position:relative;align-items:center;gap:16px;padding:14px 18px;border-radius:16px;background:linear-gradient(110deg,color-mix(in srgb,var(--gold) 10%,var(--card)),var(--card) 60%);border:1px solid color-mix(in srgb,var(--gold) 22%,transparent);overflow:hidden;opacity:0;transform:translateX(-14px);transition:opacity .6s,transform .6s cubic-bezier(.2,.7,.2,1),border-color .3s;transition-delay:calc(var(--i)*90ms)}
+.gets.in li,.gets li.in{opacity:1;transform:none}
+.gets li:before{display:none}
+.gets li:after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,236,190,.12) 50%,transparent 70%);transform:translateX(-100%);animation:sweep 7s ease-in-out infinite;animation-delay:calc(var(--i)*.6s)}
+.gets li:hover{border-color:color-mix(in srgb,var(--gold) 60%,transparent)}
+.gets em{flex:0 0 auto;font:600 22px/1 var(--ft);font-style:normal;background:linear-gradient(160deg,#fff3d0,#e8c27a 50%,#9a6a1f);-webkit-background-clip:text;background-clip:text;color:transparent;min-width:34px}
+.gets p{font-weight:600;line-height:1.4}
+html[data-theme=light] .gets em{background:linear-gradient(160deg,#d9a54c,#9a6a1f);-webkit-background-clip:text;background-clip:text}
+#hero-man .fig{fill:url(#jfig);filter:drop-shadow(0 0 4px rgba(246,200,110,.8))}
+#hero-man .ring{fill:none;stroke:#f0c879;stroke-width:1;opacity:0}
+#hero-man.s2 .ring,#hero-man.s3 .ring,#hero-man.s4 .ring{animation:ringp 2.4s ease-out infinite}
+#hero-man .r2{animation-delay:1.2s!important}
+@keyframes ringp{0%{opacity:.8;transform:scale(.6)}100%{opacity:0;transform:scale(1.9)}}
+#hero-man .heart{fill:#ffd9a0;filter:drop-shadow(0 0 3px #ffb35c);opacity:0;transition:opacity .6s}
+#hero-man.s3 .heart,#hero-man.s4 .heart{opacity:1;animation:hb 1.4s ease-in-out infinite}
+@keyframes hb{50%{transform:translate(0,-2px) scale(.82)}}
+.coin{fill:url(#jcoin);stroke:none;filter:drop-shadow(0 0 3px rgba(246,200,110,.7))}
+
+.tk-art{position:absolute;top:0;bottom:0;right:90px;width:52%;height:100%;object-fit:cover;object-position:60% 18%;opacity:.9;-webkit-mask-image:linear-gradient(to left,#000 35%,transparent 92%);mask-image:linear-gradient(to left,#000 35%,transparent 92%);animation:kb 16s ease-in-out infinite alternate;pointer-events:none}
+@keyframes kb{to{transform:scale(1.08)}}
+.tk-l{position:relative;z-index:2}.tk-k,.tk-for,.tk-name{text-shadow:0 1px 8px rgba(0,0,0,.85)}.tk-r{position:relative;z-index:2;background:linear-gradient(90deg,rgba(15,12,8,.85),rgba(15,12,8,.95))}
+.tk-gift{max-width:72%;box-shadow:0 10px 24px -10px rgba(0,0,0,.6)}
+@media(max-width:640px){.tk-art{right:70px;width:58%}.tk-gift{max-width:88%}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.chart .new{stroke-dashoffset:0}}
 </style></head><body>
 <header class="hd"><div class="wrap"><a class="logo" href="#top"><i></i>Анна Саба · школа ментального здоровья</a><button type="button" class="mini" data-open>Зарегистрироваться</button></div></header>
@@ -634,7 +660,7 @@ article.wy .mark{margin-top:auto;padding-top:14px}
  <p class="kick">Не эзотерика, а нейрофизиология</p>
  <h2 class="rv">Методика доказана наукой</h2>
  <p class="lead rv">И работает, даже если вы уже проходили много программ и не верите, что у вас получится. Вот исследования о внимании и мозге, на которые опирается подход:</p>
- <div class="docs"><article class="doc rv"><div class="doc-h"><b>Science</b><span>2010 · т. 330 · с. 932</span></div><p class="doc-t">A Wandering Mind Is an Unhappy Mind</p><p class="doc-a">Killingsworth M., Gilbert D.</p><div class="doc-n"><b data-count="46,9">46,9</b><span>%</span></div><p class="doc-r">времени голова занята не тем, что вы делаете. Опрос 2 250 человек через приложение</p><a class="doc-l" href="https://doi.org/10.1126/science.1192439" target="_blank" rel="noopener">Открыть исследование · DOI 10.1126/science.1192439</a><i class="seal" aria-hidden="true"></i></article><article class="doc rv"><div class="doc-h"><b>Psychological Science</b><span>2013 · т. 24 · с. 776–781</span></div><p class="doc-t">Mindfulness Training Improves Working Memory Capacity and GRE Performance While Reducing Mind Wandering</p><p class="doc-a">Mrazek M. и соавт.</p><div class="doc-n"><b data-count="2">2</b><span>недели</span></div><p class="doc-r">тренировки внимания: мысли реже уходят в сторону, память работает лучше</p><a class="doc-l" href="https://doi.org/10.1177/0956797612459659" target="_blank" rel="noopener">Открыть исследование · DOI 10.1177/0956797612459659</a><i class="seal" aria-hidden="true"></i></article><article class="doc rv"><div class="doc-h"><b>Advances in Experimental Social Psychology</b><span>2006 · т. 38 · с. 69–119</span></div><p class="doc-t">Implementation Intentions and Goal Achievement: A Meta-analysis</p><p class="doc-a">Gollwitzer P., Sheeran P.</p><div class="doc-n"><b data-count="94">94</b><span>исследования</span></div><p class="doc-r">сошлись: заранее решённое «если…, то…» заметно чаще доводит до цели</p><a class="doc-l" href="https://doi.org/10.1016/S0065-2601(06)38002-1" target="_blank" rel="noopener">Открыть исследование · DOI 10.1016/S0065-2601(06)38002-1</a><i class="seal" aria-hidden="true"></i></article><article class="doc rv"><div class="doc-h"><b>PLoS ONE</b><span>2008 · т. 3 · e2669</span></div><p class="doc-t">Changes in Gray Matter Induced by Learning – Revisited</p><p class="doc-a">Driemeyer J. и соавт.</p><div class="doc-n"><b data-count="7">7</b><span>дней</span></div><p class="doc-r">тренировок хватило, чтобы на МРТ стала видна прибавка серого вещества</p><a class="doc-l" href="https://doi.org/10.1371/journal.pone.0002669" target="_blank" rel="noopener">Открыть исследование · DOI 10.1371/journal.pone.0002669</a><i class="seal" aria-hidden="true"></i></article></div>
+ <div class="docs"><article class="doc rv"><div class="doc-h"><b>Science</b><span>2010 · т. 330 · с. 932</span></div><p class="doc-t">A Wandering Mind Is an Unhappy Mind</p><p class="doc-a">Killingsworth M., Gilbert D.</p><div class="doc-n"><b data-count="46,9">46,9</b><span>%</span></div><p class="doc-r">времени голова занята не тем, что вы делаете. Опрос 2 250 человек через приложение</p><i class="seal" aria-hidden="true"></i></article><article class="doc rv"><div class="doc-h"><b>Psychological Science</b><span>2013 · т. 24 · с. 776–781</span></div><p class="doc-t">Mindfulness Training Improves Working Memory Capacity and GRE Performance While Reducing Mind Wandering</p><p class="doc-a">Mrazek M. и соавт.</p><div class="doc-n"><b data-count="2">2</b><span>недели</span></div><p class="doc-r">тренировки внимания: мысли реже уходят в сторону, память работает лучше</p><i class="seal" aria-hidden="true"></i></article><article class="doc rv"><div class="doc-h"><b>Advances in Experimental Social Psychology</b><span>2006 · т. 38 · с. 69–119</span></div><p class="doc-t">Implementation Intentions and Goal Achievement: A Meta-analysis</p><p class="doc-a">Gollwitzer P., Sheeran P.</p><div class="doc-n"><b data-count="94">94</b><span>исследования</span></div><p class="doc-r">сошлись: заранее решённое «если…, то…» заметно чаще доводит до цели</p><i class="seal" aria-hidden="true"></i></article><article class="doc rv"><div class="doc-h"><b>PLoS ONE</b><span>2008 · т. 3 · e2669</span></div><p class="doc-t">Changes in Gray Matter Induced by Learning – Revisited</p><p class="doc-a">Driemeyer J. и соавт.</p><div class="doc-n"><b data-count="7">7</b><span>дней</span></div><p class="doc-r">тренировок хватило, чтобы на МРТ стала видна прибавка серого вещества</p><i class="seal" aria-hidden="true"></i></article></div>
 </div></section>
 
 
@@ -662,20 +688,20 @@ article.wy .mark{margin-top:auto;padding-top:14px}
 </div></section>
 
 <section class="film-sec"><div class="wrap br">
- <div><p class="kick">Что вы получите</p><h2 class="rv">Через 4 дня вы:</h2><ul class="gets rv"><li>Будете ясно понимать, чего хочется именно вам</li><li>Увидите, где действуете из страха, привычек или ожиданий других</li><li>Перестанете уменьшать свои желания до безопасного уровня</li><li>Заметите, в чём ваша собственная сила, способности и ресурсы</li><li>Научитесь избавляться от тревоги</li><li>Сможете выдерживать неопределённость будущего</li><li>Без сомнений пойдёте в больший масштаб в деньгах, отношениях, реализации</li></ul></div>
+ <div><p class="kick">Что вы получите</p><h2 class="rv">Через 4 дня вы:</h2><ul class="gets rv"><li style="--i:0"><em>01</em><p>Будете ясно понимать, чего хочется именно вам</p></li><li style="--i:1"><em>02</em><p>Увидите, где действуете из страха, привычек или ожиданий других</p></li><li style="--i:2"><em>03</em><p>Перестанете уменьшать свои желания до безопасного уровня</p></li><li style="--i:3"><em>04</em><p>Заметите, в чём ваша собственная сила, способности и ресурсы</p></li><li style="--i:4"><em>05</em><p>Научитесь избавляться от тревоги</p></li><li style="--i:5"><em>06</em><p>Сможете выдерживать неопределённость будущего</p></li><li style="--i:6"><em>07</em><p>Без сомнений пойдёте в больший масштаб в деньгах, отношениях, реализации</p></li></ul></div>
  <div class="journey rv"><svg viewBox="-34 0 394 640" role="img" aria-label="Путь за 4 дня: спусковой крючок, бесконечный поток, новая реальность, магнит для масштаба">
 <defs><linearGradient id="jg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#b9832e"/><stop offset="1" stop-color="#f6dc9e"/></linearGradient>
-<radialGradient id="jglow"><stop offset="0" stop-color="#f6dc9e" stop-opacity=".9"/><stop offset="1" stop-color="#f6dc9e" stop-opacity="0"/></radialGradient></defs>
+<linearGradient id="jfig" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3d0"/><stop offset=".55" stop-color="#f0c879"/><stop offset="1" stop-color="#b9832e"/></linearGradient><radialGradient id="jcoin" cx=".35" cy=".3"><stop offset="0" stop-color="#fff6dc"/><stop offset=".5" stop-color="#e8c27a"/><stop offset="1" stop-color="#9a6a1f"/></radialGradient><radialGradient id="jglow"><stop offset="0" stop-color="#f6dc9e" stop-opacity=".9"/><stop offset="1" stop-color="#f6dc9e" stop-opacity="0"/></radialGradient></defs>
 <path class="jbase" d="M50 590C110 580 132 520 110 490S40 420 50 380 132 310 110 270 40 200 50 160"/><path class="jpath" id="jp" d="M50 590C110 580 132 520 110 490S40 420 50 380 132 310 110 270 40 200 50 160"/>
 <text x="24" y="626" class="js">Старт</text>
 <g class="jfin"><circle cx="50" cy="62" r="26" fill="url(#jglow)"/><path d="M50 46l4 10 11 1-8 7 3 11-10-6-10 6 3-11-8-7 11-1z" class="jstar"/><text x="90" y="58" class="jf">Твоя новая</text><text x="90" y="78" class="jf">реальность</text></g>
 <g class="jl" data-k="0"><circle cx="110" cy="490" r="9" class="jdot"/><path class="jlink" d="M122 490H150"/><g transform="translate(146,450)"><g class="jc"><rect width="214" height="80" rx="18"/><clipPath id="jcp0"><circle cx="42" cy="40" r="30"/></clipPath><image href="img/3230816f77.webp" x="12" y="10" width="60" height="60" clip-path="url(#jcp0)" preserveAspectRatio="xMidYMid slice"/><circle cx="42" cy="40" r="30" class="jring"/><text x="80" y="34" class="jd">1 день</text><text x="80" y="54" class="jn">Спусковой крючок</text></g></g></g><g class="jl" data-k="1"><circle cx="50" cy="380" r="9" class="jdot"/><path class="jlink" d="M62 380H150"/><g transform="translate(146,340)"><g class="jc"><rect width="214" height="80" rx="18"/><clipPath id="jcp1"><circle cx="42" cy="40" r="30"/></clipPath><image href="img/9c3dcefeb3.webp" x="12" y="10" width="60" height="60" clip-path="url(#jcp1)" preserveAspectRatio="xMidYMid slice"/><circle cx="42" cy="40" r="30" class="jring"/><text x="80" y="34" class="jd">2 день</text><text x="80" y="54" class="jn">Бесконечный поток</text></g></g></g><g class="jl" data-k="2"><circle cx="110" cy="270" r="9" class="jdot"/><path class="jlink" d="M122 270H150"/><g transform="translate(146,230)"><g class="jc"><rect width="214" height="80" rx="18"/><clipPath id="jcp2"><circle cx="42" cy="40" r="30"/></clipPath><image href="img/3ac6ee1ef9.webp" x="12" y="10" width="60" height="60" clip-path="url(#jcp2)" preserveAspectRatio="xMidYMid slice"/><circle cx="42" cy="40" r="30" class="jring"/><text x="80" y="34" class="jd">3 день</text><text x="80" y="54" class="jn">Новая реальность</text></g></g></g><g class="jl" data-k="3"><circle cx="50" cy="160" r="9" class="jdot"/><path class="jlink" d="M62 160H150"/><g transform="translate(146,120)"><g class="jc"><rect width="214" height="80" rx="18"/><clipPath id="jcp3"><circle cx="42" cy="40" r="30"/></clipPath><image href="img/2a79cedcce.webp" x="12" y="10" width="60" height="60" clip-path="url(#jcp3)" preserveAspectRatio="xMidYMid slice"/><circle cx="42" cy="40" r="30" class="jring"/><text x="80" y="34" class="jd">4 день · VIP</text><text x="80" y="54" class="jn">Магнит для масштаба</text></g></g></g>
 <g class="coins"><circle r="6" class="coin" style="--i:0"/><circle r="6" class="coin" style="--i:1"/><circle r="6" class="coin" style="--i:2"/><circle r="6" class="coin" style="--i:3"/><circle r="6" class="coin" style="--i:4"/><circle r="6" class="coin" style="--i:5"/><circle r="6" class="coin" style="--i:6"/><circle r="6" class="coin" style="--i:7"/></g>
-<g id="hero-man"><circle r="34" fill="url(#jglow)" class="aura"/>
- <g class="rays"><line x1="0" y1="-22" x2="0" y2="-32" transform="rotate(0)"/><line x1="0" y1="-22" x2="0" y2="-32" transform="rotate(30)"/><line x1="0" y1="-22" x2="0" y2="-32" transform="rotate(60)"/><line x1="0" y1="-22" x2="0" y2="-32" transform="rotate(90)"/><line x1="0" y1="-22" x2="0" y2="-32" transform="rotate(120)"/><line x1="0" y1="-22" x2="0" y2="-32" transform="rotate(150)"/><line x1="0" y1="-22" x2="0" y2="-32" transform="rotate(180)"/><line x1="0" y1="-22" x2="0" y2="-32" transform="rotate(210)"/><line x1="0" y1="-22" x2="0" y2="-32" transform="rotate(240)"/><line x1="0" y1="-22" x2="0" y2="-32" transform="rotate(270)"/><line x1="0" y1="-22" x2="0" y2="-32" transform="rotate(300)"/><line x1="0" y1="-22" x2="0" y2="-32" transform="rotate(330)"/></g>
- <g class="man"><circle cx="0" cy="-16" r="5"/><path d="M0-11v13M0-6l-7 6M0-6l7 6"/><path class="lg1" d="M0 2l-5 10"/><path class="lg2" d="M0 2l5 10"/></g>
- <path class="heart" d="M0-30c-3-5-10-3-9 2 1 4 9 9 9 9s8-5 9-9c1-5-6-7-9-2z" transform="translate(0,-8) scale(.7)"/>
- <g class="magnet" transform="translate(14,-6)"><path d="M-6-6v6a6 6 0 0 0 12 0v-6"/><path d="M-6-6h3M3-6h3" class="mt"/></g>
+<g id="hero-man">
+ <circle r="40" fill="url(#jglow)" class="aura"/>
+ <circle r="24" class="ring r1"/><circle r="24" class="ring r2"/>
+ <g class="fig"><circle cx="0" cy="-19" r="5.2"/><path d="M0-13c-4.6 0-7 2.6-7.6 6.6L-10.5 13h21L7.6-6.4C7-10.4 4.6-13 0-13z"/></g>
+ <path class="heart" d="M0-3.5c-1.6-3.6-7-3.2-7 1 0 3.3 4.3 6 7 8.3 2.7-2.3 7-5 7-8.3 0-4.2-5.4-4.6-7-1z" transform="translate(0,-2) scale(.7)"/>
 </g>
 </svg></div>
 </div></section>
@@ -715,7 +741,7 @@ article.wy .mark{margin-top:auto;padding-top:14px}
   <div class="gift-cta rv"><button type="button" class="btn" data-open>Получить свой билет<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></div></div>
  <div class="tk-stage" aria-hidden="true">
   <div class="tk tk-back2"></div><div class="tk tk-back"></div>
-  <div class="tk tk-main"><i class="holo"></i>
+  <div class="tk tk-main"><img class="tk-art" src="img/6258412b23.webp" alt=""><i class="holo"></i>
    <div class="tk-l"><div class="tk-top"><span class="tk-logo"></span><p class="tk-k">Лаборатория новой реальности<br><span>Анна Саба · 23–26 ноября</span></p></div>
     <p class="tk-for">Именной билет</p><p class="tk-name" id="tkname">Мария</p>
     <div class="tk-gift"><small>Ваш подарок</small><b id="tkgift">Метафорические карты</b><i class="scr"></i></div></div>
