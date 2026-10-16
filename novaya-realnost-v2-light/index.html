@@ -932,6 +932,8 @@ html,body{overflow-x:clip}
  .hero .lead0{margin:0!important}
 }
 @media(max-width:980px) and (max-height:760px){section.hero>.wrap>.rv{gap:8px;padding-top:10px}.hero .gains li{padding:3px 0 3px 24px!important;font-size:13px!important}.hero .stage .wide{aspect-ratio:2.6/1!important}.hero .promise{padding-top:8px!important;padding-bottom:8px!important}}
+/* owner 16.10 14:48: italic ticket names were clipped by background-clip:text */
+.tk-name{display:inline-block;padding:0 .24em .1em 0;margin-right:-.24em}
 @media(prefers-reduced-motion:reduce){.promise:before{animation:none}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.chart .new{stroke-dashoffset:0}}
 </style></head><body>
@@ -1054,14 +1056,14 @@ html,body{overflow-x:clip}
 <section class="gift"><div class="wrap gift-w">
  <div><p class="kick">После регистрации</p><h2 class="rv">Ваш личный билет с подарком</h2>
   <p class="lead rv">Сразу после регистрации в Telegram придёт личный билет с вашим именем. В каждом билете спрятан свой подарок, и он у всех разный.</p>
-  <p class="gift-hl rv">В одном из билетов – <b>iPhone</b></p>
+  <p class="gift-hl rv">В билете – <b>один из 6 вебинаров</b> Анны Саба</p>
   <div class="gift-cta rv"><button type="button" class="btn" data-open>Получить свой билет<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></div></div>
  <div class="tk-stage" aria-hidden="true">
   <div class="tk tk-back2"></div><div class="tk tk-back"></div>
   <div class="tk tk-main"><img class="tk-art" src="img/6258412b23.webp" alt=""><i class="holo"></i>
    <div class="tk-l"><div class="tk-top"><span class="tk-logo"></span><p class="tk-k">Лаборатория новой реальности<br><span>Анна Саба · 23–26 ноября</span></p></div>
     <p class="tk-for">Именной билет</p><p class="tk-name" id="tkname">Мария</p>
-    <div class="tk-gift"><small>Ваш подарок</small><b id="tkgift">Метафорические карты</b><i class="scr"></i></div></div>
+    <div class="tk-gift"><small>Ваш подарок</small><b id="tkgift">Вебинар «Я и моя тень»</b><i class="scr"></i></div></div>
    <div class="tk-r"><span>№</span><b id="tkno">0147</b><div class="bar"></div><span class="adm">ADMIT ONE</span></div></div>
  </div>
 </div></section>
@@ -1130,8 +1132,8 @@ $$('[data-open]').forEach(b=>b.addEventListener('click',openM));$('#mdx').addEve
 m.addEventListener('click',e=>{if(e.target===m)closeM()});addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
 $('#rf').addEventListener('submit',e=>{e.preventDefault();$('#okname').textContent=$('#rf input[type=text]').value||'Ваше имя';$('#okno').textContent=String(100+Math.floor(Math.random()*9800)).padStart(4,'0');ok.hidden=false});
 // personal ticket demo
-const NM=['Мария','Елена','Ольга','Анна','Наталья','Ирина'],GF=["Метафорические карты", "Мерч с фразами Анны Саба", "iPhone", "Практика «Прочувствуй свою новую реальность»", "Личный разбор с психологом"];let ti=0;const tn=$('#tkname'),tg=$('#tkgift'),tno=$('#tkno'),tm=$('.tk-main');
-if(tm&&!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(()=>{ti++;tm.classList.add('flip');setTimeout(()=>{tn.textContent=NM[ti%NM.length];tg.textContent=GF[ti%GF.length];tno.textContent=String(147+ti*311%9000).padStart(4,'0');tm.classList.toggle('win',GF[ti%GF.length]==='iPhone');tm.classList.remove('flip')},450)},2600);
+const NM=['Мария','Елена','Ольга','Анна','Наталья','Ирина'],GF=["Вебинар «Личные границы и сексуальность»", "Вебинар «Иллюзия контроля, как усмирить эго»", "Вебинар «Депрессия ближе, чем кажется»", "Вебинар «Я и моя тень»", "Вебинар «Секреты семейного счастья»", "Вебинар «Почему мы ничего не должны родителям?»"];let ti=0;const tn=$('#tkname'),tg=$('#tkgift'),tno=$('#tkno'),tm=$('.tk-main');
+if(tm&&!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(()=>{ti++;tm.classList.add('flip');setTimeout(()=>{tn.textContent=NM[ti%NM.length];tg.textContent=GF[ti%GF.length];tno.textContent=String(147+ti*311%9000).padStart(4,'0');tm.classList.remove('flip')},450)},2600);
 // sticky bottom CTA after hero, hidden while modal open or at final section
 const sbar=$('#sbar');if(sbar){const hero=$('.hero'),fin=$('.fin');let hv=true,fv=false;const upd=()=>sbar.classList.toggle('on',!hv&&!fv&&!document.body.classList.contains('lock'));
  new IntersectionObserver(es=>{hv=es[0].isIntersecting;upd()}).observe(hero);if(fin)new IntersectionObserver(es=>{fv=es[0].isIntersecting;upd()}).observe(fin);addEventListener('scroll',upd,{passive:true})}
@@ -1162,7 +1164,7 @@ if(jp&&man){const L=jp.getTotalLength(),ST=[[50,590],[110,490],[50,380],[110,270
  g.addEventListener('scroll',()=>{if(innerWidth>980)return;const i=Math.round(g.scrollLeft/(ds[0].offsetWidth+12));ts.forEach((b,k)=>b.classList.toggle('on',k===i))},{passive:true})}}
 // bottom bar turns into a short notice every 30 s
 {const sb=$('#sbar'),np=sb&&sb.querySelector('.sb-ntf p');if(np){const N=['Марина','Ольга','Елена','Наталья','Ирина','Светлана','Татьяна','Юлия','Анастасия','Екатерина','Алёна','Оксана','Дарья','Ксения','Виктория'];
- const A=['записалась на практикум','получила билет','выиграла вебинар «Волшебная женщина»','выиграла мастер-класс «Избавление от недостаточности»','выиграла футболку','выиграла мерч от Анны Саба','выиграла метафорические карты','выиграла вебинар «Иллюзия контроля»','выиграла вебинар «Я и моя тень»','выиграла вебинар «Секреты семейного счастья»','выиграла вебинар «Личные границы и сексуальность»'];
+ const A=['записалась на практикум', 'получила билет', 'выиграла вебинар «Личные границы и сексуальность»', 'выиграла вебинар «Иллюзия контроля, как усмирить эго»', 'выиграла вебинар «Депрессия ближе, чем кажется»', 'выиграла вебинар «Я и моя тень»', 'выиграла вебинар «Секреты семейного счастья»', 'выиграла вебинар «Почему мы ничего не должны родителям?»'];
  let i=Math.floor(Math.random()*N.length),j=Math.floor(Math.random()*A.length);const show=()=>{if(!sb.classList.contains('on'))return;np.innerHTML='<b>'+N[i++%N.length]+'</b> '+A[j++%A.length];sb.classList.add('ntf');setTimeout(()=>sb.classList.remove('ntf'),5000)};
  setTimeout(()=>{show();setInterval(show,30000)},9000)}}
 })();
