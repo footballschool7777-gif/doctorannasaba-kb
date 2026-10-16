@@ -743,7 +743,7 @@ section.hero{padding:78px 0 22px;min-height:100svh}
 .hero .stage{height:calc(100svh - 110px)!important;max-height:760px}
 }
 .hero .kick .kd{margin-left:6px;padding:5px 12px;border-radius:999px;border:1px solid var(--goldt);letter-spacing:.08em;text-transform:none;font-size:1.08em;color:var(--ink);background:rgba(201,162,92,.1)}
-@media(max-width:980px){.hero .kick .kd{display:none}}
+@media(max-width:980px){.hero .kick .kd{display:inline-block;margin-left:8px;padding:3px 9px;font-size:11px;letter-spacing:.04em}}
 .vs{position:relative;display:grid;grid-template-columns:.85fr 1.15fr;gap:22px;max-width:980px;margin:30px auto 0;align-items:stretch}
 .vs ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .vs li{display:flex;gap:12px;align-items:flex-start;font-size:16px;line-height:1.4;text-wrap:balance}
@@ -858,25 +858,65 @@ html[data-theme=light] .hero .promise .pr-tx b,html[data-theme=light] .hero .pro
  .hero .gains li:before{left:0!important}
  .hero .gains{grid-auto-flow:dense}
  .hero .gains li:nth-child(2){grid-column:1/-1}
- .fy{gap:0!important;margin-top:22px!important;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:4px 16px}
- .fy li{background:none!important;border:0!important;border-radius:0!important;padding:14px 0!important;gap:12px!important;border-bottom:1px solid var(--line)!important}
- .fy li:last-child{border-bottom:0!important}
+ .fy{gap:10px!important;margin-top:22px!important}
+ .fy li{padding:14px 16px!important;gap:12px!important;border-radius:16px!important}
  .fy li:before,.fy li em{display:none!important}
- .fy li p{font-size:15px;line-height:1.38}
+ .fy li p{font-size:15px;line-height:1.42;font-weight:500!important}
  .fy-ic{width:34px!important;height:34px!important;flex:none}
- .dgrid .day{display:none}.dgrid .day.act{display:block;animation:dayin .4s var(--ease)}
+ .dgrid{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -20px;padding:4px 20px 10px;scroll-padding-inline:20px;scrollbar-width:none}
+ .dgrid::-webkit-scrollbar{display:none}
+ .dgrid .day{flex:0 0 86%;scroll-snap-align:start;opacity:1!important;transform:none!important}
  .dtabs{margin:22px 0 14px!important}
  .docs,.wy-grid{display:grid!important;grid-template-columns:1fr!important;overflow:visible!important;margin:22px 0 0!important;padding:0!important;gap:12px!important}
  .docs>.doc,.wy-grid>.wy{flex:none!important}
  .swipe-hint{display:none!important}
  article.wy h3{min-height:0!important}
  .jl .jc{opacity:.7!important}.jl.on .jc{opacity:1!important}
- .jn{font-size:14px!important}.jt{font-size:13.5px!important;opacity:.85!important;fill:var(--ink)!important}.jd{font-size:11.5px!important}
+ .jn{font-size:14px!important}.jt{font-size:13.5px!important}.jd{font-size:11.5px!important}
 }
 @keyframes dayin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .hero h1 .nw{position:relative;display:inline-block}
 .hero h1 .nw .wand{right:-1.35em!important;top:-1.0em!important}
 @media(max-width:980px){.hero h1 .nw .wand{right:-1.5em!important;top:-.95em!important}}
+/* owner video 16.10 11:20 */
+html,body{overflow-x:clip}
+@media(max-width:980px){
+ header.hd{display:none!important}
+ section.hero{padding:0!important;min-height:100svh;display:flex!important;align-items:stretch}
+ section.hero>.wrap{display:flex!important;flex-direction:column;gap:12px;min-height:100svh;padding-top:12px!important;padding-bottom:14px!important;width:100%}
+ .hero .stage{order:-1;flex:1 1 auto!important;display:flex!important;min-height:110px;max-height:46svh}
+ .hero .stage{flex:1 1 0!important;min-height:96px!important}
+ .hero .stage .wide{flex:1;height:auto!important;aspect-ratio:auto!important;position:relative}
+ .hero .stage .wide>img{position:absolute;inset:0}
+ section.hero>.wrap>.rv{flex:0 0 auto;display:flex;flex-direction:column;justify-content:space-between}
+ .hero .wide .hair2{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 30%;-webkit-mask-image:radial-gradient(ellipse 34% 70% at 74% 38%,#000 40%,transparent 75%);mask-image:radial-gradient(ellipse 34% 70% at 74% 38%,#000 40%,transparent 75%);transform-origin:70% 10%;animation:hairsway 5.5s ease-in-out infinite alternate;pointer-events:none}
+ .strip .frames{display:flex!important;flex-wrap:nowrap;overflow-x:auto;gap:10px;margin:0 -20px;padding:0 20px;scrollbar-width:none;scroll-snap-type:none}
+ .strip .frames::-webkit-scrollbar{display:none}
+ .strip .frames .fr{flex:0 0 31%}
+ .cs-track{scroll-padding-inline:20px}.cs-track>.cs{scroll-snap-align:start}
+}
+@keyframes hairsway{0%{transform:translate(0,0) skewX(0deg) scale(1)}50%{transform:translate(1.5px,-1px) skewX(.8deg) scale(1.008)}100%{transform:translate(-1px,1px) skewX(-.6deg) scale(1.004)}}
+.fy-pics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0 -40px;position:relative;z-index:0}
+.fy-pics img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;-webkit-mask-image:linear-gradient(180deg,#000 35%,transparent 98%);mask-image:linear-gradient(180deg,#000 35%,transparent 98%)}
+.fy{position:relative;z-index:1}
+@media(max-width:980px){.fy-pics{margin:18px 0 -54px;gap:6px}.fy-pics img{border-radius:12px;aspect-ratio:3/4}}
+.jl .jt{opacity:0!important;transition:opacity .6s}.jl.on .jt{opacity:1!important}
+.docs .doc{display:flex;flex-direction:column}.docs .doc .doc-src{margin-top:auto;padding-right:58px}
+.sbar .sb-ntf{display:none}
+@media(max-width:980px){
+ .sbar{overflow:hidden}
+ .sbar .sb-main{transition:opacity .35s,transform .35s}
+ .sbar div.sb-ntf{flex-direction:row!important;justify-content:flex-start}
+ .sbar .sb-ntf{display:flex;position:absolute;left:0;top:0;bottom:0;right:0;align-items:center;gap:10px;padding:0 16px;background:var(--card);opacity:0;transform:translateY(100%);transition:opacity .35s,transform .35s;pointer-events:none;z-index:2}
+ .sbar .sb-ntf i{flex:none;width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f6dc9e,var(--gold));box-shadow:0 0 12px var(--glow)}
+ .sbar .sb-ntf p{margin:0;font-size:13.5px;line-height:1.3;color:var(--ink)}.sbar .sb-ntf p b{color:var(--goldt)}
+ .sbar.ntf .sb-ntf{opacity:1;transform:none}.sbar.ntf .sb-main{opacity:0;transform:translateY(-60%)}
+}
+@media(max-width:980px){
+ .docs .doc .doc-src{padding-right:0!important}.docs .doc .doc-r{max-width:none!important;padding-right:0;text-wrap:pretty!important}
+ .docs .doc .seal{top:20px;right:18px;bottom:auto;width:34px;height:34px}
+ .vs .vs-mid{transform:translateY(10px)!important}
+}
 @media(prefers-reduced-motion:reduce){.promise:before{animation:none}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.chart .new{stroke-dashoffset:0}}
 </style></head><body>
@@ -893,7 +933,7 @@ html[data-theme=light] .hero .promise .pr-tx b,html[data-theme=light] .hero .pro
  </div>
  <div class="stage" aria-hidden="true"><div class="beam"></div><div class="reel l"><div><b style="background-image:url(img/6bfe504283.webp)"></b><b style="background-image:url(img/d170d8eafd.webp)"></b><b style="background-image:url(img/fd1d332d77.webp)"></b><b style="background-image:url(img/a318865ffd.webp)"></b><b style="background-image:url(img/18b2838bcc.webp)"></b><b style="background-image:url(img/49efe58fa3.webp)"></b><b style="background-image:url(img/b21638f27c.webp)"></b><b style="background-image:url(img/6bfe504283.webp)"></b><b style="background-image:url(img/d170d8eafd.webp)"></b><b style="background-image:url(img/fd1d332d77.webp)"></b><b style="background-image:url(img/a318865ffd.webp)"></b><b style="background-image:url(img/18b2838bcc.webp)"></b><b style="background-image:url(img/49efe58fa3.webp)"></b><b style="background-image:url(img/b21638f27c.webp)"></b></div></div><div class="reel r"><div><b style="background-image:url(img/c6765e1d20.webp)"></b><b style="background-image:url(img/f21270f15d.webp)"></b><b style="background-image:url(img/a86ff979ba.webp)"></b><b style="background-image:url(img/2abaed7a90.webp)"></b><b style="background-image:url(img/6bf01aa05f.webp)"></b><b style="background-image:url(img/4cd69dcf89.webp)"></b><b style="background-image:url(img/f61505e664.webp)"></b><b style="background-image:url(img/c6765e1d20.webp)"></b><b style="background-image:url(img/f21270f15d.webp)"></b><b style="background-image:url(img/a86ff979ba.webp)"></b><b style="background-image:url(img/2abaed7a90.webp)"></b><b style="background-image:url(img/6bf01aa05f.webp)"></b><b style="background-image:url(img/4cd69dcf89.webp)"></b><b style="background-image:url(img/f61505e664.webp)"></b></div></div>
   <div class="lit"><img src="img/6258412b23.webp" alt=""><img class="hair" src="img/6258412b23.webp" alt=""><i class="glint"></i><span class="spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><p class="who"><b>Анна Саба – врач-психотерапевт</b><span>10+ лет практики, 7000+ клиентов</span></p></div>
-  <div class="wide"><img src="img/b021a2b6fe.webp" alt="Анна Саба"><p class="who"><b>Анна Саба – врач-психотерапевт</b><span>10+ лет практики, 7000+ клиентов</span></p></div></div>
+  <div class="wide"><img src="img/b021a2b6fe.webp" alt="Анна Саба"><img class="hair2" src="img/b021a2b6fe.webp" alt=""><p class="who"><b>Анна Саба – врач-психотерапевт</b><span>10+ лет практики, 7000+ клиентов</span></p></div></div>
  <svg width="0" height="0" style="position:absolute"><filter id="hairwave"><feTurbulence type="fractalNoise" baseFrequency="0.010 0.018" numOctaves="2" seed="4"><animate attributeName="baseFrequency" dur="10s" values="0.010 0.018;0.014 0.024;0.010 0.018" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" scale="12"/></filter></svg>
 </div></section>
 
@@ -944,6 +984,7 @@ html[data-theme=light] .hero .promise .pr-tx b,html[data-theme=light] .hero .pro
 <section><div class="wrap">
  <p class="kick">Кому подойдёт</p>
  <h2 class="rv">Эта программа для вас, если вы:</h2>
+ <div class="fy-pics" aria-hidden="true"><img src="img/a2d8c348ad.webp" alt="" loading="lazy"><img src="img/796f8afa22.webp" alt="" loading="lazy"><img src="img/ce91f872f4.webp" alt="" loading="lazy"></div>
  <ul class="fy"><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M4 18h16M7 15V9M12 15V6M17 15v-3"/></svg></span><p>Застряли и не можете перейти на новый уровень: в деньгах, отношениях, окружении</p><em>01</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg></span><p>Хотите найти своё предназначение и раскрыть весь накопленный потенциал</p><em>02</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2 2M16.4 16.4l2 2M5.6 18.4l2-2M16.4 7.6l2-2"/><circle cx="12" cy="12" r="3"/></svg></span><p>Внутренне чувствуете, что надо что-то менять, но не знаете, как</p><em>03</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 3"/></svg></span><p>Понимаете, что время идёт, а полноценно реализоваться так и не получается</p><em>04</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><p>Вас словно что-то держит на месте: всё одно и то же, ничего не меняется</p><em>05</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></span><p>Есть ощущение, что «вот-вот получится», но это «вот-вот» никак не наступает</p><em>06</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/></svg></span><p>Многое попробовали, но откатывались назад</p><em>07</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M7 2v11h3l-1 9 8-12h-4l2-8z"/></svg></span><p>Не хватает энергии: просыпаетесь утром, а сил уже нет</p><em>08</em></li></ul>
  <div class="center-cta"><button type="button" class="btn" data-open>Это про меня – иду на программу<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></div>
 </div></section>
@@ -1037,7 +1078,7 @@ html[data-theme=light] .hero .promise .pr-tx b,html[data-theme=light] .hero .pro
 
 <footer><div class="wrap">© 2026 ООО «Институт психического здоровья доктора Анны Саба» · ОГРН 1257700442911 · ИНН 7751373785<br>Эл. почта: DR.ANNASABA@YANDEX.RU · Телефон: +7 917 039 6100 · <a href="https://ipzdas.ru/politika">Политика обработки персональных данных</a><br>Программа не заменяет консультацию врача. Результаты участия индивидуальны.</div></footer>
 
-<div class="sbar" id="sbar"><div><b>Бесплатно</b><span>23–26 ноября</span></div><button type="button" class="btn" data-open>Записаться<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></div>
+<div class="sbar" id="sbar"><div class="sb-main"><b>Бесплатно</b><span>23–26 ноября</span></div><div class="sb-ntf" aria-live="polite"><i></i><p></p></div><button type="button" class="btn" data-open>Записаться<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></div>
 <div class="md" id="md"><div class="md-box" role="dialog" aria-modal="true" aria-labelledby="mdt"><button type="button" class="md-x" id="mdx" aria-label="Закрыть">×</button>
  <h3 id="mdt">Регистрация на программу</h3>
  <form id="rf"><small>Ссылки на эфиры придут в Telegram</small>
@@ -1097,5 +1138,17 @@ if(jp&&man){const L=jp.getTotalLength(),ST=[[50,590],[110,490],[50,380],[110,270
   for(let k=1;k<5;k++){man.classList.remove('stop');await walk(SL[k-1],SL[k],SC[k-1],SC[k],950);stage(k);man.classList.add('stop');await wait(k===4?3400:2300)}
   await wait(800)}}
  if(red){stage(4);place(SL[4],SC[4])}else{place(0,1);new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){loop();o.disconnect()}},{threshold:.3}).observe($('.journey'))}}
+// film strip: drifts by itself on phones, finger scroll pauses it
+{const fs=$('.strip .frames');if(fs&&matchMedia('(max-width:980px)').matches){let dir=1,hold=0,x=0;const stop=()=>{hold=performance.now()+3500};['touchstart','pointerdown','wheel'].forEach(ev=>fs.addEventListener(ev,stop,{passive:true}));
+ (function f(t){if(t>hold){const m=fs.scrollWidth-fs.clientWidth;if(m>0){if(Math.abs(x-fs.scrollLeft)>2)x=fs.scrollLeft;x+=.45*dir;if(x>=m){x=m;dir=-1}else if(x<=0){x=0;dir=1}fs.scrollLeft=x}}else x=fs.scrollLeft;requestAnimationFrame(f)})(0)}}
+// day cards: swipe on phones, tabs follow
+{const g=$('.dgrid');if(g){const ds=[...g.querySelectorAll('.day')],ts=$$('.dtab');
+ ts.forEach((b,i)=>b.addEventListener('click',()=>{if(innerWidth<=980)g.scrollTo({left:ds[i].offsetLeft-20,behavior:'smooth'})}));
+ g.addEventListener('scroll',()=>{if(innerWidth>980)return;const i=Math.round(g.scrollLeft/(ds[0].offsetWidth+12));ts.forEach((b,k)=>b.classList.toggle('on',k===i))},{passive:true})}}
+// bottom bar turns into a short notice every 30 s
+{const sb=$('#sbar'),np=sb&&sb.querySelector('.sb-ntf p');if(np){const N=['Марина','Ольга','Елена','Наталья','Ирина','Светлана','Татьяна','Юлия','Анастасия','Екатерина','Алёна','Оксана','Дарья','Ксения','Виктория'];
+ const A=['записалась на практикум','получила билет','выиграла вебинар «Волшебная женщина»','выиграла мастер-класс «Избавление от недостаточности»','выиграла футболку','выиграла мерч от Анны Саба','выиграла метафорические карты','выиграла вебинар «Иллюзия контроля»','выиграла вебинар «Я и моя тень»','выиграла вебинар «Секреты семейного счастья»','выиграла вебинар «Личные границы и сексуальность»'];
+ let i=Math.floor(Math.random()*N.length),j=Math.floor(Math.random()*A.length);const show=()=>{if(!sb.classList.contains('on'))return;np.innerHTML='<b>'+N[i++%N.length]+'</b> '+A[j++%A.length];sb.classList.add('ntf');setTimeout(()=>sb.classList.remove('ntf'),5000)};
+ setTimeout(()=>{show();setInterval(show,30000)},9000)}}
 })();
 </script></body></html>
