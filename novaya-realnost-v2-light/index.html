@@ -1075,8 +1075,8 @@ html,body{overflow-x:clip}
    <div class="price"><b>0 ₽</b><s>990 ₽</s></div><button type="button" class="btn" data-open>Иду за 0 ₽<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></article>
   <article class="tc vip rv"><div class="tk-stub"><span>VIP-билет</span><b>№ 0001</b></div><p class="nm">VIP</p><h3>Всё и сразу</h3><ul><li>3 прямых эфира, старт 23 ноября</li><li>4-й VIP-эфир «Магнит для масштаба»</li><li>Записи и презентации эфиров</li><li>Домашние задания и бонусные материалы</li><li>Чат участников, розыгрыш призов</li></ul>
    <div class="bonus"><b>Бонус</b><p>Практика на 30 минут «Прочувствуй свою новую реальность и узнай, что тебе не даёт в неё перейти»</p></div>
-   <div class="bonus"><b>Бонус</b><p>Личный разбор-диагностика вашей ситуации: деньги, отношения, реализация, предназначение, здоровье. Вы получите пошаговый план без розовых очков.<small>Разборы проводят действующие психологи, выпускники Института. Средняя цена такой работы ~15 000 ₽.</small></p></div>
-   <div class="bonus"><b>Бонус</b><p>Мастер-класс Анны Саба: как выйти на новый уровень дохода, энергии и отношений и за 6 месяцев освоить профессию EMDR-терапевта.<small>Доход зависит от ваших действий и не гарантирован.</small></p></div>
+   <div class="bonus"><b>Бонус</b><p>Личный разбор-диагностика вашей ситуации: деньги, отношения, реализация, предназначение, здоровье. Вы получите пошаговый план без розовых очков.<small>Разборы проводят действующие психологи, выпускники Института психического здоровья доктора Анны Саба. Средняя цена консультации психологов такого уровня от 15 000 ₽.</small></p></div>
+   <div class="bonus"><b>Бонус</b><p>Мастер-класс: как выйти на новый уровень дохода, энергии и отношений и за 6 месяцев освоить профессию EMDR-терапевта с доходом от 300 000 ₽.</p></div>
    <div class="price"><b>1 980 ₽</b><s>14 990 ₽</s></div><button type="button" class="btn" data-open>Иду на VIP<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></article>
  </div>
 </div></section>
@@ -1132,7 +1132,7 @@ $$('[data-open]').forEach(b=>b.addEventListener('click',openM));$('#mdx').addEve
 m.addEventListener('click',e=>{if(e.target===m)closeM()});addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
 $('#rf').addEventListener('submit',e=>{e.preventDefault();$('#okname').textContent=$('#rf input[type=text]').value||'Ваше имя';$('#okno').textContent=String(100+Math.floor(Math.random()*9800)).padStart(4,'0');ok.hidden=false});
 // personal ticket demo
-const NM=['Мария','Елена','Ольга','Анна','Наталья','Ирина'],GF=["Вебинар «Личные границы и сексуальность»", "Вебинар «Иллюзия контроля, как усмирить эго»", "Вебинар «Депрессия ближе, чем кажется»", "Вебинар «Я и моя тень»", "Вебинар «Секреты семейного счастья»", "Вебинар «Почему мы ничего не должны родителям?»"];let ti=0;const tn=$('#tkname'),tg=$('#tkgift'),tno=$('#tkno'),tm=$('.tk-main');
+const NM=['Мария','Елена','Ольга','Анна','Наталья','Ирина'],GF=["Вебинар «Личные границы и сексуальность»", "Вебинар «Иллюзия контроля, как усмирить эго»", "Вебинар «Депрессия ближе, чем кажется»", "Вебинар «Я и моя тень»", "Вебинар «Секреты семейного счастья»", "Вебинар «Почему мы ничего не должны родителям?»"];let ti=0;const tn=$('#tkname'),tg=$('#tkgift'),tno=$('#tkno'),tm=$('.tk-main');
 if(tm&&!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(()=>{ti++;tm.classList.add('flip');setTimeout(()=>{tn.textContent=NM[ti%NM.length];tg.textContent=GF[ti%GF.length];tno.textContent=String(147+ti*311%9000).padStart(4,'0');tm.classList.remove('flip')},450)},2600);
 // sticky bottom CTA after hero, hidden while modal open or at final section
 const sbar=$('#sbar');if(sbar){const hero=$('.hero'),fin=$('.fin');let hv=true,fv=false;const upd=()=>sbar.classList.toggle('on',!hv&&!fv&&!document.body.classList.contains('lock'));
@@ -1164,7 +1164,7 @@ if(jp&&man){const L=jp.getTotalLength(),ST=[[50,590],[110,490],[50,380],[110,270
  g.addEventListener('scroll',()=>{if(innerWidth>980)return;const i=Math.round(g.scrollLeft/(ds[0].offsetWidth+12));ts.forEach((b,k)=>b.classList.toggle('on',k===i))},{passive:true})}}
 // bottom bar turns into a short notice every 30 s
 {const sb=$('#sbar'),np=sb&&sb.querySelector('.sb-ntf p');if(np){const N=['Марина','Ольга','Елена','Наталья','Ирина','Светлана','Татьяна','Юлия','Анастасия','Екатерина','Алёна','Оксана','Дарья','Ксения','Виктория'];
- const A=['записалась на практикум', 'получила билет', 'выиграла вебинар «Личные границы и сексуальность»', 'выиграла вебинар «Иллюзия контроля, как усмирить эго»', 'выиграла вебинар «Депрессия ближе, чем кажется»', 'выиграла вебинар «Я и моя тень»', 'выиграла вебинар «Секреты семейного счастья»', 'выиграла вебинар «Почему мы ничего не должны родителям?»'];
+ const A=['записалась на практикум', 'получила билет', 'выиграла вебинар «Личные границы и сексуальность»', 'выиграла вебинар «Иллюзия контроля, как\u00a0усмирить\u00a0эго»', 'выиграла вебинар «Депрессия ближе, чем кажется»', 'выиграла вебинар «Я и моя тень»', 'выиграла вебинар «Секреты семейного счастья»', 'выиграла вебинар «Почему мы ничего не должны родителям?»'];
  let i=Math.floor(Math.random()*N.length),j=Math.floor(Math.random()*A.length);const show=()=>{if(!sb.classList.contains('on'))return;np.innerHTML='<b>'+N[i++%N.length]+'</b> '+A[j++%A.length];sb.classList.add('ntf');setTimeout(()=>sb.classList.remove('ntf'),5000)};
  setTimeout(()=>{show();setInterval(show,30000)},9000)}}
 })();
