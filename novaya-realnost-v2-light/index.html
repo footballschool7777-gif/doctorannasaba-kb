@@ -1174,15 +1174,38 @@ if(jp&&man){const L=jp.getTotalLength(),ST=[[50,590],[110,490],[50,380],[110,270
 #praktikum-free{display:flex;visibility:hidden;opacity:0;pointer-events:none}
 #praktikum-free.open{visibility:visible;opacity:1;pointer-events:auto}
 #praktikum-free .md-box{max-width:520px}
+#praktikum-free .tf-ck{display:flex;gap:10px;align-items:flex-start;font-size:12px;line-height:1.45;color:var(--muted);text-align:left}
+#praktikum-free .tf-ck input{flex:none;width:18px;height:18px;margin-top:1px;accent-color:var(--gold)}
+#praktikum-free .tf-ck a{color:inherit;text-decoration:underline}
+
 #praktikum-free-widget{padding:0;border:0;box-sizing:content-box;min-height:400px;background:#23190d;border-radius:14px}
 #praktikum-free-widget iframe{width:100%!important;border:0}
 </style>
 <div class="md" id="praktikum-free"><div class="md-box" role="dialog" aria-modal="true" aria-labelledby="praktikum-free-title">
 <button type="button" class="md-x" aria-label="Закрыть">×</button>
-<h3 id="praktikum-free-title">Регистрация на программу</h3>
-<div id="praktikum-free-widget"><script id="e8fc46b41d4b01299a40fce3772d1c62eabe0e25" src="https://doctor-saba.com/pl/lite/widget/script?id=1668830"></script></div>
+<h3 id="praktikum-free-title">Регистрация на программу</h3>
+<form id="tf" class="tf-form" action="https://doctor-saba.com/pl/lite/block-public/process-html?id=2256829325" method="post" accept-charset="UTF-8"><small>Ссылки на эфиры придут в Telegram</small>
+<input type="hidden" name="formParams[setted_offer_id]" value="">
+<input type="hidden" name="formParams[willCreatePaidDeal]" value="">
+<input type="hidden" name="__gc__internal__form__helper" id="tf-loc" value="">
+<input type="hidden" name="__gc__internal__form__helper_ref" id="tf-ref" value="">
+<input type="hidden" name="requestTime" value="1792414165">
+<input type="hidden" name="requestSimpleSign" value="e8c55248f71272eea73c01cb5f9d6ef5">
+<input type="hidden" name="isHtmlWidget" value="1">
+<input type="email" name="formParams[email]" maxlength="60" placeholder="Эл. почта" autocomplete="email" required>
+<input type="text" name="formParams[full_name]" id="tf-name" maxlength="60" placeholder="Имя" autocomplete="given-name" required>
+<input type="tel" name="formParams[phone]" maxlength="60" placeholder="Телефон" autocomplete="tel" required>
+<label class="tf-ck"><input type="checkbox" name="pdpConfirmCheckbox" required><span>Я <a href="https://doctor-saba.com/doctor-saba-soglasie-na-opd" target="_blank" rel="noopener">согласен</a> на обработку моих персональных данных в соответствии с <a href="https://doctor-saba.com/doctor-saba-politika-opd" target="_blank" rel="noopener">Политикой обработки персональных данных</a></span></label>
+<label class="tf-ck"><input type="checkbox" name="confirmMailingCheckbox"><span>Даю <a href="https://doctor-saba.com/doctor-saba-soglasie-na-reklamu" target="_blank" rel="noopener">согласие</a> на получение информационных и маркетинговых рассылок (можно отказаться в любой момент в личном кабинете)</span></label>
+<div class="tk tk-mini" aria-hidden="true"><div class="tk-l"><p class="tk-k">Ваш личный билет</p><p class="tk-name"><b id="tf-ticket">Ваше имя</b></p><div class="tk-gift"><small>Подарок</small><b>откроется в Telegram</b></div></div><div class="tk-r"><span>№</span><b>····</b></div></div>
+<button type="submit" class="btn" id="tf-submit">Получить билет<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button>
+</form>
 </div></div>
 <script>
+(function(){const f=document.getElementById('tf');if(!f)return;const n=document.getElementById('tf-name'),t=document.getElementById('tf-ticket');
+n.addEventListener('input',()=>{t.textContent=n.value.trim()||'Ваше имя'});
+document.getElementById('tf-loc').value=location.href;document.getElementById('tf-ref').value=document.referrer;
+let sent=false;f.addEventListener('submit',e=>{if(sent){e.preventDefault();return}sent=true;document.getElementById('tf-submit').setAttribute('aria-busy','true');setTimeout(()=>{sent=false},6000)});})();
 (function(){const m=document.getElementById('praktikum-free');function close(){m.classList.remove('open');document.body.style.overflow=''}
 m.querySelector('.md-x').addEventListener('click',close);m.addEventListener('click',e=>{if(e.target===m)close()});addEventListener('keydown',e=>{if(e.key==='Escape')close()});})();
 </script>
