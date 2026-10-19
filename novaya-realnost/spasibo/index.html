@@ -67,6 +67,15 @@
   @media(max-width:520px){.mbtn{font-size:.92rem;padding:.95rem .8rem;gap:.45rem;white-space:nowrap}.mbtn svg{width:19px;height:19px}}
   @media(max-width:360px){.ty-card{padding:1.7rem 1.2rem}.mbtn{font-size:.86rem;padding:.9rem .6rem}.mbtn svg{width:17px;height:17px}}
 
+  .ticket-card{margin-top:2rem;padding:1.5rem;background:var(--card);border:1px solid var(--line);border-radius:20px;text-align:left}
+  .ticket-card h2{font-family:var(--display);font-size:1.4rem;line-height:1.25;margin-bottom:.7rem}
+  .ticket-card p{font-size:1rem;margin:.7rem 0;color:var(--ink-soft)}
+  .ticket-card .ticket-link{display:block;margin:1rem 0;padding:1rem;text-align:center;background:var(--green-deep);color:#fff;font-weight:700;border-radius:12px;text-decoration:none}
+  .ticket-card .ticket-link:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+  .ticket-card details{font-size:.94rem;color:var(--ink-soft)}
+  .ticket-card summary{cursor:pointer;color:var(--ink);padding:.4rem 0}
+  .tg-help{font-size:.94rem;color:var(--ink-soft);margin-top:1rem}
+  @media(max-width:520px){.ticket-card{padding:1.2rem}.ty{min-height:100svh}}
   @media (prefers-reduced-motion:reduce){.progress .fill{transition:none}.mbtn{transition:none}}
 </style>
 </head>
@@ -96,6 +105,18 @@
           Перейти в MAX
         </a>
       </div>
+      <p class="tg-help">В Telegram нажмите «Запустить» или отправьте /start, даже если уже подключали бота. Так вы запросите ссылку на канал.</p>
+      <section class="ticket-card" id="my-ticket" aria-labelledby="ticket-title">
+        <h2 id="ticket-title">Ваш именной билет</h2>
+        <p>После регистрации GetCourse готовит билет автоматически. Настоящий номер и изображение появятся в разделе «Дипломы» вашего профиля.</p>
+        <a class="ticket-link" href="https://doctor-saba.com/pl/my" target="_blank" rel="noopener">Проверить мой билет</a>
+        <p>Откроется личный кабинет школы. Войдите с почтой, указанной при регистрации. Откройте билет «Новая реальность» и сохраните изображение.</p>
+        <details>
+          <summary>Билет пока не появился?</summary>
+          <p>Подготовка идёт в фоне. Обновите страницу профиля через несколько минут. Повторно регистрироваться не нужно: это не ускорит выдачу.</p>
+          <p>Если билет не появился, напишите через «Обратную связь» в личном кабинете. Если забыли пароль, выберите «Восстановить пароль» на странице входа.</p>
+        </details>
+      </section>
     </div>
   </div>
 </main>
