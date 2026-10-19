@@ -1097,12 +1097,9 @@ html,body{overflow-x:clip}
 
 <div class="sbar" id="sbar"><div class="sb-main"><b>Бесплатно</b><span>23–26 ноября</span></div><div class="sb-ntf" aria-live="polite"><i></i><p></p></div><button type="button" class="btn" data-open>Записаться<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></div>
 <div class="md" id="md"><div class="md-box" role="dialog" aria-modal="true" aria-labelledby="mdt"><button type="button" class="md-x" id="mdx" aria-label="Закрыть">×</button>
- <h3 id="mdt">Регистрация на программу</h3>
- <form id="rf"><small>Ссылки на эфиры придут в Telegram</small>
- <input type="text" placeholder="Имя" required><input type="tel" placeholder="Телефон" required>
- <button type="submit" class="btn">Записаться<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button>
- <small>Нажимая кнопку, я даю согласие на обработку персональных данных и на получение сообщений о программе</small>
- <div class="ok" id="ok" hidden><div class="tk tk-mini"><div class="tk-l"><p class="tk-k">Ваш личный билет</p><p class="tk-name"><b id="okname"></b></p><div class="tk-gift"><small>Подарок</small><b>откроется в Telegram</b></div></div><div class="tk-r"><span>№</span><b id="okno"></b></div></div><p>Это макет: приём заявок подключим позже.</p></div></form></div></div>
+ <h3 id="mdt">Участие VIP</h3>
+ <p class="lead">Оформление VIP пока недоступно. Заявки на VIP здесь не принимаются.</p>
+ </div></div>
 <script>
 (function(){
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -1126,14 +1123,14 @@ const tr=$('.cs-track'),dots=$('.dots');if(tr){const n=tr.children.length;dots.i
  const upd=()=>{const w=tr.children[0].offsetWidth+16,i=Math.round(tr.scrollLeft/w);$$('i',dots).forEach((x,j)=>x.classList.toggle('on',j===i))};tr.addEventListener('scroll',upd,{passive:true});upd();
  $$('.arr button').forEach(b=>b.addEventListener('click',()=>tr.scrollBy({left:+b.dataset.dir*(tr.children[0].offsetWidth+16),behavior:'smooth'})))}
 // modal
-const m=$('#md'),ok=$('#ok');function openM(e){
- if(e && e.currentTarget && e.currentTarget.closest('.tc.vip')){m.classList.add('open');ok.hidden=true;document.body.style.overflow='hidden';return}
+const m=$('#md');function openM(e){
+ if(e && e.currentTarget && e.currentTarget.closest('.tc.vip')){m.classList.add('open');document.body.style.overflow='hidden';return}
  document.getElementById('praktikum-free').classList.add('open');document.body.style.overflow='hidden';
 }
 function closeM(){m.classList.remove('open');document.body.style.overflow=''}
 $$('[data-open]').forEach(b=>b.addEventListener('click',openM));$('#mdx').addEventListener('click',closeM);
 m.addEventListener('click',e=>{if(e.target===m)closeM()});addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
-$('#rf').addEventListener('submit',e=>{e.preventDefault();$('#okname').textContent=$('#rf input[type=text]').value||'Ваше имя';$('#okno').textContent=String(100+Math.floor(Math.random()*9800)).padStart(4,'0');ok.hidden=false});
+
 // personal ticket demo
 const NM=['Мария','Елена','Ольга','Анна','Наталья','Ирина'],GF=["Вебинар «Личные границы и сексуальность»", "Вебинар «Иллюзия контроля, как усмирить эго»", "Вебинар «Депрессия ближе, чем кажется»", "Вебинар «Я и моя тень»", "Вебинар «Секреты семейного счастья»", "Вебинар «Почему мы ничего не должны родителям?»"];let ti=0;const tn=$('#tkname'),tg=$('#tkgift'),tno=$('#tkno'),tm=$('.tk-main');
 if(tm&&!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(()=>{ti++;tm.classList.add('flip');setTimeout(()=>{tn.textContent=NM[ti%NM.length];tg.textContent=GF[ti%GF.length];tno.textContent=String(147+ti*311%9000).padStart(4,'0');tm.classList.remove('flip')},450)},2600);
