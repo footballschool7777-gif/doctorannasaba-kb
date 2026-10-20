@@ -1,8 +1,9 @@
-<!doctype html><html lang="ru" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Новая реальность · Анна Саба</title><meta name="description" content="Трансформационный практикум Анны Саба, 23–26 ноября. Участие бесплатно.">
+<!doctype html>
+<html lang="ru" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Новая реальность · Анна Саба</title><meta name="description" content="Трансформационный практикум Анны Саба, 25–28 ноября. Участие бесплатно.">
 <meta name="theme-color" content="#f6f0e6"><meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@1,600&amp;display=swap" rel="stylesheet">
 <style>
 :root{--ft:'Unbounded',sans-serif;--fb:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;--r:26px;--ease:cubic-bezier(.2,.7,.2,1)}
 html[data-theme=dark]{--bg:#0e0c09;--bg2:#15120d;--card:#1b1711;--card2:#221d15;--line:rgba(231,194,122,.16);--ink:#f4ede1;--muted:#a99f8e;--gold:#e8c27a;--gold2:#c9953f;--goldt:#ecc67f;--btnink:#241a08;--glow:rgba(232,194,122,.35);--shadow:0 30px 60px -30px rgba(0,0,0,.8);--frame:#0a0907;--hero-fade:#0e0c09}
@@ -933,137 +934,549 @@ html,body{overflow-x:clip}
 }
 @media(max-width:980px) and (max-height:760px){section.hero>.wrap>.rv{gap:8px;padding-top:10px}.hero .gains li{padding:3px 0 3px 24px!important;font-size:13px!important}.hero .stage .wide{aspect-ratio:2.6/1!important}.hero .promise{padding-top:8px!important;padding-bottom:8px!important}}
 /* owner 16.10 14:48: italic ticket names were clipped by background-clip:text */
-.tk-name{display:inline-block;padding:0 .24em .1em 0;margin-right:-.24em}
+.tk-name{display:inline-block;padding:0 .24em .1em .5em;margin-right:-.24em}
 @media(prefers-reduced-motion:reduce){.promise:before{animation:none}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.chart .new{stroke-dashoffset:0}}
+
+/* owner edits 19.10: EMDR block, loop exit, quote, editable chooser texts */
+.emdr .em-mut{color:var(--goldt)}.em-nw{white-space:nowrap}
+.em-decode{max-width:860px;margin-top:6px;padding:18px 22px;border-radius:18px;border:1px solid color-mix(in srgb,var(--gold) 40%,transparent);background:color-mix(in srgb,var(--gold) 10%,var(--card));font-size:16.5px}
+.em-decode b{color:var(--goldt)}
+.em-text{display:grid;grid-template-columns:1fr 1fr;gap:16px 40px;margin-top:30px}
+.em-text p{color:var(--ink);opacity:.9;text-wrap:pretty}
+.em-text b{color:var(--goldt)}
+.em-pts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.em-pt{position:relative;display:flex;gap:14px;align-items:flex-start;padding:22px 22px 20px;background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+.em-pt:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,var(--gold2),var(--gold))}
+.em-ic{flex:0 0 44px;height:44px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 30% 30%,color-mix(in srgb,var(--gold) 35%,transparent),color-mix(in srgb,var(--gold) 10%,transparent));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--gold) 45%,transparent)}
+.em-ic svg{width:22px;height:22px;fill:none;stroke:var(--goldt);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.em-pt p{font-weight:600;line-height:1.45}
+.em-pt b{color:var(--goldt)}
+@media(max-width:980px){.em-text,.em-pts{grid-template-columns:1fr}.em-text{gap:12px;margin-top:22px}.em-pts{gap:12px;margin-top:22px}.em-decode{font-size:15px;padding:14px 16px}.em-text p{font-size:15.5px;line-height:1.55}}
+.orbit .lb{font:600 10.5px var(--fb);fill:#f4ede1}
+.orbit .tw{font:600 16px var(--ft);fill:#f6dc9e;opacity:1}
+.orbit .tw-c{fill:#f6dc9e;animation:twc 1s steps(1) infinite}
+@keyframes twc{50%{opacity:0}}
+.orbit .exit{stroke-dasharray:80;stroke-dashoffset:80}
+@keyframes ex{0%,45%{stroke-dashoffset:80}75%,100%{stroke-dashoffset:0}}
+@media(max-width:980px){.loopv{aspect-ratio:332/300}}
+.loop-out{text-align:center;margin-top:14px}
+.loop-arr{display:inline-block;width:30px;height:64px;animation:arrd 1.8s ease-in-out infinite}
+.loop-arr svg{width:100%;height:100%;fill:none;stroke:var(--goldt);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+@keyframes arrd{50%{transform:translateY(8px)}}
+.loop-want{max-width:720px;margin:10px auto 0;font:600 clamp(19px,2.4vw,26px)/1.3 var(--ft);color:var(--ink);text-wrap:balance}
+.loop-out .center-cta{margin-top:24px}
+.fy li p b{color:var(--goldt)}
+.gets-note{margin-top:18px;padding:14px 18px;border-left:3px solid var(--gold);border-radius:0 14px 14px 0;background:color-mix(in srgb,var(--gold) 9%,transparent);font-style:italic;color:var(--ink)}
+.sp-src{display:none}
+body.lpe-on .sp-src{display:block;max-width:640px;margin:24px auto 0;padding:14px;border:1px dashed var(--goldt);border-radius:14px;text-align:left}
+body.lpe-on .sp-src:before{content:"Тексты под плёнкой (видны только в режиме правки)";display:block;font-size:12px;color:var(--muted);margin-bottom:8px}
+body.lpe-on .sp-src [data-sp]{padding:8px 0;border-top:1px solid var(--line)}
+
+/* ======================================================================
+   REDESIGN 19.10 (owner: «полный редизайн, тексты один в один»)
+   One layer over the old styles: rhythm, dark/light bands, headers, cards.
+   ====================================================================== */
+:root{--sp:clamp(64px,8vw,116px);--rad:28px}
+section{padding:var(--sp) 0}
+.wrap{max-width:1180px}
+h2{font-size:clamp(28px,3.5vw,46px);line-height:1.08;letter-spacing:-.015em;margin-bottom:20px}
+h3{letter-spacing:-.01em}
+.kick{font-size:11.5px;letter-spacing:.22em;line-height:1.45;margin-bottom:20px}
+.kick:before{width:34px;background:linear-gradient(90deg,var(--gold2),var(--gold))}
+.lead{line-height:1.6}
+.btn{box-shadow:0 22px 44px -18px var(--glow),inset 0 1px 0 rgba(255,255,255,.6),inset 0 -2px 0 rgba(120,80,20,.18)}
+/* long headings get a calmer size */
+section:has(.loopv) h2,.gets-h,.fin h2,.emdr h2{font-size:clamp(25px,3vw,40px)!important;line-height:1.12}
+section:has(.loopv) .center h2{max-width:920px;margin-left:auto;margin-right:auto}
+
+/* ---------- dark bands: loop, author, gift, final, footer ---------- */
+section:has(.loopv),section:has(.au),section.gift,section.fin,footer{
+ --bg:#100d09;--bg2:#16120c;--card:#1b1711;--card2:#231d14;--line:rgba(231,194,122,.17);--ink:#f4ede1;--muted:#b4a992;
+ --gold:#e8c27a;--gold2:#c9953f;--goldt:#ecc67f;--glow:rgba(232,194,122,.32);--shadow:0 34px 70px -34px rgba(0,0,0,.85);color:var(--ink)}
+html[data-theme] section:has(.loopv),html[data-theme] section:has(.au),html[data-theme] section.gift,html[data-theme] section.fin{
+ background:radial-gradient(70% 60% at 50% 0%,rgba(232,194,122,.13),transparent 70%),linear-gradient(180deg,#120f0a,#0d0b08)!important}
+section:has(.au){background:radial-gradient(60% 80% at 15% 50%,rgba(232,194,122,.14),transparent 70%),linear-gradient(180deg,#120f0a,#0d0b08)!important}
+section.gift{background:radial-gradient(55% 70% at 80% 50%,rgba(232,194,122,.16),transparent 70%),linear-gradient(180deg,#120f0a,#0d0b08)!important}
+section:has(.loopv) .kick,section.gift .kick,section:has(.au) .kick,section.fin .kick{color:#ecc67f}
+footer{background:#0b0906;border-top:1px solid rgba(231,194,122,.14);color:#9d927d}
+.fin h2 font{color:var(--ink)!important}
+.fin .lead{color:#d8cdb9}
+.fin:before{opacity:1;width:1100px;height:600px}
+
+/* ---------- light / tinted bands ---------- */
+html[data-theme=light] .film-sec:not(:has(.loopv)):not(:has(.au)),html[data-theme=light] .emdr{background:linear-gradient(180deg,#efe4d0,#f3ebdd)}
+html[data-theme=dark] .emdr{background:linear-gradient(180deg,#17130d,#130f0a)}
+
+/* ---------- hero ---------- */
+section.hero{background:radial-gradient(55% 75% at 82% 45%,color-mix(in srgb,var(--gold) 20%,transparent),transparent 70%),radial-gradient(40% 50% at 0% 100%,color-mix(in srgb,var(--gold) 10%,transparent),transparent 70%)}
+.hero .kick .kd{font-weight:700}
+.hero .gains{display:flex!important;flex-direction:column;gap:0!important;padding:4px 18px!important;border-radius:18px;background:color-mix(in srgb,var(--card) 70%,transparent);border:1px solid color-mix(in srgb,var(--gold) 30%,transparent);max-width:620px}
+.hero .gains li{border:0!important;border-radius:0!important;background:none!important;padding:9px 0 9px 26px!important;font-weight:600;line-height:1.3}
+.hero .gains li+li{border-top:1px solid color-mix(in srgb,var(--gold) 18%,transparent)!important}
+.hero .gains li:before{left:0!important}
+.hero .promise{max-width:620px}
+@media(min-width:981px){
+ .hero .wrap{grid-template-columns:1.8fr 1fr!important;gap:56px}
+ .hero .wrap h1{font-size:clamp(30px,min(3.1vw,5.2vh),54px)!important;line-height:1.05;margin-bottom:min(2.2vh,20px)!important}
+ .hero .gains{margin-bottom:min(2vh,18px)!important}
+ .hero .gains li{font-size:min(14.5px,1.9vh)!important;padding:min(1vh,9px) 0 min(1vh,9px) 26px!important}
+ .hero .stage{height:calc(100svh - 104px)!important}
+ .hero .stage .lit{box-shadow:0 0 0 1.5px var(--gold),0 0 90px -10px var(--glow),var(--shadow)}
+}
+@media(max-width:980px){
+ .hero .kick{flex-wrap:nowrap}
+ .hero .kick .kd{position:absolute;top:calc(clamp(96px,calc(100svh - 536px),180px) - 22px);right:26px;z-index:4;margin:0;padding:5px 11px!important;font-size:11.5px!important;color:#f6dc9e!important;border-color:rgba(246,220,158,.7)!important;background:rgba(14,12,9,.62)!important;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 6px 18px -6px rgba(0,0,0,.6)}
+ .hero .wrap>.rv>.promise{order:3}
+ .hero .wrap>.rv>.acts{order:2}
+ .hero .gains{padding:4px 14px!important;border-radius:16px}
+ .hero .gains li{padding:7px 0 7px 26px!important;font-size:14px!important}
+}
+@media(max-width:980px) and (max-height:760px){.hero .gains li{padding:3px 0 3px 24px!important;font-size:13px!important}}
+
+/* ---------- not a wish marathon ---------- */
+.notm h2{max-width:none}
+.vs{grid-template-columns:.82fr 1.18fr;gap:26px;max-width:1040px;margin-top:40px}
+.vs-old{border-radius:var(--rad)}
+.vs-new{border-radius:var(--rad);padding:32px 32px 34px}
+.vs li{display:block!important;position:relative;padding-left:42px}
+.vs li>i{position:absolute;left:0;top:0}
+.vs li>div{margin-top:12px;padding-top:12px;border-top:1px dashed color-mix(in srgb,var(--gold) 35%,transparent);font-weight:500;color:var(--ink);opacity:.88}
+.vs-new ul{gap:18px}
+.vs-mid{left:calc((100% - 26px) * .41 + 13px)!important}
+@media(max-width:980px){.vs{grid-template-columns:1fr;gap:14px;margin-top:26px}.vs-new{padding:22px 18px 24px}.vs-mid{left:auto!important}}
+
+/* ---------- chooser (film strip) ---------- */
+.strip{border-radius:20px;padding:28px 18px;box-shadow:0 40px 80px -40px rgba(40,25,5,.7)}
+.fr em{font:600 12px/1.25 var(--ft)!important;text-wrap:balance;padding:0 6px}
+.fr-in{padding-bottom:12px}
+.pick{max-width:760px;margin:34px auto 0;padding:30px 34px 32px;background:var(--card);border:1px solid color-mix(in srgb,var(--gold) 35%,transparent);border-radius:var(--rad);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.pick:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,var(--gold2),#f6dc9e,var(--gold2))}
+.pick h3{font-size:clamp(20px,2.2vw,26px);margin-bottom:12px}
+.pick p{color:var(--ink);opacity:.86;font-size:16.5px;line-height:1.6}
+@media(max-width:980px){.fr em{font:700 11px/1.2 var(--fb)!important;padding:0 3px}.pick{padding:22px 14px 22px;margin-top:26px}.pick .btn{white-space:nowrap;font-size:clamp(13.5px,3.9vw,16px);padding-left:20px}.pick p{font-size:15.5px}}
+
+/* ---------- loop (dark) ---------- */
+.loopv{max-width:820px;border-radius:32px;box-shadow:0 0 0 1px rgba(232,194,122,.28),0 40px 90px -40px rgba(0,0,0,.9);aspect-ratio:332/248}
+.orbit .runner .rn-head{fill:#f6dc9e;filter:drop-shadow(0 0 6px rgba(246,220,158,.95))}
+.orbit .runner .rn-tail{fill:none;stroke:#f6dc9e;stroke-width:2.4;stroke-linecap:round;opacity:.55}
+.orbit .runner{filter:none}
+.orbit .tw{font:600 16px var(--ft);fill:#f6dc9e}
+.loop-out{margin-top:30px}
+.loop-want{margin-top:0!important;color:var(--ink);font-size:clamp(19px,2.2vw,26px)}
+.loop-out .center-cta{margin-top:24px}
+@media(max-width:980px){.loopv{aspect-ratio:332/248!important}.loop-out{margin-top:24px}.loop-want{font-size:17px!important;line-height:1.35}}
+
+/* ---------- for you ---------- */
+.fy{gap:14px}
+.fy li{border-radius:20px;padding:22px 24px}
+.fy li p{line-height:1.5}
+.fy-pics img{border-radius:20px}
+
+/* ---------- what you get ---------- */
+@media(min-width:981px){.br{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px}}
+.gets li{padding:16px 20px;border-radius:18px}
+.gets p{font-size:16px}
+.gets-note{font-size:15.5px;line-height:1.55;border-radius:0 18px 18px 0}
+.journey{border-radius:32px}
+
+/* ---------- day cards ---------- */
+.day{display:flex;flex-direction:column;border-radius:var(--rad)}
+.day li{text-wrap:balance!important}
+.day li>b,.day li>font b{display:block;margin-bottom:6px}
+.day li>div{padding:3px 0;text-wrap:balance;line-height:1.4}
+.day li>div b{font-weight:600}
+.day>div:not(.day-img):not(.day-h){padding:4px 0;font-size:14.5px;line-height:1.45;color:var(--ink);text-wrap:balance}
+.day-note{font-weight:700;color:var(--goldt)}
+.day.vip .day-note{font-weight:500;color:var(--ink);font-style:italic}
+@media(min-width:1100px){.dgrid .day>div:not(.day-img):not(.day-h){font-size:13.5px}.dgrid .day{padding-left:22px;padding-right:22px}.dgrid .day-img{margin-left:-22px;margin-right:-22px}}
+@media(max-width:980px){.dgrid .day{flex-basis:88%!important;padding-left:18px;padding-right:18px}.dgrid .day-img{margin:0 -18px 16px!important}.day li{font-size:15px}}
+
+/* ---------- author (dark) ---------- */
+.au{gap:64px}
+.au-ph{border-radius:32px;box-shadow:0 0 0 1.5px var(--gold),0 0 80px -20px var(--glow),var(--shadow)}
+.au-st div{background:rgba(255,255,255,.04);border-color:rgba(232,194,122,.22)}
+.au h2{color:var(--ink)}
+
+/* ---------- cases ---------- */
+.cs{border-radius:var(--rad);box-shadow:0 24px 50px -36px rgba(90,60,20,.45)}
+
+/* ---------- stay as is ---------- */
+.sy{border-radius:var(--rad);padding:28px}
+.rg p small{display:block;width:fit-content;letter-spacing:.08em;font-size:10px}
+.rg p{font-size:16px;line-height:1.3}
+
+/* ---------- gift (dark) ---------- */
+.gift .lead{color:#cfc4b0}
+.gift-hl{color:#f6dc9e}
+
+/* ---------- tariffs ---------- */
+.tc{border-radius:32px}
+.bonus p{line-height:1.5}
+@media(max-width:980px){.bonus p{text-wrap:pretty!important}}
+.bonus p small{font-size:12.5px;line-height:1.45;margin-top:8px;padding-top:8px;border-top:1px dashed color-mix(in srgb,var(--gold) 35%,transparent)}
+
+/* ---------- EMDR (now at the bottom) ---------- */
+.emdr{overflow:hidden}
+.emdr:before{content:"EMDR";position:absolute;right:-.06em;bottom:-.12em;font:700 clamp(120px,20vw,300px)/1 var(--ft);letter-spacing:-.04em;color:var(--gold);opacity:.05;pointer-events:none}
+.emdr .wrap{position:relative}
+.em-decode{border-radius:20px;padding:20px 24px;background:var(--card);box-shadow:var(--shadow)}
+.em-text{counter-reset:emp}
+.em-text p{position:relative;font-size:16.5px;line-height:1.65;color:var(--ink);opacity:.92}
+.em-pts{gap:18px}
+.em-pt{border-radius:22px;padding:24px 24px 22px}
+.em-pt p{text-wrap:balance}
+@media(min-width:981px){
+ .emdr .wrap{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);grid-template-rows:auto auto 1fr auto;column-gap:72px;align-items:start}
+ .emdr .wrap>.kick,.emdr .wrap>h2,.emdr .wrap>.em-decode{grid-column:1}
+ .emdr .wrap>.em-decode{align-self:start;margin-top:10px}
+ .emdr .em-text{grid-column:2;grid-row:1/span 3;display:grid;grid-template-columns:1fr;gap:0;margin-top:0;padding-left:34px;border-left:1px solid color-mix(in srgb,var(--gold) 40%,transparent)}
+ .emdr .em-text p{padding:0 0 18px 34px}
+ .emdr .em-text p:before{counter-increment:emp;content:"0" counter(emp);position:absolute;left:-12px;top:.15em;font:600 13px var(--ft);color:var(--goldt)}
+ .emdr .em-text p:last-child{padding-bottom:0}
+ .emdr .em-pts{grid-column:1/-1;margin-top:52px}
+}
+@media(max-width:980px){.em-text p{font-size:15.5px}.em-text p{padding-left:16px;border-left:2px solid color-mix(in srgb,var(--gold) 45%,transparent)}}
+
+/* ---------- final + phones ---------- */
+@media(max-width:980px){
+ :root{--sp:60px;--rad:22px}
+ footer{padding-bottom:30px}
+ .gets p{font-size:15px}
+}
+</style><style id="hx-base">
+section.hx{padding:0;position:relative;overflow:hidden;background:var(--bg)}
+.hx-in{position:relative;display:flex;flex-direction:column;min-height:100svh;margin:0 auto;max-width:1160px;padding:12px 16px 14px}
+.hx h1{font:800 min(25px,6.45vw)/1.1 var(--fb);letter-spacing:-.03em;text-wrap:balance;margin:0;color:var(--ink)}
+.hx p,.hx li{text-wrap:balance}
+.hx-media{position:relative;overflow:hidden;border-radius:20px;flex:1 1 0;min-height:clamp(96px,15svh,150px);max-height:300px;background:#0e0c09}
+.hx-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 32%}
+.hx-media .hair{-webkit-mask-image:radial-gradient(ellipse 34% 70% at 74% 38%,#000 40%,transparent 75%);mask-image:radial-gradient(ellipse 34% 70% at 74% 38%,#000 40%,transparent 75%);transform-origin:70% 10%;animation:hairsway 5.5s ease-in-out infinite alternate;pointer-events:none}
+.hx-media .ph-t{display:none}
+.hx-media .who{position:absolute;left:0;right:0;bottom:0;margin:0;padding:26px 14px 10px;display:flex;flex-direction:column;gap:1px;background:linear-gradient(180deg,transparent,rgba(8,6,4,.85) 65%);color:#fff;font:500 11.5px/1.3 var(--fb)}
+.hx-media .who b{font:700 13px var(--fb);color:#f6dc9e}.hx-media .who span{opacity:.88}
+.hx-kick{margin:0;display:flex;align-items:center;justify-content:space-between;gap:10px;font:800 10.5px/1.3 var(--fb);letter-spacing:.11em;text-transform:uppercase;color:var(--goldt)}
+.hx-kick .kd{flex:none;padding:4px 10px;border-radius:99px;border:1px solid currentColor;letter-spacing:.04em;text-transform:none;font-size:12px;white-space:nowrap}
+.hx-lead{margin:0}
+.hx-gains{list-style:none;margin:0;padding:0}
+.hx-gains li{display:flex;gap:10px;align-items:flex-start}
+.hx-gains li p{margin:0}
+.hx .gi{flex:none;width:26px;height:26px}
+.hx .hx-acts{display:flex;flex-direction:column;align-items:stretch}
+.hx .hx-acts .btn{justify-content:space-between;width:100%}
+.hx .ghost,.hx .hx-fast{display:none}
+.hx-pr{margin:0;font:500 12.5px/1.42 var(--fb);color:var(--muted)}
+@media(min-width:981px){
+ .hx-in{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr);column-gap:64px;align-content:center;padding:92px 20px 36px}
+ .hx-in>*:not(.hx-media),.hx-wrapc{grid-column:1}
+ .hx-wrapc{display:contents!important}
+ .hx-media{grid-column:2;grid-row:1/span 12;align-self:center;height:min(76vh,640px);min-height:0;max-height:none;border-radius:26px}
+ .hx-media .ph-w{display:none}.hx-media .ph-t{display:block;object-position:60% 22%}
+ .hx-media .who{padding:60px 22px 18px;font-size:13px}.hx-media .who b{font-size:15px}
+ .hx h1{font-size:clamp(30px,min(3.1vw,5.6vh),48px);margin:0 0 min(2.6vh,22px)}
+ .hx-kick{justify-content:flex-start;font-size:12px;margin:0 0 min(2vh,16px)}
+ .hx-lead{margin:0 0 10px}
+ .hx-gains{margin:0 0 min(2.6vh,22px);max-width:640px}
+ .hx .hx-acts{flex-direction:row;align-items:center;gap:14px;margin:0 0 min(2.2vh,18px)}
+ .hx .hx-acts .btn{width:auto;justify-content:flex-start}
+ .hx .ghost{display:inline-flex}
+ .hx-pr{max-width:560px;font-size:14px}
+ .hx .hx-fast{display:block;margin:10px 0 0;font-size:13px;color:var(--muted)}
+}
+</style><style id="hx-v5">
+section.v5{background:linear-gradient(180deg,#efe6d6,var(--bg) 40%)}
+.v5 .hx-in{gap:clamp(7px,calc((100svh - 610px) / 12),18px)}
+.v5 .hx-media{flex:none;height:clamp(98px,calc(100svh - 650px),196px);min-height:0;max-height:none;
+ background:radial-gradient(90% 120% at 85% 40%,#fbf3e4,#f1dfbd 55%,#e2c48d);box-shadow:inset 0 0 0 1px rgba(185,131,46,.45),0 14px 34px -22px rgba(90,60,20,.7)}
+.v5 .hx-media .ph{left:auto;right:0;width:auto;height:100%;aspect-ratio:554/740;object-fit:cover;object-position:50% 30%;
+ -webkit-mask-image:linear-gradient(90deg,transparent,#000 34%);mask-image:linear-gradient(90deg,transparent,#000 34%)}
+.v5 .hx-media .who{top:auto;bottom:0;right:auto;left:0;max-width:62%;padding:0 0 12px 14px;background:none;color:#23190d;gap:2px}
+.v5 .hx-media .who b{color:#8a5714;font-size:13.5px;line-height:1.25}.v5 .hx-media .who span{opacity:.85;font-weight:600}
+
+.v5 .hx-media .who{padding-right:14px}
+.v5 .badge{position:absolute;left:12px;top:12px;z-index:3;margin:0}
+.hx .nw{white-space:nowrap}
+.v5 .badge .kd{display:block;padding:7px 12px;border-radius:12px;font:800 14px/1 var(--fb);color:#1a1208;background:linear-gradient(180deg,#f6dc9e,#d6a24a);box-shadow:0 8px 20px -8px rgba(0,0,0,.7)}
+.v5 .hx-kick{margin-top:-2px;justify-content:flex-start}
+.v5 h1 .ac{color:#a0661a}
+.v5 .hx-lead{display:flex;align-items:center;gap:10px;font:800 15px/1.2 var(--fb);color:#23190d}
+.v5 .hx-lead .lt{padding:6px 12px;border-radius:10px;background:#23190d;color:#f6dc9e;letter-spacing:.01em}
+.v5 .hx-lead:after{content:"";flex:1;height:1.5px;background:linear-gradient(90deg,#d6a24a,transparent)}
+.v5 .hx-gains{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.v5 .hx-gains li{position:relative;flex-direction:column;gap:5px;padding:9px 10px 9px;border-radius:14px;background:#fffdf8;box-shadow:0 8px 22px -16px rgba(90,60,20,.6),inset 0 0 0 1px color-mix(in srgb,var(--gold) 30%,transparent);font:500 11.5px/1.3 var(--fb);color:#4a3f31}
+.v5 .hx-gains li:nth-child(3){grid-column:1/-1;flex-direction:row;align-items:center;gap:10px;background:linear-gradient(160deg,#2a1f12,#15120d);color:#d9cfbf}
+.v5 .hx-gains li:nth-child(3) .gi{width:30px;height:30px}
+.v5 .hx-gains li:nth-child(3) p{padding-right:18px}
+.v5 .hx-gains .nb{position:absolute;right:10px;top:9px;font:700 11px/1 'Unbounded',sans-serif;font-style:normal;color:#d6a24a;opacity:.8}
+.v5 .hx-gains .gi{width:22px;height:22px}
+.v5 .hx-gains .t{display:block;font:800 9.5px/1.2 var(--fb);letter-spacing:.12em;text-transform:uppercase;color:#a0661a;margin-bottom:2px}
+.v5 .hx-gains b{font-weight:800;color:#23190d;font-size:12px}
+.v5 .hx-gains li:nth-child(3) b,.v5 .hx-gains li:nth-child(3) .t{color:#f6dc9e}
+.v5 .hx-pr{font-size:12px;text-align:center;padding:0 6px}
+@media(min-width:981px){.v5 .hx-in{gap:0}.v5 .hx-media{height:min(72vh,600px);width:auto;aspect-ratio:554/740;max-width:450px;justify-self:center}
+ .v5 .hx-media .ph{left:0;width:100%;-webkit-mask-image:none;mask-image:none}
+ .v5 .hx-media .who{max-width:none;right:0;padding:70px 22px 18px;background:linear-gradient(180deg,transparent,rgba(20,14,8,.82) 70%);color:#fff}
+ .v5 .hx-media .who b{color:#f6dc9e;font-size:15px}.v5 .badge{right:18px;left:auto;top:18px}.v5 .badge .kd{font-size:18px;padding:10px 16px}
+ .v5 .hx-lead{margin-bottom:12px;max-width:640px}.v5 .hx-gains{max-width:640px;gap:10px}.v5 .hx-gains li{font-size:13.5px;padding:14px 16px}.v5 .hx-gains b{font-size:14px}.v5 .hx-pr{text-align:left;padding:0}}
+
+.v5b .hx-media{background:radial-gradient(120% 140% at 0% 0%,#3a2a16,#15120d 70%);box-shadow:inset 0 0 0 1px rgba(246,220,158,.45),0 16px 36px -20px rgba(35,25,13,.9)}
+.v5b .hx-media .ph{right:14px;top:12px;height:calc(100% - 12px);border-radius:999px 999px 0 0;-webkit-mask-image:none;mask-image:none;box-shadow:0 0 0 1.5px #d6a24a,0 0 40px -6px rgba(246,220,158,.55)}
+.v5b .hx-media .who{color:#e9dfcf;max-width:calc(100% - 178px);font-size:11px}.v5b .hx-media .who b{color:#f6dc9e}
+@media(min-width:981px){.v5b .hx-media .who{max-width:none;font-size:13px}.v5b .hx-media .ph{inset:0;right:0;top:0;height:100%;border-radius:0;box-shadow:none}}
+.v6 .hx-media .ph{right:8px;top:8px;height:calc(100% - 16px);border-radius:14px;-webkit-mask-image:none;mask-image:none;object-position:50% 40%;box-shadow:0 0 0 1px rgba(214,162,74,.7),0 10px 24px -12px rgba(35,25,13,.8)}
+.v6 .hx-media{--hh:clamp(122px,calc(100svh - 640px),196px);height:var(--hh)}
+.v6 .hx-media .who{max-width:none;right:calc((var(--hh) - 16px) * .75 + 12px);padding:0 10px 11px 14px;gap:3px;font-size:11.5px}
+.v6 .hx-media .who b{font:800 12.5px/1.25 var(--fb);color:#23190d}.v6 .hx-media .who b .gd{color:#8a5714}
+.v6 .hx-media .who span{color:#5b4a33}
+@media(min-width:981px){.v6 .hx-media{height:min(72vh,600px)}.v6 .hx-media .who{right:0}.v6 .hx-media .ph{inset:0;right:0;top:0;height:100%;border-radius:0;box-shadow:none}.v6 .hx-media .who b{color:#fff;font-size:15px}.v6 .hx-media .who b .gd{color:#f6dc9e}.v6 .hx-media .who span{color:#e9dfcf}}
+.v6 .hx-gains li:nth-child(3){background:linear-gradient(160deg,#fffaf0,#f8ecd4);color:#4a3f31;box-shadow:0 8px 22px -16px rgba(90,60,20,.6),inset 0 0 0 1.5px color-mix(in srgb,var(--gold) 55%,transparent)}
+.v6 .hx-gains li:nth-child(3) b{color:#23190d}.v6 .hx-gains li:nth-child(3) .t{color:#a0661a}
+.v6 .hx-media .who b span{color:inherit;opacity:1;font-weight:inherit}.v6 .hx-media .who b .gd{color:#8a5714}
+.v6 .hx-media .who b{font-size:clamp(12.5px,calc((100svh - 640px) / 14 + 6px),15px)}.v6 .hx-media .who>span{font-size:clamp(11px,calc((100svh - 640px) / 16 + 6px),13px);font-weight:600}
+@media(min-width:981px){.v6 .hx-media .who b .gd{color:#f6dc9e}.v6 .hx-media .who b{font-size:17px}.v6 .hx-media .who>span{font-size:14px}}
+
+/* v7: dark card with generated portrait, illustrated bonuses */
+.v7 .hx-media{--hh:clamp(122px,calc(100svh - 660px),190px);height:var(--hh);display:flex;flex-direction:column;justify-content:space-evenly;align-items:flex-start;padding:10px 0 10px 14px;
+ background:radial-gradient(120% 140% at 85% 30%,#3b2a17,#17120c 62%,#100d09);box-shadow:inset 0 0 0 1px rgba(246,220,158,.4),0 16px 36px -20px rgba(35,25,13,.9)}
+.v7 .hx-media .ph{inset:0 0 0 auto;width:auto;height:100%;aspect-ratio:3/4;object-fit:cover;object-position:60% 30%;
+ -webkit-mask-image:linear-gradient(90deg,transparent,#000 32%);mask-image:linear-gradient(90deg,transparent,#000 32%)}
+.v7 .badge,.v7 .hx-media .who{position:relative;inset:auto;z-index:2}
+.v7 .badge{margin:0}
+.v7 .hx-media .who{max-width:calc(100% - (var(--hh) * .75) + 30px);padding:0;background:none;color:#e9dfcf;gap:3px}
+.v7 .hx-media .who b{font:800 clamp(13px,calc((100svh - 640px) / 14 + 7px),16px)/1.25 var(--fb);color:#f6dc9e}
+.v7 .hx-media .who>span{font:600 clamp(11.5px,calc((100svh - 640px) / 16 + 6px),13.5px)/1.3 var(--fb);color:#e9dfcf;opacity:.9}
+.v7 .hx-gains{display:flex;flex-direction:column;gap:7px}
+.v7 .hx-gains li{position:relative;display:flex;flex-direction:row;align-items:center;gap:10px;padding:7px 12px 7px 7px;border-radius:16px;
+ background:linear-gradient(160deg,#fffdf8,#fbf1de);color:#4a3f31;box-shadow:0 8px 22px -16px rgba(90,60,20,.6),inset 0 0 0 1px color-mix(in srgb,var(--gold) 40%,transparent);font:500 11.5px/1.3 var(--fb)}
+.v7 .hx-gains li:nth-child(3){grid-column:auto;background:linear-gradient(160deg,#fffdf8,#fbf1de)}
+.v7 .hx-gains li:nth-child(3) p{padding-right:0}
+.v7 .hx-gains li p{margin:0;display:flex;flex-direction:column;gap:1px}
+.v7 .hx-gains .t{display:block;font:800 9px/1.2 var(--fb);letter-spacing:.12em;text-transform:uppercase;color:#a0661a;margin:0}
+.v7 .hx-gains b,.v7 .hx-gains li:nth-child(3) b{font:800 12.5px/1.25 var(--fb);color:#23190d}
+.v7 .hx-gains li:nth-child(3) .t{color:#a0661a}
+.v7 .hx-gains .d{color:#5b4a33}
+.v7 .bi{position:relative;flex:none;width:46px;height:46px;border-radius:12px;overflow:hidden;background:radial-gradient(circle at 50% 40%,#fff8ea,#f4e2bf)}
+.v7 .bi img{position:absolute;inset:4px;width:38px;height:38px;object-fit:contain;z-index:1}
+.v7 .g-calm .bi{background:radial-gradient(circle at 50% 40%,#ffffff,#eef0ea)}
+.v7 .g-love .bi{background:radial-gradient(circle at 50% 40%,#fff3f0,#f6dcd4)}
+.v7 .fx{position:absolute;inset:0;z-index:2;pointer-events:none}
+.v7 .fx i{position:absolute;top:-10px;display:block;animation:fx-fall 3.2s linear infinite;opacity:0}
+.v7 .fx i:nth-child(1){left:10%;animation-delay:0s}.v7 .fx i:nth-child(2){left:62%;animation-delay:.7s}
+.v7 .fx i:nth-child(3){left:35%;animation-delay:1.4s}.v7 .fx i:nth-child(4){left:80%;animation-delay:2.1s}.v7 .fx i:nth-child(5){left:50%;animation-delay:2.7s}
+.v7 .coins i{width:7px;height:7px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff3c4,#e2b04a 55%,#a8731d);box-shadow:0 0 0 .5px #a8731d}
+.v7 .hearts i{width:8px;height:8px;background:#e48a8a;transform:rotate(45deg);animation-name:fx-heart}
+.v7 .hearts i::before,.v7 .hearts i::after{content:"";position:absolute;width:8px;height:8px;border-radius:50%;background:inherit}
+.v7 .hearts i::before{left:-4px}.v7 .hearts i::after{top:-4px}
+.v7 .petals i{width:6px;height:10px;border-radius:60% 0 60% 0;background:linear-gradient(160deg,#ffffff,#e8dcc4);box-shadow:0 0 4px rgba(214,162,74,.35);animation-name:fx-petal;animation-duration:4.6s}
+@keyframes fx-fall{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:1}85%{opacity:1}100%{transform:translateY(62px) rotate(200deg);opacity:0}}
+@keyframes fx-heart{0%{transform:translateY(0) rotate(45deg) scale(.7);opacity:0}15%{opacity:.95}85%{opacity:.9}100%{transform:translateY(62px) rotate(45deg) scale(1);opacity:0}}
+@keyframes fx-petal{0%{transform:translate(0,0) rotate(0);opacity:0}15%{opacity:.95}50%{transform:translate(6px,30px) rotate(60deg)}85%{opacity:.85}100%{transform:translate(-4px,62px) rotate(120deg);opacity:0}}
+@media (prefers-reduced-motion:reduce){.v7 .fx{display:none}}
+@media(min-width:981px){.v7 .hx-media{height:min(72vh,600px);width:auto;aspect-ratio:3/4;padding:0;display:block}
+ .v7 .hx-media .ph{inset:0;width:100%;-webkit-mask-image:none;mask-image:none}
+ .v7 .badge{position:absolute;right:18px;top:18px;left:auto}
+ .v7 .hx-media .who{position:absolute;left:0;right:0;bottom:0;max-width:none;padding:70px 22px 18px;background:linear-gradient(180deg,transparent,rgba(16,12,8,.85) 70%)}
+ .v7 .hx-media .who b{font-size:17px}.v7 .hx-media .who>span{font-size:14px}
+ .v7 .hx-gains{gap:10px}.v7 .hx-gains li{padding:10px 16px 10px 10px;font-size:13.5px}.v7 .hx-gains b,.v7 .hx-gains li:nth-child(3) b{font-size:14.5px}
+ .v7 .bi{width:60px;height:60px;border-radius:14px}.v7 .bi img{inset:5px;width:50px;height:50px}}
+@media(max-width:980px) and (max-height:700px){.v7 .hx-media{--hh:112px;padding:8px 0 8px 12px}
+ .v7 .hx-kick{font-size:9.5px;letter-spacing:.07em}
+ .v7 .hx-gains{gap:5px}.v7 .hx-gains li:nth-child(n){padding:5px 10px 5px 5px;gap:8px;font-size:11px;line-height:1.22}
+ .v7 .hx-gains b,.v7 .hx-gains li:nth-child(3) b{font-size:12px}.v7 .hx-gains .t{font-size:8.5px}
+ .v7 .bi{width:40px;height:40px}.v7 .bi img{inset:3px;width:34px;height:34px}
+ .v7 .hx-in{gap:7px}}
+.v7 .hx-prog{position:relative;z-index:2;margin:0;max-width:calc(100% - (var(--hh) * .75) + 40px);font:600 clamp(12px,calc((100svh - 640px) / 16 + 6px),14px)/1.3 var(--fb);color:#e9dfcf;text-wrap:balance}
+.v7 .hx-prog b{display:block;font:800 clamp(14px,calc((100svh - 640px) / 12 + 7px),18px)/1.2 var(--fb);color:#f6dc9e}
+.v7 .hx-media .who b{font-size:clamp(11px,calc((100svh - 640px) / 18 + 5px),13px);font-weight:700;color:#e9dfcf}
+.v7 .hx-media .who>span{font-size:clamp(10.5px,calc((100svh - 640px) / 20 + 5px),12px);opacity:.75}
+.v7 .hx-media{justify-content:space-between;padding-top:14px;padding-bottom:12px}
+.v7 .hx-media .ph{right:-14px;object-position:52% 30%}
+.v7 .hx-date{margin:0}
+.v7 .hx-date .kd{display:inline-block;padding:6px 12px;border-radius:10px;font:800 13px/1 var(--fb);color:#1a1208;background:linear-gradient(180deg,#f6dc9e,#d6a24a);box-shadow:0 6px 16px -8px rgba(90,60,20,.7)}
+@media(min-width:981px){.v7 .hx-prog{position:absolute;left:22px;right:22px;top:auto;bottom:66px;max-width:none;z-index:3}.v7 .hx-media .who{padding-top:150px;background:linear-gradient(180deg,transparent,rgba(16,12,8,.88) 45%)}.v7 .hx-prog b{font-size:22px}.v7 .hx-media .ph{right:0}
+ .v7 .hx-date .kd{font-size:16px;padding:8px 14px}.v7 .hx-media .who b{font-size:15px}.v7 .hx-media .who>span{font-size:13px}}
+@media(max-width:980px) and (max-height:700px){.v7 .hx-media{padding-top:9px;padding-bottom:8px}.v7 .hx-date .kd{font-size:12px;padding:5px 10px}}
+
+/* edits 20.10: numbered vs list, unified day lists */
+.vs-new .vs-num li{font-weight:400}
+.vs-new .vs-num li b{font-weight:700}
+.vs-new .vs-num li i.n{font:700 14px/1 var(--ft,inherit);background:linear-gradient(145deg,#f6dc9e,#c9a25c);color:#1a1208}
+.day .dl-h{font-weight:700;color:var(--ink);margin:6px 0 10px}
+.day ul.dl{list-style:none;display:grid;gap:8px;margin:0;padding:0}
+.day ul.dl li{position:relative;padding-left:22px;color:var(--ink);font-weight:500;text-wrap:pretty}
+.day ul.dl li::before{content:"";position:absolute;left:2px;top:.55em;width:8px;height:8px;border-radius:50%;background:linear-gradient(145deg,#f6dc9e,#c9a25c);box-shadow:0 0 0 3px color-mix(in srgb,var(--gold) 18%,transparent)}
+.day ul.dl-r li::before{width:14px;height:14px;top:.3em;left:0;box-shadow:none;background:linear-gradient(145deg,#f6dc9e,#c9a25c) center/100% no-repeat;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='black' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='black' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;background:#b9832e}
+
+/* edits 20.10: large phones (iPhone Pro Max) - hero photo fills the spare height */
+@media (min-width:400px) and (max-width:700px){.hx .hx-media{--hh:clamp(122px,calc(100svh - 625px),300px)}}
+
+/* edits 20.10: preview editor bar moved off the first screen content */
+#lpe-bar{top:auto!important;left:auto!important;right:8px!important;bottom:calc(110px + env(safe-area-inset-bottom))!important;transform:scale(.8);transform-origin:right bottom;opacity:.9}
+
+/* edits 20.10 b: hero card - Anna in focus, name left, blurred symbols behind, date + format */
+.hx .hx-date{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hx .hx-date .fmt{font:800 13px/1 var(--fb);letter-spacing:.08em;text-transform:uppercase;color:var(--goldt)}
+.hx .hx-media .hx-bgi{position:absolute;inset:0;z-index:1;pointer-events:none}
+.hx .hx-media .hx-bgi>*{position:absolute;filter:blur(2.6px);opacity:.5;animation:hxfl 7s ease-in-out infinite alternate}
+.hx .hx-media .hx-bgi .i1{width:22%;left:4%;top:6%}
+.hx .hx-media .hx-bgi .i2{width:20%;left:30%;top:2%;animation-delay:-2s}
+.hx .hx-media .hx-bgi .i3{width:24%;left:20%;bottom:4%;animation-delay:-4s}
+.hx .hx-media .hx-bgi .i4{width:12%;left:42%;top:42%;opacity:.4;animation-delay:-1s}
+@keyframes hxfl{from{transform:translateY(0) scale(1)}to{transform:translateY(-6px) scale(1.05)}}
+.hx .hx-media .ph{z-index:2}
+.hx .hx-media .who{z-index:3}
+.hx .hx-media .who b{display:block}
+@media (max-width:700px){
+ .hx .hx-in .hx-media{padding:0!important;display:block!important;background:radial-gradient(80% 110% at 72% 45%,#46321a,#130f0a 72%)!important}
+ .hx .hx-in .hx-media .ph{position:absolute!important;left:auto!important;top:auto!important;right:4%!important;bottom:0!important;height:100%!important;width:auto!important;aspect-ratio:3/4;max-width:64%;object-fit:cover!important;object-position:50% 16%!important;border-radius:0!important;box-shadow:none!important;-webkit-mask-image:radial-gradient(ellipse 62% 88% at 52% 34%,#000 58%,transparent 100%)!important;mask-image:radial-gradient(ellipse 62% 88% at 52% 34%,#000 58%,transparent 100%)!important}
+ .hx .hx-in .hx-media .who{position:absolute!important;left:16px!important;bottom:16px!important;top:auto!important;right:auto!important;margin:0!important;max-width:46%;display:block!important}
+ .hx .hx-in .hx-media .who b{font:800 clamp(18px,5vw,23px)/1.1 var(--fb)!important;color:#f6dc9e!important}
+ .hx .hx-in .hx-media .who span{display:block;margin-top:5px;font:500 clamp(12.5px,3.4vw,15px)/1.25 var(--fb);color:#e9dfcf}
+}
+
+/* edits 20.10 c: symbols smaller, softer, farther; editor bar to top-right */
+.hx .hx-media .hx-bgi>*{filter:blur(1.6px) drop-shadow(0 0 10px rgba(246,220,158,.35));opacity:.42}
+.hx .hx-media .hx-bgi .i1{width:13%;left:6%;top:9%}
+.hx .hx-media .hx-bgi .i2{width:12%;left:31%;top:5%}
+.hx .hx-media .hx-bgi .i3{width:14%;left:24%;top:38%;bottom:auto}
+.hx .hx-media .hx-bgi .i4{width:9%;left:8%;top:44%;opacity:.35}
+#lpe-bar{bottom:auto!important;top:8px!important;right:8px!important;left:auto!important;transform:scale(.68)!important;transform-origin:right top!important;opacity:.85}
+
+/* edits 20.10 d: background = opening of potential (light burst + rising sparks); regalia back; preview bar as a top strip */
+.hx .hx-media .hx-bgi>*{filter:none;opacity:1;animation:none;width:auto}
+.hx .hx-media .hx-bgi .glow{position:absolute;left:38%;top:-10%;width:90%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,226,160,.75) 0,rgba(240,190,100,.3) 32%,rgba(240,190,100,0) 62%);filter:blur(6px);animation:hxbreath 6s ease-in-out infinite alternate}
+.hx .hx-media .hx-bgi .rays{position:absolute;left:38%;top:-10%;width:90%;aspect-ratio:1;border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(255,230,170,.24) 0 4deg,transparent 4deg 16deg);-webkit-mask-image:radial-gradient(circle,#000 18%,transparent 66%);mask-image:radial-gradient(circle,#000 18%,transparent 66%);filter:blur(1.5px);animation:hxspin 60s linear infinite}
+.hx .hx-media .hx-bgi .sp{position:absolute;bottom:-6px;width:4px;height:4px;border-radius:50%;background:#ffe7a8;box-shadow:0 0 8px 2px rgba(255,214,130,.7);opacity:0;filter:blur(.4px);animation:hxrise 6s linear infinite}
+.hx .hx-media .hx-bgi .s1{left:12%;animation-delay:0s}.hx .hx-media .hx-bgi .s2{left:24%;animation-delay:-1.2s;width:3px;height:3px}.hx .hx-media .hx-bgi .s3{left:36%;animation-delay:-2.6s}.hx .hx-media .hx-bgi .s4{left:48%;animation-delay:-3.4s;width:3px;height:3px}.hx .hx-media .hx-bgi .s5{left:60%;animation-delay:-4.1s}.hx .hx-media .hx-bgi .s6{left:74%;animation-delay:-5s;width:3px;height:3px}.hx .hx-media .hx-bgi .s7{left:88%;animation-delay:-.6s}
+@keyframes hxbreath{from{transform:scale(.94);opacity:.85}to{transform:scale(1.06);opacity:1}}
+@keyframes hxspin{to{transform:rotate(360deg)}}
+@keyframes hxrise{0%{transform:translateY(0);opacity:0}15%{opacity:.9}100%{transform:translateY(-220px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.hx .hx-media .hx-bgi *{animation:none!important}}
+.hx .hx-media .who .role,.hx .hx-media .who .reg{display:block}
+.hx .hx-media .who .reg .nw{display:block}
+.hx .hx-media .who .reg{margin-top:8px;font:600 13px/1.45 var(--fb);color:#f6dc9e}
+@media (min-width:701px){.hx .hx-media .who b{font:800 22px/1.15 var(--fb)!important;color:#f6dc9e!important}.hx .hx-media .who .role{font:500 15px/1.3 var(--fb);color:#e9dfcf;margin-top:4px}.hx .hx-media .who .reg{font-size:14px}}
+@media (max-width:700px){.hx .hx-in .hx-media .who .reg{font-size:clamp(11.5px,3.1vw,13.5px);margin-top:6px}}
+#lpe-bar{top:0!important;left:0!important;right:0!important;bottom:auto!important;transform:none!important;opacity:1!important;border-radius:0!important;justify-content:flex-end;padding:6px 10px!important}
+html.lpe-on body:has(#lpe-bar){padding-top:48px}
+html:not(.lpe-on) #lpe-bar{display:none!important}
 </style></head><body>
-<header class="hd"><div class="wrap"><a class="logo" href="#top"><i></i>Школа ментального здоровья доктора Анны Саба</a><button type="button" class="mini" data-open>Зарегистрироваться</button></div></header>
-<section class="hero" id="top"><div class="wrap">
- <div class="rv in">
-  <p class="kick">4-дневный практикум<span class="kd">23–26 ноября</span></p>
-  <h1>Система квантового перехода в <span class="nw"><span class="gl">авто</span><span class="mg">МАГ</span><span class="gl">ическую</span><span class="wand" aria-hidden="true"><svg viewBox="0 0 60 60"><line x1="8" y1="52" x2="42" y2="18" stroke="#2b2f3a" stroke-width="5" stroke-linecap="round"/><line x1="35" y1="25" x2="42" y2="18" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M47,4 L50,11 L57,13 L50,16 L47,23 L44,16 L37,13 L44,11 Z" fill="#ffd75e"/></svg><i style="--x:-38px;--y:-10px;--d:0s"></i><i style="--x:-20px;--y:-34px;--d:0.05s"></i><i style="--x:6px;--y:-40px;--d:0.1s"></i><i style="--x:28px;--y:-22px;--d:0.08s"></i><i style="--x:36px;--y:4px;--d:0.12s"></i><i style="--x:-30px;--y:16px;--d:0.15s"></i><i style="--x:14px;--y:22px;--d:0.06s"></i><i style="--x:-4px;--y:-58px;--d:0.18s"></i></span></span> <span class="gl">реальность</span></h1>
-  <p class="lead lead0">После практикума вы сможете быстро и легко:</p>
-  <ul class="gains"><li>увеличить доход</li><li>построить счастливые отношения</li><li>укрепить здоровье</li><li>найти предназначение</li><li>реализовать свой потенциал</li></ul>
-  <div class="promise"><i class="pr-glow"></i><div class="pr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M8.8 12.2l2.2 2.2 4.4-4.6"/></svg></div><div class="pr-tx"><p>Даже если вы уже много что попробовали, и у вас не получалось или случались откаты, практикум будет вам полезен.</p></div></div>
-  <div class="acts"><button type="button" class="btn" data-open>Зарегистрироваться бесплатно<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button><a class="ghost" href="#film">Как это устроено ↓</a></div>
-  <p class="fast">Запись за 20 секунд · ссылки придут в Telegram</p>
- </div>
- <div class="stage" aria-hidden="true"><div class="beam"></div><div class="reel l"><div><b style="background-image:url(img/6bfe504283.webp)"></b><b style="background-image:url(img/d170d8eafd.webp)"></b><b style="background-image:url(img/fd1d332d77.webp)"></b><b style="background-image:url(img/a318865ffd.webp)"></b><b style="background-image:url(img/18b2838bcc.webp)"></b><b style="background-image:url(img/49efe58fa3.webp)"></b><b style="background-image:url(img/b21638f27c.webp)"></b><b style="background-image:url(img/6bfe504283.webp)"></b><b style="background-image:url(img/d170d8eafd.webp)"></b><b style="background-image:url(img/fd1d332d77.webp)"></b><b style="background-image:url(img/a318865ffd.webp)"></b><b style="background-image:url(img/18b2838bcc.webp)"></b><b style="background-image:url(img/49efe58fa3.webp)"></b><b style="background-image:url(img/b21638f27c.webp)"></b></div></div><div class="reel r"><div><b style="background-image:url(img/c6765e1d20.webp)"></b><b style="background-image:url(img/f21270f15d.webp)"></b><b style="background-image:url(img/a86ff979ba.webp)"></b><b style="background-image:url(img/2abaed7a90.webp)"></b><b style="background-image:url(img/6bf01aa05f.webp)"></b><b style="background-image:url(img/4cd69dcf89.webp)"></b><b style="background-image:url(img/f61505e664.webp)"></b><b style="background-image:url(img/c6765e1d20.webp)"></b><b style="background-image:url(img/f21270f15d.webp)"></b><b style="background-image:url(img/a86ff979ba.webp)"></b><b style="background-image:url(img/2abaed7a90.webp)"></b><b style="background-image:url(img/6bf01aa05f.webp)"></b><b style="background-image:url(img/4cd69dcf89.webp)"></b><b style="background-image:url(img/f61505e664.webp)"></b></div></div>
-  <div class="lit"><img src="img/6258412b23.webp" alt=""><img class="hair" src="img/6258412b23.webp" alt=""><i class="glint"></i><span class="spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><p class="who"><b>Анна Саба – врач-психотерапевт</b><span>10+ лет практики, 7000+ клиентов</span></p></div>
-  <div class="wide"><img src="img/b021a2b6fe.webp" alt="Анна Саба"><img class="hair2" src="img/b021a2b6fe.webp" alt=""><p class="who"><b>Анна Саба – врач-психотерапевт</b><span>10+ лет практики, 7000+ клиентов</span></p></div></div>
- <svg width="0" height="0" style="position:absolute"><filter id="hairwave"><feTurbulence type="fractalNoise" baseFrequency="0.010 0.018" numOctaves="2" seed="4"><animate attributeName="baseFrequency" dur="10s" values="0.010 0.018;0.014 0.024;0.010 0.018" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" scale="12"/></filter></svg>
+<header class="hd"><div class="wrap"><a class="logo" href="#top"><i></i>Школа ментального здоровья доктора&nbsp;Анны&nbsp;Саба</a><button type="button" class="mini" data-open="">Зарегистрироваться</button></div></header>
+<section class="hx v5 v7" id="top"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="hxg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--gA,#f6dc9e)"/><stop offset="1" stop-color="var(--gB,#c9953f)"/></linearGradient>
+<symbol id="gift" viewBox="0 0 24 24">
+<rect x="4.4" y="11.6" width="15.2" height="9.9" rx="1.6" fill="url(#hxg)"/>
+<rect x="2.8" y="7.6" width="18.4" height="4.6" rx="1.4" fill="url(#hxg)"/>
+<rect x="2.8" y="10.9" width="18.4" height="1.3" fill="var(--gR,#7a4c10)" opacity=".28"/>
+<rect x="10.75" y="7.6" width="2.5" height="13.9" fill="var(--gR,#7a4c10)"/>
+<path d="M12 7.7C10.6 4.4 7.3 3.5 6.6 5.3c-.6 1.7 2 2.5 5.4 2.4zM12 7.7c1.4-3.3 4.7-4.2 5.4-2.4.6 1.7-2 2.5-5.4 2.4z" fill="none" stroke="var(--gR,#7a4c10)" stroke-width="1.5" stroke-linejoin="round"/>
+<circle cx="12" cy="7.7" r="1.25" fill="var(--gR,#7a4c10)"/>
+</symbol></defs></svg><div class="hx-in">
+<div class="hx-media"><div class="hx-bgi" aria-hidden="true"><i class="glow"></i><i class="aura"></i><i class="beam"></i><i class="beam b2"></i><i class="rays"></i><i class="sp s1"></i><i class="sp s2"></i><i class="sp s3"></i><i class="sp s4"></i><i class="sp s5"></i><i class="sp s6"></i><i class="sp s7"></i></div><img class="ph" src="img/anna-hero-gen.jpg" alt="Анна Саба"><p class="who"><b>Анна&nbsp;Саба</b><span class="role">врач-психотерапевт</span><span class="reg"><span class="nw">10+ лет практики</span><span class="nw">7000+ клиентов</span></span></p></div><p class="hx-date"><span class="kd">25–28&nbsp;ноября</span><span class="fmt">онлайн-практикум</span></p><h1>Как за 4&nbsp;дня выйти из угнетающих чувств <span class="ac">на&nbsp;новый уровень дохода, энергии, отношений, реализации</span></h1><p class="hx-lead"><span class="lt">3 бонуса сразу после регистрации:</span></p><ul class="hx-gains"><li class="g-money"><span class="bi"><span class="fx coins" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><img src="img/b-money.png" alt=""></span><p><span class="t">Практика</span><b>«Деньги х2»</b><span class="d">как пробить финансовый потолок и&nbsp;удвоить&nbsp;доход</span></p></li><li class="g-calm"><span class="bi"><span class="fx petals" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><img src="img/b-calm.png" alt=""></span><p><span class="t">Терапевтическая сессия</span><b>«Убираем тревогу и&nbsp;выходим из&nbsp;недостаточности»</b></p></li><li class="g-love"><span class="bi"><span class="fx hearts" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><img src="img/b-love.png" alt=""></span><p><span class="t">Гайд</span><b>«Волшебная женщина»</b><span class="d">как построить счастливые отношения, чтобы мужчина заботился, дарил подарки и&nbsp;носил на&nbsp;руках</span></p></li></ul><div class="hx-acts"><button type="button" class="btn" data-open="">Зарегистрироваться бесплатно<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></i></button><a class="ghost" href="#film">Как&nbsp;это&nbsp;устроено ↓</a></div><p class="hx-pr">Даже если вы уже многое перепробовали, но&nbsp;всё равно случался откат или повторяющиеся сценарии, и&nbsp;вы больше не&nbsp;верите, что у&nbsp;вас&nbsp;получится</p>
 </div></section>
 
 <section class="notm"><div class="wrap">
- <h2 class="rv">Это не<br class="mbr"> «марафон желаний»</h2>
+ <h2 class="rv">Это&nbsp;не<br class="mbr"> «марафон желаний»</h2>
  <div class="vs rv">
-  <div class="vs-old"><p class="vs-h">Классический марафон</p>
-   <ul><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"/></svg></i>Ведёт коуч или блогер</li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"/></svg></i>Визуализировать мечту и ждать</li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"/></svg></i>Вдохновение на пару дней</li></ul></div>
+  <div class="vs-old"><p class="vs-h">Классические марафоны</p>
+   <ul><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"></path></svg></i>Часто ведут блогеры без образования</li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"></path></svg></i>Люди на них мечтают и&nbsp;ждут, когда&nbsp;сбудется&nbsp;желание</li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"></path></svg></i>Мотивации хватает на&nbsp;несколько дней, потом идёт откат</li></ul></div>
   <div class="vs-mid" aria-hidden="true">vs</div>
-  <div class="vs-new"><i class="vs-glow"></i><p class="vs-h">Практикум доктора Анны Саба</p>
-   <div class="vs-doc"><img src="img/d4512e7cea.webp" alt="Анна Саба"><div><b>Ведёт врач‑психиатр, психотерапевт</b><div class="vs-st"><span><strong>10+</strong>лет опыта</span><span><strong>7000+</strong>клиентов</span></div></div></div>
-   <ul><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Найти, что держит в&nbsp;старом сценарии, и&nbsp;убрать это</li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Практика прямо на&nbsp;эфире и&nbsp;результат в&nbsp;тот&nbsp;же&nbsp;вечер</li></ul></div>
+  <div class="vs-new"><i class="vs-glow"></i><p class="vs-h">Практикум от врача-психотерапевта с фундаментальным медицинским образованием</p>
+   <div class="vs-doc"><img src="img/d4512e7cea.webp" alt="Анна Саба"><div><b>Анна Саба: врач‑психиатр, психотерапевт</b><div class="vs-st"><span><strong>10+</strong>лет опыта</span><span><strong>7000+</strong>клиентов</span></div></div></div>
+   <ul class="vs-num"><li><i class="n">1</i><span>За время практикума <b>убираем 5&nbsp;угнетающих чувств</b>: тревогу, страх, обиду, вину, стыд</span></li><li><i class="n">2</i><span>Делаем практики на&nbsp;эфирах, не&nbsp;«мечтаем», не&nbsp;визуализируем успешный успех, а&nbsp;<b>сфокусированно работаем с&nbsp;миндалевидным телом</b> (амигдалой – частью мозга, отвечающей за&nbsp;старые&nbsp;реакции)</span></li><li><i class="n">3</i><span>При помощи самых эффективных методов психотерапии <b>EMDR&nbsp;3.0 и&nbsp;КПТ переписываем старые сценарии</b> и&nbsp;переходим в&nbsp;новое&nbsp;состояние</span></li></ul></div>
  </div>
 </div></section>
 
 <section class="film-sec" id="film"><div class="wrap center">
- <p class="kick">С чего начнём</p>
- <h2 class="rv">Выберите свой кадр</h2>
- <p class="lead rv">Все версии вашей жизни уже существуют, как кадры на плёнке. Свет падает на одну. Нажмите на ту сферу, которую хотите изменить первой.</p>
- <div class="strip rv"><i class="sweep"></i><div class="frames"><button type="button" class="fr" data-i="0" aria-pressed="false"><span class="fr-in" style="background-image:url(img/ce91f872f4.webp)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h16M7 15V9M12 15V5M17 15v-4"/></svg><em>Доход</em></span></button><button type="button" class="fr" data-i="1" aria-pressed="false"><span class="fr-in" style="background-image:url(img/a53c64a1d6.webp)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><em>Отношения</em></span></button><button type="button" class="fr" data-i="2" aria-pressed="false"><span class="fr-in" style="background-image:url(img/0e6507cb0a.webp)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="12" r="5"/><circle cx="15" cy="12" r="5"/></svg><em>Пара</em></span></button><button type="button" class="fr" data-i="3" aria-pressed="false"><span class="fr-in" style="background-image:url(img/a2d8c348ad.webp)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg><em>Предназначение</em></span></button><button type="button" class="fr" data-i="4" aria-pressed="false"><span class="fr-in" style="background-image:url(img/796f8afa22.webp)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><em>Энергия</em></span></button><button type="button" class="fr" data-i="5" aria-pressed="false"><span class="fr-in" style="background-image:url(img/d17ccbf9bd.webp)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c5-3 8-7 8-11a8 8 0 0 0-16 0c0 4 3 8 8 11zM9 10h6M12 7v6"/></svg><em>Здоровье</em></span></button></div></div>
- <div class="pick" id="pick" aria-live="polite"><p>Нажмите на кадр выше</p></div>
+ <p class="kick">С&nbsp;чего начнём</p>
+ <h2 class="rv">Выберите свой запрос</h2>
+ <p class="lead rv">Нажмите на ту сферу, которая в данный момент актуальней всего</p>
+ <div class="strip rv"><i class="sweep"></i><div class="frames"><button type="button" class="fr" data-i="0" aria-pressed="false"><span class="fr-in" style="background-image:url(img/ce91f872f4.webp)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h16M7 15V9M12 15V5M17 15v-4"></path></svg><em>Увеличить доход</em></span></button><button type="button" class="fr" data-i="1" aria-pressed="false"><span class="fr-in" style="background-image:url(img/a53c64a1d6.webp)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg><em>Построить счастливые отношения</em></span></button><button type="button" class="fr" data-i="2" aria-pressed="false"><span class="fr-in" style="background-image:url(img/0e6507cb0a.webp)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="12" r="5"></circle><circle cx="15" cy="12" r="5"></circle></svg><em>Улучшить отношения с партнером</em></span></button><button type="button" class="fr" data-i="3" aria-pressed="false"><span class="fr-in" style="background-image:url(img/a2d8c348ad.webp)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"></path></svg><em>Найти предназначение</em></span></button><button type="button" class="fr" data-i="4" aria-pressed="false"><span class="fr-in" style="background-image:url(img/796f8afa22.webp)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></svg><em>Увеличить энергию</em></span></button><button type="button" class="fr" data-i="5" aria-pressed="false"><span class="fr-in" style="background-image:url(img/d17ccbf9bd.webp)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c5-3 8-7 8-11a8 8 0 0 0-16 0c0 4 3 8 8 11zM9 10h6M12 7v6"></path></svg><em>Укрепить здоровье</em></span></button></div></div>
+ <div class="pick" id="pick" aria-live="polite"><p>Нажмите на&nbsp;кадр&nbsp;выше</p></div>
+ <div class="sp-src"><div data-sp="0"><h3>Выйти на новый уровень дохода</h3><p>Позволять себе больше, чувствовать свободу выбора и кайфовать от того, что можете позволить себе то, что хотите. Если откликается, берите этот запрос на практикум.</p></div><div data-sp="1"><h3>Построить счастливые отношения</h3><p>Чтобы рядом был мужчина, который заботится, дарит подарки, носит на руках и берёт на себя всю ответственность. Если откликается, берите этот запрос на практикум.</p></div><div data-sp="2"><h3>Прожить второй медовый месяц</h3><p>Чтобы в пару вернулась близость и улучшилось качество отношений с партнёром. Если откликается, берите этот запрос на практикум.</p></div><div data-sp="3"><h3>Реализовать свой потенциал</h3><p>Чтобы делать то, что нравится, и на что выделяется огромный ресурс энергии. Если откликается, берите этот запрос на практикум.</p></div><div data-sp="4"><h3>Жить с высоким уровнем энергии</h3><p>Чтобы сил хватало на все дела, в том числе и на себя, а не только на бытовые обязанности, решение повседневных задач и проблем. Если откликается, берите этот запрос на практикум.</p></div><div data-sp="5"><h3>Улучшить здоровье</h3><p>Если давно есть проблемы, но не получается их решить, а врачи разводят руками. Практикум точно для вас, если есть боли в спине, мигрени, бруксизм, хроническая усталость, сонливость, проблемы с ЖКТ. Берите запрос со здоровьем на практикум и регистрируйтесь.</p></div></div>
 </div></section>
 
-<section><div class="wrap">
- <p class="kick">Не эзотерика, а нейрофизиология</p>
- <h2 class="rv">Методика опирается на науку</h2>
- <p class="lead rv">И работает, даже если вы уже проходили много программ и не верите, что у вас получится. Вот исследования о внимании и мозге, на которые опирается подход:</p>
- <div class="docs"><article class="doc rv"><div class="doc-n"><b data-count="46,9">46,9</b><span>%</span></div><p class="doc-r">времени голова занята не тем, что вы делаете. Опрос 2 250 человек через приложение</p><p class="doc-src">Источник: Killingsworth · Science, 2010</p><i class="seal" aria-hidden="true"></i></article><article class="doc rv"><div class="doc-n"><b data-count="2">2</b><span>недели</span></div><p class="doc-r">тренировки внимания: мысли реже уходят в сторону, память работает лучше</p><p class="doc-src">Источник: Mrazek · Psychological Science, 2013</p><i class="seal" aria-hidden="true"></i></article><article class="doc rv"><div class="doc-n"><b data-count="94">94</b><span>исследования</span></div><p class="doc-r">сошлись: заранее решённое «если…, то…» заметно чаще доводит до цели</p><p class="doc-src">Источник: Gollwitzer · Advances in Experimental Social Psychology, 2006</p><i class="seal" aria-hidden="true"></i></article><article class="doc rv"><div class="doc-n"><b data-count="7">7</b><span>дней</span></div><p class="doc-r">тренировок хватило, чтобы на МРТ стала видна прибавка серого вещества</p><p class="doc-src">Источник: Driemeyer · PLoS ONE, 2008</p><i class="seal" aria-hidden="true"></i></article></div><p class="swipe-hint">листайте вбок →</p>
-</div></section>
 
 
 <section class="film-sec"><div class="wrap">
- <div class="center"><p class="kick">Почему так выходит</p>
- <h2 class="rv">Почему одни живут свою жизнь, а другие годами ходят по кругу?</h2></div>
+ <div class="center"><p class="kick">ЧТО ВЫБЕРИТЕ ВЫ?</p>
+ <h2 class="rv">1% людей живут жизнью мечты, 99% годами ходят по&nbsp;кругу и у них ничего не меняется</h2></div>
  <div class="loopv rv"><div class="loop-img" style="background-image:url(img/7ec264d104.webp)"></div>
-  <svg viewBox="0 0 300 300" class="orbit" aria-label="Один и тот же день по кругу: будильник, дорога, работа, усталость, телефон, сон">
-   <circle cx="150" cy="150" r="104" class="ring"/>
-   <path class="exit" d="M240 98C270 70 280 40 296 10"/>
-   <g transform="translate(150.0,46.0)"><circle r="4.5" class="st"/><text y="-12">Будильник</text></g><g transform="translate(240.1,98.0)"><circle r="4.5" class="st"/><text y="-12">Дорога</text></g><g transform="translate(240.1,202.0)"><circle r="4.5" class="st"/><text y="20">Работа</text></g><g transform="translate(150.0,254.0)"><circle r="4.5" class="st"/><text y="20">Усталость</text></g><g transform="translate(59.9,202.0)"><circle r="4.5" class="st"/><text y="20">Телефон</text></g><g transform="translate(59.9,98.0)"><circle r="4.5" class="st"/><text y="-12">Сон</text></g>
-   <circle r="7" class="runner"><animateMotion dur="6s" repeatCount="indefinite" path="M150 46a104 104 0 1 1 -0.1 0"/></circle>
-   <text x="150" y="146" class="mid">тот же</text><text x="150" y="166" class="mid">сценарий</text>
-   <text x="262" y="26" class="ex">выход</text>
+  <svg viewBox="-16 26 332 248" class="orbit" aria-label="Один и тот же день по кругу: просыпаешься по будильнику, едешь на работу, работаешь, едешь домой вымотанный, уставший, готовишь ужин, решаешь проблемы и разгребаешь накопившиеся бытовые дела, ложишься спать. И так каждый день">
+   <circle cx="150" cy="150" r="72" class="ring"></circle>
+   <g transform="translate(150.0,78.0)"><circle r="4.5" class="st"></circle><text class="lb" style="text-anchor:middle"><tspan x="0.0" y="-26.0">Просыпаешься</tspan><tspan x="0.0" y="-14.0">по будильнику</tspan></text></g><g transform="translate(206.3,105.1)"><circle r="4.5" class="st"></circle><text class="lb" style="text-anchor:start"><tspan x="8.7" y="-5.1">Едешь</tspan><tspan x="8.7" y="6.9">на работу</tspan></text></g><g transform="translate(220.2,166.0)"><circle r="4.5" class="st"></circle><text class="lb" style="text-anchor:start"><tspan x="9.8" y="4.0">Работаешь</tspan></text></g><g transform="translate(181.2,214.9)"><circle r="4.5" class="st"></circle><text class="lb" style="text-anchor:start"><tspan x="6.8" y="13.1">Едешь домой</tspan><tspan x="6.8" y="25.1">вымотанный,</tspan><tspan x="6.8" y="37.1">уставший</tspan></text></g><g transform="translate(118.8,214.9)"><circle r="4.5" class="st"></circle><text class="lb" style="text-anchor:end"><tspan x="-6.8" y="13.1">Готовишь ужин</tspan></text></g><g transform="translate(79.8,166.0)"><circle r="4.5" class="st"></circle><text class="lb" style="text-anchor:end"><tspan x="-9.8" y="-24.0">Решаешь</tspan><tspan x="-9.8" y="-12.0">проблемы</tspan><tspan x="-9.8" y="-0.0">и разгребаешь</tspan><tspan x="-9.8" y="12.0">накопившиеся</tspan><tspan x="-9.8" y="24.0">бытовые дела</tspan></text></g><g transform="translate(93.7,105.1)"><circle r="4.5" class="st"></circle><text class="lb" style="text-anchor:end"><tspan x="-8.7" y="-5.1">Ложишься</tspan><tspan x="-8.7" y="6.9">спать</tspan></text></g>
+   <g class="runner"><path class="rn-tail" d="M-26 0H-8"></path><path class="rn-head" d="M-9 -7.5L9 0L-9 7.5L-4.5 0Z"></path><animateMotion dur="7s" repeatCount="indefinite" rotate="auto" path="M150 78a72 72 0 1 1 -0.1 0"></animateMotion></g>
+   <text x="150" y="137" class="mid tw">И так</text><text x="150" y="157" class="mid tw">каждый</text><text x="150" y="177" class="mid tw">день</text>
   </svg></div>
- <div class="why-list"><div class="wy-grid"><article class="wy rv"><span class="wy-ic"><svg viewBox="0 0 24 24"><path d="M6 20V9l6-5 6 5v11M10 20v-6h4v6"/></svg></span><p class="wy-k">Повторяющийся сценарий</p><h3>Не результат силы воли.</h3><p>Можно годами держать себя в руках и жить в том же сценарии. <b>Чем сильнее гоните мысль «у меня не выйдет», тем чаще она возвращается</b> – это показал психолог Дэниел Вегнер в 1987 году.</p><p class="mark">Мысль уходит, когда вниманию есть куда перейти</p></article><article class="wy rv"><span class="wy-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span><p class="wy-k">Повторяющийся сценарий</p><h3>Не результат удачи.</h3><p>Психолог Ричард Уайзмен 10 лет изучал «везучих» и «невезучих» людей. <b>Разница оказалась во внимании:</b> тревога сужает взгляд, и человек не видит возможность прямо перед собой.</p><p class="mark">Тревога сужает взгляд</p></article><article class="wy rv"><span class="wy-ic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5M18 3v4h-4M6 21v-4h4"/></svg></span><p class="wy-k">Повторяющийся сценарий</p><h3>Не результат характера.</h3><p>«Я просто такая» звучит как приговор. Но за этим стоят реакции, которые мозг повторял годами. <b>Раз он их выучил, выучит и новые</b> – в любом возрасте.</p><p class="mark">Мозг учится новому в любом возрасте</p></article></div><p class="swipe-hint">листайте вбок →</p><article class="wy-last rv"><p class="wy-k">Повторяющийся сценарий –</p><h3>Результат того, куда вы смотрите и что при этом чувствуете</h3><ol class="wy-st"><li><span class="sic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/></svg></span><p><b>Мозг угадывает</b> что будет дальше, и замечает то, что совпадает с его ожиданием</p></li><li><span class="sic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5M18 3v4h-4M6 21v-4h4"/></svg></span><p><b>Старое состояние</b> делает так, что каждый новый день его подтверждает</p></li><li><span class="sic"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg></span><p><b>Поэтому на эфирах</b> мы меняем не поведение силой, а состояние – практикой, после которой вы по-другому видите и чувствуете</p></li></ol></article></div>
- <div class="center-cta"><button type="button" class="btn" data-open>Хочу выйти из круга<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></div>
+ <div class="loop-out rv"><p class="loop-want">Хочу жить жизнью мечты&nbsp;и&nbsp;выйти из&nbsp;повторяющихся&nbsp;сценариев</p><div class="center-cta"><button type="button" class="btn" data-open="">Перейти в&nbsp;жизнь&nbsp;мечты<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></i></button></div></div>
 </div></section>
 
 <section><div class="wrap">
- <p class="kick">Кому подойдёт</p>
- <h2 class="rv">Эта программа для вас, если вы:</h2>
+ <p class="kick">Кому подойдёт ПРАКТИКУМ</p>
+ <h2 class="rv">Практикум для&nbsp;вас, если&nbsp;вы:</h2>
  <div class="fy-pics" aria-hidden="true"><img src="img/a2d8c348ad.webp" alt="" loading="lazy"><img src="img/796f8afa22.webp" alt="" loading="lazy"><img src="img/ce91f872f4.webp" alt="" loading="lazy"></div>
- <ul class="fy"><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M4 18h16M7 15V9M12 15V6M17 15v-3"/></svg></span><p>Застряли и не можете перейти на новый уровень: в деньгах, отношениях, окружении</p><em>01</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg></span><p>Хотите найти своё предназначение и раскрыть весь накопленный потенциал</p><em>02</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2 2M16.4 16.4l2 2M5.6 18.4l2-2M16.4 7.6l2-2"/><circle cx="12" cy="12" r="3"/></svg></span><p>Внутренне чувствуете, что надо что-то менять, но не знаете, как</p><em>03</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 3"/></svg></span><p>Понимаете, что время идёт, а полноценно реализоваться так и не получается</p><em>04</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><p>Вас словно что-то держит на месте: всё одно и то же, ничего не меняется</p><em>05</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></span><p>Есть ощущение, что «вот-вот получится», но это «вот-вот» никак не наступает</p><em>06</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/></svg></span><p>Многое попробовали, но откатывались назад</p><em>07</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M7 2v11h3l-1 9 8-12h-4l2-8z"/></svg></span><p>Не хватает энергии: просыпаетесь утром, а сил уже нет</p><em>08</em></li></ul>
- <div class="center-cta"><button type="button" class="btn" data-open>Это про меня – иду на программу<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></div>
+ <ul class="fy"><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M4 18h16M7 15V9M12 15V6M17 15v-3"></path></svg></span><p>Застряли и&nbsp;<b>не&nbsp;можете перейти на&nbsp;новый уровень</b> (в&nbsp;финансах, отношениях,&nbsp;окружении)</p><em>01</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2 2M16.4 16.4l2 2M5.6 18.4l2-2M16.4 7.6l2-2"></path><circle cx="12" cy="12" r="3"></circle></svg></span><p>Внутренне чувствуете, что&nbsp;<b>надо что-то менять</b>, но&nbsp;не&nbsp;знаете,&nbsp;как</p><em>02</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"></path></svg></span><p>Понимаете, что&nbsp;время идёт, <b>личный потенциал до&nbsp;сих пор не&nbsp;раскрыт</b>, а&nbsp;своё <b>предназначение&nbsp;так&nbsp;и&nbsp;не&nbsp;нашли</b></p><em>03</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg></span><p>Вас словно <b>что-то сдерживает на&nbsp;месте</b>: <b>всё одно и&nbsp;то&nbsp;же</b>, ничего&nbsp;не&nbsp;меняется</p><em>04</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"></path><path d="M15 8h5v5"></path></svg></span><p>Есть внутреннее ощущение, что&nbsp;<b>«вот-вот получится»</b>, но&nbsp;это&nbsp;«вот-вот» никак&nbsp;не&nbsp;наступит</p><em>05</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"></path></svg></span><p>Многое попробовали, но&nbsp;<b>откатывались&nbsp;назад</b></p><em>06</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M7 2v11h3l-1 9 8-12h-4l2-8z"></path></svg></span><p><b>Не&nbsp;хватает энергии</b>: просыпаетесь утром, а&nbsp;сил уже нет, ничего&nbsp;не&nbsp;хочется</p><em>07</em></li><li class="rv"><span class="fy-ic"><svg viewBox="0 0 24 24"><path d="M12 21c5-3 8-7 8-11a8 8 0 0 0-16 0c0 4 3 8 8 11zM9 10h6M12 7v6"></path></svg></span><p><b>Проблемы со&nbsp;здоровьем не&nbsp;дают покоя</b>, весь ресурс уходит&nbsp;на&nbsp;их&nbsp;решение</p><em>08</em></li></ul>
+ <div class="center-cta"><button type="button" class="btn" data-open="">Это&nbsp;про&nbsp;меня&nbsp;– иду на&nbsp;практикум<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></i></button></div>
 </div></section>
 
 <section class="film-sec"><div class="wrap br">
- <div><p class="kick">Что вы получите</p><h2 class="rv">Через 4 дня вы:</h2><ul class="gets rv"><li style="--i:0"><em>01</em><p>Будете ясно понимать, чего хочется именно вам</p></li><li style="--i:1"><em>02</em><p>Увидите, где действуете из страха, привычек или ожиданий других</p></li><li style="--i:2"><em>03</em><p>Перестанете уменьшать свои желания до безопасного уровня</p></li><li style="--i:3"><em>04</em><p>Заметите, в чём ваша собственная сила, способности и ресурсы</p></li><li style="--i:4"><em>05</em><p>Научитесь избавляться от тревоги</p></li><li style="--i:5"><em>06</em><p>Сможете выдерживать неопределённость будущего</p></li><li style="--i:6"><em>07</em><p>Без сомнений пойдёте в больший масштаб в деньгах, отношениях, реализации</p></li></ul></div>
+ <div><p class="kick">Что&nbsp;вы&nbsp;получите</p><h2 class="rv gets-h">На&nbsp;практикуме вы&nbsp;получите пошаговую методологию, которая&nbsp;за&nbsp;вас</h2><ul class="gets rv"><li style="--i:0"><em>01</em><p>Разберёт повторяющиеся сценарии и&nbsp;даст чёткий план действий для&nbsp;быстрого выхода из&nbsp;них&nbsp;без&nbsp;откатов</p></li><li style="--i:1"><em>02</em><p>Уберёт тревогу и&nbsp;стресс, чтобы вы&nbsp;начали созидать из&nbsp;состояния изобилия, а&nbsp;не&nbsp;из&nbsp;страха&nbsp;и&nbsp;травмы</p></li><li style="--i:2"><em>03</em><p>Покажет, как&nbsp;выйти на&nbsp;новый уровень в&nbsp;доходе, энергии, отношениях и&nbsp;других&nbsp;сферах</p></li></ul><p class="gets-note rv">После практикума вы&nbsp;узнаете, как&nbsp;можно самостоятельно безопасно и&nbsp;легко применять эту методологию&nbsp;на&nbsp;себе</p></div>
  <div class="journey rv"><svg viewBox="-34 0 420 640" role="img" aria-label="Путь за 4 дня: спусковой крючок, бесконечный поток, новая реальность, магнит для масштаба">
-<defs><linearGradient id="jg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#b9832e"/><stop offset="1" stop-color="#f6dc9e"/></linearGradient>
-<linearGradient id="jfig" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3d0"/><stop offset=".55" stop-color="#f0c879"/><stop offset="1" stop-color="#b9832e"/></linearGradient><radialGradient id="jcoin" cx=".35" cy=".3"><stop offset="0" stop-color="#fff6dc"/><stop offset=".5" stop-color="#e8c27a"/><stop offset="1" stop-color="#9a6a1f"/></radialGradient><radialGradient id="jglow"><stop offset="0" stop-color="#f6dc9e" stop-opacity=".9"/><stop offset="1" stop-color="#f6dc9e" stop-opacity="0"/></radialGradient></defs>
-<path class="jbase" d="M50 590C110 580 132 520 110 490S40 420 50 380 132 310 110 270 40 200 50 160"/><path class="jpath" id="jp" d="M50 590C110 580 132 520 110 490S40 420 50 380 132 310 110 270 40 200 50 160"/>
+<defs><linearGradient id="jg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#b9832e"></stop><stop offset="1" stop-color="#f6dc9e"></stop></linearGradient>
+<linearGradient id="jfig" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3d0"></stop><stop offset=".55" stop-color="#f0c879"></stop><stop offset="1" stop-color="#b9832e"></stop></linearGradient><radialGradient id="jcoin" cx=".35" cy=".3"><stop offset="0" stop-color="#fff6dc"></stop><stop offset=".5" stop-color="#e8c27a"></stop><stop offset="1" stop-color="#9a6a1f"></stop></radialGradient><radialGradient id="jglow"><stop offset="0" stop-color="#f6dc9e" stop-opacity=".9"></stop><stop offset="1" stop-color="#f6dc9e" stop-opacity="0"></stop></radialGradient></defs>
+<path class="jbase" d="M50 590C110 580 132 520 110 490S40 420 50 380 132 310 110 270 40 200 50 160"></path><path class="jpath" id="jp" d="M50 590C110 580 132 520 110 490S40 420 50 380 132 310 110 270 40 200 50 160"></path>
 <text x="24" y="626" class="js">Старт</text>
-<g class="jfin"><circle cx="50" cy="62" r="26" fill="url(#jglow)"/><path d="M50 46l4 10 11 1-8 7 3 11-10-6-10 6 3-11-8-7 11-1z" class="jstar"/><text x="90" y="58" class="jf">Твоя новая</text><text x="90" y="78" class="jf">реальность</text></g>
-<g class="jl" data-k="0"><circle cx="110" cy="490" r="9" class="jdot"/><path class="jlink" d="M122 490H150"/><g transform="translate(146,438)"><g class="jc"><rect width="238" height="104" rx="18"/><text x="18" y="26" class="jd">1 день</text><text x="18" y="52" class="jn">Спусковой крючок</text><text x="18" y="74" class="jt">Ищем причины повторяющихся</text><text x="18" y="90" class="jt">сценариев и убираем их</text></g></g></g><g class="jl" data-k="1"><circle cx="50" cy="380" r="9" class="jdot"/><path class="jlink" d="M62 380H150"/><g transform="translate(146,328)"><g class="jc"><rect width="238" height="104" rx="18"/><text x="18" y="26" class="jd">2 день</text><text x="18" y="52" class="jn">Бесконечный поток</text><text x="18" y="74" class="jt">Находим истинное желание</text><text x="18" y="90" class="jt">и раскачиваем энергию</text></g></g></g><g class="jl" data-k="2"><circle cx="110" cy="270" r="9" class="jdot"/><path class="jlink" d="M122 270H150"/><g transform="translate(146,218)"><g class="jc"><rect width="238" height="104" rx="18"/><text x="18" y="26" class="jd">3 день</text><text x="18" y="52" class="jn">Новая реальность</text><text x="18" y="74" class="jt">Переходим в новое состояние</text><text x="18" y="90" class="jt">и соединяемся с собой</text></g></g></g><g class="jl" data-k="3"><circle cx="50" cy="160" r="9" class="jdot"/><path class="jlink" d="M62 160H150"/><g transform="translate(146,108)"><g class="jc"><rect width="238" height="104" rx="18"/><text x="18" y="26" class="jd">4 день · VIP</text><text x="18" y="52" class="jn">Магнит для масштаба</text><text x="18" y="74" class="jt">Идём в проявленность</text><text x="18" y="90" class="jt">без страха и сомнений</text></g></g></g>
-<g class="coins"><circle r="6" class="coin" style="--i:0"/><circle r="6" class="coin" style="--i:1"/><circle r="6" class="coin" style="--i:2"/><circle r="6" class="coin" style="--i:3"/><circle r="6" class="coin" style="--i:4"/><circle r="6" class="coin" style="--i:5"/><circle r="6" class="coin" style="--i:6"/><circle r="6" class="coin" style="--i:7"/></g>
+<g class="jfin"><circle cx="50" cy="62" r="26" fill="url(#jglow)"></circle><path d="M50 46l4 10 11 1-8 7 3 11-10-6-10 6 3-11-8-7 11-1z" class="jstar"></path><text x="90" y="58" class="jf">Новая реальность</text><text x="90" y="78" class="jf">после практикума</text></g>
+<g class="jl" data-k="0"><circle cx="110" cy="490" r="9" class="jdot"></circle><path class="jlink" d="M122 490H150"></path><g transform="translate(146,438)"><g class="jc"><rect width="238" height="104" rx="18"></rect><text x="18" y="26" class="jd">1&nbsp;день</text><text x="18" y="52" class="jn">Спусковой крючок</text><text x="18" y="74" class="jt">Ищем причины повторяющихся</text><text x="18" y="90" class="jt">сценариев и&nbsp;убираем их</text></g></g></g><g class="jl" data-k="1"><circle cx="50" cy="380" r="9" class="jdot"></circle><path class="jlink" d="M62 380H150"></path><g transform="translate(146,328)"><g class="jc"><rect width="238" height="104" rx="18"></rect><text x="18" y="26" class="jd">2&nbsp;день</text><text x="18" y="52" class="jn">Бесконечный поток</text><text x="18" y="74" class="jt">Находим истинное желание</text><text x="18" y="90" class="jt">и&nbsp;раскачиваем энергию</text></g></g></g><g class="jl" data-k="2"><circle cx="110" cy="270" r="9" class="jdot"></circle><path class="jlink" d="M122 270H150"></path><g transform="translate(146,218)"><g class="jc"><rect width="238" height="104" rx="18"></rect><text x="18" y="26" class="jd">3&nbsp;день</text><text x="18" y="52" class="jn">Новая реальность</text><text x="18" y="74" class="jt">Переходим в&nbsp;новое состояние</text><text x="18" y="90" class="jt">и&nbsp;соединяемся с&nbsp;собой</text></g></g></g><g class="jl" data-k="3"><circle cx="50" cy="160" r="9" class="jdot"></circle><path class="jlink" d="M62 160H150"></path><g transform="translate(146,108)"><g class="jc"><rect width="238" height="104" rx="18"></rect><text x="18" y="26" class="jd">4&nbsp;день · VIP</text><text x="18" y="52" class="jn">Магнит для&nbsp;масштаба</text><text x="18" y="74" class="jt">Идём в&nbsp;проявленность</text><text x="18" y="90" class="jt">без&nbsp;страха и&nbsp;сомнений</text></g></g></g>
+<g class="coins"><circle r="6" class="coin" style="--i:0"></circle><circle r="6" class="coin" style="--i:1"></circle><circle r="6" class="coin" style="--i:2"></circle><circle r="6" class="coin" style="--i:3"></circle><circle r="6" class="coin" style="--i:4"></circle><circle r="6" class="coin" style="--i:5"></circle><circle r="6" class="coin" style="--i:6"></circle><circle r="6" class="coin" style="--i:7"></circle></g>
 <g id="hero-man">
- <circle r="40" fill="url(#jglow)" class="aura"/>
- <circle r="24" class="jr r1"/><circle r="24" class="jr r2"/>
- <g class="fig"><circle cx="0" cy="-19" r="5.2"/><path d="M0-13c-4.6 0-7 2.6-7.6 6.6L-10.5 13h21L7.6-6.4C7-10.4 4.6-13 0-13z"/></g>
- <path class="heart" d="M0-3.5c-1.6-3.6-7-3.2-7 1 0 3.3 4.3 6 7 8.3 2.7-2.3 7-5 7-8.3 0-4.2-5.4-4.6-7-1z" transform="translate(0,-2) scale(.7)"/>
+ <circle r="40" fill="url(#jglow)" class="aura"></circle>
+ <circle r="24" class="jr r1"></circle><circle r="24" class="jr r2"></circle>
+ <g class="fig"><circle cx="0" cy="-19" r="5.2"></circle><path d="M0-13c-4.6 0-7 2.6-7.6 6.6L-10.5 13h21L7.6-6.4C7-10.4 4.6-13 0-13z"></path></g>
+ <path class="heart" d="M0-3.5c-1.6-3.6-7-3.2-7 1 0 3.3 4.3 6 7 8.3 2.7-2.3 7-5 7-8.3 0-4.2-5.4-4.6-7-1z" transform="translate(0,-2) scale(.7)"></path>
 </g>
 </svg></div>
 </div></section>
 
 <section id="days"><div class="wrap">
- <p class="kick">Программа</p>
- <h2 class="rv">4 дня прямых эфиров</h2>
- <p class="lead rv">Каждый день: эфир с Анной, практика прямо на эфире и результат, который вы чувствуете в тот же вечер.</p>
+ <p class="kick">Программа ПРАКТИКУМА</p>
+ <h2 class="rv">4&nbsp;дня прямых&nbsp;эфиров</h2>
+ <p class="lead rv">На каждом из эфиров будет практика</p>
  <div class="dtabs"><button type="button" class="dtab on" data-d="0">1</button><button type="button" class="dtab" data-d="1">2</button><button type="button" class="dtab" data-d="2">3</button><button type="button" class="dtab vip" data-d="3">4</button></div>
- <div class="dgrid"><article class="day rv" id="day0"><div class="day-img"><img src="img/fb4890003f.webp" alt="" loading="lazy"></div><div class="day-h"><span class="day-n">01</span><span class="day-l">день</span><span class="live">LIVE</span></div><p class="day-d">23 ноября</p><h3>Спусковой крючок</h3><ul><li><b>Найдёте глубинную причину,</b> которая блокирует ваш рост, и скрытые выгоды, которые откатывают вас назад</li></ul><p class="day-note"><span>Практика:</span> Практика в эфире снимает ограничения и освобождает от груза прошлого</p></article><article class="day rv" id="day1"><div class="day-img"><img src="img/7b8f3d7154.webp" alt="" loading="lazy"></div><div class="day-h"><span class="day-n">02</span><span class="day-l">день</span><span class="live">LIVE</span></div><p class="day-d">24 ноября</p><h3>Бесконечный поток</h3><ul><li><b>Прочувствуете то,</b> чего хотите от души на самом деле, без чужих правил</li><li><b>Получите энергию на свою истинную цель:</b> появятся силы и желание действовать</li></ul><p class="day-note"><span>Практика:</span> Практика в эфире защищает от саботажа и откатов, чтобы вы не бросили на полпути</p></article><article class="day rv" id="day2"><div class="day-img"><img src="img/244885c66a.webp" alt="" loading="lazy"></div><div class="day-h"><span class="day-n">03</span><span class="day-l">день</span><span class="live">LIVE</span></div><p class="day-d">25 ноября</p><h3>Новая реальность</h3><ul><li><b>Войдёте в новое состояние</b> и закрепитесь в нём: уверенность, что желаемое уже есть, без тревог и сомнений</li><li><b>Выйдете на новый уровень вибраций,</b> который притягивает в жизнь нужные события</li></ul><p class="day-note"><span>Практика:</span> Практика в эфире делает так, чтобы новое состояние оставалось с вами надолго</p></article><article class="day rv vip" id="day3"><div class="day-img"><img src="img/d77989d743.webp" alt="" loading="lazy"></div><div class="day-h"><span class="day-n">04</span><span class="day-l">день</span><span class="live">VIP · LIVE</span></div><p class="day-d">26 ноября</p><h3>Магнит для масштаба</h3><ul><li><b>Снимете ограничения,</b> осознанные и бессознательные, которые держат вас в привычном</li><li><b>Станете магнитом</b> для удачных и автомагических событий</li></ul><p class="day-note"><span>Практика:</span> Для тех, кто хочет проявляться и идти в масштаб</p></article></div>
- <div class="center-cta"><button type="button" class="btn" data-open>Записаться на программу<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></div>
+ <div class="dgrid"><article class="day rv" id="day0"><div class="day-img"><img src="img/fb4890003f.webp" alt="" loading="lazy"></div><div class="day-h"><span class="day-n">01</span><span class="day-l">день</span><span class="live">LIVE</span></div><p class="day-d">25 ноября</p><h3>Спусковой крючок</h3><p class="dl-h">Убираем угнетающие&nbsp;чувства:</p><ul class="dl"><li>тревога</li><li>страх</li><li>обида</li><li>вина</li><li>стыд</li></ul><p class="day-note">Результат:</p><ul class="dl dl-r"><li>Найден затык, который годами держал вас на месте</li><li>Прошлое больше вас не беспокоит</li></ul></article><article class="day rv" id="day1"><div class="day-img"><img src="img/7b8f3d7154.webp" alt="" loading="lazy"></div><div class="day-h"><span class="day-n">02</span><span class="day-l">день</span><span class="live">LIVE</span></div><p class="day-d">26 ноября</p><h3>Бесконечный поток</h3><p class="dl-h">Возвращаем энергию себе:</p><ul class="dl"><li>находим, куда сливался ресурс</li><li>перекрываем утечки</li><li>восстанавливаем силы</li><li>ставим предохранители от откатов</li></ul><p class="day-note">Результат:</p><ul class="dl dl-r"><li>Вы полны энергии</li><li>Сил хватает на всё</li><li>Вы больше не откатываетесь в старые реакции</li></ul></article><article class="day rv" id="day2"><div class="day-img"><img src="img/244885c66a.webp" alt="" loading="lazy"></div><div class="day-h"><span class="day-n">03</span><span class="day-l">день</span><span class="live">LIVE</span></div><p class="day-d">27 ноября</p><h3>Новая реальность</h3><p class="dl-h">Переходим в новое состояние:</p><ul class="dl"><li>проверяем цель на истинность</li><li>выстраиваем прямой путь к реализации вашего желания</li><li>убираем сопротивление и саботаж</li></ul><p class="day-note">Результат:</p><ul class="dl dl-r"><li>У вас на руках пошаговый план по достижению своей цели</li><li>От идеи до реализации минимум времени: подумал(а) → сделал(а)</li></ul></article><article class="day rv vip" id="day3"><div class="day-img"><img src="img/d77989d743.webp" alt="" loading="lazy"></div><div class="day-h"><span class="day-n">04</span><span class="day-l">день</span><span class="live">VIP · LIVE</span></div><p class="day-d">28 ноября</p><h3>Магнит для&nbsp;масштаба</h3><p class="dl-h">Переходим в состояние, где:</p><ul class="dl"><li>всё в жизни даётся легко и без усилий</li><li>возможности сами находят вас</li><li>чудеса случаются с вами каждый день</li></ul><p class="day-note">Если вы когда-нибудь встречали людей, про которых думали: «Вот бы мне так везло», то на этом эфире вы сможете перейти в это состояние.</p></article></div>
+ <div class="center-cta"><button type="button" class="btn" data-open="">Записаться на&nbsp;практикум<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></i></button></div>
 </div></section>
 
 <section class="film-sec"><div class="wrap au">
- <div class="au-ph rv"><img src="img/d4512e7cea.webp" alt="Анна Саба" loading="lazy"><p>Основатель «Института психического здоровья доктора Анны Саба»</p></div>
- <div><p class="kick">Кто ведёт программу</p><h2 class="rv">Анна Саба<small>Врач-психиатр, психотерапевт</small></h2>
+ <div class="au-ph rv"><img src="img/anna-au-smile.webp" alt="Анна Саба" loading="lazy"><p>Основатель «Института психического здоровья доктора&nbsp;Анны&nbsp;Саба»</p></div>
+ <div><p class="kick">Кто ведёт программу</p><h2 class="rv">Анна&nbsp;Саба<small>Врач-психиатр, психотерапевт</small></h2>
   <div class="au-st rv"><div><b><span data-count="10">10</span>+</b><span>лет практики</span></div><div><b><span data-count="7000">7000</span>+</b><span>клиентов</span></div><div><b><span data-count="150">150</span>+</b><span>специалистов обучила</span></div></div>
-  <ul class="edu rv"><li>Московская медицинская академия им. И.М. Сеченова</li><li>НМИЦ психиатрии и наркологии им. В.П. Сербского</li><li>Факультет непрерывного медицинского образования РУДН</li></ul>
-  <button type="button" class="btn" data-open>Хочу на программу<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></div>
+  <ul class="edu rv"><li>Московская медицинская академия им. И.М.&nbsp;Сеченова</li><li>НМИЦ психиатрии и&nbsp;наркологии им. В.П.&nbsp;Сербского</li><li>Факультет непрерывного медицинского образования&nbsp;РУДН</li></ul>
+  <button type="button" class="btn" data-open="">Хочу на&nbsp;практикум<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></i></button></div>
 </div></section>
 
 <section><div class="wrap">
- <p class="kick">Результаты учеников</p><h2 class="rv">Было и стало</h2>
- <div class="cs-wrap"><div class="arr"><button type="button" data-dir="-1" aria-label="Назад"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" data-dir="1" aria-label="Вперёд"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
- <div class="cs-track"><article class="cs"><div class="cs-h"><img class="ava" src="img/77eb02b05c.webp" alt="" loading="lazy"><div><b>Светлана</b><span class="tag">тревога 5 → 1</span></div></div><p class="pt">Было</p><ul class="was"><li>Годами в голове звучало чужое «Кому ты нужна»</li><li>Не могла отстоять свои границы</li><li>Чужое мнение было важнее своего</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Говорит увереннее и отстаивает свои границы</li><li>Страх неудачи ушёл, появился азарт пробовать новое</li><li>«Главное, что я думаю о себе сама»</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/716927855f.webp" alt="" loading="lazy"><div><b>Екатерина</b><span class="tag">доход × 2,5</span></div></div><p class="pt">Было</p><ul class="was"><li>Практикующий психолог, хотелось большего</li><li>Упёрлась в потолок</li><li>Не было понимания, как оплатить рассрочку</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Доход вырос в 2,5 раза</li><li>Купила ещё одну квартиру</li><li>Запись заполнена на месяц вперёд</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/7d038953eb.webp" alt="" loading="lazy"><div><b>Татьяна</b><span class="tag">500 000 ₽</span></div></div><p class="pt">Было</p><ul class="was"><li>Впереди долг в миллион – наследство от бывшего мужа</li><li>До программы – 0 ₽</li><li>Пятидневка плюс подработка</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>После программы – 500 000 ₽</li><li>Платёж по долгу отложили до 2027 года</li><li>Пошли заказы по её цене, никто не торговался</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/d82c339dbb.webp" alt="" loading="lazy"><div><b>Анна Маркина</b><span class="tag">250 000 ₽/мес</span></div></div><p class="pt">Было</p><ul class="was"><li>Декрет, ребёнок на руках</li><li>Своего дохода нет</li><li>Тревога за будущее</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Через 2 месяца – 100 000 ₽/мес</li><li>Через 6 месяцев – 250 000 ₽/мес</li><li>Занимается любимым делом, совмещает с декретом</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/87764a16ed.webp" alt="" loading="lazy"><div><b>Ольга</b><span class="tag">от 100 000 ₽/мес</span></div></div><p class="pt">Было</p><ul class="was"><li>Инженер-конструктор, в 49 выучилась на массажиста</li><li>Поняла, что физически долго так не сможет</li><li>Не понимала, чем заниматься дальше</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>На основной работе доход вырос на 50%</li><li>Доп. доход от практики ДПДГ 3.0 – от 100 000 ₽/мес</li><li>Решилась на ремонт за 5 миллионов</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/084bab18c9.webp" alt="" loading="lazy"><div><b>Анаит</b><span class="tag">чек выше</span></div></div><p class="pt">Было</p><ul class="was"><li>Хотела заработать конкретную сумму</li><li>Не проявлялась, и деньги не шли</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Через 2 недели подняла чек</li><li>Собрала свой курс</li><li>Посты начали писаться легко</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/fd436e5881.webp" alt="" loading="lazy"><div><b>Гульфия</b><span class="tag">своя жизнь</span></div></div><p class="pt">Было</p><ul class="was"><li>Чувствовала, что всем должна, убирала свои желания</li><li>Работала там, где не нравилось</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Ушла с нелюбимой работы</li><li>Начала слышать себя и понимать, чего хочет</li><li>Наладила отношения с отцом</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/7b2fe5a159.webp" alt="" loading="lazy"><div><b>Ольга</b><span class="tag">10 000 ₽ за встречу</span></div></div><p class="pt">Было</p><ul class="was"><li>Доход 0 ₽, только накопления от прошлой работы</li><li>Страх перед неизвестностью</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Освоила новую профессию с нуля</li><li>Одна встреча с клиентом – 10 000 ₽</li><li>Поняла, что хочет быть психологом</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/840b5b56c2.webp" alt="" loading="lazy"><div><b>Светлана</b><span class="tag">чек 30 000 ₽</span></div></div><p class="pt">Было</p><ul class="was"><li>Хотела набрать практику и закрепить знания</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Стала увереннее, чек вырос до 30 000 ₽</li><li>Отношения стали лучше: научилась говорить словами, а не молчать</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/59ec69540c.webp" alt="" loading="lazy"><div><b>Ксения</b><span class="tag">своё дело</span></div></div><p class="pt">Было</p><ul class="was"><li>Давно хотела получить профессию психолога</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Закрыла рассрочку, пока ещё училась</li><li>Делает то, что чувствует, не подстраиваясь под чужие ожидания</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/d2ba8f3ed0.webp" alt="" loading="lazy"><div><b>Кристина</b><span class="tag">клиенты сами</span></div></div><p class="pt">Было</p><ul class="was"><li>Опыта в психологии нет</li><li>Клиентов 0, доход 0</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Клиенты приходят сами, по рекомендациям</li><li>Появились планы на свои программы</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/6729f4bb12.webp" alt="" loading="lazy"><div><b>Аминат</b><span class="tag">своя система</span></div></div><p class="pt">Было</p><ul class="was"><li>Хотела помогать женщинам, но не хватало навыков</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Перестала спасать клиенток: видит в них сильных людей</li><li>Выстроила свою систему работы с клиентами</li></ul></article></div><div class="dots"></div></div>
+ <p class="kick">Результаты учеников</p><h2 class="rv">Было и&nbsp;стало</h2>
+ <div class="cs-wrap"><div class="arr"><button type="button" data-dir="-1" aria-label="Назад"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button><button type="button" data-dir="1" aria-label="Вперёд"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div>
+ <div class="cs-track"><article class="cs"><div class="cs-h"><img class="ava" src="img/716927855f.webp" alt="" loading="lazy"><div><b>Екатерина</b><span class="tag">доход × 2,5</span></div></div><p class="pt">Было</p><ul class="was"><li>Практикующий психолог, хотелось&nbsp;большего</li><li>Упёрлась в финансовый потолок</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Доход вырос в&nbsp;2,5&nbsp;раза</li><li>Купила ещё одну&nbsp;квартиру</li><li>Запись заполнена на&nbsp;месяц&nbsp;вперёд</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/7d038953eb.webp" alt="" loading="lazy"><div><b>Татьяна</b><span class="tag">500&nbsp;000&nbsp;₽</span></div></div><p class="pt">Было</p><ul class="was"><li>Предстояла выплата не своего долга в 1 млн ₽ – наследство от&nbsp;бывшего умершего мужа</li><li>Накопления до программы -- 0&nbsp;₽</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Накопления после программы -- 500&nbsp;000&nbsp;₽</li><li>Чудесным образом платёж по долгу перенесли на полгода</li><li>Начала получать заказы на свои услуги по новой повышенной цене</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/d82c339dbb.webp" alt="" loading="lazy"><div><b>Анна Маркина</b><span class="tag">250&nbsp;000&nbsp;₽/мес</span></div></div><p class="pt">Было</p><ul class="was"><li>Декрет, ребёнок на&nbsp;руках, развод с мужем</li><li>Дохода нет</li><li>Тревога за&nbsp;будущее</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Через 2&nbsp;месяца&nbsp;вышла на 100&nbsp;000&nbsp;₽/мес</li><li>Через 6&nbsp;месяцев&nbsp;вышла на 250&nbsp;000&nbsp;₽/мес</li><li>Занимается любимым делом, совмещает работу с&nbsp;декретом</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/87764a16ed.webp" alt="" loading="lazy"><div><b>Ольга</b><span class="tag">от&nbsp;100&nbsp;000&nbsp;₽/мес</span></div></div><p class="pt">Было</p><ul class="was"><li>Инженер-конструктор</li><li>Не&nbsp;понимала, чем&nbsp;заниматься дальше</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>На&nbsp;основной работе доход вырос на&nbsp;50%</li><li>Отучилась на психолога и достигла доп. дохода от консультирования – от&nbsp;100&nbsp;000&nbsp;₽/мес</li><li>Сделала ремонт за&nbsp;5&nbsp;миллионов</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/084bab18c9.webp" alt="" loading="lazy"><div><b>Анаит</b><span class="tag">чек выше</span></div></div><p class="pt">Было</p><ul class="was"><li>Хотела заработать конкретную&nbsp;сумму</li><li>Не&nbsp;проявлялась, деньги не&nbsp;шли</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Через 2&nbsp;недели подняла&nbsp;чек, увеличился доход</li><li>Создала свой курс</li><li>Начала проявляться в соц. сетях</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/fd436e5881.webp" alt="" loading="lazy"><div><b>Гульфия</b><span class="tag">своя жизнь</span></div></div><p class="pt">Было</p><ul class="was"><li>Чувствовала, что&nbsp;всем должна, убирала свои&nbsp;желания на второй план</li><li>Работала там, где не&nbsp;нравилось</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Ушла с&nbsp;нелюбимой работы</li><li>Начала слышать себя и&nbsp;понимать, чего&nbsp;хочет</li><li>Наладила отношения с&nbsp;близкими</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/7b2fe5a159.webp" alt="" loading="lazy"><div><b>Ольга</b><span class="tag">10&nbsp;000&nbsp;₽ за&nbsp;встречу</span></div></div><p class="pt">Было</p><ul class="was"><li>Доход 0&nbsp;₽, только накопления от&nbsp;прошлой&nbsp;работы</li><li>Страх за будущее</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>С нуля освоила новую профессию EMDR-терапевта</li><li>Сейчас 1 час консультирования стоит 10&nbsp;000&nbsp;₽</li><li>Клиенты идут, есть стабильный доход</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/840b5b56c2.webp" alt="" loading="lazy"><div><b>Светлана</b><span class="tag">чек 30&nbsp;000&nbsp;₽</span></div></div><p class="pt">Было</p><ul class="was"><li>Практикующий психолог, хотела набраться практического опыта и закрепить знания</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Стала увереннее, чек за 1 час консультации вырос до&nbsp;30&nbsp;000&nbsp;₽</li><li>Улучшились отношения с партнёром</li></ul></article><article class="cs"><div class="cs-h"><img class="ava" src="img/77eb02b05c.webp" alt="" loading="lazy"><div><b>Светлана</b><span class="tag">тревога 5 →&nbsp;1</span></div></div><p class="pt">Было</p><ul class="was"><li>Годами в&nbsp;голове звучало: «Кому ты&nbsp;нужна?»</li><li>Не&nbsp;могла отстоять свои&nbsp;границы</li><li>Чужое мнение было важнее&nbsp;своего</li></ul><p class="pt pt-b">Стало</p><ul class="now"><li>Говорит увереннее, отстаивает свои&nbsp;границы</li><li>Ушла тревога и страх неудачи, появился азарт пробовать&nbsp;новое</li><li>Появилась опора на себя</li></ul></article></div><div class="dots"></div></div>
 </div></section>
 
 <section class="film-sec"><div class="wrap">
- <div class="center"><p class="kick">Если оставить всё как есть</p><h2 class="rv">Во что обходится жизнь по старому сценарию</h2></div>
- <div class="sgrid"><article class="sy rv"><span class="sy-n">01</span><div class="rep"><div class="rep-t"><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i></div><span>понедельник · понедельник · понедельник</span></div><h3>Решит привычка</h3><p>Утро, дорога, разговоры и траты идут по накатанной.</p><p class="mark">И с каждым таким днём старый сценарий крепнет.</p></article><article class="sy rv"><span class="sy-n">02</span><div class="phone"><div class="ph-feed"><i style="background-image:url(img/b75a06c47c.webp)"></i><i style="background-image:url(img/f1e7287f86.webp)"></i><i style="background-image:url(img/5648f22be7.webp)"></i><i style="background-image:url(img/b75a06c47c.webp)"></i><i style="background-image:url(img/f1e7287f86.webp)"></i><i style="background-image:url(img/5648f22be7.webp)"></i></div><span class="ph-like">♡ сохранено</span></div><h3>Мечта в ленте</h3><p>Квартира, море, любимое дело так и лежат картинками в телефоне. Смотреть на них приятно.</p><p class="mark">Только каждое «потом» отодвигает их ещё немного.</p></article><article class="sy rv"><span class="sy-n">03</span><div class="hg"><svg viewBox="0 0 80 120" aria-hidden="true"><path d="M14 6h52M14 114h52M18 6c0 30 44 30 44 54S18 84 18 114M62 6c0 30-44 30-44 54s44 24 44 54" class="hg-f"/><path d="M24 14h32c-2 14-14 20-16 30-2-10-14-16-16-30z" class="hg-top"/><path d="M40 62v40" class="hg-s"/><path d="M22 110c4-12 12-16 18-16s14 4 18 16z" class="hg-bot"/></svg><div class="rg"><p><small>Сразу после события</small>жалеют о сделанном</p><p class="on"><small>Спустя годы</small>жалеют о том, на что не решились</p></div></div><h3>Сожаление копится тихо</h3><p>Психологи Корнеллского университета выяснили: сразу после события люди жалеют о сделанном, а спустя годы – о том, на что так и не решились.</p><p class="mark">Гилович и Медвек, 1995</p></article><article class="sy rv"><span class="sy-n">04</span><div class="ba"><div class="ba-a" style="background-image:url(img/46f5b35470.webp)"><span>тот же день</span></div><div class="ba-b" style="background-image:url(img/b75a06c47c.webp)"><span>новая реальность</span></div><i class="ba-l"></i></div><h3>Четыре дня всё равно пройдут</h3><p>Потом наступит обычное утро. Одни встретят его теми же, что вчера.</p><p class="mark">Другие за эти дни сделают четыре шага в новую реальность.</p></article></div>
+ <div class="center"><p class="kick">Что будет, если оставить всё как&nbsp;есть</p><h2 class="rv">Реальность<div>большинства выглядит так</div></h2></div>
+ <div class="sgrid"><article class="sy rv"><span class="sy-n">01</span><div class="rep"><div class="rep-t"><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i><i style="background-image:url(img/46f5b35470.webp)"></i></div><span>понедельник · понедельник ·&nbsp;понедельник</span></div><h3>День сурка</h3><p>Каждый день одно и то же, усталость, разочарование, ощущение упущенного времени</p><p class="mark">Каждый день разочарование укрепляется в сознании</p></article><article class="sy rv"><span class="sy-n">02</span><div class="phone"><div class="ph-feed"><i style="background-image:url(img/b75a06c47c.webp)"></i><i style="background-image:url(img/f1e7287f86.webp)"></i><i style="background-image:url(img/5648f22be7.webp)"></i><i style="background-image:url(img/b75a06c47c.webp)"></i><i style="background-image:url(img/f1e7287f86.webp)"></i><i style="background-image:url(img/5648f22be7.webp)"></i></div><span class="ph-like">♡ сохранено</span></div><h3>Мечты остаются в карте желаний</h3><p>Путешествия, недвижимость, красивая жизнь -- в мыслях, в визуализациях, в мечтах, у подруг или знакомых, но не в вашей реальности</p><p class="mark">Каждый раз, когда человек откладывает изменения, он предаёт себя</p></article><article class="sy rv"><span class="sy-n">03</span><div class="hg"><svg viewBox="0 0 80 120" aria-hidden="true"><path d="M14 6h52M14 114h52M18 6c0 30 44 30 44 54S18 84 18 114M62 6c0 30-44 30-44 54s44 24 44 54" class="hg-f"></path><path d="M24 14h32c-2 14-14 20-16 30-2-10-14-16-16-30z" class="hg-top"></path><path d="M40 62v40" class="hg-s"></path><path d="M22 110c4-12 12-16 18-16s14 4 18 16z" class="hg-bot"></path></svg><div class="rg"><p><small>ЧТО-ТО СДЕЛАЛИ</small>жалеете</p><p class="on"><small>НЕ РЕШИЛИСЬ НА ЧТО-тО</small>спустя годы&nbsp;жалеете</p></div></div><h3>Внутри копится разочарование</h3><p>Время идёт, и вам кажется, что уже поздно что-то менять, угнетающие чувства становятся регулярными (тревога, страх, обида, вина, стыд)</p></article><article class="sy rv"><span class="sy-n">04</span><div class="ba"><div class="ba-a" style="background-image:url(img/46f5b35470.webp)"><span>тот же&nbsp;день</span></div><div class="ba-b" style="background-image:url(img/b75a06c47c.webp)"><span>новая реальность</span></div><i class="ba-l"></i></div><h3>Пропустите практикум, и гарантированно ничего не изменится</h3><p>А с практикумом у вас хотя бы есть шанс перейти в новую реальность -- это бесплатно</p><p class="mark">Практикум создан врачом с клиническим опытом более 10 лет, а не блогером.</p></article></div>
 </div></section>
 
 <section class="gift"><div class="wrap gift-w">
- <div><p class="kick">После регистрации</p><h2 class="rv">Ваш личный билет с подарком</h2>
-  <p class="lead rv">Сразу после регистрации в Telegram придёт личный билет с вашим именем. В каждом билете спрятан свой подарок, и он у всех разный.</p>
-  <p class="gift-hl rv">В билете – <b>один из 6 вебинаров</b> Анны Саба</p>
-  <div class="gift-cta rv"><button type="button" class="btn" data-open>Получить свой билет<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></div></div>
+ <div><p class="kick">ПОМИМО 3-х БОНУСОВ После регистрации ВЫ ПОЛУЧИТЕ</p><h2 class="rv">Персональный билет с&nbsp;подарком</h2>
+  <p class="lead rv">На электронную почту и в мессенджер вам придёт персонализированный билет с&nbsp;вашим именем. В&nbsp;каждом билете спрятан уникальный подарок.</p>
+  <p class="gift-hl rv">Подарок поможет вам усилить эффект от практикума</p>
+  <div class="gift-cta rv"><button type="button" class="btn" data-open="">Получить свой билет<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></i></button></div></div>
  <div class="tk-stage" aria-hidden="true">
   <div class="tk tk-back2"></div><div class="tk tk-back"></div>
   <div class="tk tk-main"><img class="tk-art" src="img/6258412b23.webp" alt=""><i class="holo"></i>
-   <div class="tk-l"><div class="tk-top"><span class="tk-logo"></span><p class="tk-k">Лаборатория новой реальности<br><span>Анна Саба · 23–26 ноября</span></p></div>
-    <p class="tk-for">Именной билет</p><p class="tk-name" id="tkname">Мария</p>
-    <div class="tk-gift"><small>Ваш подарок</small><b id="tkgift">Вебинар «Я и моя тень»</b><i class="scr"></i></div></div>
+   <div class="tk-l"><div class="tk-top"><span class="tk-logo"></span><p class="tk-k">Лаборатория новой реальности<br><span>Анна&nbsp;Саба ·&nbsp;25–28 ноября</span></p></div>
+    <p class="tk-for">Именной билет</p><p class="tk-name" id="tkname">Наталья</p>
+    <div class="tk-gift"><small>Ваш подарок</small><b id="tkgift">Вебинар «Я&nbsp;и&nbsp;моя&nbsp;тень»</b><i class="scr"></i></div></div>
    <div class="tk-r"><span>№</span><b id="tkno">0147</b><div class="bar"></div><span class="adm">ADMIT ONE</span></div></div>
  </div>
 </div></section>
@@ -1071,31 +1484,33 @@ html,body{overflow-x:clip}
 <section id="price"><div class="wrap">
  <div class="center"><p class="kick">Участие</p><h2 class="rv">Выберите вариант участия</h2></div>
  <div class="tf">
-  <article class="tc rv"><div class="tk-stub"><span>Билет</span><b>№ 0001</b></div><p class="nm">Бесплатно</p><h3>Участие</h3><ul><li>3 прямых эфира, старт 23 ноября</li><li>Домашние задания</li><li>Дополнительные бонусные материалы</li><li>Чат участников программы</li><li>Участие в розыгрыше призов</li></ul>
-   <div class="price"><b>0 ₽</b><s>990 ₽</s></div><button type="button" class="btn" data-open>Иду за 0 ₽<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></article>
-  <article class="tc vip rv"><div class="tk-stub"><span>VIP-билет</span><b>№ 0001</b></div><p class="nm">VIP</p><h3>Всё и сразу</h3><ul><li>3 прямых эфира, старт 23 ноября</li><li>4-й VIP-эфир «Магнит для масштаба»</li><li>Записи и презентации эфиров</li><li>Домашние задания и бонусные материалы</li><li>Чат участников, розыгрыш призов</li></ul>
-   <div class="bonus"><b>Бонус</b><p>Практика на 30 минут «Прочувствуй свою новую реальность и узнай, что тебе не даёт в неё перейти»</p></div>
-   <div class="bonus"><b>Бонус</b><p>Личный разбор-диагностика вашей ситуации: деньги, отношения, реализация, предназначение, здоровье. Вы получите пошаговый план без розовых очков.<small>Разборы проводят действующие психологи, выпускники Института психического здоровья доктора Анны Саба. Средняя цена консультации психологов такого уровня от 15 000 ₽.</small></p></div>
-   <div class="bonus"><b>Бонус</b><p>Мастер-класс: как выйти на новый уровень дохода, энергии и отношений и за 6 месяцев освоить профессию EMDR-терапевта с доходом от 300 000 ₽.</p></div>
-   <div class="price"><b>1 980 ₽</b><s>14 990 ₽</s></div><button type="button" class="btn" data-open>Иду на VIP<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></article>
+  <article class="tc rv"><div class="tk-stub"><span>STANDART-Билет</span><b>№ 0001</b></div><p class="nm">Бесплатно</p><h3>Участие</h3><ul><li>3&nbsp;прямых эфира</li><li>Домашние задания после эфиров</li><li>Дополнительные бонусные материалы</li><li>Чат участников практикума</li><li>Участие в&nbsp;розыгрыше призов</li></ul>
+   <div class="price"><b>0&nbsp;₽</b><s>990&nbsp;₽</s></div><button type="button" class="btn" data-open="">Иду за&nbsp;0&nbsp;₽<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></i></button></article>
+  <article class="tc vip rv"><div class="tk-stub"><span>VIP-билет</span><b>№ 0001</b></div><p class="nm">VIP</p><h3>Всё и&nbsp;сразу</h3><ul><li>3&nbsp;прямых эфира</li><li>4-й VIP-эфир -- «Магнит для&nbsp;масштаба»</li><li>Записи и&nbsp;презентации всех эфиров</li><li>Домашние задания и дополнительные бонусные материалы</li><li>Чат участников практикума и участие в розыгрыше призов</li></ul>
+   <div class="bonus"><b>Бонус</b><p>Практика на 60&nbsp;минут «Прочувствуй свою новую реальность и&nbsp;узнай, что&nbsp;тебе не&nbsp;даёт в&nbsp;неё&nbsp;перейти»</p></div>
+   <div class="bonus"><b>Бонус</b><p>Личный разбор-диагностика вашей ситуации от практикующего психолога: деньги, отношения, реализация, предназначение, здоровье. Вы&nbsp;получите пошаговый план без&nbsp;розовых очков.<small>Разборы проводят действующие психологи, выпускники Института психического здоровья доктора&nbsp;Анны&nbsp;Саба. Средняя цена консультации психологов такого уровня от&nbsp;15&nbsp;000&nbsp;₽ (для вас по&nbsp;цене&nbsp;VIP-тарифа).</small></p></div>
+   <div class="bonus"><b>Бонус</b><p>Мастер-класс: как с нуля за&nbsp;6&nbsp;месяцев освоить востребованную профессию EMDR-терапевта, помогать себе, родным, близким, выстроить очередь из клиентов и выйти на доход от&nbsp;300&nbsp;000&nbsp;₽/мес.</p></div>
+   <div class="price"><b>1&nbsp;980&nbsp;₽</b><s>14&nbsp;990&nbsp;₽</s></div><button type="button" class="btn" data-open="">Иду на&nbsp;VIP<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></i></button></article>
  </div>
 </div></section>
 
-<section class="film-sec"><div class="wrap">
- <div class="center"><p class="kick">Вопросы</p><h2 class="rv">Частые вопросы</h2></div>
- <div class="fqs"><details class="fq rv"><summary>Сколько это стоит?<span class="pl"></span></summary><p>Участие в трёх эфирах бесплатное. Четвёртый эфир, записи и личный разбор входят в VIP-участие.</p></details><details class="fq rv"><summary>Когда эфиры?<span class="pl"></span></summary><p>С 23 по 25 ноября – три прямых эфира. 26 ноября – VIP-эфир «Магнит для масштаба». Ссылки придут в Telegram.</p></details><details class="fq rv"><summary>Нужны знания психологии?<span class="pl"></span></summary><p>Нет. Анна объясняет простым языком и ведёт каждую практику голосом, шаг за шагом.</p></details><details class="fq rv"><summary>Это эзотерика?<span class="pl"></span></summary><p>Нет. Анна – врач-психиатр, психотерапевт. Практики программы опираются на то, как работают мозг и внимание.</p></details><details class="fq rv"><summary>Я уже проходила много программ. Почему эта сработает?<span class="pl"></span></summary><p>На эфирах вы не только слушаете, а сразу делаете практику и чувствуете изменение состояния. Программа работает, даже если вы уже не верите, что у вас получится.</p></details><details class="fq rv"><summary>Что если я пропущу эфир?<span class="pl"></span></summary><p>Записи всех эфиров навсегда входят в VIP-участие. В бесплатном участии лучше смотреть эфиры вживую.</p></details></div>
+<section class="emdr"><div class="wrap">
+ <p class="kick">Метод, который мы будем использовать на&nbsp;практикуме</p>
+ <h2 class="rv">Что такое <span class="em-nw">EMDR-терапия</span> <span class="em-mut">(Метод&nbsp;ДПДГ)</span></h2>
+ <p class="em-decode rv"><b>ДПДГ</b> расшифровывается как «Десенсибилизация и&nbsp;Переработка Движением Глаз» (англ. <b>EMDR</b>&nbsp;– Eye Movement Desensitization and&nbsp;Reprocessing).</p>
+ <div class="em-text"><p class="rv">Каждую ночь, когда нам снятся сны, глаза быстро двигаются из&nbsp;стороны в&nbsp;сторону. В&nbsp;эти моменты мозг наводит порядок: раскладывает по&nbsp;полочкам всё, что&nbsp;случилось за&nbsp;день, и&nbsp;спокойно «переваривает» даже сильные переживания. Поэтому наутро вчерашнее уже&nbsp;не&nbsp;так&nbsp;цепляет.</p><p class="rv">Но&nbsp;если событие было слишком тяжёлым, мозг не&nbsp;успевает его доработать. Воспоминание как&nbsp;будто <b>застревает</b> – и&nbsp;потом любая мелочь, которая его напоминает, снова включает тревогу, страх или боль. Будто всё происходит прямо&nbsp;сейчас.</p><p class="rv">EMDR (ДПДГ) запускает ровно тот же&nbsp;процесс, что&nbsp;и&nbsp;во&nbsp;сне, только наяву. Вы&nbsp;возвращаетесь к&nbsp;трудному моменту и&nbsp;совершаете действия по&nbsp;нужному протоколу – и&nbsp;мозг наконец доделывает то, что&nbsp;не&nbsp;успел. Воспоминание остаётся, но&nbsp;<b>перестаёт ранить</b> и&nbsp;управлять&nbsp;вами.</p><p class="rv">Метод работает с&nbsp;<b>причиной, а&nbsp;не&nbsp;только с&nbsp;симптомами</b>. Не&nbsp;нужно годами заново проговаривать боль – поэтому результат приходит <b>быстро и&nbsp;держится&nbsp;долго</b>.</p></div>
+ <div class="em-pts"><article class="em-pt rv"><span class="em-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"></path></svg></span><p><b>Рекомендован Всемирной организацией здравоохранения</b> (ВОЗ) как&nbsp;самый быстрый и&nbsp;эффективный метод проработки&nbsp;травм</p></article><article class="em-pt rv"><span class="em-ic"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"></path></svg></span><p>Быстро&nbsp;и&nbsp;<b>БЕЗ&nbsp;ОТКАТОВ</b></p></article><article class="em-pt rv"><span class="em-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13A4 4 0 0119 7"></path></svg></span><p><b>Единственный метод, позволяющий</b> помогать близким (в&nbsp;том числе&nbsp;детям)</p></article></div>
 </div></section>
 
 <section class="fin"><div class="wrap">
- <p class="kick" style="justify-content:center">23–26 ноября · бесплатно</p>
- <h2>Где вы будете <span class="gl">через 4&nbsp;дня?</span></h2>
- <p class="lead rv">Можно и дальше жить по привычному сценарию: он знаком до мелочей. А можно 23 ноября прийти на первый эфир и уже вечером почувствовать, как меняется ваше состояние.</p>
- <button type="button" class="btn" data-open>Зарегистрироваться бесплатно<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button>
+ <p class="kick" style="justify-content:center">Последний аргумент</p>
+ <h2><span class="gl"><font color="#23190d"><span style="caret-color: rgb(35, 25, 13);">Вы еще думаете</span></font>?</span></h2>
+ <p class="lead rv">Можно и&nbsp;дальше жить с угнетающими чувствами, ходить по кругу и ждать, что кто-то вам спасёт. А&nbsp;можно 25 ноября прийти на&nbsp;1-й эфир и сделать реальное действие к жизни мечты в кругу единомышленников с поддержкой специалистов.</p>
+ <button type="button" class="btn" data-open="">Зарегистрироваться бесплатно<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></i></button>
 </div></section>
 
-<footer><div class="wrap">© 2026 ООО «Институт психического здоровья доктора Анны Саба» · ОГРН 1257700442911 · ИНН 7751373785<br>Эл. почта: DR.ANNASABA@YANDEX.RU · Телефон: +7 917 039 6100 · <a href="https://ipzdas.ru/politika">Политика обработки персональных данных</a><br>Программа не заменяет консультацию врача. Результаты участия индивидуальны.</div></footer>
+<footer><div class="wrap">© 2026&nbsp;ООО «Институт психического здоровья доктора&nbsp;Анны&nbsp;Саба» · ОГРН 1257700442911 · ИНН 7751373785<br>Эл. почта: DR.ANNASABA@YANDEX.RU · Телефон: +7&nbsp;917&nbsp;039 6100 · <a href="https://ipzdas.ru/politika">Политика обработки персональных данных</a><br>Программа не&nbsp;заменяет консультацию врача. Результаты участия индивидуальны.</div></footer>
 
-<div class="sbar" id="sbar"><div class="sb-main"><b>Бесплатно</b><span>23–26 ноября</span></div><div class="sb-ntf" aria-live="polite"><i></i><p></p></div><button type="button" class="btn" data-open>Записаться<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button></div>
 <div class="md" id="md"><div class="md-box" role="dialog" aria-modal="true" aria-labelledby="mdt"><button type="button" class="md-x" id="mdx" aria-label="Закрыть">×</button>
  <h3 id="mdt">Участие VIP</h3>
  <p class="lead">Оформление VIP пока недоступно. Заявки на VIP здесь не принимаются.</p>
@@ -1111,7 +1526,7 @@ function count(el){const raw=el.dataset.count,num=parseFloat(raw.replace(',','.'
 // sphere chooser
 const SP=[["Доход", "Выйти на новый уровень дохода", "позволять себе больше, чувствовать свободу выбора и кайфовать от того, что можете позволить себе то, что хотите"], ["Отношения", "Построить счастливые отношения", "чтобы рядом был мужчина, который заботится, дарит подарки, носит на руках и берёт на себя всю ответственность"], ["Пара", "Прожить второй медовый месяц", "чтобы в пару вернулась близость и улучшилось качество отношений с партнёром"], ["Предназначение", "Реализовать свой потенциал", "и найти своё предназначение"], ["Энергия", "Жить с высоким уровнем энергии", "чтобы сил хватало на все дела"], ["Здоровье", "Улучшить здоровье", "если давно есть проблемы, но не получается их решить, а врачи разводят руками"]],pick=$('#pick');
 $$('.fr').forEach(b=>b.addEventListener('click',()=>{$$('.fr').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-pressed','false')});b.classList.add('on');b.setAttribute('aria-pressed','true');
- const s=SP[+b.dataset.i];pick.innerHTML='<h3>'+s[1]+'</h3><p>'+s[2].charAt(0).toUpperCase()+s[2].slice(1)+'. Этот кадр мы и\u00a0будем собирать вместе с\u00a0вами 4\u00a0дня.</p><button type="button" class="btn" data-open>Зарегистрироваться бесплатно<i>'+'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'+'</i></button>';
+ const s=SP[+b.dataset.i],ed=$('.sp-src [data-sp="'+b.dataset.i+'"]'),eh=ed&&$('h3',ed),ep=ed&&$('p',ed);pick.innerHTML='<h3>'+(eh?eh.innerHTML:s[1])+'</h3><p>'+(ep?ep.innerHTML:s[2].charAt(0).toUpperCase()+s[2].slice(1)+'. Этот кадр мы и\u00a0будем собирать вместе с\u00a0вами 4\u00a0дня.')+'</p><button type="button" class="btn" data-open>Зарегистрироваться бесплатно<i>'+'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'+'</i></button>';
  pick.classList.remove('in');void pick.offsetWidth;pick.classList.add('in');pick.querySelector('[data-open]').addEventListener('click',openM)}));
 $('.fr').click();
 // day tabs
@@ -1130,13 +1545,10 @@ const m=$('#md');function openM(e){
 function closeM(){m.classList.remove('open');document.body.style.overflow=''}
 $$('[data-open]').forEach(b=>b.addEventListener('click',openM));$('#mdx').addEventListener('click',closeM);
 m.addEventListener('click',e=>{if(e.target===m)closeM()});addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
-
 // personal ticket demo
 const NM=['Мария','Елена','Ольга','Анна','Наталья','Ирина'],GF=["Вебинар «Личные границы и сексуальность»", "Вебинар «Иллюзия контроля, как усмирить эго»", "Вебинар «Депрессия ближе, чем кажется»", "Вебинар «Я и моя тень»", "Вебинар «Секреты семейного счастья»", "Вебинар «Почему мы ничего не должны родителям?»"];let ti=0;const tn=$('#tkname'),tg=$('#tkgift'),tno=$('#tkno'),tm=$('.tk-main');
 if(tm&&!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(()=>{ti++;tm.classList.add('flip');setTimeout(()=>{tn.textContent=NM[ti%NM.length];tg.textContent=GF[ti%GF.length];tno.textContent=String(147+ti*311%9000).padStart(4,'0');tm.classList.remove('flip')},450)},2600);
-// sticky bottom CTA after hero, hidden while modal open or at final section
-const sbar=$('#sbar');if(sbar){const hero=$('.hero'),fin=$('.fin');let hv=true,fv=false;const upd=()=>sbar.classList.toggle('on',!hv&&!fv&&!document.body.classList.contains('lock'));
- new IntersectionObserver(es=>{hv=es[0].isIntersecting;upd()}).observe(hero);if(fin)new IntersectionObserver(es=>{fv=es[0].isIntersecting;upd()}).observe(fin);addEventListener('scroll',upd,{passive:true})}
+{const o=$('.orbit');if(o&&matchMedia('(prefers-reduced-motion:reduce)').matches&&o.pauseAnimations){o.pauseAnimations();o.setCurrentTime(1.2)}}
 // cases: «Было» / «Стало» on one level across cards
 const eqc=()=>{const w=$$('.cs .was');w.forEach(x=>x.style.minHeight='');if(innerWidth<981)return;const m=Math.max(...w.map(x=>x.offsetHeight));w.forEach(x=>x.style.minHeight=m+'px')};eqc();addEventListener('resize',eqc);
 // journey: figure walks the path, grows at each live
@@ -1162,20 +1574,66 @@ if(jp&&man){const L=jp.getTotalLength(),ST=[[50,590],[110,490],[50,380],[110,270
 {const g=$('.dgrid');if(g){const ds=[...g.querySelectorAll('.day')],ts=$$('.dtab');
  ts.forEach((b,i)=>b.addEventListener('click',()=>{if(innerWidth<=980)g.scrollTo({left:ds[i].offsetLeft-20,behavior:'smooth'})}));
  g.addEventListener('scroll',()=>{if(innerWidth>980)return;const i=Math.round(g.scrollLeft/(ds[0].offsetWidth+12));ts.forEach((b,k)=>b.classList.toggle('on',k===i))},{passive:true})}}
-// bottom bar turns into a short notice every 30 s
-{const sb=$('#sbar'),np=sb&&sb.querySelector('.sb-ntf p');if(np){const N=['Марина','Ольга','Елена','Наталья','Ирина','Светлана','Татьяна','Юлия','Анастасия','Екатерина','Алёна','Оксана','Дарья','Ксения','Виктория'];
- const A=['записалась на практикум', 'получила билет', 'выиграла вебинар «Личные границы и сексуальность»', 'выиграла вебинар «Иллюзия контроля, как\u00a0усмирить\u00a0эго»', 'выиграла вебинар «Депрессия ближе, чем кажется»', 'выиграла вебинар «Я и моя тень»', 'выиграла вебинар «Секреты семейного счастья»', 'выиграла вебинар «Почему мы ничего не должны родителям?»'];
- let i=Math.floor(Math.random()*N.length),j=Math.floor(Math.random()*A.length);const show=()=>{if(!sb.classList.contains('on'))return;np.innerHTML='<b>'+N[i++%N.length]+'</b> '+A[j++%A.length];sb.classList.add('ntf');setTimeout(()=>sb.classList.remove('ntf'),5000)};
- setTimeout(()=>{show();setInterval(show,30000)},9000)}}
 })();
-</script>
+</script><script>
+/* edits 20.10: first screen auto-fit - hero photo absorbs spare height on any phone */
+(function(){
+ function fit(){
+  var m=document.querySelector('.hx .hx-media'), pr=document.querySelector('.hx .hx-pr');
+  if(!m||!pr) return;
+  if(innerWidth>700){m.style.removeProperty('--hh');return}
+  m.style.removeProperty('--hh');
+  var base=m.getBoundingClientRect().height, spare=innerHeight-pr.getBoundingClientRect().bottom-window.scrollY-12;
+  if(spare>8||spare<0){m.style.setProperty('--hh',Math.max(96,Math.min(base+spare,380))+'px')}
+ }
+ var t;function later(){clearTimeout(t);t=setTimeout(fit,120)}
+ addEventListener('load',fit);addEventListener('resize',later);addEventListener('orientationchange',later);
+ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+ fit();
+})();
+</script><style>/* 20.10 e: short phones */
+@media (max-width:700px) and (max-height:680px){.v7 .hx-gains .d{display:none}
+.hx .hx-media .who .reg .nw{display:inline!important}.hx .hx-media .who .reg .nw+.nw:before{content:' · '}
+.hx .hx-media .who{line-height:1.25!important}}</style>
+<style>#lpe-bar{width:auto!important;max-width:none!important;left:0!important;right:0!important;border-radius:0!important}
+/* 20.10 f: owner video 4 - no seams around the photo, narrower photo, faint glow at the head, small regalia */
+.hx .hx-media .hx-bgi .rays,.hx .hx-media .hx-bgi .sp{display:none!important}
+.hx .hx-media .hx-bgi{z-index:3!important;mix-blend-mode:screen}
+.hx .hx-media .hx-bgi .glow{left:auto!important;right:6%;top:-18%!important;width:46%!important;background:radial-gradient(circle,rgba(255,220,150,.16) 0,rgba(240,190,100,.06) 40%,rgba(240,190,100,0) 68%)!important;filter:blur(10px)!important;animation:none!important}
+@media (max-width:700px){
+ .hx .hx-in .hx-media .ph{max-width:54%!important;right:2%!important;-webkit-mask-image:radial-gradient(ellipse 58% 92% at 54% 36%,#000 52%,transparent 96%)!important;mask-image:radial-gradient(ellipse 58% 92% at 54% 36%,#000 52%,transparent 96%)!important}
+ .hx .hx-in .hx-media .who{max-width:50%}
+ .hx .hx-in .hx-media .who b{font-size:clamp(16px,4.4vw,19px)!important}
+ .hx .hx-in .hx-media .who .role{font-size:clamp(11.5px,3.1vw,13px)!important;margin-top:3px}
+ .hx .hx-in .hx-media .who .reg .nw{font:inherit!important;margin:0!important}
+ .hx .hx-in .hx-media .who .reg{font-size:clamp(10.5px,2.8vw,11.5px)!important;font-weight:500!important;color:#d9c9a6!important;opacity:.85;margin-top:5px}
+}
+@media (min-width:701px){.hx .hx-media .who .reg .nw{font:inherit!important}.hx .hx-media .who .reg{font-size:12.5px!important;font-weight:500!important;color:#d9c9a6!important}.hx .hx-media .who b{font-size:20px!important}.hx .hx-media .who .role{font-size:14px!important}}
+</style>
+<style>/* 20.10 g: owner 11848 - photo a bit left, living glow from Anna toward upper-left */
+@media (max-width:700px){.hx .hx-in .hx-media .ph{right:9%!important}}
+.hx .hx-media .hx-bgi .glow{display:none!important}
+.hx .hx-media .hx-bgi .aura{position:absolute;left:44%;top:-38%;width:50%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,222,150,.42) 0,rgba(240,190,100,.16) 40%,rgba(240,190,100,0) 68%);filter:blur(8px);animation:hxaura 5s ease-in-out infinite alternate}
+.hx .hx-media .hx-bgi .beam{position:absolute;left:22%;top:-26%;width:40%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,226,160,.26) 0,rgba(255,226,160,.08) 45%,rgba(255,226,160,0) 70%);filter:blur(12px);opacity:0;animation:hxbeam 7s ease-in-out infinite}
+.hx .hx-media .hx-bgi .b2{left:6%;top:-20%;width:30%;animation-delay:-3.5s}
+@keyframes hxaura{0%{transform:scale(.88) translate(0,0);opacity:.7}50%{opacity:1}100%{transform:scale(1.12) translate(-6%,3%);opacity:.85}}
+@keyframes hxbeam{0%{transform:translate(40%,10%) scale(.7);opacity:0}40%{opacity:1}100%{transform:translate(-30%,-10%) scale(1.1);opacity:0}}
+@media (min-width:701px){.hx .hx-media .hx-bgi .aura{left:25%;top:-22%;width:70%}.hx .hx-media .hx-bgi .beam{left:5%;top:-18%;width:55%}.hx .hx-media .hx-bgi .b2{left:-10%;top:-12%;width:45%}}
+@media (prefers-reduced-motion:reduce){.hx .hx-media .hx-bgi .aura,.hx .hx-media .hx-bgi .beam{animation:none;opacity:.6}}
+</style>
 <!-- Free registration only; VIP keeps its existing independent modal. -->
 <style>
 #praktikum-free{display:flex;visibility:hidden;opacity:0;pointer-events:none}
 #praktikum-free.open{visibility:visible;opacity:1;pointer-events:auto}
 #praktikum-free .md-box{max-width:520px}
 #praktikum-free .tf-ck{display:flex;gap:10px;align-items:flex-start;font-size:12px;line-height:1.45;color:var(--muted);text-align:left}
-#praktikum-free .tf-ck input{flex:none;width:18px;height:18px;margin-top:1px;accent-color:var(--gold)}
+#praktikum-free .tf-ck input{flex:none;-webkit-appearance:none;appearance:none;width:20px;height:20px;margin:0;border:1.5px solid var(--gold);border-radius:6px;background:#fff center/14px no-repeat;cursor:pointer;transition:background-color .15s,box-shadow .15s}
+#praktikum-free .tf-ck input:checked{background-color:var(--gold);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+#praktikum-free .tf-ck input:focus-visible{box-shadow:0 0 0 3px rgba(200,155,80,.3)}
+#praktikum-free .tf-ck{padding:10px 12px;border-radius:12px;background:rgba(200,155,80,.08);cursor:pointer}
+#praktikum-free .tf-ck span{padding-top:1px}
+#praktikum-free .tk-gift{max-width:100%}
+#praktikum-free .tk-gift b{display:block;font-size:13px;line-height:1.3;text-wrap:balance}
 #praktikum-free .tf-ck a{color:inherit;text-decoration:underline}
 
 #praktikum-free-widget{padding:0;border:0;box-sizing:content-box;min-height:400px;background:#23190d;border-radius:14px}
@@ -1183,8 +1641,8 @@ if(jp&&man){const L=jp.getTotalLength(),ST=[[50,590],[110,490],[50,380],[110,270
 </style>
 <div class="md" id="praktikum-free"><div class="md-box" role="dialog" aria-modal="true" aria-labelledby="praktikum-free-title">
 <button type="button" class="md-x" aria-label="Закрыть">×</button>
-<h3 id="praktikum-free-title">Регистрация на программу</h3>
-<form id="tf" class="tf-form" action="https://doctor-saba.com/pl/lite/block-public/process-html?id=2256829325" method="post" accept-charset="UTF-8"><small>Ссылки на эфиры придут в Telegram</small>
+<h3 id="praktikum-free-title">Регистрация на&nbsp;практикум</h3>
+<form id="tf" class="tf-form" action="https://doctor-saba.com/pl/lite/block-public/process-html?id=2256829325" method="post" accept-charset="UTF-8">
 <input type="hidden" name="formParams[setted_offer_id]" value="">
 <input type="hidden" name="formParams[willCreatePaidDeal]" value="">
 <input type="hidden" name="__gc__internal__form__helper" id="tf-loc" value="">
@@ -1192,18 +1650,26 @@ if(jp&&man){const L=jp.getTotalLength(),ST=[[50,590],[110,490],[50,380],[110,270
 <input type="hidden" name="requestTime" value="1792414165">
 <input type="hidden" name="requestSimpleSign" value="e8c55248f71272eea73c01cb5f9d6ef5">
 <input type="hidden" name="isHtmlWidget" value="1">
-<input type="email" name="formParams[email]" maxlength="60" placeholder="Эл. почта" autocomplete="email" required>
-<input type="text" name="formParams[full_name]" id="tf-name" maxlength="60" placeholder="Имя" autocomplete="given-name" required>
-<input type="tel" name="formParams[phone]" maxlength="60" placeholder="Телефон" autocomplete="tel" required>
+<input type="email" name="formParams[email]" maxlength="60" placeholder="Введите ваш e-mail" autocomplete="email" required>
+<input type="text" name="formParams[full_name]" id="tf-name" maxlength="60" placeholder="Введите ваше имя" autocomplete="given-name" required>
+<input type="tel" name="formParams[phone]" id="tf-phone" maxlength="24" inputmode="tel" placeholder="Введите ваш телефон" autocomplete="tel" required>
 <label class="tf-ck"><input type="checkbox" name="pdpConfirmCheckbox" required><span>Я <a href="https://doctor-saba.com/doctor-saba-soglasie-na-opd" target="_blank" rel="noopener">согласен</a> на обработку моих персональных данных в соответствии с <a href="https://doctor-saba.com/doctor-saba-politika-opd" target="_blank" rel="noopener">Политикой обработки персональных данных</a></span></label>
 <label class="tf-ck"><input type="checkbox" name="confirmMailingCheckbox"><span>Даю <a href="https://doctor-saba.com/doctor-saba-soglasie-na-reklamu" target="_blank" rel="noopener">согласие</a> на получение информационных и маркетинговых рассылок (можно отказаться в любой момент в личном кабинете)</span></label>
-<div class="tk tk-mini" aria-hidden="true"><div class="tk-l"><p class="tk-k">Ваш личный билет</p><p class="tk-name"><b id="tf-ticket">Ваше имя</b></p><div class="tk-gift"><small>Подарок</small><b>откроется в Telegram</b></div></div><div class="tk-r"><span>№</span><b id="tf-no" style="font-size:11px;letter-spacing:.02em;white-space:nowrap">после регистрации</b></div></div>
-<button type="submit" class="btn" id="tf-submit">Получить билет<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button>
+<div class="tk tk-mini" aria-hidden="true"><div class="tk-l"><p class="tk-k">Ваш личный билет</p><p class="tk-name"><b id="tf-ticket">Ваше имя</b></p><div class="tk-gift"><small>Подарок</small><b>откроется в&nbsp;мессенджере после&nbsp;регистрации</b></div></div><div class="tk-r"><span>№</span><b id="tf-no" style="font-size:11px;letter-spacing:.02em;white-space:nowrap">после регистрации</b></div></div>
+<button type="submit" class="btn" id="tf-submit">Зарегистрироваться на&nbsp;практикум<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button>
 </form>
 </div></div>
 <script>
 (function(){const f=document.getElementById('tf');if(!f)return;const n=document.getElementById('tf-name'),t=document.getElementById('tf-ticket');
 n.addEventListener('input',()=>{t.textContent=n.value.trim()||'Ваше имя'});
+const ph=document.getElementById('tf-phone');
+function fmt(v){let d=v.replace(/\D/g,'').slice(0,15);if(!d)return '+';if(d[0]==='8')d='7'+d.slice(1);
+ if(d[0]==='7'){d=d.slice(0,11);const a=d.slice(1,4),b=d.slice(4,7),c=d.slice(7,9),e=d.slice(9,11);
+  return '+7'+(a?' ('+a:'')+(b?') '+b:'')+(c?'-'+c:'')+(e?'-'+e:'')}
+ return '+'+d}
+ph.addEventListener('focus',()=>{if(!ph.value)ph.value='+'});
+ph.addEventListener('blur',()=>{if(ph.value==='+')ph.value=''});
+ph.addEventListener('input',()=>{ph.value=fmt(ph.value);const n=ph.value.replace(/\D/g,'').length;ph.setCustomValidity(n>=10?'':'Введите телефон полностью, с кодом страны')});
 document.getElementById('tf-loc').value=location.href;document.getElementById('tf-ref').value=document.referrer;
 let sent=false;f.addEventListener('submit',e=>{if(sent){e.preventDefault();return}sent=true;document.getElementById('tf-submit').setAttribute('aria-busy','true');setTimeout(()=>{sent=false},6000)});})();
 (function(){const m=document.getElementById('praktikum-free');function close(){m.classList.remove('open');document.body.style.overflow=''}
