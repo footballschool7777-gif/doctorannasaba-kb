@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Волшебная женщина · пошаговое пособие Анны Саба</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600;1,700&family=Montserrat:wght@500;600;700&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf6f0;--bg2:#f6ebe4;--card:#fffdfa;--ink:#2e1f26;--muted:#6f5c63;--rose:#c46f7e;--rose2:#e9b9bf;--gold:#b98a3e;--gold2:#e3c38a;--plum:#6d2944;--plum2:#4f1c31;--line:rgba(110,70,80,.14);--fh:'Montserrat',-apple-system,sans-serif;--fb:'Golos Text',-apple-system,BlinkMacSystemFont,sans-serif;--rad:26px;--sp:64px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--fb);overflow-x:hidden;font-variant-numeric:lining-nums}
+h1,h2,h3,b,small,.quote,.price b,.nums b,.step:before,.card .n{font-variant-numeric:lining-nums}
+img,video{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--fh);font-weight:600;line-height:1.18;letter-spacing:-.015em;text-wrap:balance}
+p,li,q{text-wrap:balance}
+.nw{white-space:nowrap}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+section{position:relative;padding:var(--sp) 0}
+.kick{display:inline-block;font:600 12px/1.3 var(--fb);letter-spacing:.18em;text-transform:uppercase;color:var(--rose);margin-bottom:12px}
+h2{font-size:clamp(25px,6.6vw,40px);margin-bottom:16px}
+h2 em,h1 em{font-style:normal;color:var(--rose)}
+.lead{font-size:18px;color:var(--muted);max-width:720px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:60px;padding:10px 30px;border-radius:999px;background:linear-gradient(180deg,var(--plum),var(--plum2));color:#fff;font:600 17px/1.2 var(--fb);letter-spacing:.01em;text-decoration:none;box-shadow:0 14px 30px -12px rgba(79,28,49,.55);border:0;cursor:pointer;text-align:center}
+.btn svg{width:20px;height:20px;flex:none}
+.btn:hover{filter:brightness(1.12)}
+.orn{display:block;width:120px;height:14px;margin:0 auto 14px;color:var(--gold)}
+
+/* ===== hero ===== */
+.hx{padding:10px 0 14px;min-height:100svh;display:flex;background:radial-gradient(90% 60% at 50% 0%,#f8e4e2 0%,var(--bg) 70%)}
+.hx-in{display:flex;flex-direction:column;gap:12px;width:100%}
+.stage{position:relative;height:var(--hh,360px);min-height:150px;border-radius:var(--rad);overflow:hidden;background:#efe2db;isolation:isolate;cursor:pointer;box-shadow:0 20px 40px -24px rgba(110,50,70,.45)}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.stage .free{opacity:0}
+.flash{position:absolute;inset:-20%;z-index:5;opacity:0;pointer-events:none;background:radial-gradient(circle at 50% 62%,#fff 0,#fff3dc 20%,rgba(233,185,191,.55) 40%,transparent 64%)}
+.ct{position:absolute;z-index:4;left:var(--l);top:var(--t);transform:translate(-50%,-50%) rotate(var(--rr,0deg));padding:6px 12px;border-radius:999px;background:rgba(46,31,38,.86);color:#f6ece6;font:600 12px/1 var(--fb);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;box-shadow:0 6px 16px rgba(46,31,38,.35)}
+.ct:before{content:"⛓ ";opacity:.85}
+.mw{position:absolute;z-index:4;left:var(--l);top:var(--t);transform:translate(-50%,-50%) scale(.4);opacity:0;padding:8px 14px;border-radius:999px;background:rgba(255,253,250,.94);color:var(--plum);font:600 12px/1 var(--fb);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;box-shadow:0 8px 24px -6px rgba(185,138,62,.6)}
+.spark{position:absolute;z-index:4;left:50%;top:65%;width:7px;height:7px;border-radius:50%;background:#ffe9bf;box-shadow:0 0 10px #f3cf8a;opacity:0}
+.stage.struggle .chains{animation:shake .45s ease-in-out infinite}
+.stage.struggle .ct{animation:tug .45s ease-in-out infinite}
+@keyframes shake{0%,100%{transform:translate(0,0)}25%{transform:translate(-2px,1px)}75%{transform:translate(2px,-1px)}}
+@keyframes tug{0%,100%{transform:translate(-50%,-50%) rotate(var(--rr,0deg))}50%{transform:translate(-50%,-44%) rotate(calc(var(--rr,0deg) + 3deg))}}
+.stage.burst .flash{animation:flash 1.1s ease-out forwards}
+.stage.burst .chains{animation:fadeout 1s .25s ease forwards}
+.stage.burst .free{animation:fadein 1.2s .25s ease forwards}
+.stage.burst .ct{animation:fly 1s .05s cubic-bezier(.2,.7,.3,1) forwards}
+.stage.burst .spark{animation:sp 1.3s .1s ease-out forwards}
+.stage.burst .mw{animation:pull .9s var(--d) cubic-bezier(.2,.9,.3,1.3) forwards}
+.stage.done .mw{opacity:1;transform:translate(-50%,-50%) scale(1);animation:bob 3.2s ease-in-out infinite}
+@keyframes flash{0%{opacity:0}18%{opacity:1}100%{opacity:0}}
+@keyframes fadeout{to{opacity:0}}
+@keyframes fadein{to{opacity:1}}
+@keyframes fly{to{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) rotate(var(--r)) scale(.7)}}
+@keyframes sp{0%{opacity:1;transform:translate(0,0)}100%{opacity:0;transform:translate(var(--x),var(--y))}}
+@keyframes pull{0%{opacity:0;transform:translate(calc(-50% + var(--fx)),calc(-50% + var(--fy))) scale(.5)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes bob{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-60%) scale(1.03)}}
+.stage.static .chains,.stage.static .ct,.stage.static .flash,.stage.static .spark{display:none}.stage.static .free{opacity:1}.stage.static .mw{opacity:1;transform:translate(-50%,-50%);animation:none}
+.stage-tip{position:absolute;z-index:6;right:10px;top:10px;font-size:11px;font-weight:500;color:var(--plum);background:rgba(255,253,250,.8);padding:4px 10px;border-radius:999px}
+.hx-text{text-align:center}
+.hx-tag{display:inline-block;padding:6px 14px;border-radius:999px;border:1px solid var(--rose2);background:rgba(255,253,250,.7);font:600 12px/1.2 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--rose)}
+.hx h1{font-size:clamp(19.5px,5.7vw,46px);margin:10px 0 8px;letter-spacing:-.01em}
+.hx-note{font-size:16px;color:var(--muted);margin-bottom:14px}
+.hx-acts .btn{width:100%}
+
+/* ===== reasons ===== */
+.why5{background:var(--bg2)}
+.why5 .head{text-align:center}
+.chain-list{display:grid;gap:12px;margin:26px 0 22px}
+.card{display:flex;gap:16px;align-items:center;padding:16px 18px;border-radius:20px;background:var(--card);border:1px solid var(--line);box-shadow:0 10px 26px -20px rgba(110,50,70,.4)}
+.card .n{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font:600 22px/1 var(--fh);color:var(--plum);background:#f7e3e3}
+.card b{display:block;font:600 12px/1.3 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--rose)}
+.card p{font:500 16px/1.4 var(--fh);color:var(--ink)}
+.note{padding:20px 22px;border-radius:var(--rad);background:var(--card);border-left:4px solid var(--rose);font-size:17px}
+
+/* ===== mechanism ===== */
+.mech .head{text-align:center}
+.mech h3.sub{font-size:clamp(19px,5vw,26px);color:var(--rose);font-weight:500;margin:-4px 0 18px}
+.mag-pic{position:relative;max-width:440px;margin:0 auto 22px;border-radius:var(--rad);overflow:hidden;box-shadow:0 24px 50px -28px rgba(110,50,70,.55)}
+.mag-pic img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%}
+.quote{position:relative;font:500 clamp(20px,5.2vw,28px)/1.35 var(--fh);color:var(--plum);text-align:center;margin:30px 0 8px;padding-top:34px}
+.quote:before{content:"“";position:absolute;left:50%;top:-14px;transform:translateX(-50%);font:600 84px/1 var(--fh);color:var(--rose2)}
+.qa{text-align:center;font-size:14px;color:var(--muted);margin-bottom:26px}
+.story{padding:22px;border-radius:var(--rad);background:var(--card);border:1px solid var(--line)}
+.story p+p{margin-top:14px}
+.story .alt{padding-left:16px;border-left:3px solid var(--rose);font:500 17px/1.4 var(--fh);color:var(--plum)}
+.story .ask{font-weight:600}
+.cta-line{margin-top:22px;text-align:center;font:600 clamp(24px,6.2vw,34px)/1.2 var(--fh);color:var(--plum)}
+.cta-line span{display:block;font:500 16px/1.4 var(--fb);color:var(--rose);margin-top:6px}
+
+
+/* ===== if-inside pair ===== */
+.vs{display:grid;gap:12px;margin:26px 0 0}
+.vs > div{padding:20px;border-radius:var(--rad);background:var(--card);border:1px solid var(--line)}
+.vs .yes{background:linear-gradient(160deg,#fbefdc,var(--card));border-color:var(--gold2)}
+.vs h3{font:600 12px/1.3 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.vs .yes h3{color:var(--gold)}
+.vs ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.vs li{padding:6px 13px;border-radius:999px;background:#f3e8e6;font-size:15px;font-weight:500}
+.vs .yes li{background:#f6e7c9;color:#6b4a14}
+.vs p{font-size:15px;color:var(--muted)}
+/* ===== author ===== */
+.au{display:grid;gap:20px;align-items:center}
+.au img{border-radius:var(--rad);width:100%;max-height:460px;object-fit:cover;object-position:50% 20%}
+.au-r{color:var(--muted)}
+.nums{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:24px;margin:16px 0;line-height:1.25}
+.nums b{display:block;font:600 36px/1 var(--fh);color:var(--plum)}
+.nums span{font-size:13px;color:var(--muted)}
+.edu{list-style:none;display:grid;gap:6px;font-size:15px;color:var(--muted)}
+
+/* ===== videos ===== */
+.vids-s{background:var(--bg2)}
+.vids-s .head{text-align:center}
+.vids{display:grid;gap:22px;margin-top:24px}
+.vid{background:var(--card);border-radius:var(--rad);overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 40px -28px rgba(110,50,70,.5)}
+.vbox{position:relative;cursor:pointer;aspect-ratio:4/5;background:#f3e6dd}
+.vbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0}
+.vbox .lbl{position:absolute;left:0;right:0;top:0;padding:18px 16px 40px;text-align:center;background:linear-gradient(180deg,rgba(251,246,240,.92),rgba(251,246,240,0))}
+.vbox .lbl small{display:block;font:600 11px/1.2 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.vbox .lbl b{display:block;font:600 22px/1.15 var(--fh);color:var(--plum)}
+.vbox .lbl b i{font-style:normal;color:var(--c)}
+.vbox .play{white-space:nowrap;position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;padding:10px 20px 10px 12px;border-radius:999px;background:rgba(255,253,250,.95);color:var(--plum);font:600 15px/1 var(--fb);box-shadow:0 8px 20px -8px rgba(79,28,49,.5)}
+.vbox .play i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--plum);color:#fff}
+.vbox .play svg{width:14px;height:14px;margin-left:2px}
+.vbox video{position:absolute;inset:0;width:100%;height:100%;background:#000;object-fit:contain}
+.vid .tx{padding:16px 20px 22px}
+.vid h3{font-size:21px;margin-bottom:6px}
+.vid p{font-size:16px;color:var(--muted)}
+
+/* ===== practice ===== */
+.prac .head{text-align:center}
+.prac .sub{font:500 clamp(17px,4.6vw,22px)/1.3 var(--fh);color:var(--rose);margin:-6px 0 0}
+.steps{counter-reset:s;display:grid;gap:14px;margin-top:24px}
+.step{position:relative;padding:20px 20px 20px 76px;border-radius:var(--rad);background:var(--card);border:1px solid var(--line)}
+.step:before{counter-increment:s;content:counter(s);position:absolute;left:20px;top:18px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--plum);color:#fff;font:600 22px/1 var(--fh)}
+.step b{display:block;font:600 18px/1.25 var(--fh);margin-bottom:6px}
+.step p{font-size:16px;color:var(--muted)}
+.step q{display:block;margin-top:10px;font:500 16px/1.45 var(--fh);color:var(--plum);quotes:none}
+.res{margin-top:16px;padding:20px 22px;border-radius:var(--rad);background:linear-gradient(160deg,#f7e3e3,#fbf1e6);border:1px solid var(--rose2)}
+.res b{display:block;font:600 12px/1.3 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--rose);margin-bottom:6px}
+
+/* ===== practicum ===== */
+.lab{background:linear-gradient(180deg,#f3e3dc,#f8eee7)}
+.lab .head{text-align:center}
+.flasks{display:grid;grid-template-columns:repeat(6,1fr);gap:16px 8px;margin:26px 0 8px}.fl{grid-column:span 2}.fl:nth-child(4){grid-column:2/4}.fl:nth-child(5){grid-column:4/6}
+.fl{text-align:center}
+.fl svg{width:100%;max-width:84px;height:auto;margin:0 auto;overflow:visible;filter:drop-shadow(0 10px 14px rgba(110,50,70,.18))}
+.fl .liq{transform:translateY(100%);transition:transform 1.6s cubic-bezier(.3,.7,.2,1) var(--d)}
+.flasks.on .liq{transform:translateY(0)}
+.fl .bub{opacity:0}
+.flasks.on .bub{animation:bub 2.4s var(--bd) ease-in infinite}
+@keyframes bub{0%{opacity:0;transform:translateY(0)}20%{opacity:.9}100%{opacity:0;transform:translateY(-60px)}}
+.fl .t1{display:block;margin-top:8px;font:600 10px/1.2 var(--fb);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap;font-style:normal}
+.fl small{display:block;font:600 13px/1.2 var(--fh);color:var(--plum);white-space:nowrap}
+.fx{display:grid;gap:10px;margin-top:22px}
+.fx div{display:flex;gap:14px;align-items:center;padding:14px 18px;border-radius:18px;background:var(--card);border:1px solid var(--line)}
+.fx i{flex:none;width:12px;height:12px;border-radius:50%;background:var(--c);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 25%,transparent)}
+.fx p{font-size:16px}
+.whyb{margin-top:40px;border-radius:var(--rad);background:var(--card);border:1px solid var(--line);overflow:hidden;box-shadow:0 30px 60px -44px rgba(110,41,68,.5)}
+.wb-img{margin:0;aspect-ratio:16/9;overflow:hidden}.wb-img img{width:100%;height:100%;object-fit:cover;display:block}
+.wb-tx{padding:24px 22px 4px}
+.whyb h3{font-size:clamp(20px,5.2vw,28px);margin-bottom:18px}
+.wb-p{display:grid;grid-template-columns:36px 1fr;gap:14px;align-items:start;font-size:17px;line-height:1.5}
+.wb-p+.wb-p{margin-top:16px}
+.wb-p b{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--rose);color:#fff;font:600 16px/1 var(--fb)}
+.whyb .doc{display:flow-root;margin:22px;padding:20px;border-radius:20px;background:linear-gradient(160deg,#fbefdc,#fdf6ee);border:1px solid var(--gold2)}
+.whyb .doc img{float:left;margin:2px 14px 6px 0;width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:2px solid #fff;box-shadow:0 6px 16px -8px rgba(110,41,68,.6)}
+.whyb .doc p{font:500 17px/1.5 var(--fb);color:var(--ink)}
+.whyb .doc small{display:block;margin-top:8px;font:600 13px/1.2 var(--fb);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.days-h{text-align:center;margin:52px 0 0;font-size:clamp(23px,6vw,34px)}
+.days{display:grid;gap:18px;margin-top:22px}
+.day{border-radius:var(--rad);background:var(--card);border:1px solid var(--line);overflow:hidden;box-shadow:0 26px 50px -40px rgba(110,41,68,.55)}
+.day.vip{background:linear-gradient(160deg,#fbefdc,var(--card));border:1.5px solid var(--gold2)}
+.day-img{margin:0;aspect-ratio:16/9;overflow:hidden}.day-img img{width:100%;height:100%;object-fit:cover;display:block}
+.day-b{padding:20px 22px 24px}
+.day-h{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.day-h span{font:600 13px/1 var(--fb);letter-spacing:.06em;text-transform:uppercase;padding:8px 12px;border-radius:999px}
+.day-h .dt{background:var(--bg2);color:var(--plum)}
+.day-h .ef{background:var(--rose);color:#fff}
+.day.vip .day-h .ef{background:var(--gold)}
+.day-n{font:700 clamp(24px,6.4vw,30px)/1.15 var(--fh);color:var(--plum);margin-bottom:14px}
+.day h3{font-size:18px;margin-bottom:8px}
+.day ul{list-style:none;display:grid;gap:6px;font-size:16px}
+.day li{position:relative;padding-left:20px}
+.day li:before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--rose2)}
+.day .rl{margin-top:16px;padding-top:14px;border-top:1px dashed var(--gold2);font:600 12px/1.3 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.day .rr{margin-top:6px}
+.day .rr li{font-weight:500}
+.day .rr li:before{background:var(--gold2)}
+.day .dn{margin-top:14px;font-size:15px;color:var(--muted)}
+.vi{display:grid;gap:18px;margin-top:26px}
+.vic{border-radius:var(--rad);background:var(--card);border:1.5px solid var(--gold2);overflow:hidden;box-shadow:0 30px 60px -40px rgba(185,138,62,.7)}
+.vic figure{margin:0;aspect-ratio:16/9;overflow:hidden}.vic figure img{width:100%;height:100%;object-fit:cover;display:block}
+.vic .nm{margin:20px 22px 10px;font:600 13px/1.3 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.vic p:last-child{margin:0 22px 24px;font-size:17px;line-height:1.5}
+
+/* ===== vip ===== */
+.vip-s .head{text-align:center}
+.vip-s .lead{margin:0 auto;text-align:left}
+.vip-s .lead+.lead{margin-top:12px}
+.tc{position:relative;margin-top:26px;padding:26px 22px;border-radius:var(--rad);background:var(--card);border:1.5px solid var(--gold2);box-shadow:0 30px 60px -36px rgba(185,138,62,.7)}
+.tc .nm{text-align:center;font:600 13px/1.2 var(--fb);letter-spacing:.24em;color:var(--gold);margin-bottom:14px}
+.tc ul{list-style:none;display:grid;gap:8px;font-size:16px;font-weight:500}
+.tc li{position:relative;padding-left:26px}
+.tc li:before{content:"✓";position:absolute;left:0;top:0;color:var(--gold);font-weight:700}
+.bonus{margin-top:12px;padding:14px 16px;border-radius:18px;background:#fbf3ea;border:1px dashed var(--gold2)}
+.bonus b{font:600 11px/1.2 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--rose)}
+.bonus p{font-size:15px;margin-top:4px}
+.bonus small{display:block;margin-top:6px;font-size:13px;color:var(--muted)}
+.price{display:flex;justify-content:center;align-items:baseline;gap:14px;margin:22px 0 14px}
+.price b{font:600 48px/1 var(--fh);color:var(--plum)}
+.price s{font-size:19px;color:var(--muted)}
+.tc .btn{width:100%}
+.fn{margin-top:12px;font-size:14px;color:var(--muted);text-align:center}
+
+/* ===== channels ===== */
+.tg{background:var(--bg2)}
+.tg-list{display:grid;gap:14px;max-width:640px;margin:0 auto}
+.tg-list a{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:20px;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none;box-shadow:0 10px 26px -20px rgba(110,50,70,.4)}
+.tg-list a:hover{border-color:var(--rose2)}
+.tg-list i{flex:none;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#2aabee;color:#fff}
+.tg-list i svg{width:24px;height:24px}
+.tg-list b{display:block;font:600 17px/1.3 var(--fb)}
+.tg-list small{display:block;font-size:14px;color:var(--muted);margin-top:2px}
+
+/* ===== final ===== */
+.fin{text-align:center;background:radial-gradient(80% 70% at 50% 30%,#f6dfe0,var(--bg) 75%)}
+.fin .lead{margin:0 auto}
+.fin .btn{margin-top:22px;width:100%;max-width:460px}
+
+/* ===== modal ===== */
+.md{position:fixed;inset:0;z-index:50;display:none;align-items:flex-end;justify-content:center;background:rgba(46,31,38,.55);backdrop-filter:blur(4px)}
+.md.on{display:flex}
+.md-box{width:100%;max-width:480px;max-height:92svh;overflow:auto;padding:22px 18px 26px;border-radius:24px 24px 0 0;background:var(--card)}
+.md-x{float:right;width:36px;height:36px;border-radius:50%;border:0;background:var(--bg2);color:var(--ink);font-size:20px;cursor:pointer}
+.md h3{font-size:22px;margin:4px 0}
+.md .fmt{font-size:14px;color:var(--muted);margin-bottom:14px}
+.md label.field{display:block;font-size:14px;font-weight:500;color:var(--muted);margin-bottom:10px}
+.md label.field input{display:block;width:100%;margin-top:4px;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);font:500 16px var(--fb)}
+.md .consent{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--muted);margin:8px 0}
+.md .consent a{color:var(--plum)}
+.md .sum{display:flex;justify-content:space-between;align-items:baseline;margin:14px 0}
+.md .sum strong{font:600 32px var(--fh);color:var(--plum)}
+.md .sum s{color:var(--muted);margin-left:6px}
+.md button[type=submit]{width:100%}
+
+@media(prefers-reduced-motion:reduce){.stage .chains,.ct,.flash,.spark{display:none}.stage .free{opacity:1}.mw{opacity:1;transform:translate(-50%,-50%)}}
+@media(max-width:899px) and (max-height:720px){.hx h1{font-size:19.5px;margin:6px 0}.hx-in{gap:9px}.btn{min-height:52px}.hx-note{font-size:14px;margin-bottom:8px}.hx-tag{font-size:11px;padding:5px 12px}}
+@media(min-width:900px){
+ :root{--sp:104px}
+ .hx-in{display:grid;grid-template-columns:1fr 1.05fr;column-gap:52px;align-items:center}
+ .stage{height:min(82vh,720px)!important;order:2}
+ .hx-in{grid-template-columns:1.05fr 1fr}
+ .hx-text{text-align:left}
+ .hx h1{font-size:clamp(28px,2.2vw,32px)}
+ .hx-acts .btn{width:auto;min-width:380px}
+ .chain-list{grid-template-columns:repeat(5,1fr)}
+ .chain-list .card{flex-direction:column;text-align:center}
+ .mech-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
+ .mag-pic{margin:0}
+ .quote{text-align:left;margin-top:0}.quote:before{left:0;transform:none}.qa{text-align:left}
+ .vids{grid-template-columns:repeat(3,1fr)}
+ .vs{grid-template-columns:1fr 1fr}
+ .au{grid-template-columns:.8fr 1.2fr;gap:44px}
+ .steps{grid-template-columns:repeat(3,1fr)}
+ .flasks{grid-template-columns:repeat(5,1fr);gap:24px;max-width:760px;margin-left:auto;margin-right:auto}.fl,.fl:nth-child(4),.fl:nth-child(5){grid-column:auto}
+ .days{grid-template-columns:repeat(2,1fr);gap:24px}
+ .whyb{display:grid;grid-template-columns:1fr 1.15fr}.wb-img{aspect-ratio:auto;grid-row:1}.wb-tx{padding:34px 34px 6px}.whyb .doc{grid-column:1/-1;margin:10px 34px 34px}
+ .vi{grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+ .tc{max-width:660px;margin-left:auto;margin-right:auto}
+ .md{align-items:center}.md-box{border-radius:24px}
+}
+@media(min-width:900px) and (max-height:820px){.hx{padding:10px 0}.hx h1{font-size:32px}}
+/* Cormorant has old-style figures only: numbers use the body font */
+.price b,.nums b,.step:before,.card .n,.md .sum strong{font-family:var(--fb);font-weight:600;letter-spacing:-.02em}
+.price b{font-size:40px}.nums b{font-size:30px}.step:before{font-size:18px}.card .n{font-size:18px}.md .sum strong{font-size:26px}
+/* ===== v5: italic accents ===== */
+:root{--fi:'Cormorant Garamond',Georgia,serif}
+h1 em,h2 em,h3 em{font-family:var(--fi);font-style:italic;font-weight:700;font-size:1.2em;letter-spacing:0;line-height:1;color:var(--rose)}
+.mech h3.sub{font:italic 600 clamp(24px,6.4vw,34px)/1.15 var(--fi);color:var(--rose)}
+.prac .sub{font:italic 600 clamp(21px,5.6vw,27px)/1.25 var(--fi)}
+.quote{font:italic 600 clamp(25px,6.6vw,36px)/1.25 var(--fi)}
+.step q{font:italic 600 19px/1.4 var(--fi)}
+.vbox .lbl b i{font-family:var(--fi);font-style:italic;font-size:1.25em}
+.day-n{font:italic 700 clamp(28px,7.6vw,36px)/1.1 var(--fi)}
+/* ===== v5: hero flasks pour into the magnet heart ===== */
+.hf{position:absolute;z-index:4;left:var(--l);top:var(--t);width:clamp(30px,11%,50px);transform:translate(-50%,-50%);animation:hbob 3s var(--dl) ease-in-out infinite}
+.hf svg{width:100%;height:auto;filter:drop-shadow(0 4px 8px rgba(110,50,70,.35))}
+@keyframes hbob{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-50%,-62%)}}
+.stage.struggle .hf{animation:hpour 1.5s calc(var(--dl) + .4s) ease-in-out forwards}
+@keyframes hpour{0%{transform:translate(-50%,-50%)}35%,65%{transform:translate(-50%,-40%) rotate(var(--rot))}100%{transform:translate(-50%,-50%)}}
+.hd{position:absolute;z-index:4;left:var(--l);top:var(--t);width:9px;height:12px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:var(--c);box-shadow:0 0 10px var(--c),0 0 3px #fff inset;opacity:0;transform:translate(-50%,-50%)}
+.stage.struggle .hd{animation:hdrop 1.1s calc(var(--dl) + .55s) cubic-bezier(.5,0,.8,.6) forwards}
+@keyframes hdrop{0%{opacity:0}15%{opacity:1}85%{opacity:1;left:50%;top:60%}100%{opacity:0;left:50%;top:60%;transform:translate(-50%,-50%) scale(.4)}}
+.heart{position:absolute;z-index:3;left:50%;top:60%;width:46%;aspect-ratio:1;transform:translate(-50%,-50%) scale(.3);border-radius:50%;background:radial-gradient(circle,rgba(255,236,200,.95) 0,rgba(243,207,138,.55) 30%,rgba(233,185,191,.25) 55%,transparent 70%);opacity:0;pointer-events:none;mix-blend-mode:screen}
+.stage.struggle .heart{animation:hglow 1s 1.7s ease-out forwards}
+.stage.burst .heart,.stage.done .heart{opacity:1;transform:translate(-50%,-50%) scale(1);animation:hpulse 2.8s ease-in-out infinite}
+@keyframes hglow{to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes hpulse{0%,100%{opacity:1;transform:translate(-50%,-50%) scale(1)}50%{opacity:.6;transform:translate(-50%,-50%) scale(.85)}}
+.stage.static .hd{display:none}.stage.static .heart{opacity:.9;transform:translate(-50%,-50%) scale(1)}
+/* tip moves down: the flasks own the top edge */
+.stage-tip{top:auto;bottom:10px;right:10px}
+/* ===== v5: ingredient kicker ===== */
+.ing{display:flex;width:fit-content;align-items:center;gap:8px;margin:0 auto 12px;padding:6px 14px 6px 8px;border-radius:999px;background:rgba(255,253,250,.85);border:1px solid var(--rose2);font:600 12px/1 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--plum)}
+.ing .ic{width:18px;height:22px}
+.ing.got .ic{animation:gotf 1s ease}
+@keyframes gotf{30%{transform:rotate(-20deg) scale(1.3)}60%{transform:rotate(12deg) scale(1.15)}}
+/* ===== v5: scroll reveal ===== */
+html.js .rv{opacity:0;transform:translateY(28px)}
+html.js .rv.in{opacity:1;transform:none;transition:opacity .8s ease calc(var(--i,0)*110ms),transform .9s cubic-bezier(.2,.7,.2,1) calc(var(--i,0)*110ms)}
+/* ===== v5: reasons, chain breaks ===== */
+.card{position:relative;padding-right:56px}
+.lk{position:absolute;right:14px;top:50%;width:44px;height:19px;margin-top:-10px;color:#9b878d;overflow:visible}
+.lk rect{transition:transform .8s cubic-bezier(.3,1.5,.4,1)}
+.lk .sk{opacity:0}
+.card.in .lk{color:var(--rose)}
+.card.in .lk .l1{transform:translateX(-5px);transition-delay:calc(var(--i,0)*110ms + .5s)}
+.card.in .lk .l2{transform:translateX(5px);transition-delay:calc(var(--i,0)*110ms + .5s)}
+.card.in .lk .sk{animation:spk .9s calc(var(--i,0)*110ms + .45s) ease-out forwards}
+@keyframes spk{0%{opacity:0}25%{opacity:1}100%{opacity:0}}
+/* ===== v5: magnet attracts ===== */
+.mag-pic{isolation:isolate}
+.mglow{position:absolute;z-index:1;left:50%;top:52%;width:60%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,232,190,.7),transparent 65%);mix-blend-mode:screen;animation:hpulse 3s ease-in-out infinite;pointer-events:none}
+.fly{position:absolute;z-index:2;left:50%;top:52%;font-size:26px;opacity:0;pointer-events:none;animation:toward 7.2s var(--dl) ease-in infinite;filter:drop-shadow(0 4px 8px rgba(110,50,70,.3))}
+@keyframes toward{0%{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(1)}12%{opacity:1}70%{opacity:1}88%,100%{opacity:0;transform:translate(-50%,-50%) scale(.35)}}
+/* ===== v5: video flasks bubble ===== */
+.vbox:before{content:"";position:absolute;z-index:1;left:30%;right:30%;top:42%;bottom:14%;pointer-events:none;opacity:.75;background-image:radial-gradient(circle,rgba(255,255,255,.95) 0 2px,transparent 3px),radial-gradient(circle,rgba(255,255,255,.8) 0 1.5px,transparent 2.5px);background-size:38px 58px,24px 40px;animation:rise 5s linear infinite;-webkit-mask-image:linear-gradient(transparent,#000 30%,#000 70%,transparent);mask-image:linear-gradient(transparent,#000 30%,#000 70%,transparent)}
+@keyframes rise{to{background-position:0 -116px,12px -80px}}
+.vbox img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.vbox:hover img{transform:scale(1.05) rotate(-1deg)}
+.vbox .play{animation:pp 2.4s ease-in-out infinite}
+@keyframes pp{0%,100%{box-shadow:0 8px 20px -8px rgba(79,28,49,.5),0 0 0 0 rgba(196,111,126,.45)}50%{box-shadow:0 8px 20px -8px rgba(79,28,49,.5),0 0 0 10px rgba(196,111,126,0)}}
+/* ===== v5: practice steps tick ===== */
+.hint{margin-top:10px;font-size:14px;color:var(--muted)}
+.step{cursor:pointer;transition:background .4s,border-color .4s,transform .2s}
+.step:active{transform:scale(.98)}
+.step:before{transition:background .4s,transform .4s}
+.step:after{content:"";position:absolute;left:16px;top:14px;width:48px;height:48px;border-radius:50%;border:2px solid var(--rose2);animation:ring 2.2s ease-out infinite;pointer-events:none}
+@keyframes ring{0%{transform:scale(.85);opacity:1}100%{transform:scale(1.35);opacity:0}}
+.step.done{background:linear-gradient(160deg,#fbefdc,var(--card));border-color:var(--gold2)}
+.step.done:before{content:"✓";background:var(--gold);transform:rotate(360deg)}
+.step.done:after{display:none}
+.res{transition:box-shadow .8s,transform .8s}
+.res.glow{box-shadow:0 0 0 3px var(--gold2),0 24px 50px -20px rgba(185,138,62,.8);transform:scale(1.02)}
+/* ===== v5: practice step pictures ===== */
+.step{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.step:before,.step:after{content:none;display:none}
+.st-img{margin:0;aspect-ratio:16/10;overflow:hidden}.st-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 2.4s cubic-bezier(.2,.7,.2,1)}
+html.js .step:not(.in) .st-img img{transform:scale(1.12)}
+.st-b{position:relative;padding:20px 20px 22px 76px;flex:1}
+.st-b:before{counter-increment:s;content:counter(s);position:absolute;left:20px;top:18px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--plum);color:#fff;font:600 18px/1 var(--fb);transition:background .4s,transform .4s}
+.st-b:after{content:"";position:absolute;left:16px;top:14px;width:48px;height:48px;border-radius:50%;border:2px solid var(--rose2);animation:ring 2.2s ease-out infinite;pointer-events:none}
+.step.done .st-b:before{content:"✓";background:var(--gold);transform:rotate(360deg)}
+.step.done .st-b:after{display:none}
+.step:nth-child(2) .st-img img{object-position:50% 16%}.step:nth-child(3) .st-img img{object-position:50% 30%}
+/* ===== v5: lab flasks pour on tap ===== */
+.fl{cursor:pointer}
+.fl.pour svg{animation:fpour 1.1s ease-in-out}
+@keyframes fpour{25%{transform:rotate(-18deg) translateY(-6px)}55%{transform:rotate(14deg)}80%{transform:rotate(-6deg)}}
+.fx div{transition:transform .5s,box-shadow .5s}
+/* ===== v5: days and why ===== */
+.day-img img,.wb-img img,.vic figure img{transform:scale(1.12);transition:transform 2.4s cubic-bezier(.2,.7,.2,1)}
+.day.in .day-img img,.whyb.in .wb-img img,.vic.in figure img{transform:scale(1)}
+html:not(.js) .day-img img,html:not(.js) .wb-img img,html:not(.js) .vic figure img{transform:none}
+/* ===== v5: VIP ticket shine ===== */
+.tc{overflow:hidden}
+.tc:after{content:"";position:absolute;top:-20%;bottom:-20%;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,240,210,.55),transparent);transform:skewX(-18deg);animation:shine 4.5s 1s ease-in-out infinite;pointer-events:none}
+@keyframes shine{0%{left:-60%}45%,100%{left:130%}}
+.price s{position:relative;text-decoration:none}
+.price s:after{content:"";position:absolute;left:-2px;right:-2px;top:52%;height:2px;background:var(--rose);transform:scaleX(0);transform-origin:left;transition:transform .7s .2s}
+.tc.in .price s:after{transform:scaleX(1)}
+html:not(.js) .price s:after{transform:scaleX(1)}
+/* ===== v5: VIP cards readable ===== */
+.vic .nm{font-size:14px}
+.vic p:last-child{font:500 clamp(18px,1.7vw,23px)/1.45 var(--fh);color:var(--ink)}
+/* ===== v5: real ticket ===== */
+.tc{padding:0;background:#fffaf2;border:0;box-shadow:0 40px 80px -40px rgba(110,41,68,.55),0 0 0 1.5px var(--gold2);border-radius:28px;overflow:hidden}
+.tc:before{content:"";position:absolute;inset:8px;border:1px solid rgba(185,138,62,.45);border-radius:22px;pointer-events:none;z-index:1}
+.tk-h{position:relative;text-align:center;padding:30px 22px 26px;background:radial-gradient(120% 140% at 50% 0%,#8a3456 0%,var(--plum) 45%,var(--plum2) 100%);color:#f7e6c6;overflow:hidden}
+.tk-h:after{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 50% 120%,rgba(227,195,138,.13) 0 2px,transparent 2px 14px);pointer-events:none}
+.tk-d{margin-top:2px}
+.tk-star{display:block;font-size:20px;color:var(--gold2);margin-bottom:6px}
+.tc .tk-h .nm{margin:0;font:700 clamp(30px,8vw,42px)/1 var(--fh);letter-spacing:.14em;background:linear-gradient(180deg,#fff3d6,#e3c38a 55%,#c99a4c);-webkit-background-clip:text;background-clip:text;color:transparent;padding:4px 0}
+.tk-s{margin-top:10px;font:italic 600 19px/1.3 var(--fi);color:#f3dcc0}
+.tk-body{position:relative;padding:26px 22px 22px;background-image:radial-gradient(rgba(185,138,62,.07) 1px,transparent 1.5px);background-size:14px 14px}
+.tc ul{font-size:17px;gap:10px}
+.tc li{padding-left:30px}
+.tc li:before{content:"";top:.2em;width:20px;height:20px;border-radius:50%;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3.2 3L15 7' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+.bonus{display:grid;grid-template-columns:48px 1fr;column-gap:12px;row-gap:8px;align-items:center;margin-top:14px;padding:16px;border-radius:20px;background:linear-gradient(160deg,#fdeef0,#fff6ea);border:1px solid var(--rose2)}
+.bonus>div{display:contents}.bonus p{grid-column:1/-1}
+.bonus .gift{width:48px;height:48px;filter:drop-shadow(0 6px 10px rgba(185,138,62,.35))}
+.bonus .gift .lid{transform-box:view-box;transform-origin:32px 33px}
+.tc.in .bonus .gift .lid{animation:lid 3.6s ease-in-out infinite}
+.tc.in .bonus:nth-of-type(2) .gift .lid{animation-delay:1.2s}
+.tc.in .bonus:nth-of-type(3) .gift .lid{animation-delay:2.4s}
+@keyframes lid{0%,70%,100%{transform:none}78%{transform:translateY(-7px) rotate(-6deg)}86%{transform:translateY(-3px) rotate(3deg)}}
+.bonus b{font:700 12px/1.2 var(--fb);letter-spacing:.18em;color:var(--rose)}
+.bonus p{font-size:16px;line-height:1.5;margin-top:4px;color:var(--ink)}
+.bonus small{font-size:14px}
+.stub{position:relative;padding:26px 22px 26px;border-top:2px dashed rgba(185,138,62,.55);background:linear-gradient(180deg,#fff4e2,#fbe9d2)}
+.stub:before,.stub:after{content:"";position:absolute;top:-17px;width:32px;height:32px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--gold2);z-index:2}
+.stub:before{left:-16px}.stub:after{right:-16px}
+.stub .price{margin:0 0 16px}
+.tc .stub .btn{width:100%;background:linear-gradient(180deg,#c99a4c,#a87a2f);box-shadow:0 14px 30px -12px rgba(168,122,47,.7)}
+.vip-s{background:var(--bg)}
+/* ===== v5: telegram row ===== */
+@media(min-width:900px){
+ .tg-list{max-width:1080px;grid-template-columns:repeat(3,1fr)}
+ .tc{max-width:780px}.tc ul{font-size:18px}.bonus p{font-size:17px}.bonus{grid-template-columns:68px 1fr;align-items:start;padding:18px 20px}.bonus>div{display:block}.bonus p{grid-column:auto}.bonus .gift{width:68px;height:68px}.tk-body{padding:32px 34px 26px}.stub{padding:28px 34px}
+ .tg-list a{flex-direction:column;text-align:center;padding:24px 20px}
+}
+/* ===== v5: recipe bar ===== */
+body{padding-bottom:92px}
+.rcp{position:fixed;z-index:40;left:50%;bottom:calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:auto auto;align-items:center;column-gap:12px;row-gap:3px;padding:8px 18px 9px;border-radius:22px;background:rgba(255,253,250,.95);border:1px solid var(--rose2);box-shadow:0 16px 36px -14px rgba(79,28,49,.45);backdrop-filter:blur(8px);transform:translate(-50%,140%);opacity:0;transition:transform .6s cubic-bezier(.2,.9,.3,1.2),opacity .4s;white-space:nowrap}
+.rcp.on{transform:translate(-50%,0);opacity:1}
+.rcp b{grid-column:1/-1;text-align:center;font:italic 700 16px/1.1 var(--fi);color:var(--plum)}
+.rfl{display:flex;gap:7px}
+.rfl i{position:relative;width:20px;height:25px}
+.rfl svg{width:100%;height:100%;filter:grayscale(1) opacity(.35);transition:filter .6s}
+.rfl i.got svg{filter:none;animation:gotf 1s ease}
+.rcp em{font:600 15px/1 var(--fb);color:var(--rose);min-width:28px;text-align:right}
+.rcp.full{border-color:var(--gold2);box-shadow:0 0 0 3px rgba(227,195,138,.45),0 16px 36px -14px rgba(185,138,62,.7)}
+.toast{position:fixed;z-index:41;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));transform:translate(-50%,16px);opacity:0;padding:9px 16px;border-radius:999px;background:var(--plum);color:#fff;font:600 13px/1.2 var(--fb);white-space:nowrap;box-shadow:0 12px 26px -10px rgba(79,28,49,.6);transition:transform .45s cubic-bezier(.2,.9,.3,1.3),opacity .35s;pointer-events:none}
+.toast.on{transform:translate(-50%,0);opacity:1}
+.cf{position:fixed;z-index:42;width:8px;height:12px;border-radius:2px;pointer-events:none;animation:cf 1.6s cubic-bezier(.2,.6,.4,1) forwards}
+@keyframes cf{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(var(--r))}}
+html.lpe-on .rcp,html.lpe-on .toast{display:none}
+@media(min-width:900px){
+ .card{padding-right:18px;padding-top:30px}.lk{top:14px;margin-top:0}
+ .rcp{left:auto;right:24px;transform:translate(0,140%)}.rcp.on{transform:none}
+ .toast{left:auto;right:24px;transform:translate(0,16px)}.toast.on{transform:none}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}html.js .rv{opacity:1;transform:none}.hd,.fly{display:none}}
+
+
+html.lpe-on body:has(#lpe-bar){padding-top:48px}
+html:not(.lpe-on) #lpe-bar{display:none!important}
+</style>
+</head>
+<body>
+
+<section class="hx" id="top"><div class="wrap hx-in">
+ <div class="stage" id="stage" aria-label="Женщина в цепях обиды, вины, стыда, страха и тревоги освобождается и притягивает подарки, заботу и комплименты">
+  <img class="chains" src="img/w-chains-l.webp" alt="">
+  <img class="free" src="img/w-free-l.webp" alt="">
+  <span class="ct" style="--l:26%;--t:66%;--rr:-8deg;--x:-160px;--y:-90px;--r:-200deg">обида</span>
+  <span class="ct" style="--l:74%;--t:64%;--rr:7deg;--x:160px;--y:-110px;--r:220deg">вина</span>
+  <span class="ct" style="--l:30%;--t:77%;--rr:5deg;--x:-180px;--y:40px;--r:-160deg">стыд</span>
+  <span class="ct" style="--l:71%;--t:76%;--rr:-6deg;--x:170px;--y:60px;--r:180deg">страх</span>
+  <span class="ct" style="--l:50%;--t:88%;--rr:2deg;--x:20px;--y:160px;--r:140deg">тревога</span>
+  <span class="mw" style="--l:24%;--t:56%;--fx:-140px;--fy:-80px;--d:.55s">🎁 подарки</span>
+  <span class="mw" style="--l:76%;--t:66%;--fx:140px;--fy:-40px;--d:.75s">🤍 забота</span>
+  <span class="mw" style="--l:50%;--t:86%;--fx:0px;--fy:120px;--d:.95s">💐 комплименты</span>
+  <i class="flash"></i>
+  <i class="heart"></i>
+  <span class="hf" style="--l:13%;--t:13%;--rot:36.4deg;--dl:0.0s"><svg class="" viewBox="0 0 100 124" aria-hidden="true"><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="#e9a3ad" fill-opacity=".85"/><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="5"/><rect x="34" y="1" width="32" height="8" rx="3" fill="#b98a3e"/><circle cx="42" cy="92" r="5" fill="#fff" fill-opacity=".7"/></svg></span><i class="hd" style="--l:13%;--t:20%;--c:#e9a3ad;--dl:0.35s"></i><span class="hf" style="--l:31%;--t:8%;--rot:15.600000000000001deg;--dl:0.18s"><svg class="" viewBox="0 0 100 124" aria-hidden="true"><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="#e3c38a" fill-opacity=".85"/><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="5"/><rect x="34" y="1" width="32" height="8" rx="3" fill="#b98a3e"/><circle cx="42" cy="92" r="5" fill="#fff" fill-opacity=".7"/></svg></span><i class="hd" style="--l:31%;--t:15%;--c:#e3c38a;--dl:0.53s"></i><span class="hf" style="--l:50%;--t:6%;--rot:0.0deg;--dl:0.36s"><svg class="" viewBox="0 0 100 124" aria-hidden="true"><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="#b7a2e6" fill-opacity=".85"/><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="5"/><rect x="34" y="1" width="32" height="8" rx="3" fill="#b98a3e"/><circle cx="42" cy="92" r="5" fill="#fff" fill-opacity=".7"/></svg></span><i class="hd" style="--l:50%;--t:13%;--c:#b7a2e6;--dl:0.71s"></i><span class="hf" style="--l:69%;--t:8%;--rot:-15.600000000000001deg;--dl:0.54s"><svg class="" viewBox="0 0 100 124" aria-hidden="true"><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="#9cc3e6" fill-opacity=".85"/><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="5"/><rect x="34" y="1" width="32" height="8" rx="3" fill="#b98a3e"/><circle cx="42" cy="92" r="5" fill="#fff" fill-opacity=".7"/></svg></span><i class="hd" style="--l:69%;--t:15%;--c:#9cc3e6;--dl:0.89s"></i><span class="hf" style="--l:87%;--t:13%;--rot:-36.4deg;--dl:0.72s"><svg class="" viewBox="0 0 100 124" aria-hidden="true"><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="#94d4bc" fill-opacity=".85"/><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="5"/><rect x="34" y="1" width="32" height="8" rx="3" fill="#b98a3e"/><circle cx="42" cy="92" r="5" fill="#fff" fill-opacity=".7"/></svg></span><i class="hd" style="--l:87%;--t:20%;--c:#94d4bc;--dl:1.0699999999999998s"></i>
+  <span class="stage-tip">нажмите, чтобы повторить</span>
+ </div>
+ <div class="hx-text">
+  <p class="hx-tag">Пошаговое пособие</p>
+  <h1>Как стать <em>волшебной женщиной</em>, которая как магнит притягивает подарки, заботу и&nbsp;комплименты</h1>
+  <p class="hx-note">Даже если вы привыкли рассчитывать только на&nbsp;себя и&nbsp;вам редко делают <span class="nw">что-то</span> просто&nbsp;так</p>
+  <div class="hx-acts"><a class="btn" href="#reasons">Перейти к&nbsp;инструкции<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v13M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+ </div>
+</div></section>
+
+<section class="why5" id="reasons" data-ing="1"><div class="wrap">
+ <div class="head">
+  <span class="ing"><svg class="ic" viewBox="0 0 100 124" aria-hidden="true"><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="#e9a3ad" fill-opacity=".85"/><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="5"/><rect x="34" y="1" width="32" height="8" rx="3" fill="#b98a3e"/><circle cx="42" cy="92" r="5" fill="#fff" fill-opacity=".7"/></svg>Ингредиент&nbsp;1 из&nbsp;5</span>
+  <h2>5 причин, <span class="nw">из-за</span> которых вы сами блокируете свою <em>счастливую&nbsp;жизнь</em></h2>
+ </div>
+ <div class="chain-list">
+  <div class="card"><span class="n">1</span><svg class="lk" viewBox="0 0 60 26" aria-hidden="true"><rect class="l1" x="5" y="7" width="27" height="12" rx="6" fill="none" stroke="currentColor" stroke-width="3.4"/><rect class="l2" x="28" y="7" width="27" height="12" rx="6" fill="none" stroke="currentColor" stroke-width="3.4"/><g class="sk" stroke="#e3a33e" stroke-width="2.2" stroke-linecap="round"><path d="M30 4V0"/><path d="M26 5l-3-3"/><path d="M34 5l3-3"/><path d="M30 22v4"/><path d="M26 21l-3 3"/><path d="M34 21l3 3"/></g></svg><div><b>Обида</b><p>«Почему у&nbsp;других есть, а&nbsp;у&nbsp;меня&nbsp;нет?»</p></div></div>
+  <div class="card"><span class="n">2</span><svg class="lk" viewBox="0 0 60 26" aria-hidden="true"><rect class="l1" x="5" y="7" width="27" height="12" rx="6" fill="none" stroke="currentColor" stroke-width="3.4"/><rect class="l2" x="28" y="7" width="27" height="12" rx="6" fill="none" stroke="currentColor" stroke-width="3.4"/><g class="sk" stroke="#e3a33e" stroke-width="2.2" stroke-linecap="round"><path d="M30 4V0"/><path d="M26 5l-3-3"/><path d="M34 5l3-3"/><path d="M30 22v4"/><path d="M26 21l-3 3"/><path d="M34 21l3 3"/></g></svg><div><b>Вина</b><p>«Мне подарили, теперь я&nbsp;должна»</p></div></div>
+  <div class="card"><span class="n">3</span><svg class="lk" viewBox="0 0 60 26" aria-hidden="true"><rect class="l1" x="5" y="7" width="27" height="12" rx="6" fill="none" stroke="currentColor" stroke-width="3.4"/><rect class="l2" x="28" y="7" width="27" height="12" rx="6" fill="none" stroke="currentColor" stroke-width="3.4"/><g class="sk" stroke="#e3a33e" stroke-width="2.2" stroke-linecap="round"><path d="M30 4V0"/><path d="M26 5l-3-3"/><path d="M34 5l3-3"/><path d="M30 22v4"/><path d="M26 21l-3 3"/><path d="M34 21l3 3"/></g></svg><div><b>Стыд</b><p>«Кто я&nbsp;такая, чтобы просить?»</p></div></div>
+  <div class="card"><span class="n">4</span><svg class="lk" viewBox="0 0 60 26" aria-hidden="true"><rect class="l1" x="5" y="7" width="27" height="12" rx="6" fill="none" stroke="currentColor" stroke-width="3.4"/><rect class="l2" x="28" y="7" width="27" height="12" rx="6" fill="none" stroke="currentColor" stroke-width="3.4"/><g class="sk" stroke="#e3a33e" stroke-width="2.2" stroke-linecap="round"><path d="M30 4V0"/><path d="M26 5l-3-3"/><path d="M34 5l3-3"/><path d="M30 22v4"/><path d="M26 21l-3 3"/><path d="M34 21l3 3"/></g></svg><div><b>Страх</b><p>«А&nbsp;вдруг откажет?»</p></div></div>
+  <div class="card"><span class="n">5</span><svg class="lk" viewBox="0 0 60 26" aria-hidden="true"><rect class="l1" x="5" y="7" width="27" height="12" rx="6" fill="none" stroke="currentColor" stroke-width="3.4"/><rect class="l2" x="28" y="7" width="27" height="12" rx="6" fill="none" stroke="currentColor" stroke-width="3.4"/><g class="sk" stroke="#e3a33e" stroke-width="2.2" stroke-linecap="round"><path d="M30 4V0"/><path d="M26 5l-3-3"/><path d="M34 5l3-3"/><path d="M30 22v4"/><path d="M26 21l-3 3"/><path d="M34 21l3 3"/></g></svg><div><b>Тревога</b><p>«Проще сделать самой, так всё под&nbsp;контролем»</p></div></div>
+ </div>
+ <p class="note">Люди реагируют на&nbsp;ваше внутреннее состояние. Если внутри напряжение, контроль, закрытость, страх «быть должной», это считывается, и&nbsp;рядом с&nbsp;вами не&nbsp;возникает желания давать, заботиться, вкладываться.</p>
+</div></section>
+
+<section class="mech" id="magnet" data-ing="2"><div class="wrap">
+ <div class="head">
+  <span class="ing"><svg class="ic" viewBox="0 0 100 124" aria-hidden="true"><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="#e3c38a" fill-opacity=".85"/><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="5"/><rect x="34" y="1" width="32" height="8" rx="3" fill="#b98a3e"/><circle cx="42" cy="92" r="5" fill="#fff" fill-opacity=".7"/></svg>Ингредиент&nbsp;2 из&nbsp;5</span>
+  <h2>Как работает <em>механизм</em></h2>
+  <h3 class="sub">Волшебная женщина – как&nbsp;магнит</h3>
+ </div>
+ <div class="mech-grid">
+  <figure class="mag-pic"><i class="mglow"></i><span class="fly" style="--x:-150px;--y:-170px;--dl:0s">🎁</span><span class="fly" style="--x:160px;--y:-140px;--dl:1.2s">💐</span><span class="fly" style="--x:-170px;--y:90px;--dl:2.4s">🤍</span><span class="fly" style="--x:170px;--y:120px;--dl:3.6s">✨</span><span class="fly" style="--x:0px;--y:-200px;--dl:4.8s">💌</span><span class="fly" style="--x:-60px;--y:190px;--dl:6s">🌹</span><img src="img/w-magnet.webp" alt="Женщина, у которой вместо сердца магнит, притягивает подарки, цветы и заботу" loading="lazy"></figure>
+  <div>
+   <p class="quote">Мужчины голодны до&nbsp;признания. И&nbsp;когда они это признание получают в&nbsp;общении с&nbsp;женщиной, они готовы этой женщине отдать&nbsp;всё</p>
+   <p class="qa">Анна Саба, <span class="nw">врач-психотерапевт</span></p>
+  </div>
+ </div>
+ <div class="vs">
+  <div><h3>Если внутри</h3><ul><li>напряжение</li><li>контроль</li><li>закрытость</li><li>страх «быть должной»</li></ul><p>это считывается, и&nbsp;рядом с&nbsp;вами не&nbsp;возникает желания давать, заботиться, вкладываться</p></div>
+  <div class="yes"><h3>Если внутри</h3><ul><li>спокойствие</li><li>разрешение получать</li><li>ощущение ценности себя</li></ul><p>это тоже считывается, и&nbsp;отношение к&nbsp;вам начинает&nbsp;меняться</p></div>
+ </div>
+</div></section>
+
+<section class="vids-s" id="video" data-ing="3"><div class="wrap">
+ <div class="head"><span class="ing"><svg class="ic" viewBox="0 0 100 124" aria-hidden="true"><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="#b7a2e6" fill-opacity=".85"/><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="5"/><rect x="34" y="1" width="32" height="8" rx="3" fill="#b98a3e"/><circle cx="42" cy="92" r="5" fill="#fff" fill-opacity=".7"/></svg>Ингредиент&nbsp;3 из&nbsp;5</span><h2>Посмотрите 3&nbsp;видео с&nbsp;эфиров <em>Анны&nbsp;Саба</em></h2></div>
+ <div class="vids">
+  <article class="vid"><div class="vbox" data-src="v/1-priznanie.mp4" style="--c:#c46f7e"><img src="img/flask-obida.webp" alt="" loading="lazy"><div class="lbl"><small>Противоядие</small><b>от&nbsp;<i>обиды</i></b></div><span class="play"><i><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></i>Смотреть видео</span></div><div class="tx"><h3>Признание</h3><p>Мужчине открыть вам дверь или сварить кофе – мелочь. Почему же ваше «спасибо» за&nbsp;это так много для&nbsp;него&nbsp;значит?</p></div></article>
+  <article class="vid"><div class="vbox" data-src="v/2-kover.mp4" style="--c:#8a64b8"><img src="img/flask-styd.webp" alt="" loading="lazy"><div class="lbl"><small>Противоядие</small><b>от&nbsp;<i>стыда</i></b></div><span class="play"><i><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></i>Смотреть видео</span></div><div class="tx"><h3>Ковёр</h3><p>Подруга ничего не&nbsp;просила у&nbsp;хозяина магазина в&nbsp;Турции, а&nbsp;ушла с&nbsp;шёлковым&nbsp;ковром.</p></div></article>
+  <article class="vid"><div class="vbox" data-src="v/3-shchedrost.mp4" style="--c:#b98a3e"><img src="img/flask-vina.webp" alt="" loading="lazy"><div class="lbl"><small>Противоядие</small><b>от&nbsp;<i>вины</i></b></div><span class="play"><i><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></i>Смотреть видео</span></div><div class="tx"><h3>Щедрость</h3><p>Что на&nbsp;самом деле важно в&nbsp;подарках и&nbsp;какие фразы говорить мужчинам, чтобы они раскрывались ещё&nbsp;больше.</p></div></article>
+ </div>
+</div></section>
+
+<section class="prac" id="practice" data-ing="4"><div class="wrap">
+ <div class="head">
+  <span class="ing"><svg class="ic" viewBox="0 0 100 124" aria-hidden="true"><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="#9cc3e6" fill-opacity=".85"/><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="5"/><rect x="34" y="1" width="32" height="8" rx="3" fill="#b98a3e"/><circle cx="42" cy="92" r="5" fill="#fff" fill-opacity=".7"/></svg>Ингредиент&nbsp;4 из&nbsp;5</span>
+  <h2>Сделайте эту практику <em>в&nbsp;ближайшее&nbsp;время</em></h2>
+  <p class="sub">3 шага на&nbsp;пути к&nbsp;волшебной&nbsp;женщине</p>
+  <p class="hint">Нажмите на&nbsp;шаг, когда сделаете&nbsp;его</p>
+ </div>
+ <div class="steps">
+  <div class="step" role="button" tabindex="0"><figure class="st-img"><img src="img/step1.webp" alt="" width="1000" height="667" decoding="async"></figure><div class="st-b"><b>Выпишите список</b><p>За&nbsp;что вы цените своего мужчину? Всё подряд, крупное и&nbsp;мелкое. Если вы сейчас одна – про мужчин, которые есть в&nbsp;вашей&nbsp;жизни.</p></div></div>
+  <div class="step" role="button" tabindex="0"><figure class="st-img"><img src="img/step2.webp" alt="" width="1000" height="667" decoding="async"></figure><div class="st-b"><b>Скажите ему эти&nbsp;слова</b><p>Вслух или в&nbsp;сообщении, не&nbsp;на&nbsp;автомате, а&nbsp;прочувствовав каждое&nbsp;слово:</p><q>«Дорогой, я&nbsp;благодарна тебе за&nbsp;то, что ты есть в&nbsp;моей жизни. Я&nbsp;очень ценю всё, что ты для&nbsp;меня&nbsp;делаешь»</q></div></div>
+  <div class="step" role="button" tabindex="0"><figure class="st-img"><img src="img/step3.webp" alt="" width="1000" height="667" decoding="async"></figure><div class="st-b"><b>Повторяйте каждый&nbsp;день</b><p>Благодарность – это мышца, её&nbsp;можно накачать. Чем чаще повторяете, тем лучше&nbsp;становится.</p></div></div>
+ </div>
+ <div class="res"><b>Результат</b><p>У&nbsp;вас исчезнет напряжение, что вы постоянно <span class="nw">кому-то</span> <span class="nw">что-то</span> должны. Появится спокойное разрешение получать. И&nbsp;реакции мужчин изменятся&nbsp;автоматически.</p></div>
+</div></section>
+
+<section class="lab" id="lab" data-ing="5"><div class="wrap">
+ <div class="head">
+  <span class="ing"><svg class="ic" viewBox="0 0 100 124" aria-hidden="true"><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="#94d4bc" fill-opacity=".85"/><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="5"/><rect x="34" y="1" width="32" height="8" rx="3" fill="#b98a3e"/><circle cx="42" cy="92" r="5" fill="#fff" fill-opacity=".7"/></svg>Ингредиент&nbsp;5 из&nbsp;5</span>
+  <span class="kick">25–28&nbsp;ноября · практикум «Новая&nbsp;реальность»</span>
+  <h2>На&nbsp;практикуме мы убираем 5&nbsp;<em>угнетающих&nbsp;чувств</em></h2>
+  <p class="lead" style="margin:0 auto">Тревогу, страх, обиду, вину и&nbsp;стыд</p>
+ </div>
+ <div class="flasks" id="flasks"></div>
+ <div class="fx">
+  <div style="--c:#e9a3ad"><i></i><p>Уходит напряжение, претензии и&nbsp;обиды</p></div>
+  <div style="--c:#e3c38a"><i></i><p>Исчезает напряжение «я&nbsp;постоянно <span class="nw">кому-то</span> <span class="nw">что-то</span>&nbsp;должна»</p></div>
+  <div style="--c:#b7a2e6"><i></i><p>Появляется спокойное разрешение получать</p></div>
+  <div style="--c:#9cc3e6"><i></i><p>Меняется ощущение себя и&nbsp;реакции мужчин</p></div>
+  <div style="--c:#94d4bc"><i></i><p>Вы легко управляете своим состоянием</p></div>
+ </div>
+ <div class="whyb">
+  <figure class="wb-img"><img src="img/why-brain.webp" alt="" width="1000" height="667"></figure>
+  <div class="wb-tx">
+  <h3>Почему вы можете всё осознавать, но&nbsp;каждый раз скатываться <em>в&nbsp;старые&nbsp;реакции</em></h3>
+  <p class="wb-p"><b>1</b><span>Старые реакции срабатывают быстрее, чем вы успеваете их осознать. За&nbsp;них отвечает миндалевидное тело, амигдала, – часть мозга, отвечающая за&nbsp;старые&nbsp;реакции.</span></p>
+  <p class="wb-p"><b>2</b><span>Поэтому на&nbsp;эфирах мы не&nbsp;мечтаем и&nbsp;не&nbsp;визуализируем, а&nbsp;сфокусированно работаем с&nbsp;амигдалой и&nbsp;переписываем эти&nbsp;сценарии.</span></p>
+  </div>
+  <div class="doc"><img src="img/anna-au-smile.webp" alt="" width="64" height="64"><p>Я <span class="nw">врач-психотерапевт</span> с&nbsp;более чем <span class="nw">10-летним</span> опытом работы и&nbsp;помогла более 7000&nbsp;клиентов перейти в&nbsp;новую реальность за&nbsp;счёт нейрофизиологии. Наш мозг – это <span class="nw">чудо-компьютер</span>, который можно достаточно легко перестроить на&nbsp;чудеса, если знать, как это&nbsp;сделать.<small>Анна&nbsp;Саба</small></p></div>
+ </div>
+ <h3 class="days-h">Программа <em>практикума</em></h3>
+ <div class="days">
+  <article class="day"><figure class="day-img"><img src="img/day1.webp" alt="" width="1000" height="667" decoding="async"></figure><div class="day-b"><div class="day-h"><span class="dt">25&nbsp;ноября</span><span class="ef">Эфир&nbsp;1</span></div><p class="day-n">Спусковой&nbsp;крючок</p><h3>Убираем угнетающие чувства:</h3><ul><li>тревога, страх, обида, вина, стыд</li></ul><p class="rl">Результат:</p><ul class="rr"><li>Найден затык, который годами держал вас на&nbsp;месте</li><li>Прошлое больше вас не&nbsp;беспокоит</li></ul></div></article>
+  <article class="day"><figure class="day-img"><img src="img/day2.webp" alt="" width="1000" height="667" decoding="async"></figure><div class="day-b"><div class="day-h"><span class="dt">26&nbsp;ноября</span><span class="ef">Эфир&nbsp;2</span></div><p class="day-n">Бесконечный&nbsp;поток</p><h3>Возвращаем энергию себе:</h3><ul><li>находим, куда сливался ресурс</li><li>перекрываем утечки</li><li>восстанавливаем силы</li><li>ставим предохранители от&nbsp;откатов</li></ul><p class="rl">Результат:</p><ul class="rr"><li>Вы полны энергии</li><li>Сил хватает на&nbsp;всё</li><li>Вы больше не&nbsp;откатываетесь в&nbsp;старые&nbsp;реакции</li></ul></div></article>
+  <article class="day"><figure class="day-img"><img src="img/day3.webp" alt="" width="1000" height="667" decoding="async"></figure><div class="day-b"><div class="day-h"><span class="dt">27&nbsp;ноября</span><span class="ef">Эфир&nbsp;3</span></div><p class="day-n">Новая&nbsp;реальность</p><h3>Переходим в&nbsp;новое состояние:</h3><ul><li>проверяем цель на&nbsp;истинность</li><li>выстраиваем прямой путь к&nbsp;реализации вашего&nbsp;желания</li><li>убираем сопротивление и&nbsp;саботаж</li></ul><p class="rl">Результат:</p><ul class="rr"><li>У&nbsp;вас на&nbsp;руках пошаговый план по&nbsp;достижению своей&nbsp;цели</li><li>От&nbsp;идеи до&nbsp;реализации минимум времени: подумал(а)&nbsp;→ сделал(а)</li></ul></div></article>
+  <article class="day vip"><figure class="day-img"><img src="img/day4.webp" alt="" width="1000" height="667" decoding="async"></figure><div class="day-b"><div class="day-h"><span class="dt">28&nbsp;ноября</span><span class="ef">Эфир&nbsp;4 · VIP</span></div><p class="day-n">Магнит для&nbsp;масштаба</p><ul><li>всё в&nbsp;жизни даётся легко и&nbsp;без&nbsp;усилий</li><li>возможности сами находят&nbsp;вас</li><li>чудеса случаются с&nbsp;вами каждый&nbsp;день</li></ul><p class="dn">Если вы <span class="nw">когда-нибудь</span> встречали людей, про которых думали: «Вот бы мне так везло», то&nbsp;на&nbsp;этом эфире вы сможете перейти в&nbsp;это&nbsp;состояние.</p></div></article>
+ </div>
+</div></section>
+
+<section class="vip-s" id="vip"><div class="wrap">
+ <div class="head">
+  <h2>Чтобы получить от&nbsp;практикума максимальный эффект, возьмите <em>VIP&#8209;билет</em></h2>
+ </div>
+ <article class="tc">
+  <div class="tk-h"><span class="tk-star">✦</span><p class="nm"><span class="nw">VIP-БИЛЕТ</span></p><p class="tk-s">практикум «Новая&nbsp;реальность»</p><p class="tk-s tk-d">25–28&nbsp;ноября</p></div><div class="tk-body">
+  <ul><li>3&nbsp;прямых эфира</li><li><span class="nw">4-й</span> <span class="nw">VIP-эфир</span> «Магнит для&nbsp;масштаба»</li><li>Записи и&nbsp;презентации всех&nbsp;эфиров</li><li>Домашние задания и&nbsp;дополнительные бонусные&nbsp;материалы</li><li>Чат участников практикума и&nbsp;участие в&nbsp;розыгрыше&nbsp;призов</li></ul>
+  <div class="bonus"><svg class="gift" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="gb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d77f8f"/><stop offset="1" stop-color="#b85d6e"/></linearGradient></defs><rect x="9" y="30" width="46" height="28" rx="4" fill="url(#gb)"/><g class="lid"><rect x="5" y="21" width="54" height="12" rx="3" fill="#e08d9c"/><path class="bow" d="M32 21c-7-13-20-11-17-3 2 5 10 4 17 3zM32 21c7-13 20-11 17-3-2 5-10 4-17 3z" fill="#e8b860" stroke="#b98a3e" stroke-width="1.5"/><rect x="28" y="21" width="8" height="12" fill="#e8b860"/></g><rect x="28" y="33" width="8" height="25" fill="#e8b860"/><circle cx="18" cy="12" r="1.8" fill="#e8b860" class="tw"/><circle cx="50" cy="9" r="1.4" fill="#e8b860" class="tw"/></svg><div><b>Бонус</b><p>Практика на&nbsp;60&nbsp;минут «Прочувствуй свою новую реальность и&nbsp;узнай, что&nbsp;тебе не&nbsp;даёт в&nbsp;неё&nbsp;перейти»</p></div></div>
+  <div class="bonus"><svg class="gift" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="gb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d77f8f"/><stop offset="1" stop-color="#b85d6e"/></linearGradient></defs><rect x="9" y="30" width="46" height="28" rx="4" fill="url(#gb)"/><g class="lid"><rect x="5" y="21" width="54" height="12" rx="3" fill="#e08d9c"/><path class="bow" d="M32 21c-7-13-20-11-17-3 2 5 10 4 17 3zM32 21c7-13 20-11 17-3-2 5-10 4-17 3z" fill="#e8b860" stroke="#b98a3e" stroke-width="1.5"/><rect x="28" y="21" width="8" height="12" fill="#e8b860"/></g><rect x="28" y="33" width="8" height="25" fill="#e8b860"/><circle cx="18" cy="12" r="1.8" fill="#e8b860" class="tw"/><circle cx="50" cy="9" r="1.4" fill="#e8b860" class="tw"/></svg><div><b>Бонус</b><p>Личный <span class="nw">разбор-диагностика</span> вашей ситуации от&nbsp;практикующего психолога: деньги, отношения, реализация, предназначение, здоровье. Вы&nbsp;получите пошаговый план без&nbsp;розовых&nbsp;очков.<small>Разборы проводят действующие психологи, выпускники Института психического здоровья доктора&nbsp;Анны&nbsp;Саба. Средняя цена консультации психологов такого уровня от&nbsp;15&nbsp;000&nbsp;₽ (для вас по&nbsp;цене&nbsp;<span class="nw">VIP-тарифа</span>).</small></p></div></div>
+  <div class="bonus"><svg class="gift" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="gb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d77f8f"/><stop offset="1" stop-color="#b85d6e"/></linearGradient></defs><rect x="9" y="30" width="46" height="28" rx="4" fill="url(#gb)"/><g class="lid"><rect x="5" y="21" width="54" height="12" rx="3" fill="#e08d9c"/><path class="bow" d="M32 21c-7-13-20-11-17-3 2 5 10 4 17 3zM32 21c7-13 20-11 17-3-2 5-10 4-17 3z" fill="#e8b860" stroke="#b98a3e" stroke-width="1.5"/><rect x="28" y="21" width="8" height="12" fill="#e8b860"/></g><rect x="28" y="33" width="8" height="25" fill="#e8b860"/><circle cx="18" cy="12" r="1.8" fill="#e8b860" class="tw"/><circle cx="50" cy="9" r="1.4" fill="#e8b860" class="tw"/></svg><div><b>Бонус</b><p><span class="nw">Мастер-класс</span>: как с&nbsp;нуля за&nbsp;6&nbsp;месяцев освоить востребованную профессию <span class="nw">EMDR-терапевта</span>, помогать себе, родным, близким, выстроить очередь из&nbsp;клиентов и&nbsp;выйти на&nbsp;доход от&nbsp;300&nbsp;000&nbsp;₽/мес.</p></div></div>
+  </div><div class="stub">
+  <div class="price"><b>1&nbsp;980&nbsp;₽</b><s>14&nbsp;990&nbsp;₽</s></div>
+  <button type="button" class="btn" data-vip>Иду на&nbsp;VIP</button>
+  <p class="fn">Если вы уже приобрели <span class="nw">VIP-тариф</span>, второй раз оплачивать ничего не&nbsp;нужно.</p>
+  </div>
+ </article>
+</div></section>
+
+<section class="au-s" id="author"><div class="wrap au">
+ <img src="img/anna-au-smile.webp" alt="Анна Саба">
+ <div>
+  <h2>Анна&nbsp;Саба</h2>
+  <p class="au-r"><span class="nw">Врач-психиатр</span>, психотерапевт. Основатель «Института психического здоровья доктора Анны&nbsp;Саба».</p>
+  <div class="nums"><p><b>10+</b><span>лет практики</span></p><p><b>7000+</b><span>клиентов</span></p><p><b>150+</b><span>специалистов обучила</span></p></div>
+  <ul class="edu"><li>Московская медицинская академия им. И.М.&nbsp;Сеченова</li><li>НМИЦ психиатрии и&nbsp;наркологии им. В.П.&nbsp;Сербского</li><li>Факультет непрерывного медицинского образования&nbsp;РУДН</li></ul>
+ </div>
+</div></section>
+
+<section class="tg" id="channels"><div class="wrap">
+ <div class="tg-list">
+  <a href="https://t.me/drannasaba" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24"><path d="M21.5 4.3 2.9 11.5c-1 .4-1 1.6.1 1.9l4.6 1.4 1.8 5.6c.3.8 1.3 1 1.9.4l2.6-2.5 4.9 3.6c.7.5 1.6.1 1.8-.7L23 5.6c.2-1-.7-1.7-1.5-1.3zM9.7 14.6l-.4 4 1.6-3.3 7.7-7.1-8.9 6.4z" fill="currentColor"/></svg></i><span><b><span class="nw">Telegram-канал</span> доктора Анны&nbsp;Саба</b></span></a>
+  <a href="https://t.me/pro_emdr_3" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24"><path d="M21.5 4.3 2.9 11.5c-1 .4-1 1.6.1 1.9l4.6 1.4 1.8 5.6c.3.8 1.3 1 1.9.4l2.6-2.5 4.9 3.6c.7.5 1.6.1 1.8-.7L23 5.6c.2-1-.7-1.7-1.5-1.3zM9.7 14.6l-.4 4 1.6-3.3 7.7-7.1-8.9 6.4z" fill="currentColor"/></svg></i><span><b><span class="nw">Telegram-канал</span> терапии</b><small>Здесь проводятся бесплатные терапевтические сессии на&nbsp;регулярной&nbsp;основе</small></span></a>
+  <a href="https://t.me/consillium_saba" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24"><path d="M21.5 4.3 2.9 11.5c-1 .4-1 1.6.1 1.9l4.6 1.4 1.8 5.6c.3.8 1.3 1 1.9.4l2.6-2.5 4.9 3.6c.7.5 1.6.1 1.8-.7L23 5.6c.2-1-.7-1.7-1.5-1.3zM9.7 14.6l-.4 4 1.6-3.3 7.7-7.1-8.9 6.4z" fill="currentColor"/></svg></i><span><b><span class="nw">Telegram-канал</span> для психологов</b></span></a>
+ </div>
+</div></section>
+
+<div class="rcp" id="rcp" aria-hidden="true"><b id="rcpt">Рецепт волшебной женщины</b><span class="rfl"><i style="--c:#e9a3ad"><svg class="" viewBox="0 0 100 124" aria-hidden="true"><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="#e9a3ad" fill-opacity=".85"/><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="5"/><rect x="34" y="1" width="32" height="8" rx="3" fill="#b98a3e"/><circle cx="42" cy="92" r="5" fill="#fff" fill-opacity=".7"/></svg></i><i style="--c:#e3c38a"><svg class="" viewBox="0 0 100 124" aria-hidden="true"><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="#e3c38a" fill-opacity=".85"/><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="5"/><rect x="34" y="1" width="32" height="8" rx="3" fill="#b98a3e"/><circle cx="42" cy="92" r="5" fill="#fff" fill-opacity=".7"/></svg></i><i style="--c:#b7a2e6"><svg class="" viewBox="0 0 100 124" aria-hidden="true"><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="#b7a2e6" fill-opacity=".85"/><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="5"/><rect x="34" y="1" width="32" height="8" rx="3" fill="#b98a3e"/><circle cx="42" cy="92" r="5" fill="#fff" fill-opacity=".7"/></svg></i><i style="--c:#9cc3e6"><svg class="" viewBox="0 0 100 124" aria-hidden="true"><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="#9cc3e6" fill-opacity=".85"/><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="5"/><rect x="34" y="1" width="32" height="8" rx="3" fill="#b98a3e"/><circle cx="42" cy="92" r="5" fill="#fff" fill-opacity=".7"/></svg></i><i style="--c:#94d4bc"><svg class="" viewBox="0 0 100 124" aria-hidden="true"><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="#94d4bc" fill-opacity=".85"/><path d="M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="5"/><rect x="34" y="1" width="32" height="8" rx="3" fill="#b98a3e"/><circle cx="42" cy="92" r="5" fill="#fff" fill-opacity=".7"/></svg></i></span><em id="rcpn">0/5</em></div>
+<div class="toast" id="toast" aria-live="polite"></div>
+<div class="md" id="md" role="dialog" aria-modal="true" aria-labelledby="md-t"><div class="md-box">
+ <button type="button" class="md-x" data-close aria-label="Закрыть">×</button>
+ <h3 id="md-t"><span class="nw">VIP-участие</span> в&nbsp;практикуме</h3>
+ <p class="fmt">Онлайн · 25–28&nbsp;ноября · тариф VIP</p>
+ <form id="registration-form" action="https://doctor-saba.com/sales/shop/offer/id/8830645" method="post" enctype="multipart/form-data" accept-charset="UTF-8" target="_top">
+  <input type="hidden" name="OrderForm[selected_offer_id]" value="8830645"><input type="hidden" name="OrderForm[created_by_object_type]" value="sales_widget">
+  <label class="field" for="reg-email">Электронная почта<input id="reg-email" type="email" name="OrderForm[email]" autocomplete="email" inputmode="email" maxlength="100" required placeholder="Введите ваш e-mail"></label>
+  <label class="field" for="reg-name">Ваше имя<input id="reg-name" type="text" name="OrderForm[full_name]" autocomplete="given-name" maxlength="60" required placeholder="Введите ваше имя"></label>
+  <label class="field" for="reg-phone">Телефон<input id="reg-phone" type="tel" name="OrderForm[phone]" autocomplete="tel" inputmode="tel" maxlength="30" required placeholder="Введите ваш телефон"></label>
+  <label class="consent"><input type="checkbox" id="reg-oferta" required><span>Даю согласие с&nbsp;договором <a href="https://doctor-saba.com/doctor-saba-oferta-obrazovanie" target="_blank" rel="noopener">офертой на&nbsp;образовательные услуги</a></span></label>
+  <label class="consent"><input type="checkbox" id="reg-consent" name="pdpConfirmCheckbox" required><span>Я <a href="https://doctor-saba.com/doctor-saba-soglasie-na-opd" target="_blank" rel="noopener">согласен</a> на&nbsp;обработку моих персональных данных в&nbsp;соответствии с&nbsp;<a href="https://doctor-saba.com/doctor-saba-politika-opd" target="_blank" rel="noopener">Политикой обработки персональных данных</a></span></label>
+  <label class="consent"><input type="checkbox" name="confirmMailingCheckbox"><span>Даю <a href="https://doctor-saba.com/doctor-saba-soglasie-na-reklamu" target="_blank" rel="noopener">согласие</a> на&nbsp;получение информационных и&nbsp;маркетинговых рассылок</span></label>
+  <div class="sum"><span>К оплате</span><div><strong>1&nbsp;980&nbsp;₽</strong><s>14&nbsp;990&nbsp;₽</s></div></div>
+  <button class="btn" type="submit">Перейти к&nbsp;оплате</button>
+ </form>
+</div></div>
+
+<script>
+/* hero: chains struggle, flash, chains fly off, magnet words fly in; tap replays */
+(function(){
+ var st=document.getElementById('stage'),hx=document.querySelector('.hx'),tx=document.querySelector('.hx-text'),t1,t2;
+ var P=new URLSearchParams(location.search).get('p');
+ for(var i=0;i<14;i++){var s=document.createElement('i');s.className='spark';var a=i/14*6.283,d=90+(i%4)*30;s.style.setProperty('--x',Math.cos(a)*d+'px');s.style.setProperty('--y',Math.sin(a)*d+'px');st.appendChild(s)}
+ function play(){st.classList.remove('static');clearTimeout(t1);clearTimeout(t2);st.classList.remove('struggle','burst','done');void st.offsetWidth;st.classList.add('struggle');
+  t1=setTimeout(function(){st.classList.remove("struggle");st.classList.add("burst");t2=setTimeout(function(){st.classList.add("done")},2200)},3300)}
+ if(P==='end'){st.classList.add('static')}else{
+  var imgs=st.querySelectorAll('img'),left=imgs.length;function ready(){if(--left<=0)play()}
+  for(var j=0;j<imgs.length;j++)imgs[j].complete?ready():(imgs[j].onload=imgs[j].onerror=ready)}
+ st.addEventListener('click',play);
+ /* first screen auto-fit on phones: the stage absorbs spare height */
+ function fit(){if(innerWidth>=900){st.style.removeProperty('height');return}
+  var cs=getComputedStyle(hx),pad=parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom);
+  st.style.height=Math.max(150,Math.min(innerHeight-pad-tx.offsetHeight-12,620))+'px'}
+ fit();addEventListener('resize',fit);addEventListener('load',fit);if(document.fonts)document.fonts.ready.then(fit);
+})();
+/* five flasks fill when they scroll into view */
+(function(){
+ var F=[['обиды','#e9a3ad'],['вины','#e3c38a'],['стыда','#b7a2e6'],['страха','#9cc3e6'],['тревоги','#94d4bc']],box=document.getElementById('flasks'),h='';
+ var P='M38 6h24v6h-3v30l30 52c5 9-1 18-11 18H22c-10 0-16-9-11-18l30-52V12h-3z';
+ F.forEach(function(f,i){h+='<div class="fl"><svg viewBox="0 0 100 124" aria-hidden="true"><defs><clipPath id="fc'+i+'"><path d="'+P+'"/></clipPath><linearGradient id="fg'+i+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+f[1]+'" stop-opacity=".95"/><stop offset="1" stop-color="'+f[1]+'" stop-opacity=".7"/></linearGradient></defs>'+
+  '<path d="'+P+'" fill="rgba(255,255,255,.75)"/><g clip-path="url(#fc'+i+')"><rect class="liq" style="--d:'+(i*.18)+'s" x="0" y="54" width="100" height="70" fill="url(#fg'+i+')"/>'+
+  '<circle class="bub" style="--bd:'+(i*.4)+'s" cx="44" cy="104" r="3.5" fill="#fff"/><circle class="bub" style="--bd:'+(i*.4+1.1)+'s" cx="58" cy="108" r="2.5" fill="#fff"/></g>'+
+  '<path d="'+P+'" fill="none" stroke="#c9a7ad" stroke-width="2.4"/><rect x="34" y="2" width="32" height="7" rx="3" fill="#b98a3e"/></svg><em class="t1">Противоядие</em><small>от&nbsp;'+f[0]+'</small></div>'});
+ box.innerHTML=h;if(new URLSearchParams(location.search).get('p')==='end'){box.classList.add('on');return}
+ if('IntersectionObserver' in window){new IntersectionObserver(function(e,o){if(e[0].isIntersecting){box.classList.add('on');o.disconnect()}},{threshold:.35}).observe(box)}else box.classList.add('on');
+})();
+/* video cards: flask poster until tapped, then the clip plays in place */
+(function(){
+ document.querySelectorAll('.vbox').forEach(function(b){b.addEventListener('click',function(){
+  if(b.querySelector('video'))return;var v=document.createElement('video');v.src=b.getAttribute('data-src');v.controls=true;v.playsInline=true;v.setAttribute('playsinline','');b.appendChild(v);v.play().catch(function(){})})});
+})();
+/* VIP order modal */
+(function(){
+ var md=document.getElementById('md');
+ document.querySelectorAll('[data-vip]').forEach(function(b){b.addEventListener('click',function(){md.classList.add('on');setTimeout(function(){document.getElementById('reg-email').focus()},50)})});
+ md.addEventListener('click',function(e){if(e.target===md||e.target.hasAttribute('data-close'))md.classList.remove('on')});
+ addEventListener('keydown',function(e){if(e.key==='Escape')md.classList.remove('on')});
+})();
+</script>
+<script>
+/* v5: reveal, recipe bar, tappable steps, flask pour, counters */
+(function(){
+ var D=document,H=D.documentElement;H.classList.add('js');
+ var Q=new URLSearchParams(location.search),END=Q.get('p')==='end';
+ var sel='.card,.note,.mag-pic,.quote,.vs>div,.vid,.step,.res,.fx>div,.whyb,.day,.vic,.tc,.au img,.tg-list a,.days-h,.flasks';
+ var els=[].slice.call(D.querySelectorAll(sel));
+ els.forEach(function(e){var sib=[].slice.call(e.parentNode.children).filter(function(x){return x.matches(sel)});e.style.setProperty('--i',Math.min(sib.indexOf(e),5));
+  if(!END&&e.getBoundingClientRect().top>innerHeight*.92)e.classList.add('rv');else e.classList.add('in')});
+ function count(el,from,to,fmt,ms){var t0=null;function f(t){t0=t0||t;var k=Math.min(1,(t-t0)/ms),e=1-Math.pow(1-k,3);el.innerHTML=fmt(Math.round(from+(to-from)*e));if(k<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+ function sp(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'&nbsp;')}
+ function onIn(e){
+  if(e.classList.contains('tc')){var b=e.querySelector('.price b');count(b,14990,1980,function(v){return sp(v)+'&nbsp;₽'},1500)}
+  if(e.matches('.au img')){D.querySelectorAll('.nums b').forEach(function(b){var m=b.textContent.match(/(\d+)/);if(m)count(b,0,+m[1],function(v){return v+'+'},1400)})}
+ }
+ if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');onIn(x.target);io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){if(e.classList.contains('rv'))io.observe(e)});
+ }else els.forEach(function(e){e.classList.add('in')});
+ /* recipe bar: each ingredient section adds a flask */
+ var bar=D.getElementById('rcp'),n=D.getElementById('rcpn'),tt=D.getElementById('rcpt'),toast=D.getElementById('toast'),slots=bar.querySelectorAll('.rfl i'),got=0,tm;
+ var names=['понимание 5 причин','механизм магнита','3 противоядия','практика благодарности','5 противоядий практикума'];
+ function say(t){toast.innerHTML=t;toast.classList.add('on');clearTimeout(tm);tm=setTimeout(function(){toast.classList.remove('on')},2200)}
+ function burst(){var r=bar.getBoundingClientRect(),C=['#e9a3ad','#e3c38a','#b7a2e6','#9cc3e6','#94d4bc'];for(var i=0;i<26;i++){var c=D.createElement('i');c.className='cf';c.style.left=(r.left+r.width/2)+'px';c.style.top=r.top+'px';c.style.background=C[i%5];var a=Math.PI*(1.1+.8*Math.random());c.style.setProperty('--x',Math.cos(a)*(80+Math.random()*120)+'px');c.style.setProperty('--y',Math.sin(a)*(90+Math.random()*140)+'px');c.style.setProperty('--r',(Math.random()*720-360)+'deg');D.body.appendChild(c);setTimeout(c.remove.bind(c),1700)}}
+ function add(i,sec){if(slots[i].classList.contains('got'))return;slots[i].classList.add('got');got++;n.textContent=got+'/5';var k=sec.querySelector('.ing');if(k)k.classList.add('got');
+  if(got===5){bar.classList.add('full');tt.textContent='Рецепт волшебной женщины собран';say('Все 5 ингредиентов собраны');burst()}else say('+ '+names[i])}
+ var secs=D.querySelectorAll('[data-ing]');
+ if('IntersectionObserver' in window){
+  var io2=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){add(+x.target.getAttribute('data-ing')-1,x.target);io2.unobserve(x.target)}})},{rootMargin:'0px 0px -55% 0px'});
+  secs.forEach(function(s){io2.observe(s)});
+ }
+ var hx=D.querySelector('.hx'),md=D.getElementById('md');
+ function vis(){var past=hx.getBoundingClientRect().bottom<innerHeight*.5;bar.classList.toggle('on',past&&!md.classList.contains('on'))}
+ addEventListener('scroll',vis,{passive:true});vis();
+ new MutationObserver(vis).observe(md,{attributes:true,attributeFilter:['class']});
+ /* practice: tap a step when done */
+ var steps=D.querySelectorAll('.step'),res=D.querySelector('.res'),K='vz-steps';
+ function save(){try{localStorage.setItem(K,[].map.call(steps,function(s){return s.classList.contains('done')?1:0}).join(''))}catch(e){}}
+ function chk(){var all=[].every.call(steps,function(s){return s.classList.contains('done')});res.classList.toggle('glow',all)}
+ try{var v=localStorage.getItem(K)||'';[].forEach.call(steps,function(s,i){if(v[i]==='1')s.classList.add('done')})}catch(e){}
+ chk();
+ [].forEach.call(steps,function(s){function t(){s.classList.toggle('done');save();chk()}s.addEventListener('click',t);s.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}})});
+ /* lab flasks: tap to pour */
+ D.getElementById('flasks').addEventListener('click',function(e){var f=e.target.closest('.fl');if(!f)return;f.classList.remove('pour');void f.offsetWidth;f.classList.add('pour')});
+})();
+</script>
+
+
+</body>
+</html>
