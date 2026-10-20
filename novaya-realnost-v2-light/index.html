@@ -1539,7 +1539,9 @@ const tr=$('.cs-track'),dots=$('.dots');if(tr){const n=tr.children.length;dots.i
  $$('.arr button').forEach(b=>b.addEventListener('click',()=>tr.scrollBy({left:+b.dataset.dir*(tr.children[0].offsetWidth+16),behavior:'smooth'})))}
 // modal
 const m=$('#md');function openM(e){
- if(e && e.currentTarget && e.currentTarget.closest('.tc.vip')){m.classList.add('open');document.body.style.overflow='hidden';return}
+ const b=e&&e.currentTarget,card=b&&b.closest('.tc');
+ if(!card){e&&e.preventDefault();document.getElementById('price').scrollIntoView({behavior:'smooth',block:'start'});return}
+ window.tfMode(card.classList.contains('vip'));
  document.getElementById('praktikum-free').classList.add('open');document.body.style.overflow='hidden';
 }
 function closeM(){m.classList.remove('open');document.body.style.overflow=''}
@@ -1632,8 +1634,27 @@ if(jp&&man){const L=jp.getTotalLength(),ST=[[50,590],[110,490],[50,380],[110,270
 #praktikum-free .tf-ck input:focus-visible{box-shadow:0 0 0 3px rgba(200,155,80,.3)}
 #praktikum-free .tf-ck{padding:10px 12px;border-radius:12px;background:rgba(200,155,80,.08);cursor:pointer}
 #praktikum-free .tf-ck span{padding-top:1px}
+#praktikum-free .tf-date{margin:-4px 0 4px;font:700 12px var(--fb);letter-spacing:.12em;text-transform:uppercase;color:#b9832e}
+#praktikum-free .tf-ck[hidden]{display:none}
+#praktikum-free .tf-ck{padding:8px 12px}
+#praktikum-free .tf-tk{position:relative;inset:auto;margin:10px 4px;height:auto;min-height:172px;overflow:hidden;transform:rotate(-1deg);animation:none}
+#praktikum-free .tf-tk .tk-art{top:0;bottom:0;height:100%;object-position:60% 15%}
+#praktikum-free .tf-tk .tk-l{padding:16px 14px 14px;gap:2px;min-width:0}
+#praktikum-free .tf-tk .tk-top{margin-bottom:6px;gap:8px}
+#praktikum-free .tf-tk .tk-logo{flex-basis:26px;height:26px}
+#praktikum-free .tf-tk .tk-logo:after{inset:6px}
+#praktikum-free .tf-tk .tk-k{font-size:8.5px}
+#praktikum-free .tf-tk .tk-for{font-size:8.5px}
+#praktikum-free .tf-tk .tk-name{font-size:24px;margin-bottom:6px}
+#praktikum-free .tf-tk .tk-r{flex:0 0 54px;padding:10px 0;gap:3px}
+#praktikum-free .tf-tk .tk-r b{font-size:10px;letter-spacing:.04em;white-space:nowrap}
+#praktikum-free .tf-tk .bar{width:24px;height:40px;margin-top:4px}
+#praktikum-free .tf-tk .adm{font-size:7px!important}
+#praktikum-free .tf-tk .tk-art{right:54px;width:60%}
 #praktikum-free .tk-gift{max-width:100%}
-#praktikum-free .tk-gift b{display:block;font-size:13px;line-height:1.3;text-wrap:balance}
+@media (max-width:520px){#praktikum-free .tf-tk .tk-r b{font-size:8.5px;letter-spacing:0}#praktikum-free .tf-tk .bar{height:26px;width:20px}#praktikum-free .tf-tk .adm{font-size:6px!important;letter-spacing:.2em}#praktikum-free .tf-tk .tk-r{gap:2px;padding:8px 0}}
+#praktikum-free .tk-gift b{display:block;font-size:12px;line-height:1.3;text-wrap:balance}
+#praktikum-free .tk-gift{margin-top:auto;padding:8px 12px;max-width:88%}
 #praktikum-free .tf-ck a{color:inherit;text-decoration:underline}
 
 #praktikum-free-widget{padding:0;border:0;box-sizing:content-box;min-height:400px;background:#23190d;border-radius:14px}
@@ -1641,7 +1662,7 @@ if(jp&&man){const L=jp.getTotalLength(),ST=[[50,590],[110,490],[50,380],[110,270
 </style>
 <div class="md" id="praktikum-free"><div class="md-box" role="dialog" aria-modal="true" aria-labelledby="praktikum-free-title">
 <button type="button" class="md-x" aria-label="Закрыть">×</button>
-<h3 id="praktikum-free-title">Регистрация на&nbsp;практикум</h3>
+<h3 id="praktikum-free-title">Регистрация на&nbsp;практикум</h3><p class="tf-date">25–28&nbsp;ноября · онлайн</p>
 <form id="tf" class="tf-form" action="https://doctor-saba.com/pl/lite/block-public/process-html?id=2256829325" method="post" accept-charset="UTF-8">
 <input type="hidden" name="formParams[setted_offer_id]" value="">
 <input type="hidden" name="formParams[willCreatePaidDeal]" value="">
@@ -1653,10 +1674,11 @@ if(jp&&man){const L=jp.getTotalLength(),ST=[[50,590],[110,490],[50,380],[110,270
 <input type="email" name="formParams[email]" maxlength="60" placeholder="Введите ваш e-mail" autocomplete="email" required>
 <input type="text" name="formParams[full_name]" id="tf-name" maxlength="60" placeholder="Введите ваше имя" autocomplete="given-name" required>
 <input type="tel" name="formParams[phone]" id="tf-phone" maxlength="24" inputmode="tel" placeholder="Введите ваш телефон" autocomplete="tel" required>
+<label class="tf-ck tf-vip-only" hidden><input type="checkbox" id="tf-oferta"><span>Даю согласие с&nbsp;договором <a href="https://doctor-saba.com/doctor-saba-oferta-obrazovanie" target="_blank" rel="noopener">офертой на&nbsp;образовательные услуги</a></span></label>
 <label class="tf-ck"><input type="checkbox" name="pdpConfirmCheckbox" required><span>Я <a href="https://doctor-saba.com/doctor-saba-soglasie-na-opd" target="_blank" rel="noopener">согласен</a> на обработку моих персональных данных в соответствии с <a href="https://doctor-saba.com/doctor-saba-politika-opd" target="_blank" rel="noopener">Политикой обработки персональных данных</a></span></label>
 <label class="tf-ck"><input type="checkbox" name="confirmMailingCheckbox"><span>Даю <a href="https://doctor-saba.com/doctor-saba-soglasie-na-reklamu" target="_blank" rel="noopener">согласие</a> на получение информационных и маркетинговых рассылок (можно отказаться в любой момент в личном кабинете)</span></label>
-<div class="tk tk-mini" aria-hidden="true"><div class="tk-l"><p class="tk-k">Ваш личный билет</p><p class="tk-name"><b id="tf-ticket">Ваше имя</b></p><div class="tk-gift"><small>Подарок</small><b>откроется в&nbsp;мессенджере после&nbsp;регистрации</b></div></div><div class="tk-r"><span>№</span><b id="tf-no" style="font-size:11px;letter-spacing:.02em;white-space:nowrap">после регистрации</b></div></div>
-<button type="submit" class="btn" id="tf-submit">Зарегистрироваться на&nbsp;практикум<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button>
+<div class="tk tf-tk" aria-hidden="true"><img class="tk-art" src="img/6258412b23.webp" alt=""><i class="holo"></i><div class="tk-l"><div class="tk-top"><span class="tk-logo"></span><p class="tk-k">Лаборатория новой реальности<br><span>Анна&nbsp;Саба ·&nbsp;25–28&nbsp;ноября</span></p></div><p class="tk-for">Именной билет</p><p class="tk-name"><b id="tf-ticket">Ваше имя</b></p><div class="tk-gift"><small>Ваш подарок</small><b>откроется в&nbsp;мессенджере после&nbsp;регистрации</b></div></div><div class="tk-r"><span>№</span><b class="tf-no">номер вашего билета</b><div class="bar"></div><span class="adm">ADMIT ONE</span></div></div>
+<button type="submit" class="btn" id="tf-submit"><span id="tf-btn">Зарегистрироваться на&nbsp;практикум</span><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></button>
 </form>
 </div></div>
 <script>
@@ -1671,6 +1693,16 @@ ph.addEventListener('focus',()=>{if(!ph.value)ph.value='+'});
 ph.addEventListener('blur',()=>{if(ph.value==='+')ph.value=''});
 ph.addEventListener('input',()=>{ph.value=fmt(ph.value);const n=ph.value.replace(/\D/g,'').length;ph.setCustomValidity(n>=10?'':'Введите телефон полностью, с кодом страны')});
 document.getElementById('tf-loc').value=location.href;document.getElementById('tf-ref').value=document.referrer;
+const VIP_OFFER='8830645',FREE_ACTION=f.action,NAMES={email:'email',full_name:'full_name',phone:'phone'};
+const gcHidden=Array.from(f.querySelectorAll('input[type=hidden]'));
+const vipHidden=[['OrderForm[selected_offer_id]',VIP_OFFER],['OrderForm[created_by_object_type]','sales_widget']].map(([n,v])=>{const i=document.createElement('input');i.type='hidden';i.name=n;i.value=v;i.disabled=true;f.prepend(i);return i});
+const ofl=f.querySelector('.tf-vip-only'),of=document.getElementById('tf-oferta'),bt=document.getElementById('tf-btn');
+window.tfMode=vip=>{f.action=vip?'https://doctor-saba.com/sales/shop/offer/id/'+VIP_OFFER:FREE_ACTION;
+ f.enctype=vip?'multipart/form-data':'application/x-www-form-urlencoded';
+ Object.keys(NAMES).forEach(k=>{const el=f.querySelector('[name$="['+k+']"]');el.name=(vip?'OrderForm[':'formParams[')+k+']'});
+ gcHidden.forEach(i=>i.disabled=vip);vipHidden.forEach(i=>i.disabled=!vip);
+ ofl.hidden=!vip;of.required=vip;
+ bt.innerHTML=vip?'Зарегистрироваться и&nbsp;перейти к&nbsp;оплате':'Зарегистрироваться на&nbsp;практикум'};
 let sent=false;f.addEventListener('submit',e=>{if(sent){e.preventDefault();return}sent=true;document.getElementById('tf-submit').setAttribute('aria-busy','true');setTimeout(()=>{sent=false},6000)});})();
 (function(){const m=document.getElementById('praktikum-free');function close(){m.classList.remove('open');document.body.style.overflow=''}
 m.querySelector('.md-x').addEventListener('click',close);m.addEventListener('click',e=>{if(e.target===m)close()});addEventListener('keydown',e=>{if(e.key==='Escape')close()});})();
