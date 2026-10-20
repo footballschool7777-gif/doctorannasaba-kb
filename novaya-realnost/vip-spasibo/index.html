@@ -1,54 +1,41 @@
 <!doctype html>
 <html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VIP-участие оплачено · Практикум Анны Саба</title><meta name="robots" content="noindex">
+<title>VIP-участие · Практикум Анны Саба</title><meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ft:'Unbounded',sans-serif;--fb:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;--gold:#e8c27a;--gold2:#c9953f;--ink:#f6e7c4;--muted:#bfae8c;--bg:#0f0c08}
+:root{--ft:'Unbounded',sans-serif;--fb:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;--bg:#f6f0e6;--card:#fffdf8;--line:rgba(138,92,24,.2);--ink:#23190d;--muted:#5f5446;--gold:#d6a24a;--gold2:#b9832e;--goldt:#8a5714;--btnink:#2a1c06}
 *{box-sizing:border-box;margin:0}
-body{background:radial-gradient(120% 80% at 80% 0%,#2a1f10,#0f0c08 60%);color:var(--ink);font:500 16px/1.55 var(--fb);min-height:100svh}
-.w{max-width:1080px;margin:0 auto;padding:clamp(28px,6vw,72px) 16px}
-.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(20px,4vw,48px);align-items:center}
-.k{font:700 11px var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-h1{font:600 clamp(28px,4.4vw,48px)/1.12 var(--ft);margin:14px 0 16px;text-wrap:balance;color:#fff6dc}
-h1 em{font-style:normal;color:var(--gold)}
-.pill{display:inline-block;padding:6px 14px;border-radius:99px;background:linear-gradient(135deg,#f6dc9e,#c9953f);color:#2a1c06;font:700 13px var(--fb)}
-.lead{color:var(--muted);margin-top:16px;max-width:520px;text-wrap:pretty}
-.ph{position:relative;border-radius:24px;overflow:hidden;border:1.5px solid var(--gold2);aspect-ratio:4/5;box-shadow:0 40px 70px -34px rgba(0,0,0,.8)}
-.ph img{width:100%;height:100%;object-fit:cover;object-position:60% 18%}
-.ph p{position:absolute;left:0;right:0;bottom:0;padding:40px 18px 16px;background:linear-gradient(transparent,rgba(15,12,8,.9));font:600 14px var(--fb)}
-.ph p span{display:block;font-weight:500;font-size:12px;color:var(--muted)}
-.card{margin-top:clamp(28px,5vw,56px);padding:clamp(20px,3vw,32px);border-radius:24px;background:rgba(255,246,220,.04);border:1px solid rgba(201,149,63,.35)}
-h2{font:600 clamp(20px,2.4vw,26px)/1.2 var(--ft);color:#fff6dc;margin-bottom:16px;text-wrap:balance}
-ul{list-style:none;padding:0;display:grid;gap:10px}
-li{position:relative;padding-left:28px;text-wrap:pretty}
-li:before{content:"";position:absolute;left:0;top:.35em;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle,#fff3cf,var(--gold) 55%,var(--gold2))}
-.b{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.b div{padding:14px 16px;border-radius:16px;background:rgba(232,194,122,.08);border:1px solid rgba(232,194,122,.25);font-size:14px;text-wrap:pretty}
-.b small{display:inline-block;margin-bottom:6px;padding:2px 10px;border-radius:99px;background:var(--gold);color:#2a1c06;font:700 10px var(--fb);letter-spacing:.12em;text-transform:uppercase}
-ol{padding:0;list-style:none;display:grid;gap:12px;counter-reset:s}
-ol li{padding-left:40px}
-ol li:before{counter-increment:s;content:counter(s);width:28px;height:28px;top:-.1em;display:grid;place-items:center;font:700 13px var(--fb);color:#2a1c06}
-.btn{display:inline-flex;align-items:center;gap:14px;margin-top:22px;padding:14px 14px 14px 24px;border-radius:99px;background:linear-gradient(135deg,#f6dc9e,#d6a24a 55%,#b9832e);color:#2a1c06;font:700 16px var(--fb);text-decoration:none;box-shadow:0 14px 30px -12px rgba(214,162,74,.7)}
+body{background:radial-gradient(120% 80% at 80% 0%,#fbf5ea,#f6f0e6 60%,#efe6d6);color:var(--ink);font:500 16px/1.55 var(--fb);min-height:100svh}
+.k{display:inline-flex;align-items:center;gap:10px;font:700 11px var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--goldt)}
+.k:before{content:"";width:26px;height:2px;border-radius:2px;background:var(--gold2)}
+h1{font:600 clamp(22px,3.6vw,34px)/1.22 var(--ft);color:var(--ink);text-wrap:balance}
+h1 em{font-style:normal;color:var(--gold2)}
+.pill{display:inline-block;padding:6px 14px;border-radius:99px;background:linear-gradient(135deg,#f6dc9e,#c9953f);color:var(--btnink);font:700 13px var(--fb)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:16px 16px 16px 26px;border-radius:99px;background:linear-gradient(135deg,#f6dc9e,#d6a24a 55%,#b9832e);color:var(--btnink);font:700 17px var(--fb);text-decoration:none;white-space:nowrap;box-shadow:0 14px 30px -12px rgba(185,131,46,.6);transition:transform .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.btn .tg{width:22px;height:22px;flex:0 0 auto}
 .btn i{width:38px;height:38px;border-radius:50%;background:#1b1711;display:grid;place-items:center;color:var(--gold)}
-.btn svg{width:18px;height:18px}
-.btn{white-space:nowrap}@media (max-width:400px){.btn{font-size:15px;padding-left:20px;gap:10px}}
-@media (max-width:760px){.hero{grid-template-columns:1fr}.ph{max-width:340px;aspect-ratio:1/1}.b{grid-template-columns:1fr}}
+.btn i svg{width:18px;height:18px}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
+.w{min-height:100svh;display:flex;align-items:center;max-width:1080px;margin:0 auto;padding:clamp(28px,6vw,72px) 16px}
+.hero{width:100%;display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(20px,4vw,48px);align-items:center}
+h1{font-size:clamp(26px,4.2vw,46px);line-height:1.12}
+.lead{color:var(--muted);margin-top:14px;max-width:520px;text-wrap:pretty}
+.tgt{margin-top:18px;max-width:520px;font:700 clamp(17px,1.8vw,20px)/1.4 var(--fb);color:var(--ink);text-wrap:balance}
+.hero .btn{margin-top:22px}
+.ph{position:relative;border-radius:24px;overflow:hidden;border:1.5px solid var(--gold2);aspect-ratio:4/5;box-shadow:0 30px 60px -34px rgba(90,60,20,.45)}
+.ph img{width:100%;height:100%;object-fit:cover;object-position:60% 18%}
+@media (max-width:760px){.hero{grid-template-columns:1fr}.ph{grid-row:1;max-width:260px;aspect-ratio:1/1;justify-self:center;width:100%}.tx{text-align:center}.lead,.tgt{margin-left:auto;margin-right:auto}}
+@media (max-width:760px) and (max-height:700px){.ph{max-width:170px}.w{padding-top:20px;padding-bottom:20px}}
+@media (max-width:520px){.hero .btn{display:flex;width:100%;padding-left:20px}}
 </style></head><body><main class="w">
-<section class="hero"><div>
-<p class="k">Оплата прошла</p>
-<h1>Спасибо! Вы&nbsp;участник <em>VIP-практикума</em> Анны&nbsp;Саба</h1>
-<span class="pill">25–28&nbsp;ноября · онлайн</span>
+<section class="hero"><div class="tx">
+<h1>Вы участник <em>VIP-тарифа</em></h1>
 <p class="lead">Чек об&nbsp;оплате придёт на&nbsp;электронную почту, которую вы&nbsp;указали при&nbsp;регистрации.</p>
-<a class="btn" href="https://t.me/drannasaba" target="_blank" rel="noopener">Канал Анны&nbsp;Саба в&nbsp;Telegram<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></a>
+<p class="tgt">Перейдите в&nbsp;Telegram, чтобы завершить регистрацию, получить бонусы и&nbsp;ваш именной&nbsp;билет</p>
+<a class="btn" href="https://doctor-saba.com/tlgrm?bot=praktikum_saba_bot"><svg class="tg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.6l-2.96 13.96c-.22 1-.81 1.24-1.64.77l-4.53-3.34-2.19 2.1c-.24.24-.45.45-.92.45l.33-4.62 8.41-7.6c.37-.32-.08-.5-.57-.18L7.3 13.05l-4.47-1.4c-.97-.3-.99-.97.2-1.44l17.48-6.74c.81-.3 1.52.18 1.26 1.13z"/></svg>Перейти в&nbsp;Telegram<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></a>
 </div>
-<div class="ph"><img src="img/anna.webp" alt="Анна Саба"><p>Анна&nbsp;Саба<span>врач-психиатр, психотерапевт</span></p></div></section>
-
-<section class="card"><h2>Что входит в&nbsp;ваше VIP-участие</h2>
-<ul><li>3&nbsp;прямых эфира</li><li>4-й VIP-эфир «Магнит для&nbsp;масштаба»</li><li>Записи и&nbsp;презентации всех&nbsp;эфиров</li><li>Домашние задания и&nbsp;дополнительные бонусные материалы</li><li>Чат участников практикума и&nbsp;участие в&nbsp;розыгрыше&nbsp;призов</li></ul>
-<div class="b">
-<div><small>Бонус</small><br>Практика на&nbsp;60&nbsp;минут «Прочувствуй свою новую реальность и&nbsp;узнай, что&nbsp;тебе не&nbsp;даёт в&nbsp;неё&nbsp;перейти»</div>
-<div><small>Бонус</small><br>Личный разбор-диагностика вашей ситуации от&nbsp;практикующего психолога: деньги, отношения, реализация, предназначение, здоровье</div>
-<div><small>Бонус</small><br>Мастер-класс: как&nbsp;с&nbsp;нуля за&nbsp;6&nbsp;месяцев освоить востребованную профессию EMDR-терапевта</div>
-</div></section>
+<div class="ph"><img src="img/anna.webp" alt="Анна Саба"></div></section>
 </main></body></html>

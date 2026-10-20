@@ -4,32 +4,37 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ft:'Unbounded',sans-serif;--fb:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;--gold:#e8c27a;--gold2:#c9953f;--ink:#f6e7c4;--muted:#bfae8c}
+:root{--ft:'Unbounded',sans-serif;--fb:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;--bg:#f6f0e6;--card:#fffdf8;--line:rgba(138,92,24,.2);--ink:#23190d;--muted:#5f5446;--gold:#d6a24a;--gold2:#b9832e;--goldt:#8a5714;--btnink:#2a1c06}
 *{box-sizing:border-box;margin:0}
-body{background:radial-gradient(120% 80% at 80% 0%,#2a1f10,#0f0c08 60%);color:var(--ink);font:500 16px/1.55 var(--fb);min-height:100svh}
+body{background:radial-gradient(120% 80% at 80% 0%,#fbf5ea,#f6f0e6 60%,#efe6d6);color:var(--ink);font:500 16px/1.55 var(--fb);min-height:100svh}
+.k{display:inline-flex;align-items:center;gap:10px;font:700 11px var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--goldt)}
+.k:before{content:"";width:26px;height:2px;border-radius:2px;background:var(--gold2)}
+h1{font:600 clamp(22px,3.6vw,34px)/1.22 var(--ft);color:var(--ink);text-wrap:balance}
+h1 em{font-style:normal;color:var(--gold2)}
+.pill{display:inline-block;padding:6px 14px;border-radius:99px;background:linear-gradient(135deg,#f6dc9e,#c9953f);color:var(--btnink);font:700 13px var(--fb)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:16px 16px 16px 26px;border-radius:99px;background:linear-gradient(135deg,#f6dc9e,#d6a24a 55%,#b9832e);color:var(--btnink);font:700 17px var(--fb);text-decoration:none;white-space:nowrap;box-shadow:0 14px 30px -12px rgba(185,131,46,.6);transition:transform .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.btn .tg{width:22px;height:22px;flex:0 0 auto}
+.btn i{width:38px;height:38px;border-radius:50%;background:#1b1711;display:grid;place-items:center;color:var(--gold)}
+.btn i svg{width:18px;height:18px}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
 .w{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:clamp(28px,6vw,72px) 16px}
 .c{width:100%;max-width:640px;text-align:center}
-.k{display:inline-flex;align-items:center;gap:10px;font:700 11px var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-.k:before{content:"";width:26px;height:2px;border-radius:2px;background:var(--gold)}
-.pr{margin:26px 0 30px}
-.pr-t{display:flex;justify-content:flex-end;margin-bottom:8px;font:600 22px var(--ft);color:var(--gold)}
-.bar{height:12px;border-radius:99px;background:rgba(255,246,220,.08);border:1px solid rgba(201,149,63,.35);overflow:hidden}
+.c .pill{margin-top:16px}
+.pr{margin:24px 0 30px}
+.pr-t{display:flex;justify-content:flex-end;margin-bottom:8px;font:600 22px var(--ft);color:var(--gold2)}
+.bar{height:12px;border-radius:99px;background:#fff;border:1px solid var(--line);overflow:hidden}
 .bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#b9832e,#f6dc9e);transition:width 1.3s cubic-bezier(.2,.7,.2,1)}
-h1{font:600 clamp(22px,3.6vw,34px)/1.22 var(--ft);color:#fff6dc;text-wrap:balance}
-h1 em{font-style:normal;color:var(--gold)}
-.pill{display:inline-block;margin-top:18px;padding:6px 14px;border-radius:99px;background:linear-gradient(135deg,#f6dc9e,#c9953f);color:#2a1c06;font:700 13px var(--fb)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;margin-top:28px;padding:18px 34px;border-radius:99px;background:linear-gradient(180deg,#2AABEE,#229ED9);color:#fff;font:700 17px var(--fb);text-decoration:none;white-space:nowrap;box-shadow:0 16px 32px -14px rgba(34,158,217,.7),inset 0 1px 0 rgba(255,255,255,.3);transition:transform .25s}
-.btn:hover{transform:translateY(-2px)}
-.btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-.btn svg{width:24px;height:24px;flex:0 0 auto}
-@media (max-width:520px){.btn{display:flex;width:100%;padding:17px 20px}}
-@media (prefers-reduced-motion:reduce){.bar i,.btn{transition:none}}
+.c .btn{margin-top:28px}
+@media (max-width:520px){.c .btn{display:flex;width:100%;padding-left:20px}}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
 </style></head><body><main class="w"><div class="c">
-<p class="k">Остался один шаг</p>
+<p class="k">Остался один шаг</p><br>
+<span class="pill">Практикум 25–28&nbsp;ноября · онлайн</span>
 <div class="pr"><div class="pr-t" id="pct">90%</div><div class="bar"><i id="fill"></i></div></div>
 <h1>Перейдите в&nbsp;<em>Telegram</em>, чтобы завершить регистрацию, получить бонусы и&nbsp;ваш именной&nbsp;билет</h1>
-<span class="pill">Практикум 25–28&nbsp;ноября · онлайн</span><br>
-<a class="btn" href="https://doctor-saba.com/tlgrm?bot=praktikum_saba_bot"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.6l-2.96 13.96c-.22 1-.81 1.24-1.64.77l-4.53-3.34-2.19 2.1c-.24.24-.45.45-.92.45l.33-4.62 8.41-7.6c.37-.32-.08-.5-.57-.18L7.3 13.05l-4.47-1.4c-.97-.3-.99-.97.2-1.44l17.48-6.74c.81-.3 1.52.18 1.26 1.13z"/></svg>Перейти в&nbsp;Telegram</a>
+<a class="btn" href="https://doctor-saba.com/tlgrm?bot=praktikum_saba_bot"><svg class="tg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.6l-2.96 13.96c-.22 1-.81 1.24-1.64.77l-4.53-3.34-2.19 2.1c-.24.24-.45.45-.92.45l.33-4.62 8.41-7.6c.37-.32-.08-.5-.57-.18L7.3 13.05l-4.47-1.4c-.97-.3-.99-.97.2-1.44l17.48-6.74c.81-.3 1.52.18 1.26 1.13z"/></svg>Перейти в&nbsp;Telegram<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></a>
 </div></main>
 <script>
 (function(){var f=document.getElementById('fill'),p=document.getElementById('pct'),T=90;
