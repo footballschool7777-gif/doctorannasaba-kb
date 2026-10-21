@@ -552,6 +552,18 @@ body:not(.has-journey) main{padding-bottom:0}
 .journey-buttons .button{white-space:nowrap}
 .plan-merged{margin:22px 0 8px;font-size:clamp(18px,4.8vw,22px)}
 .session-benefits .plan-outcomes{margin:0 0 14px}
+/* desktop: first screen centred vertically, text column centred against the hero */
+@media (min-width:900px){
+  .intro{display:flex;flex-direction:column;justify-content:center}
+  .intro-copy{flex:0 0 auto;grid-template-rows:1fr repeat(6,auto) 1fr;align-items:start}
+  .intro-copy>.tf-hero{grid-row:1/-1}
+  .intro-copy>.eyebrow{grid-row:2}
+  .intro-copy>.eyebrow+*{grid-row:3}
+  .intro-copy>.eyebrow+*+*{grid-row:4}
+  .intro-copy>.eyebrow+*+*+*{grid-row:5}
+  .intro-copy>.eyebrow+*+*+*+*{grid-row:6}
+  .intro-copy>.eyebrow+*+*+*+*+*{grid-row:7}
+}
 </style>
 </head>
 <body>
