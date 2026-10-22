@@ -1,0 +1,129 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Тест: что выбивает из равновесия именно вас</title><meta name="description" content="9 вопросов про новости, сон, усталость и дела. Ваш тип и шаги, как опереться на тело и дело.">
+<meta property="og:title" content="Тест: что выбивает из равновесия именно вас"><meta property="og:description" content="9 вопросов про новости, сон, усталость и дела. Ваш тип и шаги, как опереться на тело и дело."><meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600&family=Manrope:wght@400;600;700;800&display=swap">
+<style>
+:root{--bg:#f4ede1;--card:#fffaf2;--ink:#23190d;--muted:#6b5a45;--gold:#b9832e;--gold2:#e8c27a;--soft:#f6dc9e;--line:#e9dfcf;--dark:#23190d;--ft:'Unbounded',sans-serif;--fb:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:18px;line-height:1.6;overflow-wrap:break-word}
+main{max-width:680px;margin:0 auto;padding:0 16px 24px}
+h1,h2,h3{font-family:var(--ft);font-weight:600;line-height:1.22;margin:0;letter-spacing:-.01em}
+h1,h2,h3,p,li,dt,dd,.lbl,.opt span,.btn,.res-t,figcaption{text-wrap:balance}
+p{margin:0 0 14px}
+.hero{padding:26px 0 10px}
+.eyebrow{display:inline-block;background:var(--soft);color:#5a3a0c;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin:0 0 16px}
+h1{font-size:26px;margin:0 0 14px}
+.lead{font-size:18px;color:var(--ink)}
+section{margin:0 0 26px}
+section>h2{font-size:21px;margin:0 0 12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px 18px;margin:0 0 14px}
+.card>h3{font-size:17px;margin:0 0 10px;color:#7a4c10}
+.card p:last-child{margin-bottom:0}
+.phr{list-style:none;margin:0;padding:0;counter-reset:n var(--start,0)}
+.phr li{counter-increment:n;position:relative;padding:10px 0 10px 44px;border-top:1px solid var(--line);font-weight:600}
+.phr li:first-child{border-top:0}
+.phr li::before{content:counter(n);position:absolute;left:0;top:10px;width:30px;height:30px;border-radius:50%;background:var(--soft);color:#5a3a0c;font-size:14px;font-weight:800;display:grid;place-items:center}
+.lst{margin:0 0 4px;padding-left:22px}.lst li{margin:0 0 8px}
+.lst li::marker{color:var(--gold)}
+.qs{list-style:none;margin:0;padding:0;counter-reset:n var(--start,0)}
+.qs li{counter-increment:n;position:relative;padding:12px 0 12px 44px;border-top:1px solid var(--line)}
+.qs li:first-child{border-top:0}
+.qs li::before{content:counter(n);position:absolute;left:0;top:12px;width:30px;height:30px;border-radius:50%;background:var(--soft);color:#5a3a0c;font-size:14px;font-weight:800;display:grid;place-items:center}
+.qs li b{display:block;margin:0 0 4px}
+.qs li span.h{display:block;color:var(--muted);font-size:16px}
+.row{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px 18px;margin:0 0 12px}
+.row dt{font-family:var(--ft);font-weight:600;font-size:18px;color:#7a4c10;margin:0 0 6px}
+.row dd{margin:0 0 6px}.row dd:last-child{margin:0}
+.row .k{display:block;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.note{background:#fff3d6;border-left:4px solid var(--gold2);border-radius:12px;padding:12px 14px;font-size:16px;color:#4d3a20;margin:0 0 14px}
+.bridge{border-top:2px solid var(--gold2);padding-top:20px}
+.fill{display:block;margin:12px 0 0;font-weight:700}
+.fill textarea{display:block;width:100%;margin:8px 0 0;min-height:70px;font:inherit;font-weight:400;padding:12px;border:1.5px dashed var(--gold);border-radius:14px;background:#fff;color:var(--ink);resize:vertical}
+.chk{list-style:none;margin:0;padding:0}
+.chk li{margin:0 0 10px}
+.chk label{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 16px;cursor:pointer}
+.chk label>span{min-width:0}.chk input{flex:none;width:22px;height:22px;margin:3px 0 0;accent-color:var(--gold)}
+.chk .d{display:block;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--gold)}
+.chk label:has(input:checked){background:#fbefd2}
+.q{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px 16px;margin:0 0 12px}
+.q .lbl{font-weight:700;margin:0 0 10px;display:block}
+.q .n{color:var(--gold);font-weight:800;margin-right:4px}
+.opt{display:block;margin:0 0 8px;cursor:pointer}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt span{display:block;border:1.5px solid var(--line);border-radius:14px;padding:11px 14px;background:#fff;line-height:1.4}
+.opt input:checked+span{border-color:var(--gold);background:#fbefd2;font-weight:600}
+.opt input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+.btn{display:block;width:100%;text-align:center;font-family:var(--fb);font-weight:800;font-size:18px;line-height:1.3;padding:17px 20px;border:0;border-radius:16px;background:linear-gradient(180deg,#e8c27a,#c9953f);color:#23190d;text-decoration:none;cursor:pointer;box-shadow:0 8px 22px rgba(185,131,46,.28)}
+.btn:disabled{opacity:.5;cursor:default}
+.prog{font-size:15px;color:var(--muted);text-align:center;margin:10px 0 0}
+.res{display:none;background:var(--card);border:2px solid var(--gold2);border-radius:22px;padding:20px 18px;margin:14px 0 0}
+.res.on,.all .res{display:block}
+.res .res-k{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin:0 0 6px}
+.res .res-t{font-family:var(--ft);font-weight:600;font-size:20px;line-height:1.25;margin:0 0 12px}
+.prac{background:var(--dark);color:#f4ede1;border-radius:26px;padding:24px 20px;margin:30px 0 20px}
+.prac .eyebrow{background:rgba(232,194,122,.18);color:var(--gold2)}
+.prac h2{font-size:23px;color:#fff;margin:0 0 12px}
+.prac p{color:#efe4d2}
+.prac b{color:var(--soft)}
+.who{display:flex;gap:14px;align-items:center;margin:16px 0 18px}
+.who img{flex:none;width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:2px solid var(--gold2)}
+.who p{margin:0;font-size:16px;line-height:1.45}
+.prac .btn{margin:6px 0 0}
+.prac .after{font-size:14px;color:#cdbfa8;text-align:center;margin:12px 0 0}
+.ft{text-align:center;font-size:14px;color:var(--muted);padding:6px 16px 34px}
+@media (min-width:760px){
+ body{font-size:19px}
+ .hero{padding:48px 0 14px}
+ h1{font-size:38px}
+ section>h2{font-size:26px}
+ .card{padding:26px 28px}
+ .prac{padding:34px 36px}
+ .prac h2{font-size:28px}
+ .rows-d{display:grid;grid-template-columns:1fr 1fr;gap:12px}.rows-d .row{margin:0}
+}
+</style></head><body><main>
+<header class="hero"><span class="eyebrow">Подарок по слову ОПОРА</span>
+<h1>Тест: что выбивает из равновесия именно вас</h1>
+<p class="lead">Настоящих опор у нас две: тело и дело, то есть то, чем вы заняты каждый день. Ответьте на 9 вопросов, и тест покажет, где ваша опора проседает.</p></header>
+<section><div class="q"><span class="lbl"><span class="n">1.</span> Я проверяю новости несколько раз в день, даже когда не собиралась.</span><label class="opt"><input type="radio" name="q1" value="2" data-t="n"><span>Да, часто</span></label><label class="opt"><input type="radio" name="q1" value="1" data-t="n"><span>Иногда</span></label><label class="opt"><input type="radio" name="q1" value="0" data-t="n"><span>Нет</span></label></div><div class="q"><span class="lbl"><span class="n">2.</span> Я думаю о том, на что не могу повлиять: курс валют, политика, чужие конфликты.</span><label class="opt"><input type="radio" name="q2" value="2" data-t="b"><span>Да, часто</span></label><label class="opt"><input type="radio" name="q2" value="1" data-t="b"><span>Иногда</span></label><label class="opt"><input type="radio" name="q2" value="0" data-t="b"><span>Нет</span></label></div><div class="q"><span class="lbl"><span class="n">3.</span> Я сплю меньше 7 часов или просыпаюсь уставшей.</span><label class="opt"><input type="radio" name="q3" value="2" data-t="t"><span>Да, часто</span></label><label class="opt"><input type="radio" name="q3" value="1" data-t="t"><span>Иногда</span></label><label class="opt"><input type="radio" name="q3" value="0" data-t="t"><span>Нет</span></label></div><div class="q"><span class="lbl"><span class="n">4.</span> После новостей мне тревожно, и я долго не могу успокоиться.</span><label class="opt"><input type="radio" name="q4" value="2" data-t="n"><span>Да, часто</span></label><label class="opt"><input type="radio" name="q4" value="1" data-t="n"><span>Иногда</span></label><label class="opt"><input type="radio" name="q4" value="0" data-t="n"><span>Нет</span></label></div><div class="q"><span class="lbl"><span class="n">5.</span> Я хожу пешком меньше 30 минут в день.</span><label class="opt"><input type="radio" name="q5" value="2" data-t="t"><span>Да, часто</span></label><label class="opt"><input type="radio" name="q5" value="1" data-t="t"><span>Иногда</span></label><label class="opt"><input type="radio" name="q5" value="0" data-t="t"><span>Нет</span></label></div><div class="q"><span class="lbl"><span class="n">6.</span> Вечером мне трудно назвать, что важного я сделала за день.</span><label class="opt"><input type="radio" name="q6" value="2" data-t="d"><span>Да, часто</span></label><label class="opt"><input type="radio" name="q6" value="1" data-t="d"><span>Иногда</span></label><label class="opt"><input type="radio" name="q6" value="0" data-t="d"><span>Нет</span></label></div><div class="q"><span class="lbl"><span class="n">7.</span> Плечи и шея часто напряжены, дыхание короткое.</span><label class="opt"><input type="radio" name="q7" value="2" data-t="t"><span>Да, часто</span></label><label class="opt"><input type="radio" name="q7" value="1" data-t="t"><span>Иногда</span></label><label class="opt"><input type="radio" name="q7" value="0" data-t="t"><span>Нет</span></label></div><div class="q"><span class="lbl"><span class="n">8.</span> Я берусь за много дел и не довожу их до конца.</span><label class="opt"><input type="radio" name="q8" value="2" data-t="d"><span>Да, часто</span></label><label class="opt"><input type="radio" name="q8" value="1" data-t="d"><span>Иногда</span></label><label class="opt"><input type="radio" name="q8" value="0" data-t="d"><span>Нет</span></label></div><div class="q"><span class="lbl"><span class="n">9.</span> Во время работы или домашних дел мысли уходят в тревогу о мире.</span><label class="opt"><input type="radio" name="q9" value="2" data-t="d"><span>Да, часто</span></label><label class="opt"><input type="radio" name="q9" value="1" data-t="d"><span>Иногда</span></label><label class="opt"><input type="radio" name="q9" value="0" data-t="d"><span>Нет</span></label></div>
+<button class="btn" id="go" disabled>Показать результат</button><p class="prog" id="prog"></p>
+<div class="res" id="rn"><p class="res-k">Ваш тип</p><p class="res-t">Перегруз новостями</p>
+<p>Мозг пытается удержать всё, что происходит в мире, и взять под контроль. Сил на свою жизнь после этого не остаётся.</p>
+<p><b>Опора на тело.</b> Почувствуйте тревогу после новостей – встаньте, пройдитесь 5 минут и сделайте 5 медленных выдохов.</p>
+<p><b>Опора на дело.</b> Читайте новости 2 раза в день по 10 минут в одно и то же время. В остальное время уберите приложения с главного экрана телефона.</p></div>
+<div class="res" id="rt"><p class="res-k">Ваш тип</p><p class="res-t">Истощено тело</p>
+<p>Телу не хватает сна, движения и отдыха. Уставшее тело делает любую новость и любую задачу тяжелее.</p>
+<p><b>Опора на тело.</b> Ложитесь в одно время и спите не меньше 7 часов. Каждый день 30 минут ходьбы. Дважды в день по 5 медленных выдохов.</p>
+<p><b>Опора на дело.</b> Пока силы не вернулись, оставьте в дне 1⁠–⁠2 главных дела и не добавляйте новых.</p></div>
+<div class="res" id="rd"><p class="res-k">Ваш тип</p><p class="res-t">Нет своего дела в фокусе</p>
+<p>Внимание рассыпается между делами и тревогой о мире. Дни проходят, а ощущения, что вы на что-то влияете, нет.</p>
+<p><b>Опора на дело.</b> Утром выберите одно главное дело на день и сделайте его первым. Горит срок на работе – займитесь работой, даже если в заголовках кричат про новый кризис.</p>
+<p><b>Опора на тело.</b> Перед делом 2 минуты: сядьте ровно, поставьте стопы на пол, медленно выдохните 5 раз.</p></div>
+<div class="res" id="r0"><p class="res-k">Ваш результат</p><p class="res-t">Опоры держат</p>
+<p>Сейчас тело и дело держат вас в равновесии. Сохраните то, что работает: сон, движение и одно главное дело в день.</p></div>
+<p class="note">Тест не ставит диагноз. Если тревога не отпускает неделями и мешает спать и работать, обратитесь к врачу.</p></section>
+<section class="bridge"><h2>Чего тест не решит</h2><p>Тест показывает, где проседает опора, а шаги помогают её укрепить. Но если тревога и страх включаются от любой новости, это старая реакция психики.</p><p>Она сильнее советов про сон и режим. Работать нужно с ней самой.</p></section>
+<section class="prac" id="praktikum">
+<span class="eyebrow">25⁠–⁠28 ноября · онлайн · 4 дня</span>
+<h2>Практикум «Новая реальность»</h2>
+<p>На практикуме мы уберём тревогу и страх, чтобы вы оставались спокойной, что бы ни творилось вокруг.</p>
+<div class="who"><img src="../media/anna-smile-bw.jpg" alt="Анна Саба" width="64" height="64" loading="lazy"><p><b>Анна Саба</b>, врач-психотерапевт. Клинический опыт больше 10 лет.</p></div>
+<p>Я врач, а не блогер. Работаю самыми современными методами психотерапии, чтобы изменения держались без откатов.</p>
+<p>Участие бесплатное.</p>
+<a class="btn" href="https://doctorannasaba.ru/novaya-realnost-v2-light/?utm_source=insta&utm_medium=litmagnit&utm_campaign=opora-test">Зарегистрироваться бесплатно</a>
+<p class="after">Откроется страница практикума с подробной программой.</p>
+</section>
+</main><footer class="ft">Анна Саба · врач-психотерапевт · @dr.saba_dusalieva</footer>
+<script>window.scoreTest=function(){var s={n:0,t:0,d:0},tot=0;[].forEach.call(document.querySelectorAll(".q input:checked"),function(i){var v=+i.value,t=i.dataset.t;tot+=v;if(t==="b"){s.n+=v}else{s[t]+=v}});
+if(tot<=4)return "r0";var best="n";["t","d"].forEach(function(k){if(s[k]>s[best])best=k});return "r"+best}</script><script>
+(function(){
+var qs=[].slice.call(document.querySelectorAll('.q')),btn=document.getElementById('go'),prog=document.getElementById('prog');
+if(location.search.indexOf('all')>-1)document.body.classList.add('all');
+function upd(){var d=qs.filter(function(q){return q.querySelector('input:checked')}).length;
+ prog.textContent='Отвечено '+d+' из '+qs.length;btn.disabled=d<qs.length;}
+document.addEventListener('change',upd);upd();
+btn.addEventListener('click',function(){var r=window.scoreTest();
+ [].forEach.call(document.querySelectorAll('.res'),function(e){e.classList.remove('on')});
+ var el=document.getElementById(r);el.classList.add('on');el.scrollIntoView({behavior:'smooth',block:'start'});});
+})();
+</script></body></html>
