@@ -366,6 +366,8 @@ let ed=false;
 function edit(on){ed=on;st.contentEditable=on?'true':'false';document.body.classList.toggle('editing',on);const b=document.getElementById('eb-e');if(b)b.textContent=on?'Закончить правку':'Править текст'}
 // owner link #edit=<token> saves straight to the site (owner 12778); without it Ctrl+S downloads a file
 let tok=null;function readTok(){try{const m=(location.search+location.hash).match(/edit=([\w-]+)/);if(m)sessionStorage.setItem('pkt-edit',m[1]);tok=sessionStorage.getItem('pkt-edit')}catch(e){const m=(location.search+location.hash).match(/edit=([\w-]+)/);if(m)tok=m[1]}}readTok();
+// the owner edits from the server copy: Pages lags, and a stale reload there wiped newer saves
+if(tok&&location.hostname==='doctorannasaba.ru')location.replace('https://baza.serenkov.com/pkt-edit/api/live/pkt-23-10/?edit='+tok+(/^#\d+$/.test(location.hash)?location.hash:''));
 function note(t){const n=document.getElementById('ebar-msg');if(n)n.textContent=t}
 function save(){edit(false);const c=document.documentElement.cloneNode(true);const eb=c.querySelector('#ebar');if(eb)eb.remove();const h='<!doctype html>\n'+c.outerHTML;
 if(!tok){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([h],{type:'text/html'}));a.download='PKT-23-10.html';a.click();return}
