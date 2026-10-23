@@ -327,8 +327,7 @@ $('claim').addEventListener('submit', async e=>{
   } else {
     // some mobile networks cannot reach the claim server: hand the claim over through Telegram instead
     store.set({...s, pending:f});
-    const ph = f.phone.replace(/\D/g,'').slice(-11);
-    $('claim-tg').href = 'https://t.me/saba_anna_bot?start=pg_' + s.key + '_' + ph;
+    $('claim-tg').href = 'https://t.me/saba_anna_bot?start=pg_' + s.key;
     $('claim-tg').hidden = false;
     $('f-err').textContent='Сеть не пропускает отправку. Нажмите «Отправить через Telegram», подарок закрепится за\u00a0вами';
     $('claim-btn').disabled = false; $('claim-btn').textContent='Попробовать ещё раз';
