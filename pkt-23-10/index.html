@@ -195,6 +195,7 @@ section.on figure.bignum{animation:pop .8s cubic-bezier(.2,1.4,.4,1) .2s both}
 @keyframes pop{from{transform:scale(.3);opacity:0}to{transform:none;opacity:1}}
 .edu{font-size:26px!important;line-height:1.45!important}
 #pg{position:fixed;right:18px;bottom:12px;color:#8a7a6e;font:14px Manrope,sans-serif}
+#ebar{position:fixed;left:16px;bottom:16px;z-index:99;display:flex;gap:8px;align-items:center;font:600 15px/1 system-ui,sans-serif}#ebar button{padding:10px 16px;border:0;border-radius:999px;background:#7a4a2e;color:#fff;font:inherit;cursor:pointer}#ebar span{color:#7a4a2e;background:#fff8;padding:6px 10px;border-radius:8px}#ebar span:empty{display:none}
 body.editing #stage{outline:3px dashed #c9a25c;outline-offset:-3px}body.editing #stage *{cursor:text}
 </style></head><body>
 <div id="stage">
@@ -354,8 +355,16 @@ function shrink(s){let f=1;while(s.scrollHeight>s.clientHeight+2&&f>0.55){f-=0.0
 function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,k)=>s.classList.toggle('on',k===i));shrink(S[i]);document.getElementById('pg').textContent=(i+1)+' / '+S.length;history.replaceState(null,'','#'+(i+1))}
 let ed=false;
 // edit mode (owner 12766): E toggles text editing, Ctrl+S saves the edited deck as a file
-function edit(on){ed=on;st.contentEditable=on?'true':'false';document.body.classList.toggle('editing',on)}
-function save(){edit(false);const h='<!doctype html>\n'+document.documentElement.outerHTML;const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([h],{type:'text/html'}));a.download='PKT-23-10.html';a.click()}
+function edit(on){ed=on;st.contentEditable=on?'true':'false';document.body.classList.toggle('editing',on);const b=document.getElementById('eb-e');if(b)b.textContent=on?'Закончить правку':'Править текст'}
+// owner link #edit=<token> saves straight to the site (owner 12778); without it Ctrl+S downloads a file
+let tok=null;try{const m=location.hash.match(/edit=([\w-]+)/);if(m)sessionStorage.setItem('pkt-edit',m[1]);tok=sessionStorage.getItem('pkt-edit')}catch(e){}
+function note(t){const n=document.getElementById('ebar-msg');if(n)n.textContent=t}
+function save(){edit(false);const h='<!doctype html>\n'+document.documentElement.outerHTML.replace(/<div id="ebar".*?<\/div><!--\/ebar-->/s,'');
+if(!tok){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([h],{type:'text/html'}));a.download='PKT-23-10.html';a.click();return}
+note('Сохраняю…');fetch('https://baza.serenkov.com/pkt-edit/api/save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({page:location.pathname.split('/').filter(Boolean)[0],token:tok,html:h})})
+.then(r=>{note(r.ok?'Сохранено. На сайте через 1–2 минуты':'Не сохранилось, нажмите ещё раз')}).catch(()=>note('Нет связи, нажмите ещё раз'))}
+if(tok){const b=document.createElement('div');b.id='ebar';b.innerHTML='<button id="eb-e">Править текст</button><button id="eb-s">Сохранить на сайт</button><span id="ebar-msg"></span>';document.body.appendChild(b);b.insertAdjacentHTML('afterend','<!--/ebar-->');
+b.addEventListener('click',e=>{e.stopPropagation();if(e.target.id==='eb-e')edit(!ed);if(e.target.id==='eb-s')save()})}
 addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'){e.preventDefault();save();return}if(e.key==='Escape'&&ed){edit(false);return}if(ed)return;if(e.key==='e'||e.key==='у'){edit(true);return}if(['ArrowRight','PageDown',' ','Enter'].includes(e.key))show(i+1);if(['ArrowLeft','PageUp','Backspace'].includes(e.key))show(i-1);if(e.key==='Home')show(0);if(e.key==='End')show(S.length-1);if(e.key==='f')document.documentElement.requestFullscreen()});
 addEventListener('click',e=>{if(ed||e.target.closest('video'))return;show(e.clientX>innerWidth/3?i+1:i-1)});
 addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
