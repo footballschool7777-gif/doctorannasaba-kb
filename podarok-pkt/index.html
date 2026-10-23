@@ -52,6 +52,8 @@ h2{font:700 clamp(22px,6.2vw,26px)/1.15 var(--fh);color:var(--ink)}
   background:linear-gradient(180deg,#e3b45e 0%,var(--gold) 45%,var(--gold2) 100%);color:#2a1c06;font:700 16px/1.2 var(--fh);letter-spacing:.02em;text-decoration:none;
   box-shadow:0 14px 30px -14px rgba(185,131,46,.9),inset 0 1px 0 rgba(255,255,255,.5);transition:transform .15s,filter .2s}
 .btn:active{transform:scale(.98)}
+.btn[hidden]{display:none}
+a.btn{text-decoration:none;color:inherit}
 .btn:disabled{filter:grayscale(.4) opacity(.6);cursor:default}
 .btn.wine{background:linear-gradient(180deg,#953246 0%,var(--wine) 55%,var(--wine2) 100%);color:#fff7f2;box-shadow:0 14px 30px -14px rgba(94,26,41,.9),inset 0 1px 0 rgba(255,255,255,.25)}
 .btn svg{width:18px;height:18px;flex:none}
@@ -135,6 +137,7 @@ h2{font:700 clamp(22px,6.2vw,26px)/1.15 var(--fh);color:var(--ink)}
       <input class="fld" id="f-email" type="email" autocomplete="email" inputmode="email" placeholder="Электронная почта" required>
       <p class="err" id="f-err"></p>
       <button class="btn" id="claim-btn" type="submit">Забрать подарок</button>
+      <a class="btn" id="claim-tg" href="#" target="_blank" rel="noopener" hidden>Отправить через Telegram</a>
     </form>
     <p class="done" id="claim-done" hidden>Готово, подарок закреплён за&nbsp;вами</p>
     <!-- /CLAIM -->
@@ -309,14 +312,26 @@ $('claim').addEventListener('submit', async e=>{
   ['name','phone','email'].forEach(k=>$('f-'+k).classList.toggle('bad', bad[k]));
   if (bad.name||bad.phone||bad.email){ $('f-err').textContent='Заполните имя, телефон и почту'; return; }
   $('f-err').textContent=''; $('claim-btn').disabled = true; $('claim-btn').textContent='Отправляем…';
-  try{
-    const r = await fetch(CLAIM_API, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({code:CODE, gift:s.key, ...f})});
-    if (!r.ok) throw new Error(r.status);
+  const body = JSON.stringify({code:CODE, gift:s.key, ...f});
+  let ok = false;
+  for (let i=0; i<3 && !ok; i++){
+    try{
+      const ac = new AbortController(); const t = setTimeout(()=>ac.abort(), 12000);
+      const r = await fetch(CLAIM_API, {method:'POST', headers:{'Content-Type':'application/json'}, body, signal:ac.signal});
+      clearTimeout(t); ok = r.ok;
+    }catch(err){ await new Promise(res=>setTimeout(res, 1500)); }
+  }
+  if (ok){
     store.set({...s, claimed:true});
     $('claim').hidden = true; $('claim-done').hidden = false;
-  }catch(err){
-    $('f-err').textContent='Не получилось отправить. Проверьте интернет и нажмите ещё раз';
-    $('claim-btn').disabled = false; $('claim-btn').textContent='Забрать подарок';
+  } else {
+    // some mobile networks cannot reach the claim server: hand the claim over through Telegram instead
+    store.set({...s, pending:f});
+    const ph = f.phone.replace(/\D/g,'').slice(-11);
+    $('claim-tg').href = 'https://t.me/saba_anna_bot?start=pg_' + s.key + '_' + ph;
+    $('claim-tg').hidden = false;
+    $('f-err').textContent='Сеть не пропускает отправку. Нажмите «Отправить через Telegram», подарок закрепится за\u00a0вами';
+    $('claim-btn').disabled = false; $('claim-btn').textContent='Попробовать ещё раз';
   }
 });
 </script>
