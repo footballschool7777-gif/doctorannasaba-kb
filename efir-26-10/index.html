@@ -1344,7 +1344,8 @@ const editor = {
     targets() { return document.querySelectorAll('.slide h1, .slide h2, .slide p, .slide b, .slide .opt, .slide .kicker, .slide .meta span, .slide .ed'); },
     toggleEditMode() {
         this.isActive = !this.isActive;
-        this.targets().forEach(el => el.contentEditable = this.isActive);
+        // the whole stage is editable: list items, labels and numbers too (owner msg 842)
+        document.getElementById('deckStage').contentEditable = this.isActive;
         document.getElementById('editToggle').classList.toggle('active', this.isActive);
         if (!this.isActive) this.save();
     },
@@ -1428,7 +1429,7 @@ if (!new URLSearchParams(location.search).has('all')) {
     hot.addEventListener('click', () => editor.toggleEditMode());
     tog.addEventListener('click', () => editor.toggleEditMode());
     document.addEventListener('keydown', e => {
-        if ((e.key === 'e' || e.key === 'E') && !e.target.isContentEditable) editor.toggleEditMode();
+        if (['e', 'E', 'у', 'У'].includes(e.key) && !e.target.isContentEditable) editor.toggleEditMode();
         if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); if (site.tok) site.save(); else { editor.save(); editor.download(); } }
     });
 }
