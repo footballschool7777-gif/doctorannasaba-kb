@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="no-anim">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -552,6 +552,8 @@ em { font-style: normal; color: var(--gold-text); }
 .mod-res, .mod-res p { color: #ffffff; }
 .btn i { background: #1a1a1a; color: #f5a623; }
 .cover-l .meta span, #ebar button { color: #1a1a1a; }
+/* no motion at all on the site copy (owner msg 839): every element shows in its final state */
+.no-anim *, .no-anim *::before, .no-anim *::after { transition: none !important; animation: none !important; }
 
 </style>
 </head>
@@ -1321,6 +1323,8 @@ function fmt(v, dec) {
     return v >= 10000 ? s.replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0') : s;
 }
 function countUp(el) {
+    // site copy runs without motion (owner msg 839): the static number is already final
+    if (document.documentElement.classList.contains('no-anim')) return;
     const to = parseFloat(el.dataset.to), from = parseFloat(el.dataset.from || '0'), dec = +(el.dataset.dec || 0);
     const t0 = performance.now(), dur = 1600;
     const step = t => {
