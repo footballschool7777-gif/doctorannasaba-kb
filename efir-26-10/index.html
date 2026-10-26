@@ -630,6 +630,36 @@ em { font-style: normal; color: var(--gold-text); }
 .s-buy .bl.cant b { font-size: 32px; }
 .s-buy .bl.cant i { color: #b8432a; font-weight: 600; }
 
+/* owner msg 935: four real surveys, big numbers */
+.s-polls .polls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 10px; }
+.s-polls .pl { display: grid; grid-template-columns: 210px 1fr; grid-template-rows: 1fr auto; column-gap: 26px; padding: 28px 34px; border-radius: 28px; background: #f8f7f4; border: 1px solid #e0ddd7; }
+.s-polls .pn { grid-row: 1 / 3; align-self: center; }
+.s-polls .pn { font: 800 96px/1 var(--ft); color: #f5a623; letter-spacing: -2px; }
+.s-polls .pl p { align-self: center; font: 600 29px/1.3 var(--ft); color: #1a1a1a; }
+.s-polls .pl s { margin-top: 14px; padding-top: 12px; border-top: 1px solid #e0ddd7; text-decoration: none; font-size: 18px; line-height: 1.35; color: #6f675c; }
+.s-polls .pl.hl { background: #1a1a1a; border-color: #1a1a1a; }
+.s-polls .pl.hl p { color: #ffffff; }
+.s-polls .pl.hl s { color: #bdb6aa; border-top-color: #3a3a3a; }
+.s-polls .src { margin-top: 30px; font-size: 28px; color: #1a1a1a; font-weight: 500; }
+
+/* owner msg 938: thinking habits, stat bars + clean list */
+.s-mind2 .m2 { display: grid; grid-template-columns: 760px 1fr; gap: 56px; margin-top: 16px; align-items: stretch; }
+.s-mind2 .m2-stat { background: #1a1a1a; border-radius: 32px; padding: 44px 44px 36px; display: flex; flex-direction: column; gap: 30px; }
+.s-mind2 .m2-q { font: 600 34px/1.25 var(--ft); color: #ffffff; }
+.s-mind2 .m2-row { display: grid; grid-template-columns: 200px 1fr 110px; align-items: center; gap: 20px; }
+.s-mind2 .m2-lab { font-size: 24px; color: #d8d2c6; }
+.s-mind2 .m2-bar { height: 26px; border-radius: 13px; background: #333333; overflow: hidden; }
+.s-mind2 .m2-bar i { display: block; height: 100%; border-radius: 13px; background: #f5a623; }
+.s-mind2 .m2-row b { font: 800 52px/1 var(--ft); color: #f5a623; text-align: right; }
+.s-mind2 .m2-row.poor .m2-bar i { background: #8a8378; }
+.s-mind2 .m2-row.poor b { color: #bdb6aa; }
+.s-mind2 .m2-stat s { margin-top: auto; text-decoration: none; font-size: 18px; color: #9a9285; line-height: 1.35; }
+.s-mind2 .m2-list { display: flex; flex-direction: column; justify-content: center; }
+.s-mind2 .m2-it { display: flex; align-items: center; gap: 28px; padding: 22px 0; border-bottom: 1px solid #e0ddd7; }
+.s-mind2 .m2-it:last-child { border-bottom: 0; }
+.s-mind2 .m2-it b { font: 800 34px var(--ft); color: #f5a623; width: 56px; flex: none; }
+.s-mind2 .m2-it p { font: 600 36px/1.2 var(--ft); color: #1a1a1a; }
+
 </style>
 </head>
 <body>
@@ -918,35 +948,41 @@ em { font-style: normal; color: var(--gold-text); }
   <div class="bl r d4"><span class="bi ok">✓</span><b>Время</b><i>можно купить</i></div>
   <div class="bl r d5"><span class="bi ok">✓</span><b>Связи</b><i>можно купить</i></div>
   <div class="bl r d6"><span class="bi ok">✓</span><b>Лучшие специалисты</b><i>можно купить</i></div>
-  <div class="bl cant r d7"><span class="bi">✕</span><b>Спокойствие, уверенность, радость</b><i>не купить, только вырастить</i></div>
+  <div class="bl cant r d7"><span class="bi">✕</span><b>Спокойствие, уверенность, радость</b><i>не купить, только взрастить</i></div>
 </div>
 <div class="foot"><span>Анна Саба · эфир для выпускников</span><span>33</span></div>
 </section>
 <!-- 34. research-value -->
-<section class="slide t-html s-value">
-
-<div class="head"><div class="kicker r d1">Что ценят <span class="nw">VIP-клиенты</span> и что это значит для вас</div><h2 class="h2 r d2">Четыре ожидания <span class="nw">VIP-клиента</span></h2></div>
-<div class="vt">
-  <div class="vr r d3"><b>Доверие</b><span>→</span><p>Конфиденциальность и честный разговор. У инвесторов доверие входит в три главные причины довольства советником</p></div>
-  <div class="vr r d4"><b>Личный подход</b><span>→</span><p>Свой метод под человека. 63% состоятельных инвесторов высоко ценят персональный совет</p></div>
-  <div class="vr r d5"><b>Время</b><span>→</span><p>Короткий разговор по делу. Если вопрос решается деньгами, они не тратят на него ни минуты</p></div>
-  <div class="vr r d6"><b>Равенство</b><span>→</span><p>Разговор партнёров. Заискивание они считывают сразу</p></div>
+<section class="slide t-html s-value s-polls">
+  <!-- owner msg 935: real surveys with sources -->
+<div class="head"><div class="kicker r d1">Исследования</div><h2 class="h2 r d2">Что показывают опросы состоятельных людей</h2></div>
+<div class="polls">
+  <div class="pl r d3"><span class="pn">71%</span><p>ходят к психотерапевту хотя бы раз в месяц</p><s>Saltus Wealth Index, Великобритания, 2024. 2 000 человек с капиталом от £250 тыс.</s></div>
+  <div class="pl r d4"><span class="pn">63%</span><p>высоко ценят совет, подобранный лично под них</p><s>CEB Client Experience Survey, 2018, по данным SEI</s></div>
+  <div class="pl r d5"><span class="pn">44%</span><p>доверяют своему консультанту настолько, чтобы принять совет без проверки</p><s>SEI и Phoenix Marketing International, США, 2018. 347 состоятельных семей</s></div>
+  <div class="pl hl r d6"><span class="pn">17%</span><p>считают, что с ними работают <span class="nw">по-настоящему</span> индивидуально</p><s>Capgemini World Wealth Report 2026. 6 510 состоятельных инвесторов</s></div>
 </div>
-<p class="src r d7">Цифры: SEI и Financial Planning Association, опрос состоятельных инвесторов. Остальное – из практики Анны Саба</p>
+<p class="src r d7">Спрос на личный подход и доверие огромный, а получают их немногие. Это и есть место для вас.</p>
 <div class="foot"><span>Анна Саба · эфир для выпускников</span><span>34</span></div>
 </section>
 <!-- 35. research-mind -->
-<section class="slide t-html s-mind">
-
-<div class="mind-t"><div class="kicker r d1">Как мыслят <span class="nw">VIP-клиенты</span></div>
-<h2 class="h2 r d2">Пять привычек мышления</h2>
-<p class="lead r d3">62% состоятельных людей каждый день думают о своих целях. Среди бедных таких 6%</p><p class="src-in r d4">Томас Корли, «Rich Habits», опрос 233 состоятельных и 128 бедных людей</p></div>
-<div class="star">
-  <div class="sx r d3"><b>01</b><p>Время дороже денег</p></div>
-  <div class="sx r d4"><b>02</b><p>Смело пробуют новое</p></div>
-  <div class="sx r d5"><b>03</b><p>Учатся у тех, кто уже там</p></div>
-  <div class="sx r d6"><b>04</b><p>Платят за окружение и энергию</p></div>
-  <div class="sx r d7"><b>05</b><p>Думают на годы вперёд</p></div>
+<section class="slide t-html s-mind2">
+  <!-- owner msg 938: new layout, same text -->
+<div class="head"><div class="kicker r d1">Как мыслят <span class="nw">VIP-клиенты</span></div><h2 class="h2 r d2">Пять привычек мышления</h2></div>
+<div class="m2">
+  <div class="m2-stat r d3">
+    <p class="m2-q">Каждый день думают о своих целях</p>
+    <div class="m2-row"><span class="m2-lab">Состоятельные</span><div class="m2-bar"><i style="width:62%"></i></div><b>62%</b></div>
+    <div class="m2-row poor"><span class="m2-lab">Бедные</span><div class="m2-bar"><i style="width:6%"></i></div><b>6%</b></div>
+    <s>Томас Корли, «Rich Habits», опрос 233 состоятельных и 128 бедных людей</s>
+  </div>
+  <div class="m2-list">
+    <div class="m2-it r d4"><b>01</b><p>Время дороже денег</p></div>
+    <div class="m2-it r d5"><b>02</b><p>Смело пробуют новое</p></div>
+    <div class="m2-it r d6"><b>03</b><p>Учатся у тех, кто уже там</p></div>
+    <div class="m2-it r d7"><b>04</b><p>Платят за окружение и энергию</p></div>
+    <div class="m2-it r d8"><b>05</b><p>Думают на годы вперёд</p></div>
+  </div>
 </div>
 <div class="foot"><span>Анна Саба · эфир для выпускников</span><span>35</span></div>
 </section>
