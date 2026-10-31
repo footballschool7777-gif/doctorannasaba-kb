@@ -5,11 +5,11 @@ function glue(s){var re=/(^|[\s«(])([А-Яа-яЁёA-Za-z]{1,2})\s/g;return Str
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function t(s){return esc(glue(s))}
 function Q(){return T.questions.concat(T.branches[T.seg_branch[answers[0]||0]])}
-function show(id){busy=false;shown=Date.now();document.querySelectorAll('.scr-q').forEach(function(e){e.classList.toggle('on',e.id===id)});scrollTo(0,0)}
+function show(id){busy=false;shown=Date.now();document.querySelectorAll('.scr-q').forEach(function(e){e.classList.toggle('on',e.id===id)});document.body.classList.toggle('started',qi>0||id!=='quiz');if(document.body.classList.contains('started'))scrollTo(0,0)}
 function counts(){var c={};answers.forEach(function(i,k){var l=Q()[k].a[i][0];if(l)c[l]=(c[l]||0)+1});return c}
 function lead(){var c=counts(),b='',n=0,tie=false;for(var l in c){if(c[l]>n){b=l;n=c[l];tie=false}else if(c[l]===n)tie=true}return tie?'':b}
 function render(){var q=Q()[qi],n=Q().length;
- $('#qt').hidden=qi>0;
+ 
  $('#qnum').textContent=qi===n-1?'Последний вопрос':'Вопрос '+(qi+1)+' из '+n;
  $('#qbar').style.width=((qi+1)/n*100)+'%';$('#back').hidden=qi===0;$('#qq').innerHTML=t(q.q);
  var idx=q.a.map(function(a,i){return i});

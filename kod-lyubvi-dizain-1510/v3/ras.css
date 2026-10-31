@@ -293,3 +293,20 @@ a{color:inherit}
 .opts{gap:clamp(6px,1svh,10px)}
 .opt{padding:clamp(10px,1.6svh,16px) 16px;font-size:clamp(14.5px,2.1svh,16.5px)}
 @media(min-width:1000px){.qh-in{justify-content:center}}
+/* v3 intro (owner's first screen, msg 1530) above question 1 */
+.qz .qt{display:none}
+.qz.started .tst,.qz.started .th-more{display:none}
+.qz .th-more{padding:40px 0 8px}
+.qz .qh{min-height:auto;padding-bottom:24px}
+.qz.started .qh{min-height:100svh}
+.qz .qh .bar{display:none}.qz.started .qh .bar{display:flex}
+.qz:not(.started) .qh{background:var(--bg)}
+.qz:not(.started) .qh .hero-ring{display:none}
+.qz:not(.started) .qq{color:var(--ink)}
+.qz:not(.started) .qtop{color:var(--goldt)}
+.qz:not(.started) .qbar{background:#eadfcd}
+.qz:not(.started) .opt{background:var(--card);box-shadow:inset 0 0 0 1.5px #e6d7bf;color:var(--ink)}
+.qz:not(.started) .opt:hover{box-shadow:inset 0 0 0 1.5px var(--gold)}
+.qz:not(.started) .qh-in{padding-top:8px}
+a.go{text-decoration:none}
+.qz:not(.started) .qh{min-height:0}.qz:not(.started) .qh-in{padding-top:0;justify-content:flex-start;flex:none}
