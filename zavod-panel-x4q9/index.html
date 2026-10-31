@@ -1,0 +1,90 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Контент-завод: сквозная аналитика</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1ea;--card:#fff;--ink:#2b2420;--mut:#8a7d72;--gold:#b08d57;--b3:#5e4a33;--line:#eadfd2;--ok:#5f7d4e;--bad:#a0523d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;font-size:15px}
+.wrap{max-width:1200px;margin:0 auto;padding:28px 18px 60px}
+h1{font-size:26px;margin:0 0 4px;text-wrap:balance}h2{font-size:19px;margin:34px 0 6px;text-wrap:balance}
+.sub,.hint{color:var(--mut);text-wrap:balance}.sub{margin:0 0 18px}.hint{font-size:13px;margin:0 0 10px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.kpi{background:var(--card);border-radius:14px;padding:16px;border:1px solid var(--line)}
+.kpi .v{font-size:30px;font-weight:800;color:var(--b3)}.kpi .l{color:var(--mut);font-size:13px;margin-top:4px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0 12px}
+.filters label{font-size:13px;color:var(--mut)}
+select,input{font:inherit;font-size:14px;border:1px solid var(--line);border-radius:10px;padding:6px 10px;background:#fff;color:var(--ink)}
+.tbl{overflow-x:auto;background:var(--card);border-radius:14px;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:900px}th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--mut);font-weight:600;text-transform:uppercase;letter-spacing:.03em;background:#fbf8f4;cursor:pointer;white-space:nowrap;user-select:none}
+th.on::after{content:" ↓"}th.on.asc::after{content:" ↑"}
+td.num{white-space:nowrap;text-align:right}td.nm{white-space:nowrap;font-weight:600}
+td.txt{min-width:200px;font-size:13px;line-height:1.45}.na{color:#c4b8ac;font-size:13px}
+.tag{display:inline-block;border-radius:10px;padding:2px 8px;font-size:12px;font-weight:600;background:#f0e8de}
+.tag.up{background:#e3ecdc;color:var(--ok)}.tag.off{background:#f3e0da;color:var(--bad)}
+a{color:var(--b3)}
+.box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;color:#4a3f37;font-size:14px;line-height:1.55}
+</style></head><body><div class="wrap">
+<h1>Контент-завод Анны Саба: сквозная аналитика</h1>
+<p class="sub" id="upd">Загружаю данные…</p>
+
+<div class="kpis" id="kpis"></div>
+
+<h2>Форматы за 7 дней</h2>
+<p class="hint">Авто-оценка по просмотрам на единицу. Решение «масштабировать или отключить» принимает Ирина, её вывод – в столбце рекомендации ниже.</p>
+<div class="tbl"><table id="fmt"></table></div>
+
+<h2>Каждая единица</h2>
+<div class="filters">
+ <label>День выхода <select id="fDay"></select></label>
+ <label>Формат <select id="fFmt"></select></label>
+ <label>С <input type="date" id="fFrom"></label>
+ <label>по <input type="date" id="fTo"></label>
+</div>
+<div class="tbl"><table id="units"></table></div>
+
+<h2>Как считается</h2>
+<div class="box" id="how">
+Просмотры, охват, комментарии и досмотр – Metricool, по каждой выложенной копии единицы.<br>
+Регистрации – GetCourse по метке utm_content с номером единицы. Ссылка в шапке профиля общая для всех постов, по посту её не разделить.<br>
+Токены – расход исполнителя в день производства делится на его единицы, расход Ирины за день делится на все единицы дня.<br>
+Обновление каждый день к 06:00 МСК.
+</div>
+</div>
+<script>
+const nf=n=>n===''||n==null?'':Number(n).toLocaleString('ru-RU');
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const dm=s=>s?s.slice(8,10)+'.'+s.slice(5,7):'';
+const COLS=[['release','Выход',r=>dm(r.release),'nm'],['unit','Единица',r=>esc(r.unit),'nm'],['format','Формат',r=>esc(r.format)],
+ ['post_type','Тип',r=>esc(({REEL:'рилс',TRIAL_REEL:'пробный',POST:'пост'})[r.post_type]||r.post_type||'')],
+ ['url','Ссылка',r=>r.url?`<a href="${esc(r.url)}" target="_blank" rel="noopener">пост</a>`:'<span class="na">не вышел</span>'],
+ ['views','Просмотры',r=>nf(r.views),'num'],['reach','Охват',r=>nf(r.reach),'num'],['comments','Комм.',r=>nf(r.comments),'num'],
+ ['saved','Сохр.',r=>nf(r.saved),'num'],['shares','Репосты',r=>nf(r.shares),'num'],['avg_watch_s','Досмотр, с',r=>r.avg_watch_s===''?'':Number(r.avg_watch_s).toFixed(1),'num'],
+ ['regs_utm','Рег.',r=>nf(r.regs_utm),'num'],['tokens','Токены',r=>nf(r.tokens),'num'],
+ ['analysis','Анализ',r=>r.analysis?esc(r.analysis):'<span class="na">ждёт Ирину</span>','txt'],
+ ['recommendation','Рекомендация',r=>r.recommendation?esc(r.recommendation):'<span class="na">ждёт Ирину</span>','txt']];
+const NUM=new Set(['views','reach','comments','saved','shares','avg_watch_s','regs_utm','tokens']);
+let D,sortKey='views',asc=false;
+function rows(){const day=fDay.value,f=fFmt.value,a=fFrom.value,b=fTo.value;
+ return D.rows.filter(r=>(!day||r.release===day)&&(!f||r.format===f)&&(!a||r.release>=a)&&(!b||r.release<=b));}
+function cmp(x,y){let a=x[sortKey],b=y[sortKey];if(NUM.has(sortKey)){a=a===''?-1:+a;b=b===''?-1:+b;}return (a>b?1:a<b?-1:0)*(asc?1:-1);}
+function draw(){const rs=rows().sort(cmp);
+ units.innerHTML='<tr>'+COLS.map(c=>`<th data-k="${c[0]}" class="${c[0]===sortKey?'on'+(asc?' asc':''):''}">${c[1]}</th>`).join('')+'</tr>'+
+  (rs.map(r=>'<tr>'+COLS.map(c=>`<td class="${c[3]||''}">${c[2](r)}</td>`).join('')+'</tr>').join('')||`<tr><td colspan="${COLS.length}" class="na">Нет единиц под этот фильтр</td></tr>`);
+ units.querySelectorAll('th').forEach(th=>th.onclick=()=>{const k=th.dataset.k;asc=k===sortKey?!asc:false;sortKey=k;draw();});
+ const uniq={};rs.forEach(r=>uniq[r.unit]=r);const U=Object.values(uniq);
+ const sum=k=>rs.reduce((s,r)=>s+(+r[k]||0),0),usum=k=>U.reduce((s,r)=>s+(+r[k]||0),0);
+ kpis.innerHTML=[[U.length,'единиц'],[rs.filter(r=>r.url).length,'вышло постов'],[nf(sum('views')),'просмотров'],[nf(usum('regs_utm')),'регистраций по метке'],
+  [nf(Math.round(usum('tokens')/1000))+' тыс.','токенов']].map(k=>`<div class="kpi"><div class="v">${k[0]}</div><div class="l">${k[1]}</div></div>`).join('');}
+function opts(el,vals,lab,all){el.innerHTML=`<option value="">${all}</option>`+vals.map(v=>`<option value="${esc(v)}">${esc(lab(v))}</option>`).join('');el.onchange=draw;}
+fetch('data.json?nc='+Date.now()).then(r=>r.json()).then(d=>{D=d;
+ upd.textContent='Данные на '+d.updated_msk.slice(8,10)+'.'+d.updated_msk.slice(5,7)+' '+d.updated_msk.slice(11)+' МСК. Одна строка – одна выложенная копия единицы.';
+ const days=[...new Set(d.rows.map(r=>r.release))].sort().reverse();
+ opts(fDay,days,dm,'все дни');opts(fFmt,[...new Set(d.rows.map(r=>r.format))].sort(),x=>x,'все форматы');
+ fFrom.onchange=fTo.onchange=draw;
+ const T={'масштабировать':'up','кандидат на отключение':'off'};
+ fmt.innerHTML='<tr><th>Формат</th><th>Единиц</th><th>Постов</th><th>Просмотры</th><th>На единицу</th><th>Рег.</th><th>Токены</th><th>Просмотров на 1 млн токенов</th><th>Авто-оценка</th></tr>'+
+  d.formats.map(f=>`<tr><td class="nm">${esc(f.format)}</td><td class="num">${f.units}</td><td class="num">${f.posts}</td><td class="num">${nf(f.views)}</td><td class="num">${nf(f.views_per_unit)}</td><td class="num">${nf(f.regs_utm)}</td><td class="num">${nf(f.tokens)}</td><td class="num">${f.views_per_1m_tokens==null?'':nf(f.views_per_1m_tokens)}</td><td><span class="tag ${T[f.auto]||''}">${esc(f.auto)}</span></td></tr>`).join('');
+ draw();}).catch(()=>{upd.textContent='Данные не загрузились, обновите страницу.';});
+</script></body></html>
