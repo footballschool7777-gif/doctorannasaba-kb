@@ -20,7 +20,8 @@ table{border-collapse:collapse;width:100%;min-width:900px}th,td{padding:9px 10px
 th{font-size:12px;color:var(--mut);font-weight:600;text-transform:uppercase;letter-spacing:.03em;background:#fbf8f4;cursor:pointer;white-space:nowrap;user-select:none}
 th.on::after{content:" ↓"}th.on.asc::after{content:" ↑"}
 td.num{white-space:nowrap;text-align:right}td.nm{white-space:nowrap;font-weight:600}
-td.txt{min-width:200px;font-size:13px;line-height:1.45}.na{color:#c4b8ac;font-size:13px}
+td.txt{min-width:200px;font-size:13px;line-height:1.45}.na{color:#c4b8ac;font-size:13px;white-space:nowrap}
+@media(max-width:520px){.kpi .v{font-size:24px}.kpi{padding:12px}}
 .tag{display:inline-block;border-radius:10px;padding:2px 8px;font-size:12px;font-weight:600;background:#f0e8de}
 .tag.up{background:#e3ecdc;color:var(--ok)}.tag.off{background:#f3e0da;color:var(--bad)}
 a{color:var(--b3)}
@@ -76,10 +77,10 @@ function draw(){const rs=rows().sort(cmp);
  const uniq={};rs.forEach(r=>uniq[r.unit]=r);const U=Object.values(uniq);
  const sum=k=>rs.reduce((s,r)=>s+(+r[k]||0),0),usum=k=>U.reduce((s,r)=>s+(+r[k]||0),0);
  kpis.innerHTML=[[U.length,'единиц'],[rs.filter(r=>r.url).length,'вышло постов'],[nf(sum('views')),'просмотров'],[nf(usum('regs_utm')),'регистраций по метке'],
-  [nf(Math.round(usum('tokens')/1000))+' тыс.','токенов']].map(k=>`<div class="kpi"><div class="v">${k[0]}</div><div class="l">${k[1]}</div></div>`).join('');}
+  [nf(Math.round(usum('tokens')/1000))+'\u00a0тыс.','токенов']].map(k=>`<div class="kpi"><div class="v">${k[0]}</div><div class="l">${k[1]}</div></div>`).join('');}
 function opts(el,vals,lab,all){el.innerHTML=`<option value="">${all}</option>`+vals.map(v=>`<option value="${esc(v)}">${esc(lab(v))}</option>`).join('');el.onchange=draw;}
 fetch('data.json?nc='+Date.now()).then(r=>r.json()).then(d=>{D=d;
- upd.textContent='Данные на '+d.updated_msk.slice(8,10)+'.'+d.updated_msk.slice(5,7)+' '+d.updated_msk.slice(11)+' МСК. Одна строка – одна выложенная копия единицы.';
+ upd.textContent='Данные на '+d.updated_msk.slice(8,10)+'.'+d.updated_msk.slice(5,7)+' '+d.updated_msk.slice(11)+'\u00a0МСК. Одна строка\u00a0– одна выложенная копия единицы.';
  const days=[...new Set(d.rows.map(r=>r.release))].sort().reverse();
  opts(fDay,days,dm,'все дни');opts(fFmt,[...new Set(d.rows.map(r=>r.format))].sort(),x=>x,'все форматы');
  fFrom.onchange=fTo.onchange=draw;
