@@ -87,7 +87,12 @@
       if (qi === (T.seg_branch ? 3 : 2) && !pick.seenPattern){
         pick.seenPattern = true;
         var pt = T.pattern; $('#ptext').innerHTML = t(typeof pt === 'string' ? pt : (pt[lead3()] || pt['']));
-        show('pattern'); return;
+        if (T.loaders) runLoader(T.loaders['3'], function(){ show('pattern'); }); else show('pattern');
+        return;
+      }
+      // a second "analysis" pause after question 6 (msg 1376)
+      if (T.loaders && qi === (T.seg_branch ? 6 : 5) && qi < Q().length - 1){
+        qi++; runLoader(T.loaders['6'], renderQ); return;
       }
       if (qi < Q().length - 1){ qi++; renderQ(); } else { finish(); }
     }, 220);
@@ -117,10 +122,26 @@
     return best;
   }
 
+  // Vvedenskaya-style pause: spinner, title, lines appear one by one with a tick, then done()
+  function runLoader(L, done){
+    show('loader');
+    $('#lmsg').textContent = L.title;
+    var ul = $('#llist'), lines = L.lines || [], k = 0;
+    ul.innerHTML = lines.map(function(x){ return '<li>' + t(x) + '</li>'; }).join('');
+    var items = ul.querySelectorAll('li');
+    if (!items.length){ setTimeout(done, 2000); return; }
+    var iv = setInterval(function(){
+      if (k < items.length){ items[k].classList.add('on'); if (k) items[k - 1].classList.add('ok'); k++; return; }
+      items[k - 1].classList.add('ok'); clearInterval(iv); setTimeout(done, 600);
+    }, 900);
+  }
+
   function finish(){
     type = score();
     save({type: type, answers: answers});
+    if (T.loaders){ runLoader(T.loaders.end, renderResult); return; }
     show('loader');
+    $('#llist').innerHTML = '';
     var m = $('#lmsg'), k = 0;
     m.textContent = T.loader[0];
     var iv = setInterval(function(){
