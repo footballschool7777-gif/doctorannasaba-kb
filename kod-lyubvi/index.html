@@ -533,6 +533,17 @@ body.mode-scroll .app{max-width:none;background:#f6f0e6;box-shadow:none!importan
   font:500 var(--t-dark)/1.6 var(--fb);color:#f4ede1;text-wrap:balance}
 .quotes blockquote::before{content:"";position:absolute;left:18px;top:calc(14px + .8em - 1px);width:8px;height:2px;border-radius:1px;background:#e8c27a}
 .b-page .quotes blockquote,.b-beige .quotes blockquote{background:#fffdf8;border-color:var(--s-line);color:#23190d;font-size:var(--t-body);line-height:1.5}
+/* часть 6 «Паттерн» — светлая, приёмы сайта: карточки 01–05 (.gets), золотая линия слева (.em-text), водяной знак (.emdr) */
+.part[data-part="6"]{overflow:hidden}
+.part[data-part="6"]::before{content:"ПАТТЕРН";position:absolute;right:-.06em;bottom:-.12em;font:700 clamp(84px,20vw,300px)/1 var(--ft);letter-spacing:-.04em;color:#d6a24a;opacity:.06;pointer-events:none}
+.part[data-part="6"] .band-in{position:relative}
+.part[data-part="6"] .quotes{counter-reset:fq}
+.part[data-part="6"] .quotes blockquote{display:flex;align-items:center;gap:16px;padding:14px 18px;border-radius:16px;
+  background:linear-gradient(110deg,#fbf1dc,#fffdf8 60%);border:1px solid rgba(214,162,74,.28)}
+.part[data-part="6"] .quotes blockquote>span{flex:1 1 auto;min-width:0;text-wrap:balance}
+.part[data-part="6"] .quotes blockquote::before{counter-increment:fq;content:"0" counter(fq);position:static;flex:0 0 auto;min-width:34px;width:auto;height:auto;border-radius:0;
+  background:linear-gradient(160deg,#d9a54c,#9a6a1f);-webkit-background-clip:text;background-clip:text;color:transparent;font:600 22px/1 var(--ft)}
+.part[data-part="6"] .quotes~p{padding-left:16px;border-left:2px solid rgba(214,162,74,.45)}
 
 /* ============================================================ ОФФЕР — как блок «Тарифы» сайта */
 .offer{scroll-margin-top:0;padding-bottom:calc(60px + env(safe-area-inset-bottom))}
@@ -4031,14 +4042,14 @@ const CONFIG = {
         case 'callout': return `<div class="callout blk"><p>${tx(b.text)}</p></div>`;
         case 'pair':    return `<div class="pair blk">${b.items.map(c => `<div class="pc ${c.tone === 'bad' ? 'bad' : 'good'}">${tx(c.text)}</div>`).join('')}</div>`;
         case 'pull':    return `<blockquote class="pull">${tx(b.text)}</blockquote>`;
-        case 'quotes':  return `<div class="quotes blk">${b.items.map(t => `<blockquote>${tx(t)}</blockquote>`).join('')}</div>`;
+        case 'quotes':  return `<div class="quotes blk">${b.items.map(t => `<blockquote><span>${tx(t)}</span></blockquote>`).join('')}</div>`;
         default:        return '';
       }
     };
     // цифры в тексте плашки — Unbounded, как «87%» на экране 1 (слова те же)
     const plateNum = (s) => tp(esc(s)).replace(/(^|[\s ])(\d+)(?=[\s ]|$)/g, '$1<b class="num">$2</b>');
     // фоны частей чередуются, как на сайте: бежевый, страница, бежевый, тёмный (шапка — светлый hero, оффер — страница)
-    const BANDS = ['b-beige', 'b-page', 'b-beige', 'b-dark', 'b-beige', 'b-dark'];  // part 6 dark so it does not merge with the offer (page)
+    const BANDS = ['b-beige', 'b-page', 'b-beige', 'b-dark', 'b-page', 'b-beige'];
     const partsHtml = R.parts.map((p, i) => {
       // «Часть 3. Заголовок» → строка-подпись «Часть 3» + заголовок (слова те же, только разнесены)
       const m = /^(Часть\s+\d+)\.?\s*(.*)$/.exec(p.heading || '');
@@ -4046,7 +4057,9 @@ const CONFIG = {
         ? `<p class="kick"><span>${plateNum(m[1])}</span></p>${m[2] ? `<h2>${hd(esc(m[2]))}</h2>` : ''}`
         : (p.heading ? `<h2>${hd(esc(p.heading))}</h2>` : '');
       const hasH2 = /<h2>/.test(head);
-      return `<section class="part band ${BANDS[i % BANDS.length]}" data-part="${i + 1}"><div class="band-in">${head}${p.blocks.map(b => renderBlock(b, hasH2)).join('')}</div></section>`;
+      // the last part sits right above the offer (page band), so it is never page-coloured
+      const band = (i === R.parts.length - 1 && BANDS[i % BANDS.length] === 'b-page') ? 'b-beige' : BANDS[i % BANDS.length];
+      return `<section class="part band ${band}" data-part="${i + 1}"><div class="band-in">${head}${p.blocks.map(b => renderBlock(b, hasH2)).join('')}</div></section>`;
     }).join('');
     // видео-разбор: по ключу результата; нет src — заглушка «Видео скоро» без ▶
     const V = (CONFIG.video && CONFIG.video[key]) || {};
