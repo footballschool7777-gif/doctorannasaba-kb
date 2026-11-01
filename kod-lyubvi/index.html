@@ -664,6 +664,9 @@ body.mode-scroll .app{max-width:none;background:#f6f0e6;box-shadow:none!importan
 .rg-x:hover{background:#efe6d6}
 .rg-x:focus-visible{outline:3px solid var(--goldt);outline-offset:2px}
 .rg-h{padding-right:44px;font:600 var(--t-h3)/1.25 var(--ft);letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+.rg-name{margin-top:10px;font:700 var(--t-small)/1.4 var(--fb);color:var(--goldt);text-wrap:balance}
+.rg-date{margin-top:8px;font:500 var(--t-small)/1.4 var(--fb);color:var(--ink)}
+.rg-date b{font-weight:700}
 .rg-note{margin-top:10px;font:500 var(--t-small)/1.55 var(--fb);color:var(--muted);text-wrap:balance}
 .rg-form{margin-top:22px;display:flex;flex-direction:column;gap:10px}
 .rg-form input[type=email],.rg-form input[type=text],.rg-form input[type=tel]{
@@ -680,6 +683,17 @@ body.mode-scroll .app{max-width:none;background:#f6f0e6;box-shadow:none!importan
 .rg-form .btn[aria-busy=true]{opacity:.75;pointer-events:none}
 html.rg-open,html.rg-open body{overflow:hidden!important}
 @media (max-width:380px){.rg-box{padding:26px 18px 20px;border-radius:20px}}
+/* short phones (360x640, 375x667): the whole form with its button fits without scrolling */
+@media (max-height:700px){
+  .rg{padding:10px 12px}
+  .rg-box{padding:20px 18px 16px}
+  .rg-name,.rg-note{margin-top:6px}
+  .rg-date{margin-top:4px}
+  .rg-form{margin-top:12px;gap:8px}
+  .rg-form input[type=email],.rg-form input[type=text],.rg-form input[type=tel]{min-height:44px;padding:10px 14px}
+  .rg-ck{margin-top:0;line-height:1.4}
+  .rg-form .btn{margin-top:4px;min-height:50px}
+}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -3705,8 +3719,10 @@ const CONFIG = {
     "expiredText": "Время вышло, но регистрация ещё открыта. Успейте записаться, пока есть места",
     "mainButton": "Открыть полную расшифровку",
     "mainUrl": "#register",
-    "registerTitle": "Регистрация на практикум",
-    "registerNote": "Полная расшифровка придёт в Telegram сразу после регистрации",
+    "registerTitle": "Регистрация на онлайн-практикум",
+    "registerName": "«Как выйти из угнетающих чувств в новую счастливую реальность»",
+    "registerDates": "25–28 ноября",
+    "registerNote": "Полная расшифровка и 3 подарка придут в Telegram-бота сразу после регистрации",
     "registerButton": "Записаться на практикум",
     "secondaryButton": "Подробнее об онлайн-практикуме",
     "secondaryUrl": "https://doctorannasaba.ru/novaya-realnost-v2-light/"
@@ -4327,6 +4343,8 @@ const CONFIG = {
     const O = CONFIG.offer;
     return `
     <h2 class="rg-h" id="rgTitle">${hd(esc(O.registerTitle))}</h2>
+    ${O.registerName ? `<p class="rg-name">${tp(esc(O.registerName))}</p>` : ''}
+    ${O.registerDates ? `<p class="rg-date">Даты проведения: <b>${tp(esc(O.registerDates))}</b></p>` : ''}
     <p class="rg-note">${tp(esc(O.registerNote))}</p>
     <form id="rgForm" class="rg-form" action="https://doctor-saba.com/pl/lite/block-public/process-html?id=2256829325" method="post" accept-charset="UTF-8" target="_top">
       <input type="hidden" name="formParams[setted_offer_id]" value="">
@@ -4709,7 +4727,7 @@ const CONFIG = {
     subtitle: 'подзаголовок', locked: 'пункт', practicumIntro: 'текст о практикуме', practicumName: 'название практикума',
     promoText: 'текст о промокоде', copyLabel: 'кнопка копирования', copiedLabel: 'после копирования', timerMinutes: 'таймер, минут',
     expiredText: 'после истечения таймера', mainButton: 'основная кнопка', mainUrl: 'URL основной кнопки (#register — попап регистрации)',
-    registerTitle: 'попап: заголовок', registerNote: 'попап: подпись под заголовком', registerButton: 'попап: кнопка формы',
+    registerTitle: 'попап: заголовок', registerName: 'попап: название практикума', registerDates: 'попап: даты', registerNote: 'попап: подпись под заголовком', registerButton: 'попап: кнопка формы',
     secondaryButton: 'вторичная кнопка', secondaryUrl: 'URL вторичной кнопки', back: 'подпись «Назад»', counter: 'счётчик вопросов',
     progressStart: 'прогресс на 1-м вопросе, %', progressEnd: 'прогресс на последнем, %', priority: 'приоритет', tone: 'тон (good/bad)', type: 'тип блока' };
 
