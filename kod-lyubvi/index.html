@@ -3770,10 +3770,28 @@ const CONFIG = {
   }
 
   // ---------- analytics ----------
+  // Step counter on our server (owner msg 15430): one beacon per step, no personal data.
+  // Owner preview links (?r=) and ?debug=1 are not counted.
+  const STATS_URL = 'https://baza.serenkov.com/quiz-stats/api/e';
+  function visitorId() {
+    try {
+      let v = localStorage.getItem('kl_vid');
+      if (!v) { v = Date.now().toString(36) + Math.random().toString(36).slice(2, 10); localStorage.setItem('kl_vid', v); }
+      return v;
+    } catch (e) { return 'n' + Math.random().toString(36).slice(2, 12); }
+  }
   function track(event, data) {
-    // Позже заменить на вызов реальной аналитики.
-    if (data !== undefined) console.log('[analytics]', event, data);
-    else console.log('[analytics]', event);
+    if (DEBUG) console.log('[analytics]', event, data);
+    if (PREVIEW || DEBUG) return;
+    const q = new URLSearchParams({
+      ev: event.indexOf('result_view_') === 0 ? 'result_view_' + String(event.slice(12)).replace(/[^A-Za-z0-9]/g, '').slice(0, 4) : event,
+      v: visitorId(),
+      s: (new URLSearchParams(location.search).get('utm_source') || '').replace(/[^A-Za-z0-9._-]/g, '').slice(0, 40),
+      r: String((data && data.result) || '').replace(/[^A-Za-z0-9]/g, '').slice(0, 8)
+    });
+    const url = STATS_URL + '?' + q;
+    try { if (navigator.sendBeacon && navigator.sendBeacon(url)) return; } catch (e) { /* fall through */ }
+    try { fetch(url, { mode: 'no-cors', keepalive: true }); } catch (e) { /* no-op */ }
   }
 
   // ---------- helpers ----------
@@ -4867,6 +4885,7 @@ const CONFIG = {
   }
   loadState();
   if (PREVIEW) state.step = 'result';
+  track('quiz_open');
   render(state.step);
   if (DEBUG) {
     initDebug();
