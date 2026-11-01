@@ -1,0 +1,3949 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6f0e6">
+<title>Код любви — бесплатный тест для женщин</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<script>
+/* Высота экрана фиксируется ОДИН раз при загрузке: --vh0 (px) и классы h-* на <html>.
+   Когда Safari прячет/показывает панель при скролле, высота окна меняется, но кегли и отступы — нет.
+   Пересчёт только при повороте экрана (ширина изменилась больше чем на 80 px). */
+(function () {
+  var d = document.documentElement, w0 = 0;
+  function fix() {
+    var h = window.innerHeight || (window.screen && screen.height) || 800, w = window.innerWidth || d.clientWidth;
+    w0 = w;
+    d.style.setProperty('--vh0', h + 'px');
+    var c = { 'h-compact': h < 620 || (w <= 374 && h < 660), 'h-lt620': h < 620, 'h-le700': h <= 700,
+              'h-ge760': h >= 760, 'h-ge800': h >= 800, 'h-ge860': h >= 860 };
+    for (var k in c) d.classList.toggle(k, c[k]);
+  }
+  fix();
+  window.addEventListener('resize', function () { if (Math.abs((window.innerWidth || 0) - w0) > 80) fix(); });
+  window.__klFixVh = fix;
+})();
+</script>
+<style>
+/* ============================================================
+   ТОКЕНЫ. Дизайн-система лендинга Анны Саба (светлая тема).
+   Компактный режим (низкие экраны) меняет только их.
+   ============================================================ */
+:root{
+  --bg:#f6f0e6;          /* сливочный фон экрана */
+  --bg2:#efe6d6;         /* фон вокруг колонки на десктопе */
+  --card:#fffdf8;
+  --card2:#fbf5ea;
+  --line:rgba(138,92,24,.2);
+  --line-gold:rgba(214,162,74,.18);   /* разделители внутри карточек */
+  --ink:#23190d;         /* текст, 15:1 на фоне */
+  --muted:#5f5446;       /* второстепенный, 6.5:1 на фоне */
+  --gold:#d6a24a;
+  --gold2:#b9832e;
+  --goldt:#8a5714;       /* золото для ТЕКСТА на светлом, 5.4:1 */
+  --btnink:#2a1c06;      /* текст на золотой кнопке, 7.2:1 */
+  --glow:rgba(214,162,74,.35);
+  --shadow:0 30px 60px -34px rgba(90,60,20,.45);
+  --shadow-sm:0 14px 30px -22px rgba(90,60,20,.4);
+  --gold-grad:linear-gradient(180deg,#f6dc9e,var(--gold) 55%,var(--gold2));
+  --ic-grad:linear-gradient(145deg,#f6dc9e,#c9a25c);
+  --gl-light:linear-gradient(100deg,#8a5714,#b57a22 40%,#e3b45e 50%,#b57a22 60%,#8a5714);
+  --gl-dark:linear-gradient(100deg,#c9953f,#f6dc9e 45%,#fff6dc 50%,#f6dc9e 55%,#c9953f);
+  --ic-check:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232a1c06' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+  /* тёмные полосы */
+  --d-ink:#f4ede1;
+  --d-muted:#b4a992;
+  --d-gold:#e8c27a;
+  --d-goldt:#ecc67f;
+  --d-bg:radial-gradient(70% 60% at 50% 0%,rgba(232,194,122,.13),transparent 70%),linear-gradient(180deg,#120f0a,#0d0b08);
+
+  --fb:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  --ft:'Unbounded','Manrope',-apple-system,sans-serif;
+
+  --r-lg:22px;           /* карточки: gains, promise, пара, видео, билет */
+  --r-md:18px;           /* варианты ответа, фото */
+  --r-sm:14px;           /* мелкие плашки: цитаты */
+  --ease:cubic-bezier(.2,.7,.2,1);
+
+  --fs-h1:22px;          /* заголовок экрана 1 */
+  --fs-q:22px;           /* вопрос, заголовок загрузки */
+  --fs-body:16px;        /* основной текст экрана 1 */
+  --fs-opt:16px;         /* варианты ответов, пункты загрузки */
+  --fs-small:14px;       /* подпись под кнопкой */
+  --fs-chip:14px;
+  --fs-btn:18px;
+  --pad-x:16px;
+  /* --vh0 — высота окна, снятая ОДИН раз при загрузке (скрипт в <head>), в px.
+     Прятание панели Safari её не меняет, поэтому кегли и отступы не прыгают. */
+  --vh0:100svh;
+  --pad-top:clamp(10px, calc(2 * var(--vh0) / 100), 16px);
+  --pad-bottom:clamp(10px, calc(2 * var(--vh0) / 100), 16px);
+  --gap:clamp(8px, calc(1.6 * var(--vh0) / 100), 16px);
+  --q-gap:12px;
+  --card-pad:11px;       /* вертикальный padding варианта */
+  --gi-y:7px;            /* вертикальный padding пункта в gains на экране 1 */
+  --g-lh:1.3;
+  --lead-lh:1.3;
+  --ava:60px;            /* аватар-«сторис» */
+  --ava:clamp(56px, calc(8.5 * var(--vh0) / 100), 76px);
+  --igap:clamp(12px, calc(2.6 * var(--vh0) / 100), 24px);   /* расстояние между смысловыми группами экрана 1 */
+  --vh:var(--vh0);
+}
+/* КОМПАКТНЫЙ РЕЖИМ — низкие экраны (360×560, 375×548 и т. п.). Только токены.
+   Высота — из класса на <html>, снятого при загрузке (не @media max-height, иначе кегли прыгают при скролле в Safari).
+   h-compact = высота < 620 или (ширина ≤ 374 и высота < 660). :where() — специфичность как у прежнего :root. */
+@media all{
+  :root:where(.h-compact){
+    --fs-h1:19px;
+    --fs-q:20px;
+    --fs-body:15px;
+    --fs-small:13px;
+    --fs-chip:13px;
+    --pad-top:8px;
+    --pad-bottom:8px;
+    --gap:8px;
+    --gi-y:4px;
+    --g-lh:1.25;
+    --lead-lh:1.25;
+    --ava:52px;
+    --igap:10px;
+  }
+}
+/* Высокие экраны: заголовок крупнее (диапазон ТЗ 22–26), пункты свободнее */
+@media (min-width:360px){:root:where(.h-ge760){--fs-h1:24px;--gi-y:10px}}
+@media (min-width:375px){:root:where(.h-ge800){--fs-body:17px;--gi-y:12px;--g-lh:1.35;--lead-lh:1.35}}
+@media (min-width:375px){:root:where(.h-ge860){--fs-h1:26px;--gi-y:14px}}
+
+/* ============================================================ БАЗА */
+*,*::before,*::after{box-sizing:border-box}
+html{height:100%;-webkit-text-size-adjust:100%;background:var(--bg2)}
+body{
+  margin:0;height:100%;
+  color:var(--ink);
+  background:radial-gradient(60% 50% at 50% 30%,rgba(214,162,74,.22),transparent 70%) fixed,var(--bg2);
+  font-family:var(--fb);font-size:var(--fs-body);font-weight:500;line-height:1.35;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  overscroll-behavior:none;
+}
+body.mode-fixed{overflow:hidden}
+body.mode-fixed .app{
+  height:var(--vh0);
+  display:flex;flex-direction:column;
+  max-width:480px;margin:0 auto;
+  background:var(--bg);
+}
+body.mode-scroll{overflow:auto;height:auto}
+body.mode-scroll .app{
+  max-width:680px;margin:0 auto;min-height:var(--vh0);
+  background:radial-gradient(90% 420px at 88% 0%,rgba(214,162,74,.2),transparent 70%),var(--bg);
+}
+@media (min-width:520px){
+  body.mode-fixed .app,body.mode-scroll .app{box-shadow:0 0 0 1px var(--line),var(--shadow)}
+}
+button{font:inherit;color:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+h1,h2,h3,p,ul,figure{margin:0}
+ul{padding:0;list-style:none}
+b{font-weight:800}
+
+.screen{
+  flex:1 1 auto;min-height:0;
+  display:flex;flex-direction:column;
+  padding:var(--pad-top) var(--pad-x) var(--pad-bottom);
+  padding-bottom:max(var(--pad-bottom),env(safe-area-inset-bottom));
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  animation:fade .15s ease-out;
+}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes shine{0%,70%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+@keyframes gl{to{background-position:-250% 0}}
+@keyframes pulse{50%{opacity:.4}}
+.screen.overflow{outline:3px solid #E00;outline-offset:-3px} /* только ?debug=1 */
+
+/* ============================================================ ОБЩИЕ КОМПОНЕНТЫ */
+/* Кнопка: золотая пилюля, текст слева, тёмный круг со стрелкой справа */
+.btn{
+  position:relative;overflow:hidden;isolation:isolate;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  width:100%;min-height:56px;padding:7px 7px 7px 24px;
+  border:0;border-radius:999px;cursor:pointer;text-decoration:none;text-align:left;
+  font:700 var(--fs-btn)/1.15 var(--fb);color:var(--btnink);
+  background:var(--gold-grad);
+  box-shadow:0 22px 44px -18px var(--glow),inset 0 1px 0 rgba(255,255,255,.6),inset 0 -2px 0 rgba(120,80,20,.18);
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease);
+}
+.btn::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);
+  transform:translateX(-120%);animation:shine 4.5s 2s infinite;
+}
+.btn .ar{
+  flex:0 0 42px;width:42px;height:42px;border-radius:50%;
+  display:grid;place-items:center;background:var(--btnink);color:var(--gold);
+}
+.btn .ar svg{width:20px;height:20px;transition:transform .2s var(--ease)}
+.btn:hover,.btn:active{transform:translateY(-2px);box-shadow:0 26px 50px -18px var(--glow),inset 0 1px 0 rgba(255,255,255,.6),inset 0 -2px 0 rgba(120,80,20,.18)}
+.btn:hover .ar svg,.btn:active .ar svg{transform:translateX(3px)}
+.btn:focus-visible{outline:3px solid var(--goldt);outline-offset:3px}
+/* Вторичная: прозрачная пилюля для тёмной полосы */
+.btn-secondary{
+  justify-content:center;text-align:center;min-height:56px;padding:12px 22px;
+  background:transparent;color:var(--d-goldt);font-size:17px;font-weight:600;
+  box-shadow:inset 0 0 0 1.5px var(--d-gold);
+}
+.btn-secondary::after{display:none}
+.btn-secondary:hover,.btn-secondary:active{box-shadow:inset 0 0 0 1.5px var(--d-gold),0 14px 30px -18px rgba(232,194,122,.5);background:rgba(232,194,122,.06)}
+.btn-secondary:focus-visible{outline-color:var(--d-gold)}
+
+/* Kicker: капс, разрядка, золотая линия слева */
+.kicker{
+  display:flex;align-items:center;gap:12px;
+  font:700 13px/1.3 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--goldt);
+}
+.kicker::before{content:"";flex:0 0 30px;height:1.5px;background:linear-gradient(90deg,var(--gold2),var(--gold))}
+
+/* Chip */
+.chip{
+  display:inline-flex;align-items:center;gap:8px;align-self:flex-start;flex:none;
+  padding:5px 14px;border:1px solid var(--line);border-radius:999px;
+  background:rgba(255,253,248,.7);
+  font:600 var(--fs-chip)/1.2 var(--fb);color:var(--ink);white-space:nowrap;
+}
+.chip::before{content:"";flex:0 0 6px;height:6px;border-radius:50%;background:var(--gold)}
+
+/* Gains: одна карточка, пункты через тонкие золотые линии, золотые галочки */
+.gains{
+  background:rgba(255,253,248,.7);
+  border:1px solid rgba(214,162,74,.3);border-radius:var(--r-lg);
+  padding:2px 16px;box-shadow:var(--shadow-sm);
+}
+.gains li{display:flex;align-items:flex-start;gap:11px}
+.gains li+li{border-top:1px solid var(--line-gold)}
+.ck{
+  flex:0 0 20px;width:20px;height:20px;border-radius:50%;
+  background:var(--ic-check) center/12px no-repeat,var(--ic-grad);
+  box-shadow:0 4px 10px -4px rgba(185,131,46,.7);
+}
+
+/* Promise: золотая градиентная обводка 1.5px, иконка в золотом квадрате */
+.promise{
+  position:relative;isolation:isolate;overflow:hidden;
+  display:flex;align-items:flex-start;gap:14px;
+  padding:18px;border-radius:var(--r-lg);
+  background:linear-gradient(165deg,#f5e7ce,var(--card) 70%);
+  box-shadow:var(--shadow-sm);
+}
+.promise::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;z-index:-1;pointer-events:none;
+  background:linear-gradient(120deg,#f6dc9e,rgba(201,162,92,.25) 30%,#c9a25c 60%,rgba(246,220,158,.3) 80%,#f6dc9e);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+}
+.promise::after{
+  content:"";position:absolute;width:160px;height:160px;right:-60px;top:-70px;border-radius:50%;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle,rgba(246,220,158,.35),transparent 70%);
+}
+.pr-ic{
+  flex:0 0 34px;width:34px;height:34px;border-radius:10px;
+  display:grid;place-items:center;color:#1a1208;background:var(--ic-grad);
+  box-shadow:0 6px 18px -6px rgba(201,162,92,.7);
+}
+.pr-ic svg{width:19px;height:19px}
+
+/* ============================================================ ЭКРАН 1 */
+.s-intro{
+  gap:var(--igap);
+  background:
+    radial-gradient(55% 75% at 82% 45%,rgba(214,162,74,.2),transparent 70%),
+    radial-gradient(40% 50% at 0% 100%,rgba(214,162,74,.1),transparent 70%);
+}
+/* Автор: круглое фото с золотым кольцом, как сторис */
+.author{flex:none;display:flex;align-items:center;gap:14px}
+.ava{
+  position:relative;flex:0 0 var(--ava);width:var(--ava);height:var(--ava);border-radius:50%;padding:2.5px;
+  background:conic-gradient(from 200deg,#f6dc9e,var(--gold) 25%,var(--gold2) 50%,#e3b45e 75%,#f6dc9e);
+  box-shadow:0 12px 26px -12px var(--glow);
+}
+.ava-in{
+  position:relative;display:grid;place-items:center;width:100%;height:100%;border-radius:50%;overflow:hidden;
+  border:2.5px solid var(--bg);color:var(--goldt);
+  background:radial-gradient(70% 70% at 35% 25%,#fff3cf,transparent 70%),linear-gradient(145deg,#f6dc9e,#c9a25c);
+}
+.ava-in svg{width:50%;height:50%}
+.ava-in img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block}
+.author-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+.author-txt b{font:800 17px/1.2 var(--fb);color:var(--ink);letter-spacing:-.005em}
+.author-txt span{font:700 14px/1.25 var(--fb);color:var(--goldt)}
+.head-block{flex:none;display:flex;flex-direction:column;gap:10px}
+.title{
+  flex:none;
+  font-size:var(--fs-h1);font-weight:800;line-height:1.12;letter-spacing:-.015em;
+  text-wrap:balance;
+}
+.title .acc{color:var(--goldt)}
+.scen-block{flex:none;display:flex;flex-direction:column;gap:6px}
+.lead{font-size:var(--fs-body);font-weight:700;line-height:var(--lead-lh)}
+.scen li{padding:var(--gi-y) 0;font-size:var(--fs-body);line-height:var(--g-lh)}
+.scen .ck{margin-top:calc((var(--g-lh) * 1em - 20px) / 2)}
+.cta-block{flex:none}
+/* свободная высота делится поровну между группами (и сверху/снизу); при нехватке места авто-отступы = 0, скролла нет */
+.s-intro>*{margin-top:auto}
+.s-intro>:last-child{margin-bottom:auto}
+.note{
+  flex:none;margin-top:8px;
+  font-size:var(--fs-small);font-weight:400;line-height:1.3;color:var(--muted);text-align:center;text-wrap:balance;
+}
+
+/* ============================================================
+   ЕДИНЫЙ СТИЛЬ ЭКРАНОВ ПОСЛЕ ПЕРВОГО — как экран 1 (вариант A) и лендинг:
+   заголовки Manrope 800 с тем же кеглем, что у заголовка экрана 1;
+   тёмные плашки как «87% женщин…»; карточки как бонусы лендинга;
+   золотая пилюля как «Бесплатный тест…»; цифры — Unbounded.
+   ============================================================ */
+:root{
+  --x-h1:min(25px, 6.45vw);          /* = заголовок экрана 1 (.ia-h1) */
+  --x-h2:min(22px, 5.8vw);           /* заголовки частей расшифровки */
+  --x-card:clamp(40px, calc((var(--vh0) - 640px) / 10 + 40px), 48px);  /* = иконка карточки экрана 1 */
+  --x-g:clamp(8px, calc((var(--vh0) - 600px) / 12 + 8px), 20px);      /* = ритм экрана 1 */
+  --x-cardbg:linear-gradient(160deg,#fffdf8,#fbf1de);
+  --x-cardsh:0 8px 22px -16px rgba(90,60,20,.6),inset 0 0 0 1px color-mix(in srgb,var(--gold) 40%,transparent);
+  --x-dark:radial-gradient(120% 160% at 88% 20%,#3b2a17,#17120c 62%,#100d09);
+  --x-darksh:inset 0 0 0 1px rgba(246,220,158,.4),0 16px 36px -20px rgba(35,25,13,.9);
+}
+@media all{:root:where(.h-le700){--x-h1:min(23px, 6.2vw);--x-card:38px;--x-g:clamp(7px, calc((var(--vh0) - 600px) / 12 + 6px), 12px)}}
+.nw{white-space:nowrap}
+.x-bg{
+  background:
+    radial-gradient(60% 45% at 100% 30%,rgba(214,162,74,.18),transparent 70%),
+    radial-gradient(50% 40% at 0% 100%,rgba(214,162,74,.12),transparent 70%),
+    linear-gradient(180deg,#efe6d6,var(--bg) 40%);
+}
+/* золотая пилюля — как «Бесплатный тест для женщин» */
+.x-pill{display:inline-block;padding:6px 12px;border-radius:10px;font:800 13px/1.15 var(--fb);color:#1a1208;
+  background:linear-gradient(180deg,#f6dc9e,#d6a24a);box-shadow:0 6px 16px -8px rgba(90,60,20,.7);white-space:nowrap}
+/* тёмная плашка с золотой линией — как «87% женщин попадают…» */
+.x-plate{display:flex;align-items:center;gap:10px}
+.x-plate::after{content:"";flex:1 1 24px;min-width:24px;height:1.5px;background:linear-gradient(90deg,#d6a24a,transparent)}
+.x-plate .lt{flex:0 1 auto;padding:6px 12px;border-radius:10px;background:#23190d;color:#f6dc9e;font:800 14px/1.25 var(--fb);letter-spacing:.01em;text-wrap:balance}
+.x-plate .num{font:600 1.08em/1 var(--ft);letter-spacing:0;color:#f6dc9e}
+@media all{:where(.h-ge800) .x-plate .lt{font-size:15px}}
+/* заголовок — как заголовок экрана 1 */
+.x-h1{font:800 var(--x-h1)/1.1 var(--fb);letter-spacing:-.03em;color:var(--ink);text-wrap:balance}
+/* иконка в карточке — как на экране 1 */
+.x-ic{flex:0 0 var(--x-card);width:var(--x-card);height:var(--x-card);border-radius:12px;display:grid;place-items:center;color:#a0661a;
+  background:radial-gradient(circle at 50% 35%,#fff8ea,#f4e2bf);box-shadow:inset 0 0 0 1px rgba(214,162,74,.25)}
+.x-ic svg{width:56%;height:56%}
+.x-ck{display:block;width:20px;height:20px;border-radius:50%;background:var(--ic-check) center/12px no-repeat,var(--ic-grad);box-shadow:0 4px 10px -4px rgba(185,131,46,.7)}
+
+/* ============================================================ ВОПРОС */
+.s-q{gap:0}
+.qbar{display:flex;align-items:center;gap:12px;height:36px;flex-shrink:0}
+.back{
+  width:36px;height:36px;flex:0 0 36px;padding:0;border-radius:50%;cursor:pointer;
+  border:0;background:#23190d;color:#f6dc9e;box-shadow:0 8px 18px -10px rgba(35,25,13,.8),inset 0 0 0 1px rgba(246,220,158,.35);
+  display:grid;place-items:center;transition:transform .15s var(--ease);
+}
+.back:hover{transform:translateX(-2px)}
+.back:focus-visible{outline:3px solid var(--goldt);outline-offset:2px}
+.back.ghost{visibility:hidden;pointer-events:none}
+.back svg{width:18px;height:18px}
+.prog{flex:1 1 auto;height:6px;border-radius:999px;background:rgba(214,162,74,.2)}
+.prog-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold2),#f6dc9e);box-shadow:0 0 10px rgba(214,162,74,.55)}
+.qcount{flex:none;font-variant-numeric:tabular-nums}
+.qbody{margin:auto 0;padding:var(--x-g) 0;display:flex;flex-direction:column;gap:calc(var(--x-g) + 4px)}
+/* на высоких экранах блок вопроса чуть выше центра: снизу невидимая распорка, на низких она 0 */
+.s-q::after{content:"";flex:0 0 clamp(0px, calc((var(--vh0) - 700px) * .8), 160px)}
+.qtext{flex-shrink:0}
+.opts{display:flex;flex-direction:column;gap:calc(var(--x-g) * .35 + 4px)}
+.opt{
+  display:flex;align-items:center;gap:12px;
+  width:100%;min-height:calc(var(--x-card) + 10px);padding:5px 14px 5px 5px;
+  border:0;border-radius:16px;background:var(--x-cardbg);box-shadow:var(--x-cardsh);
+  text-align:left;cursor:pointer;
+  font:600 15px/1.28 var(--fb);color:var(--ink);
+  transition:box-shadow .15s ease,background .15s ease,transform .15s var(--ease);
+}
+.opt:hover{box-shadow:0 10px 24px -14px rgba(90,60,20,.6),inset 0 0 0 1.5px color-mix(in srgb,var(--gold) 75%,transparent)}
+.opt:focus-visible{outline:3px solid var(--goldt);outline-offset:2px}
+.opt .radio{position:relative}
+.opt .radio::after{content:"";width:20px;height:20px;border-radius:50%;border:1.5px solid var(--gold);background:#fffdf8;transition:background .15s,border-color .15s}
+.opt.sel{background:linear-gradient(160deg,#fbefd4,#f3dcaa);box-shadow:0 14px 28px -16px var(--glow),inset 0 0 0 1.5px var(--gold)}
+.opt.sel .radio{background:radial-gradient(circle at 50% 35%,#3b2a17,#17120c);box-shadow:inset 0 0 0 1px rgba(246,220,158,.4)}
+.opt.sel .radio::after{border-color:transparent;background:var(--ic-check) center/12px no-repeat,var(--ic-grad);box-shadow:0 4px 10px -4px rgba(185,131,46,.7)}
+.opt-text{flex:1 1 auto;min-width:0;text-wrap:balance}
+@media all{:where(.h-ge800) .opt{font-size:16px}}
+@media (min-width:981px){
+  body.mode-fixed .app:has(> .s-q),body.mode-fixed .app:has(> .s-load){max-width:560px}
+  .opt{font-size:16px}
+}
+
+/* ============================================================ ЗАГРУЗКА */
+.s-load{justify-content:center}
+.load-box{width:100%;max-width:400px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+.spinner{
+  position:relative;width:76px;height:76px;margin:0 auto 22px;border-radius:50%;
+  background:var(--x-dark);box-shadow:var(--x-darksh),0 0 46px -8px var(--glow);
+}
+.spinner::before{
+  content:"";position:absolute;inset:6px;border-radius:50%;
+  background:conic-gradient(from 0deg,rgba(214,162,74,0),var(--gold2) 65%,#f6dc9e);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 4px));
+  mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 4px));
+  animation:spin 1s linear infinite;
+}
+.spinner::after{
+  content:"";position:absolute;inset:28px;border-radius:50%;
+  background:radial-gradient(circle,#fff3cf,var(--gold) 50%,transparent 72%);
+  animation:pulse 2.4s infinite;
+}
+.load-title{text-align:center}
+.checks{margin-top:20px;width:100%;display:flex;flex-direction:column;gap:8px}
+.checks li{
+  display:flex;align-items:center;gap:12px;min-height:calc(var(--x-card) + 10px);padding:5px 14px 5px 5px;border-radius:16px;
+  background:var(--x-cardbg);box-shadow:var(--x-cardsh);font:600 15px/1.28 var(--fb);color:var(--ink);
+  opacity:0;transform:translateY(4px);transition:opacity .2s ease,transform .2s ease;
+}
+.checks li span:last-child{text-wrap:balance}
+.checks li.on{opacity:1;transform:none}
+
+/* ============================================================ РЕЗУЛЬТАТ (v3)
+   Как лендинг практикума: полосы на всю ширину — светлая, белая, бежевая, тёмная;
+   колонка текста до 620px; Manrope 15–16px с высоким интерлиньяжем, заголовки Unbounded 600;
+   вставки-плашки, много воздуха. Курсивов нет. */
+body.mode-scroll .app{max-width:none;background:var(--bg);box-shadow:none!important}
+.s-result{display:block;overflow:visible;animation:none;padding:0}
+.band{position:relative;padding:clamp(52px,9vw,96px) 20px}
+.band-in{max-width:620px;margin:0 auto}
+.band.b-light{background:radial-gradient(70% 380px at 90% 0%,rgba(214,162,74,.16),transparent 70%),linear-gradient(180deg,#efe6d6,var(--bg) 320px)}
+.band.b-white{background:#fffdf8}
+.band.b-beige{background:#efe6d6}
+.band.b-dark{background:radial-gradient(70% 300px at 50% 0%,rgba(232,194,122,.12),transparent 70%),linear-gradient(180deg,#15110c,#0e0c09);color:#efe7da}
+.band+.band{border-top:1px solid rgba(138,92,24,.12)}
+.band.b-dark+.band,.band+.band.b-dark{border-top:0}
+
+/* шапка результата */
+.res-head{padding-top:clamp(36px,7vw,72px);padding-bottom:clamp(44px,8vw,80px)}
+.res-head .band-in{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.kick{display:flex;align-items:center;gap:12px;font:700 12px/1.4 var(--fb);letter-spacing:.14em;color:var(--goldt)}
+.kick .num{font:inherit;color:inherit}
+.kick::before{content:"";flex:0 0 28px;height:1.5px;background:linear-gradient(90deg,var(--gold2),var(--gold))}
+.b-dark .kick{color:#ecc67f}
+.b-dark .kick::before{background:linear-gradient(90deg,#c9953f,#e8c27a)}
+.res-title{
+  max-width:100%;
+  font:600 clamp(26px, 7.4vw, 40px)/1.12 var(--ft);text-transform:uppercase;letter-spacing:-.01em;text-wrap:balance;color:var(--ink);
+}
+.res-title .gl{
+  background:var(--gl-light);background-size:250% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+  animation:gl 6s linear infinite;
+}
+.res-hint{font:500 15px/1.6 var(--fb);color:var(--muted);text-wrap:balance;max-width:520px}
+.video{
+  position:relative;margin-top:8px;width:100%;aspect-ratio:16/9;padding:0;border:0;display:block;
+  border-radius:20px;overflow:hidden;cursor:pointer;isolation:isolate;
+  background:radial-gradient(60% 75% at 50% 50%,rgba(232,194,122,.22),transparent 70%),linear-gradient(180deg,#1b1610,#0e0c09);
+  box-shadow:inset 0 0 0 1px rgba(246,220,158,.3),0 30px 60px -34px rgba(35,25,13,.7);
+}
+.video[hidden]{display:none}
+@supports not (aspect-ratio:16/9){.video{height:0;padding-top:56.25%}}
+.video-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;filter:saturate(.85);opacity:.55;z-index:-1}
+.video .play{
+  position:absolute;left:50%;top:50%;width:64px;height:64px;transform:translate(-50%,-50%);
+  border-radius:50%;display:grid;place-items:center;color:var(--btnink);
+  background:var(--gold-grad);
+  box-shadow:0 0 0 8px rgba(232,194,122,.16),0 0 40px var(--glow),inset 0 1px 0 rgba(255,255,255,.6);
+  transition:transform .2s var(--ease);
+}
+.video .play svg{width:24px;height:24px;margin-left:3px}
+.video:hover .play{transform:translate(-50%,-50%) scale(1.05)}
+.video:focus-visible{outline:3px solid var(--goldt);outline-offset:3px}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* части расшифровки */
+.res-body{font:500 16px/1.7 var(--fb);color:var(--ink)}
+.res-body p{margin:0 0 18px;text-wrap:balance}
+.res-body p:last-child{margin-bottom:0}
+.res-body b{font-weight:700}
+.res-body .acc,.res-body b.acc{color:var(--goldt)}
+.part .kick{margin-bottom:14px}
+.part h2{margin:0 0 24px;font:600 clamp(20px,5.4vw,26px)/1.22 var(--ft);letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+.b-dark.part h2{color:#f4ede1}
+.lead-p{font:700 18px/1.5 var(--fb)!important;color:var(--ink);letter-spacing:-.005em;margin-bottom:14px!important}
+.b-dark p{color:#d8cdb9}
+.b-dark b{color:#f4ede1}
+.blk{margin:28px 0}
+.blk:first-child{margin-top:0}
+.blk:last-child{margin-bottom:0}
+/* карточки «узнаёте себя» — белые карточки с тонкой рамкой, как на лендинге */
+.cards{display:flex;flex-direction:column;gap:10px}
+.cards li{display:flex;align-items:flex-start;gap:14px;padding:16px 18px 16px 16px;border-radius:18px;background:#fffdf8;
+  border:1px solid rgba(138,92,24,.14);box-shadow:0 18px 34px -30px rgba(90,60,20,.55);font:500 15px/1.6 var(--fb)}
+.cards li>span:last-child{text-wrap:balance}
+.cards .x-ic{--x-card:28px;flex:0 0 28px;border-radius:50%;margin-top:-1px;background:#f6ecd8;box-shadow:none}
+.cards .x-ck{width:18px;height:18px;background-size:10px}
+/* вывод — тёмная плашка */
+.callout{
+  position:relative;overflow:hidden;isolation:isolate;display:flex;align-items:flex-start;gap:14px;
+  padding:20px 22px 20px 18px;border-radius:20px;
+  background:linear-gradient(160deg,#241b11,#120f0a);box-shadow:inset 0 0 0 1px rgba(246,220,158,.25),0 24px 44px -30px rgba(35,25,13,.9);
+  color:#e9dfcf;font:500 16px/1.6 var(--fb);
+}
+.callout::after{content:"";position:absolute;right:-40px;top:-70px;width:200px;height:150px;z-index:-1;background:radial-gradient(closest-side,rgba(246,220,158,.18),transparent)}
+.callout p{margin:0!important;color:#e9dfcf}
+.callout b{color:#f6dc9e}
+.callout .x-ic{--x-card:32px;flex:0 0 32px;border-radius:10px;color:#1a1208;background:var(--ic-grad);box-shadow:none}
+.callout .x-ic svg{width:17px;height:17px}
+/* пара «было/стало» — две спокойные вставки */
+.pair{display:flex;flex-direction:column;gap:10px}
+@media (min-width:560px){.pair{flex-direction:row}.pair .pc{flex:1 1 0}}
+.pc{position:relative;padding:16px 18px;border-radius:16px;font:500 15px/1.6 var(--fb);text-wrap:balance}
+.pc::before{content:"";display:block;width:22px;height:2px;margin-bottom:10px;border-radius:2px}
+.pc.good{background:#f6ecd8;border:1px solid rgba(214,162,74,.35)}
+.pc.good::before{background:var(--gold2)}
+.pc.bad{background:#f7f3ec;border:1px solid rgba(138,92,24,.14);color:var(--muted)}
+.pc.bad::before{background:rgba(95,84,70,.45)}
+.pc.bad b{color:var(--ink)}
+/* мысль — бежевая вставка с золотой линией (без курсива) */
+.pull{
+  position:relative;margin:32px 0;padding:20px 22px 20px 26px;border-radius:16px;
+  background:#f3e9d6;font:700 17px/1.55 var(--fb);color:var(--ink);text-wrap:balance;
+}
+.pull::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:0 3px 3px 0;background:linear-gradient(180deg,#f6dc9e,var(--gold2))}
+/* слова взрослых — на тёмной полосе: тонкие плашки */
+.quotes{display:flex;flex-direction:column;gap:10px}
+.quotes blockquote{
+  position:relative;margin:0;padding:14px 18px 14px 22px;border-radius:14px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(232,194,122,.18);
+  font:500 15px/1.55 var(--fb);color:#f1e9dc;text-wrap:balance;
+}
+.quotes blockquote::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:2px;border-radius:2px;background:#e8c27a}
+.b-light .quotes blockquote,.b-white .quotes blockquote,.b-beige .quotes blockquote{background:#fffdf8;border-color:rgba(138,92,24,.14);color:var(--ink)}
+
+/* ============================================================ ОФФЕР — «Как получить полную расшифровку» */
+.offer{scroll-margin-top:0;padding-bottom:calc(clamp(56px,9vw,96px) + env(safe-area-inset-bottom))}
+.offer h2{font:600 clamp(21px,5.6vw,30px)/1.2 var(--ft);color:var(--ink);letter-spacing:-.01em;text-wrap:balance}
+.offer .kick{margin-bottom:14px}
+.offer-sub{margin-top:28px;font:700 14px/1.5 var(--fb);color:var(--ink);text-wrap:balance}
+.offer-sub .num{font:600 1em/1 var(--ft);color:var(--goldt)}
+.locked{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.locked li{
+  display:flex;gap:14px;align-items:center;min-height:56px;padding:10px 18px 10px 10px;border-radius:16px;
+  font:500 15px/1.45 var(--fb);color:var(--ink);
+  background:#fffdf8;border:1px solid rgba(138,92,24,.14);
+}
+.locked li>span:last-child{text-wrap:balance}
+.lk{
+  flex:0 0 36px;width:36px;height:36px;border-radius:10px;
+  display:grid;place-items:center;background:#f3e6cc;color:#8a5714;
+}
+.lk svg{width:16px;height:16px}
+.offer p.text{margin-top:36px;font:500 15px/1.65 var(--fb);color:var(--ink);text-wrap:balance}
+.offer p.text+.tk-wrap{margin-top:20px}
+.offer .acc{color:var(--goldt);font-weight:700}
+.pname{
+  display:flex;align-items:flex-start;gap:14px;
+  margin-top:14px;padding:18px 20px 18px 16px;border-radius:18px;
+  background:linear-gradient(160deg,#241b11,#120f0a);box-shadow:inset 0 0 0 1px rgba(246,220,158,.25);
+}
+.pname p{font:700 16px/1.5 var(--fb);color:#f4ede1;text-wrap:balance}
+.pname .lk{background:var(--ic-grad);color:#1a1208}
+
+/* ---------- Промокод — билет (сохранён, шрифты аккуратнее) ---------- */
+.tk-wrap{margin-top:20px;filter:drop-shadow(0 18px 22px rgba(90,60,20,.24)) drop-shadow(0 0 16px rgba(214,162,74,.16))}
+.tk{
+  --stub:50px;--r-cut:10px;
+  position:relative;display:flex;min-height:124px;border-radius:18px;color:#2a1c06;overflow:hidden;isolation:isolate;
+  background:
+    radial-gradient(120% 90% at 100% 0%,rgba(255,250,232,.85),transparent 55%),
+    linear-gradient(135deg,#fbedc6,#f1d590 48%,#dcae5c);
+  -webkit-mask:
+    radial-gradient(circle var(--r-cut) at var(--stub) 0,#0000 98%,#000) top/100% 51% no-repeat,
+    radial-gradient(circle var(--r-cut) at var(--stub) 100%,#0000 98%,#000) bottom/100% 51% no-repeat;
+  mask:
+    radial-gradient(circle var(--r-cut) at var(--stub) 0,#0000 98%,#000) top/100% 51% no-repeat,
+    radial-gradient(circle var(--r-cut) at var(--stub) 100%,#0000 98%,#000) bottom/100% 51% no-repeat;
+}
+.tk::before{content:"";position:absolute;inset:5px;border-radius:14px;border:1px solid rgba(138,87,20,.28);pointer-events:none;z-index:2}
+.tk::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);transform:translateX(-120%);animation:shine 5s 1.5s infinite}
+.tk-stub{
+  position:relative;flex:0 0 var(--stub);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  padding:14px 0;background:linear-gradient(180deg,rgba(138,87,20,.16),rgba(138,87,20,.06));
+  border-right:2px dashed rgba(90,56,10,.45);
+}
+.tk-logo{position:relative;flex:0 0 20px;width:20px;height:20px;border-radius:50%;border:1.5px solid #8a5714}
+.tk-logo::after{content:"";position:absolute;inset:4px;border-radius:50%;background:radial-gradient(circle,#fff3cf,#b9832e 55%,transparent 72%);animation:pulse 2.4s infinite}
+.tk-k{writing-mode:vertical-rl;transform:rotate(180deg);font:700 10px/1 var(--fb);letter-spacing:.18em;text-transform:uppercase;color:#6b430c;white-space:nowrap}
+.tk-main{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:16px 16px 16px 14px}
+.tk-code{
+  display:block;min-width:0;padding:10px;border-radius:12px;text-align:center;white-space:nowrap;overflow:hidden;
+  background:rgba(255,253,244,.6);box-shadow:inset 0 0 0 1.5px rgba(138,87,20,.35),inset 0 2px 6px rgba(138,87,20,.12);
+  font:600 22px/1.2 var(--ft);letter-spacing:.03em;color:#2a1c06;user-select:all;-webkit-user-select:all;
+}
+.copy{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  min-height:44px;width:100%;padding:0 18px;border:0;border-radius:999px;cursor:pointer;white-space:nowrap;
+  font:700 14px var(--fb);color:#f6dc9e;background:#23190d;
+  box-shadow:0 10px 20px -12px rgba(35,25,13,.9),inset 0 0 0 1px rgba(246,220,158,.35);
+  transition:background-color .15s,color .15s,box-shadow .15s;
+}
+.copy svg{width:16px;height:16px;flex:none}
+.copy:focus-visible{outline:3px solid #23190d;outline-offset:2px}
+.copy.done{background:transparent;color:#2a1c06;box-shadow:inset 0 0 0 1.5px #23190d}
+.timer-wrap{margin-top:28px;text-align:center}
+.timer{
+  font:600 40px/1 var(--ft);font-variant-numeric:tabular-nums;letter-spacing:.02em;
+  color:var(--d-goldt);text-shadow:0 0 28px rgba(232,194,122,.45);
+}
+.timer.expired{color:var(--d-muted);text-shadow:none}
+.offer .timer{color:var(--goldt);text-shadow:0 0 22px rgba(214,162,74,.3)}
+.offer .timer.expired{color:var(--muted);text-shadow:none}
+.timer-note{margin:12px auto 0;max-width:420px;font:500 14px/1.55 var(--fb);color:var(--muted);text-wrap:balance}
+.offer .btn-primary{margin-top:28px;min-height:58px;padding:8px 8px 8px 24px;font:700 16px/1.25 var(--fb)}
+.offer .btn-primary>span{text-wrap:balance}
+.offer .btn-secondary{margin-top:12px;min-height:54px;font:600 15px/1.25 var(--fb);color:var(--goldt);box-shadow:inset 0 0 0 1.5px rgba(185,131,46,.7)}
+.offer .btn-secondary:hover,.offer .btn-secondary:active{background:rgba(214,162,74,.1);box-shadow:inset 0 0 0 1.5px var(--gold2),0 14px 30px -18px var(--glow)}
+.offer .btn-secondary:focus-visible{outline-color:var(--goldt)}
+@media (max-width:380px){.offer .btn-primary{font-size:15px;padding-left:20px}}
+@media (min-width:700px){.offer .btn-primary,.offer .btn-secondary{max-width:460px;margin-left:auto;margin-right:auto}}
+
+/* Липкая панель — тёмное стекло */
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  background:rgba(14,12,9,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  transform:translateY(110%);visibility:hidden;transition:transform .2s ease,visibility .2s;
+}
+.sticky::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(232,194,122,.7),transparent)}
+.sticky.on{transform:none;visibility:visible}
+.sticky-in{max-width:620px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.sticky .timer{font-size:20px;flex:0 0 auto;min-width:70px;text-align:center;text-shadow:0 0 16px rgba(232,194,122,.4)}
+.sticky .btn{flex:1 1 auto;min-height:48px;padding:6px 6px 6px 18px;font:700 14px/1.2 var(--fb)}
+.sticky .btn .ar{flex-basis:36px;width:36px;height:36px}
+.sticky .btn .ar svg{width:18px;height:18px}
+
+/* ---------- Сайт практикума — продолжение страницы под оффером ---------- */
+.nr-inline{display:block;position:relative;background:var(--bg);border-top:1.5px solid rgba(214,162,74,.45)}
+.nr-inline[hidden]{display:none}
+.nr-inline iframe{display:block;width:100%;height:var(--vh0);border:0;overflow:hidden;background:var(--bg)}
+.nr-inline.loading::after{content:"";position:absolute;left:50%;top:120px;width:40px;height:40px;margin-left:-20px;border-radius:50%;
+  border:3px solid rgba(214,162,74,.25);border-top-color:var(--gold2);animation:spin 1s linear infinite}
+
+/* ---------- Окно регистрации: всегда по центру экрана (и на телефоне), скролл внутри ---------- */
+.rg{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;
+  padding:max(16px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom));
+  background:rgba(20,15,9,.6);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+  opacity:0;transition:opacity .2s ease;overscroll-behavior:contain}
+.rg[hidden]{display:none}
+.rg.on{opacity:1}
+.rg-box{position:relative;width:100%;max-width:440px;max-height:100%;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+  padding:30px 24px 24px;border-radius:24px;color:var(--ink);
+  background:radial-gradient(80% 200px at 85% 0%,rgba(214,162,74,.16),transparent 70%),#fffdf8;
+  box-shadow:0 40px 80px -30px rgba(20,15,9,.7),inset 0 0 0 1px rgba(214,162,74,.3);
+  transform:scale(.97);transition:transform .2s var(--ease)}
+.rg.on .rg-box{transform:none}
+.rg-x{position:absolute;right:12px;top:12px;width:40px;height:40px;padding:0;border:0;border-radius:50%;cursor:pointer;
+  display:grid;place-items:center;color:var(--ink);background:#f6f0e6;box-shadow:inset 0 0 0 1px var(--line)}
+.rg-x svg{width:18px;height:18px}
+.rg-x:hover{background:#efe6d6}
+.rg-x:focus-visible{outline:3px solid var(--goldt);outline-offset:2px}
+.rg-h{padding-right:44px;font:600 20px/1.25 var(--ft);letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+.rg-note{margin-top:10px;font:500 14px/1.55 var(--fb);color:var(--muted);text-wrap:balance}
+.rg-form{margin-top:22px;display:flex;flex-direction:column;gap:10px}
+.rg-form input[type=email],.rg-form input[type=text],.rg-form input[type=tel]{
+  width:100%;min-height:52px;padding:12px 16px;border:0;border-radius:14px;
+  font:500 16px/1.2 var(--fb);color:var(--ink);background:#fff;
+  box-shadow:inset 0 0 0 1.5px rgba(138,92,24,.24);transition:box-shadow .15s}
+.rg-form input::placeholder{color:#8b7d68}
+.rg-form input:focus{outline:0;box-shadow:inset 0 0 0 2px var(--gold2),0 0 0 4px rgba(214,162,74,.18)}
+.rg-ck{display:flex;align-items:flex-start;gap:10px;margin-top:4px;font:500 12.5px/1.5 var(--fb);color:var(--muted);cursor:pointer;text-wrap:balance}
+.rg-ck input{flex:0 0 18px;width:18px;height:18px;margin:1px 0 0;accent-color:var(--gold2);cursor:pointer}
+.rg-ck a{color:var(--goldt);text-decoration:underline;text-underline-offset:2px}
+.rg-form .btn{margin-top:10px;min-height:56px;padding:8px 8px 8px 22px;font:700 16px/1.2 var(--fb)}
+.rg-form .btn>span{text-wrap:balance}
+.rg-form .btn[aria-busy=true]{opacity:.75;pointer-events:none}
+html.rg-open,html.rg-open body{overflow:hidden!important}
+@media (max-width:380px){.rg-box{padding:26px 18px 20px;border-radius:20px}.rg-h{font-size:18px}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+
+/* ============================================================ РЕДАКТОР ТЕКСТОВ (?edit=1) */
+#edit{
+  position:fixed;z-index:90;background:var(--card);color:var(--ink);border-top:1px solid var(--line);
+  box-shadow:0 -10px 30px -12px rgba(90,60,20,.25);display:flex;flex-direction:column;
+  font:500 14px/1.4 var(--fb);
+  left:0;right:0;bottom:0;height:calc(46 * var(--vh0) / 100);
+}
+#edit.min{height:auto}
+#edit.min .edit-body{display:none}
+.edit-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--line);background:var(--bg)}
+.edit-bar button{font:inherit;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer}
+.edit-bar button.primary{background:var(--gold-grad);color:var(--btnink);border-color:transparent;font-weight:700}
+.edit-hint{flex-basis:100%;font-size:12px;color:var(--muted)}
+.edit-body{overflow:auto;padding:6px 12px 16px}
+.edit-body details{border-bottom:1px solid var(--line);padding:4px 0}
+.edit-body summary{cursor:pointer;font-weight:700;padding:6px 0}
+.edit-row{display:block;margin:6px 0 10px}
+.edit-label{display:block;font-size:12px;color:var(--muted);margin-bottom:3px}
+.edit-row input,.edit-row textarea{width:100%;font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+.edit-row input:focus,.edit-row textarea:focus{outline:2px solid var(--gold);outline-offset:0}
+.edit-row textarea{resize:vertical}
+@media (min-width:900px){
+  #edit{top:0;bottom:0;left:auto;width:440px;height:auto;border-top:0;border-left:1px solid var(--line);box-shadow:-10px 0 30px -12px rgba(90,60,20,.2)}
+  #edit.min{height:auto;bottom:auto}
+  body.editing .app{margin-left:max(16px, calc((100% - 460px - 480px) / 2));margin-right:460px}
+}
+
+/* ============================================================ ОТЛАДКА (?debug=1) */
+#dbg{
+  position:fixed;left:0;right:0;top:0;z-index:100;
+  display:flex;flex-wrap:wrap;gap:6px;align-items:center;
+  padding:4px 8px;background:#120f0a;color:#f4ede1;
+  font:12px/1.3 ui-monospace,Menlo,Consolas,monospace;
+}
+#dbg select,#dbg button{font:inherit;padding:3px 6px;border-radius:4px;border:1px solid #5a4a30;background:#221d15;color:#f4ede1}
+#dbg button:hover{background:#2e271c}
+#dbg .st{opacity:.85}
+#dbg.min{padding:2px 8px}
+#dbg.min > *:not(.tg){display:none}
+/* ============================================================ ЭКРАН 1 · ВАРИАНТ A «Как лендинг» */
+.ia{
+  --ia-g:clamp(8px, calc((var(--vh0) - 600px) / 12 + 8px), 20px);
+  --ia-h1:min(25px, 6.45vw);
+  --ia-card:clamp(40px, calc((var(--vh0) - 640px) / 10 + 40px), 48px);
+  padding:clamp(10px, calc(1.6 * var(--vh0) / 100), 16px) 16px max(clamp(10px, calc(1.6 * var(--vh0) / 100), 16px), env(safe-area-inset-bottom));
+  justify-content:center;gap:var(--ia-g);
+  background:
+    radial-gradient(60% 45% at 100% 30%,rgba(214,162,74,.18),transparent 70%),
+    radial-gradient(50% 40% at 0% 100%,rgba(214,162,74,.12),transparent 70%),
+    linear-gradient(180deg,#efe6d6,var(--bg) 40%);
+}
+.ia-l,.ia-r{display:contents}
+.ia-plate{order:1}.ia-head{order:2}.ia-scen{order:3}.ia-cta{order:4}
+.ia-plate,.ia-head,.ia-scen,.ia-cta{flex:none}
+/* тёмная плашка-шапка: маленький портрет + имя */
+.ia-plate{
+  position:relative;overflow:hidden;isolation:isolate;
+  display:flex;align-items:center;gap:12px;padding:9px 16px 9px 9px;border-radius:20px;
+  background:radial-gradient(120% 160% at 88% 20%,#3b2a17,#17120c 62%,#100d09);
+  box-shadow:inset 0 0 0 1px rgba(246,220,158,.4),0 16px 36px -20px rgba(35,25,13,.9);
+}
+.ia-glow{position:absolute;right:-30px;top:-60px;width:200px;height:160px;z-index:-1;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(246,220,158,.35),transparent);filter:blur(4px)}
+.ia-plate::after{content:"";position:absolute;right:14px;top:50%;width:54px;height:54px;transform:translateY(-50%);z-index:-1;opacity:.55;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e8c27a' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.4 5.1a5.2 5.2 0 0 0-7.4 0L12 6.2l-1-1.1a5.2 5.2 0 0 0-7.4 7.4l1 1L12 20.8l7.4-7.3 1-1a5.2 5.2 0 0 0 0-7.4z'/%3E%3C/svg%3E") center/contain no-repeat}
+.ia-ava{
+  position:relative;flex:0 0 auto;width:clamp(48px, calc(7 * var(--vh0) / 100), 58px);height:clamp(48px, calc(7 * var(--vh0) / 100), 58px);border-radius:50%;padding:2px;
+  background:conic-gradient(from 200deg,#f6dc9e,var(--gold) 25%,var(--gold2) 50%,#e3b45e 75%,#f6dc9e);
+  box-shadow:0 0 22px -4px rgba(246,220,158,.55);
+}
+.ia-ava .ava-in{position:relative;display:grid;place-items:center;width:100%;height:100%;border-radius:50%;overflow:hidden;border:2px solid #17120c;color:var(--goldt);background:linear-gradient(145deg,#f6dc9e,#c9a25c)}
+.ia-ava .ava-in svg{width:50%;height:50%;fill:none;stroke:currentColor;stroke-width:2}
+.ia-ava img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.ia-who{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ia-who b{font:800 16px/1.2 var(--fb);color:#f6dc9e;letter-spacing:-.005em}
+.ia-who span{font:600 13px/1.25 var(--fb);color:#e9dfcf;opacity:.9;white-space:nowrap}
+/* пилюля как «25–28 ноября» */
+.ia-head{display:flex;flex-direction:column;align-items:flex-start;gap:calc(var(--ia-g) * .7 + 2px)}
+.ia-pill span{display:inline-block;padding:6px 12px;border-radius:10px;font:800 13px/1 var(--fb);color:#1a1208;
+  background:linear-gradient(180deg,#f6dc9e,#d6a24a);box-shadow:0 6px 16px -8px rgba(90,60,20,.7);white-space:nowrap}
+.ia-h1{font:800 var(--ia-h1)/1.1 var(--fb);letter-spacing:-.03em;color:var(--ink);text-wrap:balance}
+.ia-h1 .acc{color:#a0661a}
+/* «87% …» тёмной плашкой с золотой линией, как «3 бонуса сразу после регистрации» */
+.ia-scen{display:flex;flex-direction:column;gap:calc(var(--ia-g) * .6 + 4px)}
+.ia-lead{display:flex;align-items:center;gap:10px}
+.ia-lead::after{content:"";flex:1 1 24px;min-width:24px;height:1.5px;background:linear-gradient(90deg,#d6a24a,transparent)}
+.ia-lead .lt{flex:0 1 auto;padding:6px 12px;border-radius:10px;background:#23190d;color:#f6dc9e;font:800 14px/1.25 var(--fb);letter-spacing:.01em;text-wrap:balance}
+.ia-lead .num{font:600 1.08em/1 var(--ft);letter-spacing:0;color:#f6dc9e}
+/* сценарии — карточки как бонусы лендинга */
+.ia-cards{display:flex;flex-direction:column;gap:calc(var(--ia-g) * .35 + 3px)}
+.ia-cards li{
+  display:flex;align-items:center;gap:10px;padding:5px 12px 5px 5px;border-radius:16px;min-height:calc(var(--ia-card) + 10px);
+  background:linear-gradient(160deg,#fffdf8,#fbf1de);
+  box-shadow:0 8px 22px -16px rgba(90,60,20,.6),inset 0 0 0 1px color-mix(in srgb,var(--gold) 40%,transparent);
+}
+.ia-ic{flex:0 0 var(--ia-card);width:var(--ia-card);height:var(--ia-card);border-radius:12px;display:grid;place-items:center;color:#a0661a;
+  background:radial-gradient(circle at 50% 35%,#fff8ea,#f4e2bf);box-shadow:inset 0 0 0 1px rgba(214,162,74,.25)}
+.ia-cards .c2 .ia-ic{color:#b4552f;background:radial-gradient(circle at 50% 35%,#fff6ee,#f8dccb)}
+.ia-cards .c3 .ia-ic{color:#5d7d93;background:radial-gradient(circle at 50% 35%,#ffffff,#e6eef0)}
+.ia-cards .c4 .ia-ic{color:#c0566a;background:radial-gradient(circle at 50% 35%,#fff3f0,#f6dcd4)}
+.ia-ic svg{width:56%;height:56%;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ia-cards p{min-width:0;font:500 13px/1.28 var(--fb);color:#5b4a33;text-wrap:balance}
+.ia-cards p b{font-weight:800;color:var(--ink)}
+.ia-cards p span{white-space:normal}
+/* кнопка как на лендинге */
+.ia-cta{display:flex;flex-direction:column;gap:8px}
+.ia .btn{min-height:60px;padding:8px 9px 8px 24px;font:700 17px/1.2 var(--fb)}
+.ia .btn .bt{text-wrap:balance}
+.ia-note{font:500 12.5px/1.42 var(--fb);color:var(--muted);text-align:center;text-wrap:balance;padding:0 4px}
+/* бывшие @media (max-height:700px) / (min-height:800px): высота — классом на <html>, снятым при загрузке */
+@media all{
+  :where(.h-le700) .ia{--ia-h1:min(23px, 6.2vw);--ia-card:38px;--ia-g:clamp(7px, calc((var(--vh0) - 600px) / 12 + 6px), 12px)}
+  :where(.h-le700) .ia .btn{min-height:56px;font-size:16px}
+  :where(.h-le700) .ia-note{font-size:12px;line-height:1.35}
+  :where(.h-le700) .ia-cards p{font-size:12.5px;line-height:1.24}
+  :where(.h-le700) .ia-lead .lt{font-size:13.5px}
+}
+@media (max-width:980px){
+  :where(.h-ge800) .ia-cards p{font-size:13.5px}
+  :where(.h-ge800) .ia-lead .lt{font-size:15px}
+}
+/* десктоп: две колонки, как первый экран лендинга; справа тёмная карточка вместо фото */
+@media (min-width:981px){
+  body.mode-fixed .app:has(> .ia){max-width:none;box-shadow:none;background:transparent}
+  .ia{
+    --ia-h1:clamp(30px, min(3.1vw, calc(5.6 * var(--vh0) / 100)), 48px);
+    --ia-card:clamp(44px, calc(6.4 * var(--vh0) / 100), 58px);
+    display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.95fr);column-gap:clamp(40px,4.4vw,64px);align-content:center;align-items:center;
+    width:100%;max-width:1200px;margin:0 auto;padding:clamp(24px,calc(4 * var(--vh0) / 100),56px) 20px;
+    background:none;
+  }
+  body:has(.ia){background:
+    radial-gradient(45% 55% at 85% 45%,rgba(214,162,74,.22),transparent 70%),
+    radial-gradient(40% 40% at 0% 100%,rgba(214,162,74,.1),transparent 70%),
+    linear-gradient(180deg,#efe6d6,var(--bg) 45%)!important}
+  .ia-l{display:flex;flex-direction:column;gap:min(calc(4 * var(--vh0) / 100),34px);grid-column:1;grid-row:1}
+  .ia-r{
+    display:flex;flex-direction:column;gap:min(calc(2.6 * var(--vh0) / 100),22px);grid-column:2;grid-row:1;
+    position:relative;isolation:isolate;overflow:hidden;
+    padding:clamp(18px,calc(3 * var(--vh0) / 100),30px) clamp(18px,2vw,28px);border-radius:26px;
+    background:radial-gradient(90% 60% at 80% 0%,#3b2a17,#17120c 62%,#100d09);
+    box-shadow:inset 0 0 0 1px rgba(246,220,158,.4),0 30px 60px -30px rgba(35,25,13,.85);
+  }
+  .ia-r::before{content:"";position:absolute;left:50%;top:-40%;width:90%;height:70%;transform:translateX(-50%);z-index:-1;
+    background:radial-gradient(ellipse at top,rgba(232,194,122,.3),transparent 70%);filter:blur(10px)}
+  .ia-plate{padding:0;background:none;box-shadow:none;border-radius:0;overflow:visible;gap:16px}
+  .ia-plate::after{width:72px;height:72px;right:0}
+  .ia-glow{display:none}
+  .ia-ava{width:clamp(64px,calc(9 * var(--vh0) / 100),84px);height:clamp(64px,calc(9 * var(--vh0) / 100),84px);padding:2.5px}
+  .ia-who b{font-size:19px}.ia-who span{font-size:14.5px}
+  .ia-head{gap:min(calc(2.4 * var(--vh0) / 100),20px)}
+  .ia-pill span{font-size:16px;padding:8px 14px}
+  .ia-lead .lt{background:none;padding:0;color:#f4ede1;font-size:clamp(15px,calc(2.1 * var(--vh0) / 100),17px)}
+  .ia-lead .num{font-size:1.25em;color:#f6dc9e}
+  .ia-lead::after{display:none}
+  .ia-cards{gap:min(calc(1.3 * var(--vh0) / 100),10px)}
+  .ia-cards li{padding:6px 16px 6px 6px}
+  .ia-cards p{font-size:clamp(13.5px,calc(1.9 * var(--vh0) / 100),15px)}
+  .ia-cta{align-items:flex-start;gap:14px}
+  .ia .btn{width:auto;min-height:62px;padding:10px 10px 10px 30px;font-size:17px;gap:16px}
+  .ia-note{text-align:left;font-size:14px;max-width:520px;padding:0}
+}
+
+</style>
+</head>
+<body class="mode-fixed">
+<div id="app" class="app"></div>
+<div id="sticky" class="sticky" aria-hidden="true">
+  <div class="sticky-in">
+    <div class="timer" id="stickyTimer">10:00</div>
+    <button type="button" class="btn btn-primary" id="stickyBtn"><span id="stickyBtnText"></span><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   CONFIG — все тексты квиза. Правьте здесь, вёрстку трогать не нужно.
+   Ключи k: 'S' | 'U' | 'P' | 'N' пользователю не показываются.
+   author.photoPortrait — круглое фото Анны на экране 1 и фон видео (author.avatar, если задан, важнее для круга).
+   author.photoWide — широкое фото (сейчас не используется в вёрстке, оставлено для замены).
+   intro.titleAccent — фраза из заголовка, которая подсвечивается золотом (текст заголовка не меняется).
+   ============================================================ */
+const CONFIG = {
+  "author": {
+    "name": "Анна Саба",
+    "answers": "150 000 ответов",
+    "avatar": "",
+    "photoWide": "img/anna-hero-gen.jpg",
+    "photoPortrait": "img/anna-au-smile.webp"
+  },
+  "intro": {
+    "badge": "Бесплатный тест для женщин",
+    "title": "Узнайте за 1 минуту главную причину, которая мешает вам быть по-настоящему счастливой в отношениях",
+    "lead": "87% женщин попадают в один из этих сценариев:",
+    "scenarios": [
+      "«Хорошая девочка»: удобная, терпит, молчит",
+      "«Спасательница»: отдает больше, чем получает",
+      "Тянется к холодным и недоступным",
+      "Отношения есть, а тепла и близости нет"
+    ],
+    "button": "Пройти тест и получить расшифровку",
+    "note": "После теста вы бесплатно получите расшифровку и эффективные практики, которые подойдут именно вам",
+    "titleAccent": "по-настоящему счастливой"
+  },
+  "questions": [
+    {
+      "text": "Что сейчас у вас в отношениях?",
+      "options": [
+        {
+          "t": "Замужем"
+        },
+        {
+          "t": "В отношениях: живём вместе"
+        },
+        {
+          "t": "В отношениях: живём порознь"
+        },
+        {
+          "t": "Одна"
+        },
+        {
+          "t": "Всё сложно: непонятно, кто мы друг другу"
+        }
+      ]
+    },
+    {
+      "text": "Какая фраза про ваши отношения вам ближе всего?",
+      "options": [
+        {
+          "t": "Всё держится на мне",
+          "k": "S"
+        },
+        {
+          "t": "Я забочусь о нём больше, чем он обо мне",
+          "k": "S"
+        },
+        {
+          "t": "Я часто уступаю, чтобы не ссориться",
+          "k": "U"
+        },
+        {
+          "t": "Я стараюсь, а он этого не замечает",
+          "k": "U"
+        },
+        {
+          "t": "Мы живём рядом, но как соседи",
+          "k": "P"
+        },
+        {
+          "t": "Мне в них спокойно и хорошо",
+          "k": "N"
+        }
+      ]
+    },
+    {
+      "text": "Какая мысль вам ближе всего?",
+      "options": [
+        {
+          "t": "«Проще сделать самой, чем просить»",
+          "k": "S"
+        },
+        {
+          "t": "«Неудобно просить что-то для себя»",
+          "k": "U"
+        },
+        {
+          "t": "«Лишь бы никто не обиделся»",
+          "k": "U"
+        },
+        {
+          "t": "«Он рядом, а мне одиноко»",
+          "k": "P"
+        },
+        {
+          "t": "«Я уже ничего от него не жду»",
+          "k": "P"
+        },
+        {
+          "t": "«Я знаю, чего хочу, и спокойно об этом говорю»",
+          "k": "N"
+        }
+      ]
+    },
+    {
+      "text": "Когда вас обижает мужчина, что вы обычно делаете?",
+      "options": [
+        {
+          "t": "Ухожу в дела, чтобы не думать об обиде",
+          "k": "S"
+        },
+        {
+          "t": "Оправдываю его: ему сейчас тяжело",
+          "k": "S"
+        },
+        {
+          "t": "Молчу, чтобы не было ссоры",
+          "k": "U"
+        },
+        {
+          "t": "Замыкаюсь и отдаляюсь",
+          "k": "P"
+        },
+        {
+          "t": "Говорю: «Всё нормально», хотя мне больно",
+          "k": "P"
+        },
+        {
+          "t": "Говорю, что мне неприятно, и мы это обсуждаем",
+          "k": "N"
+        }
+      ]
+    },
+    {
+      "text": "Чего вам сейчас хочется больше всего?",
+      "options": [
+        {
+          "t": "Чтобы обо мне тоже позаботились",
+          "k": "S"
+        },
+        {
+          "t": "Отдохнуть и не тащить всё на себе",
+          "k": "S"
+        },
+        {
+          "t": "Чтобы меня слышали с первого раза",
+          "k": "U"
+        },
+        {
+          "t": "Чтобы меня ценили",
+          "k": "U"
+        },
+        {
+          "t": "Чтобы мы с мужем стали ближе",
+          "k": "P"
+        },
+        {
+          "t": "Чтобы у нас было больше времени вдвоём",
+          "k": "N"
+        }
+      ]
+    },
+    {
+      "text": "О чём вы чаще всего молчите?",
+      "options": [
+        {
+          "t": "О том, что очень устала, хотя все считают меня сильной",
+          "k": "S"
+        },
+        {
+          "t": "О старых обидах",
+          "k": "U"
+        },
+        {
+          "t": "О том, что мне трудно сказать «нет»",
+          "k": "U"
+        },
+        {
+          "t": "О том, что мне не хватает его тепла",
+          "k": "P"
+        },
+        {
+          "t": "О том, что не понимаю, куда идут наши отношения",
+          "k": "P"
+        },
+        {
+          "t": "Мне не о чем молчать, я говорю обо всём",
+          "k": "N"
+        }
+      ]
+    },
+    {
+      "text": "Когда тяжело, что заставляет вас держаться?",
+      "options": [
+        {
+          "t": "Мысль, что без меня всё развалится",
+          "k": "S"
+        },
+        {
+          "t": "Вера, что всё наладится, если я постараюсь",
+          "k": "S"
+        },
+        {
+          "t": "Желание, чтобы у всех всё было хорошо",
+          "k": "U"
+        },
+        {
+          "t": "Привычка справляться самой",
+          "k": "P"
+        },
+        {
+          "t": "Мысль, что у многих так же тяжело",
+          "k": "P"
+        },
+        {
+          "t": "Близкие люди и всё хорошее в моей жизни",
+          "k": "N"
+        }
+      ]
+    },
+    {
+      "text": "Что вы делаете, когда вам плохо?",
+      "options": [
+        {
+          "t": "Всё равно решаю проблемы других",
+          "k": "S"
+        },
+        {
+          "t": "Держусь и не подаю вида",
+          "k": "S"
+        },
+        {
+          "t": "Не прошу помощи, чтобы никого не нагружать",
+          "k": "U"
+        },
+        {
+          "t": "Прошу помощи, но потом чувствую себя виноватой",
+          "k": "U"
+        },
+        {
+          "t": "Справляюсь сама и никого не подпускаю",
+          "k": "P"
+        },
+        {
+          "t": "Говорю об этом близким и принимаю их заботу",
+          "k": "N"
+        }
+      ]
+    },
+    {
+      "text": "Что ранит вас сильнее всего?",
+      "options": [
+        {
+          "t": "Когда мою заботу принимают как должное",
+          "k": "S"
+        },
+        {
+          "t": "Когда меня не слышат",
+          "k": "U"
+        },
+        {
+          "t": "Когда приходится жертвовать собой ради других",
+          "k": "U"
+        },
+        {
+          "t": "Когда муж рядом, но будто чужой",
+          "k": "P"
+        },
+        {
+          "t": "Когда понимаю, что давно ничего от него не жду",
+          "k": "P"
+        },
+        {
+          "t": "Меня непросто задеть",
+          "k": "N"
+        }
+      ]
+    },
+    {
+      "text": "О чём вы думаете перед сном?",
+      "options": [
+        {
+          "t": "«Я устала быть сильной»",
+          "k": "S"
+        },
+        {
+          "t": "«Если я остановлюсь, всё рухнет»",
+          "k": "S"
+        },
+        {
+          "t": "«Хочу, чтобы меня наконец увидели»",
+          "k": "U"
+        },
+        {
+          "t": "«Лежу рядом с ним и чувствую себя одной»",
+          "k": "P"
+        },
+        {
+          "t": "«Ничего не изменится»",
+          "k": "P"
+        },
+        {
+          "t": "«Всё хорошо, и я хочу это сохранить»",
+          "k": "N"
+        }
+      ]
+    }
+  ],
+  "loaders": {
+    "3": {
+      "duration": 2000,
+      "title": "Анализируем ваши ответы…",
+      "items": []
+    },
+    "6": {
+      "duration": 3000,
+      "title": "Сверяем ответы с кодами любви…",
+      "items": [
+        "Находим, где вы отдаёте больше",
+        "Отмечаем, что держит вас в этом круге"
+      ]
+    },
+    "10": {
+      "duration": 4500,
+      "title": "Анализируем ваши ответы…",
+      "items": [
+        "Определяем ваш код любви",
+        "Находим, что мешает получать заботу",
+        "Готовим ваш первый шаг к выходу"
+      ]
+    }
+  },
+  "scoring": {
+    "priority": [
+      "S",
+      "U",
+      "P",
+      "N"
+    ]
+  },
+  "resultScreen": {
+    "eyebrow": "Ваш результат",
+    "hint": "Посмотрите видео расшифровку, затем читайте текст ниже"
+  },
+  "video": {
+    "embedUrl": ""
+  },
+  "results": {
+    "S0": {
+      "name": "Спасательница",
+      "promo": "СПАСАТЕЛЬНИЦА",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "У вас есть привычка быть нужной."
+            },
+            {
+              "type": "p",
+              "text": "Вы много делаете для других и редко просите для себя. <b>Попросить или отказать так страшно, что проще снова всё сделать самой.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Узнаёте себя?",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "На вас работа, дом, праздники, родные мужа, а если есть дети, то и всё, что связано с ними.",
+                "Муж привык, что вы справитесь сами, и почти ни о чём не спрашивает.",
+                "Подругам вы всегда поможете, а когда плохо вам самой, никому не звоните."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Со стороны вы сильная и надёжная. <b>А внутри очень устали.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. Это началось, когда вы были маленькой",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "<b>Примерно с 3 до 12 лет</b> ребёнок ещё не знает, хороший он или плохой. Вы тоже узнавали это по лицам и реакциям значимых взрослых: мамы, папы, бабушки."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Если мама улыбается и обнимает, вы думаете: <b>«Я хорошая»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Если хмурится и молчит: <b>«Я плохая»</b>."
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "text": "У кого-то мама была строгой. У кого-то любящей, но вечно уставшей, и её нельзя было расстраивать."
+            },
+            {
+              "type": "p",
+              "text": "<b>Для ребёнка это очень страшно.</b>"
+            },
+            {
+              "type": "pull",
+              "text": "Кажется: если мама разлюбит, останешься совсем одна."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Когда вы помогаете, не шумите и ничего не просите, <b>мама довольна</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Когда плачете, говорите «не хочу» или просите что-то для себя, <b>мама сердится</b>."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Вам говорили такие слова?",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Как тебе не стыдно?",
+                "Из-за тебя у меня болит голова.",
+                "Я на тебя всю жизнь положила, а ты неблагодарная.",
+                "Посмотри, как другие дети себя хорошо ведут.",
+                "Не реви, ничего страшного не случилось.",
+                "Будешь так себя вести, я тебя любить не буду."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Иногда взрослые просто молчали весь вечер. <b>Они не со зла</b>: чаще всего их самих так воспитали."
+            }
+          ]
+        }
+      ]
+    },
+    "S1": {
+      "name": "Спасательница",
+      "promo": "СПАСАТЕЛЬНИЦА",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "У вас есть привычка быть нужной."
+            },
+            {
+              "type": "p",
+              "text": "Вы много делаете для других и редко просите для себя. <b>Попросить или отказать так страшно, что проще снова всё сделать самой.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Узнаёте себя?",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "Вы живёте с мужчиной, но вы не женаты. И стараетесь быть лучшей: готовите, убираете, решаете его дела.",
+                "Помните обо всём, что важно ему.",
+                "Кажется: если будете очень хорошей, он оценит вас и захочет быть с вами всегда."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Только чем больше делаете вы, тем меньше делает он. <b>А вы всё больше устаёте.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. Это началось, когда вы были маленькой",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "<b>Примерно с 3 до 12 лет</b> ребёнок ещё не знает, хороший он или плохой. Вы тоже узнавали это по лицам и реакциям значимых взрослых: мамы, папы, бабушки."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Если мама улыбается и обнимает, вы думаете: <b>«Я хорошая»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Если хмурится и молчит: <b>«Я плохая»</b>."
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "text": "У кого-то мама была строгой. У кого-то любящей, но вечно уставшей, и её нельзя было расстраивать."
+            },
+            {
+              "type": "p",
+              "text": "<b>Для ребёнка это очень страшно.</b>"
+            },
+            {
+              "type": "pull",
+              "text": "Кажется: если мама разлюбит, останешься совсем одна."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Когда вы помогаете, не шумите и ничего не просите, <b>мама довольна</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Когда плачете, говорите «не хочу» или просите что-то для себя, <b>мама сердится</b>."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Вам говорили такие слова?",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Как тебе не стыдно?",
+                "Из-за тебя у меня болит голова.",
+                "Я на тебя всю жизнь положила, а ты неблагодарная.",
+                "Посмотри, как другие дети себя хорошо ведут.",
+                "Не реви, ничего страшного не случилось.",
+                "Будешь так себя вести, я тебя любить не буду."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Иногда взрослые просто молчали весь вечер. <b>Они не со зла</b>: чаще всего их самих так воспитали."
+            }
+          ]
+        }
+      ]
+    },
+    "S2": {
+      "name": "Спасательница",
+      "promo": "СПАСАТЕЛЬНИЦА",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "У вас есть привычка быть нужной."
+            },
+            {
+              "type": "p",
+              "text": "Вы много делаете для других и редко просите для себя. <b>Попросить или отказать так страшно, что проще снова всё сделать самой.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Узнаёте себя?",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "Вы в паре, но живёте отдельно.",
+                "Когда вы встречаетесь, вы стараетесь, чтобы ему было хорошо: накормить, выслушать, помочь с его делами.",
+                "А когда плохо вам, вы ему не звоните, чтобы не грузить своими проблемами."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Ему с вами легко. <b>А вы после встреч часто чувствуете усталость.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. Это началось, когда вы были маленькой",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "<b>Примерно с 3 до 12 лет</b> ребёнок ещё не знает, хороший он или плохой. Вы тоже узнавали это по лицам и реакциям значимых взрослых: мамы, папы, бабушки."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Если мама улыбается и обнимает, вы думаете: <b>«Я хорошая»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Если хмурится и молчит: <b>«Я плохая»</b>."
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "text": "У кого-то мама была строгой. У кого-то любящей, но вечно уставшей, и её нельзя было расстраивать."
+            },
+            {
+              "type": "p",
+              "text": "<b>Для ребёнка это очень страшно.</b>"
+            },
+            {
+              "type": "pull",
+              "text": "Кажется: если мама разлюбит, останешься совсем одна."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Когда вы помогаете, не шумите и ничего не просите, <b>мама довольна</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Когда плачете, говорите «не хочу» или просите что-то для себя, <b>мама сердится</b>."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Вам говорили такие слова?",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Как тебе не стыдно?",
+                "Из-за тебя у меня болит голова.",
+                "Я на тебя всю жизнь положила, а ты неблагодарная.",
+                "Посмотри, как другие дети себя хорошо ведут.",
+                "Не реви, ничего страшного не случилось.",
+                "Будешь так себя вести, я тебя любить не буду."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Иногда взрослые просто молчали весь вечер. <b>Они не со зла</b>: чаще всего их самих так воспитали."
+            }
+          ]
+        }
+      ]
+    },
+    "S3": {
+      "name": "Спасательница",
+      "promo": "СПАСАТЕЛЬНИЦА",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "У вас есть привычка быть нужной."
+            },
+            {
+              "type": "p",
+              "text": "Вы много делаете для других и редко просите для себя. <b>Попросить или отказать так страшно, что проще снова всё сделать самой.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Узнаёте себя?",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "Сейчас вы одна. Когда рядом появляется мужчина, вас часто тянет к тому, кому нужна помощь: у кого тяжёлый период, проблемы, сложная жизнь.",
+                "Рядом с таким мужчиной вы чувствуете себя нужной.",
+                "А если мужчина сам начинает заботиться о вас, вам неловко."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Вам привычнее быть нужной. <b>И с заботливым мужчиной почему-то становится скучно.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. Это началось, когда вы были маленькой",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "<b>Примерно с 3 до 12 лет</b> ребёнок ещё не знает, хороший он или плохой. Вы тоже узнавали это по лицам и реакциям значимых взрослых: мамы, папы, бабушки."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Если мама улыбается и обнимает, вы думаете: <b>«Я хорошая»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Если хмурится и молчит: <b>«Я плохая»</b>."
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "text": "У кого-то мама была строгой. У кого-то любящей, но вечно уставшей, и её нельзя было расстраивать."
+            },
+            {
+              "type": "p",
+              "text": "<b>Для ребёнка это очень страшно.</b>"
+            },
+            {
+              "type": "pull",
+              "text": "Кажется: если мама разлюбит, останешься совсем одна."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Когда вы помогаете, не шумите и ничего не просите, <b>мама довольна</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Когда плачете, говорите «не хочу» или просите что-то для себя, <b>мама сердится</b>."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Вам говорили такие слова?",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Как тебе не стыдно?",
+                "Из-за тебя у меня болит голова.",
+                "Я на тебя всю жизнь положила, а ты неблагодарная.",
+                "Посмотри, как другие дети себя хорошо ведут.",
+                "Не реви, ничего страшного не случилось.",
+                "Будешь так себя вести, я тебя любить не буду."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Иногда взрослые просто молчали весь вечер. <b>Они не со зла</b>: чаще всего их самих так воспитали."
+            }
+          ]
+        }
+      ]
+    },
+    "S4": {
+      "name": "Спасательница",
+      "promo": "СПАСАТЕЛЬНИЦА",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "У вас есть привычка быть нужной."
+            },
+            {
+              "type": "p",
+              "text": "Вы много делаете для других и редко просите для себя. <b>Попросить или отказать так страшно, что проще снова всё сделать самой.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Узнаёте себя?",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "У вас есть мужчина, но кто вы друг другу, непонятно. Он то появляется, то пропадает.",
+                "Когда он звонит, вы откликаетесь сразу: приедете, поможете, выслушаете.",
+                "Кажется: пока вы ему нужны, он не уйдёт."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Для себя вы почти ничего у него не просите. <b>И от этого очень устаёте.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. Это началось, когда вы были маленькой",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "<b>Примерно с 3 до 12 лет</b> ребёнок ещё не знает, хороший он или плохой. Вы тоже узнавали это по лицам и реакциям значимых взрослых: мамы, папы, бабушки."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Если мама улыбается и обнимает, вы думаете: <b>«Я хорошая»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Если хмурится и молчит: <b>«Я плохая»</b>."
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "text": "У кого-то мама была строгой. У кого-то любящей, но вечно уставшей, и её нельзя было расстраивать."
+            },
+            {
+              "type": "p",
+              "text": "<b>Для ребёнка это очень страшно.</b>"
+            },
+            {
+              "type": "pull",
+              "text": "Кажется: если мама разлюбит, останешься совсем одна."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Когда вы помогаете, не шумите и ничего не просите, <b>мама довольна</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Когда плачете, говорите «не хочу» или просите что-то для себя, <b>мама сердится</b>."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Вам говорили такие слова?",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Как тебе не стыдно?",
+                "Из-за тебя у меня болит голова.",
+                "Я на тебя всю жизнь положила, а ты неблагодарная.",
+                "Посмотри, как другие дети себя хорошо ведут.",
+                "Не реви, ничего страшного не случилось.",
+                "Будешь так себя вести, я тебя любить не буду."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Иногда взрослые просто молчали весь вечер. <b>Они не со зла</b>: чаще всего их самих так воспитали."
+            }
+          ]
+        }
+      ]
+    },
+    "U0": {
+      "name": "Хорошая девочка",
+      "promo": "ХОРОШАЯДЕВОЧКА",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "У вас есть привычка молчать о своих желаниях."
+            },
+            {
+              "type": "p",
+              "text": "Вы часто уступаете и не говорите, чего хотите сами. <b>Сказать «я хочу» или «мне это не нравится» так страшно, что проще промолчать и улыбнуться.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Узнаёте себя?",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "Вы стараетесь не ссориться с мужем. Если вам что-то не нравится, вы молчите.",
+                "Хотите провести выходные по-своему, а они проходят так, как удобно ему.",
+                "Хотите, чтобы он чаще обнимал и спрашивал, как прошёл ваш день, но вслух этого не говорите."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Муж думает, что у вас всё хорошо. <b>А в вас копится обида, и иногда вы срываетесь из-за мелочи.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. Это началось, когда вы были маленькой",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "<b>Примерно с 3 до 12 лет</b> ребёнок ещё не знает, хороший он или плохой. Вы тоже узнавали это по лицам и реакциям значимых взрослых: мамы, папы, бабушки."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Если мама улыбается и обнимает, вы думаете: <b>«Я хорошая»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Если хмурится и молчит: <b>«Я плохая»</b>."
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "text": "У кого-то мама была строгой и не терпела споров. У кого-то часто обижалась и могла не разговаривать с дочкой весь вечер."
+            },
+            {
+              "type": "p",
+              "text": "<b>Для ребёнка это очень страшно.</b>"
+            },
+            {
+              "type": "pull",
+              "text": "Кажется: если мама разлюбит, останешься совсем одна."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Когда вы тихая, послушная, со всем соглашаетесь и ничего не просите, <b>вас хвалят: «умница»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Когда злитесь, спорите, говорите «я хочу» или «мне не нравится», <b>взрослые сердятся или обижаются</b>."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Вам говорили такие слова?",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Не спорь со старшими.",
+                "Хорошие девочки так себя не ведут.",
+                "Мало ли чего ты хочешь.",
+                "Не позорь меня перед людьми.",
+                "Девочки не злятся, это некрасиво.",
+                "Будешь так себя вести, с тобой никто дружить не будет."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Иногда взрослые просто молчали весь вечер. <b>Они не со зла</b>: чаще всего их самих так воспитали."
+            }
+          ]
+        }
+      ]
+    },
+    "U1": {
+      "name": "Хорошая девочка",
+      "promo": "ХОРОШАЯДЕВОЧКА",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "У вас есть привычка молчать о своих желаниях."
+            },
+            {
+              "type": "p",
+              "text": "Вы часто уступаете и не говорите, чего хотите сами. <b>Сказать «я хочу» или «мне это не нравится» так страшно, что проще промолчать и улыбнуться.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Узнаёте себя?",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "Вы живёте с мужчиной, но вы не женаты. Вам важно понять, что у вас дальше: будет ли свадьба, общий дом, общие планы.",
+                "Но заговорить об этом вы боитесь: вдруг он скажет «я не готов» и уйдёт.",
+                "Поэтому, когда подруги спрашивают, вы отвечаете: «Нам и так хорошо»."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "<b>А внутри вам тревожно и обидно.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. Это началось, когда вы были маленькой",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "<b>Примерно с 3 до 12 лет</b> ребёнок ещё не знает, хороший он или плохой. Вы тоже узнавали это по лицам и реакциям значимых взрослых: мамы, папы, бабушки."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Если мама улыбается и обнимает, вы думаете: <b>«Я хорошая»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Если хмурится и молчит: <b>«Я плохая»</b>."
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "text": "У кого-то мама была строгой и не терпела споров. У кого-то часто обижалась и могла не разговаривать с дочкой весь вечер."
+            },
+            {
+              "type": "p",
+              "text": "<b>Для ребёнка это очень страшно.</b>"
+            },
+            {
+              "type": "pull",
+              "text": "Кажется: если мама разлюбит, останешься совсем одна."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Когда вы тихая, послушная, со всем соглашаетесь и ничего не просите, <b>вас хвалят: «умница»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Когда злитесь, спорите, говорите «я хочу» или «мне не нравится», <b>взрослые сердятся или обижаются</b>."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Вам говорили такие слова?",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Не спорь со старшими.",
+                "Хорошие девочки так себя не ведут.",
+                "Мало ли чего ты хочешь.",
+                "Не позорь меня перед людьми.",
+                "Девочки не злятся, это некрасиво.",
+                "Будешь так себя вести, с тобой никто дружить не будет."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Иногда взрослые просто молчали весь вечер. <b>Они не со зла</b>: чаще всего их самих так воспитали."
+            }
+          ]
+        }
+      ]
+    },
+    "U2": {
+      "name": "Хорошая девочка",
+      "promo": "ХОРОШАЯДЕВОЧКА",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "У вас есть привычка молчать о своих желаниях."
+            },
+            {
+              "type": "p",
+              "text": "Вы часто уступаете и не говорите, чего хотите сами. <b>Сказать «я хочу» или «мне это не нравится» так страшно, что проще промолчать и улыбнуться.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Узнаёте себя?",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "Вы в паре, но живёте отдельно.",
+                "Вы видитесь, когда удобно ему, и вы под это подстраиваетесь.",
+                "Вам хочется видеться чаще или жить вместе, но вы молчите."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Боитесь, что он подумает, будто вы давите, <b>и отдалится.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. Это началось, когда вы были маленькой",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "<b>Примерно с 3 до 12 лет</b> ребёнок ещё не знает, хороший он или плохой. Вы тоже узнавали это по лицам и реакциям значимых взрослых: мамы, папы, бабушки."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Если мама улыбается и обнимает, вы думаете: <b>«Я хорошая»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Если хмурится и молчит: <b>«Я плохая»</b>."
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "text": "У кого-то мама была строгой и не терпела споров. У кого-то часто обижалась и могла не разговаривать с дочкой весь вечер."
+            },
+            {
+              "type": "p",
+              "text": "<b>Для ребёнка это очень страшно.</b>"
+            },
+            {
+              "type": "pull",
+              "text": "Кажется: если мама разлюбит, останешься совсем одна."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Когда вы тихая, послушная, со всем соглашаетесь и ничего не просите, <b>вас хвалят: «умница»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Когда злитесь, спорите, говорите «я хочу» или «мне не нравится», <b>взрослые сердятся или обижаются</b>."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Вам говорили такие слова?",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Не спорь со старшими.",
+                "Хорошие девочки так себя не ведут.",
+                "Мало ли чего ты хочешь.",
+                "Не позорь меня перед людьми.",
+                "Девочки не злятся, это некрасиво.",
+                "Будешь так себя вести, с тобой никто дружить не будет."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Иногда взрослые просто молчали весь вечер. <b>Они не со зла</b>: чаще всего их самих так воспитали."
+            }
+          ]
+        }
+      ]
+    },
+    "U3": {
+      "name": "Хорошая девочка",
+      "promo": "ХОРОШАЯДЕВОЧКА",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "У вас есть привычка молчать о своих желаниях."
+            },
+            {
+              "type": "p",
+              "text": "Вы часто уступаете и не говорите, чего хотите сами. <b>Сказать «я хочу» или «мне это не нравится» так страшно, что проще промолчать и улыбнуться.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Узнаёте себя?",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "Сейчас вы одна. Когда знакомитесь с мужчиной, вы очень стараетесь понравиться.",
+                "Соглашаетесь, улыбаетесь и молчите, если вам что-то не нравится.",
+                "Мужчина видит приятную и удобную женщину, а настоящую вас он не знает."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "И внутри звучит мысль: <b>«Такой, какая я есть, меня не выберут»</b>."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. Это началось, когда вы были маленькой",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "<b>Примерно с 3 до 12 лет</b> ребёнок ещё не знает, хороший он или плохой. Вы тоже узнавали это по лицам и реакциям значимых взрослых: мамы, папы, бабушки."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Если мама улыбается и обнимает, вы думаете: <b>«Я хорошая»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Если хмурится и молчит: <b>«Я плохая»</b>."
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "text": "У кого-то мама была строгой и не терпела споров. У кого-то часто обижалась и могла не разговаривать с дочкой весь вечер."
+            },
+            {
+              "type": "p",
+              "text": "<b>Для ребёнка это очень страшно.</b>"
+            },
+            {
+              "type": "pull",
+              "text": "Кажется: если мама разлюбит, останешься совсем одна."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Когда вы тихая, послушная, со всем соглашаетесь и ничего не просите, <b>вас хвалят: «умница»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Когда злитесь, спорите, говорите «я хочу» или «мне не нравится», <b>взрослые сердятся или обижаются</b>."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Вам говорили такие слова?",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Не спорь со старшими.",
+                "Хорошие девочки так себя не ведут.",
+                "Мало ли чего ты хочешь.",
+                "Не позорь меня перед людьми.",
+                "Девочки не злятся, это некрасиво.",
+                "Будешь так себя вести, с тобой никто дружить не будет."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Иногда взрослые просто молчали весь вечер. <b>Они не со зла</b>: чаще всего их самих так воспитали."
+            }
+          ]
+        }
+      ]
+    },
+    "U4": {
+      "name": "Хорошая девочка",
+      "promo": "ХОРОШАЯДЕВОЧКА",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "У вас есть привычка молчать о своих желаниях."
+            },
+            {
+              "type": "p",
+              "text": "Вы часто уступаете и не говорите, чего хотите сами. <b>Сказать «я хочу» или «мне это не нравится» так страшно, что проще промолчать и улыбнуться.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Узнаёте себя?",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "У вас есть мужчина, но кто вы друг другу, непонятно.",
+                "Он пишет, когда хочет, а потом может надолго пропасть. Вам больно, но вы молчите.",
+                "Боитесь, что если спросите прямо, он исчезнет совсем."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "<b>Поэтому ожидание тянется месяцами.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. Это началось, когда вы были маленькой",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "<b>Примерно с 3 до 12 лет</b> ребёнок ещё не знает, хороший он или плохой. Вы тоже узнавали это по лицам и реакциям значимых взрослых: мамы, папы, бабушки."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Если мама улыбается и обнимает, вы думаете: <b>«Я хорошая»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Если хмурится и молчит: <b>«Я плохая»</b>."
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "text": "У кого-то мама была строгой и не терпела споров. У кого-то часто обижалась и могла не разговаривать с дочкой весь вечер."
+            },
+            {
+              "type": "p",
+              "text": "<b>Для ребёнка это очень страшно.</b>"
+            },
+            {
+              "type": "pull",
+              "text": "Кажется: если мама разлюбит, останешься совсем одна."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Когда вы тихая, послушная, со всем соглашаетесь и ничего не просите, <b>вас хвалят: «умница»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Когда злитесь, спорите, говорите «я хочу» или «мне не нравится», <b>взрослые сердятся или обижаются</b>."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Вам говорили такие слова?",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Не спорь со старшими.",
+                "Хорошие девочки так себя не ведут.",
+                "Мало ли чего ты хочешь.",
+                "Не позорь меня перед людьми.",
+                "Девочки не злятся, это некрасиво.",
+                "Будешь так себя вести, с тобой никто дружить не будет."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Иногда взрослые просто молчали весь вечер. <b>Они не со зла</b>: чаще всего их самих так воспитали."
+            }
+          ]
+        }
+      ]
+    },
+    "P0": {
+      "name": "Рядом, но далеко",
+      "promo": "РЯДОМНОДАЛЕКО",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "У вас есть привычка держать дистанцию в отношениях."
+            },
+            {
+              "type": "p",
+              "text": "Вы хотите тепла, но с трудом подпускаете человека близко. <b>Открыться так страшно, что проще держаться подальше, даже если очень хочется тепла.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Узнаёте себя?",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "Со стороны у вас с мужем всё нормально: дом, работа, общие дела, планы на выходные. Но говорите вы в основном о делах.",
+                "О том, что у вас на душе, вы молчите.",
+                "Когда-то вы пробовали сказать мужу, что вам одиноко, но он был занят или не понял. И вы решили: «Бесполезно»."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Вы живёте в одном доме. <b>А вы часто чувствуете себя одинокой.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. Это началось, когда вы были маленькой",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "<b>Примерно с 3 до 12 лет</b> ребёнок ещё не знает, хороший он или плохой. Вы тоже узнавали это по лицам и реакциям значимых взрослых: мамы, папы, бабушки."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Если мама улыбается и обнимает, вы думаете: <b>«Я хорошая»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Если хмурится и молчит: <b>«Я плохая»</b>."
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "text": "У кого-то мама была рядом, но холодной: накормит, оденет, а обнять и поговорить некогда. У кого-то родители часто ссорились, и девочка сидела тихо в своей комнате."
+            },
+            {
+              "type": "p",
+              "text": "<b>Для ребёнка это очень больно.</b>"
+            },
+            {
+              "type": "pull",
+              "text": "Хочется, чтобы обняли и выслушали, а взрослые заняты своим."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Когда вы ничего не ждёте и ни к кому не подходите, <b>больно становится меньше</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Когда тянетесь к маме, рассказываете о своём или плачете, <b>в ответ слышите: «не сейчас», «отстань»</b>."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Вам говорили такие слова?",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Не мешай, я занята.",
+                "Не выдумывай.",
+                "Нечего реветь, иди к себе.",
+                "Сама разберёшься, не маленькая.",
+                "Не до тебя сейчас.",
+                "Опять ты со своими глупостями."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Иногда взрослые просто молчали весь вечер. <b>Они не со зла</b>: чаще всего их самих так воспитали."
+            }
+          ]
+        }
+      ]
+    },
+    "P1": {
+      "name": "Ещё не жена",
+      "promo": "ЕЩЁНЕЖЕНА",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "У вас есть привычка держать дистанцию в отношениях."
+            },
+            {
+              "type": "p",
+              "text": "Вы хотите тепла, но с трудом подпускаете человека близко. <b>Открыться так страшно, что проще держаться подальше, даже если очень хочется тепла.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Узнаёте себя?",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "Вы живёте с мужчиной, но вы не женаты. Вы до конца ему не доверяете и держите в голове мысль: «Если станет плохо, уйду».",
+                "Не строите с ним планов на годы вперёд и не рассказываете, что вас тревожит.",
+                "Кажется: если он уйдёт, то хотя бы будет не так больно."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "<b>И вы сами не замечаете, что держите его на расстоянии.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. Это началось, когда вы были маленькой",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "<b>Примерно с 3 до 12 лет</b> ребёнок ещё не знает, хороший он или плохой. Вы тоже узнавали это по лицам и реакциям значимых взрослых: мамы, папы, бабушки."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Если мама улыбается и обнимает, вы думаете: <b>«Я хорошая»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Если хмурится и молчит: <b>«Я плохая»</b>."
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "text": "У кого-то мама была рядом, но холодной: накормит, оденет, а обнять и поговорить некогда. У кого-то родители часто ссорились, и девочка сидела тихо в своей комнате."
+            },
+            {
+              "type": "p",
+              "text": "<b>Для ребёнка это очень больно.</b>"
+            },
+            {
+              "type": "pull",
+              "text": "Хочется, чтобы обняли и выслушали, а взрослые заняты своим."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Когда вы ничего не ждёте и ни к кому не подходите, <b>больно становится меньше</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Когда тянетесь к маме, рассказываете о своём или плачете, <b>в ответ слышите: «не сейчас», «отстань»</b>."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Вам говорили такие слова?",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Не мешай, я занята.",
+                "Не выдумывай.",
+                "Нечего реветь, иди к себе.",
+                "Сама разберёшься, не маленькая.",
+                "Не до тебя сейчас.",
+                "Опять ты со своими глупостями."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Иногда взрослые просто молчали весь вечер. <b>Они не со зла</b>: чаще всего их самих так воспитали."
+            }
+          ]
+        }
+      ]
+    },
+    "P2": {
+      "name": "На расстоянии",
+      "promo": "НАРАССТОЯНИИ",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "У вас есть привычка держать дистанцию в отношениях."
+            },
+            {
+              "type": "p",
+              "text": "Вы хотите тепла, но с трудом подпускаете человека близко. <b>Открыться так страшно, что проще держаться подальше, даже если очень хочется тепла.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Узнаёте себя?",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "Вы в паре, но живёте отдельно, и вам так привычнее.",
+                "Когда он рядом несколько дней подряд, вам становится тесно, хочется побыть одной.",
+                "Когда его долго нет, вы скучаете."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "О том, что у вас на душе, вы ему почти не рассказываете <b>и переживаете это одна.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. Это началось, когда вы были маленькой",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "<b>Примерно с 3 до 12 лет</b> ребёнок ещё не знает, хороший он или плохой. Вы тоже узнавали это по лицам и реакциям значимых взрослых: мамы, папы, бабушки."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Если мама улыбается и обнимает, вы думаете: <b>«Я хорошая»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Если хмурится и молчит: <b>«Я плохая»</b>."
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "text": "У кого-то мама была рядом, но холодной: накормит, оденет, а обнять и поговорить некогда. У кого-то родители часто ссорились, и девочка сидела тихо в своей комнате."
+            },
+            {
+              "type": "p",
+              "text": "<b>Для ребёнка это очень больно.</b>"
+            },
+            {
+              "type": "pull",
+              "text": "Хочется, чтобы обняли и выслушали, а взрослые заняты своим."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Когда вы ничего не ждёте и ни к кому не подходите, <b>больно становится меньше</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Когда тянетесь к маме, рассказываете о своём или плачете, <b>в ответ слышите: «не сейчас», «отстань»</b>."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Вам говорили такие слова?",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Не мешай, я занята.",
+                "Не выдумывай.",
+                "Нечего реветь, иди к себе.",
+                "Сама разберёшься, не маленькая.",
+                "Не до тебя сейчас.",
+                "Опять ты со своими глупостями."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Иногда взрослые просто молчали весь вечер. <b>Они не со зла</b>: чаще всего их самих так воспитали."
+            }
+          ]
+        }
+      ]
+    },
+    "P3": {
+      "name": "Снова не те",
+      "promo": "СНОВАНЕТЕ",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "У вас есть привычка держать дистанцию в отношениях."
+            },
+            {
+              "type": "p",
+              "text": "Вы хотите тепла, но с трудом подпускаете человека близко. <b>Открыться так страшно, что проще держаться подальше, даже если очень хочется тепла.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Узнаёте себя?",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "Сейчас вы одна. Вас часто тянет к мужчинам, с которыми настоящие отношения невозможны.",
+                "К женатым, холодным или к тем, кто сразу говорит, что не хочет серьёзных отношений.",
+                "А рядом с мужчиной, который открыт и хочет быть с вами, вам почему-то тревожно, и хочется отойти подальше."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "<b>Так снова и снова выходит, что рядом «не те».</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. Это началось, когда вы были маленькой",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "<b>Примерно с 3 до 12 лет</b> ребёнок ещё не знает, хороший он или плохой. Вы тоже узнавали это по лицам и реакциям значимых взрослых: мамы, папы, бабушки."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Если мама улыбается и обнимает, вы думаете: <b>«Я хорошая»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Если хмурится и молчит: <b>«Я плохая»</b>."
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "text": "У кого-то мама была рядом, но холодной: накормит, оденет, а обнять и поговорить некогда. У кого-то родители часто ссорились, и девочка сидела тихо в своей комнате."
+            },
+            {
+              "type": "p",
+              "text": "<b>Для ребёнка это очень больно.</b>"
+            },
+            {
+              "type": "pull",
+              "text": "Хочется, чтобы обняли и выслушали, а взрослые заняты своим."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Когда вы ничего не ждёте и ни к кому не подходите, <b>больно становится меньше</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Когда тянетесь к маме, рассказываете о своём или плачете, <b>в ответ слышите: «не сейчас», «отстань»</b>."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Вам говорили такие слова?",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Не мешай, я занята.",
+                "Не выдумывай.",
+                "Нечего реветь, иди к себе.",
+                "Сама разберёшься, не маленькая.",
+                "Не до тебя сейчас.",
+                "Опять ты со своими глупостями."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Иногда взрослые просто молчали весь вечер. <b>Они не со зла</b>: чаще всего их самих так воспитали."
+            }
+          ]
+        }
+      ]
+    },
+    "P4": {
+      "name": "Та, что ждёт",
+      "promo": "ТАЧТОЖДЁТ",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "У вас есть привычка держать дистанцию в отношениях."
+            },
+            {
+              "type": "p",
+              "text": "Вы хотите тепла, но с трудом подпускаете человека близко. <b>Открыться так страшно, что проще держаться подальше, даже если очень хочется тепла.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Узнаёте себя?",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "У вас есть мужчина, но кто вы друг другу, непонятно.",
+                "Неясность вас мучает.",
+                "Но когда он сам делает шаг навстречу и хочет быть ближе, вам становится тревожно, и вы отстраняетесь."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Кажется: <b>пока всё не всерьёз, больно будет меньше.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. Это началось, когда вы были маленькой",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "<b>Примерно с 3 до 12 лет</b> ребёнок ещё не знает, хороший он или плохой. Вы тоже узнавали это по лицам и реакциям значимых взрослых: мамы, папы, бабушки."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Если мама улыбается и обнимает, вы думаете: <b>«Я хорошая»</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Если хмурится и молчит: <b>«Я плохая»</b>."
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "text": "У кого-то мама была рядом, но холодной: накормит, оденет, а обнять и поговорить некогда. У кого-то родители часто ссорились, и девочка сидела тихо в своей комнате."
+            },
+            {
+              "type": "p",
+              "text": "<b>Для ребёнка это очень больно.</b>"
+            },
+            {
+              "type": "pull",
+              "text": "Хочется, чтобы обняли и выслушали, а взрослые заняты своим."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Когда вы ничего не ждёте и ни к кому не подходите, <b>больно становится меньше</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Когда тянетесь к маме, рассказываете о своём или плачете, <b>в ответ слышите: «не сейчас», «отстань»</b>."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Вам говорили такие слова?",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Не мешай, я занята.",
+                "Не выдумывай.",
+                "Нечего реветь, иди к себе.",
+                "Сама разберёшься, не маленькая.",
+                "Не до тебя сейчас.",
+                "Опять ты со своими глупостями."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Иногда взрослые просто молчали весь вечер. <b>Они не со зла</b>: чаще всего их самих так воспитали."
+            }
+          ]
+        }
+      ]
+    },
+    "N": {
+      "name": "Опора в себе",
+      "promo": "ОПОРАВСЕБЕ",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "Вы можете попросить, отказать, сказать «мне это не нравится»."
+            },
+            {
+              "type": "p",
+              "text": "И при этом <b>не боитесь, что вас разлюбят.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Узнаёте себя?",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "В отношениях вы остаётесь собой.",
+                "Можете сказать близкому человеку, чего хотите.",
+                "Можете отказать подруге и не мучиться потом весь вечер."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "<b>Поэтому сейчас вам в целом спокойно.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. Это началось, когда вы были маленькой",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "<b>Примерно с 3 до 12 лет</b> ребёнок ещё не знает, хороший он или плохой. Вы тоже узнавали это по лицам и реакциям значимых взрослых: мамы, папы, бабушки."
+            },
+            {
+              "type": "p",
+              "text": "Скорее всего, в детстве рядом с вами был хотя бы один взрослый, <b>с которым было спокойно</b>."
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "Рядом с ним можно было капризничать, плакать, злиться и хотеть своё, <b>и вас всё равно любили</b>."
+                },
+                {
+                  "tone": "bad",
+                  "text": "Вас могли поругать за поступок, <b>но не переставали с вами разговаривать</b>."
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "text": "<b>И вы ещё ребёнком поняли:</b>"
+            },
+            {
+              "type": "pull",
+              "text": "«Меня любят просто так. Даже когда я чего-то хочу или с чем-то не согласна»."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. В чём вам может стать ещё лучше",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Вы так хорошо справляетесь сами, что близкие думают, будто вам ничего не нужно. <b>Вам легко отказать другим, а попросить о помощи, когда тяжело, бывает труднее.</b>"
+            },
+            {
+              "type": "quotes",
+              "items": [
+                "Мне сейчас плохо, побудь со мной.",
+                "Помоги мне, я не справляюсь."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Когда вы пробуете это сказать, может появиться неловкость, лёгкий стыд или тревога: «Не буду грузить, сама разберусь». <b>И вы снова справляетесь одна.</b>"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "offer": {
+    "title": "Как получить полную расшифровку и эффективные практики для вас",
+    "subtitle": "Осталось изучить из расшифровки 4 пункта",
+    "locked": [
+      "Паттерн, который управляет вашим поведением",
+      "Какие методы точно не сработают в вашем случае",
+      "Почему рефлекс сильнее понимания",
+      "Как выйти из угнетающих чувств в новую реальность"
+    ],
+    "practicumIntro": "Полную расшифровку получают участники онлайн-практикума",
+    "practicumName": "«Как за 4 дня выйти из угнетающих чувств на новый уровень дохода, энергии, отношений, реализации»",
+    "promoText": "Для участников тестирования <b class=\"acc\">в течение 10 минут</b> после получения расшифровки участие в практикуме <b class=\"acc\">бесплатное</b> по промокоду",
+    "copyLabel": "Скопировать",
+    "copiedLabel": "Скопировано",
+    "timerMinutes": 10,
+    "expiredText": "Время вышло, но регистрация ещё открыта. Успейте записаться, пока есть места",
+    "mainButton": "Открыть полную расшифровку",
+    "mainUrl": "#register",
+    "registerTitle": "Регистрация на практикум",
+    "registerNote": "Полная расшифровка придёт в Telegram сразу после регистрации",
+    "registerButton": "Записаться на практикум",
+    "secondaryButton": "Подробнее об онлайн-практикуме",
+    "secondaryUrl": "https://doctorannasaba.ru/novaya-realnost-v2-light/"
+  },
+  "ui": {
+    "back": "Назад",
+    "counter": "Вопрос {n} из {total}",
+    "progressStart": 10,
+    "progressEnd": 95
+  }
+};
+
+/* ============================================================
+   ЛОГИКА
+   ============================================================ */
+(function () {
+  'use strict';
+
+  const TOTAL = CONFIG.questions.length;
+  const app = document.getElementById('app');
+  const params = new URLSearchParams(location.search);
+  const DEBUG = params.get('debug') === '1';
+  const SS_KEY = 'kl_quiz_v1';
+  const TIMER_KEY = 'kl_timer_start_v2';   // sessionStorage: когда таймер впервые увидели
+
+  // ---------- state + sessionStorage ----------
+  const state = { step: 'intro', answers: {}, status: null };
+
+  function loadState() {
+    try {
+      const raw = sessionStorage.getItem(SS_KEY);
+      if (!raw) return;
+      const s = JSON.parse(raw);
+      if (s && typeof s === 'object') {
+        if (typeof s.step === 'string') state.step = s.step;
+        if (s.answers && typeof s.answers === 'object') state.answers = s.answers;
+        if (typeof s.status === 'string') state.status = s.status;
+      }
+    } catch (e) { /* storage недоступен — работаем без него */ }
+  }
+  function saveState() {
+    try { sessionStorage.setItem(SS_KEY, JSON.stringify(state)); } catch (e) { /* no-op */ }
+  }
+
+  // ---------- analytics ----------
+  function track(event, data) {
+    // Позже заменить на вызов реальной аналитики.
+    if (data !== undefined) console.log('[analytics]', event, data);
+    else console.log('[analytics]', event);
+  }
+
+  // ---------- helpers ----------
+  const esc = (s) => String(s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const boldQuoted = (s) => esc(s).replace(/«[^»]*»/g, '<b>$&</b>');
+  const pad2 = (n) => (n < 10 ? '0' : '') + n;
+
+  // Иконки: один набор, линейные, stroke 2, скруглённые концы
+  const svg = (d, extra) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"${extra || ''}>${d}</svg>`;
+  const ICON = {
+    back: svg('<path d="M15 5l-7 7 7 7"/>'),
+    arrow: svg('<path d="M5 12h14M13 6l6 6-6 6"/>'),
+    lock: svg('<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>'),
+    heart: svg('<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/>'),
+    calendar: svg('<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>'),
+    user: svg('<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>'),
+    copy: svg('<rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/>'),
+    close: svg('<path d="M6 6l12 12M18 6L6 18"/>'),
+    play: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.86l11.2-7.2a1 1 0 0 0 0-1.72L8.5 3.94A1 1 0 0 0 7 4.8z" fill="currentColor"/></svg>'
+  };
+  const CK = '<span class="ck" aria-hidden="true"></span>';
+  const ARROW = `<span class="ar" aria-hidden="true">${ICON.arrow}</span>`;
+  const imgTag = (url, cls) => url ? `<img${cls ? ` class="${cls}"` : ''} src="${esc(url)}" alt="" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">` : '';
+
+  function withUtm(url) {
+    if (!url) return '';
+    const utm = new URLSearchParams();
+    params.forEach((v, k) => { if (/^utm_/i.test(k)) utm.set(k, v); });
+    const q = utm.toString();
+    if (!q) return url;
+    const hashIdx = url.indexOf('#');
+    const base = hashIdx >= 0 ? url.slice(0, hashIdx) : url;
+    const hash = hashIdx >= 0 ? url.slice(hashIdx) : '';
+    return base + (base.includes('?') ? '&' : '?') + q + hash;
+  }
+
+  function setMode(mode) {
+    document.body.classList.toggle('mode-fixed', mode === 'fixed');
+    document.body.classList.toggle('mode-scroll', mode === 'scroll');
+    if (mode === 'fixed') hideSticky(true);
+  }
+
+  // Высота окна (--vh0 и классы h-*) фиксируется скриптом в <head> один раз при загрузке — см. там.
+
+  // ---------- rendering: экран 1 ----------
+  // Заголовок: текст из CONFIG как есть; фраза intro.titleAccent (если она есть в заголовке) красится золотом
+  function titleHtml(title, accent) {
+    const t = esc(title);
+    if (!accent) return t;
+    const a = esc(accent), i = t.indexOf(a);
+    return i < 0 ? t : t.slice(0, i) + '<span class="acc">' + a + '</span>' + t.slice(i + a.length);
+  }
+  // Типографика экрана 1: неразрывный пробел после коротких слов и чисел и между двумя последними словами.
+  // Слова не меняются — только вид пробела. На вход — уже экранированный текст.
+  const NBSP = '\u00a0';
+  function typo(s) {
+    let t = String(s).replace(/\s+/g, ' ').trim();
+    const shortW = /(^|[\s«(\u00a0])([а-яёА-ЯЁ]{1,2}|без|для|что|как|под|при|про)\s(?=\S)/g;
+    t = t.replace(shortW, '$1$2' + NBSP).replace(shortW, '$1$2' + NBSP);
+    t = t.replace(/(\d[\d%]*)\s(?=\S)/g, '$1' + NBSP);
+    t = t.replace(/\s(\S+)$/, NBSP + '$1');
+    return t;
+  }
+  function tp(s) {
+    // lookbehind не «съедает» соседа, поэтому склеиваются и цепочки коротких слов: «и не мучиться», «а он обо мне»
+    return typo(s).replace(/(?<=^|[\s«(>\u00a0])([а-яёА-ЯЁ]{1,2}|без|для|что|как|под|при|про|обо|его|её|им) (?=\S)/g, '$1' + NBSP)
+      .replace(/(^|[\s>\u00a0«(])([а-яёА-ЯЁ]+-[а-яёА-ЯЁ]+)(?![^<]*>)/g, '$1<span class="nw">$2</span>');
+  }
+  function introTitle(title, accent) {
+    const t = typo(esc(title));
+    if (!accent) return t;
+    const src = esc(accent).trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '[ \\u00a0]');
+    return t.replace(new RegExp(src), m => '<span class="acc">' + m + '</span>')
+      .replace(/([а-яёА-ЯЁ]+-[а-яёА-ЯЁ]+)/g, '<span style="white-space:nowrap">$1</span>');
+  }
+  // «87% женщин …» → крупная цифра + остальной текст (слова те же)
+  function introLead(lead) {
+    const e = esc(lead).trim(), m = e.match(/^(\d+\s?%)\s+(.*)$/);
+    return m ? { num: m[1], rest: typo(m[2]) } : { num: '', rest: typo(e) };
+  }
+  // «Хорошая девочка»: удобная… → заголовок пункта (в кавычках) + пояснение
+  function introScen(s) {
+    const e = esc(s).trim(), m = e.match(/^(«[^»]*»:?)\s*(.*)$/);
+    return m ? { h: m[1], d: typo(m[2]) } : { h: '', d: typo(e) };
+  }
+  function introAva(a, cls) {
+    return `<span class="${cls}"><span class="ava-in">${ICON.user}${imgTag(a.avatar || a.photoPortrait || a.photoWide)}</span></span>`;
+  }
+  function bindIntro() {
+    document.getElementById('startBtn').addEventListener('click', () => {
+      track('quiz_start');
+      go('q1');
+    });
+    afterFixedRender('Экран 1');
+  }
+
+  const IA_IC = [
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.6 9.6h.01M15.4 9.6h.01M8.5 15h7M10 13.8v2.4M12 13.8v2.4M14 13.8v2.4"/></svg>',
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M5.6 5.6l3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6"/></svg>',
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5v19M3.8 7.2l16.4 9.6M20.2 7.2L3.8 16.8M9.3 4.2L12 6l2.7-1.8M9.3 19.8L12 18l2.7 1.8"/></svg>',
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 5.1a5.2 5.2 0 0 0-7.4 0L12 6.2l-1-1.1a5.2 5.2 0 0 0-7.4 7.4l1 1L12 20.8l7.4-7.3 1-1a5.2 5.2 0 0 0 0-7.4z"/><path d="M12.6 6.6l-2 3.8 3 1.8-2 3.8"/></svg>'
+  ];
+  function renderIntro() {
+    setMode('fixed');
+    const a = CONFIG.author, i = CONFIG.intro, ld = introLead(i.lead);
+    app.innerHTML = `
+<section class="screen ia" data-label="Экран 1">
+  <div class="ia-r">
+    <div class="ia-plate">
+      ${introAva(a, 'ia-ava')}
+      <span class="ia-who"><b>${esc(a.name)}</b><span>${esc(a.answers)}</span></span>
+      <span class="ia-glow" aria-hidden="true"></span>
+    </div>
+    <div class="ia-scen">
+      <p class="ia-lead"><span class="lt">${ld.num ? `<b class="num">${ld.num}</b> ` : ''}${ld.rest}</span></p>
+      <ul class="ia-cards">
+        ${i.scenarios.map((s, k) => { const c = introScen(s); return `<li class="c${k % 4 + 1}"><span class="ia-ic">${IA_IC[k % 4]}</span><p>${c.h ? `<b>${c.h}</b> <span>${c.d}</span>` : `<b>${c.d}</b>`}</p></li>`; }).join('')}
+      </ul>
+    </div>
+  </div>
+  <div class="ia-l">
+    <div class="ia-head">
+      <p class="ia-pill"><span>${typo(esc(i.badge))}</span></p>
+      <h1 class="ia-h1">${introTitle(i.title, i.titleAccent)}</h1>
+    </div>
+    <div class="ia-cta">
+      <button type="button" class="btn btn-primary" id="startBtn"><span class="bt">${typo(esc(i.button))}</span>${ARROW}</button>
+      <p class="ia-note">${typo(esc(i.note))}</p>
+    </div>
+  </div>
+</section>`;
+    bindIntro();
+  }
+
+  // ---------- rendering: вопрос ----------
+  let lock = false;
+
+  function renderQuestion(n) {
+    setMode('fixed');
+    const q = CONFIG.questions[n - 1];
+    const pct = TOTAL > 1
+      ? Math.round(CONFIG.ui.progressStart + (n - 1) * (CONFIG.ui.progressEnd - CONFIG.ui.progressStart) / (TOTAL - 1))
+      : 100;
+    const counter = CONFIG.ui.counter.replace('{n}', n).replace('{total}', TOTAL);
+    const selected = state.answers[n];
+    app.innerHTML = `
+<section class="screen s-q x-bg" data-label="Экран ${n + 1} (вопрос ${n})">
+  <div class="qbar">
+    <button type="button" class="back${n === 1 ? ' ghost' : ''}" id="backBtn" aria-label="${esc(CONFIG.ui.back)}"${n === 1 ? ' tabindex="-1"' : ''}>${ICON.back}</button>
+    <div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}"><div class="prog-fill" style="width:${pct}%"></div></div>
+    <span class="qcount x-pill">${esc(counter)}</span>
+  </div>
+  <div class="qbody">
+    <h2 class="qtext x-h1">${tp(esc(q.text))}</h2>
+    <div class="opts" role="radiogroup" aria-label="${esc(q.text)}">
+      ${q.options.map((o, idx) => `
+      <button type="button" class="opt${selected === idx ? ' sel' : ''}" role="radio" aria-checked="${selected === idx}" data-idx="${idx}">
+        <span class="radio x-ic" aria-hidden="true"></span><span class="opt-text">${tp(esc(o.t))}</span>
+      </button>`).join('')}
+    </div>
+  </div>
+</section>`;
+    if (n > 1) document.getElementById('backBtn').addEventListener('click', () => go('q' + (n - 1)));
+    app.querySelectorAll('.opt').forEach(btn => {
+      btn.addEventListener('click', () => select(n, Number(btn.dataset.idx), btn));
+    });
+    lock = false;
+    afterFixedRender('Экран ' + (n + 1) + ' (вопрос ' + n + ')');
+  }
+
+  function select(n, idx, btn) {
+    if (lock) return;
+    lock = true;
+    app.querySelectorAll('.opt').forEach(b => { b.classList.remove('sel'); b.setAttribute('aria-checked', 'false'); });
+    btn.classList.add('sel');
+    btn.setAttribute('aria-checked', 'true');
+    const opt = CONFIG.questions[n - 1].options[idx];
+    state.answers[n] = idx;
+    if (n === 1) state.status = opt.t;               // вопрос 1 — статус отношений, в подсчёте не участвует
+    saveState();
+    track('q' + n + '_answer', { option: idx + 1, key: opt.k || null, text: opt.t });
+    setTimeout(() => { lock = false; advance(n); }, 300);
+  }
+
+  function advance(n) {
+    const target = n === TOTAL ? 'result' : 'q' + (n + 1);
+    const loader = CONFIG.loaders[n];
+    if (loader && !fastMode) {
+      state.step = target;                            // при перезагрузке во время загрузки попадём сразу на следующий шаг
+      saveState();
+      renderLoader(n, () => go(target));
+    } else {
+      go(target);
+    }
+  }
+
+  // ---------- rendering: загрузка ----------
+  let loaderTimers = [];
+  function clearLoaderTimers() { loaderTimers.forEach(clearTimeout); loaderTimers = []; }
+
+  function renderLoader(n, done, opts) {
+    opts = opts || {};
+    setMode('fixed');
+    clearLoaderTimers();
+    const L = CONFIG.loaders[n];
+    const label = 'Экран загрузки после вопроса ' + n;
+    app.innerHTML = `
+<section class="screen s-load x-bg" data-label="${esc(label)}" aria-live="polite">
+  <div class="load-box">
+    <div class="spinner" aria-hidden="true"></div>
+    <h2 class="load-title x-h1">${tp(esc(L.title))}</h2>
+    ${L.items.length ? `<ul class="checks">${L.items.map(t => `<li${opts.static ? ' class="on"' : ''}><span class="x-ic" aria-hidden="true"><span class="x-ck"></span></span><span>${tp(esc(t))}</span></li>`).join('')}</ul>` : ''}
+  </div>
+</section>`;
+    afterFixedRender(label);
+    if (opts.static) return;
+    const items = app.querySelectorAll('.checks li');
+    const count = items.length;
+    // пункты появляются последовательно, последний — примерно за 1 с до конца
+    items.forEach((li, i) => {
+      const t = Math.round((L.duration - 900) * (i + 1) / (count + 0.6));
+      loaderTimers.push(setTimeout(() => li.classList.add('on'), t));
+    });
+    loaderTimers.push(setTimeout(() => { clearLoaderTimers(); done(); }, L.duration));
+  }
+
+  // ---------- подсчёт результата ----------
+  function computeResult() {
+    const counts = {};
+    CONFIG.scoring.priority.forEach(k => { counts[k] = 0; });
+    for (let n = 2; n <= TOTAL; n++) {
+      const idx = state.answers[n];
+      if (idx == null) continue;
+      const o = CONFIG.questions[n - 1].options[idx];
+      if (o && o.k) counts[o.k] = (counts[o.k] || 0) + 1;
+    }
+    let best = null;
+    CONFIG.scoring.priority.forEach(k => {       // строгое «больше» ⇒ при равенстве побеждает более ранний в priority
+      if (best === null || counts[k] > counts[best]) best = k;
+    });
+    return { code: best, counts };
+  }
+
+  // ---------- rendering: результат ----------
+  let timerInt = null;
+  let io = null;
+  let fitTicket = null;
+
+  // Ключ расшифровки: тип (computeResult) + положение из вопроса 1 (0 Замужем … 4 Всё сложно). N — одна на все положения.
+  function resultKey(code) {
+    if (code === 'N') return 'N';
+    const pos = Number(state.answers[1]);
+    const p = Number.isInteger(pos) && pos >= 0 && pos <= 4 ? pos : 0;
+    return CONFIG.results[code + p] ? code + p : (CONFIG.results[code + '0'] ? code + '0' : 'S0');
+  }
+
+  function renderResult() {
+    setMode('scroll');
+    clearLoaderTimers();
+    const { code, counts } = computeResult();
+    const key = resultKey(code);
+    const R = CONFIG.results[key] || CONFIG.results.S0;
+    const O = CONFIG.offer;
+
+    // rich(): строки расшифровки могут содержать <b>…</b> — пропускаем только эти теги; tx(): то же + неразрывные пробелы
+    const rich = (s) => esc(s).replace(/&lt;(\/?b)( class=&quot;acc&quot;)?&gt;/g, (m, tag, cls) => `<${tag}${cls ? ' class="acc"' : ''}>`);
+    const tx = (s) => tp(rich(s));
+    const ICK = '<span class="x-ic" aria-hidden="true"><span class="x-ck"></span></span>';
+    const renderBlock = (b) => {
+      switch (b.type) {
+        case 'lead':    return `<p class="lead-p">${tx(b.text)}</p>`;
+        case 'p':       return `<p>${tx(b.text)}</p>`;
+        case 'cards':   return `<ul class="cards blk">${b.items.map(t => `<li>${ICK}<span>${tx(t)}</span></li>`).join('')}</ul>`;
+        case 'callout': return `<div class="callout blk"><span class="x-ic" aria-hidden="true">${ICON.heart}</span><p>${tx(b.text)}</p></div>`;
+        case 'pair':    return `<div class="pair blk">${b.items.map(c => `<div class="pc ${c.tone === 'bad' ? 'bad' : 'good'}">${tx(c.text)}</div>`).join('')}</div>`;
+        case 'pull':    return `<blockquote class="pull">${tx(b.text)}</blockquote>`;
+        case 'quotes':  return `<div class="quotes blk">${b.items.map(t => `<blockquote>${tx(t)}</blockquote>`).join('')}</div>`;
+        default:        return '';
+      }
+    };
+    // цифры в тексте плашки — Unbounded, как «87%» на экране 1 (слова те же)
+    const plateNum = (s) => tp(esc(s)).replace(/(^|[\s ])(\d+)(?=[\s ]|$)/g, '$1<b class="num">$2</b>');
+    const BANDS = ['b-white', 'b-beige', 'b-white', 'b-dark'];
+    const partsHtml = R.parts.map((p, i) => {
+      // «Часть 3. Заголовок» → строка-подпись «Часть 3» + заголовок (слова те же, только разнесены)
+      const m = /^(Часть\s+\d+)\.?\s*(.*)$/.exec(p.heading || '');
+      const head = m
+        ? `<p class="kick"><span>${plateNum(m[1])}</span></p>${m[2] ? `<h2>${tp(esc(m[2]))}</h2>` : ''}`
+        : (p.heading ? `<h2>${tp(esc(p.heading))}</h2>` : '');
+      return `<section class="part band ${BANDS[i % BANDS.length]}"><div class="band-in">${head}${p.blocks.map(renderBlock).join('')}</div></section>`;
+    }).join('');
+    const hasVideo = !!(CONFIG.video && CONFIG.video.embedUrl);
+
+    app.innerHTML = `
+<section class="screen s-result" data-label="Экран результата" data-key="${esc(key)}">
+  <header class="res-head band b-light" id="resHead">
+    <div class="band-in">
+      <p class="kick eyebrow">${esc(CONFIG.resultScreen.eyebrow)}</p>
+      <h1 class="res-title"><span class="gl">${tp(esc(R.name))}</span></h1>
+      ${hasVideo ? `<p class="res-hint">${tp(esc(CONFIG.resultScreen.hint))}</p>
+      <button type="button" class="video" id="video" aria-label="Видео">${imgTag(CONFIG.author.photoPortrait, 'video-bg')}<span class="play" aria-hidden="true">${ICON.play}</span></button>` : ''}
+    </div>
+  </header>
+  <article class="res-body">${partsHtml}</article>
+  <section class="offer band b-light" id="offer">
+    <div class="band-in">
+      <h2>${tp(esc(O.title))}</h2>
+      <p class="offer-sub">${plateNum(O.subtitle)}</p>
+      <ul class="locked">${O.locked.map(t => `<li><span class="lk" aria-hidden="true">${ICON.lock}</span><span>${tp(esc(t))}</span></li>`).join('')}</ul>
+      <p class="text">${tp(esc(O.practicumIntro))}</p>
+      <div class="pname"><span class="lk" aria-hidden="true">${ICON.calendar}</span><p>${tp(esc(O.practicumName))}</p></div>
+      <p class="text">${tp(rich(O.promoText))}</p>
+      <div class="tk-wrap">
+        <div class="promo tk" id="tk">
+          <div class="tk-stub" aria-hidden="true"><span class="tk-logo"></span><span class="tk-k">${esc(CONFIG.author.name)}</span></div>
+          <div class="tk-main">
+            <code class="tk-code" id="promoCode">${esc(R.promo)}</code>
+            <button type="button" class="copy" id="copyBtn">${ICON.copy}<span id="copyText">${esc(O.copyLabel)}</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="timer-wrap">
+        <div class="timer" id="timer" aria-live="off">${pad2(O.timerMinutes)}:00</div>
+        <p class="timer-note" id="timerNote" hidden></p>
+      </div>
+      <a class="btn btn-primary" id="ctaMain" href="${esc(O.mainUrl || '#register')}"><span>${tp(esc(O.mainButton))}</span>${ARROW}</a>
+      <a class="btn btn-secondary" id="ctaSecondary" href="${esc(withUtm(O.secondaryUrl)) || '#'}"><span>${tp(esc(O.secondaryButton))}</span></a>
+    </div>
+  </section>
+</section>`;
+    currentResult = { key, name: R.name };
+    window.scrollTo(0, 0);
+    track('result_view_' + code, { counts, status: state.status, result: key });
+
+    // видео
+    const videoEl = document.getElementById('video');
+    if (videoEl) videoEl.addEventListener('click', function () {
+      track('video_click');
+      if (CONFIG.video.embedUrl) {
+        this.innerHTML = `<iframe src="${esc(CONFIG.video.embedUrl)}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Видео"></iframe>`;
+        this.style.cursor = 'default';
+      }
+    }, { once: true });
+
+    // промокод
+    document.getElementById('copyBtn').addEventListener('click', () => copyPromo(R.promo));
+    // билет: код всегда в одну строку — кегль уменьшается, пока код не поместится в рамку
+    fitTicket = () => {
+      // название результата: длинное слово (СПАСАТЕЛЬНИЦА) не должно вылезать — уменьшаем кегль
+      const t = app.querySelector('.res-title');
+      if (t) {
+        t.style.fontSize = '';
+        let tf = parseFloat(getComputedStyle(t).fontSize);
+        while (tf > 18 && t.scrollWidth > t.clientWidth + 0.5) { tf -= 1; t.style.fontSize = tf + 'px'; }
+      }
+      const c = document.getElementById('promoCode');
+      if (!c || !c.isConnected) return;
+      let fs = 26;
+      c.style.fontSize = fs + 'px';
+      while (fs > 13 && c.scrollWidth > c.clientWidth + 0.5) { fs -= 0.5; c.style.fontSize = fs + 'px'; }
+    };
+    fitTicket();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => fitTicket && fitTicket());
+
+    // кнопки: «Открыть полную расшифровку» → попап регистрации; «Подробнее…» → сайт практикума ниже оффера
+    bindCta('ctaMain', 'cta_main_click', O.mainUrl);
+    const sec = document.getElementById('ctaSecondary');
+    sec.addEventListener('click', (e) => {
+      track('cta_secondary_click', { href: sec.href });
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return;   // в новой вкладке — как обычная ссылка
+      e.preventDefault();
+      if (O.secondaryUrl) openPracticum(withUtm(O.secondaryUrl));
+    });
+
+    // липкая панель: та же кнопка — тот же попап
+    document.getElementById('stickyBtnText').textContent = O.mainButton;
+    document.getElementById('stickyBtn').onclick = () => { track('cta_sticky_click'); openRegister('sticky'); };
+    initSticky();
+    initTimer();
+  }
+
+  let fitRaf = 0;
+  window.addEventListener('resize', () => {
+    cancelAnimationFrame(fitRaf);
+    fitRaf = requestAnimationFrame(() => { if (fitTicket) fitTicket(); });
+  });
+
+  // ---------- сайт практикума: продолжение страницы под оффером ----------
+  // Встроенный iframe той же страницы (secondaryUrl, тот же домен) без рамок и без своего скролла:
+  // высота iframe = высоте документа внутри. vh/svh внутри сайта пересчитываются в px от высоты окна квиза,
+  // иначе высота «100vh» росла бы вместе с iframe. Кнопки регистрации сайта открывают попап квиза.
+  let nrSec = null, nrRO = null, nrTimer = 0, nrUrl = '';
+  function openPracticum(url) {
+    if (nrSec && nrSec.isConnected && nrUrl === url) { scrollToPracticum(); return; }
+    closePracticumInline();
+    nrUrl = url;
+    nrSec = document.createElement('section');
+    nrSec.id = 'practicum';
+    nrSec.className = 'nr-inline loading';
+    nrSec.setAttribute('aria-label', CONFIG.offer.secondaryButton);
+    nrSec.innerHTML = `<iframe id="nrFrame" title="${esc(CONFIG.offer.secondaryButton)}" scrolling="no" allow="autoplay; fullscreen; clipboard-write; payment" allowfullscreen></iframe>`;
+    document.body.insertBefore(nrSec, document.getElementById('sticky'));
+    const fr = nrSec.querySelector('iframe');
+    fr.addEventListener('load', () => { nrSec && nrSec.classList.remove('loading'); setupPracticumFrame(fr); });
+    fr.setAttribute('src', url);
+    track('practicum_inline_open');
+    requestAnimationFrame(scrollToPracticum);
+  }
+  function scrollToPracticum() {
+    if (!nrSec) return;
+    const top = nrSec.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+  function closePracticumInline() {
+    if (nrRO) { nrRO.disconnect(); nrRO = null; }
+    clearInterval(nrTimer); nrTimer = 0;
+    if (nrSec) nrSec.remove();
+    nrSec = null; nrUrl = '';
+  }
+  function setupPracticumFrame(fr) {
+    let doc, win;
+    try { win = fr.contentWindow; doc = fr.contentDocument; if (!doc || !doc.documentElement) throw 0; void doc.body; }
+    catch (e) {
+      // другой домен: прочитать высоту нельзя — запасной вариант, iframe высотой в экран со своим скроллом
+      fr.removeAttribute('scrolling'); fr.style.height = getComputedStyle(document.documentElement).getPropertyValue('--vh0') || '100vh';
+      return;
+    }
+    const H = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--vh0')) || window.innerHeight;
+    // 1) vh/svh/dvh и @media (min|max-height) внутри сайта → px от высоты окна квиза
+    const vhToPx = (v) => v.replace(/(-?\d*\.?\d+)(?:s|d|l)?vh\b/g, (m, n) => (parseFloat(n) * H / 100).toFixed(2) + 'px');
+    const fixMedia = (t) => t.replace(/\(\s*(min|max)-height\s*:\s*(\d*\.?\d+)px\s*\)/g, (m, mm, n) =>
+      ((mm === 'min' ? H >= +n : H <= +n) ? '(min-width:0px)' : '(max-width:0px)'));
+    const fixRules = (rules) => {
+      for (const r of Array.from(rules || [])) {
+        if (r.media && /height/.test(r.media.mediaText)) { try { r.media.mediaText = fixMedia(r.media.mediaText); } catch (e) { /* no-op */ } }
+        if (r.style) {
+          for (let i = 0; i < r.style.length; i++) {
+            const prop = r.style[i], val = r.style.getPropertyValue(prop);
+            if (/vh\b/.test(val)) r.style.setProperty(prop, vhToPx(val), r.style.getPropertyPriority(prop));
+          }
+        }
+        if (r.cssRules) fixRules(r.cssRules);
+      }
+    };
+    const fixAll = () => {
+      for (const sh of Array.from(doc.styleSheets)) { try { if (!sh.__kl) { fixRules(sh.cssRules); sh.__kl = 1; } } catch (e) { /* чужой CSS (шрифты) */ } }
+      doc.querySelectorAll('[style*="vh"]').forEach(el => el.setAttribute('style', vhToPx(el.getAttribute('style'))));
+    };
+    fixAll();
+    // 2) шапка и нижняя панель сайта position:fixed — внутри iframe без скролла они бы висели; их макет-попап не нужен
+    const st = doc.createElement('style');
+    st.textContent = 'html,body{overflow:hidden!important;height:auto!important;scroll-behavior:auto!important}' +
+      '.hd,header.hd,.sbar,#md{display:none!important}' +
+      '*,*::before,*::after{font-style:normal!important;font-synthesis:none!important}';
+    doc.head.appendChild(st);
+    try { Object.defineProperty(win, 'innerHeight', { configurable: true, get: () => H }); win.dispatchEvent(new win.Event('resize')); } catch (e) { /* no-op */ }
+    // 3) кнопки регистрации сайта ([data-open]) → попап регистрации квиза
+    doc.addEventListener('click', (e) => {
+      const b = e.target.closest && e.target.closest('[data-open]');
+      if (!b) return;
+      e.preventDefault(); e.stopImmediatePropagation();
+      track('practicum_site_register_click', { text: (b.textContent || '').trim().slice(0, 60) });
+      openRegister('practicum_site');
+    }, true);
+    doc.addEventListener('keydown', (e) => { if (e.key === 'Escape' && rg && !rg.hidden) closeRegister(); });
+    // 4) высота iframe = высоте документа внутри
+    let last = 0;
+    const fit = () => {
+      if (!fr.isConnected) return;
+      fixAll();
+      const de = doc.documentElement, bd = doc.body;
+      const h = Math.ceil(Math.max(de.scrollHeight, bd ? bd.scrollHeight : 0, de.getBoundingClientRect().height));
+      if (h && Math.abs(h - last) > 1) { last = h; fr.style.height = h + 'px'; }
+    };
+    fit();
+    if ('ResizeObserver' in win) { nrRO = new win.ResizeObserver(fit); nrRO.observe(doc.documentElement); if (doc.body) nrRO.observe(doc.body); }
+    let n = 0; clearInterval(nrTimer);
+    nrTimer = setInterval(() => { fit(); if (++n > 40) { clearInterval(nrTimer); nrTimer = 0; } }, 500);
+    doc.querySelectorAll('img').forEach(im => { if (!im.complete) im.addEventListener('load', fit, { once: true }); });
+    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(fit);
+  }
+
+  // ---------- окно регистрации на практикум (форма GetCourse) ----------
+  // Форма — та же, что на лендинге практикума. Отправка обычная, в верхнее окно (target="_top"):
+  // GetCourse сам переводит на страницу «Спасибо» практикума. Перед отправкой результат теста
+  // кладётся в localStorage (kl_reg), чтобы страница «Спасибо» / бот знали, какую расшифровку прислать.
+  let rg = null, rgPrevFocus = null, rgSent = false, currentResult = null;
+  const REG_KEY = 'kl_reg';
+  function rgFormHtml() {
+    const O = CONFIG.offer;
+    return `
+    <h2 class="rg-h" id="rgTitle">${tp(esc(O.registerTitle))}</h2>
+    <p class="rg-note">${tp(esc(O.registerNote))}</p>
+    <form id="rgForm" class="rg-form" action="https://doctor-saba.com/pl/lite/block-public/process-html?id=2256829325" method="post" accept-charset="UTF-8" target="_top">
+      <input type="hidden" name="formParams[setted_offer_id]" value="">
+      <input type="hidden" name="formParams[willCreatePaidDeal]" value="">
+      <input type="hidden" name="__gc__internal__form__helper" id="rgLoc" value="">
+      <input type="hidden" name="__gc__internal__form__helper_ref" id="rgRef" value="">
+      <input type="hidden" name="requestTime" value="1792414165">
+      <input type="hidden" name="requestSimpleSign" value="e8c55248f71272eea73c01cb5f9d6ef5">
+      <input type="hidden" name="isHtmlWidget" value="1">
+      <input type="text" name="formParams[full_name]" id="rgName" maxlength="60" placeholder="Введите ваше имя" autocomplete="given-name" required>
+      <input type="email" name="formParams[email]" id="rgEmail" maxlength="60" placeholder="Введите ваш e-mail" autocomplete="email" required>
+      <input type="tel" name="formParams[phone]" id="rgPhone" maxlength="24" inputmode="tel" placeholder="Введите ваш телефон" autocomplete="tel" required>
+      <label class="rg-ck"><input type="checkbox" name="pdpConfirmCheckbox" required><span>Я&nbsp;<a href="https://doctor-saba.com/doctor-saba-soglasie-na-opd" target="_blank" rel="noopener">согласен</a> на&nbsp;обработку моих персональных данных в&nbsp;соответствии с&nbsp;<a href="https://doctor-saba.com/doctor-saba-politika-opd" target="_blank" rel="noopener">Политикой обработки персональных&nbsp;данных</a></span></label>
+      <label class="rg-ck"><input type="checkbox" name="confirmMailingCheckbox"><span>Даю <a href="https://doctor-saba.com/doctor-saba-soglasie-na-reklamu" target="_blank" rel="noopener">согласие</a> на&nbsp;получение информационных и&nbsp;маркетинговых рассылок (можно отказаться в&nbsp;любой момент в&nbsp;личном&nbsp;кабинете)</span></label>
+      <button type="submit" class="btn btn-primary" id="rgSubmit"><span>${tp(esc(O.registerButton || 'Записаться на практикум'))}</span>${ARROW}</button>
+    </form>`;
+  }
+  function buildRegister() {
+    rg = document.createElement('div');
+    rg.id = 'rg';
+    rg.className = 'rg';
+    rg.hidden = true;
+    rg.innerHTML = `<div class="rg-box" role="dialog" aria-modal="true" aria-labelledby="rgTitle">
+      <button type="button" class="rg-x" id="rgClose" aria-label="Закрыть">${ICON.close}</button>
+      <div class="rg-body" id="rgBody">${rgFormHtml()}</div>
+    </div>`;
+    document.body.appendChild(rg);
+    rg.querySelector('#rgClose').addEventListener('click', closeRegister);
+    rg.addEventListener('click', (e) => { if (e.target === rg) closeRegister(); });
+    bindRegisterForm();
+  }
+  function bindRegisterForm() {
+    const f = document.getElementById('rgForm');
+    document.getElementById('rgLoc').value = location.href;
+    document.getElementById('rgRef').value = document.referrer;
+    // маска телефона — как в виджете GetCourse
+    const ph = document.getElementById('rgPhone');
+    const fmt = (v) => {
+      let d = v.replace(/\D/g, '').slice(0, 15); if (!d) return '+'; if (d[0] === '8') d = '7' + d.slice(1);
+      if (d[0] === '7') { d = d.slice(0, 11); const a = d.slice(1, 4), b = d.slice(4, 7), c = d.slice(7, 9), e = d.slice(9, 11);
+        return '+7' + (a ? ' (' + a : '') + (b ? ') ' + b : '') + (c ? '-' + c : '') + (e ? '-' + e : ''); }
+      return '+' + d;
+    };
+    ph.addEventListener('focus', () => { if (!ph.value) ph.value = '+'; });
+    ph.addEventListener('blur', () => { if (ph.value === '+') ph.value = ''; });
+    ph.addEventListener('input', () => { ph.value = fmt(ph.value); const n = ph.value.replace(/\D/g, '').length; ph.setCustomValidity(n >= 10 ? '' : 'Введите телефон полностью, с кодом страны'); });
+    f.addEventListener('submit', (e) => {
+      if (rgSent) { e.preventDefault(); return; }               // второй раз не отправляем
+      rgSent = true;
+      document.getElementById('rgSubmit').setAttribute('aria-busy', 'true');
+      document.getElementById('rgLoc').value = location.href;
+      const key = String((currentResult && currentResult.key) || 'N').toLowerCase();
+      const email = String(document.getElementById('rgEmail').value || '').trim().toLowerCase();
+      try {
+        localStorage.setItem(REG_KEY, JSON.stringify({ key, name: (currentResult && currentResult.name) || '', email, ts: Date.now() }));
+      } catch (err) { /* storage недоступен — регистрация всё равно уходит */ }
+      track('register_submit', { result: key });
+    });
+  }
+  // вернулись кнопкой «Назад» со страницы «Спасибо» — форму можно отправить снова
+  window.addEventListener('pageshow', (e) => {
+    if (!e.persisted || !rg) return;
+    rgSent = false;
+    const b = document.getElementById('rgSubmit'); if (b) b.removeAttribute('aria-busy');
+  });
+  function openRegister(from) {
+    if (!rg) buildRegister();
+    if (!rg.hidden) return;
+    rgPrevFocus = document.activeElement;
+    rg.hidden = false;
+    document.documentElement.classList.add('rg-open');
+    hideSticky();
+    requestAnimationFrame(() => rg.classList.add('on'));
+    const box = rg.querySelector('.rg-box'); if (box) box.scrollTop = 0;
+    const first = rg.querySelector('#rgForm input:not([type=hidden])');
+    if (first) setTimeout(() => first.focus({ preventScroll: true }), 30);
+    track('register_open', { from: from || 'cta', result: currentResult && currentResult.key });
+  }
+  function closeRegister() {
+    if (!rg || rg.hidden) return;
+    rg.classList.remove('on');
+    rg.hidden = true;
+    document.documentElement.classList.remove('rg-open');
+    if (rgPrevFocus && rgPrevFocus.focus && rgPrevFocus.ownerDocument === document) rgPrevFocus.focus({ preventScroll: true });
+    if (document.getElementById('offer')) initSticky();
+  }
+  window.addEventListener('keydown', (e) => {
+    if (!rg || rg.hidden) return;
+    if (e.key === 'Escape') { e.preventDefault(); closeRegister(); return; }
+    if (e.key === 'Tab') {                                   // фокус не уходит из попапа
+      const f = Array.from(rg.querySelectorAll('.rg-box a[href],.rg-box button,.rg-box input:not([type=hidden])')).filter(x => x.offsetParent);
+      if (!f.length) return;
+      const i = f.indexOf(document.activeElement);
+      if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+      else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+    }
+  });
+
+  function bindCta(id, event, url) {
+    const el = document.getElementById(id);
+    el.addEventListener('click', (e) => {
+      track(event, { href: el.href });
+      if (!url || url.charAt(0) === '#') { e.preventDefault(); openRegister(id); }
+    });
+  }
+
+  function copyPromo(code) {
+    const btn = document.getElementById('copyBtn');
+    const done = () => {
+      const t = document.getElementById('copyText') || btn;
+      t.textContent = CONFIG.offer.copiedLabel;
+      btn.classList.add('done');
+      setTimeout(() => { t.textContent = CONFIG.offer.copyLabel; btn.classList.remove('done'); }, 1800);
+    };
+    track('promo_copy', { promo: code });
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(done, () => fallbackCopy(code, done));
+    } else fallbackCopy(code, done);
+  }
+  function fallbackCopy(text, done) {
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch (e) { /* no-op */ }
+    document.body.removeChild(ta);
+    done();
+  }
+
+  // ---------- таймер ----------
+  // Отсчёт стартует, когда сам таймер впервые виден на экране хотя бы на 50 %. До этого — полное время.
+  // Время старта — в sessionStorage, перезагрузка его не сбрасывает.
+  let timerIO = null;
+  const timerFull = () => pad2(CONFIG.offer.timerMinutes) + ':00';
+  function initTimer() {
+    if (timerInt) { clearInterval(timerInt); timerInt = null; }
+    if (timerIO) { timerIO.disconnect(); timerIO = null; }
+    let start = 0;
+    try { start = Number(sessionStorage.getItem(TIMER_KEY)) || 0; } catch (e) { /* no-op */ }
+    if (start) { startTimer(start); return; }
+    const t2 = document.getElementById('stickyTimer');
+    if (t2) { t2.textContent = timerFull(); t2.classList.remove('expired'); }
+    const t1 = document.getElementById('timer');
+    if (!t1 || !('IntersectionObserver' in window)) { startTimer(0); return; }
+    timerIO = new IntersectionObserver((entries) => {
+      if (!entries.some(e => e.isIntersecting && e.intersectionRatio >= 0.5)) return;
+      timerIO.disconnect(); timerIO = null;
+      track('timer_start');
+      startTimer(0);
+    }, { threshold: [0.5] });
+    timerIO.observe(t1);
+  }
+  function startTimer(start) {
+    if (timerInt) clearInterval(timerInt);
+    if (!start) {
+      start = Date.now();
+      try { sessionStorage.setItem(TIMER_KEY, String(start)); } catch (e) { /* no-op */ }
+    }
+    const end = start + CONFIG.offer.timerMinutes * 60 * 1000;
+    const tick = () => {
+      const left = Math.max(0, end - Date.now());
+      const m = Math.floor(left / 60000), s = Math.floor((left % 60000) / 1000);
+      const text = pad2(m) + ':' + pad2(s);
+      const t1 = document.getElementById('timer'), t2 = document.getElementById('stickyTimer');
+      if (t1) t1.textContent = text;
+      if (t2) t2.textContent = text;
+      if (left <= 0) { clearInterval(timerInt); timerInt = null; onTimerExpired(); }
+    };
+    tick();
+    if (end > Date.now()) timerInt = setInterval(tick, 1000);
+  }
+  function onTimerExpired() {
+    const t1 = document.getElementById('timer'), note = document.getElementById('timerNote');
+    if (t1) t1.classList.add('expired');
+    const t2 = document.getElementById('stickyTimer');
+    if (t2) t2.classList.add('expired');
+    if (note && CONFIG.offer.expiredText) { note.textContent = CONFIG.offer.expiredText; note.hidden = false; }
+    // Здесь можно, например, скрыть промокод: document.querySelector('.promo').hidden = true;
+  }
+
+  // ---------- липкая панель ----------
+  let videoPassed = false, offerVisible = false;
+  function updateSticky() {
+    const on = videoPassed && !offerVisible;
+    const el = document.getElementById('sticky');
+    el.classList.toggle('on', on);
+    el.setAttribute('aria-hidden', on ? 'false' : 'true');
+  }
+  function hideSticky(reset) {
+    if (reset) { videoPassed = false; offerVisible = false; }
+    if (io) { io.disconnect(); io = null; }
+    updateSticky();
+  }
+  function initSticky() {
+    hideSticky(true);
+    const video = document.getElementById('resHead');
+    const offer = document.getElementById('offer');
+    if (!('IntersectionObserver' in window)) return;
+    io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.target === video) videoPassed = !e.isIntersecting && e.boundingClientRect.top < 0;
+        if (e.target === offer) offerVisible = e.isIntersecting;
+      });
+      updateSticky();
+    }, { threshold: 0, rootMargin: '0px 0px -72px 0px' });   // -72px: не считаем оффер видимым, пока он только под панелью
+    io.observe(video);
+    io.observe(offer);
+  }
+
+  // ---------- навигация ----------
+  let fastMode = false;
+
+  function go(step) {
+    state.step = step;
+    saveState();
+    render(step);
+  }
+  function render(step) {
+    clearLoaderTimers();
+    if (step !== 'result') { fitTicket = null; closePracticumInline(); closeRegister(); if (timerIO) { timerIO.disconnect(); timerIO = null; } }
+    if (step === 'intro') renderIntro();
+    else if (step === 'result') renderResult();
+    else if (/^q\d+$/.test(step)) {
+      const n = Number(step.slice(1));
+      if (n >= 1 && n <= TOTAL) renderQuestion(n); else renderIntro();
+    } else if (/^l\d+$/.test(step)) {             // только для debug-панели
+      const n = Number(step.slice(1));
+      if (CONFIG.loaders[n]) renderLoader(n, () => go(n === TOTAL ? 'result' : 'q' + (n + 1)));
+      else renderIntro();
+    } else renderIntro();
+  }
+
+  // ---------- проверка переполнения (debug) ----------
+  function measure() {
+    const el = app.querySelector('.screen');
+    if (!el) return null;
+    const over = Math.max(0, el.scrollHeight - el.clientHeight);
+    // «needed» — сколько высоты реально нужно контенту: от верха первого блока до низа последнего + поля.
+    // Фото на экране 1 тянется, поэтому считаем его по минимальной высоте — так виден настоящий запас.
+    const cs = getComputedStyle(el);
+    const kids = Array.from(el.children);
+    let needed = el.scrollHeight, photo = null;
+    if (kids.length) {
+      const rects = kids.map(k => k.getBoundingClientRect());
+      const top = Math.min.apply(null, rects.map(r => r.top));
+      const bottom = Math.max.apply(null, rects.map(r => r.bottom));
+      let extra = 0;
+      const ph = el.querySelector('.hero-ph');
+      if (ph) {
+        photo = Math.round(ph.getBoundingClientRect().height);
+        extra = Math.max(0, ph.getBoundingClientRect().height - (parseFloat(getComputedStyle(ph).minHeight) || 0));
+      }
+      needed = Math.ceil(bottom - top + parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom) - extra);
+    }
+    const res = { label: el.dataset.label || '?', scrollHeight: el.scrollHeight, clientHeight: el.clientHeight,
+             needed, slack: el.clientHeight - needed, overflow: over };
+    if (photo !== null) res.photo = photo;
+    return res;
+  }
+  function afterFixedRender(label) {
+    if (!DEBUG) return;
+    requestAnimationFrame(() => {
+      const m = measure();
+      if (!m) return;
+      const el = app.querySelector('.screen');
+      if (m.overflow > 0) {
+        el.classList.add('overflow');
+        console.error(label + ' переполнен на ' + m.overflow + ' px');
+      } else {
+        el.classList.remove('overflow');
+        console.log(label + ': ок, нужно ' + m.needed + ' из ' + m.clientHeight + ' px, запас ' + m.slack + ' px' + (m.photo != null ? ', фото ' + m.photo + ' px' : ''));
+      }
+      const st = document.getElementById('dbgStatus');
+      if (st) st.textContent = m.overflow > 0 ? ('ПЕРЕПОЛНЕНИЕ +' + m.overflow + 'px') : ('ок, запас ' + m.slack + 'px');
+    });
+  }
+  // повторная проверка, когда догрузятся веб-шрифты (до них замер идёт по системному шрифту)
+  if (DEBUG && document.fonts && document.fonts.addEventListener) {
+    document.fonts.addEventListener('loadingdone', () => {
+      const el = app.querySelector('.screen');
+      if (el && document.body.classList.contains('mode-fixed')) afterFixedRender(el.dataset.label);
+    });
+  }
+
+  // Прогнать все фиксированные экраны и вернуть замеры (не трогает state пользователя)
+  function checkAll() {
+    const saved = JSON.stringify(state);
+    const results = [];
+    const push = () => { const m = measure(); if (m) results.push(m); };
+    renderIntro(); push();
+    for (let n = 1; n <= TOTAL; n++) { renderQuestion(n); push(); }
+    Object.keys(CONFIG.loaders).forEach(n => { renderLoader(Number(n), () => {}, { static: true }); push(); });
+    Object.assign(state, JSON.parse(saved));
+    render(state.step);
+    results.forEach(r => {
+      if (r.overflow > 0) console.error(r.label + ' переполнен на ' + r.overflow + ' px');
+    });
+    return results;
+  }
+
+  // «Пройти как Спасательница»: «Замужем» в вопросе 1, первый вариант [S] в вопросах 2–10
+  function runAsS() {
+    fastMode = true;
+    state.answers = {};
+    state.status = null;
+    let n = 1;
+    const stepQ = () => {
+      if (n > TOTAL) { fastMode = false; return; }
+      renderQuestion(n);
+      state.step = 'q' + n; saveState();
+      const q = CONFIG.questions[n - 1];
+      let idx = n === 1 ? q.options.findIndex(o => o.t === 'Замужем') : q.options.findIndex(o => o.k === 'S');
+      if (idx < 0) idx = 0;
+      const btn = app.querySelector('.opt[data-idx="' + idx + '"]');
+      lock = false;
+      setTimeout(() => {
+        // select() сам сделает advance() через 300 мс; перехватываем, чтобы идти по цепочке без загрузок
+        select(n, idx, btn);
+        n++;
+        setTimeout(stepQ, 320);
+      }, 150);
+    };
+    stepQ();
+  }
+
+  function resetAll() {
+    try { sessionStorage.removeItem(SS_KEY); sessionStorage.removeItem(TIMER_KEY); } catch (e) { /* no-op */ }
+    state.step = 'intro'; state.answers = {}; state.status = null;
+    go('intro');
+  }
+
+  // ---------- debug-панель ----------
+  function initDebug() {
+    const screens = [['intro', 'Экран 1']];
+    for (let n = 1; n <= TOTAL; n++) {
+      screens.push(['q' + n, 'Вопрос ' + n]);
+      if (CONFIG.loaders[n]) screens.push(['l' + n, 'Загрузка после ' + n]);
+    }
+    screens.push(['result', 'Результат']);
+    const bar = document.createElement('div');
+    bar.id = 'dbg';
+    bar.innerHTML = `
+      <button type="button" class="tg" id="dbgToggle">debug</button>
+      <select id="dbgGo">${screens.map(s => `<option value="${s[0]}">${s[1]}</option>`).join('')}</select>
+      <button type="button" id="dbgCheck">Проверить все</button>
+      <button type="button" id="dbgRunS">Пройти как Спасательница</button>
+      <button type="button" id="dbgReset">Сброс</button>
+      <span class="st" id="dbgStatus"></span>`;
+    document.body.appendChild(bar);
+    const sel = bar.querySelector('#dbgGo');
+    sel.value = state.step;
+    sel.addEventListener('change', () => go(sel.value));
+    bar.querySelector('#dbgCheck').addEventListener('click', () => {
+      const res = checkAll();
+      const bad = res.filter(r => r.overflow > 0);
+      console.table(res);
+      document.getElementById('dbgStatus').textContent = bad.length
+        ? ('переполнено: ' + bad.map(b => b.label + ' +' + b.overflow + 'px').join('; '))
+        : ('все ' + res.length + ' экранов ок, ' + window.innerWidth + '×' + window.innerHeight);
+    });
+    bar.querySelector('#dbgRunS').addEventListener('click', runAsS);
+    bar.querySelector('#dbgReset').addEventListener('click', resetAll);
+    bar.querySelector('#dbgToggle').addEventListener('click', () => bar.classList.toggle('min'));
+  }
+
+  // ---------- РЕДАКТОР ТЕКСТОВ (?edit=1) ----------
+  // Все строки CONFIG показываются в панели; правки сразу видны на экране и хранятся в localStorage
+  // этого браузера. «Скачать index.html» собирает готовый файл с новыми текстами.
+  // Редактор открывается любым из способов: ?edit=1, #edit, Ctrl/Cmd+E, 5 быстрых тапов по подписи на фото (экран 1), по счётчику «Вопрос N из 10», по «Ваш результат» или названию результата
+  let EDIT = params.get('edit') === '1' || /(^|[#&])edit(=1)?($|&)/.test(location.hash);
+  const EDIT_KEY = 'kl_config_edit_v1';
+  const GROUP_NAMES = { author: 'Автор', intro: 'Экран 1', questions: 'Вопросы', loaders: 'Экраны загрузки',
+    resultScreen: 'Шапка результата', video: 'Видео', results: 'Результаты', offer: 'Оффер', ui: 'Интерфейс', scoring: 'Подсчёт' };
+  const FIELD_NAMES = { name: 'имя / название', answers: 'ответы', avatar: 'URL фото в круге (если пусто — портрет)', photoWide: 'URL широкого фото (запас)',
+    photoPortrait: 'URL портрета (круг на экране 1 и фон видео)', titleAccent: 'фраза заголовка, выделенная золотом', badge: 'бейдж', title: 'заголовок',
+    lead: 'лид', scenarios: 'сценарий', button: 'кнопка', note: 'подпись под кнопкой', text: 'текст', options: 'вариант',
+    t: 'текст', k: 'ключ', duration: 'длительность, мс', items: 'пункт', eyebrow: 'надпись сверху', hint: 'подсказка',
+    embedUrl: 'URL видео', promo: 'промокод', parts: 'часть', heading: 'заголовок', blocks: 'блок', quotes: 'цитата',
+    subtitle: 'подзаголовок', locked: 'пункт', practicumIntro: 'текст о практикуме', practicumName: 'название практикума',
+    promoText: 'текст о промокоде', copyLabel: 'кнопка копирования', copiedLabel: 'после копирования', timerMinutes: 'таймер, минут',
+    expiredText: 'после истечения таймера', mainButton: 'основная кнопка', mainUrl: 'URL основной кнопки (#register — попап регистрации)',
+    registerTitle: 'попап: заголовок', registerNote: 'попап: подпись под заголовком', registerButton: 'попап: кнопка формы',
+    secondaryButton: 'вторичная кнопка', secondaryUrl: 'URL вторичной кнопки', back: 'подпись «Назад»', counter: 'счётчик вопросов',
+    progressStart: 'прогресс на 1-м вопросе, %', progressEnd: 'прогресс на последнем, %', priority: 'приоритет', tone: 'тон (good/bad)', type: 'тип блока' };
+
+  function deepMerge(dst, src) {
+    Object.keys(src).forEach(k => {
+      if (src[k] && typeof src[k] === 'object' && dst[k] && typeof dst[k] === 'object') deepMerge(dst[k], src[k]);
+      else dst[k] = src[k];
+    });
+  }
+  function getPath(obj, path) { return path.reduce((o, k) => (o == null ? o : o[k]), obj); }
+  function setPath(obj, path, val) { const last = path[path.length - 1]; getPath(obj, path.slice(0, -1))[last] = val; }
+
+  // Путь в CONFIG → понятная подпись: questions.5.options.2.t → «вопрос 6 → вариант 3 → текст»
+  function labelFor(path) {
+    const out = [];
+    path.forEach((k, i) => {
+      const prev = path[i - 1];
+      if (prev === 'loaders') out.push('после вопроса ' + k);
+      else if (/^\d+$/.test(String(k))) {
+        const n = Number(k) + 1;
+        if (prev === 'questions') out.push('вопрос ' + n);
+        else { out.pop(); out.push((FIELD_NAMES[prev] || prev) + ' ' + n); }
+      }
+      else if (prev === 'results') out.push('результат ' + k);
+      else if (!(i === 0 && GROUP_NAMES[k])) out.push(FIELD_NAMES[k] || k);
+    });
+    return out.join(' → ');
+  }
+
+  function buildEditor() {
+    const panel = document.createElement('div');
+    panel.id = 'edit';
+    panel.innerHTML = `
+      <div class="edit-bar">
+        <b>Редактор текстов</b>
+        <button type="button" id="editToggle">свернуть</button>
+        <button type="button" id="editDownload" class="primary">Скачать index.html</button>
+        <button type="button" id="editCopy">Скопировать index.html</button>
+        <button type="button" id="editReset">Сбросить правки</button>
+        <button type="button" id="editRestart">Начать тест заново</button>
+        <span class="edit-hint">Правки видны сразу и сохраняются в этом браузере. Чтобы они попали на сайт — скачайте файл и замените им index.html.</span>
+      </div>
+      <div class="edit-body"></div>`;
+    document.body.appendChild(panel);
+    const body = panel.querySelector('.edit-body');
+
+    const walk = (obj, path, into) => {
+      Object.keys(obj).forEach(k => {
+        const v = obj[k], p = path.concat(k);
+        if (v && typeof v === 'object') { walk(v, p, into); return; }
+        if (typeof v !== 'string' && typeof v !== 'number') return;
+        const row = document.createElement('label');
+        row.className = 'edit-row';
+        const long = typeof v === 'string' && (v.length > 48 || /<b/.test(v));
+        row.innerHTML = `<span class="edit-label">${esc(labelFor(p))}</span>` +
+          (long ? `<textarea rows="${Math.min(8, Math.ceil(v.length / 55) + 1)}"></textarea>`
+                : `<input type="${typeof v === 'number' ? 'number' : 'text'}">`);
+        const field = row.querySelector('textarea,input');
+        field.value = v;
+        field.addEventListener('input', () => {
+          setPath(CONFIG, p, typeof v === 'number' ? Number(field.value) : field.value);
+          try { localStorage.setItem(EDIT_KEY, JSON.stringify(CONFIG)); } catch (e) { /* no-op */ }
+          scheduleRerender();
+        });
+        into.appendChild(row);
+      });
+    };
+    Object.keys(CONFIG).forEach(group => {
+      const d = document.createElement('details');
+      d.open = group === 'intro';
+      d.innerHTML = `<summary>${esc(GROUP_NAMES[group] || group)}</summary>`;
+      walk(CONFIG[group], [group], d);
+      body.appendChild(d);
+    });
+    document.body.classList.add('editing');
+
+    let rr = 0;
+    function scheduleRerender() {
+      clearTimeout(rr);
+      rr = setTimeout(() => { const y = window.scrollY; render(state.step); window.scrollTo(0, y); }, 250);
+    }
+    panel.querySelector('#editToggle').addEventListener('click', (e) => {
+      panel.classList.toggle('min');
+      e.target.textContent = panel.classList.contains('min') ? 'развернуть' : 'свернуть';
+    });
+    panel.querySelector('#editReset').addEventListener('click', () => {
+      if (!confirm('Убрать все правки, сделанные в этом браузере, и вернуть тексты из файла?')) return;
+      try { localStorage.removeItem(EDIT_KEY); } catch (e) { /* no-op */ }
+      location.reload();
+    });
+    panel.querySelector('#editDownload').addEventListener('click', downloadHtml);
+    panel.querySelector('#editRestart').addEventListener('click', resetAll);
+    panel.querySelector('#editCopy').addEventListener('click', (e) => {
+      const html = buildHtml(); if (!html) return;
+      const done = () => { e.target.textContent = 'Скопировано — вставьте в index.html'; setTimeout(() => { e.target.textContent = 'Скопировать index.html'; }, 2500); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(html).then(done, () => fallbackCopy(html, done));
+      else fallbackCopy(html, done);
+    });
+  }
+
+  // Собираем новый index.html: текущая разметка + CONFIG с правками вместо исходного
+  function buildHtml() {
+    const root = document.documentElement.cloneNode(true);
+    const bodyEl = root.querySelector('body');
+    bodyEl.className = 'mode-fixed';
+    root.removeAttribute('style');
+    root.querySelector('#app').innerHTML = '';
+    ['#edit', '#dbg', '#rg', '#practicum'].forEach(s => { const el = root.querySelector(s); if (el) el.remove(); });
+    root.className = root.className.replace(/\b(h-[\w-]+|rg-open)\b/g, '').trim();
+    if (!root.className) root.removeAttribute('class');
+    const st = root.querySelector('#sticky'); if (st) { st.className = 'sticky'; st.setAttribute('aria-hidden', 'true'); }
+    const stt = root.querySelector('#stickyBtnText'); if (stt) stt.textContent = '';
+    const script = root.querySelector('script');
+    const src = script.textContent;
+    const start = src.indexOf('const CONFIG = {');
+    const end = src.indexOf('\n};', start) + 3;
+    if (start < 0 || end < 3) { alert('Не нашёл блок CONFIG в исходнике'); return ''; }
+    const json = JSON.stringify(CONFIG, null, 2);
+    script.textContent = src.slice(0, start) + 'const CONFIG = ' + json + ';' + src.slice(end);
+    return '<!DOCTYPE html>\n' + root.outerHTML;
+  }
+  function downloadHtml() {
+    const html = buildHtml(); if (!html) return;
+    const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'index.html';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  }
+
+  // ---------- старт ----------
+  if (EDIT) {
+    try { const saved = localStorage.getItem(EDIT_KEY); if (saved) deepMerge(CONFIG, JSON.parse(saved)); } catch (e) { /* no-op */ }
+  }
+  loadState();
+  render(state.step);
+  if (DEBUG) {
+    initDebug();
+    window.__kl = { go, checkAll, runAsS, resetAll, measure, state, CONFIG, computeResult };
+  }
+  if (EDIT) buildEditor();
+
+  function openEditor() {
+    if (document.getElementById('edit')) return;
+    EDIT = true;
+    try { const saved = localStorage.getItem(EDIT_KEY); if (saved) deepMerge(CONFIG, JSON.parse(saved)); } catch (e) { /* no-op */ }
+    render(state.step);
+    buildEditor();
+  }
+  window.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'e') { e.preventDefault(); openEditor(); }
+  });
+  window.addEventListener('hashchange', () => { if (/edit/.test(location.hash)) openEditor(); });
+  let taps = [];
+  app.addEventListener('click', (e) => {
+    if (!e.target.closest('.author, .eyebrow, .res-title, .qcount, .load-title')) return;
+    const now = Date.now();
+    taps = taps.filter(t => now - t < 2500).concat(now);
+    if (taps.length >= 5) { taps = []; openEditor(); }
+  });
+  if (DEBUG) window.__kl.openEditor = openEditor;
+})();
+</script>
+</body>
+</html>
