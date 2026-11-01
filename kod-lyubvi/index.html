@@ -410,148 +410,146 @@ b{font-weight:800}
 .checks li span:last-child{text-wrap:balance}
 .checks li.on{opacity:1;transform:none}
 
-/* ============================================================ РЕЗУЛЬТАТ (v3)
-   Как лендинг практикума: полосы на всю ширину — светлая, белая, бежевая, тёмная;
-   колонка текста до 620px; Manrope 15–16px с высоким интерлиньяжем, заголовки Unbounded 600;
-   вставки-плашки, много воздуха. Курсивов нет. */
-body.mode-scroll .app{max-width:none;background:var(--bg);box-shadow:none!important}
+/* ============================================================ РЕЗУЛЬТАТ И РАСШИФРОВКА (v4)
+   1 в 1 как сайт практикума «Новая реальность» (замер 390×844, out/landing-type-roles.md).
+   Все размеры – переменные --t-*, равные значениям сайта. Других font-size в этом разделе нет.
+   Курсивов нет. Значки – без градиентов (заливка + кольцо + SVG), швов быть не может. */
+:root{
+  --t-kick:11.5px;                 /* надзаголовок секции .kick */
+  --t-h1:min(25px, 6.45vw);        /* H1 первого экрана сайта */
+  --t-h2:28px;                     /* H2 секции */
+  --t-h2l:25px;                    /* H2 длинный */
+  --t-h2o:22px;                    /* заголовок оффера: Unbounded 22/600 блока «Что вы получите» */
+  --t-h3t:24px;                    /* H3 карточки тарифа */
+  --t-h3:20px;                     /* H3 карточки / окно */
+  --t-body:15px;                   /* основной текст */
+  --t-dark:16px;                   /* текст на тёмном (.edu) и кнопки */
+  --t-small:14px;                  /* подписи */
+  --t-cap:12px;                    /* мелкая подпись .hx-pr */
+  --t-note:12.5px;                 /* сноска */
+  --t-tag:11px;                    /* капс-подпись .bonus b */
+  --t-big:44px;                    /* крупная цифра */
+  --s-line:rgba(138,92,24,.2);
+  --s-muted:#5f5446;
+  --s-goldt:#8a5714;
+  --s-acc:#a0661a;
+}
+body.mode-scroll .app{max-width:none;background:#f6f0e6;box-shadow:none!important}
+/* компьютер: лестница сайта на 1440 (замер out/landing-type-roles.md): H1 3.1vw, H2 46 / 40, текст карточек 17 */
+@media (min-width:981px){
+  :root{--t-h1:clamp(30px,3.1vw,48px);--t-h2:46px;--t-h2l:40px;--t-h2o:40px;--t-body:17px;--t-dark:17px}
+  .s-result .band-in{max-width:760px}
+}
 .s-result{display:block;overflow:visible;animation:none;padding:0}
-.band{position:relative;padding:clamp(52px,9vw,96px) 20px}
+.band{position:relative;padding:60px 16px}
 .band-in{max-width:620px;margin:0 auto}
-.band.b-light{background:radial-gradient(70% 380px at 90% 0%,rgba(214,162,74,.16),transparent 70%),linear-gradient(180deg,#efe6d6,var(--bg) 320px)}
-.band.b-white{background:#fffdf8}
-.band.b-beige{background:#efe6d6}
-.band.b-dark{background:radial-gradient(70% 300px at 50% 0%,rgba(232,194,122,.12),transparent 70%),linear-gradient(180deg,#15110c,#0e0c09);color:#efe7da}
-.band+.band{border-top:1px solid rgba(138,92,24,.12)}
-.band.b-dark+.band,.band+.band.b-dark{border-top:0}
+.band.b-hero{background:linear-gradient(180deg,#efe6d6,#f6f0e6 40%)}
+.band.b-page{background:#f6f0e6}
+.band.b-beige{background:linear-gradient(180deg,#efe4d0,#f3ebdd)}
+.band.b-dark{background:radial-gradient(70% 60% at 50% 0%,rgba(232,194,122,.13),transparent 70%),linear-gradient(180deg,#120f0a,#0d0b08);color:#f4ede1}
+@media (min-width:981px){.band{padding:96px 20px}}
 
-/* шапка результата */
-.res-head{padding-top:clamp(36px,7vw,72px);padding-bottom:clamp(44px,8vw,80px)}
-.res-head .band-in{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
-.kick{display:flex;align-items:center;gap:12px;font:700 12px/1.4 var(--fb);letter-spacing:.14em;color:var(--goldt)}
+/* надзаголовок — .kick сайта */
+.kick{display:flex;align-items:center;gap:12px;margin:0 0 20px;
+  font:700 var(--t-kick)/1.45 var(--fb);letter-spacing:.22em;text-transform:uppercase;color:var(--s-goldt);white-space:nowrap}
+.kick::before{content:"";flex:0 0 34px;height:1.5px;background:linear-gradient(90deg,#b9832e,#d6a24a)}
 .kick .num{font:inherit;color:inherit}
-.kick::before{content:"";flex:0 0 28px;height:1.5px;background:linear-gradient(90deg,var(--gold2),var(--gold))}
 .b-dark .kick{color:#ecc67f}
-.b-dark .kick::before{background:linear-gradient(90deg,#c9953f,#e8c27a)}
-.res-title{
-  max-width:100%;
-  font:600 clamp(26px, 7.4vw, 40px)/1.12 var(--ft);text-transform:uppercase;letter-spacing:-.01em;text-wrap:balance;color:var(--ink);
-}
-.res-title .gl{
-  background:var(--gl-light);background-size:250% 100%;
-  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
-  animation:gl 6s linear infinite;
-}
-.res-hint{font:500 15px/1.6 var(--fb);color:var(--muted);text-wrap:balance;max-width:520px}
+
+/* шапка результата — как первый экран сайта */
+.res-head{padding-top:44px;padding-bottom:60px}
+.res-head .kick{margin-bottom:14px}
+.res-title{font:800 var(--t-h1)/1.1 var(--fb);letter-spacing:-.03em;color:var(--s-acc);text-wrap:balance}
+.res-hint{margin-top:14px;font:500 var(--t-body)/1.5 var(--fb);color:var(--s-muted);text-wrap:balance}
+.vid{margin-top:20px}
 .video{
-  position:relative;margin-top:8px;width:100%;aspect-ratio:16/9;padding:0;border:0;display:block;
-  border-radius:20px;overflow:hidden;cursor:pointer;isolation:isolate;
-  background:radial-gradient(60% 75% at 50% 50%,rgba(232,194,122,.22),transparent 70%),linear-gradient(180deg,#1b1610,#0e0c09);
-  box-shadow:inset 0 0 0 1px rgba(246,220,158,.3),0 30px 60px -34px rgba(35,25,13,.7);
+  position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:0;margin:0;
+  border-radius:22px;overflow:hidden;isolation:isolate;cursor:pointer;background:#120f0a;
+  box-shadow:0 0 0 1.5px rgba(214,162,74,.7),0 24px 60px -30px rgba(201,162,92,.55);
 }
-.video[hidden]{display:none}
 @supports not (aspect-ratio:16/9){.video{height:0;padding-top:56.25%}}
-.video-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;filter:saturate(.85);opacity:.55;z-index:-1}
-.video .play{
-  position:absolute;left:50%;top:50%;width:64px;height:64px;transform:translate(-50%,-50%);
-  border-radius:50%;display:grid;place-items:center;color:var(--btnink);
-  background:var(--gold-grad);
-  box-shadow:0 0 0 8px rgba(232,194,122,.16),0 0 40px var(--glow),inset 0 1px 0 rgba(255,255,255,.6);
-  transition:transform .2s var(--ease);
-}
-.video .play svg{width:24px;height:24px;margin-left:3px}
-.video:hover .play{transform:translate(-50%,-50%) scale(1.05)}
-.video:focus-visible{outline:3px solid var(--goldt);outline-offset:3px}
-.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video.soon{cursor:default}
+.video img.vp{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.video video{position:absolute;inset:0;width:100%;height:100%;display:block;background:#000;object-fit:contain}
+/* ▶ — круг кнопки сайта: золотая пилюля-кольцо и тёмный круг с золотым знаком */
+.video .play{position:absolute;left:50%;top:50%;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;
+  display:grid;place-items:center;background:#e2b867;
+  box-shadow:0 22px 44px -18px rgba(214,162,74,.6),inset 0 1px 0 rgba(255,255,255,.6);transition:transform .2s var(--ease)}
+.video .play .pi{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:#2a1c06;color:#e8c27a}
+.video .play svg{width:22px;height:22px;margin-left:3px}
+.video:not(.soon):hover .play{transform:scale(1.05)}
+.video:focus-visible{outline:3px solid var(--s-goldt);outline-offset:3px}
+.video .soon-l{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);display:flex;justify-content:center}
+.video .soon-l .kick{margin:0;color:#ecc67f}
+.video .soon-l .kick::after{content:"";flex:0 0 34px;height:1.5px;background:linear-gradient(90deg,#d6a24a,#b9832e)}
+.vid-cap{margin-top:12px;font:500 var(--t-cap)/1.42 var(--fb);color:var(--s-muted);text-align:center;text-wrap:balance}
 
 /* части расшифровки */
-.res-body{font:500 16px/1.7 var(--fb);color:var(--ink)}
-.res-body p{margin:0 0 18px;text-wrap:balance}
+.res-body{font:500 var(--t-body)/1.5 var(--fb);color:#23190d}
+.res-body p{margin:0 0 14px;text-wrap:balance}
 .res-body p:last-child{margin-bottom:0}
 .res-body b{font-weight:700}
-.res-body .acc,.res-body b.acc{color:var(--goldt)}
-.part .kick{margin-bottom:14px}
-.part h2{margin:0 0 24px;font:600 clamp(20px,5.4vw,26px)/1.22 var(--ft);letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
-.b-dark.part h2{color:#f4ede1}
-.lead-p{font:700 18px/1.5 var(--fb)!important;color:var(--ink);letter-spacing:-.005em;margin-bottom:14px!important}
-.b-dark p{color:#d8cdb9}
-.b-dark b{color:#f4ede1}
-.blk{margin:28px 0}
+.res-body .acc{color:var(--s-goldt)}
+.part h2{margin:0 0 20px;font:600 var(--t-h2)/1.08 var(--ft);letter-spacing:-.015em;color:#23190d;text-wrap:balance}
+.part .lead-h{margin:0 0 20px;font:600 var(--t-h2l)/1.12 var(--ft);letter-spacing:-.015em;color:#23190d;text-wrap:balance}
+.blk{margin:20px 0}
 .blk:first-child{margin-top:0}
 .blk:last-child{margin-bottom:0}
-/* карточки «узнаёте себя» — белые карточки с тонкой рамкой, как на лендинге */
+/* «Узнаёте себя?» — карточки .fy сайта */
 .cards{display:flex;flex-direction:column;gap:10px}
-.cards li{display:flex;align-items:flex-start;gap:14px;padding:16px 18px 16px 16px;border-radius:18px;background:#fffdf8;
-  border:1px solid rgba(138,92,24,.14);box-shadow:0 18px 34px -30px rgba(90,60,20,.55);font:500 15px/1.6 var(--fb)}
-.cards li>span:last-child{text-wrap:balance}
-.cards .x-ic{--x-card:28px;flex:0 0 28px;border-radius:50%;margin-top:-1px;background:#f6ecd8;box-shadow:none}
-.cards .x-ck{width:18px;height:18px;background-size:10px}
-/* вывод — тёмная плашка */
-.callout{
-  position:relative;overflow:hidden;isolation:isolate;display:flex;align-items:flex-start;gap:14px;
-  padding:20px 22px 20px 18px;border-radius:20px;
-  background:linear-gradient(160deg,#241b11,#120f0a);box-shadow:inset 0 0 0 1px rgba(246,220,158,.25),0 24px 44px -30px rgba(35,25,13,.9);
-  color:#e9dfcf;font:500 16px/1.6 var(--fb);
-}
-.callout::after{content:"";position:absolute;right:-40px;top:-70px;width:200px;height:150px;z-index:-1;background:radial-gradient(closest-side,rgba(246,220,158,.18),transparent)}
-.callout p{margin:0!important;color:#e9dfcf}
-.callout b{color:#f6dc9e}
-.callout .x-ic{--x-card:32px;flex:0 0 32px;border-radius:10px;color:#1a1208;background:var(--ic-grad);box-shadow:none}
-.callout .x-ic svg{width:17px;height:17px}
-/* пара «было/стало» — две спокойные вставки */
+.cards li{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:#fffdf8;border:1px solid var(--s-line)}
+.cards li>span:last-child{flex:1 1 auto;min-width:0;text-wrap:balance}
+/* круг-значок сайта (.fy-ic): сплошная заливка + кольцо, линейный знак — без градиентов */
+.ic{flex:0 0 34px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;align-self:flex-start;
+  background:#f1e1c2;box-shadow:inset 0 0 0 1px #e2c38c;color:var(--s-goldt)}
+.ic svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.cards li .ic{align-self:center}
+/* вывод — карточка .vs-new */
+.callout{padding:22px 18px 24px;border-radius:22px;
+  background:linear-gradient(155deg,#f6e9d2,#fffdf8 60%);
+  box-shadow:0 0 0 1.5px rgba(214,162,74,.7),0 24px 60px -30px rgba(201,162,92,.55)}
+.callout p{margin:0!important}
+/* пары — карточки «Было / стало» (.cs) */
 .pair{display:flex;flex-direction:column;gap:10px}
+.pc{position:relative;padding:20px 22px 20px 40px;border-radius:22px;background:#fffdf8;border:1px solid var(--s-line);text-wrap:balance}
+.pc::before{content:"";position:absolute;left:22px;top:calc(20px + .75em - 4px);width:8px;height:8px;border-radius:50%;background:#d6a24a}
+.pc.bad{color:var(--s-muted)}
+.pc.bad::before{content:"–";top:20px;width:auto;height:auto;border-radius:0;background:none;color:var(--s-muted);font:inherit}
+.pc.bad b{color:#23190d}
 @media (min-width:560px){.pair{flex-direction:row}.pair .pc{flex:1 1 0}}
-.pc{position:relative;padding:16px 18px;border-radius:16px;font:500 15px/1.6 var(--fb);text-wrap:balance}
-.pc::before{content:"";display:block;width:22px;height:2px;margin-bottom:10px;border-radius:2px}
-.pc.good{background:#f6ecd8;border:1px solid rgba(214,162,74,.35)}
-.pc.good::before{background:var(--gold2)}
-.pc.bad{background:#f7f3ec;border:1px solid rgba(138,92,24,.14);color:var(--muted)}
-.pc.bad::before{background:rgba(95,84,70,.45)}
-.pc.bad b{color:var(--ink)}
-/* мысль — бежевая вставка с золотой линией (без курсива) */
-.pull{
-  position:relative;margin:32px 0;padding:20px 22px 20px 26px;border-radius:16px;
-  background:#f3e9d6;font:700 17px/1.55 var(--fb);color:var(--ink);text-wrap:balance;
-}
-.pull::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:0 3px 3px 0;background:linear-gradient(180deg,#f6dc9e,var(--gold2))}
-/* слова взрослых — на тёмной полосе: тонкие плашки */
+/* мысль — плашка .em-decode */
+.pull{margin:20px 0;padding:20px 24px;border-radius:20px;background:#fffdf8;border:1px solid rgba(214,162,74,.4);
+  box-shadow:0 30px 60px -34px rgba(90,60,20,.45);font-weight:700;text-wrap:balance}
+/* тёмная часть — как «Кто ведёт» */
+.b-dark.part h2{color:#f4ede1}
+.b-dark.part{font-size:var(--t-dark);line-height:1.6}
+.b-dark p{color:#e9dfcf}
+.b-dark b{color:#f4ede1}
 .quotes{display:flex;flex-direction:column;gap:10px}
-.quotes blockquote{
-  position:relative;margin:0;padding:14px 18px 14px 22px;border-radius:14px;
-  background:rgba(255,255,255,.04);border:1px solid rgba(232,194,122,.18);
-  font:500 15px/1.55 var(--fb);color:#f1e9dc;text-wrap:balance;
-}
-.quotes blockquote::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:2px;border-radius:2px;background:#e8c27a}
-.b-light .quotes blockquote,.b-white .quotes blockquote,.b-beige .quotes blockquote{background:#fffdf8;border-color:rgba(138,92,24,.14);color:var(--ink)}
+.quotes blockquote{position:relative;margin:0;padding:14px 18px 14px 38px;border-radius:16px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(232,194,122,.25);
+  font:500 var(--t-dark)/1.6 var(--fb);color:#f4ede1;text-wrap:balance}
+.quotes blockquote::before{content:"";position:absolute;left:18px;top:calc(14px + .8em - 1px);width:8px;height:2px;border-radius:1px;background:#e8c27a}
+.b-page .quotes blockquote,.b-beige .quotes blockquote{background:#fffdf8;border-color:var(--s-line);color:#23190d;font-size:var(--t-body);line-height:1.5}
 
-/* ============================================================ ОФФЕР — «Как получить полную расшифровку» */
-.offer{scroll-margin-top:0;padding-bottom:calc(clamp(56px,9vw,96px) + env(safe-area-inset-bottom))}
-.offer h2{font:600 clamp(21px,5.6vw,30px)/1.2 var(--ft);color:var(--ink);letter-spacing:-.01em;text-wrap:balance}
-.offer .kick{margin-bottom:14px}
-.offer-sub{margin-top:28px;font:700 14px/1.5 var(--fb);color:var(--ink);text-wrap:balance}
-.offer-sub .num{font:600 1em/1 var(--ft);color:var(--goldt)}
-.locked{margin-top:14px;display:flex;flex-direction:column;gap:10px}
-.locked li{
-  display:flex;gap:14px;align-items:center;min-height:56px;padding:10px 18px 10px 10px;border-radius:16px;
-  font:500 15px/1.45 var(--fb);color:var(--ink);
-  background:#fffdf8;border:1px solid rgba(138,92,24,.14);
-}
-.locked li>span:last-child{text-wrap:balance}
-.lk{
-  flex:0 0 36px;width:36px;height:36px;border-radius:10px;
-  display:grid;place-items:center;background:#f3e6cc;color:#8a5714;
-}
-.lk svg{width:16px;height:16px}
-.offer p.text{margin-top:36px;font:500 15px/1.65 var(--fb);color:var(--ink);text-wrap:balance}
+/* ============================================================ ОФФЕР — как блок «Тарифы» сайта */
+.offer{scroll-margin-top:0;padding-bottom:calc(60px + env(safe-area-inset-bottom))}
+.offer h2{font:600 var(--t-h2o)/1.12 var(--ft);letter-spacing:-.015em;color:#23190d;text-wrap:balance}
+.offer-sub{margin-top:24px;font:700 var(--t-body)/1.5 var(--fb);color:#23190d;text-wrap:balance}
+.offer-sub .num{font:inherit;color:var(--s-goldt)}
+.locked{margin-top:12px;display:flex;flex-direction:column;gap:10px}
+.locked li{display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:16px;
+  font:500 var(--t-body)/1.5 var(--fb);color:#23190d;background:#fffdf8;border:1px solid var(--s-line)}
+.locked li>span:last-child{flex:1 1 auto;min-width:0;text-wrap:balance}
+.locked .ic svg{width:17px;height:17px;stroke-width:2}
+.offer p.text{margin-top:28px;font:500 var(--t-body)/1.5 var(--fb);color:#23190d;text-wrap:balance}
 .offer p.text+.tk-wrap{margin-top:20px}
-.offer .acc{color:var(--goldt);font-weight:700}
-.pname{
-  display:flex;align-items:flex-start;gap:14px;
-  margin-top:14px;padding:18px 20px 18px 16px;border-radius:18px;
-  background:linear-gradient(160deg,#241b11,#120f0a);box-shadow:inset 0 0 0 1px rgba(246,220,158,.25);
-}
-.pname p{font:700 16px/1.5 var(--fb);color:#f4ede1;text-wrap:balance}
-.pname .lk{background:var(--ic-grad);color:#1a1208}
+.offer .acc{color:var(--s-goldt);font-weight:700}
+.pname{display:flex;align-items:center;gap:12px;margin-top:12px;padding:16px;border-radius:16px;
+  background:linear-gradient(160deg,#241b11,#120f0a);box-shadow:inset 0 0 0 1px rgba(246,220,158,.25)}
+.pname p{flex:1 1 auto;min-width:0;font:700 var(--t-body)/1.5 var(--fb);color:#f4ede1;text-wrap:balance}
+.pname .ic{background:#3a2c18;box-shadow:inset 0 0 0 1px rgba(232,194,122,.45);color:#e8c27a;align-self:center}
+.pname .ic svg{width:17px;height:17px;stroke-width:2}
 
 /* ---------- Промокод — билет (сохранён, шрифты аккуратнее) ---------- */
 .tk-wrap{margin-top:20px;filter:drop-shadow(0 18px 22px rgba(90,60,20,.24)) drop-shadow(0 0 16px rgba(214,162,74,.16))}
@@ -578,17 +576,17 @@ body.mode-scroll .app{max-width:none;background:var(--bg);box-shadow:none!import
 }
 .tk-logo{position:relative;flex:0 0 20px;width:20px;height:20px;border-radius:50%;border:1.5px solid #8a5714}
 .tk-logo::after{content:"";position:absolute;inset:4px;border-radius:50%;background:radial-gradient(circle,#fff3cf,#b9832e 55%,transparent 72%);animation:pulse 2.4s infinite}
-.tk-k{writing-mode:vertical-rl;transform:rotate(180deg);font:700 10px/1 var(--fb);letter-spacing:.18em;text-transform:uppercase;color:#6b430c;white-space:nowrap}
+.tk-k{writing-mode:vertical-rl;transform:rotate(180deg);font:700 var(--t-tag)/1 var(--fb);letter-spacing:.18em;text-transform:uppercase;color:#6b430c;white-space:nowrap}
 .tk-main{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:16px 16px 16px 14px}
 .tk-code{
   display:block;min-width:0;padding:10px;border-radius:12px;text-align:center;white-space:nowrap;overflow:hidden;
   background:rgba(255,253,244,.6);box-shadow:inset 0 0 0 1.5px rgba(138,87,20,.35),inset 0 2px 6px rgba(138,87,20,.12);
-  font:600 22px/1.2 var(--ft);letter-spacing:.03em;color:#2a1c06;user-select:all;-webkit-user-select:all;
+  font:600 var(--t-dark)/1.2 var(--ft);letter-spacing:.03em;color:#2a1c06;user-select:all;-webkit-user-select:all;
 }
 .copy{
   display:flex;align-items:center;justify-content:center;gap:8px;
   min-height:44px;width:100%;padding:0 18px;border:0;border-radius:999px;cursor:pointer;white-space:nowrap;
-  font:700 14px var(--fb);color:#f6dc9e;background:#23190d;
+  font:700 var(--t-small)/1.2 var(--fb);color:#f6dc9e;background:#23190d;
   box-shadow:0 10px 20px -12px rgba(35,25,13,.9),inset 0 0 0 1px rgba(246,220,158,.35);
   transition:background-color .15s,color .15s,box-shadow .15s;
 }
@@ -597,19 +595,19 @@ body.mode-scroll .app{max-width:none;background:var(--bg);box-shadow:none!import
 .copy.done{background:transparent;color:#2a1c06;box-shadow:inset 0 0 0 1.5px #23190d}
 .timer-wrap{margin-top:28px;text-align:center}
 .timer{
-  font:600 40px/1 var(--ft);font-variant-numeric:tabular-nums;letter-spacing:.02em;
+  font:600 var(--t-big)/1 var(--ft);font-variant-numeric:tabular-nums;letter-spacing:.02em;
   color:var(--d-goldt);text-shadow:0 0 28px rgba(232,194,122,.45);
 }
 .timer.expired{color:var(--d-muted);text-shadow:none}
 .offer .timer{color:var(--goldt);text-shadow:0 0 22px rgba(214,162,74,.3)}
 .offer .timer.expired{color:var(--muted);text-shadow:none}
-.timer-note{margin:12px auto 0;max-width:420px;font:500 14px/1.55 var(--fb);color:var(--muted);text-wrap:balance}
-.offer .btn-primary{margin-top:28px;min-height:58px;padding:8px 8px 8px 24px;font:700 16px/1.25 var(--fb)}
-.offer .btn-primary>span{text-wrap:balance}
-.offer .btn-secondary{margin-top:12px;min-height:54px;font:600 15px/1.25 var(--fb);color:var(--goldt);box-shadow:inset 0 0 0 1.5px rgba(185,131,46,.7)}
+.timer-note{margin:12px auto 0;max-width:420px;font:500 var(--t-small)/1.55 var(--fb);color:var(--muted);text-wrap:balance}
+.offer .btn-primary{margin-top:28px;min-height:58px;padding:8px 8px 8px 24px;font:700 var(--t-dark)/1.25 var(--fb)}
+.offer .btn-primary>span{white-space:nowrap;min-width:0}
+.offer .btn-secondary{margin-top:12px;min-height:54px;font:700 var(--t-dark)/1.25 var(--fb);color:var(--goldt);box-shadow:inset 0 0 0 1.5px rgba(185,131,46,.7)}
 .offer .btn-secondary:hover,.offer .btn-secondary:active{background:rgba(214,162,74,.1);box-shadow:inset 0 0 0 1.5px var(--gold2),0 14px 30px -18px var(--glow)}
 .offer .btn-secondary:focus-visible{outline-color:var(--goldt)}
-@media (max-width:380px){.offer .btn-primary{font-size:15px;padding-left:20px}}
+@media (max-width:380px){.offer .btn-primary{padding-left:20px}}
 @media (min-width:700px){.offer .btn-primary,.offer .btn-secondary{max-width:460px;margin-left:auto;margin-right:auto}}
 
 /* Липкая панель — тёмное стекло */
@@ -622,8 +620,8 @@ body.mode-scroll .app{max-width:none;background:var(--bg);box-shadow:none!import
 .sticky::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(232,194,122,.7),transparent)}
 .sticky.on{transform:none;visibility:visible}
 .sticky-in{max-width:620px;margin:0 auto;display:flex;align-items:center;gap:12px}
-.sticky .timer{font-size:20px;flex:0 0 auto;min-width:70px;text-align:center;text-shadow:0 0 16px rgba(232,194,122,.4)}
-.sticky .btn{flex:1 1 auto;min-height:48px;padding:6px 6px 6px 18px;font:700 14px/1.2 var(--fb)}
+.sticky .timer{font-size:var(--t-h3);flex:0 0 auto;min-width:70px;text-align:center;text-shadow:0 0 16px rgba(232,194,122,.4)}
+.sticky .btn{flex:1 1 auto;min-height:48px;padding:6px 6px 6px 18px;font:700 var(--t-small)/1.2 var(--fb)}
 .sticky .btn .ar{flex-basis:36px;width:36px;height:36px}
 .sticky .btn .ar svg{width:18px;height:18px}
 
@@ -652,23 +650,23 @@ body.mode-scroll .app{max-width:none;background:var(--bg);box-shadow:none!import
 .rg-x svg{width:18px;height:18px}
 .rg-x:hover{background:#efe6d6}
 .rg-x:focus-visible{outline:3px solid var(--goldt);outline-offset:2px}
-.rg-h{padding-right:44px;font:600 20px/1.25 var(--ft);letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
-.rg-note{margin-top:10px;font:500 14px/1.55 var(--fb);color:var(--muted);text-wrap:balance}
+.rg-h{padding-right:44px;font:600 var(--t-h3)/1.25 var(--ft);letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+.rg-note{margin-top:10px;font:500 var(--t-small)/1.55 var(--fb);color:var(--muted);text-wrap:balance}
 .rg-form{margin-top:22px;display:flex;flex-direction:column;gap:10px}
 .rg-form input[type=email],.rg-form input[type=text],.rg-form input[type=tel]{
   width:100%;min-height:52px;padding:12px 16px;border:0;border-radius:14px;
-  font:500 16px/1.2 var(--fb);color:var(--ink);background:#fff;
+  font:500 var(--t-dark)/1.2 var(--fb);color:var(--ink);background:#fff;
   box-shadow:inset 0 0 0 1.5px rgba(138,92,24,.24);transition:box-shadow .15s}
 .rg-form input::placeholder{color:#8b7d68}
 .rg-form input:focus{outline:0;box-shadow:inset 0 0 0 2px var(--gold2),0 0 0 4px rgba(214,162,74,.18)}
-.rg-ck{display:flex;align-items:flex-start;gap:10px;margin-top:4px;font:500 12.5px/1.5 var(--fb);color:var(--muted);cursor:pointer;text-wrap:balance}
+.rg-ck{display:flex;align-items:flex-start;gap:10px;margin-top:4px;font:500 var(--t-note)/1.5 var(--fb);color:var(--muted);cursor:pointer;text-wrap:balance}
 .rg-ck input{flex:0 0 18px;width:18px;height:18px;margin:1px 0 0;accent-color:var(--gold2);cursor:pointer}
 .rg-ck a{color:var(--goldt);text-decoration:underline;text-underline-offset:2px}
-.rg-form .btn{margin-top:10px;min-height:56px;padding:8px 8px 8px 22px;font:700 16px/1.2 var(--fb)}
+.rg-form .btn{margin-top:10px;min-height:56px;padding:8px 8px 8px 22px;font:700 var(--t-dark)/1.2 var(--fb)}
 .rg-form .btn>span{text-wrap:balance}
 .rg-form .btn[aria-busy=true]{opacity:.75;pointer-events:none}
 html.rg-open,html.rg-open body{overflow:hidden!important}
-@media (max-width:380px){.rg-box{padding:26px 18px 20px;border-radius:20px}.rg-h{font-size:18px}}
+@media (max-width:380px){.rg-box{padding:26px 18px 20px;border-radius:20px}}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -853,7 +851,9 @@ html.rg-open,html.rg-open body{overflow:hidden!important}
    CONFIG — все тексты квиза. Правьте здесь, вёрстку трогать не нужно.
    Ключи k: 'S' | 'U' | 'P' | 'N' пользователю не показываются.
    author.photoPortrait — круглое фото Анны на экране 1 и фон видео (author.avatar, если задан, важнее для круга).
-   author.photoWide — широкое фото (сейчас не используется в вёрстке, оставлено для замены).
+   author.photoWide — широкое фото (сейчас не используется в вёрстке; пусто).
+   video — видео-разбор по ключам результатов: { "<ключ>": { "src": "video/<файл>.mp4", "poster": "img/<файл>.jpg" } }.
+     Пустой src — карточка с постером и надписью «Видео скоро», без ▶. Сменить видео = поменять строку и положить файл.
    intro.titleAccent — фраза из заголовка, которая подсвечивается золотом (текст заголовка не меняется).
    ============================================================ */
 const CONFIG = {
@@ -861,7 +861,7 @@ const CONFIG = {
     "name": "Анна Саба",
     "answers": "150 000 ответов",
     "avatar": "",
-    "photoWide": "img/anna-hero-gen.jpg",
+    "photoWide": "",
     "photoPortrait": "img/anna-au-smile.webp"
   },
   "intro": {
@@ -1195,10 +1195,27 @@ const CONFIG = {
   },
   "resultScreen": {
     "eyebrow": "Ваш результат",
-    "hint": "Посмотрите видео расшифровку, затем читайте текст ниже"
+    "hint": "Посмотрите видео расшифровку, затем читайте текст ниже",
+    "videoCaption": "Видео-разбор вашего результата",
+    "videoSoon": "Видео скоро"
   },
   "video": {
-    "embedUrl": ""
+    "S0": { "src": "video/spasatelnica-v4.mp4", "poster": "img/video-poster.jpg" },
+    "S1": { "src": "video/spasatelnica-v4.mp4", "poster": "img/video-poster.jpg" },
+    "S2": { "src": "video/spasatelnica-v4.mp4", "poster": "img/video-poster.jpg" },
+    "S3": { "src": "video/spasatelnica-v4.mp4", "poster": "img/video-poster.jpg" },
+    "S4": { "src": "video/spasatelnica-v4.mp4", "poster": "img/video-poster.jpg" },
+    "U0": { "src": "", "poster": "img/video-poster.jpg" },
+    "U1": { "src": "", "poster": "img/video-poster.jpg" },
+    "U2": { "src": "", "poster": "img/video-poster.jpg" },
+    "U3": { "src": "", "poster": "img/video-poster.jpg" },
+    "U4": { "src": "", "poster": "img/video-poster.jpg" },
+    "P0": { "src": "", "poster": "img/video-poster.jpg" },
+    "P1": { "src": "", "poster": "img/video-poster.jpg" },
+    "P2": { "src": "", "poster": "img/video-poster.jpg" },
+    "P3": { "src": "", "poster": "img/video-poster.jpg" },
+    "P4": { "src": "", "poster": "img/video-poster.jpg" },
+    "N": { "src": "", "poster": "img/video-poster.jpg" }
   },
   "results": {
     "S0": {
@@ -2925,7 +2942,8 @@ const CONFIG = {
     user: svg('<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>'),
     copy: svg('<rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/>'),
     close: svg('<path d="M6 6l12 12M18 6L6 18"/>'),
-    play: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.86l11.2-7.2a1 1 0 0 0 0-1.72L8.5 3.94A1 1 0 0 0 7 4.8z" fill="currentColor"/></svg>'
+    play: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.86l11.2-7.2a1 1 0 0 0 0-1.72L8.5 3.94A1 1 0 0 0 7 4.8z" fill="currentColor"/></svg>',
+    check: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 12.5l4.2 4.2L18.5 8"/></svg>'
   };
   const CK = '<span class="ck" aria-hidden="true"></span>';
   const ARROW = `<span class="ar" aria-hidden="true">${ICON.arrow}</span>`;
@@ -2973,6 +2991,13 @@ const CONFIG = {
   function tp(s) {
     // lookbehind не «съедает» соседа, поэтому склеиваются и цепочки коротких слов: «и не мучиться», «а он обо мне»
     return typo(s).replace(/(?<=^|[\s«(>\u00a0])([а-яёА-ЯЁ]{1,2}|без|для|что|как|под|при|про|обо|его|её|им) (?=\S)/g, '$1' + NBSP)
+      .replace(/(^|[\s>\u00a0«(])([а-яёА-ЯЁ]+-[а-яёА-ЯЁ]+)(?![^<]*>)/g, '$1<span class="nw">$2</span>');
+  }
+  // Заголовки результата: неразрывный пробел только после предлогов и союзов; строки из одного слова
+  // убирает fixHeadLines() по факту вёрстки. Слова не меняются.
+  function hd(s) {
+    return String(s).replace(/\s+/g, ' ').trim()
+      .replace(/(?<=^|[\s«(>\u00a0])(в|во|и|с|со|к|ко|у|о|об|а|на|за|по|до|из|от|не|ни|но|для|без|при|про|под|над) (?=\S)/gi, '$1\u00a0')
       .replace(/(^|[\s>\u00a0«(])([а-яёА-ЯЁ]+-[а-яёА-ЯЁ]+)(?![^<]*>)/g, '$1<span class="nw">$2</span>');
   }
   function introTitle(title, accent) {
@@ -3174,13 +3199,14 @@ const CONFIG = {
     // rich(): строки расшифровки могут содержать <b>…</b> — пропускаем только эти теги; tx(): то же + неразрывные пробелы
     const rich = (s) => esc(s).replace(/&lt;(\/?b)( class=&quot;acc&quot;)?&gt;/g, (m, tag, cls) => `<${tag}${cls ? ' class="acc"' : ''}>`);
     const tx = (s) => tp(rich(s));
-    const ICK = '<span class="x-ic" aria-hidden="true"><span class="x-ck"></span></span>';
-    const renderBlock = (b) => {
+    // значок — круг сайта (.fy-ic): сплошная заливка + кольцо + линейная галочка, без градиентов
+    const ICK = `<span class="ic" aria-hidden="true">${ICON.check}</span>`;
+    const renderBlock = (b, hasH2) => {
       switch (b.type) {
-        case 'lead':    return `<p class="lead-p">${tx(b.text)}</p>`;
+        case 'lead':    return hasH2 ? `<p class="lead-h">${hd(rich(b.text))}</p>` : `<h2 class="lead-h">${hd(rich(b.text))}</h2>`;
         case 'p':       return `<p>${tx(b.text)}</p>`;
         case 'cards':   return `<ul class="cards blk">${b.items.map(t => `<li>${ICK}<span>${tx(t)}</span></li>`).join('')}</ul>`;
-        case 'callout': return `<div class="callout blk"><span class="x-ic" aria-hidden="true">${ICON.heart}</span><p>${tx(b.text)}</p></div>`;
+        case 'callout': return `<div class="callout blk"><p>${tx(b.text)}</p></div>`;
         case 'pair':    return `<div class="pair blk">${b.items.map(c => `<div class="pc ${c.tone === 'bad' ? 'bad' : 'good'}">${tx(c.text)}</div>`).join('')}</div>`;
         case 'pull':    return `<blockquote class="pull">${tx(b.text)}</blockquote>`;
         case 'quotes':  return `<div class="quotes blk">${b.items.map(t => `<blockquote>${tx(t)}</blockquote>`).join('')}</div>`;
@@ -3189,35 +3215,50 @@ const CONFIG = {
     };
     // цифры в тексте плашки — Unbounded, как «87%» на экране 1 (слова те же)
     const plateNum = (s) => tp(esc(s)).replace(/(^|[\s ])(\d+)(?=[\s ]|$)/g, '$1<b class="num">$2</b>');
-    const BANDS = ['b-white', 'b-beige', 'b-white', 'b-dark'];
+    // фоны частей чередуются, как на сайте: бежевый, страница, бежевый, тёмный (шапка — светлый hero, оффер — страница)
+    const BANDS = ['b-beige', 'b-page', 'b-beige', 'b-dark'];
     const partsHtml = R.parts.map((p, i) => {
       // «Часть 3. Заголовок» → строка-подпись «Часть 3» + заголовок (слова те же, только разнесены)
       const m = /^(Часть\s+\d+)\.?\s*(.*)$/.exec(p.heading || '');
       const head = m
-        ? `<p class="kick"><span>${plateNum(m[1])}</span></p>${m[2] ? `<h2>${tp(esc(m[2]))}</h2>` : ''}`
-        : (p.heading ? `<h2>${tp(esc(p.heading))}</h2>` : '');
-      return `<section class="part band ${BANDS[i % BANDS.length]}"><div class="band-in">${head}${p.blocks.map(renderBlock).join('')}</div></section>`;
+        ? `<p class="kick"><span>${plateNum(m[1])}</span></p>${m[2] ? `<h2>${hd(esc(m[2]))}</h2>` : ''}`
+        : (p.heading ? `<h2>${hd(esc(p.heading))}</h2>` : '');
+      const hasH2 = /<h2>/.test(head);
+      return `<section class="part band ${BANDS[i % BANDS.length]}" data-part="${i + 1}"><div class="band-in">${head}${p.blocks.map(b => renderBlock(b, hasH2)).join('')}</div></section>`;
     }).join('');
-    const hasVideo = !!(CONFIG.video && CONFIG.video.embedUrl);
+    // видео-разбор: по ключу результата; нет src — заглушка «Видео скоро» без ▶
+    const V = (CONFIG.video && CONFIG.video[key]) || {};
+    const RS = CONFIG.resultScreen;
+    const vidHtml = `<div class="vid">
+        ${V.src
+          ? `<button type="button" class="video" id="video" aria-label="${esc(RS.videoCaption)}">${imgTag(V.poster, 'vp')}<span class="play" aria-hidden="true"><span class="pi">${ICON.play}</span></span></button>`
+          : `<div class="video soon" id="video" role="img" aria-label="${esc(RS.videoSoon)}">${imgTag(V.poster, 'vp')}<span class="soon-l"><span class="kick">${esc(RS.videoSoon)}</span></span></div>`}
+        <p class="vid-cap">${tp(esc(RS.videoCaption))}</p>
+      </div>`;
 
     app.innerHTML = `
 <section class="screen s-result" data-label="Экран результата" data-key="${esc(key)}">
-  <header class="res-head band b-light" id="resHead">
+  <header class="res-head band b-hero" id="resHead">
     <div class="band-in">
-      <p class="kick eyebrow">${esc(CONFIG.resultScreen.eyebrow)}</p>
-      <h1 class="res-title"><span class="gl">${tp(esc(R.name))}</span></h1>
-      ${hasVideo ? `<p class="res-hint">${tp(esc(CONFIG.resultScreen.hint))}</p>
-      <button type="button" class="video" id="video" aria-label="Видео">${imgTag(CONFIG.author.photoPortrait, 'video-bg')}<span class="play" aria-hidden="true">${ICON.play}</span></button>` : ''}
+      <p class="kick eyebrow">${esc(RS.eyebrow)}</p>
+      <h1 class="res-title">${hd(esc(R.name))}</h1>
+      <p class="res-hint">${tp(esc(RS.hint))}</p>
+      ${vidHtml}
     </div>
   </header>
   <article class="res-body">${partsHtml}</article>
-  <section class="offer band b-light" id="offer">
+  <section class="offer band b-page" id="offer">
     <div class="band-in">
-      <h2>${tp(esc(O.title))}</h2>
+      <div class="offer-a">
+      <h2>${hd(esc(O.title))}</h2>
+      <div class="offer-items">
       <p class="offer-sub">${plateNum(O.subtitle)}</p>
-      <ul class="locked">${O.locked.map(t => `<li><span class="lk" aria-hidden="true">${ICON.lock}</span><span>${tp(esc(t))}</span></li>`).join('')}</ul>
+      <ul class="locked">${O.locked.map(t => `<li><span class="ic" aria-hidden="true">${ICON.lock}</span><span>${tp(esc(t))}</span></li>`).join('')}</ul>
       <p class="text">${tp(esc(O.practicumIntro))}</p>
-      <div class="pname"><span class="lk" aria-hidden="true">${ICON.calendar}</span><p>${tp(esc(O.practicumName))}</p></div>
+      <div class="pname"><span class="ic" aria-hidden="true">${ICON.calendar}</span><p>${tp(esc(O.practicumName))}</p></div>
+      </div>
+      </div>
+      <div class="offer-b">
       <p class="text">${tp(rich(O.promoText))}</p>
       <div class="tk-wrap">
         <div class="promo tk" id="tk">
@@ -3234,6 +3275,7 @@ const CONFIG = {
       </div>
       <a class="btn btn-primary" id="ctaMain" href="${esc(O.mainUrl || '#register')}"><span>${tp(esc(O.mainButton))}</span>${ARROW}</a>
       <a class="btn btn-secondary" id="ctaSecondary" href="${esc(withUtm(O.secondaryUrl)) || '#'}"><span>${tp(esc(O.secondaryButton))}</span></a>
+      </div>
     </div>
   </section>
 </section>`;
@@ -3243,12 +3285,18 @@ const CONFIG = {
 
     // видео
     const videoEl = document.getElementById('video');
-    if (videoEl) videoEl.addEventListener('click', function () {
-      track('video_click');
-      if (CONFIG.video.embedUrl) {
-        this.innerHTML = `<iframe src="${esc(CONFIG.video.embedUrl)}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Видео"></iframe>`;
-        this.style.cursor = 'default';
-      }
+    // по ▶ — встроенный <video controls playsinline> в той же карточке, со звуком, со старта
+    if (videoEl && V.src) videoEl.addEventListener('click', function () {
+      track('video_click', { result: key });
+      const box = document.createElement('div');
+      box.className = 'video';
+      box.id = 'video';
+      box.innerHTML = `<video controls playsinline preload="auto" poster="${esc(V.poster || '')}" src="${esc(V.src)}"></video>`;
+      this.replaceWith(box);
+      const v = box.querySelector('video');
+      v.muted = false; v.volume = 1; v.currentTime = 0;
+      const pr = v.play();
+      if (pr && pr.catch) pr.catch(() => {});
     }, { once: true });
 
     // промокод
@@ -3256,20 +3304,15 @@ const CONFIG = {
     // билет: код всегда в одну строку — кегль уменьшается, пока код не поместится в рамку
     fitTicket = () => {
       // название результата: длинное слово (СПАСАТЕЛЬНИЦА) не должно вылезать — уменьшаем кегль
-      const t = app.querySelector('.res-title');
-      if (t) {
-        t.style.fontSize = '';
-        let tf = parseFloat(getComputedStyle(t).fontSize);
-        while (tf > 18 && t.scrollWidth > t.clientWidth + 0.5) { tf -= 1; t.style.fontSize = tf + 'px'; }
-      }
+      // только размеры сайта: 16 px, если не влезает — 14 px (Unbounded 600, роли сайта)
       const c = document.getElementById('promoCode');
       if (!c || !c.isConnected) return;
-      let fs = 26;
-      c.style.fontSize = fs + 'px';
-      while (fs > 13 && c.scrollWidth > c.clientWidth + 0.5) { fs -= 0.5; c.style.fontSize = fs + 'px'; }
+      c.style.fontSize = '';
+      if (c.scrollWidth > c.clientWidth + 0.5) c.style.fontSize = '14px';
     };
     fitTicket();
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => fitTicket && fitTicket());
+    fixHeadLines(app);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (fitTicket) fitTicket(); fixHeadLines(app); });
 
     // кнопки: «Открыть полную расшифровку» → попап регистрации; «Подробнее…» → сайт практикума ниже оффера
     bindCta('ctaMain', 'cta_main_click', O.mainUrl);
@@ -3288,10 +3331,60 @@ const CONFIG = {
     initTimer();
   }
 
+  // Заголовки: строка из одного слова недопустима. Если так вышло — меняем пробел перед этим словом
+  // на неразрывный (слова те же, меняется только вид пробела), пока строк из одного слова нет.
+  // Перед каждым пересчётом возвращаем исходную разметку, чтобы на другой ширине склейки не мешали.
+  function fixHeadLines(root) {
+    (root || document).querySelectorAll('.s-result h1, .s-result h2, .s-result .lead-h, .rg-h').forEach(el => {
+      if (el.dataset.src == null) el.dataset.src = el.innerHTML; else el.innerHTML = el.dataset.src;
+      for (let it = 0; it < 8; it++) {
+        const words = [];
+        const tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+        let n;
+        while ((n = tw.nextNode())) {
+          const re = /[^\s\u00a0]+/g; let m;
+          while ((m = re.exec(n.data))) {
+            const r = document.createRange(); r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length);
+            const rr = r.getClientRects(); if (!rr.length) continue;
+            words.push({ node: n, i: m.index, top: Math.round(rr[0].top) });
+          }
+        }
+        if (words.length < 2) break;
+        const lines = [];
+        words.forEach((w, k) => { const L = lines.find(l => Math.abs(l.top - w.top) < 4); if (L) L.k.push(k); else lines.push({ top: w.top, k: [k] }); });
+        const lone = lines.find(l => l.k.length === 1);
+        if (!lone) break;
+        // пробел между словами j и j+1 → неразрывный; возвращает отмену или null
+        const glue = (j) => {
+          if (j < 0 || j + 1 >= words.length) return null;
+          const w = words[j + 1];
+          let node = null, at = -1;
+          if (w.i > 0 && /\s/.test(w.node.data[w.i - 1])) { node = w.node; at = w.i - 1; }
+          else { const pn = words[j].node; if (pn !== w.node && /\s/.test(pn.data[pn.data.length - 1])) { node = pn; at = pn.data.length - 1; } }
+          if (!node) return null;
+          const ch = node.data[at];
+          node.data = node.data.slice(0, at) + '\u00a0' + node.data.slice(at + 1);
+          return () => { node.data = node.data.slice(0, at) + ch + node.data.slice(at + 1); };
+        };
+        // одинокое слово склеиваем с предыдущим; если строка вылезает — со следующим
+        const k = lone.k[0];
+        let done = false;
+        for (const j of [k - 1, k]) {
+          const undo = glue(j);
+          if (!undo) continue;
+          if (el.scrollWidth > el.clientWidth + 1) { undo(); continue; }
+          done = true; break;
+        }
+        if (!done) break;
+      }
+    });
+  }
+  window.__klFixHeads = fixHeadLines;
+
   let fitRaf = 0;
   window.addEventListener('resize', () => {
     cancelAnimationFrame(fitRaf);
-    fitRaf = requestAnimationFrame(() => { if (fitTicket) fitTicket(); });
+    fitRaf = requestAnimationFrame(() => { if (fitTicket) fitTicket(); fixHeadLines(); });
   });
 
   // ---------- сайт практикума: продолжение страницы под оффером ----------
@@ -3398,7 +3491,7 @@ const CONFIG = {
   function rgFormHtml() {
     const O = CONFIG.offer;
     return `
-    <h2 class="rg-h" id="rgTitle">${tp(esc(O.registerTitle))}</h2>
+    <h2 class="rg-h" id="rgTitle">${hd(esc(O.registerTitle))}</h2>
     <p class="rg-note">${tp(esc(O.registerNote))}</p>
     <form id="rgForm" class="rg-form" action="https://doctor-saba.com/pl/lite/block-public/process-html?id=2256829325" method="post" accept-charset="UTF-8" target="_top">
       <input type="hidden" name="formParams[setted_offer_id]" value="">
@@ -3470,6 +3563,7 @@ const CONFIG = {
     rgPrevFocus = document.activeElement;
     rg.hidden = false;
     document.documentElement.classList.add('rg-open');
+    fixHeadLines(rg);
     hideSticky();
     requestAnimationFrame(() => rg.classList.add('on'));
     const box = rg.querySelector('.rg-box'); if (box) box.scrollTop = 0;
