@@ -33,12 +33,26 @@ h1 em{font-style:normal;color:var(--gold2)}
 <p class="k">Остался один шаг</p><br>
 <span class="pill">Практикум 25–28&nbsp;ноября · онлайн</span>
 <div class="pr"><div class="pr-t" id="pct">90%</div><div class="bar"><i id="fill"></i></div></div>
-<h1>Перейдите в&nbsp;<em>Telegram</em>, чтобы завершить регистрацию, получить бонусы и&nbsp;ваш именной&nbsp;билет</h1>
+<h1 id="tgh">Перейдите в&nbsp;<em>Telegram</em>, чтобы завершить регистрацию, получить бонусы и&nbsp;ваш именной&nbsp;билет</h1>
 <a class="btn" href="https://doctor-saba.com/tlgrm?bot=praktikum_saba_bot"><svg class="tg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.6l-2.96 13.96c-.22 1-.81 1.24-1.64.77l-4.53-3.34-2.19 2.1c-.24.24-.45.45-.92.45l.33-4.62 8.41-7.6c.37-.32-.08-.5-.57-.18L7.3 13.05l-4.47-1.4c-.97-.3-.99-.97.2-1.44l17.48-6.74c.81-.3 1.52.18 1.26 1.13z"/></svg>Перейти в&nbsp;Telegram<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></a>
 </div></main>
 <script>
 (function(){var f=document.getElementById('fill'),p=document.getElementById('pct'),T=90;
 if(matchMedia('(prefers-reduced-motion:reduce)').matches){f.style.width=T+'%';return}
 setTimeout(function(){f.style.width=T+'%';var s=null;function st(t){if(!s)s=t;var k=Math.min((t-s)/1300,1);p.textContent=Math.round(k*T)+'%';if(k<1)requestAnimationFrame(st)}requestAnimationFrame(st)},250)})();
+</script>
+<script>
+/* Quiz «Код любви» (doctorannasaba.ru/kod-lyubvi): the quiz saves kl_reg before the GetCourse form posts here.
+   Tell the bot scene which result this person has (GC event by email), and name the decoding in the heading. */
+(function(){var EV='https://doctor-saba.com/chtm/app/builder/event/~reg/zuoDIpTfhFEiKBYiagQ059321/kl-quiz-mdzuvfma?hash=PBIOES2uY6',r=null;
+try{r=JSON.parse(localStorage.getItem('kl_reg')||'null')}catch(e){}
+if(!r||!/^[a-z0-9]{1,4}$/.test(r.key||'')||!/@/.test(r.email||'')||Date.now()-(+r.ts||0)>6*3600e3)return;
+var h=document.getElementById('tgh'),n=String(r.name||'').replace(/[<>&"]/g,'');
+if(h&&n)h.innerHTML='Перейдите в&nbsp;<em>Telegram</em>, чтобы получить расшифровку «'+n.replace(/ (\S+)$/,'&nbsp;$1')+'», бонусы и&nbsp;именной&nbsp;билет';
+if(r.sent)return;var tries=0;
+function send(){tries++;fetch(EV,{method:'POST',headers:{'Content-Type':'application/json'},keepalive:true,
+body:JSON.stringify({email:r.email,customData:{key:r.key,name:n}})}).then(function(x){if(!x.ok)throw 0;r.sent=Date.now();
+try{localStorage.setItem('kl_reg',JSON.stringify(r))}catch(e){}}).catch(function(){if(tries<6)setTimeout(send,1500*tries)})}
+setTimeout(send,1500)})();
 </script>
 </body></html>
