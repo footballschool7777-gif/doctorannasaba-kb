@@ -392,7 +392,7 @@ function band(kind, html){ return '<section class="band ' + kind + '"><div class
 function buildReading(c){
   var ps = READ[c].split('\n\n');
   /* шапка: абзац 1 и абзац 2 */
-  var m = ps[0].match(/^(Ваша последовательность:) (.+)$/);
+  var m = ps[0].match(/^(Ваша последовательность:) (.+?)\.?$/);
   $('#seqL').textContent = m[1];
   $('#seq').textContent = m[2];
   var sents = ps[1].split(/(?<=\.) (?=[А-ЯЁ])/);
