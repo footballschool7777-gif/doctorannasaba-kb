@@ -325,6 +325,7 @@ html.rg-open,html.rg-open body{overflow:hidden!important}
     $('timerNote').hidden = false;                   // плашка остаётся
   }
   var tio = null;
+  var stickAnchor = document.querySelectorAll('ol.qs li')[8] || offer;
   function ensureTimer() {                           // нажатие кнопки блока = блок точно увидели
     if (timerInt || $('timer').classList.contains('expired')) return;
     if (tio) { tio.disconnect(); tio = null; }
@@ -339,14 +340,16 @@ html.rg-open,html.rg-open body{overflow:hidden!important}
       if (!es.some(function (e) { return e.isIntersecting; })) return;
       tio.disconnect(); tio = null; startTimer(0);
     }, { threshold: 0, rootMargin: '0px 0px -20% 0px' });
-    tio.observe(offer);
+    tio.observe(stickAnchor);
   })();
 
   // ---------- липкая плашка: только когда человек дошёл до блока; над вопросами её нет ----------
   var ctaVisible = false;
   function updateSticky() {
-    var top = offer.getBoundingClientRect().top;
-    var reached = top < window.innerHeight - 72;     // блок уже на экране или выше
+    // owner msg 1963: sticky with the 10-minute timer appears once question 9 has been read
+    var top = stickAnchor.getBoundingClientRect().bottom;
+    var reached = top < window.innerHeight - 72;
+    if (reached) ensureTimer();
     var on = reached && !ctaVisible && rg.hidden;
     sticky.classList.toggle('on', on);
     sticky.setAttribute('aria-hidden', on ? 'false' : 'true');
