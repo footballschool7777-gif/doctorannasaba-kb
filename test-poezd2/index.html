@@ -243,8 +243,9 @@ html.md-open,html.md-open body{overflow:hidden}
     <p class="kick">Ваш подарок</p>
     <h2>Бесплатный <span class="nw">онлайн-практикум</span> «Новая реальность»</h2>
     <p class="facts"><span>Анна&nbsp;Саба</span><span>25–28&nbsp;ноября</span><span>4&nbsp;дня прямых эфиров</span></p>
-    <p class="lt">После регистрации 3&nbsp;подарка придут в&nbsp;Telegram-бота:</p>
+    <p class="lt">После регистрации 4&nbsp;подарка придут в&nbsp;Telegram-бота:</p>
     <ul class="gains">
+     <li><span class="bi"><img src="img/b-36.png" alt=""></span><p><span class="t">Гайд</span><b>«36&nbsp;вопросов»</b><span class="d">как влюбить в&nbsp;себя любого человека за&nbsp;45&nbsp;минут</span></p></li>
      <li><span class="bi"><img src="img/b-money.png" alt=""></span><p><span class="t">Практика</span><b>«Деньги х2»</b><span class="d">как пробить финансовый потолок и&nbsp;удвоить&nbsp;доход</span></p></li>
      <li><span class="bi"><img src="img/b-calm.png" alt=""></span><p><span class="t">Терапевтическая сессия</span><b>«Убираем тревогу и&nbsp;выходим из&nbsp;недостаточности»</b></p></li>
      <li><span class="bi"><img src="img/b-love.png" alt=""></span><p><span class="t">Гайд</span><b>«Волшебная женщина»</b><span class="d">как построить счастливые отношения, чтобы мужчина заботился, дарил подарки и&nbsp;носил на&nbsp;руках</span></p></li>
@@ -265,8 +266,8 @@ html.md-open,html.md-open body{overflow:hidden}
   <h3 id="regTitle">Регистрация на&nbsp;<span class="nw">онлайн-практикум</span></h3>
   <p class="rg-name">«Новая реальность»</p>
   <p class="rg-date">Даты проведения: <b>25–28&nbsp;ноября</b></p>
-  <p class="rg-note">3&nbsp;подарка придут в&nbsp;Telegram-бота</p>
-  <form id="tf" class="tf-form" action="https://doctor-saba.com/pl/lite/block-public/process-html?id=2256829325" method="post" accept-charset="UTF-8" target="_top">
+  <p class="rg-note">4&nbsp;подарка придут в&nbsp;Telegram-бота</p>
+  <form id="tf" class="tf-form" action="https://doctor-saba.com/pl/lite/block-public/process-html?id=2260261966" method="post" accept-charset="UTF-8" target="_top">
    <input type="hidden" name="formParams[setted_offer_id]" value="">
    <input type="hidden" name="formParams[willCreatePaidDeal]" value="">
    <input type="hidden" name="__gc__internal__form__helper" id="tf-loc" value="">
@@ -291,7 +292,7 @@ html.md-open,html.md-open body{overflow:hidden}
 var READ = JSON.parse(document.getElementById('readings').textContent);
 var ITEMS = {'1':{img:'img/icon-notebook.svg'},'2':{img:'img/icon-letters.svg'},'3':{img:'img/icon-cosmetics.svg'},'4':{img:'img/icon-gift.svg'}};
 var ASK = ['первой','второй','третьей'];
-var NR_PATH = '/novaya-realnost-v2-light/';
+var NR_PATH = '/novaya-realnost-36/';
 var NR_ABS = 'https://doctorannasaba.ru' + NR_PATH;
 var $ = function(s,r){return (r||document).querySelector(s)};
 var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
@@ -457,7 +458,7 @@ function startClock(){
 /* ---------- сайт практикума ниже на странице (iframe без своего скролла) ---------- */
 var nrSec = null, nrRO = null, nrTimer = 0;
 function nrUrl(){
-  /* тот же домен: на doctorannasaba.ru это https://doctorannasaba.ru/novaya-realnost-v2-light/ */
+  /* тот же домен: на doctorannasaba.ru это https://doctorannasaba.ru/novaya-realnost-36/ */
   var u = /^https?:$/.test(location.protocol) ? new URL(NR_PATH, location.origin) : new URL(NR_ABS);
   new URLSearchParams(location.search).forEach(function(v, k){ if (/^utm_/.test(k)) u.searchParams.set(k, v); });
   return u.toString();
