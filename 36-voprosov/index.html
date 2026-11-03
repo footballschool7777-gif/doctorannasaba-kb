@@ -223,7 +223,7 @@ html.rg-open,html.rg-open body{overflow:hidden!important}
 <div class="timer-wrap"><div class="timer" id="timer" aria-live="off">10:00</div>
 <p class="timer-note" id="timerNote" hidden>Время вышло, но&nbsp;регистрация ещё открыта. Успейте записаться, пока есть&nbsp;места</p></div>
 <a class="btn" id="ctaMain" href="#register">Записаться на&nbsp;практикум</a>
-<a class="btn btn-2" id="ctaSecondary" href="https://doctorannasaba.ru/novaya-realnost-v2-light/">Подробнее <span class="nw">об онлайн-практикуме</span></a>
+<a class="btn btn-2" id="ctaSecondary" href="https://doctorannasaba.ru/novaya-realnost-v2-light/?utm_source=site&amp;utm_medium=page&amp;utm_campaign=36-voprosov&amp;utm_content=main">Подробнее <span class="nw">об онлайн-практикуме</span></a>
 </section>
 </main><footer class="ft">Анна Саба · врач-психотерапевт · @dr.saba_dusalieva</footer>
 <div id="sticky" class="sticky" aria-hidden="true"><div class="sticky-in">
@@ -520,4 +520,5 @@ html.rg-open,html.rg-open body{overflow:hidden!important}
   }
 })();
 </script>
+<script>/* pass incoming utm_* to the registration link */(function(){var q=new URLSearchParams(location.search),k=[];q.forEach(function(v,n){if(n.indexOf("utm_")===0)k.push(n)});if(!k.length)return;document.querySelectorAll('a[href*="doctorannasaba.ru/novaya-realnost"]').forEach(function(a){var u=new URL(a.href);k.forEach(function(n){u.searchParams.set(n,q.get(n))});a.href=u.toString()})})();</script>
 </body></html>
