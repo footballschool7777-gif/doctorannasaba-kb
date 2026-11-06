@@ -66,3 +66,8 @@
   });
   window.dsUtm = { tag: tag, current: cur };
 })();
+
+/* iPhone: taps inside pop-up forms (see /ios-form-fix.js, msg 16875) */
+(function () {
+  try { var s = document.createElement('script'); s.src = '/ios-form-fix.js?v=1'; s.async = true; (document.head || document.documentElement).appendChild(s); } catch (e) {}
+})();
