@@ -795,8 +795,8 @@ html.rg-open,html.rg-open body{overflow:hidden!important}
 .ia-scen{display:flex;flex-direction:column;gap:calc(var(--ia-g) * .6 + 4px)}
 .ia-lead{display:flex;align-items:center;gap:10px}
 .ia-lead::after{content:"";flex:1 1 24px;min-width:24px;height:1.5px;background:linear-gradient(90deg,#d6a24a,transparent)}
-.ia-lead .lt{flex:0 1 auto;padding:6px 12px;border-radius:10px;background:#23190d;color:#f6dc9e;font:800 14px/1.25 var(--fb);letter-spacing:.01em;text-wrap:balance}
-.ia-lead .num{font:600 1.08em/1 var(--ft);letter-spacing:0;color:#f6dc9e}
+.ia-lead .lt{flex:0 1 auto;padding:6px 12px;border-radius:10px;background:#fbefd6;border:1px solid rgba(214,162,74,.45);color:var(--ink);font:800 14px/1.25 var(--fb);letter-spacing:.01em;text-wrap:balance}
+.ia-lead .num{font:600 1.08em/1 var(--ft);letter-spacing:0;color:var(--goldt)}
 /* сценарии — карточки как бонусы лендинга */
 .ia-cards{display:flex;flex-direction:column;gap:calc(var(--ia-g) * .35 + 3px)}
 .ia-cards li{
@@ -863,7 +863,7 @@ html.rg-open,html.rg-open body{overflow:hidden!important}
   .ia-who b{font-size:19px}.ia-who span{font-size:14.5px}
   .ia-head{gap:min(calc(2.4 * var(--vh0) / 100),20px)}
   .ia-pill span{font-size:16px;padding:8px 14px}
-  .ia-lead .lt{background:none;padding:0;color:#f4ede1;font-size:clamp(15px,calc(2.1 * var(--vh0) / 100),17px)}
+  .ia-lead .lt{background:none;border:0;padding:0;color:#f4ede1;font-size:clamp(15px,calc(2.1 * var(--vh0) / 100),17px)}
   .ia-lead .num{font-size:1.25em;color:#f6dc9e}
   .ia-lead::after{display:none}
   .ia-cards{gap:min(calc(1.3 * var(--vh0) / 100),10px)}
@@ -906,10 +906,10 @@ const CONFIG = {
   "intro": {
     "badge": "Бесплатный тест",
     "title": "Узнай, что именно мешает тебе получать больше денег, и почему ты постоянно тревожишься из-за них",
-    "lead": "93% людей не могут выйти на новый финансовый уровень, попадая в один из этих сценариев:",
+    "lead": "93% людей застревают в одном из этих денежных сценариев:",
     "scenarios": [
       "Финансовый потолок: доход годами стоит на месте",
-      "Работают на износ, а денег не прибавляется: словно ходят на месте кругу",
+      "Работают на износ, а\u00a0денег не прибавляется: словно ходят на месте кругу",
       "Деньги приходят и сразу же утекают сквозь пальцы: что-то происходит (техника, здоровье, занять близким)",
       "Не хватает денег ни на что: долги, кредиты, большая финансовая нагрузка",
       "Нет накоплений и подушки безопасности: страшно за будущее"
@@ -3846,7 +3846,7 @@ const CONFIG = {
   }
   // «Хорошая девочка»: удобная… → заголовок пункта (в кавычках) + пояснение
   function introScen(s) {
-    const e = esc(s).trim(), m = e.match(/^(«[^»]*»:?)\s*(.*)$/);
+    const e = esc(s).trim(), m = e.match(/^(«[^»]*»:?)\s*(.*)$/) || e.match(/^([^:]{3,60}:)\s*(.*)$/);
     return m ? { h: m[1], d: typo(m[2]) } : { h: '', d: typo(e) };
   }
   function introAva(a, cls) {
