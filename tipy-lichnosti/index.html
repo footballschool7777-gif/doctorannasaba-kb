@@ -1,0 +1,3843 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><script src="/utm.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6f0e6">
+<title>8 типов личности — бесплатный тест для женщин</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<script>
+/* Высота экрана фиксируется ОДИН раз при загрузке: --vh0 (px) и классы h-* на <html>.
+   Когда Safari прячет/показывает панель при скролле, высота окна меняется, но кегли и отступы — нет.
+   Пересчёт только при повороте экрана (ширина изменилась больше чем на 80 px). */
+(function () {
+  var d = document.documentElement, w0 = 0;
+  function fix() {
+    var h = window.innerHeight || (window.screen && screen.height) || 800, w = window.innerWidth || d.clientWidth;
+    w0 = w;
+    d.style.setProperty('--vh0', h + 'px');
+    var c = { 'h-compact': h < 620 || (w <= 374 && h < 660), 'h-lt620': h < 620, 'h-le700': h <= 700,
+              'h-ge760': h >= 760, 'h-ge800': h >= 800, 'h-ge860': h >= 860 };
+    for (var k in c) d.classList.toggle(k, c[k]);
+  }
+  fix();
+  window.addEventListener('resize', function () { if (Math.abs((window.innerWidth || 0) - w0) > 80) fix(); });
+  window.__klFixVh = fix;
+})();
+</script>
+<style>
+/* ============================================================
+   ТОКЕНЫ. Дизайн-система лендинга Анны Саба (светлая тема).
+   Компактный режим (низкие экраны) меняет только их.
+   ============================================================ */
+:root{
+  --bg:#f6f0e6;          /* сливочный фон экрана */
+  --bg2:#efe6d6;         /* фон вокруг колонки на десктопе */
+  --card:#fffdf8;
+  --card2:#fbf5ea;
+  --line:rgba(138,92,24,.2);
+  --line-gold:rgba(214,162,74,.18);   /* разделители внутри карточек */
+  --ink:#23190d;         /* текст, 15:1 на фоне */
+  --muted:#5f5446;       /* второстепенный, 6.5:1 на фоне */
+  --gold:#d6a24a;
+  --gold2:#b9832e;
+  --goldt:#8a5714;       /* золото для ТЕКСТА на светлом, 5.4:1 */
+  --btnink:#2a1c06;      /* текст на золотой кнопке, 7.2:1 */
+  --glow:rgba(214,162,74,.35);
+  --shadow:0 30px 60px -34px rgba(90,60,20,.45);
+  --shadow-sm:0 14px 30px -22px rgba(90,60,20,.4);
+  --gold-grad:linear-gradient(180deg,#f6dc9e,var(--gold) 55%,var(--gold2));
+  --ic-grad:linear-gradient(145deg,#f6dc9e,#c9a25c);
+  --gl-light:linear-gradient(100deg,#8a5714,#b57a22 40%,#e3b45e 50%,#b57a22 60%,#8a5714);
+  --gl-dark:linear-gradient(100deg,#c9953f,#f6dc9e 45%,#fff6dc 50%,#f6dc9e 55%,#c9953f);
+  --ic-check:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232a1c06' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+  /* тёмные полосы */
+  --d-ink:#f4ede1;
+  --d-muted:#b4a992;
+  --d-gold:#e8c27a;
+  --d-goldt:#ecc67f;
+  --d-bg:radial-gradient(70% 60% at 50% 0%,rgba(232,194,122,.13),transparent 70%),linear-gradient(180deg,#120f0a,#0d0b08);
+
+  --fb:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  --ft:'Unbounded','Manrope',-apple-system,sans-serif;
+
+  --r-lg:22px;           /* карточки: gains, promise, пара, видео, билет */
+  --r-md:18px;           /* варианты ответа, фото */
+  --r-sm:14px;           /* мелкие плашки: цитаты */
+  --ease:cubic-bezier(.2,.7,.2,1);
+
+  --fs-h1:22px;          /* заголовок экрана 1 */
+  --fs-q:22px;           /* вопрос, заголовок загрузки */
+  --fs-body:16px;        /* основной текст экрана 1 */
+  --fs-opt:16px;         /* варианты ответов, пункты загрузки */
+  --fs-small:14px;       /* подпись под кнопкой */
+  --fs-chip:14px;
+  --fs-btn:18px;
+  --pad-x:16px;
+  /* --vh0 — высота окна, снятая ОДИН раз при загрузке (скрипт в <head>), в px.
+     Прятание панели Safari её не меняет, поэтому кегли и отступы не прыгают. */
+  --vh0:100svh;
+  --pad-top:clamp(10px, calc(2 * var(--vh0) / 100), 16px);
+  --pad-bottom:clamp(10px, calc(2 * var(--vh0) / 100), 16px);
+  --gap:clamp(8px, calc(1.6 * var(--vh0) / 100), 16px);
+  --q-gap:12px;
+  --card-pad:11px;       /* вертикальный padding варианта */
+  --gi-y:7px;            /* вертикальный padding пункта в gains на экране 1 */
+  --g-lh:1.3;
+  --lead-lh:1.3;
+  --ava:60px;            /* аватар-«сторис» */
+  --ava:clamp(56px, calc(8.5 * var(--vh0) / 100), 76px);
+  --igap:clamp(12px, calc(2.6 * var(--vh0) / 100), 24px);   /* расстояние между смысловыми группами экрана 1 */
+  --vh:var(--vh0);
+}
+/* КОМПАКТНЫЙ РЕЖИМ — низкие экраны (360×560, 375×548 и т. п.). Только токены.
+   Высота — из класса на <html>, снятого при загрузке (не @media max-height, иначе кегли прыгают при скролле в Safari).
+   h-compact = высота < 620 или (ширина ≤ 374 и высота < 660). :where() — специфичность как у прежнего :root. */
+@media all{
+  :root:where(.h-compact){
+    --fs-h1:19px;
+    --fs-q:20px;
+    --fs-body:15px;
+    --fs-small:13px;
+    --fs-chip:13px;
+    --pad-top:8px;
+    --pad-bottom:8px;
+    --gap:8px;
+    --gi-y:4px;
+    --g-lh:1.25;
+    --lead-lh:1.25;
+    --ava:52px;
+    --igap:10px;
+  }
+}
+/* Высокие экраны: заголовок крупнее (диапазон ТЗ 22–26), пункты свободнее */
+@media (min-width:360px){:root:where(.h-ge760){--fs-h1:24px;--gi-y:10px}}
+@media (min-width:375px){:root:where(.h-ge800){--fs-body:17px;--gi-y:12px;--g-lh:1.35;--lead-lh:1.35}}
+@media (min-width:375px){:root:where(.h-ge860){--fs-h1:26px;--gi-y:14px}}
+
+/* ============================================================ БАЗА */
+*,*::before,*::after{box-sizing:border-box}
+html{height:100%;-webkit-text-size-adjust:100%;background:var(--bg2)}
+body{
+  margin:0;height:100%;
+  color:var(--ink);
+  background:radial-gradient(60% 50% at 50% 30%,rgba(214,162,74,.22),transparent 70%) fixed,var(--bg2);
+  font-family:var(--fb);font-size:var(--fs-body);font-weight:500;line-height:1.35;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  overscroll-behavior:none;
+}
+body.mode-fixed{overflow:hidden}
+body.mode-fixed .app{
+  height:var(--vh0);
+  display:flex;flex-direction:column;
+  max-width:480px;margin:0 auto;
+  background:var(--bg);
+}
+body.mode-scroll{overflow:auto;height:auto}
+body.mode-scroll .app{
+  max-width:680px;margin:0 auto;min-height:var(--vh0);
+  background:radial-gradient(90% 420px at 88% 0%,rgba(214,162,74,.2),transparent 70%),var(--bg);
+}
+@media (min-width:520px){
+  body.mode-fixed .app,body.mode-scroll .app{box-shadow:0 0 0 1px var(--line),var(--shadow)}
+}
+button{font:inherit;color:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+h1,h2,h3,p,ul,figure{margin:0}
+ul{padding:0;list-style:none}
+b{font-weight:800}
+
+.screen{
+  flex:1 1 auto;min-height:0;
+  display:flex;flex-direction:column;
+  padding:var(--pad-top) var(--pad-x) var(--pad-bottom);
+  padding-bottom:max(var(--pad-bottom),env(safe-area-inset-bottom));
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  animation:fade .15s ease-out;
+}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes shine{0%,70%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+@keyframes gl{to{background-position:-250% 0}}
+@keyframes pulse{50%{opacity:.4}}
+.screen.overflow{outline:3px solid #E00;outline-offset:-3px} /* только ?debug=1 */
+
+/* ============================================================ ОБЩИЕ КОМПОНЕНТЫ */
+/* Кнопка: золотая пилюля, текст слева, тёмный круг со стрелкой справа */
+.btn{
+  position:relative;overflow:hidden;isolation:isolate;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  width:100%;min-height:56px;padding:7px 7px 7px 24px;
+  border:0;border-radius:999px;cursor:pointer;text-decoration:none;text-align:left;
+  font:700 var(--fs-btn)/1.15 var(--fb);color:var(--btnink);
+  background:var(--gold-grad);
+  box-shadow:0 22px 44px -18px var(--glow),inset 0 1px 0 rgba(255,255,255,.6),inset 0 -2px 0 rgba(120,80,20,.18);
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease);
+}
+.btn::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);
+  transform:translateX(-120%);animation:shine 4.5s 2s infinite;
+}
+.btn .ar{
+  flex:0 0 42px;width:42px;height:42px;border-radius:50%;
+  display:grid;place-items:center;background:var(--btnink);color:var(--gold);
+}
+.btn .ar svg{width:20px;height:20px;transition:transform .2s var(--ease)}
+.btn:hover,.btn:active{transform:translateY(-2px);box-shadow:0 26px 50px -18px var(--glow),inset 0 1px 0 rgba(255,255,255,.6),inset 0 -2px 0 rgba(120,80,20,.18)}
+.btn:hover .ar svg,.btn:active .ar svg{transform:translateX(3px)}
+.btn:focus-visible{outline:3px solid var(--goldt);outline-offset:3px}
+/* Вторичная: прозрачная пилюля для тёмной полосы */
+.btn-secondary{
+  justify-content:center;text-align:center;min-height:56px;padding:12px 22px;
+  background:transparent;color:var(--d-goldt);font-size:17px;font-weight:600;
+  box-shadow:inset 0 0 0 1.5px var(--d-gold);
+}
+.btn-secondary::after{display:none}
+.btn-secondary:hover,.btn-secondary:active{box-shadow:inset 0 0 0 1.5px var(--d-gold),0 14px 30px -18px rgba(232,194,122,.5);background:rgba(232,194,122,.06)}
+.btn-secondary:focus-visible{outline-color:var(--d-gold)}
+
+/* Kicker: капс, разрядка, золотая линия слева */
+.kicker{
+  display:flex;align-items:center;gap:12px;
+  font:700 13px/1.3 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--goldt);
+}
+.kicker::before{content:"";flex:0 0 30px;height:1.5px;background:linear-gradient(90deg,var(--gold2),var(--gold))}
+
+/* Chip */
+.chip{
+  display:inline-flex;align-items:center;gap:8px;align-self:flex-start;flex:none;
+  padding:5px 14px;border:1px solid var(--line);border-radius:999px;
+  background:rgba(255,253,248,.7);
+  font:600 var(--fs-chip)/1.2 var(--fb);color:var(--ink);white-space:nowrap;
+}
+.chip::before{content:"";flex:0 0 6px;height:6px;border-radius:50%;background:var(--gold)}
+
+/* Gains: одна карточка, пункты через тонкие золотые линии, золотые галочки */
+.gains{
+  background:rgba(255,253,248,.7);
+  border:1px solid rgba(214,162,74,.3);border-radius:var(--r-lg);
+  padding:2px 16px;box-shadow:var(--shadow-sm);
+}
+.gains li{display:flex;align-items:flex-start;gap:11px}
+.gains li+li{border-top:1px solid var(--line-gold)}
+.ck{
+  flex:0 0 20px;width:20px;height:20px;border-radius:50%;
+  background:var(--ic-check) center/12px no-repeat,var(--ic-grad);
+  box-shadow:0 4px 10px -4px rgba(185,131,46,.7);
+}
+
+/* Promise: золотая градиентная обводка 1.5px, иконка в золотом квадрате */
+.promise{
+  position:relative;isolation:isolate;overflow:hidden;
+  display:flex;align-items:flex-start;gap:14px;
+  padding:18px;border-radius:var(--r-lg);
+  background:linear-gradient(165deg,#f5e7ce,var(--card) 70%);
+  box-shadow:var(--shadow-sm);
+}
+.promise::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;z-index:-1;pointer-events:none;
+  background:linear-gradient(120deg,#f6dc9e,rgba(201,162,92,.25) 30%,#c9a25c 60%,rgba(246,220,158,.3) 80%,#f6dc9e);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+}
+.promise::after{
+  content:"";position:absolute;width:160px;height:160px;right:-60px;top:-70px;border-radius:50%;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle,rgba(246,220,158,.35),transparent 70%);
+}
+.pr-ic{
+  flex:0 0 34px;width:34px;height:34px;border-radius:10px;
+  display:grid;place-items:center;color:#1a1208;background:var(--ic-grad);
+  box-shadow:0 6px 18px -6px rgba(201,162,92,.7);
+}
+.pr-ic svg{width:19px;height:19px}
+
+/* ============================================================ ЭКРАН 1 */
+.s-intro{
+  gap:var(--igap);
+  background:
+    radial-gradient(55% 75% at 82% 45%,rgba(214,162,74,.2),transparent 70%),
+    radial-gradient(40% 50% at 0% 100%,rgba(214,162,74,.1),transparent 70%);
+}
+/* Автор: круглое фото с золотым кольцом, как сторис */
+.author{flex:none;display:flex;align-items:center;gap:14px}
+.ava{
+  position:relative;flex:0 0 var(--ava);width:var(--ava);height:var(--ava);border-radius:50%;padding:2.5px;
+  background:conic-gradient(from 200deg,#f6dc9e,var(--gold) 25%,var(--gold2) 50%,#e3b45e 75%,#f6dc9e);
+  box-shadow:0 12px 26px -12px var(--glow);
+}
+.ava-in{
+  position:relative;display:grid;place-items:center;width:100%;height:100%;border-radius:50%;overflow:hidden;
+  border:2.5px solid var(--bg);color:var(--goldt);
+  background:radial-gradient(70% 70% at 35% 25%,#fff3cf,transparent 70%),linear-gradient(145deg,#f6dc9e,#c9a25c);
+}
+.ava-in svg{width:50%;height:50%}
+.ava-in img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block}
+.author-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+.author-txt b{font:800 17px/1.2 var(--fb);color:var(--ink);letter-spacing:-.005em}
+.author-txt span{font:700 14px/1.25 var(--fb);color:var(--goldt)}
+.head-block{flex:none;display:flex;flex-direction:column;gap:10px}
+.title{
+  flex:none;
+  font-size:var(--fs-h1);font-weight:800;line-height:1.12;letter-spacing:-.015em;
+  text-wrap:balance;
+}
+.title .acc{color:var(--goldt)}
+.scen-block{flex:none;display:flex;flex-direction:column;gap:6px}
+.lead{font-size:var(--fs-body);font-weight:700;line-height:var(--lead-lh)}
+.scen li{padding:var(--gi-y) 0;font-size:var(--fs-body);line-height:var(--g-lh)}
+.scen .ck{margin-top:calc((var(--g-lh) * 1em - 20px) / 2)}
+.cta-block{flex:none}
+/* свободная высота делится поровну между группами (и сверху/снизу); при нехватке места авто-отступы = 0, скролла нет */
+.s-intro>*{margin-top:auto}
+.s-intro>:last-child{margin-bottom:auto}
+.note{
+  flex:none;margin-top:8px;
+  font-size:var(--fs-small);font-weight:400;line-height:1.3;color:var(--muted);text-align:center;text-wrap:balance;
+}
+
+/* ============================================================
+   ЕДИНЫЙ СТИЛЬ ЭКРАНОВ ПОСЛЕ ПЕРВОГО — как экран 1 (вариант A) и лендинг:
+   заголовки Manrope 800 с тем же кеглем, что у заголовка экрана 1;
+   тёмные плашки как «87% женщин…»; карточки как бонусы лендинга;
+   золотая пилюля как «Бесплатный тест…»; цифры — Unbounded.
+   ============================================================ */
+:root{
+  --x-h1:min(25px, 6.45vw);          /* = заголовок экрана 1 (.ia-h1) */
+  --x-h2:min(22px, 5.8vw);           /* заголовки частей расшифровки */
+  --x-card:clamp(40px, calc((var(--vh0) - 640px) / 10 + 40px), 48px);  /* = иконка карточки экрана 1 */
+  --x-g:clamp(8px, calc((var(--vh0) - 600px) / 12 + 8px), 20px);      /* = ритм экрана 1 */
+  --x-cardbg:linear-gradient(160deg,#fffdf8,#fbf1de);
+  --x-cardsh:0 8px 22px -16px rgba(90,60,20,.6),inset 0 0 0 1px color-mix(in srgb,var(--gold) 40%,transparent);
+  --x-dark:radial-gradient(120% 160% at 88% 20%,#3b2a17,#17120c 62%,#100d09);
+  --x-darksh:inset 0 0 0 1px rgba(246,220,158,.4),0 16px 36px -20px rgba(35,25,13,.9);
+}
+@media all{:root:where(.h-le700){--x-h1:min(23px, 6.2vw);--x-card:38px;--x-g:clamp(7px, calc((var(--vh0) - 600px) / 12 + 6px), 12px)}}
+.nw{white-space:nowrap}
+.x-bg{
+  background:
+    radial-gradient(60% 45% at 100% 30%,rgba(214,162,74,.18),transparent 70%),
+    radial-gradient(50% 40% at 0% 100%,rgba(214,162,74,.12),transparent 70%),
+    linear-gradient(180deg,#efe6d6,var(--bg) 40%);
+}
+/* золотая пилюля — как «Бесплатный тест для женщин» */
+.x-pill{display:inline-block;padding:6px 12px;border-radius:10px;font:800 13px/1.15 var(--fb);color:#1a1208;
+  background:linear-gradient(180deg,#f6dc9e,#d6a24a);box-shadow:0 6px 16px -8px rgba(90,60,20,.7);white-space:nowrap}
+/* тёмная плашка с золотой линией — как «87% женщин попадают…» */
+.x-plate{display:flex;align-items:center;gap:10px}
+.x-plate::after{content:"";flex:1 1 24px;min-width:24px;height:1.5px;background:linear-gradient(90deg,#d6a24a,transparent)}
+.x-plate .lt{flex:0 1 auto;padding:6px 12px;border-radius:10px;background:#23190d;color:#f6dc9e;font:800 14px/1.25 var(--fb);letter-spacing:.01em;text-wrap:balance}
+.x-plate .num{font:600 1.08em/1 var(--ft);letter-spacing:0;color:#f6dc9e}
+@media all{:where(.h-ge800) .x-plate .lt{font-size:15px}}
+/* заголовок — как заголовок экрана 1 */
+.x-h1{font:800 var(--x-h1)/1.1 var(--fb);letter-spacing:-.03em;color:var(--ink);text-wrap:balance}
+/* иконка в карточке — как на экране 1 */
+.x-ic{flex:0 0 var(--x-card);width:var(--x-card);height:var(--x-card);border-radius:12px;display:grid;place-items:center;color:#a0661a;
+  background:radial-gradient(circle at 50% 35%,#fff8ea,#f4e2bf);box-shadow:inset 0 0 0 1px rgba(214,162,74,.25)}
+.x-ic svg{width:56%;height:56%}
+.x-ck{display:block;width:20px;height:20px;border-radius:50%;background:var(--ic-check) center/12px no-repeat,var(--ic-grad);box-shadow:0 4px 10px -4px rgba(185,131,46,.7)}
+
+/* ============================================================ ВОПРОС */
+.s-q{gap:0}
+.qbar{display:flex;align-items:center;gap:12px;height:36px;flex-shrink:0}
+.back{
+  width:36px;height:36px;flex:0 0 36px;padding:0;border-radius:50%;cursor:pointer;
+  border:0;background:#23190d;color:#f6dc9e;box-shadow:0 8px 18px -10px rgba(35,25,13,.8),inset 0 0 0 1px rgba(246,220,158,.35);
+  display:grid;place-items:center;transition:transform .15s var(--ease);
+}
+.back:hover{transform:translateX(-2px)}
+.back:focus-visible{outline:3px solid var(--goldt);outline-offset:2px}
+.back.ghost{visibility:hidden;pointer-events:none}
+.back svg{width:18px;height:18px}
+.prog{flex:1 1 auto;height:6px;border-radius:999px;background:rgba(214,162,74,.2)}
+.prog-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold2),#f6dc9e);box-shadow:0 0 10px rgba(214,162,74,.55)}
+.qcount{flex:none;font-variant-numeric:tabular-nums}
+.qbody{margin:auto 0;padding:var(--x-g) 0;display:flex;flex-direction:column;gap:calc(var(--x-g) + 4px)}
+/* на высоких экранах блок вопроса чуть выше центра: снизу невидимая распорка, на низких она 0 */
+.s-q::after{content:"";flex:0 0 clamp(0px, calc((var(--vh0) - 700px) * .8), 160px)}
+.qtext{flex-shrink:0}
+.opts{display:flex;flex-direction:column;gap:calc(var(--x-g) * .35 + 4px)}
+.opt{
+  display:flex;align-items:center;gap:12px;
+  width:100%;min-height:calc(var(--x-card) + 10px);padding:5px 14px 5px 5px;
+  border:0;border-radius:16px;background:var(--x-cardbg);box-shadow:var(--x-cardsh);
+  text-align:left;cursor:pointer;
+  font:600 15px/1.28 var(--fb);color:var(--ink);
+  transition:box-shadow .15s ease,background .15s ease,transform .15s var(--ease);
+}
+.opt:hover{box-shadow:0 10px 24px -14px rgba(90,60,20,.6),inset 0 0 0 1.5px color-mix(in srgb,var(--gold) 75%,transparent)}
+.opt:focus-visible{outline:3px solid var(--goldt);outline-offset:2px}
+.opt .radio{position:relative}
+.opt .radio::after{content:"";width:20px;height:20px;border-radius:50%;border:1.5px solid var(--gold);background:#fffdf8;transition:background .15s,border-color .15s}
+.opt.sel{background:linear-gradient(160deg,#fbefd4,#f3dcaa);box-shadow:0 14px 28px -16px var(--glow),inset 0 0 0 1.5px var(--gold)}
+.opt.sel .radio{background:radial-gradient(circle at 50% 35%,#3b2a17,#17120c);box-shadow:inset 0 0 0 1px rgba(246,220,158,.4)}
+.opt.sel .radio::after{border-color:transparent;background:var(--ic-check) center/12px no-repeat,var(--ic-grad);box-shadow:0 4px 10px -4px rgba(185,131,46,.7)}
+.opt-text{flex:1 1 auto;min-width:0;text-wrap:balance}
+@media all{:where(.h-ge800) .opt{font-size:16px}}
+@media (min-width:981px){
+  body.mode-fixed .app:has(> .s-q),body.mode-fixed .app:has(> .s-load){max-width:560px}
+  .opt{font-size:16px}
+}
+
+/* ============================================================ ЗАГРУЗКА */
+.s-load{justify-content:center}
+.load-box{width:100%;max-width:400px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+.spinner{
+  position:relative;width:76px;height:76px;margin:0 auto 22px;border-radius:50%;
+  background:var(--x-dark);box-shadow:var(--x-darksh),0 0 46px -8px var(--glow);
+}
+.spinner::before{
+  content:"";position:absolute;inset:6px;border-radius:50%;
+  background:conic-gradient(from 0deg,rgba(214,162,74,0),var(--gold2) 65%,#f6dc9e);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 4px));
+  mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 4px));
+  animation:spin 1s linear infinite;
+}
+.spinner::after{
+  content:"";position:absolute;inset:28px;border-radius:50%;
+  background:radial-gradient(circle,#fff3cf,var(--gold) 50%,transparent 72%);
+  animation:pulse 2.4s infinite;
+}
+.load-title{text-align:center}
+.checks{margin-top:20px;width:100%;display:flex;flex-direction:column;gap:8px}
+.checks li{
+  display:flex;align-items:center;gap:12px;min-height:calc(var(--x-card) + 10px);padding:5px 14px 5px 5px;border-radius:16px;
+  background:var(--x-cardbg);box-shadow:var(--x-cardsh);font:600 15px/1.28 var(--fb);color:var(--ink);
+  opacity:0;transform:translateY(4px);transition:opacity .2s ease,transform .2s ease;
+}
+.checks li span:last-child{text-wrap:balance}
+.checks li.on{opacity:1;transform:none}
+
+/* ============================================================ РЕЗУЛЬТАТ И РАСШИФРОВКА (v4)
+   1 в 1 как сайт практикума «Новая реальность» (замер 390×844, out/landing-type-roles.md).
+   Все размеры – переменные --t-*, равные значениям сайта. Других font-size в этом разделе нет.
+   Курсивов нет. Значки – без градиентов (заливка + кольцо + SVG), швов быть не может. */
+:root{
+  --t-kick:11.5px;                 /* надзаголовок секции .kick */
+  --t-h1:min(25px, 6.45vw);        /* H1 первого экрана сайта */
+  --t-h2:28px;                     /* H2 секции */
+  --t-h2l:25px;                    /* H2 длинный */
+  --t-h2o:22px;                    /* заголовок оффера: Unbounded 22/600 блока «Что вы получите» */
+  --t-h3t:24px;                    /* H3 карточки тарифа */
+  --t-h3:20px;                     /* H3 карточки / окно */
+  --t-body:15px;                   /* основной текст */
+  --t-dark:16px;                   /* текст на тёмном (.edu) и кнопки */
+  --t-small:14px;                  /* подписи */
+  --t-cap:12px;                    /* мелкая подпись .hx-pr */
+  --t-note:12.5px;                 /* сноска */
+  --t-tag:11px;                    /* капс-подпись .bonus b */
+  --t-big:44px;                    /* крупная цифра */
+  --s-line:rgba(138,92,24,.2);
+  --s-muted:#5f5446;
+  --s-goldt:#8a5714;
+  --s-acc:#a0661a;
+}
+body.mode-scroll .app{max-width:none;background:#f6f0e6;box-shadow:none!important}
+/* компьютер: лестница сайта на 1440 (замер out/landing-type-roles.md): H1 3.1vw, H2 46 / 40, текст карточек 17 */
+@media (min-width:981px){
+  :root{--t-h1:clamp(30px,3.1vw,48px);--t-h2:46px;--t-h2l:40px;--t-h2o:40px;--t-body:17px;--t-dark:17px}
+  .s-result .band-in{max-width:760px}
+}
+.s-result{display:block;overflow:visible;animation:none;padding:0}
+.band{position:relative;padding:60px 16px}
+.band-in{max-width:620px;margin:0 auto}
+.band.b-hero{background:linear-gradient(180deg,#efe6d6,#f6f0e6 40%)}
+.band.b-page{background:#f6f0e6}
+.band.b-beige{background:linear-gradient(180deg,#efe4d0,#f3ebdd)}
+.band.b-dark{background:radial-gradient(70% 60% at 50% 0%,rgba(232,194,122,.13),transparent 70%),linear-gradient(180deg,#120f0a,#0d0b08);color:#f4ede1}
+@media (min-width:981px){.band{padding:96px 20px}}
+
+/* надзаголовок — .kick сайта */
+.kick{display:flex;align-items:center;gap:12px;margin:0 0 20px;
+  font:700 var(--t-kick)/1.45 var(--fb);letter-spacing:.22em;text-transform:uppercase;color:var(--s-goldt);white-space:nowrap}
+.kick::before{content:"";flex:0 0 34px;height:1.5px;background:linear-gradient(90deg,#b9832e,#d6a24a)}
+.kick .num{font:inherit;color:inherit}
+.b-dark .kick{color:#ecc67f}
+
+/* шапка результата — как первый экран сайта */
+.res-head{padding-top:44px;padding-bottom:60px}
+.res-head .kick{margin-bottom:14px}
+.res-title{font:800 var(--t-h1)/1.1 var(--fb);letter-spacing:-.03em;color:var(--s-acc);text-wrap:balance}
+.res-hint{margin-top:14px;font:500 var(--t-body)/1.5 var(--fb);color:var(--s-muted);text-wrap:balance}
+.vid{margin-top:20px}
+.video{
+  position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:0;margin:0;
+  border-radius:22px;overflow:hidden;isolation:isolate;cursor:pointer;background:#120f0a;
+  box-shadow:0 0 0 1.5px rgba(214,162,74,.7),0 24px 60px -30px rgba(201,162,92,.55);
+}
+@supports not (aspect-ratio:16/9){.video{height:0;padding-top:56.25%}}
+.video.soon{cursor:default}
+.video img.vp{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.video video{position:absolute;inset:0;width:100%;height:100%;display:block;background:#000;object-fit:contain}
+/* ▶ — круг кнопки сайта: золотая пилюля-кольцо и тёмный круг с золотым знаком */
+.video .play{position:absolute;left:50%;top:50%;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;
+  display:grid;place-items:center;background:#e2b867;
+  box-shadow:0 22px 44px -18px rgba(214,162,74,.6),inset 0 1px 0 rgba(255,255,255,.6);transition:transform .2s var(--ease)}
+.video .play .pi{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:#2a1c06;color:#e8c27a}
+.video .play svg{width:22px;height:22px;margin-left:3px}
+.video:not(.soon):hover .play{transform:scale(1.05)}
+.video:focus-visible{outline:3px solid var(--s-goldt);outline-offset:3px}
+.video .soon-l{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);display:flex;justify-content:center}
+.video .soon-l .kick{margin:0;color:#ecc67f}
+.video .soon-l .kick::after{content:"";flex:0 0 34px;height:1.5px;background:linear-gradient(90deg,#d6a24a,#b9832e)}
+.vid-cap{margin-top:12px;font:500 var(--t-cap)/1.42 var(--fb);color:var(--s-muted);text-align:center;text-wrap:balance}
+
+/* части расшифровки */
+.res-body{font:500 var(--t-body)/1.5 var(--fb);color:#23190d}
+.res-body p{margin:0 0 14px;text-wrap:balance}
+.res-body p:last-child{margin-bottom:0}
+.res-body b{font-weight:700}
+.res-body .acc{color:var(--s-goldt)}
+.part h2{margin:0 0 20px;font:600 var(--t-h2)/1.08 var(--ft);letter-spacing:-.015em;color:#23190d;text-wrap:balance}
+.part .lead-h{margin:0 0 20px;font:600 var(--t-h2l)/1.12 var(--ft);letter-spacing:-.015em;color:#23190d;text-wrap:balance}
+.blk{margin:20px 0}
+.blk:first-child{margin-top:0}
+.blk:last-child{margin-bottom:0}
+/* «Узнаёте себя?» — карточки .fy сайта */
+.cards{display:flex;flex-direction:column;gap:10px}
+.cards li{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:#fffdf8;border:1px solid var(--s-line)}
+.cards li>span:last-child{flex:1 1 auto;min-width:0;text-wrap:balance}
+/* круг-значок сайта (.fy-ic): сплошная заливка + кольцо, линейный знак — без градиентов */
+.ic{flex:0 0 34px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;align-self:flex-start;
+  background:#f1e1c2;box-shadow:inset 0 0 0 1px #e2c38c;color:var(--s-goldt)}
+.ic svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.cards li .ic{align-self:center}
+/* вывод — карточка .vs-new */
+.callout{padding:22px 18px 24px;border-radius:22px;
+  background:linear-gradient(155deg,#f6e9d2,#fffdf8 60%);
+  box-shadow:0 0 0 1.5px rgba(214,162,74,.7),0 24px 60px -30px rgba(201,162,92,.55)}
+.callout p{margin:0!important}
+/* пары — карточки «Было / стало» (.cs) */
+.pair{display:flex;flex-direction:column;gap:10px}
+.pc{position:relative;padding:20px 22px 20px 40px;border-radius:22px;background:#fffdf8;border:1px solid var(--s-line);text-wrap:balance}
+.pc::before{content:"";position:absolute;left:22px;top:calc(20px + .75em - 4px);width:8px;height:8px;border-radius:50%;background:#d6a24a}
+.pc.bad{color:var(--s-muted)}
+.pc.bad::before{content:"–";top:20px;width:auto;height:auto;border-radius:0;background:none;color:var(--s-muted);font:inherit}
+.pc.bad b{color:#23190d}
+@media (min-width:560px){.pair{flex-direction:row}.pair .pc{flex:1 1 0}}
+/* мысль — плашка .em-decode */
+.pull{margin:20px 0;padding:20px 24px;border-radius:20px;background:#fffdf8;border:1px solid rgba(214,162,74,.4);
+  box-shadow:0 30px 60px -34px rgba(90,60,20,.45);font-weight:700;text-wrap:balance}
+/* тёмная часть — как «Кто ведёт» */
+.b-dark.part h2{color:#f4ede1}
+.b-dark.part{font-size:var(--t-dark);line-height:1.6}
+.b-dark p{color:#e9dfcf}
+.b-dark b{color:#f4ede1}
+.b-dark .callout p{color:var(--ink,#2a1d12)}
+.b-dark .callout b{color:var(--ink,#2a1d12)}
+.quotes{display:flex;flex-direction:column;gap:10px}
+.quotes blockquote{position:relative;margin:0;padding:14px 18px 14px 38px;border-radius:16px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(232,194,122,.25);
+  font:500 var(--t-dark)/1.6 var(--fb);color:#f4ede1;text-wrap:balance}
+.quotes blockquote::before{content:"";position:absolute;left:18px;top:calc(14px + .8em - 1px);width:8px;height:2px;border-radius:1px;background:#e8c27a}
+.b-page .quotes blockquote,.b-beige .quotes blockquote{background:#fffdf8;border-color:var(--s-line);color:#23190d;font-size:var(--t-body);line-height:1.5}
+/* часть 6 «Паттерн» — светлая, приёмы сайта: карточки 01–05 (.gets), золотая линия слева (.em-text), водяной знак (.emdr) */
+.part[data-part="6"]{overflow:hidden}
+.part[data-part="6"]::before{content:"ПАТТЕРН";position:absolute;right:-.06em;bottom:-.12em;font:700 clamp(84px,20vw,300px)/1 var(--ft);letter-spacing:-.04em;color:#d6a24a;opacity:.06;pointer-events:none}
+.part[data-part="6"] .band-in{position:relative}
+.part[data-part="6"] .quotes{counter-reset:fq}
+.part[data-part="6"] .quotes blockquote{display:flex;align-items:center;gap:16px;padding:14px 18px;border-radius:16px;
+  background:linear-gradient(110deg,#fbf1dc,#fffdf8 60%);border:1px solid rgba(214,162,74,.28)}
+.part[data-part="6"] .quotes blockquote>span{flex:1 1 auto;min-width:0;text-wrap:balance}
+.part[data-part="6"] .quotes blockquote::before{counter-increment:fq;content:"0" counter(fq);position:static;flex:0 0 auto;min-width:34px;width:auto;height:auto;border-radius:0;
+  background:linear-gradient(160deg,#d9a54c,#9a6a1f);-webkit-background-clip:text;background-clip:text;color:transparent;font:600 22px/1 var(--ft)}
+.part[data-part="6"] .quotes~p{padding-left:16px;border-left:2px solid rgba(214,162,74,.45)}
+
+/* ============================================================ ОФФЕР — как блок «Тарифы» сайта */
+.offer{scroll-margin-top:0;padding-bottom:calc(60px + env(safe-area-inset-bottom))}
+.offer h2{font:600 var(--t-h2o)/1.12 var(--ft);letter-spacing:-.015em;color:#23190d;text-wrap:balance}
+.offer-sub{margin-top:24px;font:700 var(--t-body)/1.5 var(--fb);color:#23190d;text-wrap:balance}
+.offer-sub .num{font:inherit;color:var(--s-goldt)}
+.locked{margin-top:12px;display:flex;flex-direction:column;gap:10px}
+.locked li{display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:16px;
+  font:500 var(--t-body)/1.5 var(--fb);color:#23190d;background:#fffdf8;border:1px solid var(--s-line)}
+.locked li>span:last-child{flex:1 1 auto;min-width:0;text-wrap:balance}
+.locked .ic svg{width:17px;height:17px;stroke-width:2}
+.offer p.text{margin-top:28px;font:500 var(--t-body)/1.5 var(--fb);color:#23190d;text-wrap:balance}
+.offer p.text+.tk-wrap{margin-top:20px}
+.offer .acc{color:var(--s-goldt);font-weight:700}
+.pname{display:flex;align-items:center;gap:12px;margin-top:12px;padding:16px;border-radius:16px;
+  background:linear-gradient(160deg,#241b11,#120f0a);box-shadow:inset 0 0 0 1px rgba(246,220,158,.25)}
+.pname p{flex:1 1 auto;min-width:0;font:700 var(--t-body)/1.5 var(--fb);color:#f4ede1;text-wrap:balance}
+.pname .ic{background:#3a2c18;box-shadow:inset 0 0 0 1px rgba(232,194,122,.45);color:#e8c27a;align-self:center}
+.pname .ic svg{width:17px;height:17px;stroke-width:2}
+
+/* ---------- Промокод — билет (сохранён, шрифты аккуратнее) ---------- */
+.tk-wrap{margin-top:20px;filter:drop-shadow(0 18px 22px rgba(90,60,20,.24)) drop-shadow(0 0 16px rgba(214,162,74,.16))}
+.tk{
+  --stub:50px;--r-cut:10px;
+  position:relative;display:flex;min-height:124px;border-radius:18px;color:#2a1c06;overflow:hidden;isolation:isolate;
+  background:
+    radial-gradient(120% 90% at 100% 0%,rgba(255,250,232,.85),transparent 55%),
+    linear-gradient(135deg,#fbedc6,#f1d590 48%,#dcae5c);
+  -webkit-mask:
+    radial-gradient(circle var(--r-cut) at var(--stub) 0,#0000 98%,#000) top/100% 51% no-repeat,
+    radial-gradient(circle var(--r-cut) at var(--stub) 100%,#0000 98%,#000) bottom/100% 51% no-repeat;
+  mask:
+    radial-gradient(circle var(--r-cut) at var(--stub) 0,#0000 98%,#000) top/100% 51% no-repeat,
+    radial-gradient(circle var(--r-cut) at var(--stub) 100%,#0000 98%,#000) bottom/100% 51% no-repeat;
+}
+.tk::before{content:"";position:absolute;inset:5px;border-radius:14px;border:1px solid rgba(138,87,20,.28);pointer-events:none;z-index:2}
+.tk::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);transform:translateX(-120%);animation:shine 5s 1.5s infinite}
+.tk-stub{
+  position:relative;flex:0 0 var(--stub);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  padding:14px 0;background:linear-gradient(180deg,rgba(138,87,20,.16),rgba(138,87,20,.06));
+  border-right:2px dashed rgba(90,56,10,.45);
+}
+.tk-logo{position:relative;flex:0 0 20px;width:20px;height:20px;border-radius:50%;border:1.5px solid #8a5714}
+.tk-logo::after{content:"";position:absolute;inset:4px;border-radius:50%;background:radial-gradient(circle,#fff3cf,#b9832e 55%,transparent 72%);animation:pulse 2.4s infinite}
+.tk-k{writing-mode:vertical-rl;transform:rotate(180deg);font:700 var(--t-tag)/1 var(--fb);letter-spacing:.18em;text-transform:uppercase;color:#6b430c;white-space:nowrap}
+.tk-main{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:16px 16px 16px 14px}
+.tk-code{
+  display:block;min-width:0;padding:10px;border-radius:12px;text-align:center;white-space:nowrap;overflow:hidden;
+  background:rgba(255,253,244,.6);box-shadow:inset 0 0 0 1.5px rgba(138,87,20,.35),inset 0 2px 6px rgba(138,87,20,.12);
+  font:600 var(--t-dark)/1.2 var(--ft);letter-spacing:.03em;color:#2a1c06;user-select:all;-webkit-user-select:all;
+}
+.copy{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  min-height:44px;width:100%;padding:0 18px;border:0;border-radius:999px;cursor:pointer;white-space:nowrap;
+  font:700 var(--t-small)/1.2 var(--fb);color:#f6dc9e;background:#23190d;
+  box-shadow:0 10px 20px -12px rgba(35,25,13,.9),inset 0 0 0 1px rgba(246,220,158,.35);
+  transition:background-color .15s,color .15s,box-shadow .15s;
+}
+.copy svg{width:16px;height:16px;flex:none}
+.copy:focus-visible{outline:3px solid #23190d;outline-offset:2px}
+.copy.done{background:transparent;color:#2a1c06;box-shadow:inset 0 0 0 1.5px #23190d}
+.timer-wrap{margin-top:28px;text-align:center}
+.timer{
+  font:600 var(--t-big)/1 var(--ft);font-variant-numeric:tabular-nums;letter-spacing:.02em;
+  color:var(--d-goldt);text-shadow:0 0 28px rgba(232,194,122,.45);
+}
+.timer.expired{color:var(--d-muted);text-shadow:none}
+.offer .timer{color:var(--goldt);text-shadow:0 0 22px rgba(214,162,74,.3)}
+.offer .timer.expired{color:var(--muted);text-shadow:none}
+.timer-note{margin:12px auto 0;max-width:420px;font:500 var(--t-small)/1.55 var(--fb);color:var(--muted);text-wrap:balance}
+.offer .btn-primary{margin-top:28px;min-height:58px;padding:8px 8px 8px 24px;font:700 var(--t-dark)/1.25 var(--fb)}
+.offer .btn-primary>span{white-space:nowrap;min-width:0}
+.offer .btn-secondary{margin-top:12px;min-height:54px;font:700 var(--t-dark)/1.25 var(--fb);color:var(--goldt);box-shadow:inset 0 0 0 1.5px rgba(185,131,46,.7)}
+.offer .btn-secondary:hover,.offer .btn-secondary:active{background:rgba(214,162,74,.1);box-shadow:inset 0 0 0 1.5px var(--gold2),0 14px 30px -18px var(--glow)}
+.offer .btn-secondary:focus-visible{outline-color:var(--goldt)}
+@media (max-width:380px){.offer .btn-primary{padding-left:20px}}
+@media (min-width:700px){.offer .btn-primary,.offer .btn-secondary{max-width:460px;margin-left:auto;margin-right:auto}}
+
+/* Липкая панель — тёмное стекло */
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  background:rgba(14,12,9,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  transform:translateY(110%);visibility:hidden;transition:transform .2s ease,visibility .2s;
+}
+.sticky::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(232,194,122,.7),transparent)}
+.sticky.on{transform:none;visibility:visible}
+.sticky-in{max-width:620px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.sticky .timer{font-size:var(--t-h3);flex:0 0 auto;min-width:70px;text-align:center;text-shadow:0 0 16px rgba(232,194,122,.4)}
+.sticky .btn{flex:1 1 auto;min-height:48px;padding:6px 6px 6px 18px;font:700 var(--t-small)/1.2 var(--fb)}
+.sticky .btn .ar{flex-basis:36px;width:36px;height:36px}
+.sticky .btn .ar svg{width:18px;height:18px}
+
+/* ---------- Сайт практикума — продолжение страницы под оффером ---------- */
+.nr-inline{display:block;position:relative;background:var(--bg);border-top:1.5px solid rgba(214,162,74,.45)}
+.nr-inline[hidden]{display:none}
+.nr-inline iframe{display:block;width:100%;height:var(--vh0);border:0;overflow:hidden;background:var(--bg)}
+.nr-inline.loading::after{content:"";position:absolute;left:50%;top:120px;width:40px;height:40px;margin-left:-20px;border-radius:50%;
+  border:3px solid rgba(214,162,74,.25);border-top-color:var(--gold2);animation:spin 1s linear infinite}
+
+/* ---------- Окно регистрации: всегда по центру экрана (и на телефоне), скролл внутри ---------- */
+.rg{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;
+  padding:max(16px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom));
+  background:rgba(20,15,9,.6);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+  opacity:0;transition:opacity .2s ease;overscroll-behavior:contain}
+.rg[hidden]{display:none}
+.rg.on{opacity:1}
+.rg-box{position:relative;width:100%;max-width:440px;max-height:100%;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+  padding:30px 24px 24px;border-radius:24px;color:var(--ink);
+  background:radial-gradient(80% 200px at 85% 0%,rgba(214,162,74,.16),transparent 70%),#fffdf8;
+  box-shadow:0 40px 80px -30px rgba(20,15,9,.7),inset 0 0 0 1px rgba(214,162,74,.3);
+  transform:scale(.97);transition:transform .2s var(--ease)}
+.rg.on .rg-box{transform:none}
+.rg-x{position:absolute;right:12px;top:12px;width:40px;height:40px;padding:0;border:0;border-radius:50%;cursor:pointer;
+  display:grid;place-items:center;color:var(--ink);background:#f6f0e6;box-shadow:inset 0 0 0 1px var(--line)}
+.rg-x svg{width:18px;height:18px}
+.rg-x:hover{background:#efe6d6}
+.rg-x:focus-visible{outline:3px solid var(--goldt);outline-offset:2px}
+.rg-h{padding-right:44px;font:600 var(--t-h3)/1.25 var(--ft);letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+.rg-name{margin-top:10px;font:700 var(--t-small)/1.4 var(--fb);color:var(--goldt);text-wrap:balance}
+.rg-date{margin-top:8px;font:500 var(--t-small)/1.4 var(--fb);color:var(--ink)}
+.rg-date b{font-weight:700}
+.rg-note{margin-top:10px;font:500 var(--t-small)/1.55 var(--fb);color:var(--muted);text-wrap:balance}
+.rg-form{margin-top:22px;display:flex;flex-direction:column;gap:10px}
+.rg-form input[type=email],.rg-form input[type=text],.rg-form input[type=tel]{
+  width:100%;min-height:52px;padding:12px 16px;border:0;border-radius:14px;
+  font:500 var(--t-dark)/1.2 var(--fb);color:var(--ink);background:#fff;
+  box-shadow:inset 0 0 0 1.5px rgba(138,92,24,.24);transition:box-shadow .15s}
+.rg-form input::placeholder{color:#8b7d68}
+.rg-form input:focus{outline:0;box-shadow:inset 0 0 0 2px var(--gold2),0 0 0 4px rgba(214,162,74,.18)}
+.rg-ck{display:flex;align-items:flex-start;gap:10px;margin-top:4px;font:500 var(--t-note)/1.5 var(--fb);color:var(--muted);cursor:pointer;text-wrap:balance}
+.rg-ck input{flex:0 0 18px;width:18px;height:18px;margin:1px 0 0;accent-color:var(--gold2);cursor:pointer}
+.rg-ck a{color:var(--goldt);text-decoration:underline;text-underline-offset:2px}
+.rg-form .btn{margin-top:10px;min-height:56px;padding:8px 8px 8px 22px;font:700 var(--t-dark)/1.2 var(--fb)}
+.rg-form .btn>span{text-wrap:balance}
+.rg-form .btn[aria-busy=true]{opacity:.75;pointer-events:none}
+html.rg-open,html.rg-open body{overflow:hidden!important}
+@media (max-width:380px){.rg-box{padding:26px 18px 20px;border-radius:20px}}
+/* short phones (360x640, 375x667): the whole form with its button fits without scrolling */
+@media (max-height:700px){
+  .rg{padding:10px 12px}
+  .rg-box{padding:20px 18px 16px}
+  .rg-name,.rg-note{margin-top:6px}
+  .rg-date{margin-top:4px}
+  .rg-form{margin-top:12px;gap:8px}
+  .rg-form input[type=email],.rg-form input[type=text],.rg-form input[type=tel]{min-height:44px;padding:10px 14px}
+  .rg-ck{margin-top:0;line-height:1.4}
+  .rg-form .btn{margin-top:4px;min-height:50px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+
+/* ============================================================ РЕДАКТОР ТЕКСТОВ (?edit=1) */
+#edit{
+  position:fixed;z-index:90;background:var(--card);color:var(--ink);border-top:1px solid var(--line);
+  box-shadow:0 -10px 30px -12px rgba(90,60,20,.25);display:flex;flex-direction:column;
+  font:500 14px/1.4 var(--fb);
+  left:0;right:0;bottom:0;height:calc(46 * var(--vh0) / 100);
+}
+#edit.min{height:auto}
+#edit.min .edit-body{display:none}
+.edit-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--line);background:var(--bg)}
+.edit-bar button{font:inherit;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer}
+.edit-bar button.primary{background:var(--gold-grad);color:var(--btnink);border-color:transparent;font-weight:700}
+.edit-hint{flex-basis:100%;font-size:12px;color:var(--muted)}
+.edit-body{overflow:auto;padding:6px 12px 16px}
+.edit-body details{border-bottom:1px solid var(--line);padding:4px 0}
+.edit-body summary{cursor:pointer;font-weight:700;padding:6px 0}
+.edit-row{display:block;margin:6px 0 10px}
+.edit-label{display:block;font-size:12px;color:var(--muted);margin-bottom:3px}
+.edit-row input,.edit-row textarea{width:100%;font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+.edit-row input:focus,.edit-row textarea:focus{outline:2px solid var(--gold);outline-offset:0}
+.edit-row textarea{resize:vertical}
+@media (min-width:900px){
+  #edit{top:0;bottom:0;left:auto;width:440px;height:auto;border-top:0;border-left:1px solid var(--line);box-shadow:-10px 0 30px -12px rgba(90,60,20,.2)}
+  #edit.min{height:auto;bottom:auto}
+  body.editing .app{margin-left:max(16px, calc((100% - 460px - 480px) / 2));margin-right:460px}
+}
+
+/* ============================================================ ОТЛАДКА (?debug=1) */
+#dbg{
+  position:fixed;left:0;right:0;top:0;z-index:100;
+  display:flex;flex-wrap:wrap;gap:6px;align-items:center;
+  padding:4px 8px;background:#120f0a;color:#f4ede1;
+  font:12px/1.3 ui-monospace,Menlo,Consolas,monospace;
+}
+#dbg select,#dbg button{font:inherit;padding:3px 6px;border-radius:4px;border:1px solid #5a4a30;background:#221d15;color:#f4ede1}
+#dbg button:hover{background:#2e271c}
+#dbg .st{opacity:.85}
+#dbg.min{padding:2px 8px}
+#dbg.min > *:not(.tg){display:none}
+/* ============================================================ ЭКРАН 1 · ВАРИАНТ A «Как лендинг» */
+.ia{
+  --ia-g:clamp(8px, calc((var(--vh0) - 600px) / 12 + 8px), 20px);
+  --ia-h1:min(25px, 6.45vw);
+  --ia-card:clamp(40px, calc((var(--vh0) - 640px) / 8 + 40px), 60px);
+  padding:clamp(10px, calc(1.6 * var(--vh0) / 100), 16px) 16px max(clamp(10px, calc(1.6 * var(--vh0) / 100), 16px), env(safe-area-inset-bottom));
+  justify-content:center;gap:var(--ia-g);
+  background:
+    radial-gradient(60% 45% at 100% 30%,rgba(214,162,74,.18),transparent 70%),
+    radial-gradient(50% 40% at 0% 100%,rgba(214,162,74,.12),transparent 70%),
+    linear-gradient(180deg,#efe6d6,var(--bg) 40%);
+}
+.ia-l,.ia-r{display:contents}
+.ia-plate{order:1}.ia-head{order:2}.ia-scen{order:3}.ia-cta{order:4}
+.ia-plate,.ia-head,.ia-scen,.ia-cta{flex:none}
+/* тёмная плашка-шапка: маленький портрет + имя */
+.ia-plate{
+  position:relative;overflow:hidden;isolation:isolate;
+  display:flex;align-items:center;gap:12px;padding:9px 16px 9px 9px;border-radius:20px;
+  background:radial-gradient(120% 160% at 88% 20%,#3b2a17,#17120c 62%,#100d09);
+  box-shadow:inset 0 0 0 1px rgba(246,220,158,.4),0 16px 36px -20px rgba(35,25,13,.9);
+}
+.ia-glow{position:absolute;right:-30px;top:-60px;width:200px;height:160px;z-index:-1;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(246,220,158,.35),transparent);filter:blur(4px)}
+.ia-plate::after{content:"";position:absolute;right:14px;top:50%;width:54px;height:54px;transform:translateY(-50%);z-index:-1;opacity:.55;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e8c27a' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.4 5.1a5.2 5.2 0 0 0-7.4 0L12 6.2l-1-1.1a5.2 5.2 0 0 0-7.4 7.4l1 1L12 20.8l7.4-7.3 1-1a5.2 5.2 0 0 0 0-7.4z'/%3E%3C/svg%3E") center/contain no-repeat}
+.ia-ava{
+  position:relative;flex:0 0 auto;width:clamp(48px, calc(7 * var(--vh0) / 100), 58px);height:clamp(48px, calc(7 * var(--vh0) / 100), 58px);border-radius:50%;padding:2px;
+  background:conic-gradient(from 200deg,#f6dc9e,var(--gold) 25%,var(--gold2) 50%,#e3b45e 75%,#f6dc9e);
+  box-shadow:0 0 22px -4px rgba(246,220,158,.55);
+}
+.ia-ava .ava-in{position:relative;display:grid;place-items:center;width:100%;height:100%;border-radius:50%;overflow:hidden;border:2px solid #17120c;color:var(--goldt);background:linear-gradient(145deg,#f6dc9e,#c9a25c)}
+.ia-ava .ava-in svg{width:50%;height:50%;fill:none;stroke:currentColor;stroke-width:2}
+.ia-ava img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.ia-who{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ia-who b{font:800 16px/1.2 var(--fb);color:#f6dc9e;letter-spacing:-.005em}
+.ia-who span{font:600 13px/1.25 var(--fb);color:#e9dfcf;opacity:.9;white-space:nowrap}
+/* пилюля как «25–28 ноября» */
+.ia-head{display:flex;flex-direction:column;align-items:flex-start;gap:calc(var(--ia-g) * .7 + 2px)}
+.ia-pill span{display:inline-block;padding:6px 12px;border-radius:10px;font:800 13px/1 var(--fb);color:#1a1208;
+  background:linear-gradient(180deg,#f6dc9e,#d6a24a);box-shadow:0 6px 16px -8px rgba(90,60,20,.7);white-space:nowrap}
+.ia-h1{font:800 var(--ia-h1)/1.1 var(--fb);letter-spacing:-.03em;color:var(--ink);text-wrap:balance}
+.ia-h1 .acc{color:#a0661a}
+/* «87% …» тёмной плашкой с золотой линией, как «3 бонуса сразу после регистрации» */
+.ia-scen{display:flex;flex-direction:column;gap:calc(var(--ia-g) * .6 + 4px)}
+.ia-lead{display:flex;align-items:center;gap:10px}
+.ia-lead::after{content:"";flex:1 1 24px;min-width:24px;height:1.5px;background:linear-gradient(90deg,#d6a24a,transparent)}
+.ia-lead .lt{flex:0 1 auto;padding:6px 12px;border-radius:10px;background:#23190d;color:#f6dc9e;font:800 14px/1.25 var(--fb);letter-spacing:.01em;text-wrap:balance}
+.ia-lead .num{font:600 1.08em/1 var(--ft);letter-spacing:0;color:#f6dc9e}
+/* сценарии — карточки как бонусы лендинга */
+.ia-cards{display:flex;flex-direction:column;gap:calc(var(--ia-g) * .35 + 3px)}
+.ia-cards li{
+  display:flex;align-items:center;gap:10px;padding:5px 12px 5px 5px;border-radius:16px;min-height:calc(var(--ia-card) + 10px);
+  background:linear-gradient(160deg,#fffdf8,#fbf1de);
+  box-shadow:0 8px 22px -16px rgba(90,60,20,.6),inset 0 0 0 1px color-mix(in srgb,var(--gold) 40%,transparent);
+}
+.ia-ic{flex:0 0 var(--ia-card);width:var(--ia-card);height:var(--ia-card);border-radius:12px;display:grid;place-items:center;color:#a0661a;
+  background:radial-gradient(circle at 50% 35%,#fff8ea,#f4e2bf);box-shadow:inset 0 0 0 1px rgba(214,162,74,.25)}
+.ia-cards .c2 .ia-ic{color:#b4552f;background:radial-gradient(circle at 50% 35%,#fff6ee,#f8dccb)}
+.ia-cards .c3 .ia-ic{color:#5d7d93;background:radial-gradient(circle at 50% 35%,#ffffff,#e6eef0)}
+.ia-cards .c4 .ia-ic{color:#c0566a;background:radial-gradient(circle at 50% 35%,#fff3f0,#f6dcd4)}
+.ia-ic svg{width:56%;height:56%;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ia-ic.ia-img{overflow:hidden;background:#f4e2bf}
+.ia-ic.ia-img img{width:100%;height:100%;object-fit:cover;display:block}
+.ia-cards p{min-width:0;font:500 13px/1.28 var(--fb);color:#5b4a33;text-wrap:balance}
+.ia-cards p b{font-weight:800;color:var(--ink)}
+.ia-cards p span{white-space:normal}
+/* кнопка как на лендинге */
+.ia-cta{display:flex;flex-direction:column;gap:8px}
+.ia .btn{min-height:60px;padding:8px 9px 8px 24px;font:700 17px/1.2 var(--fb)}
+.ia .btn .bt{text-wrap:balance}
+.ia-note{font:500 12.5px/1.42 var(--fb);color:var(--muted);text-align:center;text-wrap:balance;padding:0 4px}
+/* бывшие @media (max-height:700px) / (min-height:800px): высота — классом на <html>, снятым при загрузке */
+@media all{
+  :where(.h-le700) .ia{--ia-h1:min(23px, 6.2vw);--ia-card:38px;--ia-g:clamp(7px, calc((var(--vh0) - 600px) / 12 + 6px), 12px)}
+  :where(.h-le700) .ia .btn{min-height:56px;font-size:16px}
+  :where(.h-le700) .ia-note{font-size:12px;line-height:1.35}
+  :where(.h-le700) .ia-cards p{font-size:12.5px;line-height:1.24}
+  :where(.h-le700) .ia-lead .lt{font-size:13.5px}
+}
+@media (max-width:980px){
+  :where(.h-ge800) .ia-cards p{font-size:13.5px}
+  :where(.h-ge800) .ia-lead .lt{font-size:15px}
+}
+/* десктоп: две колонки, как первый экран лендинга; справа тёмная карточка вместо фото */
+@media (min-width:981px){
+  body.mode-fixed .app:has(> .ia){max-width:none;box-shadow:none;background:transparent}
+  .ia{
+    --ia-h1:clamp(30px, min(3.1vw, calc(5.6 * var(--vh0) / 100)), 48px);
+    --ia-card:clamp(44px, calc(6.4 * var(--vh0) / 100), 58px);
+    display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.95fr);column-gap:clamp(40px,4.4vw,64px);align-content:center;align-items:center;
+    width:100%;max-width:1200px;margin:0 auto;padding:clamp(24px,calc(4 * var(--vh0) / 100),56px) 20px;
+    background:none;
+  }
+  body:has(.ia){background:
+    radial-gradient(45% 55% at 85% 45%,rgba(214,162,74,.22),transparent 70%),
+    radial-gradient(40% 40% at 0% 100%,rgba(214,162,74,.1),transparent 70%),
+    linear-gradient(180deg,#efe6d6,var(--bg) 45%)!important}
+  .ia-l{display:flex;flex-direction:column;gap:min(calc(4 * var(--vh0) / 100),34px);grid-column:1;grid-row:1}
+  .ia-r{
+    display:flex;flex-direction:column;gap:min(calc(2.6 * var(--vh0) / 100),22px);grid-column:2;grid-row:1;
+    position:relative;isolation:isolate;overflow:hidden;
+    padding:clamp(18px,calc(3 * var(--vh0) / 100),30px) clamp(18px,2vw,28px);border-radius:26px;
+    background:radial-gradient(90% 60% at 80% 0%,#3b2a17,#17120c 62%,#100d09);
+    box-shadow:inset 0 0 0 1px rgba(246,220,158,.4),0 30px 60px -30px rgba(35,25,13,.85);
+  }
+  .ia-r::before{content:"";position:absolute;left:50%;top:-40%;width:90%;height:70%;transform:translateX(-50%);z-index:-1;
+    background:radial-gradient(ellipse at top,rgba(232,194,122,.3),transparent 70%);filter:blur(10px)}
+  .ia-plate{padding:0;background:none;box-shadow:none;border-radius:0;overflow:visible;gap:16px}
+  .ia-plate::after{width:72px;height:72px;right:0}
+  .ia-glow{display:none}
+  .ia-ava{width:clamp(64px,calc(9 * var(--vh0) / 100),84px);height:clamp(64px,calc(9 * var(--vh0) / 100),84px);padding:2.5px}
+  .ia-who b{font-size:19px}.ia-who span{font-size:14.5px}
+  .ia-head{gap:min(calc(2.4 * var(--vh0) / 100),20px)}
+  .ia-pill span{font-size:16px;padding:8px 14px}
+  .ia-lead .lt{background:none;padding:0;color:#f4ede1;font-size:clamp(15px,calc(2.1 * var(--vh0) / 100),17px)}
+  .ia-lead .num{font-size:1.25em;color:#f6dc9e}
+  .ia-lead::after{display:none}
+  .ia-cards{gap:min(calc(1.3 * var(--vh0) / 100),10px)}
+  .ia-cards li{padding:6px 16px 6px 6px}
+  .ia-cards p{font-size:clamp(13.5px,calc(1.9 * var(--vh0) / 100),15px)}
+  .ia-cta{align-items:flex-start;gap:14px}
+  .ia .btn{width:auto;min-height:62px;padding:10px 10px 10px 30px;font-size:17px;gap:16px}
+  .ia-note{text-align:left;font-size:14px;max-width:520px;padding:0}
+}
+
+</style>
+</head>
+<body class="mode-fixed">
+<div id="app" class="app"></div>
+<div id="sticky" class="sticky" aria-hidden="true">
+  <div class="sticky-in">
+    <div class="timer" id="stickyTimer">10:00</div>
+    <button type="button" class="btn btn-primary" id="stickyBtn"><span id="stickyBtnText"></span><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   CONFIG — все тексты квиза. Правьте здесь, вёрстку трогать не нужно.
+   Ключи типов пользователю не показываются: C синтонный, E напряжённо-авторитарный, P тревожно-мнительный,
+   A застенчиво-раздражительный, N педантичный, S замкнуто-углублённый, I демонстративный, M мозаичный (по итогу),
+   K контрольные утверждения (шкала искренности, на тип не влияют). У утверждения k – тип, у варианта p – баллы (3/2/1/0).
+   author.photoPortrait — круглое фото Анны на экране 1 и фон видео (author.avatar, если задан, важнее для круга).
+   author.photoWide — широкое фото (сейчас не используется в вёрстке; пусто).
+   video — видео-разбор по ключам результатов (C E P A N S I M): { "<ключ>": { "src": "https://…/<файл>.mp4", "poster": "https://…/<файл>.jpg" } }.
+     Пустой src — карточка с постером и надписью «Видео скоро», без ▶. Сменить видео = поменять строку и положить файл.
+   intro.titleAccent — фраза из заголовка, которая подсвечивается золотом (текст заголовка не меняется).
+   ============================================================ */
+const CONFIG = {
+  "author": {
+    "name": "Анна Саба",
+    "answers": "врач-психотерапевт",
+    "avatar": "",
+    "photoWide": "",
+    "photoPortrait": "https://doctorannasaba.ru/kod-lyubvi/img/anna-au-smile.webp"
+  },
+  "intro": {
+    "badge": "Бесплатный тест для женщин",
+    "title": "Узнайте свой тип личности: как вы любите, с каким мужчиной вам легко и что вас выматывает",
+    "lead": "После теста вы узнаете:",
+    "scenarios": [
+      "«Какая вы»: ваш тип из 8 и сильные стороны",
+      "«Что вас выматывает» и как восстановить силы",
+      "«С кем вам легко»: какой мужчина вам подходит, а с каким тяжело",
+      "«Как вы любите»: что вам важно в паре"
+    ],
+    "button": "Пройти тест и получить расшифровку",
+    "note": "Расшифровка откроется сразу после теста",
+    "titleAccent": "свой тип личности",
+    "scenarioImages": [
+      "https://doctorannasaba.ru/kod-lyubvi/img/scen-1.webp",
+      "https://doctorannasaba.ru/kod-lyubvi/img/scen-2.webp",
+      "https://doctorannasaba.ru/kod-lyubvi/img/scen-3.webp",
+      "https://doctorannasaba.ru/kod-lyubvi/img/scen-4.webp"
+    ]
+  },
+  "questions": [
+    {
+      "text": "Что сейчас у вас в отношениях?",
+      "options": [
+        {
+          "t": "Замужем"
+        },
+        {
+          "t": "В отношениях: живём вместе"
+        },
+        {
+          "t": "В отношениях: живём порознь"
+        },
+        {
+          "t": "Одна"
+        },
+        {
+          "t": "Всё сложно: непонятно, кто мы друг другу"
+        }
+      ]
+    },
+    {
+      "text": "Моё настроение идёт волнами: то сил много и всё получается, то хочется лечь и ни с кем не говорить.",
+      "k": "C",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "В трудной ситуации я не теряюсь: быстро решаю, что делать, и раздаю задачи другим.",
+      "k": "E",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "В новом месте мне нужно много времени, чтобы освоиться и перестать волноваться.",
+      "k": "P",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "С чужими людьми я сдерживаюсь, а дома могу сорваться на близких из-за мелочи.",
+      "k": "A",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Я люблю наряды, на которые оборачиваются.",
+      "k": "I",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Разговоры о бытовых мелочах мне быстро надоедают.",
+      "k": "S",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Я ни разу в жизни ни на кого не злилась.",
+      "k": "K",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Я редко поручаю дела другим: потом всё равно приходится переделывать.",
+      "k": "N",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Мне нужно много движения: без спорта или физической работы мне не по себе.",
+      "k": "E",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Хорошее застолье с близкими поднимает мне настроение на несколько дней.",
+      "k": "C",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Я могу долго обходиться без людей, и мне от этого не одиноко.",
+      "k": "S",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Мне часто кажется, что я в чём-то виновата, даже когда меня никто не упрекает.",
+      "k": "P",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Меня злит, когда близкие делают не так, как мы договорились.",
+      "k": "N",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Мне тяжело расставаться со старыми вещами и с людьми, к которым я привыкла.",
+      "k": "A",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Когда в компании меня не замечают, у меня сразу портится настроение.",
+      "k": "I",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Мне нравятся все люди, с которыми я знакомлюсь.",
+      "k": "K",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Если в теле появляется странный симптом, я сразу начинаю бояться, что это что-то серьёзное.",
+      "k": "P",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Рассказывая историю, я немного приукрашиваю её, чтобы было интереснее.",
+      "k": "I",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Я легко сближаюсь с новыми людьми и быстро начинаю говорить с ними, как со старыми знакомыми.",
+      "k": "C",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Даже в выходной мне трудно расслабиться, пока я не составлю план дел.",
+      "k": "N",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Если я уверена в своей правоте, я стою на своём до конца.",
+      "k": "E",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Мне никогда не бывает завидно.",
+      "k": "K",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Люди часто говорят, что я кажусь холодной, хотя внутри у меня много чувств.",
+      "k": "S",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "После вспышки я быстро остываю, а близкие ещё долго на меня обижаются.",
+      "k": "A",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Если в работе осталась хоть одна мелкая ошибка, я не могу считать её законченной.",
+      "k": "N",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Ради дела, которое кажется мне важным, я легко обхожусь без комфорта и выгоды.",
+      "k": "S",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Когда я устала, меня раздражает любая мелочь: звук, вопрос, чужой голос.",
+      "k": "A",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Мне трудно себя ограничивать: в еде, сладком, покупках или развлечениях.",
+      "k": "C",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Я ни разу не сказала неправду, даже в мелочи.",
+      "k": "K",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Мне важно, чтобы мои радости и успехи кто-то видел.",
+      "k": "I",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "После разговора я ещё долго прокручиваю в голове, что сказала не так.",
+      "k": "P",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    },
+    {
+      "text": "Я часто знаю, как лучше для близких, и прямо говорю им об этом.",
+      "k": "E",
+      "options": [
+        {
+          "t": "Да",
+          "p": 3
+        },
+        {
+          "t": "Скорее да",
+          "p": 2
+        },
+        {
+          "t": "Скорее нет",
+          "p": 1
+        },
+        {
+          "t": "Нет",
+          "p": 0
+        }
+      ]
+    }
+  ],
+  "loaders": {
+    "3": {
+      "duration": 2000,
+      "title": "Анализируем ваши ответы…",
+      "items": []
+    },
+    "17": {
+      "duration": 3000,
+      "title": "Сверяем ответы с 8 типами личности…",
+      "items": [
+        "Отмечаем ваши сильные стороны",
+        "Смотрим, что забирает у вас силы"
+      ]
+    },
+    "33": {
+      "duration": 4500,
+      "title": "Анализируем ваши ответы…",
+      "items": [
+        "Определяем ваш тип личности",
+        "Подбираем, какой мужчина вам подходит",
+        "Готовим советы для вашего типа"
+      ]
+    }
+  },
+  "scoring": {
+    "priority": [
+      "C",
+      "E",
+      "P",
+      "A",
+      "N",
+      "S",
+      "I"
+    ],
+    "mosaic": "M",
+    "mosaicGap": 1,
+    "thirdGap": 2,
+    "secondMin": 7
+  },
+  "resultScreen": {
+    "eyebrow": "Ваш результат",
+    "hint": "Посмотрите видео расшифровку, затем читайте текст ниже",
+    "videoCaption": "Видео-разбор вашего результата",
+    "videoSoon": "Видео скоро",
+    "secondTrait": "Вторая черта: {name}",
+    "mosaicTraits": "Ваши ведущие черты: {a} и {b}"
+  },
+  "video": {
+    "C": { "src": "", "poster": "https://doctorannasaba.ru/kod-lyubvi/img/video-poster.jpg" },
+    "E": { "src": "", "poster": "https://doctorannasaba.ru/kod-lyubvi/img/video-poster.jpg" },
+    "P": { "src": "", "poster": "https://doctorannasaba.ru/kod-lyubvi/img/video-poster.jpg" },
+    "A": { "src": "", "poster": "https://doctorannasaba.ru/kod-lyubvi/img/video-poster.jpg" },
+    "N": { "src": "", "poster": "https://doctorannasaba.ru/kod-lyubvi/img/video-poster.jpg" },
+    "S": { "src": "", "poster": "https://doctorannasaba.ru/kod-lyubvi/img/video-poster.jpg" },
+    "I": { "src": "", "poster": "https://doctorannasaba.ru/kod-lyubvi/img/video-poster.jpg" },
+    "M": { "src": "", "poster": "https://doctorannasaba.ru/kod-lyubvi/img/video-poster.jpg" }
+  },
+  "results": {
+    "C": {
+      "name": "Солнышко",
+      "promo": "СОЛНЫШКО",
+      "sci": "Синтонный тип (циклоид)",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "Рядом с вами людям тепло."
+            },
+            {
+              "type": "p",
+              "text": "Вы искренне радуетесь простым вещам: вкусной еде, встрече с друзьями, шутке. <b>С вами легко, и люди к вам тянутся.</b> Вы шутите так, что смеются все вместе и никому не обидно."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Как вы любите",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "Вы любите ласково и без проверок: мужчине не нужно ничего доказывать.",
+                "Вы легко обнимаете, хвалите и говорите приятные слова.",
+                "Вам важно заботиться: накормить, порадовать, поддержать."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Вам тоже нужна забота в ответ. <b>Говорите мужчине прямо, чего вы ждёте.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. С каким мужчиной легко, а с каким тяжело",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Ваше настроение меняется: то подъём, то спад. <b>Поэтому вам нужен спокойный мужчина.</b>"
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "<b>Легко с синтонным мужчиной</b>, тёплым и общительным, как вы. С ним можно вместе смеяться, вкусно есть и молчать в грустный день."
+                },
+                {
+                  "tone": "bad",
+                  "text": "<b>Тяжело с демонстративным мужчиной</b>, которому нужно много восхищения. Вы отдаёте тепло, а он обижается, если вы мало его хвалите."
+                }
+              ]
+            },
+            {
+              "type": "pull",
+              "text": "Вам подходит мужчина, который спокойно пережидает ваши грустные дни и не требует всегда улыбаться."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Что вас выматывает и как восстановиться",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Несколько дней вы всё успеваете, а потом силы резко кончаются.",
+                "Вы подбадриваете себя кофе, сладким и поздними посиделками.",
+                "В спад вы ругаете себя за лень и продолжаете всех веселить."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "<b>В спад вам помогает побыть одной.</b> Выключите телефон и выспитесь ночью. Так силы вернутся быстрее."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 5. Откуда это",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Тёплый характер – ваша природа, с ним рождаются. <b>Вы выносливая и долго держитесь в трудностях.</b> Даже тяжёлые события детства вы можете годами нести в себе и не показывать боль."
+            },
+            {
+              "type": "pull",
+              "text": "Но запас сил не бесконечный. Когда он кончается, может прийти долгая грусть, и тогда важно попросить помощи."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 6. Что с этим делать",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Подъёмы и спады – часть вашей природы. <b>Отдыхать в спад – нормально.</b>"
+            },
+            {
+              "type": "quotes",
+              "items": [
+                "Берегите ровное настроение: меньше кофе и сладкого, больше сна ночью.",
+                "В спад разрешите себе побыть одной и не чувствовать вины.",
+                "Выбирайте дело, где вы общаетесь с людьми и видите их отклик."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Если грусть держится неделями и вам знакомы тревога, страх, обида, вина или стыд, <b>с этими угнетающими чувствами можно работать.</b>"
+            }
+          ]
+        }
+      ]
+    },
+    "E": {
+      "name": "Воительница",
+      "promo": "ВОИТЕЛЬНИЦА",
+      "sci": "Напряжённо-авторитарный тип (эпилептоид)",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "Вы человек действия."
+            },
+            {
+              "type": "p",
+              "text": "В трудную минуту вы не теряетесь. <b>Вы быстро решаете, что делать, и ведёте за собой других.</b> На вас можно положиться: вы держите слово и отвечаете за своих."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Как вы любите",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "Вы любите горячо: ради семьи и любимых готовы на многое.",
+                "Вы защищаете своих и берёте их проблемы на себя.",
+                "Вы хорошо знаете, как будет лучше для близких, и говорите об этом прямо."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Иногда забота становится похожа на контроль. <b>Тогда близкие начинают спорить, даже если вы правы.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. С каким мужчиной легко, а с каким тяжело",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Вам нужен мужчина, с которым <b>не нужно спорить, кто главный.</b>"
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "<b>Легко с синтонным мужчиной</b>, тёплым и миролюбивым. Ему незачем с вами соревноваться, и рядом с ним вы становитесь мягче."
+                },
+                {
+                  "tone": "bad",
+                  "text": "<b>Тяжело с таким же напряжённо-авторитарным мужчиной</b>, который привык командовать. В доме двое главных, и любой спор становится борьбой за последнее слово."
+                }
+              ]
+            },
+            {
+              "type": "pull",
+              "text": "Вам подходит мужчина, который уважает вашу силу и спокойно стоит на своём, когда это важно."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Что вас выматывает и как восстановиться",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Вы долго обходитесь без спорта и движения.",
+                "Вам негде руководить и решать: всё решают за вас.",
+                "Вы держите злость в себе, пока она не вырвется."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "<b>Вам помогает движение.</b> Подойдут спорт, плавание, долгая ходьба или работа руками. Когда вы высыпаетесь, силы восстанавливаются быстро."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 5. Откуда это",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Сильный характер дан вам от рождения. <b>Ваш тип – один из самых выносливых.</b> Обиды детства вы можете носить в себе годами и при этом крепко стоять на ногах."
+            },
+            {
+              "type": "pull",
+              "text": "Обида, которую держат в себе, остаётся в теле постоянным напряжением. Поэтому вам важно следить за давлением и вовремя ходить к врачу."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 6. Что с этим делать",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Ваша сила нужна людям. <b>Когда она идёт в дело, напряжения становится меньше.</b>"
+            },
+            {
+              "type": "quotes",
+              "items": [
+                "Двигайтесь каждый день: спорт, ходьба, работа руками.",
+                "Берите на себя дела, где нужно руководить и отвечать.",
+                "В споре с мужчиной сначала дослушайте его, потом решайте вместе."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Если вместе с напряжением вам знакомы тревога, страх, обида, вина или стыд, <b>с этими угнетающими чувствами можно работать.</b>"
+            }
+          ]
+        }
+      ]
+    },
+    "P": {
+      "name": "Чуткая душа",
+      "promo": "ЧУТКАЯДУША",
+      "sci": "Тревожно-мнительный тип (психастеник)",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "Вы тонко чувствуете людей."
+            },
+            {
+              "type": "p",
+              "text": "Вы замечаете, когда человеку плохо, и сразу хотите помочь. <b>Прежде чем сделать шаг, вы всё обдумаете.</b> Вам можно доверить важное дело: вы проверите его и перепроверите."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Как вы любите",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "Вам важно совпасть с мужчиной во взглядах и ценностях. Без этого любовь не приходит.",
+                "Вы любите заботливо и отдаёте себя целиком.",
+                "Вы часто переживаете, всё ли хорошо и не обидели ли вы его."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Иногда вы так заботитесь о мужчине, что забываете о себе. <b>Вам важно оставаться собой рядом с ним.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. С каким мужчиной легко, а с каким тяжело",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Вам нужен мужчина, рядом с которым <b>спокойно и можно не спешить.</b>"
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "<b>Легко с синтонным мужчиной</b>, тёплым и спокойным. Его спокойствие и мягкость снижают вашу тревогу, особенно если вы совпадаете во взглядах."
+                },
+                {
+                  "tone": "bad",
+                  "text": "<b>Тяжело с напряжённо-авторитарным мужчиной</b>, который давит и решает быстро. Рядом с ним ваша тревога растёт."
+                }
+              ]
+            },
+            {
+              "type": "pull",
+              "text": "Вам подходит мужчина, который даёт время подумать и прямо говорит, что чувствует."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Что вас выматывает и как восстановиться",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Вам приходится быстро принимать решения и отвечать за многих людей.",
+                "Вы прокручиваете в голове разговоры и ищете, где ошиблись.",
+                "Вы попадаете в новое место, где всё незнакомо."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "<b>Вам помогают дни без спешки.</b> Хорошо, когда на работе есть время подумать и проверить, а рядом люди, с которыми можно расслабиться."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 5. Откуда это",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Чуткость дана вам от природы. <b>Поэтому переживания детства могли запомниться вам сильнее, чем другим.</b> Вы и сейчас глубоко переживаете то, что другие быстро забывают."
+            },
+            {
+              "type": "pull",
+              "text": "Переживания часто отзываются в теле: сердцебиением, головной болью, болью в спине. Если так бывает, сначала проверьтесь у врача."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 6. Что с этим делать",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Тревога и чуткость у вас идут вместе. <b>Стыдиться тревоги незачем.</b>"
+            },
+            {
+              "type": "quotes",
+              "items": [
+                "Выбирайте работу, где можно не спешить и всё проверить.",
+                "Делите большое решение на маленькие шаги и делайте первый.",
+                "Рядом с мужчиной сохраняйте своё: подруг, увлечения, время для себя."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Если тревога, страх, обида, вина или стыд мешают вам жить спокойно, <b>с этими угнетающими чувствами можно работать.</b>"
+            }
+          ]
+        }
+      ]
+    },
+    "A": {
+      "name": "Чувствительная",
+      "promo": "ЧУВСТВИТЕЛЬНАЯ",
+      "sci": "Застенчиво-раздражительный тип (астеник)",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "Вы очень преданный человек."
+            },
+            {
+              "type": "p",
+              "text": "Если вы любите, то всем сердцем и надолго. <b>Вы тонко чувствуете себя и близких.</b> Вы помните добро и умеете благодарить."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Как вы любите",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "Вам важны объятия, прикосновения, его рука в вашей.",
+                "Вы отдаёте мужчине всю свою преданность.",
+                "Вам спокойнее, когда рядом сильный человек, на которого можно опереться."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Когда вы устали, можете вспылить на близкого из-за мелочи. <b>Вы быстро остываете, а он ещё долго помнит резкие слова.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. С каким мужчиной легко, а с каким тяжело",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Вам нужен мужчина, <b>у которого сил больше, чем у вас.</b>"
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "<b>Легко с напряжённо-авторитарным мужчиной</b>, сильным и решительным. Он не теряется в трудностях, и если он бережно к вам относится, рядом с ним вы чувствуете опору."
+                },
+                {
+                  "tone": "bad",
+                  "text": "<b>Тяжело с таким же застенчиво-раздражительным мужчиной</b>, который сам быстро устаёт. Опереться друг на друга трудно, и мелкие ссоры идут одна за другой."
+                }
+              ]
+            },
+            {
+              "type": "pull",
+              "text": "Вам подходит мужчина, который спокойно переживает ваши вспышки и не копит на них обиду."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Что вас выматывает и как восстановиться",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Вы весь день сдерживаетесь с чужими людьми, и к вечеру сил нет.",
+                "Вы держите злость в себе, и она уходит в зажимы и боли в теле.",
+                "Вы долго носите в себе старые обиды."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "<b>Снять раздражение помогает движение, когда рядом никого нет.</b> Потанцуйте под громкую музыку, быстро пройдитесь или поднимитесь пешком по лестнице."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 5. Откуда это",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Обидчивость и вспышки – часть вашей природы. <b>Обиды детства, даже мелкие, вы можете помнить до сих пор.</b>"
+            },
+            {
+              "type": "pull",
+              "text": "Такие следы редко проходят сами. С ними лучше работать вместе со специалистом."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 6. Что с этим делать",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Ваша чувствительность делает вас преданной и тёплой. <b>Её важно беречь от лишней нагрузки.</b>"
+            },
+            {
+              "type": "quotes",
+              "items": [
+                "Чувствуете, что сейчас сорвётесь, – уйдите в другую комнату и побудьте одной.",
+                "Давайте злости выход через тело: танцы, быстрая ходьба, лестница.",
+                "Признайте, что злитесь. Злость – обычное чувство, прятать его незачем."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Если за вспышками стоят старые обиды, тревога, страх, вина или стыд, <b>с этими угнетающими чувствами можно работать.</b>"
+            }
+          ]
+        }
+      ]
+    },
+    "N": {
+      "name": "Хранительница порядка",
+      "promo": "ХРАНИТЕЛЬНИЦА",
+      "sci": "Педантичный тип (ананкаст)",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "Вы человек слова и порядка."
+            },
+            {
+              "type": "p",
+              "text": "Вы делаете всё точно и аккуратно. <b>Там, где важна точность, на вас можно положиться.</b> Вы держите договорённости и доводите дело до конца."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Как вы любите",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "Для вас любовь – это верность и надёжность.",
+                "Вы заботитесь делом: всё продумано и лежит на своих местах.",
+                "Вам трудно, когда мужчина нарушает договорённости."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Вам спокойнее, когда всё сделано как надо. <b>Мужчине рядом иногда кажется, что его проверяют.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. С каким мужчиной легко, а с каким тяжело",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Вам нужен мужчина, <b>на чьё слово можно положиться.</b>"
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "<b>Легко с напряжённо-авторитарным мужчиной</b>, собранным и ответственным. Он держит слово и ценит порядок так же, как вы."
+                },
+                {
+                  "tone": "bad",
+                  "text": "<b>Тяжело с демонстративным мужчиной</b>, который любит быть в центре внимания. Ему важнее быть ярким, чем держать порядок, и рядом с ним вы всё время тревожитесь."
+                }
+              ]
+            },
+            {
+              "type": "pull",
+              "text": "Вам подходит мужчина, который держит слово и при этом умеет позвать вас отдохнуть."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Что вас выматывает и как восстановиться",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Вы делаете всё сами и не поручаете дела другим.",
+                "Вы переделываете и перепроверяете то, что уже сделано.",
+                "Вам приходится долго жить в беспорядке."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "<b>Вам помогают поездки и любимое дело, которые вы выбрали сами.</b> Новые впечатления хорошо успокаивают тревогу."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 5. Откуда это",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Аккуратность и любовь к порядку даны вам от природы. <b>Порядок помогает вам чувствовать себя спокойно.</b> Поэтому беспорядок и нарушенные правила так задевают."
+            },
+            {
+              "type": "pull",
+              "text": "При этом вы чувствительны к обидам. Тяжёлые события детства могут тревожить вас долгие годы."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 6. Что с этим делать",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Ваша аккуратность – большая сила. <b>Важно, чтобы она помогала вам и оставляла время на радость.</b>"
+            },
+            {
+              "type": "quotes",
+              "items": [
+                "Применяйте точность там, где она нужна: в работе и в документах.",
+                "Поручайте часть дел другим и разрешайте им делать по-своему.",
+                "Планируйте отдых так же, как работу: с датой и местом."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Если желание всё перепроверить идёт от тревоги, страха, обиды, вины или стыда, <b>с этими угнетающими чувствами можно работать.</b>"
+            }
+          ]
+        }
+      ]
+    },
+    "S": {
+      "name": "Философ",
+      "promo": "ФИЛОСОФ",
+      "sci": "Замкнуто-углублённый тип (шизоид)",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "Вам интересно разбираться, как всё устроено."
+            },
+            {
+              "type": "p",
+              "text": "Вы делаете выводы сами и мало зависите от чужого мнения. <b>Вам хорошо и интересно наедине с собой.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Как вы любите",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "Любовь у вас начинается с общих мыслей и взглядов.",
+                "Вам важно, чтобы мужчина понимал ваши идеи.",
+                "Нежность у вас тихая, и многие её не замечают."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Со стороны вас могут считать холодной. <b>Вы просто редко показываете свои чувства.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. С каким мужчиной легко, а с каким тяжело",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Вам нужен мужчина, <b>с которым интересно говорить.</b>"
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "<b>Легко с таким же замкнуто-углублённым мужчиной</b>, у которого есть своё дело и свои идеи. Он понимает ваше желание побыть одной."
+                },
+                {
+                  "tone": "bad",
+                  "text": "<b>Тяжело с демонстративным мужчиной</b>, которому каждый день нужны шум и внимание. Вам с ним утомительно, даже когда всё хорошо."
+                }
+              ]
+            },
+            {
+              "type": "pull",
+              "text": "Вам подходит мужчина, с которым есть о чём поговорить и можно вместе помолчать."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Что вас выматывает и как восстановиться",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "На работе вам приходится много общаться о мелочах.",
+                "Близкие ждут бурных чувств и обижаются на вашу сдержанность.",
+                "Вы делаете дело, в котором не видите смысла."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "<b>Вам помогают тишина и дело со смыслом.</b> Подойдут книга, наука, творчество или прогулка в одиночестве."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 5. Откуда это",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Самостоятельность дана вам от рождения. <b>Ваш тип – один из самых выносливых.</b>"
+            },
+            {
+              "type": "pull",
+              "text": "Трудности детства вы обычно переносите спокойно. Но иногда из-за них трудно подпустить к себе близкого человека."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 6. Что с этим делать",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Близким важно слышать о ваших чувствах вслух. <b>Тогда им легче быть рядом.</b>"
+            },
+            {
+              "type": "quotes",
+              "items": [
+                "Примите свою природу: вам можно любить тишину и одиночество.",
+                "Принимайте и близких: им нужны объятия и разговоры о простом.",
+                "Говорите мужчине словами, что вы чувствуете. По вам этого часто не видно."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Если сдержанность мешает близости и вам знакомы тревога, страх, обида, вина или стыд, <b>с этими угнетающими чувствами можно работать.</b>"
+            }
+          ]
+        }
+      ]
+    },
+    "I": {
+      "name": "Звезда",
+      "promo": "ЗВЕЗДА",
+      "sci": "Демонстративный тип (истероид)",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "Вы яркая, и вас трудно не заметить."
+            },
+            {
+              "type": "p",
+              "text": "Вы живая, артистичная и умеете красиво рассказывать. <b>Рядом с вами людям интересно.</b> Вы умеете сделать праздник из обычного вечера."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Как вы любите",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "В любви вам важно чувствовать, что вами восхищаются.",
+                "Вам нравится, когда мужчина ухаживает красиво и при всех.",
+                "Когда вас обожают, вы становитесь щедрой и доброй."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Когда мужчина вас не замечает, вы обижаетесь. <b>Ему важно знать, что вам нужно его внимание.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. С каким мужчиной легко, а с каким тяжело",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Вам нужен мужчина, <b>который щедр на внимание.</b>"
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "<b>Легко с синтонным мужчиной</b>, тёплым и щедрым на комплименты. Он смеётся вашим шуткам, и рядом с ним вам хватает внимания."
+                },
+                {
+                  "tone": "bad",
+                  "text": "<b>Тяжело с педантичным мужчиной</b>, серьёзным и сдержанным. Он не любит праздники, вам с ним скучно, а ему с вами тревожно."
+                }
+              ]
+            },
+            {
+              "type": "pull",
+              "text": "Вам подходит мужчина, который гордится вами при всех и не ревнует к вниманию других."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Что вас выматывает и как восстановиться",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Вы долго сидите дома, без встреч и новых людей.",
+                "Ваши старания никто не замечает и не хвалит.",
+                "Вам приходится быть незаметной и тихой."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "<b>Вам помогают люди и выступления.</b> Подойдут праздник, встреча с подругами, новый наряд или блог. Когда вас видят, силы возвращаются."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 5. Откуда это",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Яркость и артистичность даны вам от рождения. <b>Вы умеете быстро забывать плохое.</b> Поэтому кажется, что детство на вас почти не повлияло."
+            },
+            {
+              "type": "pull",
+              "text": "Боль, о которой не думают, может отзываться в теле: болью, бессонницей. Если так бывает, сначала проверьтесь у врача."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 6. Что с этим делать",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Желание быть на виду – нормальная часть вас. <b>Когда у него есть выход, вы становитесь спокойнее и счастливее.</b>"
+            },
+            {
+              "type": "quotes",
+              "items": [
+                "Найдите дело, где вас видят: работа с людьми, выступления, блог, уроки.",
+                "Используйте живой ум и яркость там, где их ценят.",
+                "Находите радость и в тихих вечерах вдвоём."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Если вам знакомы обиды на близких, тревога, страх, вина или стыд, <b>с этими угнетающими чувствами можно работать.</b>"
+            }
+          ]
+        }
+      ]
+    },
+    "M": {
+      "name": "Многогранная",
+      "promo": "МНОГОГРАННАЯ",
+      "sci": "Мозаичный тип (смешанный)",
+      "parts": [
+        {
+          "heading": "Часть 1",
+          "blocks": [
+            {
+              "type": "lead",
+              "text": "В вас одинаково сильны две черты."
+            },
+            {
+              "type": "p",
+              "text": "Поэтому вы бываете разной. <b>Сильные стороны обоих типов – ваши.</b> Обе черты названы выше, под названием типа."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 2. Как вы любите",
+          "blocks": [
+            {
+              "type": "cards",
+              "items": [
+                "В любви вы тоже бываете разной: смотря какая из двух черт сейчас сильнее.",
+                "Мужчине бывает трудно понять, чего вы хотите сегодня.",
+                "Вам важно, чтобы вас принимали целиком."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Говорите мужчине прямо, что вам нужно сейчас. <b>Так ему проще быть рядом.</b>"
+            }
+          ]
+        },
+        {
+          "heading": "Часть 3. С каким мужчиной легко, а с каким тяжело",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Вам нужен мужчина, <b>которому интересно, что вы разная.</b>"
+            },
+            {
+              "type": "pair",
+              "items": [
+                {
+                  "tone": "good",
+                  "text": "<b>Легко с синтонным мужчиной</b>, тёплым и гибким. Он спокойно принимает ваши перемены."
+                },
+                {
+                  "tone": "bad",
+                  "text": "<b>Тяжело с педантичным мужчиной</b>, которому нужна предсказуемость. Ваши перемены его тревожат, а его правила тяготят вас."
+                }
+              ]
+            },
+            {
+              "type": "pull",
+              "text": "Вам подходит мужчина, который принимает обе ваши стороны."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 4. Что вас выматывает и как восстановиться",
+          "blocks": [
+            {
+              "type": "quotes",
+              "items": [
+                "Вам приходится долго быть только одной из своих сторон.",
+                "Вы ругаете себя за то, что вчера хотели одного, а сегодня другого.",
+                "Вас просят быть всегда одинаковой."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "<b>Вам помогает разнообразие.</b> Подойдут разные дела в течение дня, новые места и творчество."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 5. Откуда это",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Характер дан нам от рождения. <b>У вас в нём соединились черты двух типов.</b> Это ваша природа."
+            },
+            {
+              "type": "pull",
+              "text": "Трудный опыт детства может задевать обе ваши стороны. С ним лучше работать вместе со специалистом."
+            }
+          ]
+        },
+        {
+          "heading": "Часть 6. Что с этим делать",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "То, что вы разная, – ваша сила. <b>Вы умеете смотреть на жизнь с двух сторон.</b>"
+            },
+            {
+              "type": "quotes",
+              "items": [
+                "Разрешите себе быть разной: одинаковой каждый день быть не нужно.",
+                "Замечайте, какая из двух черт сейчас сильнее, и выбирайте дело под неё.",
+                "Выбирайте работу, где ценят свежий взгляд."
+              ]
+            },
+            {
+              "type": "callout",
+              "text": "Если вместе с перепадами вам знакомы тревога, страх, обида, вина или стыд, <b>с этими угнетающими чувствами можно работать.</b>"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "offer": {
+    "title": "Как получить полную расшифровку и эффективные практики для вас",
+    "subtitle": "Осталось изучить из расшифровки 3 пункта",
+    "locked": [
+      "Почему знать свой тип мало, чтобы изменить то, что вас выматывает",
+      "Какие угнетающие чувства сильнее всего влияют на ваш тип",
+      "Как справиться с угнетающими чувствами с учётом вашего типа"
+    ],
+    "practicumIntro": "Полную расшифровку получают участники онлайн-практикума",
+    "practicumName": "«Как за 4 дня выйти из угнетающих чувств на новый уровень дохода, энергии, отношений, реализации»",
+    "promoText": "Для участников тестирования <b class=\"acc\">в течение 10 минут</b> после получения расшифровки участие в практикуме <b class=\"acc\">бесплатное</b> по промокоду",
+    "copyLabel": "Скопировать",
+    "copiedLabel": "Скопировано",
+    "timerMinutes": 10,
+    "expiredText": "Время вышло, но регистрация ещё открыта. Успейте записаться, пока есть места",
+    "mainButton": "Открыть полную расшифровку",
+    "mainUrl": "#register",
+    "registerTitle": "Регистрация на онлайн-практикум",
+    "registerName": "«Как выйти из угнетающих чувств в новую счастливую реальность»",
+    "registerDates": "25–28 ноября",
+    "registerNote": "Полная расшифровка и 4 подарка придут в Telegram-бота сразу после регистрации",
+    "registerButton": "Записаться на практикум",
+    "secondaryButton": "Подробнее об онлайн-практикуме",
+    "secondaryUrl": "https://doctorannasaba.ru/novaya-realnost-36/"
+  },
+  "ui": {
+    "back": "Назад",
+    "counter": "Вопрос {n} из {total}",
+    "progressStart": 10,
+    "progressEnd": 95
+  }
+};
+
+/* ============================================================
+   ЛОГИКА
+   ============================================================ */
+(function () {
+  'use strict';
+
+  const TOTAL = CONFIG.questions.length;
+  const app = document.getElementById('app');
+  const params = new URLSearchParams(location.search);
+  const DEBUG = params.get('debug') === '1';
+  // ?r=<key> opens that decoding directly (owner preview links)
+  const PREVIEW = CONFIG.results[params.get('r')] ? params.get('r') : null;
+  const SS_KEY = 'tl_quiz_v1';
+  const TIMER_KEY = 'tl_timer_start_v2';   // sessionStorage: когда таймер впервые увидели
+
+  // ---------- state + sessionStorage ----------
+  const state = { step: 'intro', answers: {}, status: null };
+
+  function loadState() {
+    try {
+      const raw = sessionStorage.getItem(SS_KEY);
+      if (!raw) return;
+      const s = JSON.parse(raw);
+      if (s && typeof s === 'object') {
+        if (typeof s.step === 'string') state.step = s.step;
+        if (s.answers && typeof s.answers === 'object') state.answers = s.answers;
+        if (typeof s.status === 'string') state.status = s.status;
+      }
+    } catch (e) { /* storage недоступен — работаем без него */ }
+  }
+  function saveState() {
+    try { sessionStorage.setItem(SS_KEY, JSON.stringify(state)); } catch (e) { /* no-op */ }
+  }
+
+  // ---------- analytics ----------
+  // Step counter on our server (owner msg 15430): one beacon per step, no personal data.
+  // Owner preview links (?r=) and ?debug=1 are not counted.
+  const STATS_URL = 'https://baza.serenkov.com/quiz-stats/api/e';
+  function visitorId() {
+    try {
+      let v = localStorage.getItem('kl_vid');
+      if (!v) { v = Date.now().toString(36) + Math.random().toString(36).slice(2, 10); localStorage.setItem('kl_vid', v); }
+      return v;
+    } catch (e) { return 'n' + Math.random().toString(36).slice(2, 12); }
+  }
+  function track(event, data) {
+    if (DEBUG) console.log('[analytics]', event, data);
+    if (PREVIEW || DEBUG) return;
+    const q = new URLSearchParams({
+      ev: event.indexOf('result_view_') === 0 ? 'result_view_' + String(event.slice(12)).replace(/[^A-Za-z0-9]/g, '').slice(0, 4) : event,
+      v: visitorId(),
+      s: (new URLSearchParams(location.search).get('utm_source') || '').replace(/[^A-Za-z0-9._-]/g, '').slice(0, 40),
+      r: String((data && data.result) || '').replace(/[^A-Za-z0-9]/g, '').slice(0, 8)
+    });
+    const url = STATS_URL + '?' + q;
+    try { if (navigator.sendBeacon && navigator.sendBeacon(url)) return; } catch (e) { /* fall through */ }
+    try { fetch(url, { mode: 'no-cors', keepalive: true }); } catch (e) { /* no-op */ }
+  }
+
+  // ---------- helpers ----------
+  const esc = (s) => String(s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const boldQuoted = (s) => esc(s).replace(/«[^»]*»/g, '<b>$&</b>');
+  const pad2 = (n) => (n < 10 ? '0' : '') + n;
+
+  // Иконки: один набор, линейные, stroke 2, скруглённые концы
+  const svg = (d, extra) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"${extra || ''}>${d}</svg>`;
+  const ICON = {
+    back: svg('<path d="M15 5l-7 7 7 7"/>'),
+    arrow: svg('<path d="M5 12h14M13 6l6 6-6 6"/>'),
+    lock: svg('<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>'),
+    heart: svg('<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/>'),
+    calendar: svg('<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>'),
+    user: svg('<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>'),
+    copy: svg('<rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/>'),
+    close: svg('<path d="M6 6l12 12M18 6L6 18"/>'),
+    play: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.86l11.2-7.2a1 1 0 0 0 0-1.72L8.5 3.94A1 1 0 0 0 7 4.8z" fill="currentColor"/></svg>',
+    check: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 12.5l4.2 4.2L18.5 8"/></svg>'
+  };
+  const CK = '<span class="ck" aria-hidden="true"></span>';
+  const ARROW = `<span class="ar" aria-hidden="true">${ICON.arrow}</span>`;
+  const imgTag = (url, cls) => url ? `<img${cls ? ` class="${cls}"` : ''} src="${esc(url)}" alt="" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">` : '';
+
+  function withUtm(url) {
+    if (!url) return '';
+    const utm = new URLSearchParams();
+    params.forEach((v, k) => { if (/^utm_/i.test(k)) utm.set(k, v); });
+    const q = utm.toString();
+    if (!q) return url;
+    const hashIdx = url.indexOf('#');
+    const base = hashIdx >= 0 ? url.slice(0, hashIdx) : url;
+    const hash = hashIdx >= 0 ? url.slice(hashIdx) : '';
+    return base + (base.includes('?') ? '&' : '?') + q + hash;
+  }
+
+  function setMode(mode) {
+    document.body.classList.toggle('mode-fixed', mode === 'fixed');
+    document.body.classList.toggle('mode-scroll', mode === 'scroll');
+    if (mode === 'fixed') hideSticky(true);
+  }
+
+  // Высота окна (--vh0 и классы h-*) фиксируется скриптом в <head> один раз при загрузке — см. там.
+
+  // ---------- rendering: экран 1 ----------
+  // Заголовок: текст из CONFIG как есть; фраза intro.titleAccent (если она есть в заголовке) красится золотом
+  function titleHtml(title, accent) {
+    const t = esc(title);
+    if (!accent) return t;
+    const a = esc(accent), i = t.indexOf(a);
+    return i < 0 ? t : t.slice(0, i) + '<span class="acc">' + a + '</span>' + t.slice(i + a.length);
+  }
+  // Типографика экрана 1: неразрывный пробел после коротких слов и чисел и между двумя последними словами.
+  // Слова не меняются — только вид пробела. На вход — уже экранированный текст.
+  const NBSP = '\u00a0';
+  function typo(s) {
+    let t = String(s).replace(/\s+/g, ' ').trim();
+    const shortW = /(^|[\s«(\u00a0])([а-яёА-ЯЁ]{1,2}|без|для|что|как|под|при|про)\s(?=\S)/g;
+    t = t.replace(shortW, '$1$2' + NBSP).replace(shortW, '$1$2' + NBSP);
+    t = t.replace(/(\d[\d%]*)\s(?=\S)/g, '$1' + NBSP);
+    t = t.replace(/\s(\S+)$/, NBSP + '$1');
+    return t;
+  }
+  function tp(s) {
+    // lookbehind не «съедает» соседа, поэтому склеиваются и цепочки коротких слов: «и не мучиться», «а он обо мне»
+    return typo(s).replace(/(?<=^|[\s«(>\u00a0])([а-яёА-ЯЁ]{1,2}|без|для|что|как|под|при|про|обо|его|её|им) (?=\S)/g, '$1' + NBSP)
+      .replace(/(^|[\s>\u00a0«(])([а-яёА-ЯЁ]+-[а-яёА-ЯЁ]+)(?![^<]*>)/g, '$1<span class="nw">$2</span>');
+  }
+  // Заголовки результата: неразрывный пробел только после предлогов и союзов; строки из одного слова
+  // убирает fixHeadLines() по факту вёрстки. Слова не меняются.
+  function hd(s) {
+    return String(s).replace(/\s+/g, ' ').trim()
+      .replace(/(?<=^|[\s«(>\u00a0])(в|во|и|с|со|к|ко|у|о|об|а|на|за|по|до|из|от|не|ни|но|для|без|при|про|под|над) (?=\S)/gi, '$1\u00a0')
+      .replace(/(^|[\s>\u00a0«(])([а-яёА-ЯЁ]+-[а-яёА-ЯЁ]+)(?![^<]*>)/g, '$1<span class="nw">$2</span>');
+  }
+  function introTitle(title, accent) {
+    const t = typo(esc(title));
+    if (!accent) return t;
+    const src = esc(accent).trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '[ \\u00a0]');
+    return t.replace(new RegExp(src), m => '<span class="acc">' + m + '</span>')
+      .replace(/([а-яёА-ЯЁ]+-[а-яёА-ЯЁ]+)/g, '<span style="white-space:nowrap">$1</span>');
+  }
+  // «87% женщин …» → крупная цифра + остальной текст (слова те же)
+  function introLead(lead) {
+    const e = esc(lead).trim(), m = e.match(/^(\d+\s?%)\s+(.*)$/);
+    return m ? { num: m[1], rest: typo(m[2]) } : { num: '', rest: typo(e) };
+  }
+  // «Хорошая девочка»: удобная… → заголовок пункта (в кавычках) + пояснение
+  function introScen(s) {
+    const e = esc(s).trim(), m = e.match(/^(«[^»]*»:?)\s*(.*)$/);
+    return m ? { h: m[1], d: typo(m[2]) } : { h: '', d: typo(e) };
+  }
+  function introAva(a, cls) {
+    return `<span class="${cls}"><span class="ava-in">${ICON.user}${imgTag(a.avatar || a.photoPortrait || a.photoWide)}</span></span>`;
+  }
+  function bindIntro() {
+    document.getElementById('startBtn').addEventListener('click', () => {
+      track('quiz_start');
+      go('q1');
+    });
+    afterFixedRender('Экран 1');
+  }
+
+  const IA_IC = [
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.6 9.6h.01M15.4 9.6h.01M8.5 15h7M10 13.8v2.4M12 13.8v2.4M14 13.8v2.4"/></svg>',
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M5.6 5.6l3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6"/></svg>',
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5v19M3.8 7.2l16.4 9.6M20.2 7.2L3.8 16.8M9.3 4.2L12 6l2.7-1.8M9.3 19.8L12 18l2.7 1.8"/></svg>',
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 5.1a5.2 5.2 0 0 0-7.4 0L12 6.2l-1-1.1a5.2 5.2 0 0 0-7.4 7.4l1 1L12 20.8l7.4-7.3 1-1a5.2 5.2 0 0 0 0-7.4z"/><path d="M12.6 6.6l-2 3.8 3 1.8-2 3.8"/></svg>'
+  ];
+  function renderIntro() {
+    setMode('fixed');
+    const a = CONFIG.author, i = CONFIG.intro, ld = introLead(i.lead);
+    app.innerHTML = `
+<section class="screen ia" data-label="Экран 1">
+  <div class="ia-r">
+    <div class="ia-plate">
+      ${introAva(a, 'ia-ava')}
+      <span class="ia-who"><b>${esc(a.name)}</b><span>${esc(a.answers)}</span></span>
+      <span class="ia-glow" aria-hidden="true"></span>
+    </div>
+    <div class="ia-scen">
+      <p class="ia-lead"><span class="lt">${ld.num ? `<b class="num">${ld.num}</b> ` : ''}${ld.rest}</span></p>
+      <ul class="ia-cards">
+        ${i.scenarios.map((s, k) => { const c = introScen(s); return `<li class="c${k % 4 + 1}">${(i.scenarioImages || [])[k] ? `<span class="ia-ic ia-img"><img src="${esc(i.scenarioImages[k])}" alt="" width="48" height="48" decoding="async"></span>` : `<span class="ia-ic">${IA_IC[k % 4]}</span>`}<p>${c.h ? `<b>${c.h}</b> <span>${c.d}</span>` : `<b>${c.d}</b>`}</p></li>`; }).join('')}
+      </ul>
+    </div>
+  </div>
+  <div class="ia-l">
+    <div class="ia-head">
+      <p class="ia-pill"><span>${typo(esc(i.badge))}</span></p>
+      <h1 class="ia-h1">${introTitle(i.title, i.titleAccent)}</h1>
+    </div>
+    <div class="ia-cta">
+      <button type="button" class="btn btn-primary" id="startBtn"><span class="bt">${typo(esc(i.button))}</span>${ARROW}</button>
+      <p class="ia-note">${typo(esc(i.note))}</p>
+    </div>
+  </div>
+</section>`;
+    bindIntro();
+  }
+
+  // ---------- rendering: вопрос ----------
+  let lock = false;
+
+  function renderQuestion(n) {
+    setMode('fixed');
+    const q = CONFIG.questions[n - 1];
+    const pct = TOTAL > 1
+      ? Math.round(CONFIG.ui.progressStart + (n - 1) * (CONFIG.ui.progressEnd - CONFIG.ui.progressStart) / (TOTAL - 1))
+      : 100;
+    const counter = CONFIG.ui.counter.replace('{n}', n).replace('{total}', TOTAL);
+    const selected = state.answers[n];
+    app.innerHTML = `
+<section class="screen s-q x-bg" data-label="Экран ${n + 1} (вопрос ${n})">
+  <div class="qbar">
+    <button type="button" class="back${n === 1 ? ' ghost' : ''}" id="backBtn" aria-label="${esc(CONFIG.ui.back)}"${n === 1 ? ' tabindex="-1"' : ''}>${ICON.back}</button>
+    <div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}"><div class="prog-fill" style="width:${pct}%"></div></div>
+    <span class="qcount x-pill">${esc(counter)}</span>
+  </div>
+  <div class="qbody">
+    <h2 class="qtext x-h1">${tp(esc(q.text))}</h2>
+    <div class="opts" role="radiogroup" aria-label="${esc(q.text)}">
+      ${q.options.map((o, idx) => `
+      <button type="button" class="opt${selected === idx ? ' sel' : ''}" role="radio" aria-checked="${selected === idx}" data-idx="${idx}">
+        <span class="radio x-ic" aria-hidden="true"></span><span class="opt-text">${tp(esc(o.t))}</span>
+      </button>`).join('')}
+    </div>
+  </div>
+</section>`;
+    if (n > 1) document.getElementById('backBtn').addEventListener('click', () => go('q' + (n - 1)));
+    app.querySelectorAll('.opt').forEach(btn => {
+      btn.addEventListener('click', () => select(n, Number(btn.dataset.idx), btn));
+    });
+    lock = false;
+    afterFixedRender('Экран ' + (n + 1) + ' (вопрос ' + n + ')');
+  }
+
+  function select(n, idx, btn) {
+    if (lock) return;
+    lock = true;
+    app.querySelectorAll('.opt').forEach(b => { b.classList.remove('sel'); b.setAttribute('aria-checked', 'false'); });
+    btn.classList.add('sel');
+    btn.setAttribute('aria-checked', 'true');
+    const opt = CONFIG.questions[n - 1].options[idx];
+    state.answers[n] = idx;
+    if (n === 1) state.status = opt.t;               // вопрос 1 — статус отношений, в подсчёте не участвует
+    saveState();
+    track('q' + n + '_answer', { option: idx + 1, key: opt.k || null, text: opt.t });
+    setTimeout(() => { lock = false; advance(n); }, 300);
+  }
+
+  function advance(n) {
+    const target = n === TOTAL ? 'result' : 'q' + (n + 1);
+    const loader = CONFIG.loaders[n];
+    if (loader && !fastMode) {
+      state.step = target;                            // при перезагрузке во время загрузки попадём сразу на следующий шаг
+      saveState();
+      renderLoader(n, () => go(target));
+    } else {
+      go(target);
+    }
+  }
+
+  // ---------- rendering: загрузка ----------
+  let loaderTimers = [];
+  function clearLoaderTimers() { loaderTimers.forEach(clearTimeout); loaderTimers = []; }
+
+  function renderLoader(n, done, opts) {
+    opts = opts || {};
+    setMode('fixed');
+    clearLoaderTimers();
+    const L = CONFIG.loaders[n];
+    const label = 'Экран загрузки после вопроса ' + n;
+    app.innerHTML = `
+<section class="screen s-load x-bg" data-label="${esc(label)}" aria-live="polite">
+  <div class="load-box">
+    <div class="spinner" aria-hidden="true"></div>
+    <h2 class="load-title x-h1">${tp(esc(L.title))}</h2>
+    ${L.items.length ? `<ul class="checks">${L.items.map(t => `<li${opts.static ? ' class="on"' : ''}><span class="x-ic" aria-hidden="true"><span class="x-ck"></span></span><span>${tp(esc(t))}</span></li>`).join('')}</ul>` : ''}
+  </div>
+</section>`;
+    afterFixedRender(label);
+    if (opts.static) return;
+    const items = app.querySelectorAll('.checks li');
+    const count = items.length;
+    // пункты появляются последовательно, последний — примерно за 1 с до конца
+    items.forEach((li, i) => {
+      const t = Math.round((L.duration - 900) * (i + 1) / (count + 0.6));
+      loaderTimers.push(setTimeout(() => li.classList.add('on'), t));
+    });
+    loaderTimers.push(setTimeout(() => { clearLoaderTimers(); done(); }, L.duration));
+  }
+
+  // ---------- подсчёт результата ----------
+  // 8 типов: сумма баллов по каждому типу (вариант p: 3/2/1/0, тип – k утверждения), максимум 12.
+  // Первые два типа отличаются на 0–1 балл, а третий меньше второго хотя бы на 2 → мозаичный (M) с двумя ведущими чертами.
+  // Иначе главный тип – наибольшая сумма, вторая черта – второй по сумме, если у него ≥ secondMin.
+  function computeResult() {
+    const S = CONFIG.scoring;
+    const counts = {};
+    S.priority.forEach(k => { counts[k] = 0; });
+    for (let n = 2; n <= TOTAL; n++) {
+      const idx = state.answers[n];
+      if (idx == null) continue;
+      const q = CONFIG.questions[n - 1], o = q.options[idx];
+      const k = o && (o.k || q.k);
+      if (k) counts[k] = (counts[k] || 0) + (o.p != null ? Number(o.p) : 1);
+    }
+    // по убыванию суммы; сортировка устойчивая ⇒ при равенстве выше тот, кто раньше в priority
+    const order = S.priority.slice().sort((a, b) => counts[b] - counts[a]);
+    const [t1, t2, t3] = order;
+    if (S.mosaic && t3 != null && counts[t1] - counts[t2] <= S.mosaicGap && counts[t2] - counts[t3] >= S.thirdGap) {
+      return { code: S.mosaic, counts, lead: [t1, t2] };
+    }
+    return { code: t1, counts, second: t2 != null && counts[t2] >= S.secondMin ? t2 : null };
+  }
+
+  // ---------- rendering: результат ----------
+  let timerInt = null;
+  let io = null;
+  let fitTicket = null;
+
+  // Ключ расшифровки = тип (computeResult). Вопрос 1 (положение в отношениях) на ключ не влияет.
+  function resultKey(code) {
+    return CONFIG.results[code] ? code : CONFIG.scoring.priority[0];
+  }
+
+  function renderResult() {
+    setMode('scroll');
+    clearLoaderTimers();
+    const res = computeResult();
+    const { code, counts } = res;
+    const key = PREVIEW || resultKey(code);
+    const R = CONFIG.results[key] || CONFIG.results[CONFIG.scoring.priority[0]];
+    const O = CONFIG.offer;
+
+    // rich(): строки расшифровки могут содержать <b>…</b> — пропускаем только эти теги; tx(): то же + неразрывные пробелы
+    const rich = (s) => esc(s).replace(/&lt;(\/?b)( class=&quot;acc&quot;)?&gt;/g, (m, tag, cls) => `<${tag}${cls ? ' class="acc"' : ''}>`);
+    const tx = (s) => tp(rich(s));
+    // значок — круг сайта (.fy-ic): сплошная заливка + кольцо + линейная галочка, без градиентов
+    const ICK = `<span class="ic" aria-hidden="true">${ICON.check}</span>`;
+    const renderBlock = (b, hasH2) => {
+      switch (b.type) {
+        case 'lead':    return hasH2 ? `<p class="lead-h">${hd(rich(b.text))}</p>` : `<h2 class="lead-h">${hd(rich(b.text))}</h2>`;
+        case 'p':       return `<p>${tx(b.text)}</p>`;
+        case 'cards':   return `<ul class="cards blk">${b.items.map(t => `<li>${ICK}<span>${tx(t)}</span></li>`).join('')}</ul>`;
+        case 'callout': return `<div class="callout blk"><p>${tx(b.text)}</p></div>`;
+        case 'pair':    return `<div class="pair blk">${b.items.map(c => `<div class="pc ${c.tone === 'bad' ? 'bad' : 'good'}">${tx(c.text)}</div>`).join('')}</div>`;
+        case 'pull':    return `<blockquote class="pull">${tx(b.text)}</blockquote>`;
+        case 'quotes':  return `<div class="quotes blk">${b.items.map(t => `<blockquote><span>${tx(t)}</span></blockquote>`).join('')}</div>`;
+        default:        return '';
+      }
+    };
+    // цифры в тексте плашки — Unbounded, как «87%» на экране 1 (слова те же)
+    const plateNum = (s) => tp(esc(s)).replace(/(^|[\s ])(\d+)(?=[\s ]|$)/g, '$1<b class="num">$2</b>');
+    // фоны частей чередуются, как на сайте: бежевый, страница, бежевый, тёмный (шапка — светлый hero, оффер — страница)
+    const BANDS = ['b-beige', 'b-page', 'b-beige', 'b-dark', 'b-page', 'b-beige'];
+    const partsHtml = R.parts.map((p, i) => {
+      // «Часть 3. Заголовок» → строка-подпись «Часть 3» + заголовок (слова те же, только разнесены)
+      const m = /^(Часть\s+\d+)\.?\s*(.*)$/.exec(p.heading || '');
+      const head = m
+        ? `<p class="kick"><span>${plateNum(m[1])}</span></p>${m[2] ? `<h2>${hd(esc(m[2]))}</h2>` : ''}`
+        : (p.heading ? `<h2>${hd(esc(p.heading))}</h2>` : '');
+      const hasH2 = /<h2>/.test(head);
+      // the last part sits right above the offer (page band), so it is never page-coloured
+      const band = (i === R.parts.length - 1 && BANDS[i % BANDS.length] === 'b-page') ? 'b-beige' : BANDS[i % BANDS.length];
+      return `<section class="part band ${band}" data-part="${i + 1}"><div class="band-in">${head}${p.blocks.map(b => renderBlock(b, hasH2)).join('')}</div></section>`;
+    }).join('');
+    // видео-разбор: по ключу результата; нет src — заглушка «Видео скоро» без ▶
+    const V = (CONFIG.video && CONFIG.video[key]) || {};
+    const RS = CONFIG.resultScreen;
+    // научное название типа и вторая / ведущие черты (по ответам; в просмотре ?r= ответов нет – строки черт нет)
+    const tName = (k) => { const T = CONFIG.results[k]; return T ? T.name + (T.sci ? ' – ' + T.sci.charAt(0).toLowerCase() + T.sci.slice(1) : '') : ''; };
+    let trait = '';
+    if (!PREVIEW && key === CONFIG.scoring.mosaic && res.lead && RS.mosaicTraits) trait = RS.mosaicTraits.replace('{a}', tName(res.lead[0])).replace('{b}', tName(res.lead[1]));
+    else if (!PREVIEW && res.second && RS.secondTrait) trait = RS.secondTrait.replace('{name}', tName(res.second));
+    const vidHtml = `<div class="vid">
+        ${V.src
+          ? `<button type="button" class="video" id="video" aria-label="${esc(RS.videoCaption)}">${imgTag(V.poster, 'vp')}<span class="play" aria-hidden="true"><span class="pi">${ICON.play}</span></span></button>`
+          : `<div class="video soon" id="video" role="img" aria-label="${esc(RS.videoSoon)}">${imgTag(V.poster, 'vp')}<span class="soon-l"><span class="kick">${esc(RS.videoSoon)}</span></span></div>`}
+        <p class="vid-cap">${tp(esc(RS.videoCaption))}</p>
+      </div>`;
+
+    app.innerHTML = `
+<section class="screen s-result" data-label="Экран результата" data-key="${esc(key)}">
+  <header class="res-head band b-hero" id="resHead">
+    <div class="band-in">
+      <p class="kick eyebrow">${esc(RS.eyebrow)}</p>
+      <h1 class="res-title">${hd(esc(R.name))}</h1>
+      ${R.sci ? `<p class="res-hint">${tp(esc(R.sci))}</p>` : ''}
+      ${trait ? `<p class="res-hint">${tp(esc(trait))}</p>` : ''}
+      <p class="res-hint">${tp(esc(RS.hint))}</p>
+      ${vidHtml}
+    </div>
+  </header>
+  <article class="res-body">${partsHtml}</article>
+  <section class="offer band b-page" id="offer">
+    <div class="band-in">
+      <div class="offer-a">
+      <h2>${hd(esc(O.title))}</h2>
+      <div class="offer-items">
+      <p class="offer-sub">${plateNum(O.subtitle)}</p>
+      <ul class="locked">${O.locked.map(t => `<li><span class="ic" aria-hidden="true">${ICON.lock}</span><span>${tp(esc(t))}</span></li>`).join('')}</ul>
+      <p class="text">${tp(esc(O.practicumIntro))}</p>
+      <div class="pname"><span class="ic" aria-hidden="true">${ICON.calendar}</span><p>${tp(esc(O.practicumName))}</p></div>
+      </div>
+      </div>
+      <div class="offer-b">
+      <p class="text">${tp(rich(O.promoText))}</p>
+      <div class="tk-wrap">
+        <div class="promo tk" id="tk">
+          <div class="tk-stub" aria-hidden="true"><span class="tk-logo"></span><span class="tk-k">${esc(CONFIG.author.name)}</span></div>
+          <div class="tk-main">
+            <code class="tk-code" id="promoCode">${esc(R.promo)}</code>
+            <button type="button" class="copy" id="copyBtn">${ICON.copy}<span id="copyText">${esc(O.copyLabel)}</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="timer-wrap">
+        <div class="timer" id="timer" aria-live="off">${pad2(O.timerMinutes)}:00</div>
+        <p class="timer-note" id="timerNote" hidden></p>
+      </div>
+      <a class="btn btn-primary" id="ctaMain" href="${esc(O.mainUrl || '#register')}"><span>${tp(esc(O.mainButton))}</span>${ARROW}</a>
+      <a class="btn btn-secondary" id="ctaSecondary" href="${esc(withUtm(O.secondaryUrl)) || '#'}"><span>${tp(esc(O.secondaryButton))}</span></a>
+      </div>
+    </div>
+  </section>
+</section>`;
+    currentResult = { key, name: R.name };
+    window.scrollTo(0, 0);
+    track('result_view_' + code, { counts, status: state.status, result: key });
+    if (DEBUG) console.log('[result]', key, res);
+
+    // видео
+    const videoEl = document.getElementById('video');
+    // по ▶ — встроенный <video controls playsinline> в той же карточке, со звуком, со старта
+    if (videoEl && V.src) videoEl.addEventListener('click', function () {
+      track('video_click', { result: key });
+      const box = document.createElement('div');
+      box.className = 'video';
+      box.id = 'video';
+      box.innerHTML = `<video controls playsinline preload="auto" poster="${esc(V.poster || '')}" src="${esc(V.src)}"></video>`;
+      this.replaceWith(box);
+      const v = box.querySelector('video');
+      v.muted = false; v.volume = 1; v.currentTime = 0;
+      const pr = v.play();
+      if (pr && pr.catch) pr.catch(() => {});
+    }, { once: true });
+
+    // промокод
+    document.getElementById('copyBtn').addEventListener('click', () => copyPromo(R.promo));
+    // билет: код всегда в одну строку — кегль уменьшается, пока код не поместится в рамку
+    fitTicket = () => {
+      // название результата: длинное слово (СПАСАТЕЛЬНИЦА) не должно вылезать — уменьшаем кегль
+      // только размеры сайта: 16 px, если не влезает — 14 px (Unbounded 600, роли сайта)
+      const c = document.getElementById('promoCode');
+      if (!c || !c.isConnected) return;
+      c.style.fontSize = '';
+      if (c.scrollWidth > c.clientWidth + 0.5) c.style.fontSize = '14px';
+    };
+    fitTicket();
+    fixHeadLines(app);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (fitTicket) fitTicket(); fixHeadLines(app); });
+
+    // кнопки: «Открыть полную расшифровку» → попап регистрации; «Подробнее…» → сайт практикума ниже оффера
+    bindCta('ctaMain', 'cta_main_click', O.mainUrl);
+    const sec = document.getElementById('ctaSecondary');
+    sec.addEventListener('click', (e) => {
+      track('cta_secondary_click', { href: sec.href });
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return;   // в новой вкладке — как обычная ссылка
+      e.preventDefault();
+      if (O.secondaryUrl) openPracticum(withUtm(O.secondaryUrl));
+    });
+
+    // липкая панель: та же кнопка — тот же попап
+    document.getElementById('stickyBtnText').textContent = O.mainButton;
+    document.getElementById('stickyBtn').onclick = () => { track('cta_sticky_click'); openRegister('sticky'); };
+    initSticky();
+    initTimer();
+  }
+
+  // Заголовки: строка из одного слова недопустима. Если так вышло — меняем пробел перед этим словом
+  // на неразрывный (слова те же, меняется только вид пробела), пока строк из одного слова нет.
+  // Перед каждым пересчётом возвращаем исходную разметку, чтобы на другой ширине склейки не мешали.
+  function fixHeadLines(root) {
+    (root || document).querySelectorAll('.s-result h1, .s-result h2, .s-result .lead-h, .rg-h').forEach(el => {
+      if (el.dataset.src == null) el.dataset.src = el.innerHTML; else el.innerHTML = el.dataset.src;
+      for (let it = 0; it < 8; it++) {
+        const words = [];
+        const tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+        let n;
+        while ((n = tw.nextNode())) {
+          const re = /[^\s\u00a0]+/g; let m;
+          while ((m = re.exec(n.data))) {
+            const r = document.createRange(); r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length);
+            const rr = r.getClientRects(); if (!rr.length) continue;
+            words.push({ node: n, i: m.index, top: Math.round(rr[0].top) });
+          }
+        }
+        if (words.length < 2) break;
+        const lines = [];
+        words.forEach((w, k) => { const L = lines.find(l => Math.abs(l.top - w.top) < 4); if (L) L.k.push(k); else lines.push({ top: w.top, k: [k] }); });
+        const lone = lines.find(l => l.k.length === 1);
+        if (!lone) break;
+        // пробел между словами j и j+1 → неразрывный; возвращает отмену или null
+        const glue = (j) => {
+          if (j < 0 || j + 1 >= words.length) return null;
+          const w = words[j + 1];
+          let node = null, at = -1;
+          if (w.i > 0 && /\s/.test(w.node.data[w.i - 1])) { node = w.node; at = w.i - 1; }
+          else { const pn = words[j].node; if (pn !== w.node && /\s/.test(pn.data[pn.data.length - 1])) { node = pn; at = pn.data.length - 1; } }
+          if (!node) return null;
+          const ch = node.data[at];
+          node.data = node.data.slice(0, at) + '\u00a0' + node.data.slice(at + 1);
+          return () => { node.data = node.data.slice(0, at) + ch + node.data.slice(at + 1); };
+        };
+        // одинокое слово склеиваем с предыдущим; если строка вылезает — со следующим
+        const k = lone.k[0];
+        let done = false;
+        for (const j of [k - 1, k]) {
+          const undo = glue(j);
+          if (!undo) continue;
+          if (el.scrollWidth > el.clientWidth + 1) { undo(); continue; }
+          done = true; break;
+        }
+        if (!done) break;
+      }
+    });
+  }
+  window.__klFixHeads = fixHeadLines;
+
+  let fitRaf = 0;
+  window.addEventListener('resize', () => {
+    cancelAnimationFrame(fitRaf);
+    fitRaf = requestAnimationFrame(() => { if (fitTicket) fitTicket(); fixHeadLines(); });
+  });
+
+  // ---------- сайт практикума: продолжение страницы под оффером ----------
+  // Встроенный iframe той же страницы (secondaryUrl, тот же домен) без рамок и без своего скролла:
+  // высота iframe = высоте документа внутри. vh/svh внутри сайта пересчитываются в px от высоты окна квиза,
+  // иначе высота «100vh» росла бы вместе с iframe. Кнопки регистрации сайта открывают попап квиза.
+  let nrSec = null, nrRO = null, nrTimer = 0, nrUrl = '';
+  function openPracticum(url) {
+    if (nrSec && nrSec.isConnected && nrUrl === url) { scrollToPracticum(); return; }
+    closePracticumInline();
+    nrUrl = url;
+    nrSec = document.createElement('section');
+    nrSec.id = 'practicum';
+    nrSec.className = 'nr-inline loading';
+    nrSec.setAttribute('aria-label', CONFIG.offer.secondaryButton);
+    nrSec.innerHTML = `<iframe id="nrFrame" title="${esc(CONFIG.offer.secondaryButton)}" scrolling="no" allow="autoplay; fullscreen; clipboard-write; payment" allowfullscreen></iframe>`;
+    document.body.insertBefore(nrSec, document.getElementById('sticky'));
+    const fr = nrSec.querySelector('iframe');
+    fr.addEventListener('load', () => { nrSec && nrSec.classList.remove('loading'); setupPracticumFrame(fr); });
+    fr.setAttribute('src', url);
+    track('practicum_inline_open');
+    requestAnimationFrame(scrollToPracticum);
+  }
+  function scrollToPracticum() {
+    if (!nrSec) return;
+    const top = nrSec.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+  function closePracticumInline() {
+    if (nrRO) { nrRO.disconnect(); nrRO = null; }
+    clearInterval(nrTimer); nrTimer = 0;
+    if (nrSec) nrSec.remove();
+    nrSec = null; nrUrl = '';
+  }
+  function setupPracticumFrame(fr) {
+    let doc, win;
+    try { win = fr.contentWindow; doc = fr.contentDocument; if (!doc || !doc.documentElement) throw 0; void doc.body; }
+    catch (e) {
+      // другой домен: прочитать высоту нельзя — запасной вариант, iframe высотой в экран со своим скроллом
+      fr.removeAttribute('scrolling'); fr.style.height = getComputedStyle(document.documentElement).getPropertyValue('--vh0') || '100vh';
+      return;
+    }
+    const H = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--vh0')) || window.innerHeight;
+    // 1) vh/svh/dvh и @media (min|max-height) внутри сайта → px от высоты окна квиза
+    const vhToPx = (v) => v.replace(/(-?\d*\.?\d+)(?:s|d|l)?vh\b/g, (m, n) => (parseFloat(n) * H / 100).toFixed(2) + 'px');
+    const fixMedia = (t) => t.replace(/\(\s*(min|max)-height\s*:\s*(\d*\.?\d+)px\s*\)/g, (m, mm, n) =>
+      ((mm === 'min' ? H >= +n : H <= +n) ? '(min-width:0px)' : '(max-width:0px)'));
+    const fixRules = (rules) => {
+      for (const r of Array.from(rules || [])) {
+        if (r.media && /height/.test(r.media.mediaText)) { try { r.media.mediaText = fixMedia(r.media.mediaText); } catch (e) { /* no-op */ } }
+        if (r.style) {
+          for (let i = 0; i < r.style.length; i++) {
+            const prop = r.style[i], val = r.style.getPropertyValue(prop);
+            if (/vh\b/.test(val)) r.style.setProperty(prop, vhToPx(val), r.style.getPropertyPriority(prop));
+          }
+        }
+        if (r.cssRules) fixRules(r.cssRules);
+      }
+    };
+    const fixAll = () => {
+      for (const sh of Array.from(doc.styleSheets)) { try { if (!sh.__kl) { fixRules(sh.cssRules); sh.__kl = 1; } } catch (e) { /* чужой CSS (шрифты) */ } }
+      doc.querySelectorAll('[style*="vh"]').forEach(el => el.setAttribute('style', vhToPx(el.getAttribute('style'))));
+    };
+    fixAll();
+    // 2) шапка и нижняя панель сайта position:fixed — внутри iframe без скролла они бы висели; их макет-попап не нужен
+    const st = doc.createElement('style');
+    st.textContent = 'html,body{overflow:hidden!important;height:auto!important;scroll-behavior:auto!important}' +
+      '.hd,header.hd,.sbar,#md{display:none!important}' +
+      '*,*::before,*::after{font-style:normal!important;font-synthesis:none!important}';
+    doc.head.appendChild(st);
+    try { Object.defineProperty(win, 'innerHeight', { configurable: true, get: () => H }); win.dispatchEvent(new win.Event('resize')); } catch (e) { /* no-op */ }
+    // 3) кнопки регистрации сайта ([data-open]) → попап регистрации квиза
+    doc.addEventListener('click', (e) => {
+      const b = e.target.closest && e.target.closest('[data-open]');
+      if (!b) return;
+      e.preventDefault(); e.stopImmediatePropagation();
+      track('practicum_site_register_click', { text: (b.textContent || '').trim().slice(0, 60) });
+      openRegister('practicum_site');
+    }, true);
+    doc.addEventListener('keydown', (e) => { if (e.key === 'Escape' && rg && !rg.hidden) closeRegister(); });
+    // 4) высота iframe = высоте документа внутри
+    let last = 0;
+    const fit = () => {
+      if (!fr.isConnected) return;
+      fixAll();
+      const de = doc.documentElement, bd = doc.body;
+      const h = Math.ceil(Math.max(de.scrollHeight, bd ? bd.scrollHeight : 0, de.getBoundingClientRect().height));
+      if (h && Math.abs(h - last) > 1) { last = h; fr.style.height = h + 'px'; }
+    };
+    fit();
+    if ('ResizeObserver' in win) { nrRO = new win.ResizeObserver(fit); nrRO.observe(doc.documentElement); if (doc.body) nrRO.observe(doc.body); }
+    let n = 0; clearInterval(nrTimer);
+    nrTimer = setInterval(() => { fit(); if (++n > 40) { clearInterval(nrTimer); nrTimer = 0; } }, 500);
+    doc.querySelectorAll('img').forEach(im => { if (!im.complete) im.addEventListener('load', fit, { once: true }); });
+    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(fit);
+  }
+
+  // ---------- окно регистрации на практикум (форма GetCourse) ----------
+  // Форма — та же, что на лендинге практикума. Отправка обычная, в верхнее окно (target="_top"):
+  // GetCourse сам переводит на страницу «Спасибо» практикума. Перед отправкой результат теста
+  // кладётся в localStorage (kl_reg), чтобы страница «Спасибо» / бот знали, какую расшифровку прислать.
+  let rg = null, rgPrevFocus = null, rgSent = false, currentResult = null;
+  const REG_KEY = 'kl_reg';
+  function rgFormHtml() {
+    const O = CONFIG.offer;
+    return `
+    <h2 class="rg-h" id="rgTitle">${hd(esc(O.registerTitle))}</h2>
+    ${O.registerName ? `<p class="rg-name">${tp(esc(O.registerName))}</p>` : ''}
+    ${O.registerDates ? `<p class="rg-date">Даты проведения: <b>${tp(esc(O.registerDates))}</b></p>` : ''}
+    <p class="rg-note">${tp(esc(O.registerNote))}</p>
+    <form id="rgForm" class="rg-form" action="https://doctor-saba.com/pl/lite/block-public/process-html?id=2260261966" method="post" accept-charset="UTF-8" target="_top">
+      <input type="hidden" name="formParams[setted_offer_id]" value="">
+      <input type="hidden" name="formParams[willCreatePaidDeal]" value="">
+      <input type="hidden" name="__gc__internal__form__helper" id="rgLoc" value="">
+      <input type="hidden" name="__gc__internal__form__helper_ref" id="rgRef" value="">
+      <input type="hidden" name="requestTime" value="1792414165">
+      <input type="hidden" name="requestSimpleSign" value="e8c55248f71272eea73c01cb5f9d6ef5">
+      <input type="hidden" name="isHtmlWidget" value="1">
+      <input type="text" name="formParams[full_name]" id="rgName" maxlength="60" placeholder="Введите ваше имя" autocomplete="given-name" required>
+      <input type="email" name="formParams[email]" id="rgEmail" maxlength="60" placeholder="Введите ваш e-mail" autocomplete="email" required>
+      <input type="tel" name="formParams[phone]" id="rgPhone" maxlength="24" inputmode="tel" placeholder="Введите ваш телефон" autocomplete="tel" required>
+      <label class="rg-ck"><input type="checkbox" name="pdpConfirmCheckbox" required><span>Я&nbsp;<a href="https://doctor-saba.com/doctor-saba-soglasie-na-opd" target="_blank" rel="noopener">согласен</a> на&nbsp;обработку моих персональных данных в&nbsp;соответствии с&nbsp;<a href="https://doctor-saba.com/doctor-saba-politika-opd" target="_blank" rel="noopener">Политикой обработки персональных&nbsp;данных</a></span></label>
+      <label class="rg-ck"><input type="checkbox" name="confirmMailingCheckbox"><span>Даю <a href="https://doctor-saba.com/doctor-saba-soglasie-na-reklamu" target="_blank" rel="noopener">согласие</a> на&nbsp;получение информационных и&nbsp;маркетинговых рассылок (можно отказаться в&nbsp;любой момент в&nbsp;личном&nbsp;кабинете)</span></label>
+      <button type="submit" class="btn btn-primary" id="rgSubmit"><span>${tp(esc(O.registerButton || 'Записаться на практикум'))}</span>${ARROW}</button>
+    </form>`;
+  }
+  function buildRegister() {
+    rg = document.createElement('div');
+    rg.id = 'rg';
+    rg.className = 'rg';
+    rg.hidden = true;
+    rg.innerHTML = `<div class="rg-box" role="dialog" aria-modal="true" aria-labelledby="rgTitle">
+      <button type="button" class="rg-x" id="rgClose" aria-label="Закрыть">${ICON.close}</button>
+      <div class="rg-body" id="rgBody">${rgFormHtml()}</div>
+    </div>`;
+    document.body.appendChild(rg);
+    rg.querySelector('#rgClose').addEventListener('click', closeRegister);
+    rg.addEventListener('click', (e) => { if (e.target === rg) closeRegister(); });
+    bindRegisterForm();
+  }
+  function bindRegisterForm() {
+    const f = document.getElementById('rgForm');
+    document.getElementById('rgLoc').value = location.href;
+    document.getElementById('rgRef').value = document.referrer;
+    // маска телефона — как в виджете GetCourse
+    const ph = document.getElementById('rgPhone');
+    const fmt = (v) => {
+      let d = v.replace(/\D/g, '').slice(0, 15); if (!d) return '+'; if (d[0] === '8') d = '7' + d.slice(1);
+      if (d[0] === '7') { d = d.slice(0, 11); const a = d.slice(1, 4), b = d.slice(4, 7), c = d.slice(7, 9), e = d.slice(9, 11);
+        return '+7' + (a ? ' (' + a : '') + (b ? ') ' + b : '') + (c ? '-' + c : '') + (e ? '-' + e : ''); }
+      return '+' + d;
+    };
+    ph.addEventListener('focus', () => { if (!ph.value) ph.value = '+'; });
+    ph.addEventListener('blur', () => { if (ph.value === '+') ph.value = ''; });
+    ph.addEventListener('input', () => { ph.value = fmt(ph.value); const n = ph.value.replace(/\D/g, '').length; ph.setCustomValidity(n >= 10 ? '' : 'Введите телефон полностью, с кодом страны'); });
+    f.addEventListener('submit', (e) => {
+      if (rgSent) { e.preventDefault(); return; }               // второй раз не отправляем
+      rgSent = true;
+      document.getElementById('rgSubmit').setAttribute('aria-busy', 'true');
+      document.getElementById('rgLoc').value = location.href;
+      const key = String((currentResult && currentResult.key) || 'N').toLowerCase();
+      const email = String(document.getElementById('rgEmail').value || '').trim().toLowerCase();
+      try {
+        localStorage.setItem(REG_KEY, JSON.stringify({ key, name: (currentResult && currentResult.name) || '', email, ts: Date.now() }));
+      } catch (err) { /* storage недоступен — регистрация всё равно уходит */ }
+      track('register_submit', { result: key });
+    });
+  }
+  // вернулись кнопкой «Назад» со страницы «Спасибо» — форму можно отправить снова
+  window.addEventListener('pageshow', (e) => {
+    if (!e.persisted || !rg) return;
+    rgSent = false;
+    const b = document.getElementById('rgSubmit'); if (b) b.removeAttribute('aria-busy');
+  });
+  function openRegister(from) {
+    if (!rg) buildRegister();
+    if (!rg.hidden) return;
+    rgPrevFocus = document.activeElement;
+    rg.hidden = false;
+    document.documentElement.classList.add('rg-open');
+    fixHeadLines(rg);
+    hideSticky();
+    requestAnimationFrame(() => rg.classList.add('on'));
+    const box = rg.querySelector('.rg-box'); if (box) box.scrollTop = 0;
+    const first = rg.querySelector('#rgForm input:not([type=hidden])');
+    if (first) setTimeout(() => first.focus({ preventScroll: true }), 30);
+    track('register_open', { from: from || 'cta', result: currentResult && currentResult.key });
+  }
+  function closeRegister() {
+    if (!rg || rg.hidden) return;
+    rg.classList.remove('on');
+    rg.hidden = true;
+    document.documentElement.classList.remove('rg-open');
+    if (rgPrevFocus && rgPrevFocus.focus && rgPrevFocus.ownerDocument === document) rgPrevFocus.focus({ preventScroll: true });
+    if (document.getElementById('offer')) initSticky();
+  }
+  window.addEventListener('keydown', (e) => {
+    if (!rg || rg.hidden) return;
+    if (e.key === 'Escape') { e.preventDefault(); closeRegister(); return; }
+    if (e.key === 'Tab') {                                   // фокус не уходит из попапа
+      const f = Array.from(rg.querySelectorAll('.rg-box a[href],.rg-box button,.rg-box input:not([type=hidden])')).filter(x => x.offsetParent);
+      if (!f.length) return;
+      const i = f.indexOf(document.activeElement);
+      if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+      else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+    }
+  });
+
+  function bindCta(id, event, url) {
+    const el = document.getElementById(id);
+    el.addEventListener('click', (e) => {
+      track(event, { href: el.href });
+      if (!url || url.charAt(0) === '#') { e.preventDefault(); openRegister(id); }
+    });
+  }
+
+  function copyPromo(code) {
+    const btn = document.getElementById('copyBtn');
+    const done = () => {
+      const t = document.getElementById('copyText') || btn;
+      t.textContent = CONFIG.offer.copiedLabel;
+      btn.classList.add('done');
+      setTimeout(() => { t.textContent = CONFIG.offer.copyLabel; btn.classList.remove('done'); }, 1800);
+    };
+    track('promo_copy', { promo: code });
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(done, () => fallbackCopy(code, done));
+    } else fallbackCopy(code, done);
+  }
+  function fallbackCopy(text, done) {
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch (e) { /* no-op */ }
+    document.body.removeChild(ta);
+    done();
+  }
+
+  // ---------- таймер ----------
+  // Отсчёт стартует, когда сам таймер впервые виден на экране хотя бы на 50 %. До этого — полное время.
+  // Время старта — в sessionStorage, перезагрузка его не сбрасывает.
+  let timerIO = null;
+  const timerFull = () => pad2(CONFIG.offer.timerMinutes) + ':00';
+  function initTimer() {
+    if (timerInt) { clearInterval(timerInt); timerInt = null; }
+    if (timerIO) { timerIO.disconnect(); timerIO = null; }
+    let start = 0;
+    try { start = Number(sessionStorage.getItem(TIMER_KEY)) || 0; } catch (e) { /* no-op */ }
+    if (start) { startTimer(start); return; }
+    const t2 = document.getElementById('stickyTimer');
+    if (t2) { t2.textContent = timerFull(); t2.classList.remove('expired'); }
+    const t1 = document.getElementById('timer');
+    if (!t1 || !('IntersectionObserver' in window)) { startTimer(0); return; }
+    timerIO = new IntersectionObserver((entries) => {
+      if (!entries.some(e => e.isIntersecting && e.intersectionRatio >= 0.5)) return;
+      timerIO.disconnect(); timerIO = null;
+      track('timer_start');
+      startTimer(0);
+    }, { threshold: [0.5] });
+    timerIO.observe(t1);
+  }
+  function startTimer(start) {
+    if (timerInt) clearInterval(timerInt);
+    if (!start) {
+      start = Date.now();
+      try { sessionStorage.setItem(TIMER_KEY, String(start)); } catch (e) { /* no-op */ }
+    }
+    const end = start + CONFIG.offer.timerMinutes * 60 * 1000;
+    const tick = () => {
+      const left = Math.max(0, end - Date.now());
+      const m = Math.floor(left / 60000), s = Math.floor((left % 60000) / 1000);
+      const text = pad2(m) + ':' + pad2(s);
+      const t1 = document.getElementById('timer'), t2 = document.getElementById('stickyTimer');
+      if (t1) t1.textContent = text;
+      if (t2) t2.textContent = text;
+      if (left <= 0) { clearInterval(timerInt); timerInt = null; onTimerExpired(); }
+    };
+    tick();
+    if (end > Date.now()) timerInt = setInterval(tick, 1000);
+  }
+  function onTimerExpired() {
+    const t1 = document.getElementById('timer'), note = document.getElementById('timerNote');
+    if (t1) t1.classList.add('expired');
+    const t2 = document.getElementById('stickyTimer');
+    if (t2) t2.classList.add('expired');
+    if (note && CONFIG.offer.expiredText) { note.textContent = CONFIG.offer.expiredText; note.hidden = false; }
+    // Здесь можно, например, скрыть промокод: document.querySelector('.promo').hidden = true;
+  }
+
+  // ---------- липкая панель ----------
+  let videoPassed = false, offerVisible = false;
+  function updateSticky() {
+    const on = videoPassed && !offerVisible;
+    const el = document.getElementById('sticky');
+    el.classList.toggle('on', on);
+    el.setAttribute('aria-hidden', on ? 'false' : 'true');
+  }
+  function hideSticky(reset) {
+    if (reset) { videoPassed = false; offerVisible = false; }
+    if (io) { io.disconnect(); io = null; }
+    updateSticky();
+  }
+  function initSticky() {
+    hideSticky(true);
+    const video = document.getElementById('resHead');
+    const offer = document.getElementById('offer');
+    if (!('IntersectionObserver' in window)) return;
+    io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.target === video) videoPassed = !e.isIntersecting && e.boundingClientRect.top < 0;
+        if (e.target === offer) offerVisible = e.isIntersecting;
+      });
+      updateSticky();
+    }, { threshold: 0, rootMargin: '0px 0px -72px 0px' });   // -72px: не считаем оффер видимым, пока он только под панелью
+    io.observe(video);
+    io.observe(offer);
+  }
+
+  // ---------- навигация ----------
+  let fastMode = false;
+
+  function go(step) {
+    state.step = step;
+    saveState();
+    render(step);
+  }
+  function render(step) {
+    clearLoaderTimers();
+    if (step !== 'result') { fitTicket = null; closePracticumInline(); closeRegister(); if (timerIO) { timerIO.disconnect(); timerIO = null; } }
+    if (step === 'intro') renderIntro();
+    else if (step === 'result') renderResult();
+    else if (/^q\d+$/.test(step)) {
+      const n = Number(step.slice(1));
+      if (n >= 1 && n <= TOTAL) renderQuestion(n); else renderIntro();
+    } else if (/^l\d+$/.test(step)) {             // только для debug-панели
+      const n = Number(step.slice(1));
+      if (CONFIG.loaders[n]) renderLoader(n, () => go(n === TOTAL ? 'result' : 'q' + (n + 1)));
+      else renderIntro();
+    } else renderIntro();
+  }
+
+  // ---------- проверка переполнения (debug) ----------
+  function measure() {
+    const el = app.querySelector('.screen');
+    if (!el) return null;
+    const over = Math.max(0, el.scrollHeight - el.clientHeight);
+    // «needed» — сколько высоты реально нужно контенту: от верха первого блока до низа последнего + поля.
+    // Фото на экране 1 тянется, поэтому считаем его по минимальной высоте — так виден настоящий запас.
+    const cs = getComputedStyle(el);
+    const kids = Array.from(el.children);
+    let needed = el.scrollHeight, photo = null;
+    if (kids.length) {
+      const rects = kids.map(k => k.getBoundingClientRect());
+      const top = Math.min.apply(null, rects.map(r => r.top));
+      const bottom = Math.max.apply(null, rects.map(r => r.bottom));
+      let extra = 0;
+      const ph = el.querySelector('.hero-ph');
+      if (ph) {
+        photo = Math.round(ph.getBoundingClientRect().height);
+        extra = Math.max(0, ph.getBoundingClientRect().height - (parseFloat(getComputedStyle(ph).minHeight) || 0));
+      }
+      needed = Math.ceil(bottom - top + parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom) - extra);
+    }
+    const res = { label: el.dataset.label || '?', scrollHeight: el.scrollHeight, clientHeight: el.clientHeight,
+             needed, slack: el.clientHeight - needed, overflow: over };
+    if (photo !== null) res.photo = photo;
+    return res;
+  }
+  function afterFixedRender(label) {
+    if (!DEBUG) return;
+    requestAnimationFrame(() => {
+      const m = measure();
+      if (!m) return;
+      const el = app.querySelector('.screen');
+      if (m.overflow > 0) {
+        el.classList.add('overflow');
+        console.error(label + ' переполнен на ' + m.overflow + ' px');
+      } else {
+        el.classList.remove('overflow');
+        console.log(label + ': ок, нужно ' + m.needed + ' из ' + m.clientHeight + ' px, запас ' + m.slack + ' px' + (m.photo != null ? ', фото ' + m.photo + ' px' : ''));
+      }
+      const st = document.getElementById('dbgStatus');
+      if (st) st.textContent = m.overflow > 0 ? ('ПЕРЕПОЛНЕНИЕ +' + m.overflow + 'px') : ('ок, запас ' + m.slack + 'px');
+    });
+  }
+  // повторная проверка, когда догрузятся веб-шрифты (до них замер идёт по системному шрифту)
+  if (DEBUG && document.fonts && document.fonts.addEventListener) {
+    document.fonts.addEventListener('loadingdone', () => {
+      const el = app.querySelector('.screen');
+      if (el && document.body.classList.contains('mode-fixed')) afterFixedRender(el.dataset.label);
+    });
+  }
+
+  // Прогнать все фиксированные экраны и вернуть замеры (не трогает state пользователя)
+  function checkAll() {
+    const saved = JSON.stringify(state);
+    const results = [];
+    const push = () => { const m = measure(); if (m) results.push(m); };
+    renderIntro(); push();
+    for (let n = 1; n <= TOTAL; n++) { renderQuestion(n); push(); }
+    Object.keys(CONFIG.loaders).forEach(n => { renderLoader(Number(n), () => {}, { static: true }); push(); });
+    Object.assign(state, JSON.parse(saved));
+    render(state.step);
+    results.forEach(r => {
+      if (r.overflow > 0) console.error(r.label + ' переполнен на ' + r.overflow + ' px');
+    });
+    return results;
+  }
+
+  // «Пройти как Спасательница»: «Замужем» в вопросе 1, первый вариант [S] в вопросах 2–10
+  function runAsS() {
+    fastMode = true;
+    state.answers = {};
+    state.status = null;
+    let n = 1;
+    const stepQ = () => {
+      if (n > TOTAL) { fastMode = false; return; }
+      renderQuestion(n);
+      state.step = 'q' + n; saveState();
+      const q = CONFIG.questions[n - 1];
+      let idx = n === 1 ? q.options.findIndex(o => o.t === 'Замужем') : q.options.findIndex(o => o.k === 'S');
+      if (idx < 0) idx = 0;
+      const btn = app.querySelector('.opt[data-idx="' + idx + '"]');
+      lock = false;
+      setTimeout(() => {
+        // select() сам сделает advance() через 300 мс; перехватываем, чтобы идти по цепочке без загрузок
+        select(n, idx, btn);
+        n++;
+        setTimeout(stepQ, 320);
+      }, 150);
+    };
+    stepQ();
+  }
+
+  function resetAll() {
+    try { sessionStorage.removeItem(SS_KEY); sessionStorage.removeItem(TIMER_KEY); } catch (e) { /* no-op */ }
+    state.step = 'intro'; state.answers = {}; state.status = null;
+    go('intro');
+  }
+
+  // ---------- debug-панель ----------
+  function initDebug() {
+    const screens = [['intro', 'Экран 1']];
+    for (let n = 1; n <= TOTAL; n++) {
+      screens.push(['q' + n, 'Вопрос ' + n]);
+      if (CONFIG.loaders[n]) screens.push(['l' + n, 'Загрузка после ' + n]);
+    }
+    screens.push(['result', 'Результат']);
+    const bar = document.createElement('div');
+    bar.id = 'dbg';
+    bar.innerHTML = `
+      <button type="button" class="tg" id="dbgToggle">debug</button>
+      <select id="dbgGo">${screens.map(s => `<option value="${s[0]}">${s[1]}</option>`).join('')}</select>
+      <button type="button" id="dbgCheck">Проверить все</button>
+      <button type="button" id="dbgRunS">Пройти как Спасательница</button>
+      <button type="button" id="dbgReset">Сброс</button>
+      <span class="st" id="dbgStatus"></span>`;
+    document.body.appendChild(bar);
+    const sel = bar.querySelector('#dbgGo');
+    sel.value = state.step;
+    sel.addEventListener('change', () => go(sel.value));
+    bar.querySelector('#dbgCheck').addEventListener('click', () => {
+      const res = checkAll();
+      const bad = res.filter(r => r.overflow > 0);
+      console.table(res);
+      document.getElementById('dbgStatus').textContent = bad.length
+        ? ('переполнено: ' + bad.map(b => b.label + ' +' + b.overflow + 'px').join('; '))
+        : ('все ' + res.length + ' экранов ок, ' + window.innerWidth + '×' + window.innerHeight);
+    });
+    bar.querySelector('#dbgRunS').addEventListener('click', runAsS);
+    bar.querySelector('#dbgReset').addEventListener('click', resetAll);
+    bar.querySelector('#dbgToggle').addEventListener('click', () => bar.classList.toggle('min'));
+  }
+
+  // ---------- РЕДАКТОР ТЕКСТОВ (?edit=1) ----------
+  // Все строки CONFIG показываются в панели; правки сразу видны на экране и хранятся в localStorage
+  // этого браузера. «Скачать index.html» собирает готовый файл с новыми текстами.
+  // Редактор открывается любым из способов: ?edit=1, #edit, Ctrl/Cmd+E, 5 быстрых тапов по подписи на фото (экран 1), по счётчику «Вопрос N из 10», по «Ваш результат» или названию результата
+  let EDIT = params.get('edit') === '1' || /(^|[#&])edit(=1)?($|&)/.test(location.hash);
+  const EDIT_KEY = 'tl_config_edit_v1';
+  const GROUP_NAMES = { author: 'Автор', intro: 'Экран 1', questions: 'Вопросы', loaders: 'Экраны загрузки',
+    resultScreen: 'Шапка результата', video: 'Видео', results: 'Результаты', offer: 'Оффер', ui: 'Интерфейс', scoring: 'Подсчёт' };
+  const FIELD_NAMES = { name: 'имя / название', answers: 'ответы', avatar: 'URL фото в круге (если пусто — портрет)', photoWide: 'URL широкого фото (запас)',
+    photoPortrait: 'URL портрета (круг на экране 1 и фон видео)', titleAccent: 'фраза заголовка, выделенная золотом', badge: 'бейдж', title: 'заголовок',
+    lead: 'лид', scenarios: 'сценарий', button: 'кнопка', note: 'подпись под кнопкой', text: 'текст', options: 'вариант',
+    t: 'текст', k: 'ключ', duration: 'длительность, мс', items: 'пункт', eyebrow: 'надпись сверху', hint: 'подсказка',
+    embedUrl: 'URL видео', promo: 'промокод', parts: 'часть', heading: 'заголовок', blocks: 'блок', quotes: 'цитата',
+    subtitle: 'подзаголовок', locked: 'пункт', practicumIntro: 'текст о практикуме', practicumName: 'название практикума',
+    promoText: 'текст о промокоде', copyLabel: 'кнопка копирования', copiedLabel: 'после копирования', timerMinutes: 'таймер, минут',
+    expiredText: 'после истечения таймера', mainButton: 'основная кнопка', mainUrl: 'URL основной кнопки (#register — попап регистрации)',
+    registerTitle: 'попап: заголовок', registerName: 'попап: название практикума', registerDates: 'попап: даты', registerNote: 'попап: подпись под заголовком', registerButton: 'попап: кнопка формы',
+    secondaryButton: 'вторичная кнопка', secondaryUrl: 'URL вторичной кнопки', back: 'подпись «Назад»', counter: 'счётчик вопросов',
+    progressStart: 'прогресс на 1-м вопросе, %', progressEnd: 'прогресс на последнем, %', priority: 'приоритет', p: 'баллы', sci: 'научное название',
+    mosaic: 'ключ мозаичного типа', mosaicGap: 'мозаичный: разница 1-го и 2-го типа не больше', thirdGap: 'мозаичный: 3-й тип меньше 2-го хотя бы на',
+    secondMin: 'вторая черта: минимум баллов', secondTrait: 'строка «вторая черта»', mosaicTraits: 'строка «ведущие черты»', tone: 'тон (good/bad)', type: 'тип блока' };
+
+  function deepMerge(dst, src) {
+    Object.keys(src).forEach(k => {
+      if (src[k] && typeof src[k] === 'object' && dst[k] && typeof dst[k] === 'object') deepMerge(dst[k], src[k]);
+      else dst[k] = src[k];
+    });
+  }
+  function getPath(obj, path) { return path.reduce((o, k) => (o == null ? o : o[k]), obj); }
+  function setPath(obj, path, val) { const last = path[path.length - 1]; getPath(obj, path.slice(0, -1))[last] = val; }
+
+  // Путь в CONFIG → понятная подпись: questions.5.options.2.t → «вопрос 6 → вариант 3 → текст»
+  function labelFor(path) {
+    const out = [];
+    path.forEach((k, i) => {
+      const prev = path[i - 1];
+      if (prev === 'loaders') out.push('после вопроса ' + k);
+      else if (/^\d+$/.test(String(k))) {
+        const n = Number(k) + 1;
+        if (prev === 'questions') out.push('вопрос ' + n);
+        else { out.pop(); out.push((FIELD_NAMES[prev] || prev) + ' ' + n); }
+      }
+      else if (prev === 'results') out.push('результат ' + k);
+      else if (!(i === 0 && GROUP_NAMES[k])) out.push(FIELD_NAMES[k] || k);
+    });
+    return out.join(' → ');
+  }
+
+  function buildEditor() {
+    const panel = document.createElement('div');
+    panel.id = 'edit';
+    panel.innerHTML = `
+      <div class="edit-bar">
+        <b>Редактор текстов</b>
+        <button type="button" id="editToggle">свернуть</button>
+        <button type="button" id="editDownload" class="primary">Скачать index.html</button>
+        <button type="button" id="editCopy">Скопировать index.html</button>
+        <button type="button" id="editReset">Сбросить правки</button>
+        <button type="button" id="editRestart">Начать тест заново</button>
+        <span class="edit-hint">Правки видны сразу и сохраняются в этом браузере. Чтобы они попали на сайт — скачайте файл и замените им index.html.</span>
+      </div>
+      <div class="edit-body"></div>`;
+    document.body.appendChild(panel);
+    const body = panel.querySelector('.edit-body');
+
+    const walk = (obj, path, into) => {
+      Object.keys(obj).forEach(k => {
+        const v = obj[k], p = path.concat(k);
+        if (v && typeof v === 'object') { walk(v, p, into); return; }
+        if (typeof v !== 'string' && typeof v !== 'number') return;
+        const row = document.createElement('label');
+        row.className = 'edit-row';
+        const long = typeof v === 'string' && (v.length > 48 || /<b/.test(v));
+        row.innerHTML = `<span class="edit-label">${esc(labelFor(p))}</span>` +
+          (long ? `<textarea rows="${Math.min(8, Math.ceil(v.length / 55) + 1)}"></textarea>`
+                : `<input type="${typeof v === 'number' ? 'number' : 'text'}">`);
+        const field = row.querySelector('textarea,input');
+        field.value = v;
+        field.addEventListener('input', () => {
+          setPath(CONFIG, p, typeof v === 'number' ? Number(field.value) : field.value);
+          try { localStorage.setItem(EDIT_KEY, JSON.stringify(CONFIG)); } catch (e) { /* no-op */ }
+          scheduleRerender();
+        });
+        into.appendChild(row);
+      });
+    };
+    Object.keys(CONFIG).forEach(group => {
+      const d = document.createElement('details');
+      d.open = group === 'intro';
+      d.innerHTML = `<summary>${esc(GROUP_NAMES[group] || group)}</summary>`;
+      walk(CONFIG[group], [group], d);
+      body.appendChild(d);
+    });
+    document.body.classList.add('editing');
+
+    let rr = 0;
+    function scheduleRerender() {
+      clearTimeout(rr);
+      rr = setTimeout(() => { const y = window.scrollY; render(state.step); window.scrollTo(0, y); }, 250);
+    }
+    panel.querySelector('#editToggle').addEventListener('click', (e) => {
+      panel.classList.toggle('min');
+      e.target.textContent = panel.classList.contains('min') ? 'развернуть' : 'свернуть';
+    });
+    panel.querySelector('#editReset').addEventListener('click', () => {
+      if (!confirm('Убрать все правки, сделанные в этом браузере, и вернуть тексты из файла?')) return;
+      try { localStorage.removeItem(EDIT_KEY); } catch (e) { /* no-op */ }
+      location.reload();
+    });
+    panel.querySelector('#editDownload').addEventListener('click', downloadHtml);
+    panel.querySelector('#editRestart').addEventListener('click', resetAll);
+    panel.querySelector('#editCopy').addEventListener('click', (e) => {
+      const html = buildHtml(); if (!html) return;
+      const done = () => { e.target.textContent = 'Скопировано — вставьте в index.html'; setTimeout(() => { e.target.textContent = 'Скопировать index.html'; }, 2500); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(html).then(done, () => fallbackCopy(html, done));
+      else fallbackCopy(html, done);
+    });
+  }
+
+  // Собираем новый index.html: текущая разметка + CONFIG с правками вместо исходного
+  function buildHtml() {
+    const root = document.documentElement.cloneNode(true);
+    const bodyEl = root.querySelector('body');
+    bodyEl.className = 'mode-fixed';
+    root.removeAttribute('style');
+    root.querySelector('#app').innerHTML = '';
+    ['#edit', '#dbg', '#rg', '#practicum'].forEach(s => { const el = root.querySelector(s); if (el) el.remove(); });
+    root.className = root.className.replace(/\b(h-[\w-]+|rg-open)\b/g, '').trim();
+    if (!root.className) root.removeAttribute('class');
+    const st = root.querySelector('#sticky'); if (st) { st.className = 'sticky'; st.setAttribute('aria-hidden', 'true'); }
+    const stt = root.querySelector('#stickyBtnText'); if (stt) stt.textContent = '';
+    const script = root.querySelector('script');
+    const src = script.textContent;
+    const start = src.indexOf('const CONFIG = {');
+    const end = src.indexOf('\n};', start) + 3;
+    if (start < 0 || end < 3) { alert('Не нашёл блок CONFIG в исходнике'); return ''; }
+    const json = JSON.stringify(CONFIG, null, 2);
+    script.textContent = src.slice(0, start) + 'const CONFIG = ' + json + ';' + src.slice(end);
+    return '<!DOCTYPE html>\n' + root.outerHTML;
+  }
+  function downloadHtml() {
+    const html = buildHtml(); if (!html) return;
+    const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'index.html';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  }
+
+  // ---------- старт ----------
+  if (EDIT) {
+    try { const saved = localStorage.getItem(EDIT_KEY); if (saved) deepMerge(CONFIG, JSON.parse(saved)); } catch (e) { /* no-op */ }
+  }
+  loadState();
+  if (PREVIEW) state.step = 'result';
+  track('quiz_open');
+  render(state.step);
+  if (DEBUG) {
+    initDebug();
+    window.__kl = { go, checkAll, runAsS, resetAll, measure, state, CONFIG, computeResult };
+  }
+  if (EDIT) buildEditor();
+
+  function openEditor() {
+    if (document.getElementById('edit')) return;
+    EDIT = true;
+    try { const saved = localStorage.getItem(EDIT_KEY); if (saved) deepMerge(CONFIG, JSON.parse(saved)); } catch (e) { /* no-op */ }
+    render(state.step);
+    buildEditor();
+  }
+  window.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'e') { e.preventDefault(); openEditor(); }
+  });
+  window.addEventListener('hashchange', () => { if (/edit/.test(location.hash)) openEditor(); });
+  let taps = [];
+  app.addEventListener('click', (e) => {
+    if (!e.target.closest('.author, .eyebrow, .res-title, .qcount, .load-title')) return;
+    const now = Date.now();
+    taps = taps.filter(t => now - t < 2500).concat(now);
+    if (taps.length >= 5) { taps = []; openEditor(); }
+  });
+  if (DEBUG) window.__kl.openEditor = openEditor;
+})();
+</script>
+</body>
+</html>
