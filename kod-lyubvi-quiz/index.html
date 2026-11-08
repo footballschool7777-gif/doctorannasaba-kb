@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><script src="/utm.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6f0e6">
+<title>Код любви – бесплатный экспресс-тест Анны Саба</title>
+<meta name="description" content="Узнай, что именно мешает тебе быть в счастливых отношениях и почему ты постоянно тревожишься в любви. 10 вопросов, результат через 2 минуты.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<script>
+/* Высота окна снимается один раз при загрузке (как в «Коде любви»): прятание панели Safari её не меняет.
+   От высоты зависят только отступы, шрифты зависят только от ширины. Пересчёт – при смене ширины. */
+(function(){var d=document.documentElement,w0=0;function fix(){var h=window.innerHeight||800;w0=window.innerWidth;d.style.setProperty('--vh0',h+'px')}
+fix();window.addEventListener('resize',function(){if(Math.abs((window.innerWidth||0)-w0)>80)fix()});})();
+</script>
+<style>
+/* ============================================================
+   ТОКЕНЫ – из теста «Код любви» (our/index.html): Manrope + Unbounded, сливочный фон, золото, тёмные плашки.
+   Шкала текста: 12 / 14 / 16 / 20 / заголовок / крупная цифра. Шрифт зависит только от ширины.
+   ============================================================ */
+:root{
+  --bg:#f6f0e6; --bg2:#efe6d6; --card:#fffdf8;
+  --line:rgba(138,92,24,.2);
+  --ink:#23190d; --muted:#5f5446;
+  --gold:#d6a24a; --gold2:#b9832e; --goldt:#8a5714; --acc:#a0661a; --btnink:#2a1c06;
+  --glow:rgba(214,162,74,.35);
+  --gold-grad:linear-gradient(180deg,#f6dc9e,var(--gold) 55%,var(--gold2));
+  --ic-grad:linear-gradient(145deg,#f6dc9e,#c9a25c);
+  --ic-check:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232a1c06' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+  --cardbg:linear-gradient(160deg,#fffdf8,#fbf1de);
+  --cardsh:0 8px 22px -16px rgba(90,60,20,.6),inset 0 0 0 1px color-mix(in srgb,var(--gold) 40%,transparent);
+  --dark:radial-gradient(120% 160% at 88% 20%,#3b2a17,#17120c 62%,#100d09);
+  --darksh:inset 0 0 0 1px rgba(246,220,158,.4),0 16px 36px -20px rgba(35,25,13,.9);
+  --fb:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  --ft:'Unbounded','Manrope',-apple-system,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --vh0:100svh;
+  --tb:54px;
+  /* шкала */
+  --t-cap:12px; --t-small:14px; --t-body:16px; --t-h3:20px;
+  --t-h1:min(23px,5.9vw);
+  --t-big:56px;
+}
+@media (min-width:981px){:root{--t-h1:clamp(32px,2.9vw,44px);--t-big:72px;--tb:62px}}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+body{margin:0;min-height:100%;color:var(--ink);font:500 var(--t-body)/1.5 var(--fb);-webkit-font-smoothing:antialiased;
+  background:radial-gradient(60% 50% at 85% 20%,rgba(214,162,74,.16),transparent 70%) fixed,var(--bg);overscroll-behavior-y:none}
+h1,h2,h3,p,ul,ol,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+button{font:inherit;color:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+b,strong{font-weight:800}
+.hidden{display:none!important}
+p,li,h1,h2,h3,blockquote,.opt-text,.scale-lbl span{text-wrap:balance}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes shine{0%,70%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+@keyframes pulse{50%{opacity:.4}}
+
+/* ---------- кнопка: золотая пилюля и тёмный круг со стрелкой (как в «Коде любви») ---------- */
+.btn{position:relative;overflow:hidden;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  width:100%;min-height:58px;padding:7px 7px 7px 24px;border:0;border-radius:999px;cursor:pointer;text-decoration:none;text-align:left;
+  font:700 var(--t-body)/1.2 var(--fb);color:var(--btnink);background:var(--gold-grad);
+  box-shadow:0 22px 44px -18px var(--glow),inset 0 1px 0 rgba(255,255,255,.6),inset 0 -2px 0 rgba(120,80,20,.18);
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.btn::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);
+  transform:translateX(-120%);animation:shine 4.5s 2s infinite}
+.btn .ar{flex:0 0 44px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--btnink);color:var(--gold)}
+.btn .ar svg{width:20px;height:20px;transition:transform .2s var(--ease)}
+.btn:hover,.btn:active{transform:translateY(-2px)}
+.btn:hover .ar svg{transform:translateX(3px)}
+.btn:focus-visible{outline:3px solid var(--goldt);outline-offset:3px}
+.btn-sec{justify-content:center;text-align:center;padding:12px 22px;background:transparent;color:var(--goldt);box-shadow:inset 0 0 0 1.5px rgba(185,131,46,.7)}
+.btn-sec::after{display:none}
+.btn-sec:hover{background:rgba(214,162,74,.1)}
+.b-dark .btn-sec{color:#ecc67f;box-shadow:inset 0 0 0 1.5px #e8c27a}
+.cta{margin-top:28px}
+.cta .btn+.btn{margin-top:12px}
+@media (min-width:700px){.cta .btn{max-width:460px;margin-left:auto;margin-right:auto}}
+
+/* ---------- верхняя панель с прогрессом ---------- */
+.topbar{position:sticky;top:0;z-index:20;height:var(--tb);background:rgba(246,240,230,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line)}
+.topbar .in{height:calc(var(--tb) - 4px);max-width:1080px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font:800 var(--t-body)/1.2 var(--fb);letter-spacing:-.005em;color:var(--ink);white-space:nowrap}
+.brand-r{display:flex;align-items:center;gap:10px;font:700 var(--t-cap)/1.2 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--goldt);white-space:nowrap}
+.brand-r::before{content:"";width:26px;height:1.5px;background:linear-gradient(90deg,#b9832e,#d6a24a)}
+.prog{height:4px;background:rgba(214,162,74,.2)}
+.prog-fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold2),#f6dc9e);box-shadow:0 0 10px rgba(214,162,74,.55);transition:width .3s ease}
+
+/* ---------- сцена теста: каждый экран на высоту окна без прокрутки ---------- */
+.stage{min-height:calc(var(--vh0) - var(--tb));display:flex;flex-direction:column}
+.scr{flex:1 1 auto;width:100%;max-width:600px;margin:0 auto;padding:clamp(12px,calc(2.4 * var(--vh0) / 100),28px) 16px;display:flex;flex-direction:column;justify-content:center}
+.scr.anim{animation:fade .35s ease}
+
+/* ---------- экран 1 ---------- */
+.intro{flex:1 1 auto;width:100%;max-width:600px;margin:0 auto;display:flex;flex-direction:column;
+  padding:0 16px max(14px,env(safe-area-inset-bottom))}
+.intro>*{margin-top:auto;flex:none}
+.ia-l{display:flex;flex-direction:column;gap:clamp(12px,calc(2 * var(--vh0) / 100),22px)}
+.ia-r{display:flex;flex-direction:column;gap:clamp(14px,calc(2.2 * var(--vh0) / 100),24px)}
+.pill{align-self:flex-start;display:inline-block;padding:7px 12px;border-radius:10px;font:800 var(--t-small)/1.1 var(--fb);color:#1a1208;
+  background:linear-gradient(180deg,#f6dc9e,#d6a24a);box-shadow:0 6px 16px -8px rgba(90,60,20,.7);white-space:nowrap}
+.h1{font:800 var(--t-h1)/1.12 var(--fb);letter-spacing:-.025em;color:var(--ink)}
+.h1 .acc{color:var(--acc)}
+.promises{display:flex;flex-direction:column;gap:clamp(8px,calc(1.3 * var(--vh0) / 100),14px)}
+.promises li{display:flex;align-items:flex-start;gap:10px;font:600 var(--t-body)/1.35 var(--fb);color:var(--ink)}
+.ck{flex:0 0 20px;width:20px;height:20px;margin-top:1px;border-radius:50%;background:var(--ic-check) center/12px no-repeat,var(--ic-grad);box-shadow:0 4px 10px -4px rgba(185,131,46,.7)}
+.meta{display:grid;grid-template-columns:repeat(3,1fr);border-radius:20px;background:var(--dark);box-shadow:var(--darksh);padding:clamp(14px,calc(2.2 * var(--vh0) / 100),24px) 6px}
+.meta div{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding:0 4px}
+.meta div+div{border-left:1px solid rgba(246,220,158,.18)}
+.meta b{font:600 var(--t-h3)/1 var(--ft);color:#f6dc9e;white-space:nowrap}
+.meta span{font:600 var(--t-cap)/1.25 var(--fb);color:#e9dfcf}
+@media (min-width:981px){
+  .intro{max-width:1140px;padding:clamp(24px,calc(4 * var(--vh0) / 100),56px) 24px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);
+    grid-template-rows:auto auto;column-gap:clamp(40px,4.4vw,72px);align-content:center}
+  .intro>*{margin-top:0}
+  .ia-l{grid-column:1;grid-row:1;align-self:end;gap:min(calc(3 * var(--vh0) / 100),26px)}
+  .ia-cta{grid-column:1;grid-row:2;align-self:start;margin-top:min(calc(4.4 * var(--vh0) / 100),40px)!important}
+  .ia-r{grid-column:2;grid-row:1 / span 2;align-self:center;position:relative;isolation:isolate;overflow:hidden;gap:22px;
+    padding:clamp(22px,calc(3.4 * var(--vh0) / 100),36px) clamp(22px,2.2vw,32px);border-radius:26px;background:radial-gradient(90% 60% at 80% 0%,#3b2a17,#17120c 62%,#100d09);
+    box-shadow:inset 0 0 0 1px rgba(246,220,158,.4),0 30px 60px -30px rgba(35,25,13,.85)}
+  .ia-r::before{content:"";position:absolute;left:50%;top:-40%;width:90%;height:70%;transform:translateX(-50%);z-index:-1;background:radial-gradient(ellipse at top,rgba(232,194,122,.3),transparent 70%);filter:blur(10px)}
+  .pill{font-size:var(--t-body);padding:9px 14px}
+  .promises{gap:16px}
+  .promises li{color:#f4ede1}
+  .meta{grid-template-columns:1fr;padding:0;background:none;box-shadow:none}
+  .meta div{flex-direction:row;justify-content:space-between;align-items:baseline;padding:14px 0;text-align:left;border-bottom:1px solid rgba(246,220,158,.18)}
+  .meta div+div{border-left:0}
+  .meta div:first-child{border-top:1px solid rgba(246,220,158,.18)}
+  .meta b{order:2}
+  .meta span{font-size:var(--t-small);color:#cbbfa9}
+  .ia-cta .btn{width:auto;min-height:62px;padding:9px 9px 9px 30px;gap:28px}
+}
+
+/* ---------- вопрос ---------- */
+.q-label{display:flex;align-items:center;gap:10px;margin:0 0 12px;font:700 var(--t-cap)/1.3 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--goldt)}
+.q-label::before{content:"";flex:0 0 26px;height:1.5px;background:linear-gradient(90deg,#b9832e,#d6a24a)}
+.q-title{font:800 var(--t-h1)/1.15 var(--fb);letter-spacing:-.025em;color:var(--ink);margin:0 0 clamp(14px,calc(2.6 * var(--vh0) / 100),26px)}
+.opts{display:flex;flex-direction:column;gap:clamp(8px,calc(1.2 * var(--vh0) / 100),12px)}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:52px;padding:8px 16px 8px 12px;border:0;border-radius:16px;
+  background:var(--cardbg);box-shadow:var(--cardsh);text-align:left;cursor:pointer;font:600 var(--t-body)/1.3 var(--fb);color:var(--ink);
+  transition:box-shadow .15s ease,background .15s ease,transform .15s var(--ease)}
+.opt:hover{transform:translateY(-2px);box-shadow:0 10px 24px -14px rgba(90,60,20,.6),inset 0 0 0 1.5px color-mix(in srgb,var(--gold) 75%,transparent)}
+.opt:focus-visible{outline:3px solid var(--goldt);outline-offset:2px}
+.opt .radio{flex:0 0 22px;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--gold);background:#fffdf8}
+.opt.sel{background:linear-gradient(160deg,#fbefd4,#f3dcaa);box-shadow:0 14px 28px -16px var(--glow),inset 0 0 0 1.5px var(--gold)}
+.opt.sel .radio{border-color:transparent;background:var(--ic-check) center/12px no-repeat,var(--ic-grad)}
+.opt-text{flex:1 1 auto;min-width:0}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.sc{aspect-ratio:1;max-height:76px;border:0;border-radius:16px;background:var(--cardbg);box-shadow:var(--cardsh);cursor:pointer;
+  font:600 var(--t-h3)/1 var(--ft);color:var(--ink);transition:transform .15s var(--ease),box-shadow .15s}
+.sc:hover{transform:translateY(-2px);box-shadow:0 10px 24px -14px rgba(90,60,20,.6),inset 0 0 0 1.5px var(--gold)}
+.sc.sel{background:var(--dark);color:#f6dc9e;box-shadow:var(--darksh)}
+.sc:focus-visible{outline:3px solid var(--goldt);outline-offset:2px}
+.scale-lbl{display:flex;justify-content:space-between;gap:14px;margin-top:14px;font:500 var(--t-small)/1.4 var(--fb);color:var(--muted)}
+.scale-lbl span{flex:1 1 0}
+.scale-lbl span:last-child{text-align:right}
+
+/* ---------- инсайт психолога: тёмная карточка ---------- */
+.ins{position:relative;isolation:isolate;overflow:hidden;border-radius:24px;padding:clamp(20px,calc(3 * var(--vh0) / 100),32px) 22px;
+  background:var(--dark);box-shadow:var(--darksh);color:#f4ede1;margin:0 0 clamp(16px,calc(2.6 * var(--vh0) / 100),26px)}
+.ins::before{content:"";position:absolute;right:-40px;top:-60px;width:220px;height:180px;z-index:-1;background:radial-gradient(closest-side,rgba(246,220,158,.28),transparent)}
+.ins-pill{display:inline-block;padding:6px 12px;border-radius:10px;font:800 var(--t-cap)/1.1 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:#1a1208;
+  background:linear-gradient(180deg,#f6dc9e,#d6a24a)}
+.ins-q{display:block;margin:14px 0 4px;font:600 56px/.6 var(--ft);color:#e8c27a;opacity:.55;height:28px}
+.ins-text p{font:500 var(--t-body)/1.55 var(--fb);color:#f4ede1;margin:0 0 12px}
+.ins-text p:first-child{font-weight:800;color:#f6dc9e}
+.ins-text p:last-child{margin-bottom:0}
+
+/* ---------- загрузка ---------- */
+.load{align-items:center;text-align:center}
+.spinner{position:relative;width:76px;height:76px;margin:0 auto 22px;border-radius:50%;background:var(--dark);box-shadow:var(--darksh),0 0 46px -8px var(--glow)}
+.spinner::before{content:"";position:absolute;inset:6px;border-radius:50%;background:conic-gradient(from 0deg,rgba(214,162,74,0),var(--gold2) 65%,#f6dc9e);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 4px));mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 4px));animation:spin 1s linear infinite}
+.spinner::after{content:"";position:absolute;inset:28px;border-radius:50%;background:radial-gradient(circle,#fff3cf,var(--gold) 50%,transparent 72%);animation:pulse 2.4s infinite}
+.load-title{font:800 var(--t-h3)/1.35 var(--fb);color:var(--ink);min-height:2.7em;max-width:420px}
+
+/* ---------- результат ---------- */
+.res{position:relative;isolation:isolate;overflow:hidden;text-align:center;border-radius:26px;padding:clamp(24px,calc(4 * var(--vh0) / 100),40px) 22px;
+  background:linear-gradient(155deg,#f6e9d2,#fffdf8 60%);box-shadow:0 0 0 1.5px rgba(214,162,74,.7),0 24px 60px -30px rgba(201,162,92,.55);margin:0 0 clamp(16px,calc(2.6 * var(--vh0) / 100),26px)}
+.res-badge{display:inline-block;font:700 var(--t-cap)/1.3 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--goldt);margin:0 0 14px}
+.res-count{font:600 var(--t-big)/1 var(--ft);color:var(--acc);margin:0 0 14px;font-variant-numeric:tabular-nums}
+.res-count .of{font:600 var(--t-h3)/1 var(--ft);color:var(--muted)}
+.res-lead{font:800 var(--t-h3)/1.35 var(--fb);color:var(--ink);margin:0 0 12px}
+.res-note{font:500 var(--t-body)/1.5 var(--fb);color:var(--muted)}
+
+/* ============================================================ РАЗБОР (статья) */
+.band{position:relative;padding:56px 16px}
+.band-in{max-width:620px;margin:0 auto}
+.b-hero{background:linear-gradient(180deg,#efe6d6,#f6f0e6 40%)}
+.b-page{background:#f6f0e6}
+.b-beige{background:linear-gradient(180deg,#efe4d0,#f3ebdd)}
+.b-dark{background:radial-gradient(70% 60% at 50% 0%,rgba(232,194,122,.13),transparent 70%),linear-gradient(180deg,#120f0a,#0d0b08);color:#f4ede1}
+@media (min-width:981px){.band{padding:88px 24px}.band-in{max-width:1080px}.narrow{max-width:820px}}
+.kick{display:flex;align-items:center;gap:12px;margin:0 0 16px;font:700 var(--t-cap)/1.45 var(--fb);letter-spacing:.22em;text-transform:uppercase;color:var(--goldt)}
+.kick::before{content:"";flex:0 0 34px;height:1.5px;background:linear-gradient(90deg,#b9832e,#d6a24a)}
+.b-dark .kick{color:#ecc67f}
+.art-h1{font:800 var(--t-h1)/1.12 var(--fb);letter-spacing:-.025em;color:var(--acc)}
+.h2{font:600 26px/1.12 var(--ft);letter-spacing:-.015em;color:var(--ink);margin:0 0 24px}
+.b-dark .h2{color:#f4ede1}
+@media (min-width:981px){.h2{font-size:40px;margin-bottom:36px}}
+.txt p{font:500 var(--t-body)/1.6 var(--fb);margin:0 0 14px;color:var(--ink)}
+.b-dark .txt p{color:#e9dfcf}
+.b-dark .txt b{color:#f6dc9e}
+.txt p:last-child{margin-bottom:0}
+.lead{font:600 var(--t-body)/1.55 var(--fb);color:var(--muted);margin:-8px 0 20px}
+
+/* видео-разбор – плеер как в «Коде любви» */
+.vid{margin-top:32px;padding:20px;border-radius:24px;background:var(--dark);box-shadow:var(--darksh)}
+.vid .kick{color:#ecc67f;margin-bottom:10px}
+.vid-name{font:600 var(--t-h3)/1.25 var(--ft);color:#f6dc9e;margin:0 0 6px}
+.vid-hint{font:500 var(--t-small)/1.5 var(--fb);color:#e9dfcf;margin:0 0 16px}
+.video{position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:0;margin:0;border-radius:18px;overflow:hidden;isolation:isolate;cursor:pointer;background:#120f0a;
+  box-shadow:0 0 0 1.5px rgba(214,162,74,.7),0 24px 60px -30px rgba(201,162,92,.55)}
+.video img.vp{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.video video{position:absolute;inset:0;width:100%;height:100%;display:block;background:#000;object-fit:contain}
+.video .play{position:absolute;left:50%;top:50%;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;display:grid;place-items:center;background:#e2b867;
+  box-shadow:0 22px 44px -18px rgba(214,162,74,.6),inset 0 1px 0 rgba(255,255,255,.6);transition:transform .2s var(--ease)}
+.video .play .pi{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:#2a1c06;color:#e8c27a}
+.video .play svg{width:22px;height:22px;margin-left:3px}
+.video:hover .play{transform:scale(1.05)}
+.video:focus-visible{outline:3px solid #e8c27a;outline-offset:3px}
+.vid-cap{margin-top:12px;font:500 var(--t-cap)/1.45 var(--fb);color:#cbbfa9;text-align:center}
+@media (min-width:981px){.vid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:32px;align-items:center;padding:32px}
+  .vid-head{grid-column:1}.vid-media{grid-column:2}.vid-cap{text-align:left}}
+
+/* «Этот текст для тебя, если» – карточки с галочкой */
+.cards{display:grid;gap:10px}
+.cards li{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border-radius:16px;background:#fffdf8;border:1px solid var(--line);font:500 var(--t-body)/1.5 var(--fb)}
+.cards li>span:last-child{flex:1 1 auto;min-width:0}
+.ic{flex:0 0 32px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#f1e1c2;box-shadow:inset 0 0 0 1px #e2c38c;color:var(--goldt)}
+.ic svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+@media (min-width:981px){.cards.two{grid-template-columns:1fr 1fr;gap:14px}}
+
+/* «Почему прошлые попытки не сработали» – 01–05 */
+.tries{display:grid;gap:12px}
+.try{padding:20px 20px 22px;border-radius:20px;background:linear-gradient(110deg,#fbf1dc,#fffdf8 60%);border:1px solid rgba(214,162,74,.28)}
+.try-n{display:block;font:600 var(--t-h3)/1 var(--ft);color:var(--acc);margin:0 0 10px}
+.try h3{font:800 var(--t-h3)/1.25 var(--fb);color:var(--ink);margin:0 0 8px}
+.try p{font:500 var(--t-body)/1.55 var(--fb);color:var(--muted)}
+@media (min-width:981px){.tries{grid-template-columns:repeat(6,1fr);gap:16px}.try{grid-column:span 2}.try:nth-child(4),.try:nth-child(5){grid-column:span 3}}
+
+/* автор: одно фото на странице */
+.who{display:grid;gap:24px}
+.who>*{min-width:0}
+.steps>*,.tries>*,.obj>*,.vars>*,.qs>*,.cards>*,.facts>*,.free-grid>*,.offer-grid>*,.vid>*,.narrow{min-width:0}
+.h2,.art-h1,.step h3,.try h3,.obj-c h3{overflow-wrap:break-word}
+.who-ph{position:relative;margin:0 auto;width:min(260px,70%);aspect-ratio:4/5;border-radius:24px;overflow:hidden;
+  box-shadow:0 0 0 1.5px rgba(214,162,74,.55),0 30px 60px -30px rgba(232,194,122,.35)}
+.who-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
+.mech{margin:18px 0;padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(232,194,122,.3)}
+.mech p{margin:0!important;color:#f4ede1!important;font-weight:600!important}
+@media (min-width:981px){.who{grid-template-columns:340px minmax(0,1fr);gap:56px;align-items:center}.who-ph{width:100%}}
+
+/* оффер */
+.offer-h{color:var(--ink);margin:0 0 24px}
+.au-pill{display:inline-block;margin:0 0 18px;padding:7px 14px;border-radius:999px;font:700 var(--t-cap)/1.2 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--goldt);background:rgba(214,162,74,.14);box-shadow:inset 0 0 0 1px rgba(214,162,74,.4)}
+.gains{background:rgba(255,253,248,.75);border:1px solid rgba(214,162,74,.3);border-radius:22px;padding:4px 18px;box-shadow:0 14px 30px -22px rgba(90,60,20,.4)}
+.gains li{display:flex;align-items:flex-start;gap:12px;padding:14px 0;font:600 var(--t-body)/1.45 var(--fb)}
+.gains li+li{border-top:1px solid rgba(214,162,74,.18)}
+@media (min-width:981px){.offer-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:56px;align-items:center}.offer-grid .h2{margin-bottom:0}}
+
+/* шаги «Сейчас → Станет» */
+.steps{display:grid;gap:12px}
+.step{padding:20px;border-radius:20px;background:#fffdf8;border:1px solid var(--line)}
+.step-n{display:inline-block;margin:0 0 10px;padding:5px 10px;border-radius:8px;font:800 var(--t-cap)/1.1 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:#f6dc9e;background:#23190d}
+.step h3{font:800 var(--t-h3)/1.25 var(--fb);color:var(--ink);margin:0 0 14px}
+.st{position:relative;padding:10px 14px;border-radius:12px;font:500 var(--t-body)/1.5 var(--fb)}
+.st b{display:block;font:700 var(--t-cap)/1.3 var(--fb);letter-spacing:.16em;text-transform:uppercase;margin:0 0 4px}
+.st.now{color:var(--muted);background:#f6f0e6}
+.st.now b{color:var(--muted)}
+.st.then{margin-top:8px;color:var(--ink);background:linear-gradient(110deg,#fbefd4,#fff8ea);box-shadow:inset 3px 0 0 var(--gold)}
+.st.then b{color:var(--goldt)}
+@media (min-width:981px){.steps{grid-template-columns:1fr 1fr;gap:16px}.step:last-child{grid-column:1 / -1}}
+
+/* проверь себя */
+.qs{display:grid;gap:10px;counter-reset:q}
+.qs li{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border-radius:16px;background:var(--cardbg);box-shadow:var(--cardsh);font:600 var(--t-body)/1.5 var(--fb)}
+.qs li::before{counter-increment:q;content:counter(q);flex:0 0 32px;height:32px;border-radius:50%;display:grid;place-items:center;font:600 var(--t-small)/1 var(--ft);color:#f6dc9e;background:#23190d}
+.callout{margin-top:18px;padding:20px 22px;border-radius:20px;background:linear-gradient(155deg,#f6e9d2,#fffdf8 60%);box-shadow:0 0 0 1.5px rgba(214,162,74,.7),0 24px 60px -30px rgba(201,162,92,.55);
+  font:700 var(--t-body)/1.55 var(--fb)}
+@media (min-width:981px){.qs{grid-template-columns:repeat(3,1fr);gap:16px}.qs li{flex-direction:column}.qs li::before{flex:none;width:32px}}
+
+/* возражения */
+.obj{display:grid;gap:12px}
+.obj-c{padding:22px 20px;border-radius:20px;background:#fffdf8;border:1px solid var(--line)}
+.obj-c h3{font:800 var(--t-h3)/1.3 var(--fb);color:var(--acc);margin:0 0 10px}
+.obj-c p{font:500 var(--t-body)/1.6 var(--fb);color:var(--ink)}
+@media (min-width:981px){.obj{grid-template-columns:1fr 1fr;gap:16px}}
+
+/* бесплатный практикум */
+.free{position:relative;padding:26px 20px;border-radius:26px;background:radial-gradient(80% 240px at 85% 0%,rgba(214,162,74,.18),transparent 70%),#fffdf8;
+  box-shadow:0 0 0 2px rgba(214,162,74,.75),0 30px 60px -30px rgba(201,162,92,.6)}
+.free-pill{display:inline-block;margin:0 0 16px;padding:7px 12px;border-radius:10px;font:800 var(--t-small)/1.1 var(--fb);color:#1a1208;background:linear-gradient(180deg,#f6dc9e,#d6a24a)}
+.free .h2{margin-bottom:16px}
+.pname{display:flex;align-items:center;gap:12px;padding:16px;border-radius:16px;background:linear-gradient(160deg,#241b11,#120f0a);box-shadow:inset 0 0 0 1px rgba(246,220,158,.25)}
+.pname p{flex:1 1 auto;min-width:0;font:700 var(--t-body)/1.5 var(--fb);color:#f4ede1}
+.pname .ic{background:#3a2c18;box-shadow:inset 0 0 0 1px rgba(232,194,122,.45);color:#e8c27a}
+.facts{margin-top:16px;display:grid;gap:0}
+.facts li{display:flex;align-items:flex-start;gap:12px;padding:12px 0;font:500 var(--t-body)/1.5 var(--fb)}
+.facts li+li{border-top:1px solid rgba(214,162,74,.18)}
+.facts b{font-weight:800}
+@media (min-width:981px){.free{padding:44px 48px}.free-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}.facts{margin-top:0}}
+
+/* что дальше */
+.vars{display:grid;gap:14px;margin:0 0 26px}
+.var{padding:24px 22px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(246,236,226,.2)}
+.var.good{background:linear-gradient(160deg,rgba(232,194,122,.16),rgba(232,194,122,.04));border-color:rgba(232,194,122,.6)}
+.var-n{display:block;font:700 var(--t-cap)/1.3 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:#ecc67f;margin:0 0 8px}
+.var h3{font:600 var(--t-h3)/1.3 var(--ft);color:#f4ede1;margin:0 0 10px}
+.var p{font:500 var(--t-body)/1.6 var(--fb);color:#e9dfcf}
+.decide{text-align:center;font:800 var(--t-h3)/1.3 var(--fb);color:#f6dc9e}
+@media (min-width:981px){.vars{grid-template-columns:1fr 1fr;gap:20px}}
+
+/* подвал */
+.foot{background:#0d0b08;color:#b4a992;border-top:1px solid rgba(232,194,122,.25);padding:36px 16px calc(36px + env(safe-area-inset-bottom))}
+.foot ul{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:center}
+.foot a{color:#e9dfcf;font:500 var(--t-small)/1.5 var(--fb);text-decoration:none}
+.foot a:hover{text-decoration:underline}
+
+/* ---------- окно регистрации – как в «Коде любви» ---------- */
+.rg{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;
+  padding:max(16px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom));
+  background:rgba(20,15,9,.6);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);opacity:0;transition:opacity .2s ease;overscroll-behavior:contain}
+.rg[hidden]{display:none}
+.rg.on{opacity:1}
+.rg-box{position:relative;width:100%;max-width:440px;max-height:100%;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+  padding:30px 24px 24px;border-radius:24px;color:var(--ink);background:radial-gradient(80% 200px at 85% 0%,rgba(214,162,74,.16),transparent 70%),#fffdf8;
+  box-shadow:0 40px 80px -30px rgba(20,15,9,.7),inset 0 0 0 1px rgba(214,162,74,.3);transform:scale(.97);transition:transform .2s var(--ease)}
+.rg.on .rg-box{transform:none}
+.rg-x{position:absolute;right:12px;top:12px;width:40px;height:40px;padding:0;border:0;border-radius:50%;cursor:pointer;display:grid;place-items:center;color:var(--ink);background:#f6f0e6;box-shadow:inset 0 0 0 1px var(--line)}
+.rg-x svg{width:18px;height:18px}
+.rg-x:focus-visible{outline:3px solid var(--goldt);outline-offset:2px}
+.rg-h{padding-right:44px;font:600 var(--t-h3)/1.25 var(--ft);letter-spacing:-.01em;color:var(--ink)}
+.rg-name{margin-top:10px;font:700 var(--t-small)/1.4 var(--fb);color:var(--goldt)}
+.rg-date{margin-top:8px;font:500 var(--t-small)/1.4 var(--fb);color:var(--ink)}
+.rg-date b{font-weight:700}
+.rg-note{margin-top:10px;font:500 var(--t-small)/1.55 var(--fb);color:var(--muted)}
+.rg-form{margin-top:22px;display:flex;flex-direction:column;gap:10px}
+.rg-form input[type=email],.rg-form input[type=text],.rg-form input[type=tel]{width:100%;min-height:52px;padding:12px 16px;border:0;border-radius:14px;
+  font:500 var(--t-body)/1.2 var(--fb);color:var(--ink);background:#fff;box-shadow:inset 0 0 0 1.5px rgba(138,92,24,.24);transition:box-shadow .15s}
+.rg-form input::placeholder{color:#8b7d68}
+.rg-form input:focus{outline:0;box-shadow:inset 0 0 0 2px var(--gold2),0 0 0 4px rgba(214,162,74,.18)}
+.rg-ck{display:flex;align-items:flex-start;gap:10px;margin-top:4px;font:500 var(--t-cap)/1.5 var(--fb);color:var(--muted);cursor:pointer;text-wrap:balance}
+.rg-ck input{flex:0 0 18px;width:18px;height:18px;margin:1px 0 0;accent-color:var(--gold2);cursor:pointer}
+.rg-ck a{color:var(--goldt);text-decoration:underline;text-underline-offset:2px}
+.rg-form .btn{margin-top:10px;min-height:56px;padding:8px 8px 8px 22px}
+.rg-form .btn[aria-busy=true]{opacity:.75;pointer-events:none}
+html.rg-open,html.rg-open body{overflow:hidden!important}
+@media (max-width:380px){.rg-box{padding:26px 18px 20px;border-radius:20px}}
+@media (max-height:700px){
+  .rg{padding:10px 12px}.rg-box{padding:20px 18px 16px}
+  .rg-name,.rg-note{margin-top:6px}.rg-date{margin-top:4px}
+  .rg-form{margin-top:12px;gap:8px}
+  .rg-form input[type=email],.rg-form input[type=text],.rg-form input[type=tel]{min-height:44px;padding:10px 14px}
+  .rg-ck{margin-top:0;line-height:1.4}.rg-form .btn{margin-top:4px;min-height:50px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <div class="in"><span class="brand">Анна Саба</span><span class="brand-r">Код любви</span></div>
+  <div class="prog"><div class="prog-fill" id="progressFill"></div></div>
+</header>
+
+<main id="quiz" class="stage">
+
+  <!-- ЭКРАН 1: структура и формулировки референса 1 в 1, предмет – любовь -->
+  <section class="intro" id="introBlock">
+    <div class="ia-l">
+      <p class="pill">Бесплатный экспресс-тест</p>
+      <h1 class="h1">Узнай, что именно мешает тебе <span class="acc">быть в счастливых отношениях</span> и почему ты постоянно тревожишься в любви</h1>
+    </div>
+    <div class="ia-r">
+      <ul class="promises">
+        <li><span class="ck" aria-hidden="true"></span><span>10 честных вопросов от психолога.</span></li>
+        <li><span class="ck" aria-hidden="true"></span><span>Персональный результат через 2 минуты.</span></li>
+        <li><span class="ck" aria-hidden="true"></span><span>Только то, что реально держит тебя на месте.</span></li>
+      </ul>
+      <div class="meta">
+        <div><b>2 мин</b><span>Время прохождения</span></div>
+        <div><b>10</b><span>Вопросов</span></div>
+        <div><b>100%</b><span>Конфиденциально</span></div>
+      </div>
+    </div>
+    <div class="ia-cta">
+      <button class="btn" id="startBtn" type="button"><span>Пройти тест</span><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+    </div>
+  </section>
+
+  <!-- вопрос с вариантами -->
+  <div class="scr hidden" id="qArea">
+    <p class="q-label" id="qLabel"></p>
+    <h2 class="q-title" id="qTitle"></h2>
+    <div class="opts" id="qOptions"></div>
+  </div>
+
+  <!-- вопрос-шкала (вопрос 1) -->
+  <div class="scr hidden" id="scaleArea">
+    <p class="q-label" id="scaleLabel"></p>
+    <h2 class="q-title" id="scaleTitle"></h2>
+    <div class="scale" id="scaleGrid"></div>
+    <div class="scale-lbl">
+      <span>1 – очень плохо: отношений нет или в&nbsp;них больно, и&nbsp;я&nbsp;не&nbsp;знаю, что с&nbsp;этим&nbsp;делать</span>
+      <span>5 – всё отлично: я&nbsp;любима, мне тепло и&nbsp;спокойно рядом с&nbsp;мужчиной</span>
+    </div>
+  </div>
+
+  <!-- инсайт психолога -->
+  <div class="scr hidden" id="insightArea">
+    <div class="ins">
+      <span class="ins-pill">✦ Инсайт психолога</span>
+      <span class="ins-q" aria-hidden="true">«</span>
+      <div class="ins-text" id="insightText"></div>
+    </div>
+    <button class="btn" id="insightBtn" type="button"><span id="insightBtnText"></span><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+  </div>
+
+  <!-- загрузка -->
+  <div class="scr load hidden" id="loaderArea" aria-live="polite">
+    <div class="spinner" aria-hidden="true"></div>
+    <p class="load-title" id="loaderTitle"></p>
+  </div>
+
+  <!-- результат -->
+  <div class="scr hidden" id="resultArea">
+    <div class="res">
+      <span class="res-badge">✦ Результат диагностики</span>
+      <p class="res-count" id="resultCount">0<span class="of">&nbsp;из&nbsp;10</span></p>
+      <p class="res-lead">ответов совпали с тем самым паттерном, из-за которого любовь и забота проходят мимо тебя.</p>
+      <p class="res-note">С этой точки и начинаются перемены в твоих отношениях.</p>
+    </div>
+    <button class="btn" id="resultBtn" type="button"><span>Смотреть разбор ситуации</span><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+  </div>
+</main>
+
+<!-- ===================== РАЗБОР ===================== -->
+<div id="article" class="hidden">
+
+  <!-- СТРАНИЦА 1: РАЗБОР СИТУАЦИИ -->
+  <div id="articlePage1">
+
+    <section class="band b-hero">
+      <div class="band-in">
+        <div class="narrow">
+          <p class="kick">Твой результат</p>
+          <h1 class="art-h1">Всё, что происходит у тебя в любви, держится на конкретных внутренних барьерах, которые складывались у тебя годами.</h1>
+        </div>
+        <div class="vid" id="vidBox">
+          <div class="vid-head">
+            <p class="kick">Видео-разбор твоего результата</p>
+            <h2 class="vid-name" id="vidName"></h2>
+            <p class="vid-hint">Посмотри видеорасшифровку, затем читай текст ниже</p>
+          </div>
+          <div class="vid-media">
+            <button type="button" class="video" id="video" aria-label="Смотреть видео-разбор твоего результата">
+              <img class="vp" src="https://doctorannasaba.ru/kod-lyubvi/img/video-poster.jpg" alt="" decoding="async" referrerpolicy="no-referrer">
+              <span class="play" aria-hidden="true"><span class="pi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.86l11.2-7.2a1 1 0 0 0 0-1.72L8.5 3.94A1 1 0 0 0 7 4.8z" fill="currentColor"/></svg></span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band b-beige">
+      <div class="band-in">
+        <h2 class="h2 narrow" style="margin-left:0">Этот текст для тебя, если:</h2>
+        <ul class="cards two">
+          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.5 12.5l4.2 4.2L18.5 8"/></svg></span><span>ты заботишься, стараешься, вкладываешься в отношения, но из года в год тепла и внимания к тебе меньше год от года. И сейчас это особенно больно</span></li>
+          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.5 12.5l4.2 4.2L18.5 8"/></svg></span><span>тебе трудно принять подарок или заботу: становится неловко и тревожно, будто потом придётся это «отрабатывать»</span></li>
+          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.5 12.5l4.2 4.2L18.5 8"/></svg></span><span>ты видишь, как другие женщины просят и получают, а ты хочешь того же и молчишь; и завидуешь тем, кого любят и балуют просто так</span></li>
+          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.5 12.5l4.2 4.2L18.5 8"/></svg></span><span>ты который год откладываешь разговор о том, что для тебя важно, потому что «сейчас не время» и «он и так устаёт»</span></li>
+          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.5 12.5l4.2 4.2L18.5 8"/></svg></span><span>ты боишься начать серьёзный разговор с мужчиной, долго подбираешь слова, а потом всё равно говоришь не то</span></li>
+          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.5 12.5l4.2 4.2L18.5 8"/></svg></span><span>ты тянешь работу, дом, семью, а на себя саму никогда не хватает ни сил, ни времени</span></li>
+          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.5 12.5l4.2 4.2L18.5 8"/></svg></span><span>тебе страшно перестать быть удобной: кажется, тогда он уйдёт, ведь держаться за тебя будет уже незачем</span></li>
+          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.5 12.5l4.2 4.2L18.5 8"/></svg></span><span>тебе неловко быть счастливее мамы, и при мысли об этом поднимается вина перед ней</span></li>
+          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.5 12.5l4.2 4.2L18.5 8"/></svg></span><span>тебе страшно попросить что-то у мужчины: в глубине души ты считаешь, что заботу «просто так» ещё надо заслужить</span></li>
+          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.5 12.5l4.2 4.2L18.5 8"/></svg></span><span>ты ценишь только ту любовь, которую «выстрадала» и «заслужила», а лёгкие тёплые отношения кажутся тебе ненастоящими</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="band b-page">
+      <div class="band-in">
+        <h2 class="h2">Почему прошлые попытки не сработали</h2>
+        <div class="tries">
+          <div class="try"><span class="try-n">01</span><h3>Аффирмации</h3><p>Повторять «я достойна любви» можно годами. Фраза не меняет поведение в ту минуту, когда нужно сказать мужчине, что тебе больно.</p></div>
+          <div class="try"><span class="try-n">02</span><h3>Карта желаний</h3><p>Картинки с кольцом и свадебным платьем поднимают настроение, но не трогают ту секунду, когда включается страх и голос внутри шепчет «лучше промолчи».</p></div>
+          <div class="try"><span class="try-n">03</span><h3>«Стараться ещё больше»</h3><p>Если твои старания и то, что ты получаешь в ответ, почему-то никак не связаны, лишняя забота о нём умножает только твою усталость.</p></div>
+          <div class="try"><span class="try-n">04</span><h3>Расстановки</h3><p>Красиво объясняют, откуда всё пошло, но редко дают понятный шаг на завтра: что сказать, кому и в какой момент.</p></div>
+          <div class="try"><span class="try-n">05</span><h3>Резкий ультиматум</h3><p>Без внутренней опоры он чаще заканчивается откатом после первой ссоры и только укрепляет старую мысль «я так и знала, мне нельзя просить».</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band b-dark">
+      <div class="band-in">
+        <div class="who">
+          <figure class="who-ph"><img src="img/anna-au-smile.webp" alt="Анна Саба" width="700" height="1050" decoding="async"></figure>
+          <div>
+            <h2 class="h2">Я предлагаю тебе систему, которая работает по шагам</h2>
+            <div class="txt">
+              <p>Меня зовут Анна Саба, я&nbsp;психолог. Я не обещаю, что одна модная практика изменит всё. Звучит красиво, но так не работает ни у меня, ни у женщин, с которыми я работаю.</p>
+              <div class="mech"><p>Вместо этого я даю метод. Он разбирает твоё поведение в любви по моментам: где включается тормоз и какое чувство поднимается в эту секунду. Стыд, вина, тревога, обида или страх. И какое действие его останавливает.</p></div>
+              <p>Мой тест «Код любви» собрал 150&nbsp;000 ответов. И по ним видно: то, что мешает в любви, – привычка из детства, собранная из десятков маленьких решений «промолчу в этот раз». Привычку можно разобрать по частям и заменить на другую.</p>
+              <p><b>Дальше – практикум именно об этом.</b></p>
+            </div>
+            <div class="cta" style="margin-left:0">
+              <button class="btn" id="articleNextBtn" type="button" style="margin-left:0"><span>Узнать подробнее о практикуме</span><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- СТРАНИЦА 2: ПРАКТИКУМ, ШАГИ, БЕСПЛАТНАЯ РЕГИСТРАЦИЯ -->
+  <div id="articlePage2" class="hidden">
+
+    <section class="band b-hero">
+      <div class="band-in">
+        <div class="offer-grid">
+          <div>
+            <span class="au-pill">✦ Автор · психолог Анна Саба</span>
+            <p class="kick">Бесплатный онлайн-практикум</p>
+            <h2 class="art-h1 offer-h">Измени отношения с мужчиной за 4 дня: от «люблю, но тревожусь и терплю» до «мне спокойно, и я любима»</h2>
+          </div>
+          <div>
+            <ul class="gains">
+              <li><span class="ck" aria-hidden="true"></span><span>Найдёшь точную причину, по которой сама отталкиваешь любовь и заботу</span></li>
+              <li><span class="ck" aria-hidden="true"></span><span>Уйдёт фоновая тревога в отношениях</span></li>
+              <li><span class="ck" aria-hidden="true"></span><span>Перестанешь бояться говорить о своих чувствах: с мужчиной, с мамой, с самой собой</span></li>
+            </ul>
+            <div class="cta"><a class="btn" href="#register" data-cta="offer"><span>Записаться на практикум</span><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band b-beige">
+      <div class="band-in">
+        <h2 class="h2">Как будет меняться твоя ситуация в отношениях после практикума</h2>
+        <div class="steps">
+          <div class="step"><span class="step-n">Шаг 1</span><h3>Убираем тревогу в отношениях</h3>
+            <p class="st now"><b>Сейчас</b>ждёшь его сообщения, прокручиваешь в голове худшее и не можешь успокоиться, пока он не ответит.</p>
+            <p class="st then"><b>Станет</b>тебе спокойно и рядом с ним, и без него, ты не ищешь подвох в каждой паузе.</p></div>
+          <div class="step"><span class="step-n">Шаг 2</span><h3>Убираем страх близости</h3>
+            <p class="st now"><b>Сейчас</b>хочешь тепла, но держишь мужчину на расстоянии, чтобы не было больно, если он уйдёт.</p>
+            <p class="st then"><b>Станет</b>подпускаешь любимого человека близко и доверяешь ему.</p></div>
+          <div class="step"><span class="step-n">Шаг 3</span><h3>Отпускаем старые обиды</h3>
+            <p class="st now"><b>Сейчас</b>копишь обиды и молчишь, а потом срываешься или замыкаешься в себе.</p>
+            <p class="st then"><b>Станет</b>сразу и спокойно говоришь, что тебе неприятно, и вы это обсуждаете.</p></div>
+          <div class="step"><span class="step-n">Шаг 4</span><h3>Перестаёшь быть удобной из чувства вины</h3>
+            <p class="st now"><b>Сейчас</b>вина при любом «нет», его комфорт важнее твоего, даже когда тебе самой плохо.</p>
+            <p class="st then"><b>Станет</b>выбираешь себя и не оправдываешься, когда говоришь о своих желаниях.</p></div>
+          <div class="step"><span class="step-n">Шаг 5</span><h3>Убираем стыд «я недостаточно хороша»</h3>
+            <p class="st now"><b>Сейчас</b>кажется, что любовь надо заслужить, и стыдно просить что-то для себя.</p>
+            <p class="st then"><b>Станет</b>легко принимаешь заботу, подарки и комплименты и чувствуешь, что достойна любви просто так.</p></div>
+        </div>
+        <div class="cta"><a class="btn" href="#register" data-cta="steps"><span>Записаться на практикум</span><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
+      </div>
+    </section>
+
+    <section class="band b-page">
+      <div class="band-in">
+        <h2 class="h2">Проверь себя прямо сейчас</h2>
+        <p class="lead">Ответь честно на три вопроса:</p>
+        <ol class="qs">
+          <li><span>Можешь принять от мужчины подарок или заботу и не думать, чем за это «расплатиться»?</span></li>
+          <li><span>Когда ты в последний раз спокойно сказала ему «я хочу этого» и не стала молчать и обижаться?</span></li>
+          <li><span>Сколько раз за последний год ты говорила себе «сейчас не время» и «потом поговорю с ним»? И разговор так и не случился?</span></li>
+        </ol>
+        <div class="callout narrow" style="margin-left:0">Если хотя бы один ответ тебя не порадовал, у тебя есть тот самый барьер, который мы находим в шаге 1. С этой точки и начинаются перемены.</div>
+        <div class="cta"><a class="btn" href="#register" data-cta="check"><span>Записаться на практикум</span><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
+      </div>
+    </section>
+
+    <section class="band b-beige">
+      <div class="band-in">
+        <h2 class="h2">Что говорит внутри тебя прямо сейчас</h2>
+        <div class="obj">
+          <div class="obj-c"><h3>«Я уже ходила к психологу, а в отношениях ничего не поменялось»</h3>
+            <p>Так бывает, и вот почему: общая работа с психологом касается всей жизни сразу. На практикуме работа узкая и прикладная: конкретная ситуация с мужчиной → чувство, которое её запускает → новое действие, которое ты делаешь сама.</p></div>
+          <div class="obj-c"><h3>«А если у меня и так нет времени?»</h3>
+            <p>Практикум идёт 4 дня онлайн, 25–28 ноября. Время находится на то, что для нас важно. Посмотри, есть ли в твоём списке дел ты сама или там все, кроме тебя. Это как раз то, с чем мы работаем в шаге 4.</p></div>
+        </div>
+        <div class="cta"><a class="btn" href="#register" data-cta="objections"><span>Записаться на практикум</span><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
+      </div>
+    </section>
+
+    <!-- вместо тарифов – бесплатный практикум (факты из our/index.html) -->
+    <section class="band b-page" id="paywall-block">
+      <div class="band-in">
+        <div class="free">
+          <div class="free-grid">
+            <div>
+              <span class="free-pill">✦ 25–28 ноября · онлайн</span>
+              <h2 class="h2">Бесплатный практикум</h2>
+              <div class="pname"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><p>«Как за 4 дня выйти из угнетающих чувств на новый уровень дохода, энергии, отношений, реализации»</p></div>
+            </div>
+            <div>
+              <ul class="facts">
+                <li><span class="ck" aria-hidden="true"></span><span>Даты проведения: <b>25–28 ноября</b>, онлайн</span></li>
+                <li><span class="ck" aria-hidden="true"></span><span>Выходим из угнетающих чувств: стыда, вины, тревоги, обиды и страха</span></li>
+                <li><span class="ck" aria-hidden="true"></span><span>Полную расшифровку твоего результата теста получают участники практикума</span></li>
+                <li><span class="ck" aria-hidden="true"></span><span>Полная расшифровка и 4 подарка придут в Telegram-бота сразу после регистрации</span></li>
+                <li><span class="ck" aria-hidden="true"></span><span>Для участников тестирования участие в практикуме <b>бесплатное</b></span></li>
+              </ul>
+              <div class="cta">
+                <a class="btn" href="#register" data-cta="free"><span>Записаться на практикум</span><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+                <a class="btn btn-sec" id="ctaSecondary" href="https://doctorannasaba.ru/novaya-realnost-36/" target="_blank" rel="noopener"><span>Подробнее о практикуме</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band b-dark">
+      <div class="band-in">
+        <h2 class="h2" style="text-align:center">Что дальше</h2>
+        <p class="lead" style="text-align:center;color:#e9dfcf;margin-top:-12px">Сейчас у тебя есть 2 варианта.</p>
+        <div class="vars">
+          <div class="var"><span class="var-n">Вариант 1</span><h3>Оставить всё как есть</h3>
+            <p>Ты можешь закрыть эту страницу и вернуться к тем же отношениям, что и три года назад. Ничего страшного не случится: просто пройдёт ещё один год с той же тревогой, теми же обидами и тем же молчанием о главном. И дальше смотреть на женщин, которых любят и балуют, и тихо копить обиду внутри.</p></div>
+          <div class="var good"><span class="var-n">Вариант 2</span><h3>Пройти этот путь быстро</h3>
+            <p>Пройти этот путь за 4 дня вместе со мной на бесплатном онлайн-практикуме 25–28 ноября. Выйти из угнетающих чувств, которые мешают тебе быть любимой, и начать получать в отношениях столько же тепла, сколько ты отдаёшь.</p></div>
+        </div>
+        <p class="decide">Решай сама.</p>
+        <div class="cta"><a class="btn" href="#register" data-cta="final"><span>Записаться на практикум</span><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<footer class="foot">
+  <ul>
+    <li><a href="https://doctor-saba.com/doctor-saba-politika-opd" target="_blank" rel="noopener">Политика обработки персональных данных</a></li>
+    <li><a href="https://doctor-saba.com/doctor-saba-soglasie-na-opd" target="_blank" rel="noopener">Согласие на обработку персональных данных</a></li>
+    <li><a href="https://doctor-saba.com/doctor-saba-soglasie-na-reklamu" target="_blank" rel="noopener">Согласие на получение рассылок</a></li>
+  </ul>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var VIDEO_BASE = 'https://doctorannasaba.ru/kod-lyubvi/video/';
+  var POSTER = 'https://doctorannasaba.ru/kod-lyubvi/img/video-poster.jpg';
+
+  /* ---------- ВОПРОСЫ ----------
+     alarm – варианты, которые совпадают с паттерном (считаются в «N из 10»).
+     k – тип из теста «Код любви»: S «Спасательница», U «Хорошая девочка», P (держит дистанцию), N «Опора в себе».
+     status – вопрос о положении (0 замужем … 4 всё сложно): по нему выбирается ролик, как в «Коде любви». */
+  var STEPS = [
+    { kind:'scale', n:1, q:'Оцени, как сейчас обстоят дела в твоей личной жизни.', alarm:function(v){ return v <= 3; } },
+    { kind:'question', n:2, status:true, q:'Что сейчас у тебя в отношениях?',
+      a:['Я замужем','В отношениях, живём вместе','В отношениях, живём порознь','Я одна','Всё сложно: непонятно, кто мы друг другу'], alarm:[3,4] },
+    { kind:'question', n:3, q:'Как ты оцениваешь: ты получаешь в отношениях столько любви и заботы, сколько действительно заслуживаешь?',
+      a:['Да, я получаю столько же, сколько отдаю','Кажется, я давно отдаю намного больше, чем получаю','Нет, я стараюсь изо всех сил, а он этого не замечает','Мы рядом, но как чужие, я уже ничего не жду'], k:['N','S','U','P'], alarm:[1,2,3] },
+    { kind:'insight', text:['Смотри, что уже видно: ты умеешь любить и много вкладываешь в отношения.','Ты хорошо знаешь, как сделать, чтобы близким было хорошо, и делаешь это от души. Только то, сколько ты отдаёшь, и то, сколько получаешь в ответ, почему-то никак не связаны.','Это первый признак. Идём дальше.'], btn:'Продолжить' },
+    { kind:'question', n:4, q:'Насколько легко тебе говорить мужчине о своих желаниях и просить что-то для себя?',
+      a:['Это даётся мне легко','Каждый раз перебарываю себя, мне неудобно просить','Проще сделать самой, чем попросить','Я уже давно ничего у него не прошу'], k:['N','U','S','P'], alarm:[1,2,3] },
+    { kind:'question', n:5, q:'Как часто бывает, что ты молчишь о своих чувствах, а другие женщины открыто говорят, чего хотят, и получают это?',
+      a:['Да, такое случается постоянно','Периодически замечаю и злюсь на себя','Нет, я всегда говорю прямо'], alarm:[0,1] },
+    { kind:'question', n:6, q:'Если честно, ты завидуешь женщинам, которых любят и балуют просто так, даже если не хочешь себе в этом признаваться?',
+      a:['Да, такое бывает часто','Периодически замечаю за собой','Нет, такому я не завидую'], alarm:[0,1] },
+    { kind:'insight', text:['Здесь уже видна закономерность.','Судя по твоим ответам, ты как будто боишься любви. Не разрешаешь себе просить, принимать заботу и тем более говорить о своём, даже когда рядом есть мужчина.','Женщины, которых балуют, ничем тебя не лучше. Просто они не спрашивают у себя разрешения быть любимыми.'], btn:'Продолжить' },
+    { kind:'question', n:7, q:'Когда тебя обижает мужчина, что ты обычно делаешь?',
+      a:['Молчу, чтобы не было ссоры','Ухожу в дела и делаю вид, что всё нормально','Замыкаюсь и отдаляюсь','Говорю, что мне неприятно, и мы это обсуждаем'], k:['U','S','P','N'], alarm:[0,1,2] },
+    { kind:'question', n:8, q:'Тебе бывает стыдно, что в твоём возрасте у тебя до сих пор нет тех отношений, которые «должны были бы» быть?',
+      a:['Да','Иногда','Нет'], alarm:[0,1] },
+    { kind:'question', n:9, q:'Если бы прямо сейчас рядом появился мужчина, который готов тебя любить и заботиться о тебе, что бы ты почувствовала в первую секунду?',
+      a:['«Наконец-то! Я готова»','Тревогу: «А вдруг он узнает меня ближе и уйдёт?»','Сомнение: «Здесь какой-то подвох, со мной такого не бывает»','Желание сразу начать о нём заботиться, чтобы не потерять'], k:['N','P','U','S'], alarm:[1,2,3] },
+    { kind:'insight', text:['Вот он, главный узел.','Многие думают, что счастье в отношениях зависит от везения, внешности или «правильного» мужчины. Но если внутри сидит страх, что тебя оттолкнут, или чувство, что любовь надо заслужить, ты сама будешь отодвигать любую близость.','Последний вопрос, и переходим к твоему результату.'], btn:'К последнему вопросу' },
+    { kind:'question', n:10, q:'Бывает ли ощущение, что ты живёшь не своей жизнью, а чужим сценарием, где нужно постоянно терпеть, подстраиваться и заслуживать любовь?',
+      a:['Да, это моё постоянное фоновое ощущение','Временами накатывает, особенно когда сильно устаю','Нет, я живу так, как выбираю сама'], alarm:[0,1] },
+    { kind:'loader', phrases:['Сопоставляем твои ответы с кодами любви…','Ищем, где включается страх близости…','Готовим персональный результат диагностики…'] },
+    { kind:'result' }
+  ];
+
+  /* ---------- ВИДЕО-РАЗБОРЫ: логика «Кода любви» ----------
+     ключ = тип (больше всего ответов одного типа; при равенстве порядок S, U, P, N) + положение из вопроса о статусе (0–4).
+     У типа N один ролик на все положения. */
+  var PRIORITY = ['S','U','P','N'];
+  var NAMES = { S:'Спасательница', U:'Хорошая девочка', P0:'Рядом, но далеко', P1:'Ещё не жена', P2:'На расстоянии', P3:'Снова не те', P4:'Та, что ждёт', N:'Опора в себе' };
+  var VIDEO = { S0:'spasatelnica-v4', S1:'kl-S1', S2:'kl-S2', S3:'kl-S3', S4:'kl-S4', U0:'kl-U0', U1:'kl-U1', U2:'kl-U2', U3:'kl-U3', U4:'kl-U4',
+                P0:'kl-P0', P1:'kl-P1', P2:'kl-P2', P3:'kl-P3', P4:'kl-P4', N:'kl-N' };
+
+  var current = 0, answered = 0, alarmCount = 0, TOTAL = 10;
+  var counts = { S:0, U:0, P:0, N:0 }, statusPos = null;
+  var params = new URLSearchParams(location.search);
+
+  function el(id){ return document.getElementById(id); }
+  var topbar = el('topbar'), quiz = el('quiz'), progressFill = el('progressFill');
+  var introBlock = el('introBlock'), qArea = el('qArea'), qLabel = el('qLabel'), qTitle = el('qTitle'), qOptions = el('qOptions');
+  var scaleArea = el('scaleArea'), scaleLabel = el('scaleLabel'), scaleTitle = el('scaleTitle'), scaleGrid = el('scaleGrid');
+  var insightArea = el('insightArea'), insightText = el('insightText'), insightBtnText = el('insightBtnText');
+  var loaderArea = el('loaderArea'), loaderTitle = el('loaderTitle'), resultArea = el('resultArea'), resultCount = el('resultCount');
+  var article = el('article');
+
+  /* ---------- аналитика – как в «Коде любви»; с локального файла и в превью не отправляется ---------- */
+  var STATS_URL = 'https://baza.serenkov.com/quiz-stats/api/e';
+  var QUIET = location.protocol === 'file:' || params.has('s') || params.get('debug') === '1';
+  function visitorId(){ try { var v = localStorage.getItem('kl_vid'); if(!v){ v = Date.now().toString(36) + Math.random().toString(36).slice(2,10); localStorage.setItem('kl_vid', v); } return v; } catch(e){ return 'n' + Math.random().toString(36).slice(2,12); } }
+  function track(event, data){
+    if (QUIET) return;
+    var q = new URLSearchParams({ ev:'kq_' + event, v:visitorId(), s:(params.get('utm_source') || '').replace(/[^A-Za-z0-9._-]/g,'').slice(0,40), r:String((data && data.result) || '').replace(/[^A-Za-z0-9]/g,'').slice(0,8) });
+    var url = STATS_URL + '?' + q;
+    try { if (navigator.sendBeacon && navigator.sendBeacon(url)) return; } catch(e){}
+    try { fetch(url, { mode:'no-cors', keepalive:true }); } catch(e){}
+  }
+
+  /* utm из адреса страницы – в ссылки (как withUtm в «Коде любви») */
+  function withUtm(url){
+    if (!url) return '';
+    var utm = new URLSearchParams();
+    params.forEach(function(v, k){ if (/^utm_/i.test(k)) utm.set(k, v); });
+    var q = utm.toString(); if (!q) return url;
+    var i = url.indexOf('#'), base = i >= 0 ? url.slice(0, i) : url, hash = i >= 0 ? url.slice(i) : '';
+    return base + (base.indexOf('?') >= 0 ? '&' : '?') + q + hash;
+  }
+
+  /* ---------- типографика: неразрывный пробел после коротких слов, перед тире, в «Анна Саба»,
+     и между двумя последними словами каждого абзаца, пункта, подписи. Слова не меняются. ---------- */
+  var NB = '\u00a0', WJ = '\u2060';
+  var SHORT = /(?<=^|[\s«(])([а-яёА-ЯЁ]{1,2}|без|для|что|как|под|при|про|обо|его|её|над|или|это|так|уже)[ \t\n]+(?=\S)/g;
+  function typoStr(t){
+    t = t.replace(SHORT, '$1' + NB);
+    t = t.replace(/(\d[\d%]*)[ \t\n]+(?=\S)/g, '$1' + NB);
+    t = t.replace(/[ \t\n]+([–→])/g, NB + '$1');
+    t = t.replace(/(Анн[аыеойу]{1,2})\s(Саба)/g, '$1' + NB + '$2');
+    t = t.replace(/([A-Za-zА-Яа-яЁё0-9])-(?=[A-Za-zА-Яа-яЁё0-9])/g, '$1-' + WJ);   // «что-то», «онлайн-практикум» не рвутся по дефису
+    t = t.replace(/(\d)–(?=\d)/g, '$1' + WJ + '–' + WJ);                          // «25–28» не рвётся по тире
+    return t;
+  }
+  var BLOCKS = 'p,li,h1,h2,h3,.opt-text,.scale-lbl span,.st,.var p,.obj-c p,.try p,.callout,.pname p,.facts li>span:last-child,.gains li>span:last-child,.cards li>span:last-child,.qs li>span';
+  function typo(root){
+    var tw = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode:function(n){ var p = n.parentNode && n.parentNode.nodeName; return (p === 'SCRIPT' || p === 'STYLE') ? 2 : 1; } });
+    var n; while ((n = tw.nextNode())) { var s = typoStr(n.nodeValue); if (s !== n.nodeValue) n.nodeValue = s; }
+    root.querySelectorAll ? [].forEach.call((root.matches && root.matches(BLOCKS) ? [root] : []).concat([].slice.call(root.querySelectorAll(BLOCKS))), glueLast) : 0;
+  }
+  function glueLast(e){
+    var full = (e.textContent || '').trim(), ws = full.split(/[\s\u00a0]+/), last = ws[ws.length - 1] || '';
+    var chains = full.split(/[ \t\n]+/), tail = (chains[chains.length - 2] || '') + ' ' + (chains[chains.length - 1] || '');
+    if (ws.length < 3 || chains.length < 2 || last.replace(/[^а-яёa-z]/gi, '').length >= 10 || tail.length > (/^H[1-3]$/.test(e.tagName) ? 15 : 24)) return;   // длинный хвост не склеиваем: вылезет за край
+    var nodes = [], tw = document.createTreeWalker(e, NodeFilter.SHOW_TEXT), n; while ((n = tw.nextNode())) nodes.push(n);
+    var seenWord = false;
+    for (var i = nodes.length - 1; i >= 0; i--) {
+      var v = nodes[i].nodeValue;
+      for (var j = v.length - 1; j >= 0; j--) {
+        var c = v[j];
+        if (c === ' ' || c === '\n' || c === '\t') { if (seenWord) { nodes[i].nodeValue = v.slice(0, j) + NB + v.slice(j + 1); return; } }
+        else if (c === NB) { if (seenWord) return; }
+        else seenWord = true;
+      }
+    }
+  }
+
+  function hideAll(){ [introBlock, qArea, scaleArea, insightArea, loaderArea, resultArea].forEach(function(e){ e.classList.add('hidden'); }); }
+  function show(e, anim){ e.classList.remove('hidden'); if (anim) { e.classList.remove('anim'); void e.offsetWidth; e.classList.add('anim'); } }
+  function top(){ window.scrollTo(0, 0); }
+  function updateProgress(){ progressFill.style.width = Math.min(100, Math.round(answered / TOTAL * 100)) + '%'; }
+
+  function next(){ if (current >= STEPS.length) return; var step = STEPS[current]; current++; render(step); }
+
+  function render(step){
+    hideAll();
+    if (step.kind === 'question') {
+      qLabel.textContent = 'Вопрос ' + step.n + ' из 10';
+      qTitle.textContent = step.q;
+      qOptions.innerHTML = ''; delete qOptions.dataset.locked;
+      step.a.forEach(function(text, i){
+        var b = document.createElement('button'); b.type = 'button'; b.className = 'opt';
+        b.innerHTML = '<span class="radio" aria-hidden="true"></span><span class="opt-text"></span>';
+        b.lastChild.textContent = text;
+        b.addEventListener('click', function(){ choose(step, i, b); });
+        qOptions.appendChild(b);
+      });
+      typo(qArea); show(qArea, true);
+      track('q_' + step.n);
+    } else if (step.kind === 'scale') {
+      scaleLabel.textContent = 'Вопрос ' + step.n + ' из 10';
+      scaleTitle.textContent = step.q;
+      scaleGrid.innerHTML = ''; delete scaleGrid.dataset.locked;
+      for (var v = 1; v <= 5; v++) (function(val){
+        var b = document.createElement('button'); b.type = 'button'; b.className = 'sc'; b.textContent = val;
+        b.addEventListener('click', function(){ chooseScale(step, val, b); });
+        scaleGrid.appendChild(b);
+      })(v);
+      typo(scaleArea); show(scaleArea, true);
+      track('q_' + step.n);
+    } else if (step.kind === 'insight') {
+      insightText.innerHTML = '';
+      step.text.forEach(function(p){ var pe = document.createElement('p'); pe.textContent = p; insightText.appendChild(pe); });
+      insightBtnText.textContent = step.btn;
+      typo(insightArea); show(insightArea, true);
+    } else if (step.kind === 'loader') {
+      show(loaderArea, true); track('quiz_done'); runLoader(step.phrases);
+    } else if (step.kind === 'result') {
+      renderResult();
+    }
+    top();
+  }
+
+  function choose(step, idx, btn){
+    if (qOptions.dataset.locked) return; qOptions.dataset.locked = '1';
+    btn.classList.add('sel');
+    answered++;
+    if (step.alarm.indexOf(idx) !== -1) alarmCount++;
+    if (step.k && step.k[idx]) counts[step.k[idx]]++;
+    if (step.status) statusPos = idx;
+    updateProgress(); setTimeout(next, 250);
+  }
+  function chooseScale(step, val, btn){
+    if (scaleGrid.dataset.locked) return; scaleGrid.dataset.locked = '1';
+    btn.classList.add('sel');
+    answered++;
+    if (step.alarm(val)) alarmCount++;
+    updateProgress(); setTimeout(next, 250);
+  }
+  el('insightBtn').addEventListener('click', next);
+
+  function runLoader(phrases){
+    var i = 0; loaderTitle.textContent = phrases[0]; typo(loaderTitle);
+    var iv = setInterval(function(){ i++; if (i < phrases.length) { loaderTitle.textContent = phrases[i]; typo(loaderTitle); } else { clearInterval(iv); setTimeout(next, 500); } }, 900);
+  }
+
+  /* тип и ключ ролика – как computeResult()/resultKey() в «Коде любви» */
+  function resultKey(){
+    var best = null;
+    PRIORITY.forEach(function(k){ if (best === null || counts[k] > counts[best]) best = k; });
+    if (best === 'N') return 'N';
+    var p = (statusPos >= 0 && statusPos <= 4) ? statusPos : 0;
+    return best + p;
+  }
+  var currentKey = null;
+
+  function renderResult(){
+    show(resultArea, true);
+    currentKey = currentKey || resultKey();
+    track('result', { result: currentKey });
+    var n = alarmCount;
+    function put(v){ resultCount.innerHTML = v + '<span class="of">' + NB + 'из' + NB + '10</span>'; }
+    if (n === 0) put(0); else { var i = 0; var t = setInterval(function(){ i++; put(i); if (i >= n) clearInterval(t); }, 90); }
+  }
+
+  /* ---------- разбор ---------- */
+  function openArticle(){
+    quiz.classList.add('hidden'); topbar.classList.add('hidden'); article.classList.remove('hidden');
+    var key = currentKey || resultKey(); currentKey = key;
+    var name = NAMES[key] || NAMES[key.charAt(0)] || NAMES.N;
+    el('vidName').textContent = '«' + name + '»';
+    setupVideo(key);
+    typo(article);
+    window.scrollTo(0, 0);
+  }
+  el('resultBtn').addEventListener('click', function(){ track('article_open', { result: currentKey }); openArticle(); });
+  el('articleNextBtn').addEventListener('click', function(){
+    el('articlePage1').classList.add('hidden'); el('articlePage2').classList.remove('hidden'); typo(el('articlePage2')); window.scrollTo(0, 0);
+  });
+
+  /* плеер как в «Коде любви»: обложка и ▶; по нажатию – <video controls playsinline> со звуком, с начала */
+  function setupVideo(key){
+    var file = VIDEO[key] || VIDEO.N;
+    var src = VIDEO_BASE + file + '.mp4';
+    var btn = el('video'); if (!btn || btn.tagName !== 'BUTTON') return;
+    btn.dataset.src = src;
+    btn.addEventListener('click', function(){
+      track('video_click', { result: key });
+      var box = document.createElement('div'); box.className = 'video'; box.id = 'video';
+      box.innerHTML = '<video controls playsinline preload="auto" poster="' + POSTER + '" src="' + src + '"></video>';
+      this.replaceWith(box);
+      var v = box.querySelector('video'); v.muted = false; v.volume = 1; v.currentTime = 0;
+      var pr = v.play(); if (pr && pr.catch) pr.catch(function(){});
+    }, { once:true });
+  }
+
+  /* ---------- окно регистрации: форма, поля, согласия и обработчик – из «Кода любви» ---------- */
+  var ARROW = '<span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>';
+  var CLOSE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  var rg = null, rgPrevFocus = null, rgSent = false;
+  var REG_KEY = 'kl_reg';
+  function rgFormHtml(){
+    return '' +
+    '<h2 class="rg-h" id="rgTitle">Регистрация на онлайн-практикум</h2>' +
+    '<p class="rg-name">«Как выйти из угнетающих чувств в новую счастливую реальность»</p>' +
+    '<p class="rg-date">Даты проведения: <b>25–28 ноября</b></p>' +
+    '<p class="rg-note">Полная расшифровка и 4 подарка придут в Telegram-бота сразу после регистрации</p>' +
+    '<form id="rgForm" class="rg-form" action="https://doctor-saba.com/pl/lite/block-public/process-html?id=2260261966" method="post" accept-charset="UTF-8" target="_top">' +
+      '<input type="hidden" name="formParams[setted_offer_id]" value="">' +
+      '<input type="hidden" name="formParams[willCreatePaidDeal]" value="">' +
+      '<input type="hidden" name="__gc__internal__form__helper" id="rgLoc" value="">' +
+      '<input type="hidden" name="__gc__internal__form__helper_ref" id="rgRef" value="">' +
+      '<input type="hidden" name="requestTime" value="1792414165">' +
+      '<input type="hidden" name="requestSimpleSign" value="e8c55248f71272eea73c01cb5f9d6ef5">' +
+      '<input type="hidden" name="isHtmlWidget" value="1">' +
+      '<input type="text" name="formParams[full_name]" id="rgName" maxlength="60" placeholder="Введите ваше имя" autocomplete="given-name" required>' +
+      '<input type="email" name="formParams[email]" id="rgEmail" maxlength="60" placeholder="Введите ваш e-mail" autocomplete="email" required>' +
+      '<input type="tel" name="formParams[phone]" id="rgPhone" maxlength="24" inputmode="tel" placeholder="Введите ваш телефон" autocomplete="tel" required>' +
+      '<label class="rg-ck"><input type="checkbox" name="pdpConfirmCheckbox" required><span>Я&nbsp;<a href="https://doctor-saba.com/doctor-saba-soglasie-na-opd" target="_blank" rel="noopener">согласен</a> на&nbsp;обработку моих персональных данных в&nbsp;соответствии с&nbsp;<a href="https://doctor-saba.com/doctor-saba-politika-opd" target="_blank" rel="noopener">Политикой обработки персональных&nbsp;данных</a></span></label>' +
+      '<label class="rg-ck"><input type="checkbox" name="confirmMailingCheckbox"><span>Даю <a href="https://doctor-saba.com/doctor-saba-soglasie-na-reklamu" target="_blank" rel="noopener">согласие</a> на&nbsp;получение информационных и&nbsp;маркетинговых рассылок (можно отказаться в&nbsp;любой момент в&nbsp;личном&nbsp;кабинете)</span></label>' +
+      '<button type="submit" class="btn" id="rgSubmit"><span>Записаться на практикум</span>' + ARROW + '</button>' +
+    '</form>';
+  }
+  function buildRegister(){
+    rg = document.createElement('div'); rg.id = 'rg'; rg.className = 'rg'; rg.hidden = true;
+    rg.innerHTML = '<div class="rg-box" role="dialog" aria-modal="true" aria-labelledby="rgTitle"><button type="button" class="rg-x" id="rgClose" aria-label="Закрыть">' + CLOSE + '</button><div class="rg-body" id="rgBody">' + rgFormHtml() + '</div></div>';
+    document.body.appendChild(rg);
+    typo(rg);
+    rg.querySelector('#rgClose').addEventListener('click', closeRegister);
+    rg.addEventListener('click', function(e){ if (e.target === rg) closeRegister(); });
+    bindRegisterForm();
+  }
+  function bindRegisterForm(){
+    var f = el('rgForm');
+    el('rgLoc').value = location.href;
+    el('rgRef').value = document.referrer;
+    var ph = el('rgPhone');
+    var fmt = function(v){
+      var d = v.replace(/\D/g, '').slice(0, 15); if (!d) return '+'; if (d[0] === '8') d = '7' + d.slice(1);
+      if (d[0] === '7') { d = d.slice(0, 11); var a = d.slice(1,4), b = d.slice(4,7), c = d.slice(7,9), e = d.slice(9,11);
+        return '+7' + (a ? ' (' + a : '') + (b ? ') ' + b : '') + (c ? '-' + c : '') + (e ? '-' + e : ''); }
+      return '+' + d;
+    };
+    ph.addEventListener('focus', function(){ if (!ph.value) ph.value = '+'; });
+    ph.addEventListener('blur', function(){ if (ph.value === '+') ph.value = ''; });
+    ph.addEventListener('input', function(){ ph.value = fmt(ph.value); var n = ph.value.replace(/\D/g, '').length; ph.setCustomValidity(n >= 10 ? '' : 'Введите телефон полностью, с кодом страны'); });
+    f.addEventListener('submit', function(e){
+      if (rgSent) { e.preventDefault(); return; }
+      rgSent = true;
+      el('rgSubmit').setAttribute('aria-busy', 'true');
+      el('rgLoc').value = location.href;
+      var key = String(currentKey || 'N').toLowerCase();
+      var email = String(el('rgEmail').value || '').trim().toLowerCase();
+      try { localStorage.setItem(REG_KEY, JSON.stringify({ key:key, name:NAMES[currentKey] || NAMES[String(currentKey).charAt(0)] || '', email:email, ts:Date.now() })); } catch(err){}
+      track('register_submit', { result: key });
+    });
+  }
+  window.addEventListener('pageshow', function(e){ if (!e.persisted || !rg) return; rgSent = false; var b = el('rgSubmit'); if (b) b.removeAttribute('aria-busy'); });
+  function openRegister(from){
+    if (!rg) buildRegister();
+    if (!rg.hidden) return;
+    rgPrevFocus = document.activeElement;
+    rg.hidden = false;
+    document.documentElement.classList.add('rg-open');
+    requestAnimationFrame(function(){ rg.classList.add('on'); });
+    var box = rg.querySelector('.rg-box'); if (box) box.scrollTop = 0;
+    var first = rg.querySelector('#rgForm input:not([type=hidden])');
+    if (first && !params.has('s')) setTimeout(function(){ first.focus({ preventScroll:true }); }, 30);
+    track('register_open', { from: from || 'cta', result: currentKey });
+  }
+  function closeRegister(){
+    if (!rg || rg.hidden) return;
+    rg.classList.remove('on'); rg.hidden = true;
+    document.documentElement.classList.remove('rg-open');
+    if (rgPrevFocus && rgPrevFocus.focus) rgPrevFocus.focus({ preventScroll:true });
+  }
+  window.addEventListener('keydown', function(e){
+    if (!rg || rg.hidden) return;
+    if (e.key === 'Escape') { e.preventDefault(); closeRegister(); return; }
+    if (e.key === 'Tab') {
+      var f = [].slice.call(rg.querySelectorAll('.rg-box a[href],.rg-box button,.rg-box input:not([type=hidden])')).filter(function(x){ return x.offsetParent; });
+      if (!f.length) return; var i = f.indexOf(document.activeElement);
+      if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+      else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+    }
+  });
+  /* все кнопки «Записаться на практикум» (href="#register") – окно регистрации */
+  document.querySelectorAll('a[href="#register"]').forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); track('cta_' + (a.dataset.cta || 'click'), { result: currentKey }); openRegister(a.dataset.cta); });
+  });
+  var sec = el('ctaSecondary'); sec.href = withUtm(sec.getAttribute('href'));
+  sec.addEventListener('click', function(){ track('cta_secondary_click', { result: currentKey }); });
+
+  el('startBtn').addEventListener('click', function(){ track('quiz_start'); next(); });
+  typo(document.body);
+
+  /* ---------- превью состояний для снимков и проверок: ?s=q1…q10|insight1…3|loader|result|page1|page2|register&t=P1&n=7 ---------- */
+  var S = params.get('s');
+  if (S) {
+    var T = params.get('t'); if (T && (VIDEO[T])) currentKey = T;
+    var N = +params.get('n'); if (N >= 0 && N <= 10) alarmCount = N || 0;
+    var idx = { q1:0, q2:1, q3:2, insight1:3, q4:4, q5:5, q6:6, insight2:7, q7:8, q8:9, q9:10, insight3:11, q10:12, loader:13, result:14 };
+    if (S in idx) { current = idx[S]; answered = STEPS.slice(0, current).filter(function(s){ return s.n; }).length; updateProgress(); next(); }
+    if (S === 'page1' || S === 'page2' || S === 'register') { openArticle(); if (S !== 'page1') el('articleNextBtn').click(); if (S === 'register') openRegister('preview'); }
+  }
+})();
+</script>
+</body>
+</html>
