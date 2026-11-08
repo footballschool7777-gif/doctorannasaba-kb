@@ -2,9 +2,16 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8"><script src="/utm.js"></script>
+<script>
+/* Две версии страницы (Евгений): без ?vip=1 – регистрация на практикум, с ?vip=1 – уже зарегистрированным VIP-билет.
+   Класс на <html> ставится до первой отрисовки, признак живёт в sessionStorage до конца сессии (?vip=0 сбрасывает). */
+(function(){var d=document.documentElement,v=false;try{var q=new URLSearchParams(location.search).get('vip');
+ if(q==='1'){sessionStorage.setItem('ds_vip','1');v=true}else if(q==='0'){sessionStorage.removeItem('ds_vip')}else v=sessionStorage.getItem('ds_vip')==='1'}catch(e){}
+ if(v)d.classList.add('vip');window.DS_VIP=v})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f6f0e6">
-<title>8 типов личности — бесплатный тест для женщин</title>
+<title>8 типов личности – бесплатный тест для женщин</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
@@ -864,6 +871,55 @@ html.rg-open,html.rg-open body{overflow:hidden!important}
   .ia-note{text-align:left;font-size:14px;max-width:520px;padding:0}
 }
 
+
+/* ============================================================ VIP-БИЛЕТ (версия ?vip=1 для зарегистрированных)
+   Состав билета 1:1 с «Волшебной женщиной», вид – в палитре квиза: тёмная шапка, золото, сливочное тело, линия отрыва */
+html:not(.vip) .vip-only{display:none!important}
+html.vip .reg-only{display:none!important}
+html.vip .sticky .timer{display:none}
+.vp-bridge{margin:0 auto 12px;max-width:560px;text-align:center;font:600 var(--t-body)/1.5 var(--fb);color:var(--s-goldt);text-wrap:balance}
+.vp-h{text-align:center}
+.vp-h em{font-style:normal;background:var(--gl-light);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.04em}
+.vt{position:relative;margin:24px auto 0;max-width:560px;border-radius:24px;overflow:hidden;background:#fffdf8;
+  box-shadow:0 40px 70px -40px rgba(90,60,20,.7),0 0 0 1.5px rgba(214,162,74,.55)}
+.vt::before{content:"";position:absolute;inset:7px;border:1px solid rgba(214,162,74,.4);border-radius:18px;pointer-events:none;z-index:1}
+.vt-h{position:relative;text-align:center;padding:26px 18px 22px;color:#f4ede1;overflow:hidden;
+  background:radial-gradient(90% 120% at 50% 0%,rgba(232,194,122,.22),transparent 60%),linear-gradient(160deg,#241b11,#120f0a)}
+.vt-h::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-radial-gradient(circle at 50% 120%,rgba(232,194,122,.1) 0 2px,transparent 2px 14px)}
+.vt-star{display:block;font-size:18px;line-height:1;color:#e8c27a;margin-bottom:8px}
+.vt-nm{display:inline-block;padding:2px 2px 4px;font:600 clamp(28px,8.4vw,40px)/1.05 var(--ft);letter-spacing:.08em;
+  background:linear-gradient(180deg,#fff3d6,#e8c27a 55%,#c9953f);-webkit-background-clip:text;background-clip:text;color:transparent}
+.vt-s{margin-top:8px;font:600 var(--t-small)/1.4 var(--fb);color:#e8c27a}
+.vt-d{margin-top:2px;font:700 var(--t-small)/1.4 var(--fb);color:#f4ede1;letter-spacing:.06em}
+.vt-b{position:relative;padding:22px 18px 18px;background-image:radial-gradient(rgba(214,162,74,.1) 1px,transparent 1.5px);background-size:14px 14px}
+.vt-l{display:flex;flex-direction:column;gap:10px}
+.vt-l li{display:flex;gap:10px;align-items:flex-start;font:600 var(--t-body)/1.45 var(--fb);color:#23190d;text-wrap:balance}
+.vt-l li::before{content:"";flex:0 0 22px;width:22px;height:22px;margin-top:-1px;border-radius:50%;background:var(--ic-check) center/14px no-repeat,var(--ic-grad);box-shadow:inset 0 0 0 1px rgba(138,87,20,.25)}
+.vt-g{display:grid;grid-template-columns:44px 1fr;column-gap:12px;row-gap:6px;align-items:center;margin-top:12px;padding:14px;border-radius:18px;
+  background:linear-gradient(160deg,#fbf0d8,#fffaf0);border:1px solid rgba(214,162,74,.45)}
+.vt-l+.vt-g{margin-top:18px}
+.vt-g svg{width:44px;height:44px;filter:drop-shadow(0 6px 10px rgba(185,131,46,.35))}
+.vt-g b{font:700 var(--t-tag)/1.2 var(--fb);letter-spacing:.18em;text-transform:uppercase;color:var(--s-goldt)}
+.vt-g p{grid-column:1/-1;font:500 var(--t-body)/1.5 var(--fb);color:#23190d;text-wrap:balance}
+.vt-g small{display:block;margin-top:6px;font:500 var(--t-note)/1.5 var(--fb);color:var(--muted)}
+.vt-g .lid{transform-box:view-box;transform-origin:32px 33px}
+.vt.in .vt-g .lid{animation:vtlid 3.6s ease-in-out infinite}
+.vt.in .vt-g:nth-of-type(3) .lid{animation-delay:1.2s}.vt.in .vt-g:nth-of-type(4) .lid{animation-delay:2.4s}
+@keyframes vtlid{0%,70%,100%{transform:none}78%{transform:translateY(-6px) rotate(-6deg)}86%{transform:translateY(-3px) rotate(3deg)}}
+.vt-st{position:relative;padding:24px 18px 22px;border-top:2px dashed rgba(185,131,46,.55);background:linear-gradient(180deg,#fbf0d8,#f6e3bb)}
+.vt-st::before,.vt-st::after{content:"";position:absolute;top:-17px;width:32px;height:32px;border-radius:50%;background:#f6f0e6;box-shadow:inset 0 0 0 1.5px rgba(214,162,74,.55);z-index:2}
+.vt-st::before{left:-16px}.vt-st::after{right:-16px}
+.vt-pr{display:flex;justify-content:center;align-items:baseline;gap:14px;margin-bottom:16px}
+.vt-pr b{font:600 40px/1 var(--ft);color:#23190d;letter-spacing:-.02em;white-space:nowrap}
+.vt-pr s{position:relative;font:600 18px/1 var(--fb);color:var(--muted);text-decoration:none;white-space:nowrap}
+.vt-pr s::after{content:"";position:absolute;left:-2px;right:-2px;top:52%;height:2px;background:#b9832e}
+.vt-st .btn{min-height:58px;padding:8px 8px 8px 24px;font:700 var(--t-dark)/1.25 var(--fb)}
+.vt-fn{margin-top:12px;text-align:center;font:500 var(--t-note)/1.5 var(--fb);color:var(--muted);text-wrap:balance}
+@media (min-width:700px){.vt-b{padding:28px 30px 22px}.vt-st{padding:26px 30px}.vt-g{grid-template-columns:60px 1fr;align-items:start}.vt-g svg{width:60px;height:60px;grid-row:span 2}.vt-g p{grid-column:2;text-wrap:balance}}
+/* окно оплаты VIP – в стиле окна регистрации квиза */
+.vm-sum{display:flex;justify-content:space-between;align-items:baseline;margin:14px 0 4px;font:500 var(--t-small)/1.4 var(--fb);color:var(--muted)}
+.vm-sum strong{font:600 26px/1 var(--ft);color:#23190d;letter-spacing:-.02em}
+.vm-sum s{margin-left:8px;color:var(--muted)}
 </style>
 </head>
 <body class="mode-fixed">
@@ -959,7 +1015,7 @@ const CONFIG = {
       ]
     },
     {
-      "text": "Что вы чувствуете, когда вас просят устроить праздник для родных или коллег?",
+      "text": "Какая у вас первая реакция, когда вас просят устроить праздник для родных или коллег?",
       "options": [
         {
           "t": "Азарт: беру всё в свои руки и раздаю задачи",
@@ -1130,7 +1186,7 @@ const CONFIG = {
       "text": "Какая работа вам больше по душе?",
       "options": [
         {
-          "t": "Спокойная, где есть время всё обдумать и проверить",
+          "t": "Спокойная, где можно не спешить и всё обдумать",
           "k": "P"
         },
         {
@@ -1211,8 +1267,8 @@ const CONFIG = {
   },
   "resultScreen": {
     "eyebrow": "Ваш результат",
-    "hint": "Посмотрите видео расшифровку, затем читайте текст ниже",
-    "videoCaption": "Видео-разбор вашего результата",
+    "hint": "Посмотрите видеорасшифровку, затем читайте текст ниже",
+    "videoCaption": "Видеоразбор вашего результата",
     "videoSoon": "Видео скоро",
     "secondTrait": "Вторая черта: {name}",
     "mosaicTraits": "Ваши ведущие черты: {a} и {b}"
@@ -1292,7 +1348,7 @@ const CONFIG = {
           "blocks": [
             {
               "type": "p",
-              "text": "Ваше настроение меняется: то подъём, то спад. <b>Поэтому вам нужен спокойный мужчина.</b>"
+              "text": "У вас бывают подъёмы и спады. <b>Поэтому вам нужен спокойный мужчина.</b>"
             },
             {
               "type": "pair",
@@ -1319,7 +1375,7 @@ const CONFIG = {
             {
               "type": "quotes",
               "items": [
-                "Несколько дней вы всё успеваете, а потом силы резко кончаются.",
+                "Бывает, что несколько дней вы всё успеваете, а потом силы резко кончаются.",
                 "Вы подбадриваете себя кофе, сладким и поздними посиделками.",
                 "В спад вы ругаете себя за лень и продолжаете всех веселить."
               ]
@@ -1360,7 +1416,7 @@ const CONFIG = {
             },
             {
               "type": "callout",
-              "text": "Если грусть держится неделями и вам знакомы тревога, страх, обида, вина или стыд, <b>с этими угнетающими чувствами можно работать.</b>"
+              "text": "Если грусть держится неделями, покажитесь врачу. А если вам знакомы тревога, страх, обида, вина или стыд, <b>с этими угнетающими чувствами можно работать.</b>"
             }
           ]
         }
@@ -1417,7 +1473,7 @@ const CONFIG = {
                 },
                 {
                   "tone": "bad",
-                  "text": "<b>Тяжело с таким же напряжённо-авторитарным мужчиной</b>, который привык командовать. В доме двое главных, и любой спор становится борьбой за последнее слово."
+                  "text": "<b>Тяжело с таким же напряжённо-авторитарным мужчиной</b>, который привык командовать. Получается двое главных, и любой спор становится борьбой за последнее слово."
                 }
               ]
             },
@@ -1453,7 +1509,7 @@ const CONFIG = {
             },
             {
               "type": "pull",
-              "text": "Обида, которую держат в себе, остаётся в теле постоянным напряжением. Поэтому вам важно следить за давлением и вовремя ходить к врачу."
+              "text": "Обида, которую долго держат в себе, может держать тело в напряжении. Поэтому вам важно следить за давлением и вовремя ходить к врачу."
             }
           ]
         },
@@ -1494,7 +1550,7 @@ const CONFIG = {
             },
             {
               "type": "p",
-              "text": "Вы замечаете, когда человеку плохо, и сразу хотите помочь. <b>Прежде чем сделать шаг, вы всё обдумаете.</b> Вам можно доверить важное дело: вы проверите его и перепроверите."
+              "text": "Вы замечаете, когда человеку плохо, и сразу хотите помочь. <b>Прежде чем сделать шаг, вы всё обдумаете.</b> Вам можно доверить важное дело: вы всё проверите и перепроверите."
             }
           ]
         },
@@ -1641,7 +1697,7 @@ const CONFIG = {
               "items": [
                 {
                   "tone": "good",
-                  "text": "<b>Легко с напряжённо-авторитарным мужчиной</b>, сильным и решительным. Он не теряется в трудностях, и если он бережно к вам относится, рядом с ним вы чувствуете опору."
+                  "text": "<b>Легко с сильным и спокойным мужчиной</b>, который бережно к вам относится. Он не теряется в трудностях, и рядом с ним вы чувствуете опору."
                 },
                 {
                   "tone": "bad",
@@ -1662,7 +1718,7 @@ const CONFIG = {
               "type": "quotes",
               "items": [
                 "Вы весь день сдерживаетесь с чужими людьми, и к вечеру сил нет.",
-                "Вы держите злость в себе, и она уходит в зажимы и боли в теле.",
+                "Вы держите злость в себе, и она может отзываться зажимами и болью в теле.",
                 "Вы долго носите в себе старые обиды."
               ]
             },
@@ -2064,7 +2120,7 @@ const CONFIG = {
             },
             {
               "type": "p",
-              "text": "Поэтому вы бываете разной. <b>Сильные стороны обоих типов – ваши.</b> Обе черты названы выше, под названием типа."
+              "text": "Поэтому вы бываете разной. <b>Сильные стороны обеих черт – ваши.</b> Обе черты названы выше, под названием типа."
             }
           ]
         },
@@ -2101,7 +2157,7 @@ const CONFIG = {
                 },
                 {
                   "tone": "bad",
-                  "text": "<b>Тяжело с педантичным мужчиной</b>, которому нужна предсказуемость. Ваши перемены его тревожат, а его правила тяготят вас."
+                  "text": "<b>Тяжело с мужчиной, которому всегда нужна предсказуемость.</b> Ваши перемены его тревожат, а его правила тяготят вас."
                 }
               ]
             },
@@ -2167,7 +2223,7 @@ const CONFIG = {
   },
   "offer": {
     "title": "Как получить полную расшифровку и эффективные практики для вас",
-    "subtitle": "Осталось изучить из расшифровки 3 пункта",
+    "subtitle": "В полной расшифровке ещё 3 пункта",
     "locked": [
       "Почему вы устаёте от того, что другим даётся легко",
       "Какое чувство мешает вам получать любовь и деньги",
@@ -2279,6 +2335,113 @@ const CONFIG = {
   };
   const CK = '<span class="ck" aria-hidden="true"></span>';
   const ARROW = `<span class="ar" aria-hidden="true">${ICON.arrow}</span>`;
+
+  // ---------- версия ?vip=1: уже зарегистрированным – VIP-билет вместо регистрации ----------
+  // Состав билета, цена и предложение GetCourse 8830645 – 1:1 с одобренной «Волшебной женщиной».
+  const VIP_ON = !!window.DS_VIP;
+  const VIP = {
+    bridge: 'Вы уже зарегистрированы на практикум «Новая реальность» 25–28 ноября.',
+    title: 'Чтобы получить от практикума максимальный эффект, возьмите <em>VIP-билет</em>',
+    list: ['3 прямых эфира', '4-й VIP-эфир «Магнит для масштаба»', 'Записи и презентации всех эфиров', 'Домашние задания и дополнительные бонусные материалы', 'Чат участников практикума и участие в розыгрыше призов'],
+    bonuses: [
+      ['Практика на 60 минут «Прочувствуй свою новую реальность и узнай, что тебе не даёт в неё перейти»', ''],
+      ['Личный разбор-диагностика вашей ситуации от практикующего психолога: деньги, отношения, реализация, предназначение, здоровье. Вы получите пошаговый план без розовых очков.', 'Разборы проводят действующие психологи, выпускники Института психического здоровья доктора Анны Саба. Средняя цена консультации психологов такого уровня от 15 000 ₽ (для вас по цене VIP-тарифа).'],
+      ['Мастер-класс: как с нуля за 6 месяцев освоить востребованную профессию EMDR-терапевта, помогать себе, родным, близким, выстроить очередь из клиентов и выйти на доход от 300 000 ₽/мес.', '']
+    ],
+    price: '1 980 ₽', old: '14 990 ₽', button: 'Иду на VIP',
+    note: 'Если вы уже приобрели VIP-тариф, второй раз оплачивать ничего не нужно.',
+    offerUrl: 'https://doctor-saba.com/sales/shop/offer/id/8830645', offerId: '8830645'
+  };
+  // тексты, которые зовут зарегистрироваться или говорят про промокод, в VIP-версии звучат так:
+  function vipText(t) {
+    if (!VIP_ON || typeof t !== 'string') return t;
+    return t
+      .replace(/Вариант 2\. Записаться на практикум\./g, 'Вариант 2. Прийти на практикум.')
+      .replace(/,? промокод ниже\./g, '.')
+      .replace(/ Промокод ниже\./g, '')
+      .replace(/^Бесплатный тест/, 'Тест')
+      .replace(/ бесплатную расшифровку/, ' расшифровку');
+  }
+  function vipDeep(o) {
+    if (typeof o === 'string') return vipText(o);
+    if (Array.isArray(o)) return o.map(vipDeep);
+    if (o && typeof o === 'object') { const r = {}; Object.keys(o).forEach(k => { r[k] = vipDeep(o[k]); }); return r; }
+    return o;
+  }
+  const GIFT = '<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="9" y="30" width="46" height="28" rx="4" fill="#c9953f"/><g class="lid"><rect x="5" y="21" width="54" height="12" rx="3" fill="#e3b45e"/><path d="M32 21c-7-13-20-11-17-3 2 5 10 4 17 3zM32 21c7-13 20-11 17-3-2 5-10 4-17 3z" fill="#fff3d6" stroke="#8a5714" stroke-width="1.5"/><rect x="28" y="21" width="8" height="12" fill="#23190d"/></g><rect x="28" y="33" width="8" height="25" fill="#23190d"/><circle cx="18" cy="12" r="1.8" fill="#d6a24a"/><circle cx="50" cy="9" r="1.4" fill="#d6a24a"/></svg>';
+  function vipOfferHtml() {
+    return `<div class="vip-only">
+      <p class="vp-bridge">${tp(esc(VIP.bridge))}</p>
+      <h2 class="vp-h">${hd(VIP.title).replace('VIP-билет', 'VIP&#8209;билет')}</h2>
+      <article class="vt" id="vipTicket">
+        <div class="vt-h"><span class="vt-star" aria-hidden="true">✦</span><p class="vt-nm">VIP-БИЛЕТ</p><p class="vt-s">${tp('практикум «Новая реальность»')}</p><p class="vt-d">25–28&nbsp;ноября</p></div>
+        <div class="vt-b">
+          <ul class="vt-l">${VIP.list.map(t => `<li>${tp(esc(t))}</li>`).join('')}</ul>
+          ${VIP.bonuses.map(b => `<div class="vt-g">${GIFT}<b>Бонус</b><p>${tp(esc(b[0]))}${b[1] ? `<small>${tp(esc(b[1]))}</small>` : ''}</p></div>`).join('')}
+        </div>
+        <div class="vt-st">
+          <div class="vt-pr"><b>${esc(VIP.price).replace(/ /g, '&nbsp;')}</b><s>${esc(VIP.old).replace(/ /g, '&nbsp;')}</s></div>
+          <button type="button" class="btn btn-primary" id="vipBtn"><span>${esc(VIP.button)}</span>${ARROW}</button>
+          <p class="vt-fn">${tp(esc(VIP.note))}</p>
+        </div>
+      </article>
+    </div>`;
+  }
+  // окно оплаты VIP: форма заказа GetCourse, поля и согласия как в «Волшебной женщине»
+  let vm = null, vmPrev = null, vmSent = false;
+  function buildVip() {
+    vm = document.createElement('div');
+    vm.id = 'vm'; vm.className = 'rg'; vm.hidden = true;
+    vm.innerHTML = `<div class="rg-box" role="dialog" aria-modal="true" aria-labelledby="vmTitle">
+    <button type="button" class="rg-x" id="vmClose" aria-label="Закрыть">${ICON.close || '×'}</button>
+    <h2 class="rg-h" id="vmTitle">VIP-участие в&nbsp;практикуме</h2>
+    <p class="rg-date">Онлайн · <b>25–28&nbsp;ноября</b> · тариф VIP</p>
+    <form id="vmForm" class="rg-form" action="${VIP.offerUrl}" method="post" enctype="multipart/form-data" accept-charset="UTF-8" target="_top">
+      <input type="hidden" name="OrderForm[selected_offer_id]" value="${VIP.offerId}"><input type="hidden" name="OrderForm[created_by_object_type]" value="sales_widget">
+      <input type="email" name="OrderForm[email]" id="vmEmail" maxlength="100" placeholder="Введите ваш e-mail" autocomplete="email" inputmode="email" required>
+      <input type="text" name="OrderForm[full_name]" maxlength="60" placeholder="Введите ваше имя" autocomplete="given-name" required>
+      <input type="tel" name="OrderForm[phone]" maxlength="30" placeholder="Введите ваш телефон" autocomplete="tel" inputmode="tel" required>
+      <label class="rg-ck"><input type="checkbox" required><span>Даю согласие с&nbsp;договором <a href="https://doctor-saba.com/doctor-saba-oferta-obrazovanie" target="_blank" rel="noopener">офертой на&nbsp;образовательные услуги</a></span></label>
+      <label class="rg-ck"><input type="checkbox" name="pdpConfirmCheckbox" required><span>Я&nbsp;<a href="https://doctor-saba.com/doctor-saba-soglasie-na-opd" target="_blank" rel="noopener">согласна</a> на&nbsp;обработку моих персональных данных в&nbsp;соответствии с&nbsp;<a href="https://doctor-saba.com/doctor-saba-politika-opd" target="_blank" rel="noopener">Политикой обработки персональных&nbsp;данных</a></span></label>
+      <label class="rg-ck"><input type="checkbox" name="confirmMailingCheckbox"><span>Даю <a href="https://doctor-saba.com/doctor-saba-soglasie-na-reklamu" target="_blank" rel="noopener">согласие</a> на&nbsp;получение информационных и&nbsp;маркетинговых рассылок</span></label>
+      <div class="vm-sum"><span>К оплате</span><span><strong>${esc(VIP.price).replace(/ /g, '&nbsp;')}</strong><s>${esc(VIP.old).replace(/ /g, '&nbsp;')}</s></span></div>
+      <button type="submit" class="btn btn-primary" id="vmSubmit"><span>Перейти к&nbsp;оплате</span>${ARROW}</button>
+    </form></div>`;
+    document.body.appendChild(vm);
+    vm.querySelector('#vmClose').addEventListener('click', closeVip);
+    vm.addEventListener('click', (e) => { if (e.target === vm) closeVip(); });
+    const f = vm.querySelector('#vmForm');
+    f.addEventListener('submit', (e) => {
+      if (params.has('edit')) { e.preventDefault(); return; }
+      if (vmSent) { e.preventDefault(); return; }
+      vmSent = true; document.getElementById('vmSubmit').setAttribute('aria-busy', 'true');
+      if (window.dsUtm && window.dsUtm.tag) f.action = window.dsUtm.tag(VIP.offerUrl);   // откуда пришла – в заказ
+      track('vip_submit', { result: currentResult && currentResult.key });
+    });
+    window.addEventListener('pageshow', (e) => { if (e.persisted) { vmSent = false; const b = document.getElementById('vmSubmit'); if (b) b.removeAttribute('aria-busy'); } });
+    window.addEventListener('keydown', (e) => { if (vm && !vm.hidden && e.key === 'Escape') { e.preventDefault(); closeVip(); } });
+  }
+  function openVip(from) {
+    if (!vm) buildVip();
+    if (!vm.hidden) return;
+    vmPrev = document.activeElement;
+    vm.hidden = false;
+    document.documentElement.classList.add('rg-open');
+    hideSticky();
+    requestAnimationFrame(() => vm.classList.add('on'));
+    const box = vm.querySelector('.rg-box'); if (box) box.scrollTop = 0;
+    if (!params.has('shot')) setTimeout(() => { const i = document.getElementById('vmEmail'); if (i) i.focus({ preventScroll: true }); }, 30);
+    track('vip_open', { from: from || 'cta', result: currentResult && currentResult.key });
+  }
+  function closeVip() {
+    if (!vm || vm.hidden) return;
+    vm.classList.remove('on'); vm.hidden = true;
+    document.documentElement.classList.remove('rg-open');
+    if (vmPrev && vmPrev.focus) vmPrev.focus({ preventScroll: true });
+    if (document.getElementById('offer')) initSticky();
+  }
+  window.__openVip = openVip;
+
   const imgTag = (url, cls) => url ? `<img${cls ? ` class="${cls}"` : ''} src="${esc(url)}" alt="" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">` : '';
 
   function withUtm(url) {
@@ -2386,12 +2549,12 @@ const CONFIG = {
   </div>
   <div class="ia-l">
     <div class="ia-head">
-      <p class="ia-pill"><span>${typo(esc(i.badge))}</span></p>
+      <p class="ia-pill"><span>${typo(esc(vipText(i.badge)))}</span></p>
       <h1 class="ia-h1">${introTitle(i.title, i.titleAccent)}</h1>
     </div>
     <div class="ia-cta">
       <button type="button" class="btn btn-primary" id="startBtn"><span class="bt">${typo(esc(i.button))}</span>${ARROW}</button>
-      <p class="ia-note">${typo(esc(i.note))}</p>
+      <p class="ia-note">${typo(esc(vipText(i.note)))}</p>
     </div>
   </div>
 </section>`;
@@ -2532,7 +2695,7 @@ const CONFIG = {
     const res = computeResult();
     const { code, counts } = res;
     const key = PREVIEW || resultKey(code);
-    const R = CONFIG.results[key] || CONFIG.results[CONFIG.scoring.priority[0]];
+    const R = vipDeep(CONFIG.results[key] || CONFIG.results[CONFIG.scoring.priority[0]]);
     const O = CONFIG.offer;
 
     // rich(): строки расшифровки могут содержать <b>…</b> — пропускаем только эти теги; tx(): то же + неразрывные пробелы
@@ -2597,6 +2760,8 @@ const CONFIG = {
   <article class="res-body">${partsHtml}</article>
   <section class="offer band b-page" id="offer">
     <div class="band-in">
+      ${VIP_ON ? vipOfferHtml() : ''}
+      <div class="reg-only">
       <div class="offer-a">
       <h2>${hd(esc(O.title))}</h2>
       <div class="offer-items">
@@ -2623,6 +2788,7 @@ const CONFIG = {
       </div>
       <a class="btn btn-primary" id="ctaMain" href="${esc(O.mainUrl || '#register')}"><span>${tp(esc(O.mainButton))}</span>${ARROW}</a>
       <a class="btn btn-secondary" id="ctaSecondary" href="${esc(withUtm(O.secondaryUrl)) || '#'}"><span>${tp(esc(O.secondaryButton))}</span></a>
+      </div>
       </div>
     </div>
   </section>
@@ -2674,10 +2840,14 @@ const CONFIG = {
     });
 
     // липкая панель: та же кнопка — тот же попап
-    document.getElementById('stickyBtnText').textContent = O.mainButton;
+    document.getElementById('stickyBtnText').textContent = VIP_ON ? VIP.button : O.mainButton;
     document.getElementById('stickyBtn').onclick = () => { track('cta_sticky_click'); openRegister('sticky'); };
     initSticky();
-    initTimer();
+    if (VIP_ON) {                                             // VIP: без промокода и таймера, кнопка билета – окно оплаты
+      document.getElementById('vipBtn').addEventListener('click', () => { track('vip_click'); openVip('ticket'); });
+      const vt = document.getElementById('vipTicket');
+      if ('IntersectionObserver' in window) { const vo = new IntersectionObserver((es) => { if (es[0].isIntersecting) { vt.classList.add('in'); vo.disconnect(); } }); vo.observe(vt); } else vt.classList.add('in');
+    } else initTimer();
   }
 
   // Заголовки: строка из одного слова недопустима. Если так вышло — меняем пробел перед этим словом
@@ -2855,7 +3025,7 @@ const CONFIG = {
       <input type="text" name="formParams[full_name]" id="rgName" maxlength="60" placeholder="Введите ваше имя" autocomplete="given-name" required>
       <input type="email" name="formParams[email]" id="rgEmail" maxlength="60" placeholder="Введите ваш e-mail" autocomplete="email" required>
       <input type="tel" name="formParams[phone]" id="rgPhone" maxlength="24" inputmode="tel" placeholder="Введите ваш телефон" autocomplete="tel" required>
-      <label class="rg-ck"><input type="checkbox" name="pdpConfirmCheckbox" required><span>Я&nbsp;<a href="https://doctor-saba.com/doctor-saba-soglasie-na-opd" target="_blank" rel="noopener">согласен</a> на&nbsp;обработку моих персональных данных в&nbsp;соответствии с&nbsp;<a href="https://doctor-saba.com/doctor-saba-politika-opd" target="_blank" rel="noopener">Политикой обработки персональных&nbsp;данных</a></span></label>
+      <label class="rg-ck"><input type="checkbox" name="pdpConfirmCheckbox" required><span>Я&nbsp;<a href="https://doctor-saba.com/doctor-saba-soglasie-na-opd" target="_blank" rel="noopener">согласна</a> на&nbsp;обработку моих персональных данных в&nbsp;соответствии с&nbsp;<a href="https://doctor-saba.com/doctor-saba-politika-opd" target="_blank" rel="noopener">Политикой обработки персональных&nbsp;данных</a></span></label>
       <label class="rg-ck"><input type="checkbox" name="confirmMailingCheckbox"><span>Даю <a href="https://doctor-saba.com/doctor-saba-soglasie-na-reklamu" target="_blank" rel="noopener">согласие</a> на&nbsp;получение информационных и&nbsp;маркетинговых рассылок (можно отказаться в&nbsp;любой момент в&nbsp;личном&nbsp;кабинете)</span></label>
       <button type="submit" class="btn btn-primary" id="rgSubmit"><span>${tp(esc(O.registerButton || 'Записаться на практикум'))}</span>${ARROW}</button>
     </form>`;
@@ -2909,6 +3079,7 @@ const CONFIG = {
     const b = document.getElementById('rgSubmit'); if (b) b.removeAttribute('aria-busy');
   });
   function openRegister(from) {
+    if (VIP_ON) { openVip(from); return; }                   // зарегистрированным второй раз не предлагаем регистрацию
     if (!rg) buildRegister();
     if (!rg.hidden) return;
     rgPrevFocus = document.activeElement;

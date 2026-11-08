@@ -2,6 +2,13 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8"><script src="/utm.js"></script>
+<script>
+/* Две версии страницы (Евгений): без ?vip=1 – регистрация на практикум, с ?vip=1 – уже зарегистрированным VIP-билет.
+   Класс на <html> ставится до первой отрисовки, признак живёт в sessionStorage до конца сессии (?vip=0 сбрасывает). */
+(function(){var d=document.documentElement,v=false;try{var q=new URLSearchParams(location.search).get('vip');
+ if(q==='1'){sessionStorage.setItem('ds_vip','1');v=true}else if(q==='0'){sessionStorage.removeItem('ds_vip')}else v=sessionStorage.getItem('ds_vip')==='1'}catch(e){}
+ if(v)d.classList.add('vip');window.DS_VIP=v})();
+</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#fbf6f0">
 <title>Расставание: как пережить и не уйти в депрессию – гайд Анны Саба</title>
@@ -630,6 +637,13 @@ html.md-open .rcp,html.md-open .rcp-menu{display:none}
 .stage.short .ct{font-size:10px;padding:4px 9px;letter-spacing:.08em}
 .stage.short .stage-tip{display:none}
 .heart{display:none!important}
+
+/* ===== версия ?vip=1: VIP-билет «Волшебной женщины» вместо регистрации ===== */
+html:not(.vip) .vip-only{display:none!important}
+html.vip .reg-only{display:none!important}
+.vip-s .vp-bridge{max-width:640px;margin:0 auto 10px;text-align:center;font:600 17px/1.5 var(--fb);color:var(--rose);text-wrap:balance}
+.vip-s .tc{max-width:660px;margin-left:auto;margin-right:auto}
+.vip-s .tc .tk-h .nm{margin:0}
 </style>
 </head>
 <body>
@@ -691,7 +705,7 @@ html.md-open .rcp,html.md-open .rcp-menu{display:none}
  </div>
  <div class="res big"><span class="rh">Сколько это длится</span><p>Острая боль обычно слабеет за несколько недель или месяцев. Срок у каждой свой: он зависит от того, сколько вы были вместе и как расстались.</p><p>Торопить себя не нужно. Замечайте, что меняется понемногу: обычно с каждой неделей сон становится чуть лучше, а мысли о нём приходят чуть реже.</p></div>
  <div class="whyb">
-  <figure class="wb-img"><img src="https://doctorannasaba.ru/volshebnaya-zhenshchina/img/why-brain.webp" alt="" width="1000" height="667" loading="lazy"></figure>
+  <figure class="wb-img"><img src="../volshebnaya-zhenshchina/img/why-brain.webp" alt="" width="1000" height="667" loading="lazy"></figure>
   <div class="wb-tx">
    <h3>Почему так <em>тянет назад</em></h3>
    <p class="wb-p"><b>1</b><span>У мозга есть свой навигатор. Пока вы были вместе, он запомнил дорогу к этому мужчине. Теперь навигатор ведёт вас по ней снова, даже если рядом с ним вам было плохо.</span></p>
@@ -795,7 +809,8 @@ html.md-open .rcp,html.md-open .rcp-menu{display:none}
    <li><span class="tg-t">Радость</span><span>Сделайте то, что давно хотели: поездку, стрижку, встречу с подругами.</span></li>
    <li><span class="tg-t son">Сон</span><span>Старайтесь спать 7–9 часов. Если не спится, вернитесь к советам про сон из дней 1–3.</span></li></ul></div></article>
  </div>
- <p class="note txt blk">Будут дни, когда боль вернётся: из-за даты, фото или песни. Один тяжёлый день не отменяет того, что вы уже прошли.</p>
+ <p class="note txt blk">Будут дни, когда боль вернётся: из-за даты, фото или песни. Один тяжёлый день не отменяет того, что вы уже прошли.</p>
+ <p class="note warn txt blk">Если тоска не&nbsp;отпускает дольше 2&nbsp;недель или появились мысли навредить себе, обратитесь к&nbsp;врачу. В&nbsp;опасной ситуации звоните&nbsp;112.</p>
  <div class="today"><h3 class="sh">Что сделать <em>сегодня</em></h3><div class="steps np c3"><div class="step np" role="button" tabindex="0"><div class="st-b"><p>Положите телефон на ночь в другую комнату.</p></div></div><div class="step np" role="button" tabindex="0"><div class="st-b"><p>Поешьте горячего, даже если не хочется.</p></div></div><div class="step np" role="button" tabindex="0"><div class="st-b"><p>Позвоните человеку, с которым вам спокойно.</p></div></div></div></div>
 </div></section>
 
@@ -849,7 +864,7 @@ html.md-open .rcp,html.md-open .rcp-menu{display:none}
   <p>Если чувство держится месяцами, с ним нужно работать.</p>
  </div>
  <p class="cta-line">С этими чувствами мы работаем на практикуме «Новая реальность».</p>
- <div class="today"><h3 class="sh">Что сделать <em>сегодня</em></h3><div class="steps np c2"><div class="step np" role="button" tabindex="0"><div class="st-b"><p>Отметьте, какое из 5 чувств у вас сильнее всего.</p></div></div><div class="step np" role="button" tabindex="0"><div class="st-b"><p>Зарегистрируйтесь на практикум и возьмите это чувство в работу.</p></div></div></div></div>
+ <div class="today"><h3 class="sh">Что сделать <em>сегодня</em></h3><div class="steps np c2"><div class="step np" role="button" tabindex="0"><div class="st-b"><p>Отметьте, какое из 5 чувств у вас сильнее всего.</p></div></div><div class="step np" role="button" tabindex="0"><div class="st-b"><p><span class="reg-only">Зарегистрируйтесь на практикум и возьмите это чувство в работу.</span><span class="vip-only">Возьмите это чувство в работу на практикуме.</span></p></div></div></div></div>
 </div></section>
 
 <!-- final -->
@@ -866,7 +881,7 @@ html.md-open .rcp,html.md-open .rcp-menu{display:none}
    <div style="--c:#e3c38a"><i></i><p>Результат <span class="nw">1-го</span> дня: найден затык, который годами держал вас на месте. Прошлое больше вас не беспокоит</p></div>
   </div>
  </div>
- <article class="tc" style="margin-top:34px">
+ <article class="tc reg-only" style="margin-top:34px">
   <div class="tk-h"><span class="tk-star">✦</span><p class="tk-s up">Участие в практикуме – 0 ₽</p><p class="tk-name">«Как выйти из угнетающих чувств в новую счастливую реальность»</p></div>
   <div class="tk-body">
    <p class="gh">После регистрации вы получите 4 подарка:</p>
@@ -878,6 +893,26 @@ html.md-open .rcp,html.md-open .rcp-menu{display:none}
   <div class="stub">
    <button type="button" class="btn" id="regBtn">Записаться на практикум</button>
    <a class="btn btn2" id="moreBtn" href="https://doctorannasaba.ru/novaya-realnost-36/">Подробнее о практикуме</a>
+  </div>
+ </article>
+</div></section>
+
+<!-- ============ версия ?vip=1: VIP-билет (состав, цена и предложение 8830645 – 1:1 с «Волшебной женщиной») ============ -->
+<section class="vip-s vip-only" id="vip"><div class="wrap">
+ <div class="head">
+  <p class="vp-bridge">Вы&nbsp;уже зарегистрированы на&nbsp;практикум «Новая&nbsp;реальность» 25–28&nbsp;ноября.</p>
+  <h2>Чтобы получить от&nbsp;практикума максимальный эффект, возьмите <em>VIP&#8209;билет</em></h2>
+ </div>
+ <article class="tc">
+  <div class="tk-h"><span class="tk-star">✦</span><p class="nm"><span class="nw">VIP-БИЛЕТ</span></p><p class="tk-s">практикум «Новая&nbsp;реальность»</p><p class="tk-s tk-d">25–28&nbsp;ноября</p></div><div class="tk-body">
+  <ul><li>3&nbsp;прямых эфира</li><li><span class="nw">4-й</span> <span class="nw">VIP-эфир</span> «Магнит для&nbsp;масштаба»</li><li>Записи и&nbsp;презентации всех&nbsp;эфиров</li><li>Домашние задания и&nbsp;дополнительные бонусные&nbsp;материалы</li><li>Чат участников практикума и&nbsp;участие в&nbsp;розыгрыше&nbsp;призов</li></ul>
+  <div class="bonus"><svg class="gift" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="vg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d77f8f"/><stop offset="1" stop-color="#b85d6e"/></linearGradient></defs><rect x="9" y="30" width="46" height="28" rx="4" fill="url(#vg1)"/><g class="lid"><rect x="5" y="21" width="54" height="12" rx="3" fill="#e08d9c"/><path class="bow" d="M32 21c-7-13-20-11-17-3 2 5 10 4 17 3zM32 21c7-13 20-11 17-3-2 5-10 4-17 3z" fill="#e8b860" stroke="#b98a3e" stroke-width="1.5"/><rect x="28" y="21" width="8" height="12" fill="#e8b860"/></g><rect x="28" y="33" width="8" height="25" fill="#e8b860"/><circle cx="18" cy="12" r="1.8" fill="#e8b860" class="tw"/><circle cx="50" cy="9" r="1.4" fill="#e8b860" class="tw"/></svg><div><b>Бонус</b><p>Практика на&nbsp;60&nbsp;минут «Прочувствуй свою новую реальность и&nbsp;узнай, что&nbsp;тебе не&nbsp;даёт в&nbsp;неё&nbsp;перейти»</p></div></div>
+  <div class="bonus"><svg class="gift" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="vg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d77f8f"/><stop offset="1" stop-color="#b85d6e"/></linearGradient></defs><rect x="9" y="30" width="46" height="28" rx="4" fill="url(#vg2)"/><g class="lid"><rect x="5" y="21" width="54" height="12" rx="3" fill="#e08d9c"/><path class="bow" d="M32 21c-7-13-20-11-17-3 2 5 10 4 17 3zM32 21c7-13 20-11 17-3-2 5-10 4-17 3z" fill="#e8b860" stroke="#b98a3e" stroke-width="1.5"/><rect x="28" y="21" width="8" height="12" fill="#e8b860"/></g><rect x="28" y="33" width="8" height="25" fill="#e8b860"/><circle cx="18" cy="12" r="1.8" fill="#e8b860" class="tw"/><circle cx="50" cy="9" r="1.4" fill="#e8b860" class="tw"/></svg><div><b>Бонус</b><p>Личный <span class="nw">разбор-диагностика</span> вашей ситуации от&nbsp;практикующего психолога: деньги, отношения, реализация, предназначение, здоровье. Вы&nbsp;получите пошаговый план без&nbsp;розовых&nbsp;очков.<small>Разборы проводят действующие психологи, выпускники Института психического здоровья доктора&nbsp;Анны&nbsp;Саба. Средняя цена консультации психологов такого уровня от&nbsp;15&nbsp;000&nbsp;₽ (для вас по&nbsp;цене&nbsp;<span class="nw">VIP-тарифа</span>).</small></p></div></div>
+  <div class="bonus"><svg class="gift" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="vg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d77f8f"/><stop offset="1" stop-color="#b85d6e"/></linearGradient></defs><rect x="9" y="30" width="46" height="28" rx="4" fill="url(#vg3)"/><g class="lid"><rect x="5" y="21" width="54" height="12" rx="3" fill="#e08d9c"/><path class="bow" d="M32 21c-7-13-20-11-17-3 2 5 10 4 17 3zM32 21c7-13 20-11 17-3-2 5-10 4-17 3z" fill="#e8b860" stroke="#b98a3e" stroke-width="1.5"/><rect x="28" y="21" width="8" height="12" fill="#e8b860"/></g><rect x="28" y="33" width="8" height="25" fill="#e8b860"/><circle cx="18" cy="12" r="1.8" fill="#e8b860" class="tw"/><circle cx="50" cy="9" r="1.4" fill="#e8b860" class="tw"/></svg><div><b>Бонус</b><p><span class="nw">Мастер-класс</span>: как с&nbsp;нуля за&nbsp;6&nbsp;месяцев освоить востребованную профессию <span class="nw">EMDR-терапевта</span>, помогать себе, родным, близким, выстроить очередь из&nbsp;клиентов и&nbsp;выйти на&nbsp;доход от&nbsp;300&nbsp;000&nbsp;₽/мес.</p></div></div>
+  </div><div class="stub">
+  <div class="price"><b>1&nbsp;980&nbsp;₽</b><s>14&nbsp;990&nbsp;₽</s></div>
+  <button type="button" class="btn" id="vipBtn" data-vip>Иду на&nbsp;VIP</button>
+  <p class="fn">Если вы уже приобрели <span class="nw">VIP-тариф</span>, второй раз оплачивать ничего не&nbsp;нужно.</p>
   </div>
  </article>
 </div></section>
@@ -911,7 +946,7 @@ html.md-open .rcp,html.md-open .rcp-menu{display:none}
   <input class="in" type="text" name="formParams[full_name]" id="rgName" maxlength="60" placeholder="Введите ваше имя" autocomplete="given-name" aria-label="Имя" required>
   <input class="in" type="email" name="formParams[email]" id="rgEmail" maxlength="60" placeholder="Введите ваш e-mail" autocomplete="email" aria-label="E-mail" required>
   <input class="in" type="tel" name="formParams[phone]" id="rgPhone" maxlength="24" inputmode="tel" placeholder="Введите ваш телефон" autocomplete="tel" aria-label="Телефон" required>
-  <label class="consent"><input type="checkbox" name="pdpConfirmCheckbox" required><span>Я <a href="https://doctor-saba.com/doctor-saba-soglasie-na-opd" target="_blank" rel="noopener">согласен</a> на обработку моих персональных данных в соответствии с <a href="https://doctor-saba.com/doctor-saba-politika-opd" target="_blank" rel="noopener">Политикой обработки персональных данных</a></span></label>
+  <label class="consent"><input type="checkbox" name="pdpConfirmCheckbox" required><span>Я <a href="https://doctor-saba.com/doctor-saba-soglasie-na-opd" target="_blank" rel="noopener">согласна</a> на обработку моих персональных данных в соответствии с <a href="https://doctor-saba.com/doctor-saba-politika-opd" target="_blank" rel="noopener">Политикой обработки персональных данных</a></span></label>
   <label class="consent"><input type="checkbox" name="confirmMailingCheckbox"><span>Даю <a href="https://doctor-saba.com/doctor-saba-soglasie-na-reklamu" target="_blank" rel="noopener">согласие</a> на получение информационных и маркетинговых рассылок (можно отказаться в любой момент в личном кабинете)</span></label>
   <button type="submit" class="btn" id="rgSubmit">Записаться на практикум</button>
  </form>
@@ -964,7 +999,7 @@ html.md-open .rcp,html.md-open .rcp-menu{display:none}
  /* sticky contents bar «N/6» */
  var bar=D.getElementById('rcp'),menu=D.getElementById('rcpMenu'),tt=D.getElementById('rcpt'),n=D.getElementById('rcpn'),dots=bar.querySelectorAll('.rfl i'),links=menu.querySelectorAll('a');
  var parts=[].slice.call(D.querySelectorAll('.part')),toc=D.getElementById('toc'),fin=D.getElementById('practicum'),md=D.getElementById('md'),tk=false;
- function upd(){tk=false;var y=scrollY,show=toc.getBoundingClientRect().bottom<0&&fin.getBoundingClientRect().top>innerHeight*.55&&!md.classList.contains('on');
+ function upd(){tk=false;var y=scrollY,show=toc.getBoundingClientRect().bottom<0&&fin.getBoundingClientRect().top>innerHeight*.55&&!md.classList.contains('on')&&!H.classList.contains('md-open');
   bar.classList.toggle('on',show);if(!show){menu.classList.remove('on');bar.setAttribute('aria-expanded','false')}
   var ci=0;parts.forEach(function(p,i){if(p.getBoundingClientRect().top<innerHeight*.4)ci=i});
   tt.textContent=links[ci].querySelector('span').textContent;n.textContent=(ci+1)+'/6';
@@ -996,7 +1031,7 @@ html.md-open .rcp,html.md-open .rcp-menu{display:none}
  ph.addEventListener('input',function(){ph.value=fmt(ph.value);var k=ph.value.replace(/\D/g,'').length;ph.setCustomValidity(k>=10?'':'Введите телефон полностью, с кодом страны')});
  f.addEventListener('submit',function(e){if(sent){e.preventDefault();return}sent=true;D.getElementById('rgSubmit').setAttribute('aria-busy','true');D.getElementById('rgLoc').value=location.href});
  addEventListener('pageshow',function(e){if(!e.persisted)return;sent=false;D.getElementById('rgSubmit').removeAttribute('aria-busy')});
- function open(){if(md.classList.contains('on'))return;prev=D.activeElement;md.classList.add('on');D.documentElement.classList.add('md-open');box.scrollTop=0;
+ function open(){if(window.DS_VIP){if(window.dsVipOpen)window.dsVipOpen();return}if(md.classList.contains('on'))return;prev=D.activeElement;md.classList.add('on');D.documentElement.classList.add('md-open');box.scrollTop=0;
   var first=f.querySelector('input:not([type=hidden])');if(first&&!params.has('shot'))setTimeout(function(){first.focus({preventScroll:true})},30)}
  function close(){if(!md.classList.contains('on'))return;md.classList.remove('on');D.documentElement.classList.remove('md-open');if(prev&&prev.focus)prev.focus({preventScroll:true})}
  D.getElementById('regBtn').addEventListener('click',open);
@@ -1006,6 +1041,40 @@ html.md-open .rcp,html.md-open .rcp-menu{display:none}
   if(e.key==='Tab'){var els=[].filter.call(box.querySelectorAll('a[href],button,input:not([type=hidden])'),function(x){return x.offsetParent});if(!els.length)return;
    var i=els.indexOf(D.activeElement);if(e.shiftKey&&i<=0){e.preventDefault();els[els.length-1].focus()}else if(!e.shiftKey&&i===els.length-1){e.preventDefault();els[0].focus()}}});
  if(location.hash==='#register'||params.get('p')==='register')open();
+})();
+</script>
+
+<div class="md" id="vm" role="dialog" aria-modal="true" aria-labelledby="vm-t"><div class="md-box">
+ <button type="button" class="md-x" data-close aria-label="Закрыть">×</button>
+ <h3 id="vm-t"><span class="nw">VIP-участие</span> в&nbsp;практикуме</h3>
+ <p class="fmt">Онлайн · 25–28&nbsp;ноября · тариф VIP</p>
+ <form id="vmForm" action="https://doctor-saba.com/sales/shop/offer/id/8830645" method="post" enctype="multipart/form-data" accept-charset="UTF-8" target="_top">
+  <input type="hidden" name="OrderForm[selected_offer_id]" value="8830645"><input type="hidden" name="OrderForm[created_by_object_type]" value="sales_widget">
+  <label class="field" for="vm-email">Электронная почта<input id="vm-email" type="email" name="OrderForm[email]" autocomplete="email" inputmode="email" maxlength="100" required placeholder="Введите ваш e-mail"></label>
+  <label class="field" for="vm-name">Ваше имя<input id="vm-name" type="text" name="OrderForm[full_name]" autocomplete="given-name" maxlength="60" required placeholder="Введите ваше имя"></label>
+  <label class="field" for="vm-phone">Телефон<input id="vm-phone" type="tel" name="OrderForm[phone]" autocomplete="tel" inputmode="tel" maxlength="30" required placeholder="Введите ваш телефон"></label>
+  <label class="consent"><input type="checkbox" required><span>Даю согласие с&nbsp;договором <a href="https://doctor-saba.com/doctor-saba-oferta-obrazovanie" target="_blank" rel="noopener">офертой на&nbsp;образовательные услуги</a></span></label>
+  <label class="consent"><input type="checkbox" name="pdpConfirmCheckbox" required><span>Я <a href="https://doctor-saba.com/doctor-saba-soglasie-na-opd" target="_blank" rel="noopener">согласна</a> на&nbsp;обработку моих персональных данных в&nbsp;соответствии с&nbsp;<a href="https://doctor-saba.com/doctor-saba-politika-opd" target="_blank" rel="noopener">Политикой обработки персональных данных</a></span></label>
+  <label class="consent"><input type="checkbox" name="confirmMailingCheckbox"><span>Даю <a href="https://doctor-saba.com/doctor-saba-soglasie-na-reklamu" target="_blank" rel="noopener">согласие</a> на&nbsp;получение информационных и&nbsp;маркетинговых рассылок</span></label>
+  <div class="sum"><span>К оплате</span><div><strong>1&nbsp;980&nbsp;₽</strong><s>14&nbsp;990&nbsp;₽</s></div></div>
+  <button class="btn" type="submit" id="vmSubmit">Перейти к&nbsp;оплате</button>
+ </form>
+</div></div>
+<script>
+/* VIP: окно оплаты (обработчик «Волшебной женщины»), utm – в адрес заказа; любая кнопка регистрации в VIP-версии открывает его */
+(function(){
+ var D=document,H=D.documentElement,md=D.getElementById('vm'),f=D.getElementById('vmForm'),sent=false,prev=null;
+ function open(){if(md.classList.contains('on'))return;prev=D.activeElement;md.classList.add('on');H.classList.add('md-open');
+  if(!/[?&]shot\b/.test(location.search))setTimeout(function(){D.getElementById('vm-email').focus({preventScroll:true})},50)}
+ function close(){if(!md.classList.contains('on'))return;md.classList.remove('on');H.classList.remove('md-open');if(prev&&prev.focus)prev.focus({preventScroll:true})}
+ D.getElementById('vipBtn').addEventListener('click',open);
+ md.addEventListener('click',function(e){if(e.target===md||e.target.hasAttribute('data-close'))close()});
+ addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+ f.addEventListener('submit',function(e){if(/[?&]edit\b/.test(location.search)||sent){e.preventDefault();return}sent=true;D.getElementById('vmSubmit').setAttribute('aria-busy','true');
+  if(window.dsUtm&&window.dsUtm.tag)f.action=window.dsUtm.tag('https://doctor-saba.com/sales/shop/offer/id/8830645')});
+ addEventListener('pageshow',function(e){if(e.persisted){sent=false;D.getElementById('vmSubmit').removeAttribute('aria-busy')}});
+ window.dsVipOpen=open;
+ if(window.DS_VIP&&(location.hash==='#register'||/[?&](popup=1|p=register)/.test(location.search)))open();
 })();
 </script>
 <script src="/gajd-sticky.js" data-topic="rasstavanie" defer></script>

@@ -2,6 +2,13 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8"><script src="/utm.js"></script>
+<script>
+/* Две версии страницы (Евгений): без ?vip=1 – регистрация на практикум, с ?vip=1 – уже зарегистрированным VIP-билет.
+   Класс на <html> ставится до первой отрисовки, признак живёт в sessionStorage до конца сессии (?vip=0 сбрасывает). */
+(function(){var d=document.documentElement,v=false;try{var q=new URLSearchParams(location.search).get('vip');
+ if(q==='1'){sessionStorage.setItem('ds_vip','1');v=true}else if(q==='0'){sessionStorage.removeItem('ds_vip')}else v=sessionStorage.getItem('ds_vip')==='1'}catch(e){}
+ if(v)d.classList.add('vip');window.DS_VIP=v})();
+</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Измена: как пережить и не разрушить себя – гайд Анны Саба</title>
 <meta name="description" content="Бесплатный гайд врача-психотерапевта Анны Саба: что делать в первые дни после измены, как перестать прокручивать мысли и вернуть уважение к себе.">
@@ -343,6 +350,91 @@ html.lpe-on .rcp{display:none}
  .rg{align-items:center}.rg-box{border-radius:24px;padding:26px 26px 26px}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}html.js .rv{opacity:1;transform:none}.stage .chains,.ct,.flash,.spark{display:none}.stage .free{opacity:1}.mw{opacity:1;transform:translate(-50%,-50%)}}
+
+/* ===== версия ?vip=1: VIP-билет «Волшебной женщины» вместо регистрации ===== */
+html:not(.vip) .vip-only{display:none!important}
+html.vip .reg-only{display:none!important}
+.vip-s .vp-bridge{max-width:640px;margin:0 auto 10px;text-align:center;font:600 17px/1.5 var(--fb);color:var(--rose);text-wrap:balance}
+/* ===== vip ===== */
+.vip-s .head{text-align:center}
+.vip-s .lead{margin:0 auto;text-align:left}
+.vip-s .lead+.lead{margin-top:12px}
+.tc{position:relative;margin-top:26px;padding:26px 22px;border-radius:var(--rad);background:var(--card);border:1.5px solid var(--gold2);box-shadow:0 30px 60px -36px rgba(185,138,62,.7)}
+.tc .nm{text-align:center;font:600 13px/1.2 var(--fb);letter-spacing:.24em;color:var(--gold);margin-bottom:14px}
+.tc ul{list-style:none;display:grid;gap:8px;font-size:16px;font-weight:500}
+.tc li{position:relative;padding-left:26px}
+.tc li:before{content:"✓";position:absolute;left:0;top:0;color:var(--gold);font-weight:700}
+.bonus{margin-top:12px;padding:14px 16px;border-radius:18px;background:#fbf3ea;border:1px dashed var(--gold2)}
+.bonus b{font:600 11px/1.2 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--rose)}
+.bonus p{font-size:15px;margin-top:4px}
+.bonus small{display:block;margin-top:6px;font-size:13px;color:var(--muted)}
+.price{display:flex;justify-content:center;align-items:baseline;gap:14px;margin:22px 0 14px}
+.price b{font:600 48px/1 var(--fh);color:var(--plum)}
+.price s{font-size:19px;color:var(--muted)}
+.tc .btn{width:100%}
+.fn{margin-top:12px;font-size:14px;color:var(--muted);text-align:center}
+.md{position:fixed;inset:0;z-index:50;display:none;align-items:flex-end;justify-content:center;background:rgba(46,31,38,.55);backdrop-filter:blur(4px)}
+.md.on{display:flex}
+.md-box{width:100%;max-width:480px;max-height:92svh;overflow:auto;padding:22px 18px 26px;border-radius:24px 24px 0 0;background:var(--card)}
+.md-x{float:right;width:36px;height:36px;border-radius:50%;border:0;background:var(--bg2);color:var(--ink);font-size:20px;cursor:pointer}
+.md h3{font-size:22px;margin:4px 0}
+.md .fmt{font-size:14px;color:var(--muted);margin-bottom:14px}
+.md label.field{display:block;font-size:14px;font-weight:500;color:var(--muted);margin-bottom:10px}
+.md label.field input{display:block;width:100%;margin-top:4px;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);font:500 16px var(--fb)}
+.md .consent{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--muted);margin:8px 0}
+.md .consent a{color:var(--plum)}
+.md .sum{display:flex;justify-content:space-between;align-items:baseline;margin:14px 0}
+.md .sum strong{font:600 32px var(--fh);color:var(--plum)}
+.md .sum s{color:var(--muted);margin-left:6px}
+.md button[type=submit]{width:100%}
+/* ===== v5: VIP ticket shine ===== */
+.tc{overflow:hidden}
+.tc:after{content:"";position:absolute;top:-20%;bottom:-20%;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,240,210,.55),transparent);transform:skewX(-18deg);animation:shine 4.5s 1s ease-in-out infinite;pointer-events:none}
+@keyframes shine{0%{left:-60%}45%,100%{left:130%}}
+.price s{position:relative;text-decoration:none}
+.price s:after{content:"";position:absolute;left:-2px;right:-2px;top:52%;height:2px;background:var(--rose);transform:scaleX(0);transform-origin:left;transition:transform .7s .2s}
+.tc.in .price s:after{transform:scaleX(1)}
+html:not(.js) .price s:after{transform:scaleX(1)}
+/* ===== v5: real ticket ===== */
+.tc{padding:0;background:#fffaf2;border:0;box-shadow:0 40px 80px -40px rgba(110,41,68,.55),0 0 0 1.5px var(--gold2);border-radius:28px;overflow:hidden}
+.tc:before{content:"";position:absolute;inset:8px;border:1px solid rgba(185,138,62,.45);border-radius:22px;pointer-events:none;z-index:1}
+.tk-h{position:relative;text-align:center;padding:30px 22px 26px;background:radial-gradient(120% 140% at 50% 0%,#8a3456 0%,var(--plum) 45%,var(--plum2) 100%);color:#f7e6c6;overflow:hidden}
+.tk-h:after{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 50% 120%,rgba(227,195,138,.13) 0 2px,transparent 2px 14px);pointer-events:none}
+.tk-d{margin-top:2px}
+.tk-star{display:block;font-size:20px;color:var(--gold2);margin-bottom:6px}
+.tc .tk-h .nm{margin:0;font:700 clamp(30px,8vw,42px)/1 var(--fh);letter-spacing:.14em;background:linear-gradient(180deg,#fff3d6,#e3c38a 55%,#c99a4c);-webkit-background-clip:text;background-clip:text;color:transparent;padding:4px 0}
+.tk-s{margin-top:10px;font:italic 600 19px/1.3 var(--fi);color:#f3dcc0}
+.tk-body{position:relative;padding:26px 22px 22px;background-image:radial-gradient(rgba(185,138,62,.07) 1px,transparent 1.5px);background-size:14px 14px}
+.tc ul{font-size:17px;gap:10px}
+.tc li{padding-left:30px}
+.tc li:before{content:"";top:.2em;width:20px;height:20px;border-radius:50%;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3.2 3L15 7' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+.bonus{display:grid;grid-template-columns:48px 1fr;column-gap:12px;row-gap:8px;align-items:center;margin-top:14px;padding:16px;border-radius:20px;background:linear-gradient(160deg,#fdeef0,#fff6ea);border:1px solid var(--rose2)}
+.bonus>div{display:contents}.bonus p{grid-column:1/-1}
+.bonus .gift{width:48px;height:48px;filter:drop-shadow(0 6px 10px rgba(185,138,62,.35))}
+.bonus .gift .lid{transform-box:view-box;transform-origin:32px 33px}
+.tc.in .bonus .gift .lid{animation:lid 3.6s ease-in-out infinite}
+.tc.in .bonus:nth-of-type(2) .gift .lid{animation-delay:1.2s}
+.tc.in .bonus:nth-of-type(3) .gift .lid{animation-delay:2.4s}
+@keyframes lid{0%,70%,100%{transform:none}78%{transform:translateY(-7px) rotate(-6deg)}86%{transform:translateY(-3px) rotate(3deg)}}
+.bonus b{font:700 12px/1.2 var(--fb);letter-spacing:.18em;color:var(--rose)}
+.bonus p{font-size:16px;line-height:1.5;margin-top:4px;color:var(--ink)}
+.bonus small{font-size:14px}
+.stub{position:relative;padding:26px 22px 26px;border-top:2px dashed rgba(185,138,62,.55);background:linear-gradient(180deg,#fff4e2,#fbe9d2)}
+.stub:before,.stub:after{content:"";position:absolute;top:-17px;width:32px;height:32px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--gold2);z-index:2}
+.stub:before{left:-16px}.stub:after{right:-16px}
+.stub .price{margin:0 0 16px}
+.tc .stub .btn{width:100%;background:linear-gradient(180deg,#c99a4c,#a87a2f);box-shadow:0 14px 30px -12px rgba(168,122,47,.7)}
+.vip-s{background:var(--bg)}
+/* ===== v5: telegram row ===== */
+
+.price b,.md .sum strong{font-family:var(--fb);font-weight:600;letter-spacing:-.02em}
+.price b{font-size:40px}.md .sum strong{font-size:26px}
+@keyframes shine{0%{left:-60%}45%,100%{left:130%}}
+.vip-s .tc{max-width:660px;margin-left:auto;margin-right:auto}
+@media(min-width:900px){.md{align-items:center}.md-box{border-radius:24px}
+ .tc{max-width:780px}.tc ul{font-size:18px}.bonus p{font-size:17px}.bonus{grid-template-columns:68px 1fr;align-items:start;padding:18px 20px}.bonus>div{display:block}.bonus p{grid-column:auto}.bonus .gift{width:68px;height:68px}.tk-body{padding:32px 34px 26px}.stub{padding:28px 34px}}
+.md{z-index:310}
+html.md-open{overflow:hidden}
 </style>
 </head>
 <body>
@@ -362,7 +454,7 @@ html.lpe-on .rcp{display:none}
   <span class="stage-tip">нажмите, чтобы&nbsp;повторить</span>
  </div>
  <div class="hx-text">
-  <p class="hx-tag">Бесплатный&nbsp;гайд</p>
+  <p class="hx-tag"><span class="reg-only">Бесплатный&nbsp;гайд</span><span class="vip-only">Гайд</span></p>
   <p class="hx-by"><b>Анна&nbsp;Саба</b> <span class="nw">врач-психотерапевт</span> · <span class="nw">10+ лет&nbsp;практики</span></p>
   <h1>Как&nbsp;пережить измену, успокоиться и&nbsp;<em>вернуть уважение к&nbsp;себе</em></h1>
   <p class="hx-lt">В&nbsp;гайде вы&nbsp;узнаете:</p>
@@ -440,7 +532,7 @@ html.lpe-on .rcp{display:none}
    <div class="wb-p"><b>2</b><p>Сделайте медленный вдох на&nbsp;4&nbsp;счёта и&nbsp;выдох на&nbsp;6&nbsp;счётов. Повторите 10&nbsp;раз.</p></div>
    <div class="wb-p"><b>3</b><p>Если&nbsp;мысли не&nbsp;дают уснуть, встаньте и&nbsp;запишите их&nbsp;на&nbsp;бумагу. Записанная мысль меньше крутится в&nbsp;голове.</p></div>
    <div class="wb-p"><b>4</b><p>Укройтесь тёплым одеялом и&nbsp;оставьте неяркий свет. Телу нужно почувствовать, что&nbsp;оно в&nbsp;безопасности.</p></div>
-   <div class="wb-p"><b>5</b><p>Если&nbsp;очень страшно, позвоните близкому человеку. Можно просто помолчать&nbsp;вместе.</p></div>
+   <div class="wb-p"><b>5</b><p>Если&nbsp;очень страшно, позвоните близкому человеку. Можно просто помолчать вместе. Если появились мысли навредить себе, звоните&nbsp;112.</p></div>
   </div>
  </div>
  <h3 class="sh">Как&nbsp;говорить с&nbsp;ним</h3>
@@ -605,9 +697,9 @@ html.lpe-on .rcp{display:none}
   <p>Они держатся месяцами и&nbsp;даже годами, хотя всё&nbsp;вроде бы&nbsp;позади. Чаще всего это&nbsp;4&nbsp;чувства:</p>
  </div>
  <ul class="feel">
-  <li style="--c:#c46f7e"><figure><img src="https://doctorannasaba.ru/volshebnaya-zhenshchina/img/flask-obida.webp" alt="" width="800" height="1200"><b>Обида</b></figure><p>Вы&nbsp;снова и&nbsp;снова возвращаетесь к&nbsp;тому, что&nbsp;случилось, и&nbsp;каждый раз&nbsp;больно.</p></li>
-  <li style="--c:#b98a3e"><figure><img src="https://doctorannasaba.ru/volshebnaya-zhenshchina/img/flask-vina.webp" alt="" width="800" height="1200"><b>Вина</b></figure><p>Кажется, что&nbsp;это&nbsp;вы&nbsp;что-то сделали не&nbsp;так.</p></li>
-  <li style="--c:#8a64b8"><figure><img src="https://doctorannasaba.ru/volshebnaya-zhenshchina/img/flask-styd.webp" alt="" width="800" height="1200"><b>Стыд</b></figure><p>Неловко перед людьми, хочется&nbsp;спрятаться.</p></li>
+  <li style="--c:#c46f7e"><figure><img src="../volshebnaya-zhenshchina/img/flask-obida.webp" alt="" width="800" height="1200"><b>Обида</b></figure><p>Вы&nbsp;снова и&nbsp;снова возвращаетесь к&nbsp;тому, что&nbsp;случилось, и&nbsp;каждый раз&nbsp;больно.</p></li>
+  <li style="--c:#b98a3e"><figure><img src="../volshebnaya-zhenshchina/img/flask-vina.webp" alt="" width="800" height="1200"><b>Вина</b></figure><p>Кажется, что&nbsp;это&nbsp;вы&nbsp;что-то сделали не&nbsp;так.</p></li>
+  <li style="--c:#8a64b8"><figure><img src="../volshebnaya-zhenshchina/img/flask-styd.webp" alt="" width="800" height="1200"><b>Стыд</b></figure><p>Неловко перед людьми, хочется&nbsp;спрятаться.</p></li>
   <li style="--c:#4f86b8"><figure><img src="img/flask-trevoga.webp" alt="" width="800" height="1200"><b>Тревога</b></figure><p>Страшно, что&nbsp;всё&nbsp;повторится, трудно снова&nbsp;доверять.</p></li>
  </ul>
  <div class="col">
@@ -631,13 +723,33 @@ html.lpe-on .rcp{display:none}
    <div class="wb-p"><b>2</b><p>Делаем практики на&nbsp;эфирах и&nbsp;сфокусированно работаем с&nbsp;миндалевидным телом (амигдалой&nbsp;– частью мозга, отвечающей за&nbsp;старые&nbsp;реакции)</p></div>
    <div class="wb-p"><b>3</b><p>При&nbsp;помощи самых эффективных методов психотерапии EMDR 3.0&nbsp;и&nbsp;КПТ переписываем старые сценарии и&nbsp;переходим в&nbsp;новое&nbsp;состояние</p></div>
   </div>
-  <div class="doc"><img src="https://doctorannasaba.ru/volshebnaya-zhenshchina/img/anna-au-smile.webp" alt="Анна Саба" width="76" height="76"><b>Анна&nbsp;Саба</b><span><span class="nw">врач-психотерапевт</span> · <span class="nw">10+ лет&nbsp;практики</span> · <span class="nw">7000+&nbsp;клиентов</span></span></div>
+  <div class="doc"><img src="../volshebnaya-zhenshchina/img/anna-au-smile.webp" alt="Анна Саба" width="76" height="76"><b>Анна&nbsp;Саба</b><span><span class="nw">врач-психотерапевт</span> · <span class="nw">10+ лет&nbsp;практики</span> · <span class="nw">7000+&nbsp;клиентов</span></span></div>
  </div>
- <p class="free-t">Участие&nbsp;бесплатное</p>
- <div class="fin-acts">
+ <p class="free-t reg-only">Участие&nbsp;бесплатное</p>
+ <div class="fin-acts reg-only">
   <button type="button" class="btn" id="regBtn" data-open>Записаться на&nbsp;практикум<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <a class="btn btn-2" id="moreBtn" href="https://doctorannasaba.ru/novaya-realnost-36/" target="_blank" rel="noopener">Подробнее о&nbsp;практикуме</a>
  </div>
+</div></section>
+
+<!-- ============ версия ?vip=1: VIP-билет (состав, цена и предложение 8830645 – 1:1 с «Волшебной женщиной») ============ -->
+<section class="vip-s vip-only" id="vip"><div class="wrap">
+ <div class="head">
+  <p class="vp-bridge">Вы&nbsp;уже зарегистрированы на&nbsp;практикум «Новая&nbsp;реальность» 25–28&nbsp;ноября.</p>
+  <h2>Чтобы получить от&nbsp;практикума максимальный эффект, возьмите <em>VIP&#8209;билет</em></h2>
+ </div>
+ <article class="tc">
+  <div class="tk-h"><span class="tk-star">✦</span><p class="nm"><span class="nw">VIP-БИЛЕТ</span></p><p class="tk-s">практикум «Новая&nbsp;реальность»</p><p class="tk-s tk-d">25–28&nbsp;ноября</p></div><div class="tk-body">
+  <ul><li>3&nbsp;прямых эфира</li><li><span class="nw">4-й</span> <span class="nw">VIP-эфир</span> «Магнит для&nbsp;масштаба»</li><li>Записи и&nbsp;презентации всех&nbsp;эфиров</li><li>Домашние задания и&nbsp;дополнительные бонусные&nbsp;материалы</li><li>Чат участников практикума и&nbsp;участие в&nbsp;розыгрыше&nbsp;призов</li></ul>
+  <div class="bonus"><svg class="gift" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="vg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d77f8f"/><stop offset="1" stop-color="#b85d6e"/></linearGradient></defs><rect x="9" y="30" width="46" height="28" rx="4" fill="url(#vg1)"/><g class="lid"><rect x="5" y="21" width="54" height="12" rx="3" fill="#e08d9c"/><path class="bow" d="M32 21c-7-13-20-11-17-3 2 5 10 4 17 3zM32 21c7-13 20-11 17-3-2 5-10 4-17 3z" fill="#e8b860" stroke="#b98a3e" stroke-width="1.5"/><rect x="28" y="21" width="8" height="12" fill="#e8b860"/></g><rect x="28" y="33" width="8" height="25" fill="#e8b860"/><circle cx="18" cy="12" r="1.8" fill="#e8b860" class="tw"/><circle cx="50" cy="9" r="1.4" fill="#e8b860" class="tw"/></svg><div><b>Бонус</b><p>Практика на&nbsp;60&nbsp;минут «Прочувствуй свою новую реальность и&nbsp;узнай, что&nbsp;тебе не&nbsp;даёт в&nbsp;неё&nbsp;перейти»</p></div></div>
+  <div class="bonus"><svg class="gift" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="vg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d77f8f"/><stop offset="1" stop-color="#b85d6e"/></linearGradient></defs><rect x="9" y="30" width="46" height="28" rx="4" fill="url(#vg2)"/><g class="lid"><rect x="5" y="21" width="54" height="12" rx="3" fill="#e08d9c"/><path class="bow" d="M32 21c-7-13-20-11-17-3 2 5 10 4 17 3zM32 21c7-13 20-11 17-3-2 5-10 4-17 3z" fill="#e8b860" stroke="#b98a3e" stroke-width="1.5"/><rect x="28" y="21" width="8" height="12" fill="#e8b860"/></g><rect x="28" y="33" width="8" height="25" fill="#e8b860"/><circle cx="18" cy="12" r="1.8" fill="#e8b860" class="tw"/><circle cx="50" cy="9" r="1.4" fill="#e8b860" class="tw"/></svg><div><b>Бонус</b><p>Личный <span class="nw">разбор-диагностика</span> вашей ситуации от&nbsp;практикующего психолога: деньги, отношения, реализация, предназначение, здоровье. Вы&nbsp;получите пошаговый план без&nbsp;розовых&nbsp;очков.<small>Разборы проводят действующие психологи, выпускники Института психического здоровья доктора&nbsp;Анны&nbsp;Саба. Средняя цена консультации психологов такого уровня от&nbsp;15&nbsp;000&nbsp;₽ (для вас по&nbsp;цене&nbsp;<span class="nw">VIP-тарифа</span>).</small></p></div></div>
+  <div class="bonus"><svg class="gift" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="vg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d77f8f"/><stop offset="1" stop-color="#b85d6e"/></linearGradient></defs><rect x="9" y="30" width="46" height="28" rx="4" fill="url(#vg3)"/><g class="lid"><rect x="5" y="21" width="54" height="12" rx="3" fill="#e08d9c"/><path class="bow" d="M32 21c-7-13-20-11-17-3 2 5 10 4 17 3zM32 21c7-13 20-11 17-3-2 5-10 4-17 3z" fill="#e8b860" stroke="#b98a3e" stroke-width="1.5"/><rect x="28" y="21" width="8" height="12" fill="#e8b860"/></g><rect x="28" y="33" width="8" height="25" fill="#e8b860"/><circle cx="18" cy="12" r="1.8" fill="#e8b860" class="tw"/><circle cx="50" cy="9" r="1.4" fill="#e8b860" class="tw"/></svg><div><b>Бонус</b><p><span class="nw">Мастер-класс</span>: как с&nbsp;нуля за&nbsp;6&nbsp;месяцев освоить востребованную профессию <span class="nw">EMDR-терапевта</span>, помогать себе, родным, близким, выстроить очередь из&nbsp;клиентов и&nbsp;выйти на&nbsp;доход от&nbsp;300&nbsp;000&nbsp;₽/мес.</p></div></div>
+  </div><div class="stub">
+  <div class="price"><b>1&nbsp;980&nbsp;₽</b><s>14&nbsp;990&nbsp;₽</s></div>
+  <button type="button" class="btn" id="vipBtn" data-vip>Иду на&nbsp;VIP</button>
+  <p class="fn">Если вы уже приобрели <span class="nw">VIP-тариф</span>, второй раз оплачивать ничего не&nbsp;нужно.</p>
+  </div>
+ </article>
 </div></section>
 
 <a class="rcp" id="rcp" href="#toc" aria-label="Оглавление"><b id="rcpt">Что&nbsp;с&nbsp;вами сейчас&nbsp;происходит</b><span class="rdots" id="rdots"><i></i><i></i><i></i><i></i><i></i><i></i></span><em id="rcpn">1/6</em></a>
@@ -691,7 +803,7 @@ html.lpe-on .rcp{display:none}
  function upd(){tk=false;var vh=innerHeight,cur=0;secs.forEach(function(s,i){if(s.getBoundingClientRect().top<vh*.4)cur=i});
   tt.textContent=secs[cur].getAttribute('data-t');nn.textContent=(cur+1)+'/'+secs.length;
   [].forEach.call(dots,function(d,i){d.classList.toggle('got',i<cur);d.classList.toggle('cur',i===cur)});
-  var on=secs[0].getBoundingClientRect().top<vh*.5&&fin.getBoundingClientRect().top>vh*.6&&!D.documentElement.classList.contains('rg-open');
+  var on=secs[0].getBoundingClientRect().top<vh*.5&&fin.getBoundingClientRect().top>vh*.6&&!D.documentElement.classList.contains('rg-open')&&!D.documentElement.classList.contains('md-open');
   bar.classList.toggle('on',on)}
  addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(upd)}},{passive:true});addEventListener('resize',upd);upd();
  D.querySelectorAll('.today').forEach(function(box){var K='gi-today-'+box.getAttribute('data-k'),li=box.querySelectorAll('li');
@@ -772,6 +884,7 @@ html.lpe-on .rcp{display:none}
     const b = document.getElementById('rgSubmit'); if (b) b.removeAttribute('aria-busy');
   });
   function openRegister(from) {
+    if (window.DS_VIP) { if (window.dsVipOpen) window.dsVipOpen(); return; }   // зарегистрированным – VIP, не регистрация
     if (!rg) buildRegister();
     if (!rg.hidden) return;
     rgPrevFocus = document.activeElement;
@@ -860,6 +973,40 @@ html.lpe-on .rcp{display:none}
     </div>
   </div>
 </div>
+
+<div class="md" id="vm" role="dialog" aria-modal="true" aria-labelledby="vm-t"><div class="md-box">
+ <button type="button" class="md-x" data-close aria-label="Закрыть">×</button>
+ <h3 id="vm-t"><span class="nw">VIP-участие</span> в&nbsp;практикуме</h3>
+ <p class="fmt">Онлайн · 25–28&nbsp;ноября · тариф VIP</p>
+ <form id="vmForm" action="https://doctor-saba.com/sales/shop/offer/id/8830645" method="post" enctype="multipart/form-data" accept-charset="UTF-8" target="_top">
+  <input type="hidden" name="OrderForm[selected_offer_id]" value="8830645"><input type="hidden" name="OrderForm[created_by_object_type]" value="sales_widget">
+  <label class="field" for="vm-email">Электронная почта<input id="vm-email" type="email" name="OrderForm[email]" autocomplete="email" inputmode="email" maxlength="100" required placeholder="Введите ваш e-mail"></label>
+  <label class="field" for="vm-name">Ваше имя<input id="vm-name" type="text" name="OrderForm[full_name]" autocomplete="given-name" maxlength="60" required placeholder="Введите ваше имя"></label>
+  <label class="field" for="vm-phone">Телефон<input id="vm-phone" type="tel" name="OrderForm[phone]" autocomplete="tel" inputmode="tel" maxlength="30" required placeholder="Введите ваш телефон"></label>
+  <label class="consent"><input type="checkbox" required><span>Даю согласие с&nbsp;договором <a href="https://doctor-saba.com/doctor-saba-oferta-obrazovanie" target="_blank" rel="noopener">офертой на&nbsp;образовательные услуги</a></span></label>
+  <label class="consent"><input type="checkbox" name="pdpConfirmCheckbox" required><span>Я <a href="https://doctor-saba.com/doctor-saba-soglasie-na-opd" target="_blank" rel="noopener">согласна</a> на&nbsp;обработку моих персональных данных в&nbsp;соответствии с&nbsp;<a href="https://doctor-saba.com/doctor-saba-politika-opd" target="_blank" rel="noopener">Политикой обработки персональных данных</a></span></label>
+  <label class="consent"><input type="checkbox" name="confirmMailingCheckbox"><span>Даю <a href="https://doctor-saba.com/doctor-saba-soglasie-na-reklamu" target="_blank" rel="noopener">согласие</a> на&nbsp;получение информационных и&nbsp;маркетинговых рассылок</span></label>
+  <div class="sum"><span>К оплате</span><div><strong>1&nbsp;980&nbsp;₽</strong><s>14&nbsp;990&nbsp;₽</s></div></div>
+  <button class="btn" type="submit" id="vmSubmit">Перейти к&nbsp;оплате</button>
+ </form>
+</div></div>
+<script>
+/* VIP: окно оплаты (обработчик «Волшебной женщины»), utm – в адрес заказа; любая кнопка регистрации в VIP-версии открывает его */
+(function(){
+ var D=document,H=D.documentElement,md=D.getElementById('vm'),f=D.getElementById('vmForm'),sent=false,prev=null;
+ function open(){if(md.classList.contains('on'))return;prev=D.activeElement;md.classList.add('on');H.classList.add('md-open');
+  if(!/[?&]shot\b/.test(location.search))setTimeout(function(){D.getElementById('vm-email').focus({preventScroll:true})},50)}
+ function close(){if(!md.classList.contains('on'))return;md.classList.remove('on');H.classList.remove('md-open');if(prev&&prev.focus)prev.focus({preventScroll:true})}
+ D.getElementById('vipBtn').addEventListener('click',open);
+ md.addEventListener('click',function(e){if(e.target===md||e.target.hasAttribute('data-close'))close()});
+ addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+ f.addEventListener('submit',function(e){if(/[?&]edit\b/.test(location.search)||sent){e.preventDefault();return}sent=true;D.getElementById('vmSubmit').setAttribute('aria-busy','true');
+  if(window.dsUtm&&window.dsUtm.tag)f.action=window.dsUtm.tag('https://doctor-saba.com/sales/shop/offer/id/8830645')});
+ addEventListener('pageshow',function(e){if(e.persisted){sent=false;D.getElementById('vmSubmit').removeAttribute('aria-busy')}});
+ window.dsVipOpen=open;
+ if(window.DS_VIP&&(location.hash==='#register'||/[?&](popup=1|p=register)/.test(location.search)))open();
+})();
+</script>
 <script src="/gajd-sticky.js" data-topic="izmena" defer></script>
 </body>
 </html>
