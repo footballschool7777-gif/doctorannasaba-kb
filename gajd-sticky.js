@@ -42,6 +42,9 @@
   document.body.appendChild(bar); document.body.appendChild(note);
 
   bar.querySelector('#gsBtn').addEventListener('click', function () {
+    // VIP version (msg 18087): scroll to the VIP tariff so the reader sees what 1 980 ₽ includes, no payment popup
+    var vip = document.documentElement.classList.contains('vip') && document.getElementById('vip');
+    if (vip) { vip.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
     var reg = document.getElementById('regBtn');
     if (reg) reg.click();
     else location.hash = '#register';

@@ -3079,7 +3079,7 @@ const CONFIG = {
     const b = document.getElementById('rgSubmit'); if (b) b.removeAttribute('aria-busy');
   });
   function openRegister(from) {
-    if (VIP_ON) { openVip(from); return; }                   // зарегистрированным второй раз не предлагаем регистрацию
+    if (VIP_ON) { const vt = document.getElementById('vipTicket'); if (vt) { vt.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; } openVip(from); return; }                   // зарегистрированным второй раз не предлагаем регистрацию
     if (!rg) buildRegister();
     if (!rg.hidden) return;
     rgPrevFocus = document.activeElement;
