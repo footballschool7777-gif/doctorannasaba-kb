@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<script src="/utm.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>(function(){var d=document.documentElement,v=false;try{var q=new URLSearchParams(location.search).get('vip');if(q==='1'){sessionStorage.setItem('ds_vip','1');v=true}else if(q==='0'){sessionStorage.removeItem('ds_vip')}else v=sessionStorage.getItem('ds_vip')==='1'}catch(e){}if(v)d.classList.add('vip')})();</script>
+<title>Тест ТДО · 9 последствий травматического детского опыта · Анна Саба</title>
+<meta name="description" content="Тест Анны Саба: 9 последствий травматического детского опыта и 36 пунктов самопроверки. Отметьте, что про вас, и узнайте, насколько прошлое вмешивается в вашу сегодняшнюю жизнь.">
+<meta name="theme-color" content="#1E1233">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F1F8; --paper-2:#EAE4F2;
+  --plum:#33224D; --plum-2:#1E1233; --plum-3:#281A40;
+  --ink:#1E1729; --muted:#4E4562; --on-dark:#F1ECF7; --paper-dim:#D9D1E6;
+  --brass:#A8834A; --brass-t:#85612C; --brass-2:#C7A96B; --gold:#EBD6A4;
+  --amber:#E2A54E; --amber-2:#D6913A;
+  --violet:#8A63D2;
+  --line:rgba(40,28,60,.14); --line-strong:rgba(40,28,60,.32); --line-dark:rgba(235,214,164,.22);
+  --serif:'Playfair Display',Georgia,'Times New Roman',serif;
+  --sans:'Golos Text',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  /* шкала: 6 размеров */
+  --f-h1:clamp(20px,6.2vw,54px);
+  --f-h2:clamp(25px,2.4vw + 16px,42px);
+  --f-mid:clamp(19px,1vw + 15px,25px);
+  --f-body:clamp(15px,2.2vw + 7px,17px);
+  --f-lab:12px;
+  --f-num:clamp(58px,6vw + 30px,124px);
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --top:61px;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2  0 0 0 0 .13  0 0 0 0 .3  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+}
+*{margin:0;padding:0;box-sizing:border-box}
+[hidden]{display:none!important}
+html:not(.vip) .vip-only{display:none!important}
+html.vip .reg-only{display:none!important}
+html,body{height:100%}
+body{font-family:var(--sans);font-size:var(--f-body);background:var(--paper);color:var(--ink);overflow:hidden;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+::selection{background:rgba(226,165,78,.45);color:var(--plum-2)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+
+/* ---------- верхняя панель ---------- */
+.topbar{position:fixed;inset:0 0 auto 0;height:58px;z-index:60;display:flex;align-items:center;gap:14px;
+  padding:0 clamp(14px,4vw,40px);background:color-mix(in srgb,var(--paper) 94%,transparent);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.brand{font-size:var(--f-lab);font-weight:700;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink);min-width:0}
+.brand b{color:var(--brass);font-weight:700}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:10px;flex:none}
+.counter{font-family:var(--serif);font-weight:600;font-size:var(--f-body);font-variant-numeric:lining-nums tabular-nums;margin-right:4px;white-space:nowrap}
+.counter small{font-family:var(--sans);font-size:var(--f-lab);font-weight:600;color:var(--muted);margin-left:4px}
+.navbtn{width:38px;height:38px;border:1px solid var(--brass-2);background:transparent;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.navbtn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.navbtn:hover{background:var(--amber);border-color:var(--amber);color:var(--plum-2)}
+.navbtn .i-loop{display:none}
+.navbtn.loop .i-next{display:none}.navbtn.loop .i-loop{display:block}
+.progress{position:fixed;top:58px;left:0;right:0;height:3px;background:var(--line);z-index:60}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--violet),var(--brass-2) 70%,var(--gold));
+  transition:width .45s var(--ease)}
+
+/* ---------- слайды ---------- */
+.slide{position:absolute;top:var(--top);left:0;right:0;bottom:0;display:none;overflow-y:auto;overflow-x:hidden;
+  background:var(--paper) var(--grain);color:var(--ink);-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.slide.active{display:block}
+.slide.dark{color:var(--on-dark);background-color:var(--plum-2);
+  background-image:var(--grain),radial-gradient(900px 340px at 88% -8%,rgba(138,99,210,.30),transparent 62%),radial-gradient(700px 300px at 0% 108%,rgba(199,169,107,.10),transparent 60%)}
+.wrap{width:min(1080px,100% - 40px);margin:0 auto;padding:clamp(30px,4.5vw,56px) 0 104px;min-height:100%;
+  display:flex;flex-direction:column;justify-content:center}
+.wrap>*{flex:none}
+.center{text-align:center}
+
+.rv{opacity:0;transform:translateY(18px)}
+.slide.active .rv{animation:rise .6s var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.rv.d1{animation-delay:.06s}.rv.d2{animation-delay:.12s}.rv.d3{animation-delay:.18s}
+.rv.d4{animation-delay:.24s}.rv.d5{animation-delay:.3s}
+
+h1,h2{font-family:var(--serif);font-weight:700;line-height:1.14;letter-spacing:-.005em;text-wrap:balance}
+h1{font-size:var(--f-h1)}
+h2{font-size:var(--f-h2);max-width:24ch}
+p,li,.ct,.txt,.secsub,.restxt,.restit,.care,.pc-top,.pc-note,.pc-sub,.insight span,.lab{text-wrap:pretty;text-wrap:balance}
+.acc{color:var(--brass-t)}
+.dark .acc{color:var(--gold)}
+.eyebrow{display:flex;align-items:center;gap:14px;font-size:var(--f-lab);font-weight:700;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--brass-t);margin-bottom:18px}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor;flex:none}
+.dark .eyebrow{color:var(--brass-2)}
+.center .eyebrow{justify-content:center}
+.center .eyebrow::after{content:"";width:34px;height:1px;background:currentColor;flex:none}
+.lead{font-size:var(--f-body);line-height:1.66;color:var(--muted);margin-top:18px;max-width:66ch}
+.dark .lead{color:var(--on-dark)}
+.lead b{color:var(--ink);font-weight:600}
+.dark .lead b{color:#fff}
+p.body{font-size:var(--f-body);line-height:1.66;color:var(--muted);margin-top:14px;max-width:66ch}
+.dark p.body{color:var(--on-dark)}
+p.body b{color:var(--ink);font-weight:600}
+.hl{font-weight:600;color:var(--ink);background:linear-gradient(transparent 62%,rgba(226,165,78,.40) 0);padding:0 .06em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+/* уголки-рамки */
+.cm{position:relative}
+.cm::before{content:"";position:absolute;inset:-6px;pointer-events:none;--c:var(--brass-2);
+  background:
+   linear-gradient(var(--c),var(--c)) 0 0/18px 1px,linear-gradient(var(--c),var(--c)) 0 0/1px 18px,
+   linear-gradient(var(--c),var(--c)) 100% 0/18px 1px,linear-gradient(var(--c),var(--c)) 100% 0/1px 18px,
+   linear-gradient(var(--c),var(--c)) 0 100%/18px 1px,linear-gradient(var(--c),var(--c)) 0 100%/1px 18px,
+   linear-gradient(var(--c),var(--c)) 100% 100%/18px 1px,linear-gradient(var(--c),var(--c)) 100% 100%/1px 18px;
+  background-repeat:no-repeat}
+
+/* разделитель-ромб */
+.orn{display:flex;align-items:center;gap:12px;color:var(--brass-2)}
+.orn::before,.orn::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,currentColor)}
+.orn::after{background:linear-gradient(90deg,currentColor,transparent)}
+.orn i{width:7px;height:7px;transform:rotate(45deg);border:1px solid currentColor;flex:none}
+
+/* ---------- обложка ---------- */
+.cover .frame{position:absolute;inset:10px;pointer-events:none;border:1px solid rgba(199,169,107,.38);z-index:0}
+.cover .frame::after{content:"";position:absolute;inset:5px;border:1px solid rgba(199,169,107,.16)}
+.cover .frame i{position:absolute;width:9px;height:9px;background:var(--plum-2);border:1px solid var(--brass-2);transform:rotate(45deg)}
+.cover .frame i:nth-child(1){top:-5px;left:-5px}.cover .frame i:nth-child(2){top:-5px;right:-5px}
+.cover .frame i:nth-child(3){bottom:-5px;left:-5px}.cover .frame i:nth-child(4){bottom:-5px;right:-5px}
+.cover .deco{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.cover .deco::before{content:"9";position:absolute;right:-.04em;top:50%;transform:translateY(-50%);font-family:var(--serif);font-weight:700;
+  font-size:min(110vh,92vw);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(199,169,107,.09)}
+.hx-in{position:relative;z-index:1;min-height:calc(100vh - var(--top));min-height:calc(100svh - var(--top));width:min(940px,100% - 44px);margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center}
+.hx-in>.sp{flex:1 1 0;min-height:14px}
+.hx-in>.sp-b{flex:1 1 0;min-height:64px}
+.cover .eyebrow{margin-bottom:clamp(12px,2.2vh,22px)}
+.cover h1{max-width:25ch}
+.cover .lead{margin:clamp(12px,2.2vh,24px) auto 0;max-width:62ch;line-height:1.55}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:clamp(14px,2.4vh,28px);justify-content:center}
+.chip{font-size:var(--f-lab);font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line-dark);
+  border-radius:3px;padding:7px 11px;color:var(--on-dark)}
+.chip.on{background:var(--amber);border-color:var(--amber);color:var(--plum-2);font-weight:700}
+.swipe{display:inline-flex;align-items:center;gap:14px;margin-top:clamp(14px,2.6vh,30px);border:1px solid rgba(235,214,164,.5);background:rgba(235,214,164,.06);
+  border-radius:999px;padding:11px 20px 11px 22px;font-size:var(--f-lab);font-weight:600;letter-spacing:.02em;color:var(--gold);
+  line-height:1.45;text-align:left;cursor:pointer;max-width:100%}
+.swipe{text-wrap:balance}
+.swipe:hover{background:rgba(235,214,164,.14)}
+.swipe::after{content:"";width:18px;height:12px;flex:none;background:currentColor;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 12'%3E%3Cpath d='M1 6h15M11 1l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 12'%3E%3Cpath d='M1 6h15M11 1l5 5-5 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+  animation:nudge 1.6s infinite}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+
+/* ---------- как проходить ---------- */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.card{position:relative;background:var(--plum);border:1px solid rgba(235,214,164,.22);border-radius:4px;padding:26px 26px 26px;color:var(--paper-dim);
+  background-image:var(--grain),linear-gradient(160deg,rgba(138,99,210,.18),transparent 55%)}
+.card::after{content:"";position:absolute;inset:6px;border:1px solid rgba(235,214,164,.12);pointer-events:none;border-radius:2px}
+.card .cl{font-size:var(--f-lab);font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-2);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.card .cl::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(199,169,107,.5),transparent)}
+.card .ct{font-size:var(--f-body);line-height:1.6;color:var(--on-dark)}
+.card .ct b{color:var(--gold);font-weight:600}
+.care{margin-top:26px;font-size:var(--f-body);line-height:1.6;color:var(--muted);padding:2px 0 2px 18px;border-left:1px solid var(--brass);max-width:76ch;position:relative}
+.care::before{content:"";position:absolute;left:-4px;top:8px;width:7px;height:7px;background:var(--paper);border:1px solid var(--brass);transform:rotate(45deg)}
+
+/* ---------- последствие: заголовок ---------- */
+.sechead{display:grid;grid-template-columns:auto 1fr;column-gap:22px;align-items:center}
+.ghost{grid-row:1;grid-column:1;font-family:var(--serif);font-weight:700;font-size:var(--f-num);line-height:.82;color:var(--brass);
+  font-variant-numeric:lining-nums;letter-spacing:-.02em;padding-right:22px;border-right:1px solid var(--brass-2);
+  background:linear-gradient(180deg,var(--brass-2),var(--brass-t));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-left:.04em}
+.secn{display:inline-block;justify-self:start;font-size:var(--f-lab);font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-t);
+  border:1px solid var(--brass-2);padding:8px 13px;border-radius:2px;margin-bottom:0}
+.sechead .secn{grid-row:1;grid-column:2;align-self:center}
+.sechead h2{grid-column:1 / -1;margin-top:20px}
+.sechead .secsub{grid-column:1 / -1}
+.dark .secn{color:var(--gold);border-color:rgba(235,214,164,.4)}
+.secsub{font-family:var(--serif);font-weight:500;font-size:var(--f-mid);line-height:1.38;color:var(--muted);margin-top:12px;max-width:44ch}
+
+.two{display:grid;grid-template-columns:1.02fr .98fr;margin-top:30px;background:rgba(255,255,255,.55);border:1px solid var(--line)}
+.col{padding:26px 30px}
+.col+.col{border-left:1px solid var(--line);background:rgba(234,228,242,.65)}
+.lab{font-size:var(--f-lab);font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-t);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.lab::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--brass-2),transparent);opacity:.7}
+.dark .lab{color:var(--brass-2)}
+.dots{list-style:none}
+.dots li{position:relative;padding-left:22px;margin-bottom:14px;font-size:var(--f-body);line-height:1.55;color:var(--muted)}
+.dots li:last-child{margin-bottom:0}
+.dots li::before{content:"";position:absolute;left:2px;top:.58em;width:6px;height:6px;background:var(--brass);transform:rotate(45deg)}
+.dots li b{color:var(--ink);font-weight:600}
+.txtcol p{font-size:var(--f-body);line-height:1.62;color:var(--muted)}
+.txtcol p+p{margin-top:12px}
+.txtcol p b{color:var(--ink);font-weight:600}
+
+/* ---------- инсайт + галочки ---------- */
+.ins{display:grid;grid-template-columns:1fr;gap:0;align-content:center}
+.ins>.secn{justify-self:start;margin-bottom:20px}
+.insight{position:relative;background:rgba(255,255,255,.045);border:1px solid var(--line-dark);padding:34px 30px 30px}
+.insight>b{position:absolute;top:-9px;left:22px;padding:0 10px;background:var(--plum-2);font-size:var(--f-lab);font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--brass-2);line-height:18px}
+.insight span{display:block;font-family:var(--serif);font-weight:500;font-size:var(--f-mid);line-height:1.5;color:#fff}
+.insight span b{color:var(--gold);font-weight:600}
+.checkblock{margin-top:26px;background:rgba(255,255,255,.04);border:1px solid var(--line-dark);border-radius:2px;padding:20px 22px 8px}
+.checkblock .lab{margin-bottom:6px}
+.ck{display:flex;align-items:flex-start;gap:14px;padding:13px 10px;margin:0 -10px;cursor:pointer;border-bottom:1px solid rgba(235,214,164,.12);border-radius:3px;transition:background .2s;position:relative}
+.ck:last-child{border-bottom:0}
+.ck:hover{background:rgba(235,214,164,.05)}
+.ck input{position:absolute;opacity:0;width:1px;height:1px;left:12px;top:16px}
+.ck .box{flex:none;width:24px;height:24px;border:1.5px solid var(--brass-2);border-radius:3px;margin-top:0;background:transparent;position:relative;
+  display:flex;align-items:center;justify-content:center;transition:background .18s,border-color .18s,box-shadow .18s}
+.ck .box::after{content:"";width:14px;height:11px;background:var(--plum-2);opacity:0;transform:scale(.5);transition:opacity .18s,transform .22s var(--ease);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 11'%3E%3Cpath d='M1.5 5.8l3.6 3.4L12.5 1.6' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 11'%3E%3Cpath d='M1.5 5.8l3.6 3.4L12.5 1.6' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.ck input:checked+.box{background:var(--amber);border-color:var(--amber);box-shadow:0 0 0 4px rgba(226,165,78,.16)}
+.ck input:checked+.box::after{opacity:1;transform:scale(1)}
+.ck input:focus-visible+.box{outline:2px solid var(--gold);outline-offset:3px}
+.ck .txt{font-size:var(--f-body);line-height:1.5;color:#fff;padding-top:1px}
+.ck input:checked~.txt{color:var(--gold)}
+.ck:has(input:checked){background:rgba(226,165,78,.08)}
+
+/* счётчик */
+.cnt{position:fixed;right:16px;bottom:14px;z-index:55;background:var(--plum-2);color:#fff;border:1px solid rgba(235,214,164,.35);border-radius:999px;
+  padding:9px 16px 10px;font-size:var(--f-lab);font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  box-shadow:0 12px 30px -8px rgba(30,18,51,.45);display:flex;flex-direction:column;gap:6px;align-items:stretch;min-width:150px;white-space:nowrap}
+.cnt b{color:var(--amber);font-size:var(--f-lab);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.cnt-bar{height:3px;background:rgba(255,255,255,.14);border-radius:2px;overflow:hidden}
+.cnt-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brass-2),var(--amber));transition:width .35s var(--ease)}
+.cnt.bump{animation:bump .4s var(--ease)}
+@keyframes bump{40%{transform:scale(1.06)}}
+
+/* ---------- результат ---------- */
+.resbtn,.ctabtn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:12px;border:0;cursor:pointer;
+  background:linear-gradient(180deg,#EDB866,var(--amber) 55%,var(--amber-2));color:var(--plum-2);border-radius:6px;padding:17px 26px;
+  font-family:var(--sans);font-size:var(--f-lab);font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;text-align:center;line-height:1.35;
+  box-shadow:0 14px 30px -12px rgba(226,165,78,.65),inset 0 1px 0 rgba(255,255,255,.45),inset 0 0 0 1px rgba(133,97,44,.25);transition:transform .2s var(--ease),box-shadow .2s}
+.resbtn::after,.ctabtn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.5) 50%,transparent 65%);transform:translateX(-120%);animation:shine 5s 1.5s infinite}
+@keyframes shine{0%,70%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.resbtn:hover,.ctabtn:hover{transform:translateY(-2px);box-shadow:0 18px 36px -12px rgba(226,165,78,.75),inset 0 1px 0 rgba(255,255,255,.45)}
+.resbtn{margin-top:28px;align-self:flex-start}
+.resout{margin-top:30px;background:rgba(255,255,255,.05);border:1px solid var(--line-dark);padding:30px 32px 32px}
+.res-head{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.resnum{font-family:var(--serif);font-weight:700;font-size:var(--f-num);color:var(--gold);line-height:.85;font-variant-numeric:lining-nums tabular-nums}
+.resnum small{font-family:var(--sans);font-size:var(--f-lab);font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brass-2);margin-left:4px}
+.scale{margin:30px 0 8px;position:relative}
+.track{position:relative;height:10px;border-radius:5px;background:rgba(255,255,255,.08);border:1px solid rgba(235,214,164,.22)}
+.track .fill{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:5px;background:linear-gradient(90deg,var(--brass-2),var(--amber));transition:width 1s var(--ease)}
+.track .mk{position:absolute;top:50%;left:0;width:20px;height:20px;margin:-10px 0 0 -10px;background:var(--plum-2);border:2px solid var(--gold);transform:rotate(45deg);
+  box-shadow:0 0 0 5px rgba(235,214,164,.12);transition:left 1s var(--ease)}
+.ticks{position:relative;height:30px;margin-top:8px}
+.ticks span{position:absolute;top:0;transform:translateX(-50%);font-size:var(--f-lab);font-weight:600;letter-spacing:.06em;color:var(--paper-dim);font-variant-numeric:tabular-nums;padding-top:8px}
+.ticks span::before{content:"";position:absolute;left:50%;top:0;width:1px;height:6px;background:rgba(235,214,164,.45)}
+.ticks span:first-child{transform:none}.ticks span:first-child::before{left:0}
+.ticks span:last-child{transform:translateX(-100%)}.ticks span:last-child::before{left:auto;right:0}
+.zones{position:absolute;inset:0;display:flex;pointer-events:none}
+.zones i{border-right:1px solid rgba(235,214,164,.28)}
+.zones i:last-child{border-right:0}
+.restit{font-family:var(--serif);font-weight:600;font-size:var(--f-mid);line-height:1.32;color:#fff;margin:18px 0 10px}
+.restxt{font-size:var(--f-body);line-height:1.66;color:var(--on-dark);max-width:70ch}
+.restxt b{color:var(--gold);font-weight:600}
+
+/* ---------- финал ---------- */
+.offer{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;margin-top:30px;align-items:stretch}
+.offer .card{padding:28px 28px}
+.offer .card .cl{margin-bottom:16px}
+.olist{list-style:none;counter-reset:o}
+.olist li{position:relative;padding-left:40px;font-size:var(--f-body);line-height:1.58;color:var(--on-dark);counter-increment:o}
+.olist li+li{margin-top:14px;padding-top:14px;border-top:1px solid rgba(235,214,164,.14)}
+.olist li::before{content:counter(o);position:absolute;left:0;font-family:var(--serif);font-weight:700;font-size:var(--f-body);color:var(--plum-2);
+  width:26px;height:26px;display:grid;place-items:center;background:var(--gold);border-radius:50%;top:0}
+.olist li+li::before{top:14px}
+.olist li b{color:var(--gold);font-weight:600}
+.pricecard{background:#FBF9FD;padding:34px 30px 30px;text-align:center;border:1px solid var(--brass-2);box-shadow:0 26px 50px -30px rgba(30,18,51,.5);display:flex;flex-direction:column;justify-content:center}
+.pricecard::after{content:"";position:absolute;inset:6px;border:1px solid rgba(168,131,74,.28);pointer-events:none}
+.pc-top{font-size:var(--f-body);line-height:1.5;color:var(--muted)}
+.pc-main{font-family:var(--serif);font-weight:700;font-size:var(--f-h2);line-height:1.15;color:var(--ink);margin:10px 0 6px;text-wrap:balance}
+.pc-main em{font-style:normal;color:var(--brass-t);white-space:nowrap}
+.pc-sub{font-family:var(--serif);font-weight:500;font-size:var(--f-mid);color:var(--brass-t);margin-bottom:6px}
+.pc-old{font-size:var(--f-body);color:var(--muted);margin-bottom:4px}
+.pc-old s{text-decoration-thickness:1.5px;text-decoration-color:var(--brass)}
+.pricecard .orn{margin:14px 0 6px}
+.ctabtn{display:flex;margin-top:16px;width:100%;position:relative;z-index:1}
+.pc-note{margin-top:14px;font-size:var(--f-body);line-height:1.5;color:var(--muted)}
+.hint{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);font-size:var(--f-lab);font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(78,69,98,.6);z-index:50;white-space:nowrap}
+.slide-dark-on .hint{color:rgba(241,236,247,.72)}
+body:not(.on-cover) .hint{display:none}
+
+/* ---------- компьютер ---------- */
+@media(min-width:961px){
+  .ins{grid-template-columns:1.08fr .92fr;column-gap:36px;align-items:start}
+  .ins>.secn{grid-column:1 / -1}
+  .ins .checkblock{margin-top:0}
+  .final .reg-only.offer{align-items:start}
+  .final .reg-only .pricecard{position:sticky;top:20px}
+  .sechead{grid-template-columns:auto 1fr;column-gap:30px}
+  .ghost{grid-row:1 / span 3;align-self:stretch;display:flex;align-items:center;padding-right:30px}
+  .sechead .secn{grid-row:1;align-self:end}
+  .sechead h2{grid-column:2;margin-top:14px}
+  .sechead .secsub{grid-column:2;align-self:start}
+}
+/* ---------- телефон ---------- */
+@media(max-width:960px){
+  .two,.grid3,.offer{grid-template-columns:1fr}
+  .col{padding:22px 20px}
+  .col+.col{border-left:0;border-top:1px solid var(--line)}
+  .hint{display:none}
+}
+@media(max-width:600px){
+  .topbar{height:54px;gap:10px}
+  .progress{top:54px}
+  :root{--top:57px}
+  .brand{letter-spacing:.12em}
+  :root{--f-lab:11px}
+  .navbtn{width:34px;height:34px}
+  .wrap{width:calc(100% - 36px);padding-top:26px}
+  .hx-in{width:calc(100% - 32px)}
+  .cover .frame{inset:8px}
+  .cover .deco::before{font-size:118vw;top:58%}
+  .chip{padding:5px 8px;letter-spacing:.06em}
+  .chips{gap:6px}
+  .swipe{padding:9px 16px 9px 18px;gap:10px}
+  .card{padding:22px 20px}
+  .insight{padding:30px 20px 22px}
+  .checkblock{padding:18px 16px 4px}
+  .resout{padding:24px 18px 26px}
+  .pricecard{padding:30px 20px 24px}
+  .offer .card{padding:24px 20px}
+  .cnt{right:10px;bottom:10px;padding:7px 12px 7px;min-width:0;gap:4px}
+  .cnt b{font-size:var(--f-lab)}
+  .brand{white-space:normal;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .cover .eyebrow{letter-spacing:.16em;gap:0}
+  .cover .eyebrow::before,.cover .eyebrow::after{display:none}
+  .cover .lead{line-height:1.5}
+  .hx-in>.sp-b{min-height:62px}
+  .resbtn{align-self:stretch}
+  .sechead{column-gap:16px}
+  .ghost{padding-right:16px}
+}
+@media(max-width:340px){
+  .topbar{gap:8px;padding:0 10px}
+  .counter{margin-right:0}
+  :root{--f-lab:10.5px}
+  .cover .eyebrow{letter-spacing:.1em;margin-bottom:8px}
+  .cover .lead{font-size:14px;line-height:1.4;margin-top:10px}
+  .chips{margin-top:10px;gap:5px}
+  .chip{padding:4px 6px;letter-spacing:.04em}
+  .swipe{margin-top:10px;padding:8px 14px;gap:8px}
+  .hx-in{width:calc(100% - 24px)}
+  .cover h1{font-size:19.5px}
+  .swipe{width:100%;justify-content:space-between}
+  .hx-in>.sp{min-height:4px}
+  .hx-in>.sp-b{min-height:56px}
+  .cnt{padding:6px 11px}
+}
+
+/* ---------- цепочки «детство → правило → сегодня» (второй проход) ---------- */
+.chains{margin-top:clamp(44px,6vw,72px)}
+.ch-orn{max-width:420px;margin:0 0 28px}
+.ch-h{color:#fff;max-width:26ch}
+.ch-sub{max-width:70ch}
+.ch-list{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:34px;align-items:start}
+.ch-list[hidden]{display:none!important}
+.chain{background:rgba(255,255,255,.045);border:1px solid var(--line-dark);padding:26px 24px 28px;
+  background-image:linear-gradient(170deg,rgba(138,99,210,.16),transparent 45%)}
+.chain::before{--c:var(--brass-2)}
+.ch-top{display:flex;align-items:center;gap:16px;padding-bottom:18px;border-bottom:1px solid var(--line-dark)}
+.ch-num{font-family:var(--serif);font-weight:700;font-size:var(--f-h2);line-height:1;font-variant-numeric:lining-nums;
+  padding-right:16px;border-right:1px solid rgba(199,169,107,.5);padding-left:.04em;align-self:stretch;display:flex;align-items:center;
+  background:linear-gradient(180deg,var(--gold),var(--brass));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.ch-ttl{min-width:0}
+.ch-name{font-family:var(--serif);font-weight:600;font-size:var(--f-mid);line-height:1.25;color:#fff;text-wrap:balance}
+.ch-meter{display:flex;align-items:center;gap:10px;margin-top:9px}
+.pips{display:flex;gap:4px}
+.pips i{width:16px;height:6px;border:1px solid rgba(235,214,164,.45);border-radius:1px}
+.pips i.on{background:var(--amber);border-color:var(--amber)}
+.ch-n{font-size:var(--f-lab);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-2);white-space:nowrap}
+.ch-n b{color:var(--amber);font-weight:700}
+.links{list-style:none;margin-top:22px}
+.lk{position:relative;padding-left:40px}
+.lk+.lk{margin-top:34px}
+.lk::before{content:"";position:absolute;left:7px;top:3px;width:11px;height:11px;transform:rotate(45deg);border:1px solid var(--brass-2);background:var(--plum-2);z-index:1}
+.lk-rule::before{background:var(--amber);border-color:var(--amber);box-shadow:0 0 0 4px rgba(226,165,78,.16)}
+.lk:not(:last-child)::after{content:"";position:absolute;left:12px;top:17px;bottom:-30px;width:1px;
+  background:linear-gradient(180deg,var(--brass-2),rgba(199,169,107,.55))}
+.lk-ar{position:absolute;left:9px;bottom:-30px;width:7px;height:7px;border-right:1px solid var(--brass-2);border-bottom:1px solid var(--brass-2);transform:rotate(45deg)}
+.lk-l{font-size:var(--f-lab);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-2);line-height:1.45;margin-bottom:8px;text-wrap:balance}
+.lk-t{font-size:var(--f-body);line-height:1.6;color:var(--on-dark)}
+.lk-q{position:relative;font-family:var(--serif);font-weight:500;font-size:var(--f-mid);line-height:1.42;color:var(--gold);
+  background:rgba(226,165,78,.08);border:1px solid rgba(226,165,78,.32);border-radius:2px;padding:16px 18px 16px 44px;text-wrap:balance}
+.lk-q::before{content:"«";position:absolute;left:12px;top:6px;font-family:var(--serif);font-weight:700;font-size:var(--f-h2);line-height:1;color:var(--amber)}
+.morebtn{display:inline-flex;align-items:center;gap:12px;margin-top:30px;background:rgba(235,214,164,.06);border:1px solid rgba(235,214,164,.5);
+  border-radius:999px;padding:13px 22px;font-size:var(--f-lab);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);cursor:pointer;transition:background .2s}
+.morebtn:hover{background:rgba(235,214,164,.14)}
+.morebtn::after{content:"";width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-3px) rotate(45deg)}
+.ch-none{margin-top:26px;font-family:var(--serif);font-weight:500;font-size:var(--f-mid);line-height:1.45;color:var(--gold);
+  border-left:1px solid var(--brass-2);padding:4px 0 4px 22px;max-width:56ch;text-wrap:balance}
+
+/* ---------- финал: почему понимания мало + VIP ---------- */
+.why h2{max-width:22ch}
+.why-p{margin-top:4px}
+.vipblock{margin-top:clamp(40px,6vw,64px)}
+.vb-orn{max-width:420px;margin:0 0 30px;color:var(--brass)}
+.viph{max-width:26ch}
+.vb-p{max-width:70ch}
+.vipgrid{display:grid;grid-template-columns:1.12fr .88fr;gap:30px;margin-top:34px;align-items:start}
+.vcol{display:flex;flex-direction:column;gap:22px;min-width:0}
+.meet{border:1.5px solid var(--brass-2);padding:34px 32px 34px;box-shadow:0 30px 60px -34px rgba(30,18,51,.75)}
+.meet::after{border-color:rgba(235,214,164,.24)}
+.meet .cl{font-size:var(--f-lab);margin-bottom:20px}
+.meet-list li{font-family:var(--serif);font-weight:500;font-size:var(--f-mid);line-height:1.42;color:#fff;padding-left:48px}
+.meet-list li::before{width:32px;height:32px;top:2px;font-size:var(--f-body)}
+.meet-list li+li{margin-top:18px;padding-top:18px}
+.meet-list li+li::before{top:20px}
+.under{font-size:var(--f-body);line-height:1.6;color:var(--muted);padding:2px 0 2px 18px;border-left:1px solid var(--brass);position:relative}
+.under::before{content:"";position:absolute;left:-4px;top:8px;width:7px;height:7px;background:var(--paper);border:1px solid var(--brass);transform:rotate(45deg)}
+.extra{border:1px solid var(--line-strong);background:rgba(255,255,255,.5);padding:22px 22px 22px}
+.extra .lab{margin-bottom:14px}
+.extra .dots li{margin-bottom:12px}
+.vprice{padding:30px 28px 28px}
+.pc-lab{font-family:var(--serif);font-weight:600;font-size:var(--f-mid);color:var(--ink)}
+.pc-price{font-family:var(--serif);font-weight:700;font-size:var(--f-num);line-height:1;color:var(--brass-t);margin:8px 0 6px;white-space:nowrap;font-variant-numeric:lining-nums}
+@media(min-width:961px){
+  .why{display:grid;grid-template-columns:1fr 1fr;column-gap:56px;align-items:start}
+  .why h2{max-width:none}
+  .why-p p:first-child{margin-top:6px}
+  .final .vb-p{display:grid;grid-template-columns:1fr 1fr;column-gap:56px;max-width:none}
+  .final .vb-p p{margin-top:16px}
+  .pc-price{font-size:min(var(--f-num),72px)}
+}
+@media(min-width:961px){.ch-list .lk-q{font-size:min(var(--f-mid),20px);padding:14px 16px 14px 38px}.ch-list .lk-q::before{left:10px;top:7px}}
+@media(max-width:1100px) and (min-width:961px){.ch-list{gap:20px}.chain{padding:24px 18px 26px}}
+@media(max-width:960px){
+  .ch-list{grid-template-columns:1fr}
+  .vipgrid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .chain{padding:22px 18px 24px}
+  .ch-top{gap:14px}.ch-num{padding-right:14px}
+  .lk{padding-left:34px}
+  .lk-q{padding:14px 14px 14px 38px}
+  .lk-q::before{left:10px}
+  .meet{padding:26px 20px 28px}
+  .meet-list li{padding-left:42px}
+  .extra{padding:20px 18px}
+  .vprice{padding:28px 20px 24px}
+  .morebtn{width:100%;justify-content:center}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .rv,.slide.active .rv{animation:none!important;opacity:1!important;transform:none!important}
+  .swipe::after,.resbtn::after,.ctabtn::after{animation:none}
+  .track .fill,.track .mk{transition:none}
+}
+.ctabtn .bt{text-wrap:balance;display:block}
+
+/* правки по критикам второго прохода */
+.pips i{width:20px;height:7px}
+.lk-q{padding-left:48px}
+.lk-q::before{left:14px}
+body.on-last .cnt{display:none}
+@media(min-width:961px){
+  /* цепочки: карточка на всю ширину – слева номер и название, справа цепочка сверху вниз */
+  .ch-list{grid-template-columns:1fr;gap:26px}
+  .chain{display:grid;grid-template-columns:250px 1fr;column-gap:40px;padding:32px 36px 34px}
+  .ch-top{flex-direction:column;align-items:flex-start;gap:14px;border-bottom:0;padding-bottom:0;padding-right:36px;border-right:1px solid var(--line-dark);align-self:stretch}
+  .ch-num{font-size:var(--f-num);padding-right:0;border-right:0;align-self:auto}
+  .links{margin-top:0;max-width:640px}
+  .ch-list .lk-q{font-size:var(--f-mid);padding:16px 20px 16px 50px}
+  .ch-list .lk-q::before{left:16px;top:8px}
+  .lk-l{white-space:nowrap}
+  /* VIP: слева главная карточка и строка под ней, справа «Ещё в VIP-билете»; цена – полосой на всю ширину */
+  .vipgrid{grid-template-columns:1.12fr .88fr}
+  .vipgrid>.vcol:last-child{display:contents}
+  .vipgrid .extra{grid-column:2;grid-row:1}
+  .vipgrid>.vcol:first-child{grid-column:1;grid-row:1}
+  .vprice{grid-column:1 / -1;grid-row:2;display:grid;grid-template-columns:auto auto 1fr;grid-template-rows:auto auto;column-gap:36px;align-items:center;text-align:left;padding:30px 40px}
+  .vprice .pc-lab{grid-column:1;grid-row:1}
+  .vprice .pc-price{grid-column:1;grid-row:2;margin:4px 0 0}
+  .vprice .pc-old{grid-column:2;grid-row:2;align-self:end;margin:0 0 10px}
+  .vprice .ctabtn{grid-column:3;grid-row:1 / span 2;margin:0;width:auto;max-width:440px;justify-self:end}
+  .vprice .pc-note{grid-column:1 / -1;grid-row:3;margin-top:16px;text-align:left}
+}
+@media(min-width:961px) and (max-width:1100px){.chain{grid-template-columns:200px 1fr;column-gap:28px;padding:28px 26px}.ch-top{padding-right:24px}}
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">Анна&nbsp;Саба <b>·</b> Тест ТДО <b>·</b> 9&nbsp;последствий</div>
+  <div class="tb-right">
+    <div class="counter"><span id="cur">01</span><small>/ <span id="tot">0</span></small></div>
+    <button class="navbtn" id="prev" aria-label="Назад"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M14 8H2.5M7 3.5L2.5 8 7 12.5"/></svg></button>
+    <button class="navbtn" id="next" aria-label="Вперёд"><svg class="i-next" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11.5M9 3.5L13.5 8 9 12.5"/></svg><svg class="i-loop" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.2 6.2A5.5 5.5 0 1 0 13.5 9.5M13.6 2.6v3.8H9.8"/></svg></button>
+  </div>
+</div>
+<div class="progress"><i id="pg"></i></div>
+
+<div id="deck">
+<section class="slide dark cover hx active" aria-label="Обложка">
+  <div class="deco" aria-hidden="true"></div>
+  <div class="frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="hx-in">
+    <div class="sp"></div>
+    <div class="eyebrow rv">Тест · травматический детский опыт</div>
+    <h1 class="rv d1">Травматический детский опыт: <span class="acc">9 последствий</span>, которые сегодня управляют вашей жизнью</h1>
+    <p class="lead rv d2">Вам сложно сказать «нет», доход годами стоит на месте, вы тащите на себе всех вокруг и засыпаете с мыслью «как же меня всё достало». <b>Всё это – последствия травматического детского опыта</b>, и они есть почти у каждого из нашего поколения. Просто мы привыкли считать это своим характером.</p>
+    <div class="chips rv d3">
+      <span class="chip on">Самопроверка · 36 пунктов</span>
+      <span class="chip">Финансы</span>
+      <span class="chip">Отношения</span>
+      <span class="chip">Здоровье</span>
+      <span class="chip">Энергия</span>
+    </div>
+    <button type="button" class="swipe btn rv d4" id="swipe">Листайте вправо или используйте стрелки в правом верхнем углу экрана</button>
+    <div class="sp sp-b"></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <div class="eyebrow rv">Как проходить</div>
+    <h2 class="rv d1">Листайте и <span class="acc">отмечайте, что про вас</span></h2>
+    <div class="grid3">
+      <div class="card cm rv d2">
+        <div class="cl">Шаг 1</div>
+        <div class="ct">Каждое последствие я разбираю на двух экранах: сначала показываю, <b>как оно выглядит в вашей сегодняшней жизни</b>, а потом объясняю, откуда оно взялось.</div>
+      </div>
+      <div class="card cm rv d3">
+        <div class="cl">Шаг 2</div>
+        <div class="ct">Дальше идёт инсайт и небольшой чек-лист. Отмечайте галочками всё, <b>в чём узнаёте себя</b>, даже если узнаёте только наполовину.</div>
+      </div>
+      <div class="card cm rv d4">
+        <div class="cl">Шаг 3</div>
+        <div class="ct">В конце вы увидите <b>свой результат</b> и поймёте, насколько плотно прошлое вмешивается в вашу сегодняшнюю жизнь.</div>
+      </div>
+    </div>
+    <div class="care rv d5">Если во время чтения станет тяжело, это нормально. Остановитесь, подышите и вернитесь чуть позже. Тема поднимает много чувств, и проходить её лучше не в одиночку.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <div class="sechead rv">
+      <div class="ghost">01</div>
+      <div class="secn">Последствие 01</div>
+      <h2>Нет границ личности</h2>
+      <div class="secsub">Вам сложно сказать «нет», и вы всё время оказываетесь удобной</div>
+    </div>
+    <div class="two cm">
+      <div class="col rv d2">
+        <div class="lab">Как это выглядит сегодня</div>
+        <ul class="dots"><li>Вам почти <b>невозможно отказать</b>: проще согласиться, а потом тащить это на себе.</li><li>Когда отказывают вам, внутри всё <b>сжимается от обиды</b>, будто отвергли не просьбу, а вас саму.</li><li>Когда отказываете вы, следом приходят <b>вина и страх, что человек обидится</b>.</li><li>Вы регулярно <b>задвигаете свои интересы ради одобрения</b>, лишь бы остаться в чужих глазах хорошей.</li></ul>
+      </div>
+      <div class="col rv d3">
+        <div class="lab">Откуда это взялось</div>
+        <div class="txtcol"><p>Так работает реакция на насилие: ментальное, физическое или сексуальное. Сюда входят и крик, и унижение, и обесценивание, и <b>постоянные придирки</b>.</p><p>К физическому насилию относятся и вещи, которые в наших семьях считались нормой: <b>подзатыльник, шлепок по рукам, одёргивание, толчок</b>. Любая агрессия в сторону тела ребёнка разрушает его границу.</p><p>И то, что насилием обычно никто не называет: <b>«поцелуй бабушку», «иди обнимись»</b>, когда ребёнок этого не хочет и просто терпит. Прикосновение без согласия стирает границу так же надёжно, как удар.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide dark">
+  <div class="wrap ins">
+    <div class="secn rv">Последствие 01 · инсайт</div>
+    <div class="insight rv d1"><b>Инсайт</b><span>Ребёнок, который вырос в таком доме, во взрослом возрасте просто не замечает, что в его комнату <b>входят без стука</b>. И в прямом смысле, и в переносном: в его вещи, время, планы, семью, работу. Он вырос там, где стучать было не принято, и до сих пор уверен, что <b>так и должно быть</b>.</span></div>
+    <div class="checkblock rv d3">
+      <div class="lab">Отметьте всё, в чём узнаёте себя</div>
+      <label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Мне трудно сказать «нет» без объяснений и оправданий</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Я соглашаюсь, а потом злюсь на себя</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Чужое «нет» я воспринимаю как отвержение</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Мои вещи, время и планы легко нарушают, и я это терплю</span></label>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <div class="sechead rv">
+      <div class="ghost">02</div>
+      <div class="secn">Последствие 02</div>
+      <h2>Низкая самооценка</h2>
+      <div class="secsub">«Достаточно ли я? Или со мной всё-таки что-то не так?»</div>
+    </div>
+    <div class="two cm">
+      <div class="col rv d2">
+        <div class="lab">Как это выглядит сегодня</div>
+        <ul class="dots"><li>Вы постоянно сомневаетесь: <b>достойна ли, справлюсь ли, всё ли со мной в порядке</b>.</li><li>У вас есть ощущение, что вы <b>немножечко не такая</b> и делаете <b>немножечко не то</b>.</li><li>Похвалу вы обесцениваете, а <b>критику принимаете как чистую правду</b>.</li></ul>
+      </div>
+      <div class="col rv d3">
+        <div class="lab">Откуда это взялось</div>
+        <div class="txtcol"><p>В основе почти всегда лежит <b>эмоциональная холодность в семье</b>. Взрослые были рядом физически, но дотянуться до них было невозможно, и внимание приходилось <b>заслуживать</b>.</p><p>Причём заслужить его плохим поведением часто было проще, чем хорошим. <b>Главное, чтобы вообще заметили.</b></p><p>Не было ощущения, что взрослый поможет, поддержит и решит проблему. Осталось совсем другое ощущение: <b>я не нужна, не ценна, не важна</b>.</p><p>Особенно часто так живут старшие дети. Родился младший, и детство закончилось: <b>«ты теперь взрослая, отвечай за него, делись всем»</b>. Игрушки отдать, одежду отдать, комнату поделить.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide dark">
+  <div class="wrap ins">
+    <div class="secn rv">Последствие 02 · инсайт</div>
+    <div class="insight rv d1"><b>Инсайт</b><span>Дипломы, доход и чужая похвала в эту дыру не проваливаются, потому что дыра осталась совсем в другом месте: там, где рядом должен был стоять взрослый, для которого вы были важны <b>просто так, без всяких заслуг</b>. Поэтому сколько ни доказывай, внутри всё равно остаётся ощущение, что <b>этого мало</b>.</span></div>
+    <div class="checkblock rv d3">
+      <div class="lab">Отметьте всё, в чём узнаёте себя</div>
+      <label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Мне нужно подтверждение, что я делаю всё правильно</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Я много даю, чтобы меня приняли и одобрили</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Я редко чувствую, что я достаточно хороша</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Мне кажется, что рядом со мной другим лучше, чем мне самой</span></label>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <div class="sechead rv">
+      <div class="ghost">03</div>
+      <div class="secn">Последствие 03</div>
+      <h2>«Мне не положено. Я недостойна»</h2>
+      <div class="secsub">Деньги вроде есть, а ощущение такое, будто их нет</div>
+    </div>
+    <div class="two cm">
+      <div class="col rv d2">
+        <div class="lab">Как это выглядит сегодня</div>
+        <ul class="dots"><li><b>Денег нет, даже когда они есть</b>: дефицит сидит внутри, а не на счету.</li><li>Вы верите, что <b>богатые – воры</b>, а честным трудом больших денег не заработать.</li><li>Или включается гиперкомпенсация: <b>всё ради денег</b>, можно и через принципы, и по головам.</li><li>Или вы зарабатываете и копите, но <b>на себя не тратите ни копейки</b>.</li><li>Отдых, поездки, красивые вещи и вкусная еда проходят по графе <b>«это не для нас»</b>.</li></ul>
+      </div>
+      <div class="col rv d3">
+        <div class="lab">Откуда это взялось</div>
+        <div class="txtcol"><p>Это <b>травма ущербности</b>. Ребёнок сравнивал, что есть у него и что есть у других детей, и видел, что у них больше, лучше и качественнее.</p><p>Дефицит прописался как естественная среда обитания. Как норма, с которой <b>в семье никто даже не спорил</b>: ну вот мы так живём.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide dark">
+  <div class="wrap ins">
+    <div class="secn rv">Последствие 03 · инсайт</div>
+    <div class="insight rv d1"><b>Инсайт</b><span>Внутри стоит запрет: <b>мне не положено</b>. Поэтому доход может расти сколько угодно, а ощущение бедности останется прежним. Цифры на счету меняются, а <b>разрешение жить хорошо вам так никто и не выдал</b>.</span></div>
+    <div class="checkblock rv d3">
+      <div class="lab">Отметьте всё, в чём узнаёте себя</div>
+      <label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Мне неловко тратить деньги на себя без повода</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Я откладываю удовольствие «на потом» годами</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Внутри я уверена, что большие деньги не для таких, как я</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Доход растёт, а тревога о деньгах не уходит</span></label>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <div class="sechead rv">
+      <div class="ghost">04</div>
+      <div class="secn">Последствие 04</div>
+      <h2>Страх отношений и брошенность</h2>
+      <div class="secsub">«Он уйдёт. И вообще, со мной что-то не так»</div>
+    </div>
+    <div class="two cm">
+      <div class="col rv d2">
+        <div class="lab">Как это выглядит сегодня</div>
+        <ul class="dots"><li>Заходить в отношения страшно, и <b>остаться без них страшно тоже</b>.</li><li>Фоном крутится: <b>он меня бросит, меня не выберут, я не та</b>.</li><li>Вы плохо себя знаете: <b>чего хотите, что чувствуете и что вам вообще подходит</b>.</li></ul>
+      </div>
+      <div class="col rv d3">
+        <div class="lab">Откуда это взялось</div>
+        <div class="txtcol"><p><b>Развод родителей</b>, отсутствие отца или матери, ситуация, когда ребёнка оставили – физически или эмоционально.</p><p><b>Травма брошенности</b> зашивается очень рано, а потом молча управляет тем, кого вы выбираете.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide dark">
+  <div class="wrap ins">
+    <div class="secn rv">Последствие 04 · инсайт</div>
+    <div class="insight rv d1"><b>Инсайт</b><span>Мозг всегда тянется к <b>узнаваемому</b>, потому что узнаваемое кажется ему безопасным, даже когда причиняет боль. Поэтому вы раз за разом попадаете <b>в один и тот же сюжет</b> с разными людьми и каждый раз искренне удивляетесь, как так вышло.</span></div>
+    <div class="checkblock rv d3">
+      <div class="lab">Отметьте всё, в чём узнаёте себя</div>
+      <label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Я быстро привязываюсь и потом боюсь потерять</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Я держу дистанцию, чтобы не было больно</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Мне трудно поверить, что меня можно любить просто так</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">В отношениях я много терплю, лишь бы не остаться одной</span></label>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <div class="sechead rv">
+      <div class="ghost">05</div>
+      <div class="secn">Последствие 05</div>
+      <h2>Агрессия: заперта или через край</h2>
+      <div class="secsub">Либо «я хорошая и никогда так не поступлю», либо взрыв на пустом месте</div>
+    </div>
+    <div class="two cm">
+      <div class="col rv d2">
+        <div class="lab">Как это выглядит сегодня</div>
+        <ul class="dots"><li>Вы <b>не признаёте собственную злость</b>, потому что злиться неприлично.</li><li>Или наоборот: <b>вспыхиваете мгновенно</b>, а потом виновато собираете осколки.</li><li>Злость уходит внутрь и превращается в <b>тревогу, вину и зажимы в теле</b>.</li></ul>
+      </div>
+      <div class="col rv d3">
+        <div class="lab">Откуда это взялось</div>
+        <div class="txtcol"><p>Почти всегда в опыте есть <b>агрессия значимой женщины</b>: мамы, бабушки, старшей сестры, тёти. Или мужчин в семье.</p><p>У девочек это закрепляется как <b>«терплю»</b>. Терплю унижение, оскорбление, рукоприкладство, <b>потому что мама терпела</b>, а значит, так и надо.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide dark">
+  <div class="wrap ins">
+    <div class="secn rv">Последствие 05 · инсайт</div>
+    <div class="insight rv d1"><b>Инсайт</b><span>Подавленная злость никуда не исчезает, она разворачивается внутрь и годами точит вас изнутри <b>тревогой, виной и болью в теле</b>: спина, шея, челюсть, желудок.</span></div>
+    <div class="checkblock rv d3">
+      <div class="lab">Отметьте всё, в чём узнаёте себя</div>
+      <label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Я почти никогда не показываю злость</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Я срываюсь на близких, а потом мне стыдно</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Мне сложно защитить себя словами в моменте</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Злость я чаще чувствую телом: ком, зажим, спазм</span></label>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <div class="sechead rv">
+      <div class="ghost">06</div>
+      <div class="secn">Последствие 06</div>
+      <h2>Синдром спасателя</h2>
+      <div class="secsub">Вы спасаете всех вокруг, а свою жизнь откладываете на потом</div>
+    </div>
+    <div class="two cm">
+      <div class="col rv d2">
+        <div class="lab">Как это выглядит сегодня</div>
+        <ul class="dots"><li>Вы спасаете <b>клиентов, родителей, мужа, подруг и коллег</b>.</li><li>Своя жизнь всё время откладывается: <b>сначала все, потом я</b>.</li><li>А без чужих проблем становится <b>непонятно, кто вы и зачем</b>.</li></ul>
+      </div>
+      <div class="col rv d3">
+        <div class="lab">Откуда это взялось</div>
+        <div class="txtcol"><p>Вы <b>очень рано стали взрослой</b> и отвечали за состояния других людей.</p><p>Быть нужной было <b>единственным доступным способом быть любимой</b>.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide dark">
+  <div class="wrap ins">
+    <div class="secn rv">Последствие 06 · инсайт</div>
+    <div class="insight rv d1"><b>Инсайт</b><span>Пока вы всем нужны, вас точно не бросят, и в этом заключается <b>вторичная выгода спасательства</b>. Поэтому просто перестать спасать не получается: вместе со спасательством уходит и <b>ощущение, что вы кому-то нужны</b>.</span></div>
+    <div class="checkblock rv d3">
+      <div class="lab">Отметьте всё, в чём узнаёте себя</div>
+      <label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Я решаю чужие проблемы охотнее, чем свои</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Мне сложно принимать помощь</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Без меня всё рухнет, и я в это верю</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Я очень устала, но продолжаю тащить</span></label>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <div class="sechead rv">
+      <div class="ghost">07</div>
+      <div class="secn">Последствие 07</div>
+      <h2>Зависимости в семье</h2>
+      <div class="secsub">«Он же не буянил, просто выпивал по вечерам»</div>
+    </div>
+    <div class="two cm">
+      <div class="col rv d2">
+        <div class="lab">Как это выглядит сегодня</div>
+        <ul class="dots"><li>Вы выросли в доме, где <b>по вечерам выпивали</b>, чтобы расслабиться.</li><li>Вам самой сложно расслабиться без помощника: <b>бокала, еды, сериала или телефона</b>.</li><li>Вы <b>считываете настроение других с полувзгляда</b>, потому что привыкли сканировать взрослого.</li></ul>
+      </div>
+      <div class="col rv d3">
+        <div class="lab">Откуда это взялось</div>
+        <div class="txtcol"><p>Если человек употребляет алкоголь ежедневно, <b>это уже зависимость</b>. Даже если нет ни скандалов, ни дебоша, ни агрессии.</p><p>У нашего поколения это почти норма, поэтому мы и <b>не считываем это как травму</b>: все пили, все бухали, и это как будто вшито в код.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide dark">
+  <div class="wrap ins">
+    <div class="secn rv">Последствие 07 · инсайт</div>
+    <div class="insight rv d1"><b>Инсайт</b><span>Взрослый физически рядом, но на самом деле <b>его уже нет</b>: он смотрит сквозь, отвечает невпопад и к вечеру выключается. Ребёнок остаётся <b>один в комнате, полной людей</b>, и учится опираться только на себя.</span></div>
+    <div class="checkblock rv d3">
+      <div class="lab">Отметьте всё, в чём узнаёте себя</div>
+      <label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">В моей семье регулярно выпивали, и это считалось нормой</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Я привыкла быть настороже и считывать настроение взрослых</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Мне трудно расслабиться, если нечем себя «выключить»</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Я очень рано научилась справляться сама</span></label>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <div class="sechead rv">
+      <div class="ghost">08</div>
+      <div class="secn">Последствие 08</div>
+      <h2>Эмоционально незрелые взрослые</h2>
+      <div class="secsub">Вы никогда не просите помощи и всё тащите сама</div>
+    </div>
+    <div class="two cm">
+      <div class="col rv d2">
+        <div class="lab">Как это выглядит сегодня</div>
+        <ul class="dots"><li>Вы <b>не просите помощи</b>. Вообще никогда.</li><li>Проблему проще <b>решить самой</b>, чем объяснять её кому-то.</li><li>Быть слабой и уязвимой для вас <b>стыдно</b>.</li></ul>
+      </div>
+      <div class="col rv d3">
+        <div class="lab">Откуда это взялось</div>
+        <div class="txtcol"><p>С проблемой к взрослому идти было нельзя. Принесёшь проблему – <b>получишь агрессию</b>, обесценивание в духе «сама виновата» или мамино <b>«мне плохо, сердце, вызывай скорую»</b>.</p><p>Проблема ребёнка мгновенно становилась <b>проблемой мамы</b>, и ребёнок быстро понял, что лучше её не приносить.</p><p>Целое поколение выросло рядом с <b>недиагностированной депрессией</b> и непереработанной болью взрослых.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide dark">
+  <div class="wrap ins">
+    <div class="secn rv">Последствие 08 · инсайт</div>
+    <div class="insight rv d1"><b>Инсайт</b><span>Однажды ребёнок принёс свою проблему и <b>получил за неё</b>. С тех пор он решает всё сам. Прошло двадцать лет, а это решение так и <b>не пересматривалось</b>: помощи не будет, а значит, и просить незачем.</span></div>
+    <div class="checkblock rv d3">
+      <div class="lab">Отметьте всё, в чём узнаёте себя</div>
+      <label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Я не прошу о помощи, даже когда мне тяжело</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Мне неловко занимать своими проблемами чужое время</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Я заранее рассчитываю только на себя</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Просить для меня почти унизительно</span></label>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="wrap">
+    <div class="sechead rv">
+      <div class="ghost">09</div>
+      <div class="secn">Последствие 09</div>
+      <h2>Додумывание за других</h2>
+      <div class="secsub">Вы просчитываете чужую реакцию раньше, чем откроете рот</div>
+    </div>
+    <div class="two cm">
+      <div class="col rv d2">
+        <div class="lab">Как это выглядит сегодня</div>
+        <ul class="dots"><li>Прежде чем сказать, чего вы хотите, вы <b>предсказываете реакцию другого человека</b>.</li><li>Если вам кажется, что он отреагирует плохо, вы <b>просто молчите</b> и не поднимаете тему.</li><li>Чужое недовольство невыносимо: вы мгновенно <b>проваливаетесь в вину и беспомощность</b>.</li><li>Всё копится внутри, потому что <b>попросить, объяснить и сказать прямо нельзя</b>.</li></ul>
+      </div>
+      <div class="col rv d3">
+        <div class="lab">Откуда это взялось</div>
+        <div class="txtcol"><p>Вы с детства отвечали <b>за эмоции взрослого</b>. От вашего слова зависело, каким будет вечер, и вы научились сначала считать риск, а уже потом говорить.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide dark">
+  <div class="wrap ins">
+    <div class="secn rv">Последствие 09 · инсайт</div>
+    <div class="insight rv d1"><b>Инсайт</b><span>Вы годами тренировались угадывать настроение взрослого, потому что от вашей фразы зависело, <b>каким будет вечер в доме</b>. Тело до сих пор помнит эту математику, поэтому <b>даже обычная просьба ощущается как риск</b>.</span></div>
+    <div class="checkblock rv d3">
+      <div class="lab">Отметьте всё, в чём узнаёте себя</div>
+      <label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Я редко говорю прямо, чего хочу</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Я заранее знаю, «как он отреагирует», и молчу</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Чужое недовольство выбивает меня надолго</span></label><label class="ck"><input type="checkbox"><span class="box"></span><span class="txt">Я много терплю внутри и ничего не выношу наружу</span></label>
+    </div>
+  </div>
+</section>
+
+<section class="slide dark">
+  <div class="wrap">
+    <div class="eyebrow rv">Ваш результат</div>
+    <h2 class="rv d1">Сколько пунктов <span class="acc">оказались про вас</span></h2>
+    <p class="lead rv d2">Посмотрите на своё число. Оно показывает, <b>сколько реакций срабатывают у вас автоматически</b>, без вашего участия, и насколько плотно прошлое вмешивается в вашу сегодняшнюю жизнь.</p>
+    <button class="resbtn rv d3" id="resbtn">Показать мой результат</button>
+    <div class="resout cm" id="resout" hidden>
+      <div class="res-head"><div class="resnum"><span id="rn">0</span> <small>из 36</small></div></div>
+      <div class="scale" aria-hidden="true">
+        <div class="track"><div class="zones"><i style="width:16.667%"></i><i style="width:22.222%"></i><i style="width:27.778%"></i><i style="width:33.333%"></i></div><i class="fill" id="rfill"></i><span class="mk" id="rmk"></span></div>
+        <div class="ticks"><span style="left:0">0</span><span style="left:16.667%">6</span><span style="left:38.889%">14</span><span style="left:66.667%">24</span><span style="left:100%">36</span></div>
+      </div>
+      <div class="restit" id="rt"></div>
+      <div class="restxt" id="rx"></div>
+    </div>
+<div class="chains" id="chains" hidden>
+  <div class="orn ch-orn" aria-hidden="true"><i></i></div>
+  <h2 class="ch-h">Откуда это у вас: детство, правило, сегодня</h2>
+  <p class="lead ch-sub" id="chsub">Здесь блоки, где вы отметили больше всего. В каждом – детский опыт, из которого часто растёт такая реакция, правило, которое ребёнок тогда берёт себе, и то, как оно влияет на вашу жизнь сегодня.</p>
+  <div class="ch-list" id="chtop"></div>
+  <button type="button" class="morebtn" id="chmore" hidden><span id="chmt">Ещё 6 блоков</span></button>
+  <div class="ch-list ch-rest" id="chrest" hidden></div>
+  <p class="ch-none" id="chnone" hidden>Ярко выраженных блоков у вас нет. Но и одна отметка может влиять на деньги, отношения и силы. На личной встрече с психологом можно найти, где именно.</p>
+  <div class="ch-pool" id="chpool" hidden>
+<article class="chain cm" data-b="0">
+  <div class="ch-top"><div class="ch-num">01</div><div class="ch-ttl"><h3 class="ch-name">Нет границ личности</h3>
+    <div class="ch-meter"><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="ch-n"><b class="ch-k">0</b> из 4</span></div></div></div>
+  <ol class="links">
+    <li class="lk"><div class="lk-l">Часто это растёт из такого детства</div><p class="lk-t">На ребёнка кричали, одёргивали, давали подзатыльник или заставляли обниматься, когда он не хотел. Его «нет» часто не принимали в расчёт.</p><i class="lk-ar" aria-hidden="true"></i></li>
+    <li class="lk lk-rule"><div class="lk-l">Правило, которое ребёнок берёт себе</div><blockquote class="lk-q">Чтобы меня не отвергли, нужно соглашаться.</blockquote><i class="lk-ar" aria-hidden="true"></i></li>
+    <li class="lk lk-now"><div class="lk-l">Как это держит вас сегодня</div><p class="lk-t">Вы соглашаетесь раньше, чем успеваете подумать, а потом злитесь на себя. Чужие просьбы съедают ваше время и деньги, а на свои дела сил уже нет.</p></li>
+  </ol>
+</article>
+<article class="chain cm" data-b="1">
+  <div class="ch-top"><div class="ch-num">02</div><div class="ch-ttl"><h3 class="ch-name">Низкая самооценка</h3>
+    <div class="ch-meter"><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="ch-n"><b class="ch-k">0</b> из 4</span></div></div></div>
+  <ol class="links">
+    <li class="lk"><div class="lk-l">Часто это растёт из такого детства</div><p class="lk-t">Тепла и внимания хватало не всегда, и их приходилось заслуживать пятёркой, послушанием, помощью по дому.</p><i class="lk-ar" aria-hidden="true"></i></li>
+    <li class="lk lk-rule"><div class="lk-l">Правило, которое ребёнок берёт себе</div><blockquote class="lk-q">Я ценна, только когда полезна и хороша.</blockquote><i class="lk-ar" aria-hidden="true"></i></li>
+    <li class="lk lk-now"><div class="lk-l">Как это держит вас сегодня</div><p class="lk-t">Сколько бы вы ни сделали, внутри звучит «мало». Похвала не греет, критика попадает точно в цель, и вы снова доказываете, что достойны.</p></li>
+  </ol>
+</article>
+<article class="chain cm" data-b="2">
+  <div class="ch-top"><div class="ch-num">03</div><div class="ch-ttl"><h3 class="ch-name">«Мне не положено»</h3>
+    <div class="ch-meter"><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="ch-n"><b class="ch-k">0</b> из 4</span></div></div></div>
+  <ol class="links">
+    <li class="lk"><div class="lk-l">Часто это растёт из такого детства</div><p class="lk-t">В семье считали каждую копейку, и всё хорошее было «не для нас». Ребёнок видел, что у других больше, и делал вывод о себе.</p><i class="lk-ar" aria-hidden="true"></i></li>
+    <li class="lk lk-rule"><div class="lk-l">Правило, которое ребёнок берёт себе</div><blockquote class="lk-q">Хорошая жизнь – для других, а мне нужно терпеть и экономить.</blockquote><i class="lk-ar" aria-hidden="true"></i></li>
+    <li class="lk lk-now"><div class="lk-l">Как это держит вас сегодня</div><p class="lk-t">Доход может расти, а ощущение нехватки не уходит. Вы откладываете себя на потом, и тратить на себя без повода неловко.</p></li>
+  </ol>
+</article>
+<article class="chain cm" data-b="3">
+  <div class="ch-top"><div class="ch-num">04</div><div class="ch-ttl"><h3 class="ch-name">Страх отношений и брошенность</h3>
+    <div class="ch-meter"><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="ch-n"><b class="ch-k">0</b> из 4</span></div></div></div>
+  <ol class="links">
+    <li class="lk"><div class="lk-l">Часто это растёт из такого детства</div><p class="lk-t">Родители развелись, кто-то из взрослых ушёл или был рядом, но эмоционально отсутствовал.</p><i class="lk-ar" aria-hidden="true"></i></li>
+    <li class="lk lk-rule"><div class="lk-l">Правило, которое ребёнок берёт себе</div><blockquote class="lk-q">Близкие уходят, поэтому любовь нужно удерживать любой ценой.</blockquote><i class="lk-ar" aria-hidden="true"></i></li>
+    <li class="lk lk-now"><div class="lk-l">Как это держит вас сегодня</div><p class="lk-t">Вы много терпите, лишь бы не остаться одной, или держите дистанцию, чтобы не было больно. И раз за разом попадаете в один и тот же сюжет с разными людьми.</p></li>
+  </ol>
+</article>
+<article class="chain cm" data-b="4">
+  <div class="ch-top"><div class="ch-num">05</div><div class="ch-ttl"><h3 class="ch-name">Агрессия: заперта или через край</h3>
+    <div class="ch-meter"><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="ch-n"><b class="ch-k">0</b> из 4</span></div></div></div>
+  <ol class="links">
+    <li class="lk"><div class="lk-l">Часто это растёт из такого детства</div><p class="lk-t">Злость взрослых была опасной, а злиться самому ребёнку запрещали: «не смей так разговаривать».</p><i class="lk-ar" aria-hidden="true"></i></li>
+    <li class="lk lk-rule"><div class="lk-l">Правило, которое ребёнок берёт себе</div><blockquote class="lk-q">Злиться нельзя, нужно терпеть.</blockquote><i class="lk-ar" aria-hidden="true"></i></li>
+    <li class="lk lk-now"><div class="lk-l">Как это держит вас сегодня</div><p class="lk-t">Вы молчите, когда вас задевают, а потом срываетесь на близких. Или чувствуете злость телом: зажим, ком в горле, напряжение в плечах.</p></li>
+  </ol>
+</article>
+<article class="chain cm" data-b="5">
+  <div class="ch-top"><div class="ch-num">06</div><div class="ch-ttl"><h3 class="ch-name">Синдром спасателя</h3>
+    <div class="ch-meter"><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="ch-n"><b class="ch-k">0</b> из 4</span></div></div></div>
+  <ol class="links">
+    <li class="lk"><div class="lk-l">Часто это растёт из такого детства</div><p class="lk-t">Ребёнок рано стал взрослым и отвечал за настроение мамы, младших, всей семьи.</p><i class="lk-ar" aria-hidden="true"></i></li>
+    <li class="lk lk-rule"><div class="lk-l">Правило, которое ребёнок берёт себе</div><blockquote class="lk-q">Я нужна, пока решаю чужие проблемы.</blockquote><i class="lk-ar" aria-hidden="true"></i></li>
+    <li class="lk lk-now"><div class="lk-l">Как это держит вас сегодня</div><p class="lk-t">Вы тащите всех и очень устали, но остановиться страшно: без спасательства непонятно, кто вы и зачем.</p></li>
+  </ol>
+</article>
+<article class="chain cm" data-b="6">
+  <div class="ch-top"><div class="ch-num">07</div><div class="ch-ttl"><h3 class="ch-name">Зависимости в семье</h3>
+    <div class="ch-meter"><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="ch-n"><b class="ch-k">0</b> из 4</span></div></div></div>
+  <ol class="links">
+    <li class="lk"><div class="lk-l">Часто это растёт из такого детства</div><p class="lk-t">Кто-то из взрослых выпивал «чтобы расслабиться». Он был рядом, но к вечеру его уже не было.</p><i class="lk-ar" aria-hidden="true"></i></li>
+    <li class="lk lk-rule"><div class="lk-l">Правило, которое ребёнок берёт себе</div><blockquote class="lk-q">Опираться можно только на себя и всегда быть настороже.</blockquote><i class="lk-ar" aria-hidden="true"></i></li>
+    <li class="lk lk-now"><div class="lk-l">Как это держит вас сегодня</div><p class="lk-t">Вы считываете чужое настроение с полувзгляда и с трудом расслабляетесь без помощника: бокала, еды, сериала, телефона.</p></li>
+  </ol>
+</article>
+<article class="chain cm" data-b="7">
+  <div class="ch-top"><div class="ch-num">08</div><div class="ch-ttl"><h3 class="ch-name">Эмоционально незрелые взрослые</h3>
+    <div class="ch-meter"><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="ch-n"><b class="ch-k">0</b> из 4</span></div></div></div>
+  <ol class="links">
+    <li class="lk"><div class="lk-l">Часто это растёт из такого детства</div><p class="lk-t">С проблемой к взрослым было небезопасно идти: в ответ звучало «сама виновата» или «мне плохо, сердце».</p><i class="lk-ar" aria-hidden="true"></i></li>
+    <li class="lk lk-rule"><div class="lk-l">Правило, которое ребёнок берёт себе</div><blockquote class="lk-q">Просить помощи бесполезно и стыдно.</blockquote><i class="lk-ar" aria-hidden="true"></i></li>
+    <li class="lk lk-now"><div class="lk-l">Как это держит вас сегодня</div><p class="lk-t">Вы всё делаете сама, даже когда тяжело. Помощь кажется унижением, и рядом часто оказываются те, кто привык брать.</p></li>
+  </ol>
+</article>
+<article class="chain cm" data-b="8">
+  <div class="ch-top"><div class="ch-num">09</div><div class="ch-ttl"><h3 class="ch-name">Додумывание за других</h3>
+    <div class="ch-meter"><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="ch-n"><b class="ch-k">0</b> из 4</span></div></div></div>
+  <ol class="links">
+    <li class="lk"><div class="lk-l">Часто это растёт из такого детства</div><p class="lk-t">От слова ребёнка зависело, каким будет вечер в доме.</p><i class="lk-ar" aria-hidden="true"></i></li>
+    <li class="lk lk-rule"><div class="lk-l">Правило, которое ребёнок берёт себе</div><blockquote class="lk-q">Прежде чем сказать, просчитай реакцию.</blockquote><i class="lk-ar" aria-hidden="true"></i></li>
+    <li class="lk lk-now"><div class="lk-l">Как это держит вас сегодня</div><p class="lk-t">Вы молчите о своих желаниях, потому что заранее знаете, «как он отреагирует». Всё копится внутри и выходит обидой и усталостью.</p></li>
+  </ol>
+</article>
+  </div>
+</div>
+  </div>
+</section>
+
+<section class="slide final" aria-label="Почему понимания мало">
+  <div class="wrap">
+    <div class="why">
+      <h2 class="rv">Вы увидели, как детство держит вас сегодня. <span class="acc">Почему этого мало</span></h2>
+      <div class="why-p">
+        <p class="lead rv d1">Детское правило записано глубже мыслей. Оно срабатывает за долю секунды: вы уже согласились, промолчали, отложили себя, а голова ещё не успела подумать.</p>
+        <p class="body rv d2">Поэтому люди годами всё про себя понимают и живут по-старому. Привычная реакция начинает меняться, когда детский опыт перерабатывают. Одной это трудно: всё время тянет вернуться к знакомому объяснению.</p>
+      </div>
+    </div>
+
+    <div class="vipblock vip-only">
+      <div class="orn vb-orn" aria-hidden="true"><i></i></div>
+      <div class="eyebrow">Следующий шаг</div>
+      <h2 class="viph"><span id="viph-a">Начните с блока «<span class="acc" id="viphn">Нет границ личности</span>» на личной встрече с психологом</span><span id="viph-b" hidden>Личная встреча с психологом: найдите, с чего начать</span></h2>
+      <div class="vb-p">
+        <p class="lead">VIP-билет практикума «Новая реальность» – это прежде всего личная встреча с психологом один на один. Вы приходите со своим результатом теста и вместе находите цепочку, которая сильнее всего держит ваши деньги, отношения или силы.</p>
+        <p class="body">С вами работает практикующий психолог, выпускник Института психического здоровья доктора Анны Саба. Он обучен авторскому методу Анны EMDR 3.0 – подходу к работе с детскими переживаниями, о которых вы только что читали.</p>
+      </div>
+      <div class="vipgrid">
+        <div class="vcol">
+          <div class="card meet cm">
+            <div class="cl">На личной встрече вы</div>
+            <ul class="olist meet-list"><li>найдёте цепочку, которая сильнее всего держит именно вас;</li><li>обсудите, что старый сценарий вам давал и почему с ним трудно расстаться;</li><li>получите пошаговый план: что менять первым.</li></ul>
+          </div>
+          <p class="under">Встреча помогает увидеть причину и выбрать первые шаги. Обычно консультация психолога такого уровня стоит от 15 000 ₽, а в VIP-билет она уже входит.</p>
+        </div>
+        <div class="vcol">
+          <div class="extra">
+            <div class="lab">Ещё в VIP-билете</div>
+            <ul class="dots"><li>Записи и презентации всех 4 эфиров.</li><li>Эфир 4, только для VIP: «Магнит для масштаба» – как справляться со страхом и сомнениями, когда пора заявить о себе.</li><li>Практика на 60 минут: вы почувствуете свою новую реальность и увидите, что мешает в неё перейти.</li><li>Для тех, кому интересна профессия: мастер-класс «Как за 6 месяцев освоить профессию EMDR-терапевта».</li></ul>
+          </div>
+          <div class="pricecard vprice cm">
+            <div class="pc-lab">VIP-билет</div>
+            <div class="pc-price">1 980 ₽</div>
+            <div class="pc-old"><s>14 990 ₽</s></div>
+            <a class="ctabtn" href="https://doctor-saba.com/sales/shop/offer/id/8830645" target="_blank" rel="noopener"><span class="bt">Взять VIP-билет с личной встречей за 1 980 ₽ →</span></a>
+            <div class="pc-note">Если вы уже купили VIP-билет, второй раз платить не нужно.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="offer reg-only">
+      <div class="card cm">
+        <div class="cl">На практикуме вы</div>
+        <ul class="olist">
+          <li>найдёте чувство, которое годами держит вас на месте: тревогу, страх, обиду, вину или стыд;</li>
+          <li>увидите, куда утекают ваши силы, и вернёте их себе;</li>
+          <li>составите пошаговый план, как прийти к своей цели.</li>
+        </ul>
+      </div>
+      <div class="pricecard cm">
+        <div class="pc-main">Бесплатный онлайн-практикум <em>«Новая реальность»</em></div>
+        <div class="orn" aria-hidden="true"><i></i></div>
+        <div class="pc-sub">3 эфира с Анной Саба</div>
+        <a class="ctabtn" href="https://doctorannasaba.ru/novaya-realnost-36/" target="_blank" rel="noopener">Зарегистрироваться бесплатно →</a>
+        <div class="pc-note">После регистрации вы получите подарки к практикуму</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<div class="cnt" id="cnt" aria-live="polite"><span>Отмечено: <b id="cn">0</b> / 36</span><span class="cnt-bar" aria-hidden="true"><i id="cbar"></i></span></div>
+<div class="hint">Стрелки · клик по краям · свайп</div>
+
+<script>
+const TOTAL=36;
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const slides=[...document.querySelectorAll('.slide')];
+let i=0;
+const cur=document.getElementById('cur'),tot=document.getElementById('tot'),pg=document.getElementById('pg'),nextBtn=document.getElementById('next');
+tot.textContent=slides.length;
+const pad=n=>String(n).padStart(2,'0');
+function show(n){
+  slides[i].classList.remove('active');
+  i=Math.max(0,Math.min(slides.length-1,n));
+  slides[i].classList.add('active');
+  slides[i].scrollTop=0;
+  cur.textContent=pad(i+1);
+  pg.style.width=((i+1)/slides.length*100)+'%';
+  nextBtn.classList.toggle('loop',i===slides.length-1);
+  nextBtn.setAttribute('aria-label',i===slides.length-1?'В начало':'Вперёд');
+  document.body.classList.toggle('on-cover',i===0);
+  document.body.classList.toggle('on-last',i===slides.length-1);
+  document.body.classList.toggle('slide-dark-on',slides[i].classList.contains('dark'));
+}
+nextBtn.onclick=()=>show(i===slides.length-1?0:i+1);
+document.getElementById('prev').onclick=()=>show(i-1);
+document.getElementById('swipe').onclick=()=>show(i+1);
+document.addEventListener('keydown',e=>{
+  if(e.target.closest&&e.target.closest('input,textarea'))return;
+  if(e.key==='ArrowRight'||e.key==='PageDown')show(i+1);
+  if(e.key==='ArrowLeft'||e.key==='PageUp')show(i-1);
+});
+document.getElementById('deck').addEventListener('click',e=>{
+  if(e.target.closest('button,a,label,input'))return;
+  const x=e.clientX/window.innerWidth;
+  if(x>0.85)show(i+1); else if(x<0.06)show(i-1);
+});
+let tx=0,ty=0;
+document.getElementById('deck').addEventListener('touchstart',e=>{tx=e.changedTouches[0].clientX;ty=e.changedTouches[0].clientY},{passive:true});
+document.getElementById('deck').addEventListener('touchend',e=>{
+  if(e.target.closest('button,a,label,input'))return;
+  const dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){dx<0?show(i+1):show(i-1)}
+},{passive:true});
+
+const boxes=[...document.querySelectorAll('.ck input')];
+const cn=document.getElementById('cn'),cbar=document.getElementById('cbar'),cntEl=document.getElementById('cnt');
+const count=()=>boxes.filter(b=>b.checked).length;
+function upd(){
+  const n=count();cn.textContent=n;cbar.style.width=(n/TOTAL*100)+'%';
+  cntEl.classList.remove('bump');void cntEl.offsetWidth;cntEl.classList.add('bump');
+  chains();
+  if(!document.getElementById('resout').hidden)render(false);
+}
+boxes.forEach(b=>b.addEventListener('change',upd));
+
+const BUCKETS=[
+  {max:0,t:'Вы пока ничего не отметили',x:'Вернитесь к чек-листам и пройдите их честно, потому что половина работы делается именно там. Пока вы не назвали своё, работать <b>просто не с чем</b>.'},
+  {max:6,t:'Следы есть, но живёте вы всё-таки свою жизнь',x:'Отдельные реакции вам знакомы, но у вас есть внутренняя опора, и большую часть жизни вы держите в своих руках. Точечная проработка уберёт то, что мешает, и <b>сделает это довольно быстро</b>.'},
+  {max:14,t:'Прошлое забирает у вас одну-две сферы',x:'Чаще всего это <b>деньги или отношения</b>: именно там вы упираетесь в потолок, сколько бы ни старались. Причина при этом лежит глубже самой сферы, потому что реакция срабатывает раньше, чем вы успеваете подумать.'},
+  {max:24,t:'Ваш сценарий повторяется и будет повторяться дальше',x:'Осознания у вас уже есть, а реакция всё равно включается сама, и получается знакомое <b>«я всё понимаю, но ничего не меняется»</b>. Новая информация здесь не поможет, потому что менять нужно сам рефлекс.'},
+  {max:999,t:'Ваши решения принимает прошлое',x:'Почти всё, что вы отметили, – это <b>рефлексы, записанные до десяти лет</b>. Они запускаются раньше мысли и решают за вас, где вам работать, кого любить и сколько зарабатывать. Хорошая новость в том, что именно эти рефлексы и перерабатываются, и именно с них начинается результат.'}
+];
+const NAMES=["Нет границ личности", "Низкая самооценка", "Мне не положено", "Страх отношений и брошенность", "Агрессия: заперта или через край", "Синдром спасателя", "Зависимости в семье", "Эмоционально незрелые взрослые", "Додумывание за других"];
+/* цепочки: по каждому из 9 последствий – число отметок (4 на блок); до 3 блоков с 2+ отметками, остальные под «Ещё N блоков» */
+const chPool=document.getElementById('chpool'),chTop=document.getElementById('chtop'),chRest=document.getElementById('chrest'),
+  chMore=document.getElementById('chmore'),chNone=document.getElementById('chnone'),chSub=document.getElementById('chsub');
+const chCards=[...chPool.querySelectorAll('.chain')];
+const plural=n=>{const a=n%10,b=n%100;return a===1&&b!==11?'блок':a>=2&&a<=4&&(b<12||b>14)?'блока':'блоков'};
+let chOpen=false;
+function chains(){
+  const per=chCards.map((_,k)=>boxes.slice(k*4,k*4+4).filter(x=>x.checked).length);
+  const order=per.map((n,k)=>({n,k})).filter(x=>x.n>=2).sort((x,y)=>y.n-x.n||x.k-y.k);
+  chCards.forEach((c,k)=>{c.querySelector('.ch-k').textContent=per[k];c.style.setProperty('--k',per[k]);
+    c.querySelectorAll('.pips i').forEach((p,j)=>p.classList.toggle('on',j<per[k]));chPool.appendChild(c)});
+  const top=order.slice(0,3),rest=order.slice(3);
+  top.forEach(x=>chTop.appendChild(chCards[x.k]));rest.forEach(x=>chRest.appendChild(chCards[x.k]));
+  chTop.hidden=!top.length;chSub.hidden=!top.length;chNone.hidden=!!top.length;
+  chMore.hidden=!rest.length||chOpen;chRest.hidden=!rest.length||!chOpen;
+  document.getElementById('chmt').textContent='Ещё\u00a0'+rest.length+'\u00a0'+plural(rest.length);
+  /* VIP: заголовок по главному блоку (первому показанному) */
+  const ha=document.getElementById('viph-a'),hb=document.getElementById('viph-b');
+  if(top.length){document.getElementById('viphn').textContent=NAMES[top[0].k];ha.hidden=false;hb.hidden=true}else{ha.hidden=true;hb.hidden=false}
+}
+chMore.addEventListener('click',()=>{chOpen=true;chains();const f=chRest.firstElementChild;if(f)f.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})});
+
+function render(anim){
+  const n=count(), b=BUCKETS.find(x=>n<=x.max), rn=document.getElementById('rn');
+  document.getElementById('rt').textContent=b.t;
+  document.getElementById('rx').innerHTML=b.x;
+  document.getElementById('resout').hidden=false;
+  chains();document.getElementById('chains').hidden=false;
+  const pct=(n/TOTAL*100)+'%', fill=document.getElementById('rfill'), mk=document.getElementById('rmk');
+  if(anim&&!reduce){
+    fill.style.width='0';mk.style.left='0';void fill.offsetWidth;
+    requestAnimationFrame(()=>{fill.style.width=pct;mk.style.left=pct});
+    const t0=performance.now();
+    (function step(t){const k=Math.min(1,(t-t0)/900),e=1-Math.pow(1-k,3);rn.textContent=Math.round(n*e);if(k<1)requestAnimationFrame(step)})(t0);
+  }else{fill.style.width=pct;mk.style.left=pct;rn.textContent=n}
+}
+document.getElementById('resbtn').addEventListener('click',()=>render(true));
+
+/* ссылки наружу сохраняют utm_* из адреса страницы */
+document.addEventListener('click',e=>{
+  const a=e.target.closest&&e.target.closest('a[href^="http"]');if(!a)return;
+  try{
+    const p=new URLSearchParams(location.search),u=new URL(a.href);let ch=false;
+    p.forEach((v,k)=>{if(/^utm_/i.test(k)){u.searchParams.set(k,v);ch=true}});
+    if(ch)a.href=u.toString();
+  }catch(err){}
+},true);
+
+/* служебное для проверок и снимков: ?s=N – открыть слайд N, ?demo=N – отметить N пунктов и показать результат, ?ck=0,1,5 – отметить пункты по номерам, ?open=1 – раскрыть свёрнутые блоки */
+(function(){
+  const q=new URLSearchParams(location.search),d=parseInt(q.get('demo'),10),s=parseInt(q.get('s'),10);
+  if(d>0){boxes.forEach((b,k)=>{b.checked=k%Math.ceil(TOTAL/d)===0&&boxes.filter(x=>x.checked).length<d});
+    while(count()<d){const f=boxes.find(x=>!x.checked);if(!f)break;f.checked=true}upd()}
+  if(q.has('ck')){q.get('ck').split(',').filter(Boolean).forEach(x=>{const b=boxes[+x];if(b)b.checked=true});upd()}
+  if(q.get('open')==='1')chOpen=true;
+  chains();
+  show(s>0?s-1:0);
+  if((q.has('demo')||q.has('ck'))&&slides[i].querySelector('#resbtn'))render(false);
+})();
+
+</script>
+</body>
+</html>
