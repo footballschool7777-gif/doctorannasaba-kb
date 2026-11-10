@@ -488,6 +488,9 @@ body.mode-scroll .app{max-width:none;background:#f6f0e6;box-shadow:none!importan
 .video.soon{cursor:default}
 .video img.vp{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .video video{position:absolute;inset:0;width:100%;height:100%;display:block;background:#000;object-fit:contain}
+/* Safari on Mac: a playing <video> inside overflow:hidden + border-radius + isolation can render black (owner msg 3979, 10.11) */
+.video.playing{overflow:visible;isolation:auto;cursor:default}
+.video.playing video{border-radius:22px;-webkit-transform:translateZ(0);transform:translateZ(0)}
 /* ▶ — круг кнопки сайта: золотая пилюля-кольцо и тёмный круг с золотым знаком */
 .video .play{position:absolute;left:50%;top:50%;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;
   display:grid;place-items:center;background:#e2b867;
@@ -5415,9 +5418,9 @@ const CONFIG = {
     if (videoEl && V.src) videoEl.addEventListener('click', function () {
       track('video_click', { result: key });
       const box = document.createElement('div');
-      box.className = 'video';
+      box.className = 'video playing';
       box.id = 'video';
-      box.innerHTML = `<video controls playsinline preload="auto" poster="${esc(V.poster || '')}" src="${esc(V.src)}"></video>`;
+      box.innerHTML = `<video controls playsinline webkit-playsinline preload="auto" poster="${esc(V.poster || '')}" src="${esc(V.src)}"></video>`;
       this.replaceWith(box);
       const v = box.querySelector('video');
       v.muted = false; v.volume = 1; v.currentTime = 0;
