@@ -1,0 +1,2088 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<script>
+/* Две версии страницы (Евгений): без ?vip=1 – регистрация на практикум, с ?vip=1 – уже зарегистрированным VIP-билет.
+   Класс на <html> ставится до первой отрисовки, признак живёт в sessionStorage до конца сессии (?vip=0 сбрасывает). */
+(function(){var d=document.documentElement,v=false;try{var q=new URLSearchParams(location.search).get('vip');
+ if(q==='1'){sessionStorage.setItem('ds_vip','1');v=true}else if(q==='0'){sessionStorage.removeItem('ds_vip')}else v=sessionStorage.getItem('ds_vip')==='1'}catch(e){}
+ if(v)d.classList.add('vip');window.DS_VIP=v})();
+</script>
+<script src="/utm.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="robots" content="noindex">
+<title>Тест ТДО · какая реакция из детства решает за вас · Анна Саба</title>
+<style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/inter-400.ttf) format('truetype')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/inter-500.ttf) format('truetype')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/inter-600.ttf) format('truetype')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/inter-700.ttf) format('truetype')}
+@font-face{font-family:'Lora';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/lora-500.ttf) format('truetype')}
+@font-face{font-family:'Lora';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/lora-600.ttf) format('truetype')}
+@font-face{font-family:'Lora';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/lora-700.ttf) format('truetype')}
+
+/* Оформление референсов «Первый номер» и «Вратарь»: белая журнальная страница, 2 шрифта, 6 размеров текста, колонка 40em */
+:root{
+  --text:#1D1D1B;--muted:#5C5B56;--line:#E2E0DA;--accent:#2E86C8;--accent-d:#226EA6;--accent-soft:#EAF3FA;--bg:#FFFFFF;--dark:#1D1D1B;
+  --k-tech:#2E86C8;--k-tech-bg:#EAF3FA;--k-tech-t:#226EA6;
+  --k-phys:#2E9A84;--k-phys-bg:#E6F3EF;--k-phys-t:#1F7A67;
+  --k-tac:#D0912A;--k-tac-bg:#FBF2E2;--k-tac-t:#946112;
+  --k-psy:#7D6AB8;--k-psy-bg:#F0EDF8;--k-psy-t:#5F4D9C;
+  --serif:'Lora',Georgia,'Times New Roman',serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --doc:17px;
+  --s-label:.76em;--s-small:.88em;--s-lead:1.12em;--s-h2:1.45em;--s-big:1.9em;
+  --sec:56px;--pad:24px;--r:3px;--r2:6px;
+  --shadow:0 1px 2px rgba(29,29,27,.04),0 6px 18px rgba(29,42,60,.06);
+}
+@media(max-width:767px){:root{--doc:16px;--s-lead:1.08em;--s-h2:1.28em;--s-big:1.75em;--sec:40px;--pad:20px}}
+.k-tech{--k:var(--k-tech);--kt:var(--k-tech-t);--kbg:var(--k-tech-bg)}
+.k-phys{--k:var(--k-phys);--kt:var(--k-phys-t);--kbg:var(--k-phys-bg)}
+.k-tac{--k:var(--k-tac);--kt:var(--k-tac-t);--kbg:var(--k-tac-bg)}
+.k-psy{--k:var(--k-psy);--kt:var(--k-psy-t);--kbg:var(--k-psy-bg)}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--text);font:400 var(--doc)/1.55 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-kerning:normal;hyphens:none;overflow-x:hidden}
+img,svg,video{display:block;max-width:100%}
+p,h1,h2,h3,h4,ul,ol,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit}
+strong,b{font-weight:600}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--text);text-transform:uppercase}
+h1{font-size:var(--s-big);line-height:1.22;letter-spacing:.005em}
+h2{font-size:var(--s-h2);line-height:1.28;letter-spacing:.01em}
+h3{font-size:var(--s-lead);line-height:1.35;letter-spacing:.02em}
+h1,h2,h3,h4,p,li,figcaption,blockquote,label,.btn,dt,dd,span{text-wrap:balance}
+.bal{text-wrap:balance}
+.nw{white-space:nowrap}
+.acc{color:var(--accent)}
+.wrap{max-width:calc(40 * 17px);margin:0 auto;padding:0 var(--pad)}
+.eyebrow{font:600 var(--s-label)/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.lead{font-size:var(--s-lead);line-height:1.5}
+.small{font-size:var(--s-small);line-height:1.45;color:var(--muted)}
+.txt{display:flex;flex-direction:column;gap:1em}
+.quote{padding:.2em 0 .2em 1.1em;border-left:3px solid var(--accent)}
+blockquote.quote-soft{padding:1.2em 1.3em;background:var(--accent-soft);border-left:4px solid var(--accent);border-radius:var(--r)}
+.tags{display:flex;flex-direction:column;gap:.45em}
+.tags li{position:relative;padding-left:1.5em;line-height:1.5}
+.tags li::before{content:"—";position:absolute;left:0;top:0;color:var(--accent)}
+.ticks{display:flex;flex-direction:column;gap:.5em}
+.ticks li{display:flex;gap:.7em;line-height:1.5}
+.ticks .ti{flex:none;width:1.35em;height:1.35em;margin-top:.1em;border-radius:4px;background:var(--accent);display:grid;place-items:center}
+.ticks .ti svg{width:.95em;height:.95em;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.mk{display:inline-flex;align-items:center;gap:.5em;font:600 var(--s-label)/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--kt,var(--accent-d))}
+.mk::before{content:"";flex:none;width:.7em;height:.7em;border-radius:50%;background:var(--k,var(--accent));box-shadow:0 0 0 3px var(--kbg,var(--accent-soft))}
+.pill{display:inline-flex;align-items:center;gap:.4em;padding:4px 10px;border-radius:var(--r);background:var(--kbg,var(--accent-soft));color:var(--kt,var(--accent-d));font:600 var(--s-small)/1.35 var(--sans)}
+
+/* кнопки – сплошные синие, как у референса */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:52px;padding:14px 28px;border-radius:var(--r);border:0;background:var(--accent);color:#fff;font:600 1em/1.3 var(--sans);text-decoration:none;text-align:center;cursor:pointer;transition:background .15s,transform .1s}
+.btn:hover{background:var(--accent-d)}
+.btn:active{transform:translateY(1px)}
+.btn .ar{flex:none;width:1.15em;height:1.15em}
+.btn .ar svg{width:100%;height:100%}
+.btn-sec{background:#fff;color:var(--accent-d);box-shadow:inset 0 0 0 2px var(--accent)}
+.btn-sec:hover{background:var(--accent-soft)}
+.btn[aria-busy=true]{opacity:.7;pointer-events:none}
+:focus-visible{outline:3px solid #123;outline-offset:2px}
+@media(max-width:767px){.btn{display:flex;width:100%;padding:14px 18px}}
+
+/* ========== 1. главный экран ========== */
+.hx-in{display:flex;flex-direction:column;justify-content:flex-start;gap:calc(clamp(12px,calc((100svh - 600px) / 8),26px) + max(0px,calc((100svh - 870px) / 2.6)));min-height:100svh;padding-top:12px;padding-bottom:12px}
+.hx-head{display:flex;flex-direction:column;gap:8px}
+.hx-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hx .pill{padding:3px 9px}
+.hx h1{font-size:min(1.3em,4.5vw);line-height:1.25;letter-spacing:-.005em}
+.hx h1 .acc{color:var(--accent)}
+.by{display:flex;align-items:center;gap:10px}
+.by-ava{flex:none;width:32px;height:32px;border-radius:50%;overflow:hidden;background:var(--accent-soft);box-shadow:0 0 0 1px var(--line)}
+.by-ava img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.by-t{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .45em;line-height:1.3;font-size:var(--s-small)}
+.by-t b{font-weight:600}
+.by-t span{color:var(--muted)}
+.hx-scen{display:flex;flex-direction:column;gap:6px}
+.hx-scen .lead{font-weight:600;font-size:1em;line-height:1.4}
+.sc{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.sc li{display:flex;gap:10px;align-items:flex-start;padding:calc(clamp(4px,calc((100svh - 600px) / 24),10px) + max(0px,calc((100svh - 870px) / 20))) 0;border-bottom:1px solid var(--line);font-size:var(--s-small);line-height:1.3}
+.sc .bx{flex:none;width:16px;height:16px;margin-top:1px;border:2px solid var(--accent);border-radius:4px}
+.hx-acts{display:flex;flex-direction:column;gap:8px}
+@media(max-width:399px){.hx .btn{padding:12px 10px}.hx .btn .ar{display:none}}
+@media(max-width:767px){.hx-acts{margin-top:auto}}
+@media(max-width:767px) and (min-height:780px){.by-ava{width:40px;height:40px}.hx-scen{gap:10px}}
+@media(max-width:767px) and (max-height:680px){.hx-in{gap:9px}.sc li{padding:3px 0}}
+@media(min-width:400px) and (max-width:767px) and (min-height:780px){.sc li{font-size:.94em;line-height:1.35}}
+@media(min-width:768px){
+  .hx-in{justify-content:center;gap:24px;padding-top:32px;padding-bottom:32px}
+  .hx h1{font-size:var(--s-h2);line-height:1.26}
+  .hx-scen .lead{font-size:var(--s-lead)}
+  .sc li{font-size:1em;padding:8px 0}
+  .sc .bx{width:18px;height:18px}
+  .by-ava{width:44px;height:44px}
+  .by-t{flex-direction:column;font-size:1em}
+  .by-t span{font-size:var(--s-small)}
+  .hx-acts .btn{align-self:flex-start}
+}
+@media(min-width:1000px){
+  .hx-in{gap:20px}
+  .hx-scen{border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:var(--r2);padding:18px 24px 8px;box-shadow:var(--shadow);gap:8px}
+  .hx-scen .sc li:last-child{border-bottom:0}
+  .sc li{padding:6px 0}
+}
+}
+/* ========== 2. вопросы ========== */
+.scr{min-height:100svh}
+.q-in{display:flex;flex-direction:column;gap:14px;min-height:100svh;padding-top:10px;padding-bottom:16px}
+.qbar{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:40px}
+.back{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 10px 0 4px;margin-left:-4px;border:0;background:none;color:var(--muted);font:500 var(--s-small)/1 var(--sans);cursor:pointer;border-radius:var(--r)}
+.back svg{width:18px;height:18px}
+.back:hover{color:var(--accent-d);background:var(--accent-soft)}
+.qcount{font:600 var(--s-label)/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.prog{height:4px;background:#DCEAF5;border-radius:2px;overflow:hidden;margin-top:-6px}
+.prog-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .35s ease}
+.q-mid{display:flex;flex-direction:column;gap:14px;margin:clamp(14px,calc((100svh - 560px) / 5),96px) 0 auto}
+.qbody{display:flex;flex-direction:column;gap:12px}
+.qbody .mk{margin-bottom:-2px}
+.qt{font-size:var(--s-h2)}
+.qsub{font-size:var(--s-small);line-height:1.45}
+@media(min-width:768px){.qsub{font-size:1em}}
+.qhint{font-size:var(--s-small);color:var(--muted)}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{position:relative;display:flex;align-items:center;gap:14px;padding:11px 14px;border:1px solid var(--line);border-radius:var(--r);background:#fff;cursor:pointer;line-height:1.4;font-size:var(--s-small);transition:border-color .15s,background .15s,box-shadow .15s;-webkit-tap-highlight-color:transparent;text-wrap:pretty}
+.opt input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.opt .cb{flex:none;width:26px;height:26px;border:2px solid #AFC6D8;border-radius:5px;background:#fff;display:grid;place-items:center;transition:background .15s,border-color .15s}
+.opt .cb svg{width:17px;height:17px;fill:none;stroke:#fff;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .2s ease}
+.opt:hover{border-color:var(--accent)}
+.opt.on{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.opt.on .cb{background:var(--accent);border-color:var(--accent)}
+.opt.on .cb svg{stroke-dashoffset:0}
+.opt:has(input:focus-visible){outline:3px solid #123;outline-offset:2px}
+.q-acts{margin-top:2px;display:flex;flex-direction:column;gap:8px}
+@media(min-width:768px){
+  .q-in{justify-content:center;gap:18px;padding-top:32px;padding-bottom:32px}
+  .q-acts{margin-top:6px}
+  .q-acts .btn{align-self:flex-start;min-width:260px}
+  .opt{font-size:1em;padding:13px 16px}
+}
+
+/* ========== 3. анализ и совпадения ========== */
+.c-in{display:flex;flex-direction:column;justify-content:center;gap:22px;min-height:100svh;padding-top:32px;padding-bottom:32px}
+.s-load .c-in{align-items:center;text-align:center}
+.c-in>h1,.c-in>h2,.c-in>h3{max-width:100%}
+.s-load .lchecks{align-self:stretch;max-width:420px;margin:0 auto;text-align:left}
+.s-load .lbar{align-self:stretch;max-width:420px;width:100%;margin:0 auto}
+.spin{width:56px;height:56px;border-radius:50%;border:3px solid var(--accent-soft);border-top-color:var(--accent);animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.lchecks{display:flex;flex-direction:column;gap:12px}
+.lchecks li{display:flex;align-items:center;gap:12px;opacity:.28;transition:opacity .4s}
+.lchecks li.on{opacity:1}
+.lchecks .ti{flex:none;width:24px;height:24px;border-radius:50%;background:var(--line);display:grid;place-items:center;transition:background .3s}
+.lchecks li.on .ti{background:var(--accent)}
+.lchecks .ti svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.lbar{height:3px;background:var(--line);border-radius:2px;overflow:hidden}
+.lbar i{display:block;height:100%;width:0;background:var(--accent);animation:lb var(--d,3s) linear forwards}
+@keyframes lb{to{width:100%}}
+.mt-num{display:flex;align-items:baseline;gap:.35em;font:600 var(--s-big)/1 var(--serif);color:var(--text)}
+.mt-num b{font-size:2.1em;color:var(--accent);font-weight:600}
+.mt-card{display:flex;flex-direction:column;gap:14px;padding:24px 22px;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:var(--r2);box-shadow:var(--shadow)}
+@media(prefers-reduced-motion:reduce){.spin{animation-duration:3s}.lbar i{animation:none;width:100%}}
+
+/* ========== 4. расшифровка ========== */
+.sec{padding:0 0 var(--sec)}
+.sec>.wrap::before{content:"";display:block;height:1px;background:var(--line);margin-bottom:var(--sec)}
+.sec.nol>.wrap::before{display:none}
+.head{display:flex;flex-direction:column;gap:.6em;margin-bottom:1.4em}
+.rhead .wrap{display:flex;flex-direction:column;gap:14px;padding-top:36px}
+.rhead h1{margin-top:-2px}
+.vid{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.vsoon{position:relative;aspect-ratio:16/9;max-height:300px;width:100%;border:1px dashed #A9C8E0;border-radius:var(--r);background:var(--accent-soft);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.vsoon .pl{width:58px;height:58px;border-radius:50%;background:#fff;box-shadow:0 0 0 1px var(--line);display:grid;place-items:center}
+.vsoon .pl svg{width:24px;height:24px;margin-left:3px;fill:var(--accent)}
+.vsoon p{font:600 var(--s-small)/1.3 var(--sans);color:var(--accent-d);letter-spacing:.04em}
+.vfr{position:relative;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;background:var(--dark)}
+.vfr video{width:100%;height:100%;object-fit:cover}
+.vid-cap{font-size:var(--s-small);color:var(--muted)}
+
+/* баллы */
+.score{display:flex;align-items:baseline;gap:.35em;font:600 var(--s-big)/1 var(--serif)}
+.score b{font-size:2.1em;color:var(--accent);font-weight:600}
+.scale{display:flex;flex-direction:column;margin-top:1.4em;border-top:1px solid var(--line)}
+.scale li{display:grid;grid-template-columns:minmax(0,1fr) auto 2.6em;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:var(--s-small);line-height:1.35}
+.scale .nm{color:var(--text)}
+.scale li.z .nm,.scale li.z .ct{color:#7E7D77}
+.scale .seg{display:flex;gap:4px}
+.scale .seg i{width:22px;height:10px;border-radius:2px;background:#E2E1DC}
+.scale .seg i.f{background:#8FBFE3}
+.scale li.main .seg i.f{background:var(--accent)}
+.scale li.main .nm{font-weight:600}
+.scale li.main{background:linear-gradient(90deg,var(--accent-soft),transparent 85%);margin:0 -10px;padding-left:10px;padding-right:10px;border-left:3px solid var(--accent)}
+.scale .ct{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;color:var(--accent-d)}
+.scale a{text-decoration:none}
+.scale a:hover{text-decoration:underline}
+.scale-note{margin-top:.9em}
+.plate{background:var(--accent-soft);border-radius:var(--r);padding:1.3em 1.4em}
+.plate p{font-size:var(--s-lead);line-height:1.5}
+/* оглавление */
+.toc{display:flex;flex-direction:column;border-top:1px solid var(--line);counter-reset:t}
+.toc li{border-bottom:1px solid var(--line)}
+.toc a{display:grid;grid-template-columns:2.2em minmax(0,1fr) auto;align-items:center;gap:10px;min-height:50px;padding:8px 0;text-decoration:none;font-weight:500;line-height:1.35}
+.toc a:hover .tt{color:var(--accent-d)}
+.toc .tn{font:600 1em/1 var(--serif);color:var(--accent)}
+.toc .tc{font-size:var(--s-small);color:var(--muted);white-space:nowrap}
+.toc .tc::after{content:" →";color:var(--accent)}
+.toc li.sep a .tn{color:var(--muted)}
+/* блок-цепочка */
+.blk-h{display:flex;flex-direction:column;gap:.55em;margin-bottom:1.6em}
+.blk-h .row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.chain{display:flex;flex-direction:column;gap:56px}
+.ch{position:relative;display:flex;flex-direction:column;gap:14px}
+.ch:not(:last-child)::after{content:"";position:absolute;left:50%;bottom:-48px;width:26px;height:40px;margin-left:-13px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 40'%3E%3Cpath d='M12 2v33M4 27l8 9 8-9' fill='none' stroke='%232E86C8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.ch-cap{display:flex;align-items:baseline;gap:.55em}
+.ch-n{flex:none;font:600 var(--s-h2)/1 var(--serif);color:var(--accent)}
+.ch-cap h3{font-size:var(--s-lead);min-width:0;flex:1 1 auto}
+.ch-box{display:flex;flex-direction:column;gap:1em;padding-left:calc(.55em + .9em);border-left:1px solid var(--line)}
+@media(max-width:767px){.ch-box{padding-left:0;border-left:0}}
+.lbl{font:600 var(--s-small)/1.4 var(--sans);color:var(--text)}
+.lbl-m{font:600 var(--s-label)/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.mine{background:var(--accent-soft);border-radius:var(--r);padding:1em 1.1em;display:flex;flex-direction:column;gap:.6em}
+/* схема рефлекса */
+.rx{display:flex;flex-direction:column;gap:30px;position:relative}
+.rx-r{position:relative;display:flex;flex-direction:column;gap:6px;padding:.85em 1em;border-radius:var(--r);background:var(--kbg);border-left:4px solid var(--k)}
+.rx-r .pill{background:#fff;align-self:flex-start;font-size:var(--s-label);letter-spacing:.1em;text-transform:uppercase;padding:3px 8px}
+.rx-r p{line-height:1.45}
+.rx-r:not(:last-child)::after{content:"";position:absolute;left:28px;bottom:-27px;width:16px;height:24px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 24'%3E%3Cpath d='M8 1v19M2 14l6 7 6-7' fill='none' stroke='%232E86C8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.rx-r.hot{background:var(--accent);border-left-color:var(--accent-d);color:#fff;box-shadow:0 8px 22px rgba(46,134,200,.28);transform:scale(1.015)}
+.rx-r.hot .pill{background:#fff;color:var(--accent-d)}
+.rx-r.hot p{font-weight:600;font-size:var(--s-lead);line-height:1.4}
+.rx-side{display:flex;align-items:center;gap:8px;margin:-18px 0 -10px auto;padding:5px 10px;border:1px dashed var(--accent);border-radius:var(--r);background:#fff;font:500 var(--s-small)/1.3 var(--sans);color:var(--accent-d);max-width:92%;position:relative;z-index:1}
+.rx-side svg{flex:none;width:18px;height:18px;fill:none;stroke:var(--accent);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.words{display:flex;flex-wrap:wrap;gap:8px}
+.words li{padding:6px 12px;border:1px solid var(--line);border-radius:18px 18px 18px 4px;background:#F7F7F5;font-size:var(--s-small);line-height:1.35}
+.sph{display:flex;flex-direction:column;gap:10px}
+.sph li{display:flex;flex-direction:column;gap:6px;padding:.9em 1em;border-radius:var(--r);background:var(--kbg);border-left:4px solid var(--k)}
+.sph .pill{align-self:flex-start;background:#fff}
+.blk.sm .chain{gap:44px}
+.blk.sm .ch:not(:last-child)::after{bottom:-40px;height:32px}
+
+.where{display:flex;flex-direction:column;gap:12px}
+.where li{border:1px solid var(--line);border-radius:var(--r);padding:1em 1.1em;display:flex;flex-direction:column;gap:.6em}
+/* почему психологи – яркий блок на голубой подложке */
+.band{background:var(--accent-soft);padding:var(--sec) 0}
+.band+.sec>.wrap::before,.sec.after-band>.wrap::before{display:none}
+.sec.after-band{padding-top:var(--sec)}
+.band .wrap{display:flex;flex-direction:column;gap:1.3em}
+.band h2{font-size:var(--s-h2)}
+.amy{display:flex;flex-direction:column;align-items:stretch;gap:26px;margin:.4em 0}
+.amy-b{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:58px;padding:10px 12px;background:#fff;border:1px solid #CFE0EE;border-radius:var(--r);text-align:center;font-weight:600;line-height:1.3}
+.amy-b small{font:500 var(--s-small)/1.3 var(--sans);color:var(--muted)}
+.amy-b.hot{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 8px 22px rgba(46,134,200,.3)}
+.amy-b.hot small{color:#DCEBF7}
+.amy-b.late{background:transparent;border-style:dashed;color:var(--muted)}
+.amy-b:not(:last-child)::after{content:"";position:absolute;left:50%;bottom:-25px;width:16px;height:22px;margin-left:-8px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 24'%3E%3Cpath d='M8 1v19M2 14l6 7 6-7' fill='none' stroke='%232E86C8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+@media(min-width:768px){
+  .amy{flex-direction:row;gap:30px}
+  .amy-b{flex:1 1 0;min-width:0}
+  .amy-b:not(:last-child)::after{left:auto;right:-26px;bottom:auto;top:50%;width:22px;height:16px;margin:-8px 0 0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 16'%3E%3Cpath d='M1 8h19M14 2l7 6-7 6' fill='none' stroke='%232E86C8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+}
+.wcard{background:#fff;border-radius:var(--r);padding:1.3em 1.4em;display:flex;flex-direction:column;gap:.9em}
+.nums{display:flex;flex-direction:column;gap:.7em;counter-reset:n}
+.nums li{display:flex;gap:.8em;line-height:1.5}
+.nums li::before{counter-increment:n;content:counter(n);flex:none;width:1.2em;font:600 var(--s-lead)/1.35 var(--serif);color:var(--accent)}
+.hl{background:#fff;border-left:4px solid var(--accent);border-radius:var(--r);padding:1.2em 1.3em;font-weight:600;font-size:var(--s-lead);line-height:1.5;box-shadow:var(--shadow)}
+.lotus{font-style:italic}
+/* что делать: 3 шага */
+.steps{display:flex;flex-direction:column;gap:3.2em;margin-top:.4em}
+.st{position:relative;display:grid;grid-template-columns:2.4em minmax(0,1fr);gap:0 14px}
+.st-n{font:600 2.6em/1 var(--serif);color:var(--accent);text-align:left}
+.st:not(:last-child)::after{content:"";position:absolute;left:.85em;top:3.4em;bottom:-2.6em;width:2px;background:linear-gradient(var(--accent-soft),var(--line))}
+.st-b{display:flex;flex-direction:column;gap:1em;min-width:0}
+.st-b>h3{font-size:var(--s-h2);line-height:1.28;padding-top:.15em}
+@media(max-width:767px){.st{grid-template-columns:minmax(0,1fr)}.st-n{font-size:2.4em;margin-bottom:.15em}.st:not(:last-child)::after{display:none}}
+.days{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+@media(min-width:620px){.days{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.day{border:1px solid var(--line);border-top:3px solid var(--k);border-radius:var(--r);padding:1em 1.1em;display:flex;flex-direction:column;gap:.5em;background:#fff}
+.day.vipd{background:var(--kbg)}
+.day .dh{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.day h4{font:600 var(--s-lead)/1.3 var(--serif);text-transform:uppercase;letter-spacing:.02em}
+.day p{font-size:var(--s-small);line-height:1.5}
+.form{border:1px solid var(--line);background:var(--accent-soft);border-radius:var(--r);padding:1.4em}
+.rg-form{display:flex;flex-direction:column;gap:12px}
+.rg-form input:not([type=checkbox]){font:400 16px/1.4 var(--sans);color:var(--text);background:#fff;border:1px solid var(--line);border-radius:var(--r);min-height:50px;padding:12px 14px;width:100%}
+.rg-form input:not([type=checkbox]):focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px rgba(46,134,200,.18)}
+.rg-ck{display:flex;align-items:flex-start;gap:10px;font-size:var(--s-small);line-height:1.45;color:var(--muted);text-wrap:pretty}
+.rg-ck input{width:20px;height:20px;margin:1px 0 0;flex:none;accent-color:var(--accent)}
+.rg-ck a{color:var(--accent-d)}
+.rg-form .btn{width:100%;display:flex;margin-top:4px}
+.form-note{margin-top:12px;text-align:center}
+.more{display:inline-flex;align-items:center;gap:6px;margin-top:10px;color:var(--accent-d);font-weight:600;text-decoration:none}
+.more:hover{text-decoration:underline}
+.done{display:flex;gap:12px;align-items:flex-start;padding:1.1em 1.2em;background:var(--k-phys-bg);border-left:4px solid var(--k-phys);border-radius:var(--r);font-weight:500}
+.done .ti{flex:none;width:26px;height:26px;border-radius:50%;background:var(--k-phys);display:grid;place-items:center}
+.done .ti svg{width:15px;height:15px;fill:none;stroke:#fff;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+/* VIP */
+.vipc{border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:var(--r2);padding:1.5em 1.4em;display:flex;flex-direction:column;gap:1em;box-shadow:var(--shadow);background:#fff}
+.vipc h3{font-size:var(--s-h2);line-height:1.28}
+.vipc .eyebrow{color:var(--accent-d)}
+.vbox{border-radius:var(--r);padding:1.1em 1.2em;display:flex;flex-direction:column;gap:.7em}
+.vbox.a{background:var(--accent-soft)}
+.vbox.b{border:1px solid var(--line)}
+.price{display:flex;align-items:baseline;flex-wrap:wrap;gap:.2em .6em;padding-top:.3em}
+.price span{font-size:var(--s-small);color:var(--muted);width:100%}
+.price b{font:600 var(--s-big)/1.1 var(--serif)}
+.price s{color:var(--muted);font-size:var(--s-lead)}
+.vip-cap{text-align:center}
+html.vip .vipc{border-top-width:4px;box-shadow:0 14px 40px rgba(46,134,200,.18)}
+html.vip #vipBtn{min-height:60px;font-size:1.06em}
+html.vip .reg-only{display:none!important}
+html:not(.vip) .vip-only{display:none!important}
+/* кейсы */
+.cases-sh{position:relative}
+.cases{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1 * var(--pad));padding:4px var(--pad) 14px;scrollbar-width:none;overscroll-behavior-x:contain}
+.cases::-webkit-scrollbar{display:none}
+.case{flex:0 0 84%;scroll-snap-align:center;border:1px solid var(--line);border-radius:var(--r2);padding:1.2em 1.2em 1.3em;display:flex;flex-direction:column;gap:.75em;background:#fff;box-shadow:var(--shadow)}
+.cv{position:relative;width:min(210px,70%);aspect-ratio:1;margin:0 auto .3em;border-radius:50%;overflow:hidden;background:#DDEBF5;box-shadow:0 0 0 4px #fff,0 0 0 6px var(--accent-soft)}
+.cv.tall{width:min(190px,62%);aspect-ratio:9/16;border-radius:18px}
+.cv video{width:100%;height:100%;object-fit:cover}
+.cv-pl{position:absolute;left:50%;top:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border:0;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px rgba(255,255,255,.5);display:grid;place-items:center;cursor:pointer}
+.cv-pl svg{width:24px;height:24px;margin-left:3px;fill:#fff}
+.cv.playing .cv-pl{display:none}
+.cv:not(.playing) video::-webkit-media-controls-panel,.cv:not(.playing) video::-webkit-media-controls{display:none!important;opacity:0}
+.case .who{font-weight:600;line-height:1.35}
+.case .num{font:600 var(--s-h2)/1.15 var(--serif);color:var(--accent)}
+.bs{display:flex;flex-direction:column;gap:.35em;font-size:var(--s-small);line-height:1.45}
+.bs p{display:flex;gap:.5em}
+.bs .bl{flex:none;width:3.9em;font-weight:600;color:var(--muted)}
+.bs .bl.now{color:var(--k-phys-t)}
+.case blockquote{font-style:italic;font-size:var(--s-small);line-height:1.5;padding-left:.9em;border-left:3px solid var(--accent)}
+.cnav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0 0}
+.cnav button{width:48px;height:44px;border:1px solid #B9CBD8;border-radius:var(--r);background:#F1F6FA;cursor:pointer;display:grid;place-items:center;color:var(--accent-d)}
+.cnav button svg{width:20px;height:20px}
+.cnav button:disabled{opacity:.35;cursor:default}
+.cnav output{font:600 var(--s-small)/1 var(--sans);font-variant-numeric:tabular-nums;color:var(--muted)}
+@media(min-width:768px){
+  .cases{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);overflow:visible;margin:0;padding:4px 0 0;gap:16px}
+  .cases>:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 8px)}
+  .case{flex:none}
+  .cnav{display:none}
+}
+/* липкая кнопка и подвал */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.96);border-top:1px solid var(--line);padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .25s ease;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.sticky.on{transform:none}
+html:not(.res) .sticky{display:none}
+.sticky .btn{width:100%;max-width:632px;margin:0 auto;display:flex;padding-left:14px;padding-right:14px}
+.foot{background:var(--dark);color:#fff;padding:36px 0 calc(96px + env(safe-area-inset-bottom))}
+.foot .wrap{display:flex;flex-direction:column;gap:4px;font-size:var(--s-small)}
+.foot b{font-weight:600}
+html:not(.res) .foot{display:none}
+/* окно оплаты VIP – форма заказа GetCourse */
+.rg{position:fixed;inset:0;z-index:50;background:rgba(29,29,27,.55);display:flex;align-items:flex-end;justify-content:center;opacity:0;transition:opacity .2s}
+.rg.on{opacity:1}
+.rg[hidden]{display:none}
+.rg-box{position:relative;width:100%;max-width:520px;max-height:92svh;overflow:auto;background:#fff;border-radius:10px 10px 0 0;padding:26px 20px calc(20px + env(safe-area-inset-bottom))}
+@media(min-width:600px){.rg{align-items:center}.rg-box{border-radius:var(--r2);padding:30px 28px}}
+.rg-x{position:absolute;top:8px;right:8px;width:40px;height:40px;border:0;background:none;cursor:pointer;color:var(--muted);display:grid;place-items:center}
+.rg-x svg{width:22px;height:22px}
+.rg-h{font-size:var(--s-h2);padding-right:44px}
+.rg-date{margin:6px 0 16px;color:var(--muted);font-size:var(--s-small)}
+.vm-sum{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.vm-sum strong{font:600 var(--s-lead)/1 var(--serif)}
+.vm-sum s{margin-left:8px;color:var(--muted);font-size:var(--s-small)}
+html.rg-open{overflow:hidden}
+/* debug */
+#dbg{position:fixed;left:8px;bottom:8px;z-index:60;display:flex;flex-wrap:wrap;gap:6px;align-items:center;max-width:calc(100vw - 16px);padding:6px 8px;background:#fff;border:1px solid var(--line);border-radius:var(--r);font:500 12px/1.3 var(--sans);box-shadow:var(--shadow)}
+#dbg button,#dbg select{font:inherit;padding:4px 8px;border:1px solid var(--line);border-radius:3px;background:#F6F6F4;cursor:pointer}
+#dbg.min>*:not(.tg){display:none}
+.scr.overflow{outline:3px solid #C0483C;outline-offset:-3px}
+@media(max-width:374px){body .btn{padding:12px 10px;gap:.4em}body .btn .ar{display:none}body .sticky{padding-left:12px;padding-right:12px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.opt .cb svg,.prog-fill,.sticky{transition:none}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<footer class="foot" id="foot"><div class="wrap"><b id="footName"></b><span id="footRole"></span></div></footer>
+<div id="sticky" class="sticky" aria-hidden="true"><a class="btn" id="stickyBtn" href="#"><span id="stickyText"></span><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></a></div>
+
+<script>
+/* ============================================================
+   CONFIG — все тексты теста. Собраны из texts.md дословно (менялась только типографика при выводе).
+   video — видеоразбор по ключу результата: { "B": { "src": "video/tdo-B.mp4", "on": false } }.
+     on:false — карточка «Видео скоро». Положили файл в video/ — поставьте on:true.
+   ============================================================ */
+const CONFIG = {
+  "author": {
+    "name": "Анна Саба",
+    "role": "врач-психотерапевт",
+    "photo": "https://doctorannasaba.ru/kod-lyubvi/img/anna-au-smile.webp"
+  },
+  "intro": {
+    "badge": "Бесплатный тест · 9 вопросов",
+    "title": "Узнайте за 1 минуту, что именно управляет вашей взрослой жизнью и почему вы хотите одного, а получаете другое",
+    "titleAccent": "что именно управляет вашей взрослой жизнью",
+    "lead": "Обязательно пройдите тест, если у вас совпадает хотя бы 1 пункт:",
+    "scenarios": [
+      "Застряли и не можете перейти на новый уровень в финансах, отношениях, реализации",
+      "Внутренне чувствуете, что надо что-то менять, но не знаете, как",
+      "Понимаете, что время идёт, личный потенциал до сих пор не раскрыт, а своё предназначение так и не нашли",
+      "Вас словно что-то сдерживает на месте: всё одно и то же, ничего не меняется",
+      "Есть внутреннее ощущение, что «вот-вот получится», но это «вот-вот» никак не наступит",
+      "Многое попробовали, но откатывались назад"
+    ],
+    "button": "Пройти тест и получить расшифровку"
+  },
+  "questions": [
+    {
+      "k": "B",
+      "title": "Нет границ личности",
+      "sub": "Вам сложно сказать «нет», и вы всё время оказываетесь удобной",
+      "options": [
+        "Мне трудно сказать «нет» без объяснений и оправданий",
+        "Я соглашаюсь, а потом злюсь на себя",
+        "Чужое «нет» я воспринимаю как отвержение",
+        "Мои вещи, время и планы легко нарушают, и я это терплю"
+      ]
+    },
+    {
+      "k": "C",
+      "title": "Низкая самооценка",
+      "sub": "«Достаточно ли я? Или со мной всё-таки что-то не так?»",
+      "options": [
+        "Мне нужно подтверждение, что я делаю всё правильно",
+        "Я много даю, чтобы меня приняли и одобрили",
+        "Я редко чувствую, что я достаточно хороша",
+        "Мне кажется, что рядом со мной другим лучше, чем мне самой"
+      ]
+    },
+    {
+      "k": "M",
+      "title": "«Мне не положено. Я недостойна»",
+      "sub": "Деньги вроде есть, а ощущение такое, будто их нет",
+      "options": [
+        "Мне неловко тратить деньги на себя без повода",
+        "Я откладываю удовольствие «на потом» годами",
+        "Внутри я уверена, что большие деньги не для таких, как я",
+        "Доход растёт, а тревога о деньгах не уходит"
+      ]
+    },
+    {
+      "k": "O",
+      "title": "Страх отношений и брошенность",
+      "sub": "«Он уйдёт. И вообще, со мной что-то не так»",
+      "options": [
+        "Я быстро привязываюсь и потом боюсь потерять",
+        "Я держу дистанцию, чтобы не было больно",
+        "Мне трудно поверить, что меня можно любить просто так",
+        "В отношениях я много терплю, лишь бы не остаться одной"
+      ]
+    },
+    {
+      "k": "A",
+      "title": "Агрессия: заперта или через край",
+      "sub": "Либо «я хорошая и никогда так не поступлю», либо взрыв на пустом месте",
+      "options": [
+        "Я почти никогда не показываю злость",
+        "Я срываюсь на близких, а потом мне стыдно",
+        "Мне сложно защитить себя словами в моменте",
+        "Злость я чаще чувствую телом: ком, зажим, спазм"
+      ]
+    },
+    {
+      "k": "R",
+      "title": "Синдром спасателя",
+      "sub": "Вы спасаете всех вокруг, а свою жизнь откладываете на потом",
+      "options": [
+        "Я решаю чужие проблемы охотнее, чем свои",
+        "Мне сложно принимать помощь",
+        "Без меня всё рухнет, и я в это верю",
+        "Я очень устала, но продолжаю тащить"
+      ]
+    },
+    {
+      "k": "Z",
+      "title": "Зависимости в семье",
+      "sub": "«Он же не буянил, просто выпивал по вечерам»",
+      "options": [
+        "В моей семье регулярно выпивали, и это считалось нормой",
+        "Я привыкла быть настороже и считывать настроение взрослых",
+        "Мне трудно расслабиться, если нечем себя «выключить»",
+        "Я очень рано научилась справляться сама"
+      ]
+    },
+    {
+      "k": "E",
+      "title": "Эмоционально незрелые взрослые",
+      "sub": "Вы никогда не просите помощи и всё тащите сама",
+      "options": [
+        "Я не прошу о помощи, даже когда мне тяжело",
+        "Мне неловко занимать своими проблемами чужое время",
+        "Я заранее рассчитываю только на себя",
+        "Просить для меня почти унизительно"
+      ]
+    },
+    {
+      "k": "D",
+      "title": "Додумывание за других",
+      "sub": "Вы просчитываете чужую реакцию раньше, чем откроете рот",
+      "options": [
+        "Я редко говорю прямо, чего хочу",
+        "Я заранее знаю, «как он отреагирует», и молчу",
+        "Чужое недовольство выбивает меня надолго",
+        "Я много терплю внутри и ничего не выношу наружу"
+      ]
+    }
+  ],
+  "ui": {
+    "hint": "Отметьте всё, в чём узнаёте себя",
+    "next": "Дальше",
+    "nextNone": "Ничего из этого, дальше",
+    "back": "Назад",
+    "counter": "Вопрос {n} из {total}",
+    "stickyVip": "Взять VIP-билет за 1 980 ₽"
+  },
+  "loaders": {
+    "3": {
+      "title": "Анализируем ваши ответы…",
+      "items": [],
+      "duration": 2000
+    },
+    "6": {
+      "title": "Сверяем ответы с видами детского опыта…",
+      "items": [
+        "Находим реакцию, которая срабатывает первой",
+        "Отмечаем, где она держит деньги и отношения"
+      ],
+      "duration": 3000
+    },
+    "9": {
+      "title": "Собираем вашу расшифровку…",
+      "items": [
+        "Определяем вашу главную реакцию",
+        "Находим, где в детстве она появилась",
+        "Показываем, как она срабатывает сегодня"
+      ],
+      "duration": 4500
+    }
+  },
+  "match": {
+    "eyebrow": "Итог теста",
+    "lead": "Вы отметили",
+    "of": "из 36",
+    "text": "Каждый отмеченный пункт – реакция, которая чаще всего появляется в детстве.",
+    "textN": "Ярко выраженного блока нет, но и один пункт может влиять на деньги и отношения.",
+    "note": "Эта реакция срабатывает быстрее мысли. Но её можно переработать, и с этого начинаются перемены.",
+    "button": "Смотреть мою расшифровку"
+  },
+  "resultScreen": {
+    "eyebrow": "Ваш результат",
+    "hint": "Посмотрите видеорасшифровку, потом читайте текст ниже",
+    "videoCaption": "Видеоразбор вашего результата",
+    "videoSoon": "Видео скоро",
+    "checked": "Вы отметили:",
+    "recognize": "Узнаёте себя?"
+  },
+  "scheme": {
+    "steps": [
+      "Ситуация",
+      "Рефлекс: за долю секунды",
+      "Мысль приходит потом",
+      "Итог"
+    ],
+    "side": "Откуда рефлекс: чаще всего из детства",
+    "caption": "Часто между ситуацией и реакцией проходит меньше секунды. Голова не успевает решить, и срабатывает то, что вы усвоили раньше, чаще всего в детстве. Родители обычно делали так, как когда-то делали с ними, и не хотели вам зла."
+  },
+  "structure": {
+    "score": "Ваш результат в баллах",
+    "meaning": "Что это значит",
+    "toc": "Оглавление расшифровки",
+    "ranges": [
+      {
+        "from": 0,
+        "to": 5,
+        "text": "Детский опыт влияет на вашу жизнь точечно. Даже один пункт может держать доход или отношения, ниже вы увидите где."
+      },
+      {
+        "from": 6,
+        "to": 14,
+        "text": "Детский опыт заметно влияет на вашу жизнь. Реакции из детства срабатывают в деньгах, отношениях и реализации, и вы часто хотите одного, а получаете другое."
+      },
+      {
+        "from": 15,
+        "to": 36,
+        "text": "Детский опыт сильно влияет на вашу жизнь. Многие ваши решения принимает рефлекс, который появился в детстве, поэтому одни и те же истории повторяются."
+      }
+    ],
+    "scaleNote": "Тест помогает увидеть закономерности. Диагноз по нему не ставят.",
+    "chain": [
+      "Ситуация во взрослой жизни",
+      "Откуда это взялось",
+      "Как это проявляется сейчас",
+      "На что влияет"
+    ],
+    "girl": "Что решила девочка",
+    "words": "Вам говорили такие слова?"
+  },
+  "results": {
+    "B": {
+      "block": "Нет границ личности",
+      "name": "Нет границ",
+      "lead": "Ваше «нет» срабатывает позже, чем ваше «да».",
+      "recognize": [
+        "Соглашаетесь раньше, чем успеваете подумать, а потом злитесь на себя.",
+        "Чужие просьбы съедают ваше время, деньги и выходные.",
+        "Трудно закончить разговор, отказать в долг, вернуть вещь в магазин.",
+        "Устаёте от людей, даже от тех, кого любите."
+      ],
+      "reflex": [
+        "вас просят о том, чего вы делать не хотите.",
+        "«да» вылетает само, а внутри сжимается.",
+        "«Зачем я согласилась? Опять».",
+        "время ушло на чужое, и копится злость на себя."
+      ],
+      "origin": [
+        "Вас одёргивали, когда вы чего-то хотели",
+        "Заставляли доедать, обниматься и целовать родственников",
+        "Ваши вещи брали без спроса, в комнату входили без стука",
+        "Ваше «не хочу» отменяли словами «мало ли что ты хочешь»",
+        "Просили не шуметь и не мешать: «будь удобной»"
+      ],
+      "originNote": "Маленькому ребёнку важно, чтобы взрослые принимали его «нет». Часто бывает, что его не слышали: могли кричать, одёргивать, заставлять доедать, обниматься с родственниками, делиться игрушками. Ребёнок не может уйти от взрослых и выбирает самый безопасный путь: соглашаться.",
+      "words": [
+        "«Не капризничай»",
+        "«Поцелуй тётю, она обидится»",
+        "«Мало ли что ты не хочешь»",
+        "«Я сказала – значит, будешь»"
+      ],
+      "girl": "Чтобы меня не отвергли, нужно соглашаться. Моё «не хочу» никому не важно.",
+      "spheres": [
+        [
+          "Деньги",
+          "берёте лишние задачи без доплаты и уступаете в цене, чтобы не отказывать."
+        ],
+        [
+          "Отношения",
+          "рядом оказываются люди, которые берут и не спрашивают."
+        ],
+        [
+          "Реализация",
+          "на свои цели остаётся то, что не забрали другие."
+        ]
+      ]
+    },
+    "C": {
+      "block": "Низкая самооценка",
+      "name": "Нужно заслужить",
+      "lead": "Вам кажется, что ценность нужно постоянно доказывать.",
+      "recognize": [
+        "Сколько бы вы ни сделали, внутри звучит «мало».",
+        "Похвалу вы почти не слышите, критика попадает точно в цель.",
+        "Сравниваете себя с другими, и сравнение почти всегда не в вашу пользу.",
+        "Трудно назвать свою цену: кажется, вы её ещё не заработали."
+      ],
+      "reflex": [
+        "вас оценивают, хвалят или критикуют.",
+        "тут же включается «я недостаточно хороша».",
+        "«Надо сделать ещё лучше, тогда заметят».",
+        "вы снова работаете на пределе, а радости нет."
+      ],
+      "origin": [
+        "Любовь и похвалу нужно было заслужить оценками и послушанием",
+        "Вас сравнивали с другими детьми, и сравнение было не в вашу пользу",
+        "За четвёрку спрашивали «почему не пять?»",
+        "Хвалили редко, ошибки замечали сразу",
+        "Ваши успехи принимали как должное: «так и надо»"
+      ],
+      "originNote": "Тепло и внимание в детстве приходилось заслуживать: пятёркой, послушанием, помощью по дому. Четвёрку встречали вопросом «почему не пять?», а успехи других детей ставили в пример. Ребёнок связывает любовь с результатом и начинает бежать за ним.",
+      "words": [
+        "«А вот Маша из твоего класса…»",
+        "«Могла бы и лучше»",
+        "«Не хвались»",
+        "«Радоваться рано, вот сделаешь лучше»"
+      ],
+      "girl": "Я ценна, только когда полезна и хороша. Если остановлюсь, меня перестанут любить.",
+      "spheres": [
+        [
+          "Деньги",
+          "не уверены, что стоите больше, и берёте меньше, чем могли бы."
+        ],
+        [
+          "Отношения",
+          "стараетесь заслужить любовь и боитесь, что вас заменят."
+        ],
+        [
+          "Реализация",
+          "не берётесь за большое, потому что «туда нужен кто-то лучше»."
+        ]
+      ]
+    },
+    "M": {
+      "block": "«Мне не положено»",
+      "name": "Мне не положено",
+      "lead": "Вам кажется, что хорошая жизнь достаётся другим.",
+      "recognize": [
+        "Доход может расти, а ощущение нехватки не уходит.",
+        "Откладываете себя на потом: платье, отдых, врача, учёбу.",
+        "Тратить на себя без повода неловко, даже когда деньги есть.",
+        "Терпите там, где можно попросить."
+      ],
+      "reflex": [
+        "появляется шанс взять что-то хорошее для себя.",
+        "внутри голос «не сейчас, другим нужнее».",
+        "«Ладно, потом куплю, потом отдохну».",
+        "«потом» так и не наступает, и усталость копится."
+      ],
+      "origin": [
+        "В семье часто говорили «нам это не по карману»",
+        "Мама отказывала себе во всём ради детей",
+        "Подарки и новые вещи были редкостью",
+        "Хорошее откладывали «на потом» или «для гостей»",
+        "Тех, у кого больше денег, в семье осуждали"
+      ],
+      "originNote": "В семье считали каждую копейку, и хорошее было «не для нас». Мама ходила в старом пальто, чтобы купить детям нужное, и ребёнок видел, что хорошая женщина отказывает себе. А когда у других было больше, он делал вывод: хорошее достаётся другим.",
+      "words": [
+        "«Мы не можем себе это позволить»",
+        "«Не для нас это»",
+        "«Деньги на деревьях не растут»",
+        "«Скромнее надо быть»"
+      ],
+      "girl": "Хорошая жизнь – для других, а мне нужно терпеть и экономить.",
+      "spheres": [
+        [
+          "Деньги",
+          "траты на себя кажутся лишними, нужное откладывается, и возможность заработать больше вы пропускаете."
+        ],
+        [
+          "Отношения",
+          "вы отдаёте больше, чем получаете, и считаете это нормой."
+        ],
+        [
+          "Реализация",
+          "большие цели кажутся неприличными, и вы их даже не ставите."
+        ]
+      ]
+    },
+    "O": {
+      "block": "Страх отношений и брошенность",
+      "name": "Меня оставят",
+      "lead": "Рядом с близкими вам часто тревожно.",
+      "recognize": [
+        "Тревожитесь, когда близкий не отвечает или задерживается.",
+        "Много терпите, лишь бы не остаться одной.",
+        "Или держите дистанцию, чтобы не было больно.",
+        "Раз за разом попадаете в одну и ту же историю с разными людьми."
+      ],
+      "reflex": [
+        "близкий отдалился, замолчал, задержался.",
+        "паника «он уходит» раньше любого факта.",
+        "«Что я сделала не так? Надо срочно всё исправить».",
+        "вы держитесь крепче или уходите первой, а покоя нет."
+      ],
+      "origin": [
+        "Родители развелись или часто ссорились и грозили уйти",
+        "Кто-то из взрослых уехал, болел или умер",
+        "Родители много работали, и вы подолгу были одна",
+        "Взрослые были рядом, но не обнимали и не слушали",
+        "Вас пугали: «Будешь плохо себя вести – оставлю»"
+      ],
+      "originNote": "Бывает, что родители развелись, кто-то из взрослых ушёл или был рядом, но не отвечал на ваши чувства: не обнимал, не слушал. Ребёнок не понимает, почему так случилось, и решает, что дело в нём. Каждое прощание с тех пор ощущается как угроза.",
+      "words": [
+        "«Будешь так себя вести – уйду»",
+        "«Папа с нами больше не живёт, и не спрашивай почему»",
+        "«Не липни, мне некогда»",
+        "«Вот оставлю тебя здесь»"
+      ],
+      "girl": "Близкие уходят, поэтому любовь нужно удерживать любой ценой.",
+      "spheres": [
+        [
+          "Деньги",
+          "тратите на то, чтобы удержать людей, и боитесь зарабатывать больше партнёра."
+        ],
+        [
+          "Отношения",
+          "выбираете тех, кто то рядом, то далеко, и это кажется любовью."
+        ],
+        [
+          "Реализация",
+          "силы уходят на тревогу, и на себя их почти не остаётся."
+        ]
+      ]
+    },
+    "A": {
+      "block": "Агрессия: заперта или через край",
+      "name": "Злиться нельзя",
+      "lead": "Злость у вас то спрятана глубоко, то вырывается не туда.",
+      "recognize": [
+        "Молчите, когда вас задевают, а потом срываетесь на близких.",
+        "Весь день прокручиваете разговор и придумываете, что надо было сказать.",
+        "Чувствуете злость телом: зажим, ком в горле, напряжение в плечах.",
+        "После срыва долго стыдно и тяжело."
+      ],
+      "reflex": [
+        "вас задели, обесценили, перебили.",
+        "внутри вспыхивает, а слова застревают в горле.",
+        "«Почему я промолчала? Надо было ответить».",
+        "злость копится и выходит на тех, кто рядом."
+      ],
+      "origin": [
+        "В доме кричали, хлопали дверями, могли ударить",
+        "Злиться вам запрещали: «не смей так разговаривать»",
+        "За слёзы и громкий голос наказывали",
+        "Ссоры взрослых заканчивались тяжёлым молчанием",
+        "Злость взрослых была непредсказуемой, и вы старались не попадаться под руку"
+      ],
+      "originNote": "Часто бывает, что злость взрослых в доме была опасной: крик, хлопанье дверями, тяжёлое молчание. А ребёнку злиться запрещали и наказывали за слёзы и громкий голос. Ребёнок учится прятать злость, но она никуда не исчезает.",
+      "words": [
+        "«Не смей так разговаривать с матерью»",
+        "«Ещё раз пикнешь – получишь»",
+        "«Девочки не злятся»",
+        "«Перестань реветь»"
+      ],
+      "girl": "Злиться нельзя, нужно терпеть.",
+      "spheres": [
+        [
+          "Деньги",
+          "раздражение из-за условий копится, а сказать о них удаётся поздно или резко."
+        ],
+        [
+          "Отношения",
+          "молчите месяцами, а потом взрываетесь."
+        ],
+        [
+          "Реализация",
+          "нет сил добиваться своего, всё уходит на сдерживание."
+        ]
+      ]
+    },
+    "R": {
+      "block": "Синдром спасателя",
+      "name": "Я спасаю всех",
+      "lead": "Вы чувствуете себя нужной, пока решаете чужие проблемы.",
+      "recognize": [
+        "Тащите всех и очень устали.",
+        "Без дела тревожно, отдых кажется пустой тратой времени.",
+        "Замечаете чужую беду раньше, чем свою.",
+        "Помогаете даже тогда, когда не просили."
+      ],
+      "reflex": [
+        "кому-то рядом плохо или трудно.",
+        "вы уже бежите помогать.",
+        "«А кто, если не я?»",
+        "чужие дела сделаны, ваши снова ждут."
+      ],
+      "origin": [
+        "Вы рано стали помощницей: смотрели за младшими, вели хозяйство",
+        "Утешали маму, когда ей было плохо",
+        "Мирили родителей и сглаживали их ссоры",
+        "Вас хвалили за то, что вы «взрослая не по годам»",
+        "Ваши страхи и слёзы никто не замечал"
+      ],
+      "originNote": "Ребёнок рано стал взрослым: утешал маму, смотрел за младшими, мирил родителей. Его хвалили за то, что он «помощник», и не замечали, что ему самому страшно. Так забота о других становится способом быть нужным.",
+      "words": [
+        "«Ты же старшая»",
+        "«На тебя вся надежда»",
+        "«Не расстраивай маму»",
+        "«Ты у нас умница, справишься»"
+      ],
+      "girl": "Я нужна, пока решаю чужие проблемы.",
+      "spheres": [
+        [
+          "Деньги",
+          "даёте в долг, помогаете родне, а на себя не хватает."
+        ],
+        [
+          "Отношения",
+          "выбираете тех, кого нужно спасать."
+        ],
+        [
+          "Реализация",
+          "остановиться страшно, потому что без спасательства непонятно, кто вы."
+        ]
+      ]
+    },
+    "Z": {
+      "block": "Зависимости в семье",
+      "name": "Всегда настороже",
+      "lead": "Вы считываете чужое настроение раньше, чем своё.",
+      "recognize": [
+        "Замечаете малейшую перемену в голосе и лице близких.",
+        "С трудом расслабляетесь без помощника: бокала, сладкого, сериала, телефона.",
+        "Ждёте подвоха даже тогда, когда всё хорошо.",
+        "Рядом часто оказываются люди с той же проблемой, что была в семье."
+      ],
+      "reflex": [
+        "всё спокойно, или настроение близкого чуть изменилось.",
+        "тело напрягается, как перед бедой.",
+        "«Сейчас что-то случится».",
+        "расслабиться не получается, и вы ищете, чем заглушить тревогу."
+      ],
+      "origin": [
+        "Кто-то из взрослых выпивал «чтобы расслабиться»",
+        "Вечером дома не знали, каким придёт папа или мама",
+        "Вы прислушивались к шагам и голосу, чтобы понять, что будет",
+        "В семье было правило «никому не рассказывай»",
+        "Дома бывали скандалы, а утром все делали вид, что ничего не было"
+      ],
+      "originNote": "В таких семьях кто-то из взрослых нередко выпивал «чтобы расслабиться» или был захвачен другой зависимостью. Днём он был рядом, а к вечеру менялся. Ребёнок учился по шагам в коридоре угадывать, каким будет вечер.",
+      "words": [
+        "«Папа просто устал»",
+        "«Никому не рассказывай»",
+        "«Не зли отца»",
+        "«Иди к себе в комнату»"
+      ],
+      "girl": "Опираться можно только на себя и всегда быть настороже.",
+      "spheres": [
+        [
+          "Деньги",
+          "тратите на то, что успокаивает, и потом об этом жалеете."
+        ],
+        [
+          "Отношения",
+          "ждёте подвоха даже в добром отношении и проверяете близких."
+        ],
+        [
+          "Реализация",
+          "много сил уходит на то, чтобы быть начеку."
+        ]
+      ]
+    },
+    "E": {
+      "block": "Эмоционально незрелые взрослые",
+      "name": "Я сама",
+      "lead": "Вы привыкли справляться одна, даже когда очень тяжело.",
+      "recognize": [
+        "Всё делаете сама, даже когда можно попросить.",
+        "Помощь кажется унижением или долгом, который потом придётся отдать.",
+        "Чувствуете вину за чужое плохое настроение.",
+        "Рядом часто оказываются те, кто привык брать."
+      ],
+      "reflex": [
+        "вам тяжело, и можно попросить помощи.",
+        "внутри «справлюсь сама, никто не поможет».",
+        "«Ну и ладно, мне не привыкать».",
+        "вы снова на пределе, а рядом никто не знает, как вам тяжело."
+      ],
+      "origin": [
+        "С проблемой к взрослым было небезопасно идти",
+        "В ответ звучало «сама виновата» или «мне бы твои проблемы»",
+        "Мама отвечала на ваши трудности своими: «у меня давление»",
+        "Ваши чувства называли выдумками",
+        "Взрослые ждали, что вы сами со всем справитесь"
+      ],
+      "originNote": "Часто бывает, что с проблемой к взрослым было небезопасно идти. В ответ звучало «сама виновата» или «мне плохо, сердце». Ребёнок понял, что чувства взрослых важнее, и начал заботиться о них сам.",
+      "words": [
+        "«Сама виновата»",
+        "«У меня из-за тебя давление»",
+        "«Не выдумывай»",
+        "«Мне бы твои проблемы»"
+      ],
+      "girl": "Просить помощи бесполезно и стыдно. Мои трудности никому не нужны.",
+      "spheres": [
+        [
+          "Деньги",
+          "тянете всё одна и не делегируете."
+        ],
+        [
+          "Отношения",
+          "заботитесь о близких, а когда трудно вам, не просите поддержки, и все привыкают, что у вас всё в порядке."
+        ],
+        [
+          "Реализация",
+          "выгораете, потому что опоры рядом нет."
+        ]
+      ]
+    },
+    "D": {
+      "block": "Додумывание за других",
+      "name": "Я знаю, что мне ответят",
+      "lead": "Вы заранее просчитываете чужую реакцию и выбираете молчание.",
+      "recognize": [
+        "Молчите о своих желаниях, потому что заранее знаете, «как он отреагирует».",
+        "Долго подбираете слова, прежде чем что-то сказать.",
+        "Отказываетесь от шансов, представив, что скажут люди.",
+        "Всё копится внутри и выходит обидой и усталостью."
+      ],
+      "reflex": [
+        "хотите что-то сказать, попросить, сделать по-своему.",
+        "в голове уже готов ответ другого человека, и он плохой.",
+        "«Лучше не начинать».",
+        "другие даже не узнают, чего вы хотели."
+      ],
+      "origin": [
+        "От вашего слова зависело, будет ли дома ссора",
+        "После неудачной фразы взрослые обижались и молчали днями",
+        "Дома часто звучало «что люди скажут»",
+        "Вас стыдили при других",
+        "Ваше мнение не спрашивали или высмеивали"
+      ],
+      "originNote": "Ребёнок замечал: после неудачной фразы взрослые могли обидеться, накричать или замолчать на неделю. Он научился заранее прикидывать, как ответят, и чаще молчать.",
+      "words": [
+        "«Что люди скажут»",
+        "«Думай, прежде чем говорить»",
+        "«Не позорь меня»",
+        "«Лучше помолчи, а то будет хуже»"
+      ],
+      "girl": "Прежде чем сказать, просчитай реакцию. Безопаснее промолчать.",
+      "spheres": [
+        [
+          "Деньги",
+          "не заговариваете о цене, потому что заранее слышите «нет»."
+        ],
+        [
+          "Отношения",
+          "партнёр не знает, чего вы хотите, а вы обижаетесь, что он не догадался."
+        ],
+        [
+          "Реализация",
+          "идеи остаются в голове, потому что «что подумают»."
+        ]
+      ]
+    },
+    "N": {
+      "name": "Опора есть",
+      "lead": "По вашим ответам ярко выраженной детской реакции нет.",
+      "text": "Вы чаще выбираете спокойные ответы: значит, вы чаще опираетесь на себя. Но и одна реакция, которая срабатывает раз в месяц, может держать доход или отношения. Чаще всего она прячется в тех ответах, где вы выбрали не спокойный вариант.",
+      "where": "Где реакция всё же может сработать"
+    }
+  },
+  "why": {
+    "title": "Почему занятия с психологами не срабатывают в 99% случаев",
+    "p": [
+      "Вы можете всё про себя понимать и всё равно делать по-старому. Одна из главных причин в том, как мозг реагирует на угрозу.",
+      "В мозге есть миндалина, или амигдала. Это сторож, который за долю секунды решает: опасно или нет. Если ситуация похожа на ту, что пугала вас в детстве, старая реакция включается раньше, чем вы успеваете подумать.",
+      "Голова подключается потом. Поэтому вы сначала соглашаетесь, молчите или срываетесь, а понимаете, что произошло, уже после."
+    ],
+    "sub": "Узнаёте эти моменты?",
+    "list": [
+      "Начальник вызывает к себе, и у вас холодеет внутри, хотя вы ничего плохого не сделали.",
+      "Мама звонит и начинает давать советы, и вы снова чувствуете себя маленькой девочкой.",
+      "Вы чего-то добились, звоните маме порадоваться, а она говорит: «Ну и что тут такого?»",
+      "В отношениях вы делаете для другого всё, а в ответ не получаете того же.",
+      "Вы отдыхаете, и внутри появляется вина, будто вы что-то должны.",
+      "Вы хотите заявить о себе, но стыдно и страшно: вдруг осудят.",
+      "Вы хотите взяться за новое дело, но откладываете, потому что страшно, что не получится.",
+      "Вы делитесь мечтой с мужем, мамой или подругой, а они говорят «не выдумывай», и желание пропадает."
+    ],
+    "under": "Во всех этих случаях вы хотите одного, а получаете другое. Реакция срабатывает первой, а осознание приходит потом.",
+    "p4": "Обычный разговор с психологом помогает лучше понимать себя и свои мысли. Реакция из детства включается быстрее мысли, поэтому в похожей ситуации срабатывает снова. Чтобы её изменить, нужна работа с самим детским опытом.",
+    "p5": "Рефлекс меняется, когда работают напрямую с детским опытом, который его запустил, и с реакцией мозга на триггер. Для этого есть метод ДПДГ (EMDR). Всемирная организация здравоохранения рекомендует его для работы с последствиями психической травмы.",
+    "p6": "Анна Саба создала на его основе авторский протокол EMDR 3.0. С ним прорабатывают детские ситуации, из которых выросли рефлексы, и многие замечают, что в похожих ситуациях реагируют спокойнее.",
+    "line": "🪷 Понимание объясняет, почему вы так реагируете. Переработка детского опыта помогает изменить саму реакцию."
+  },
+  "todo": {
+    "title": "Что делать с вашими баллами ТДО",
+    "sub": "Три шага: от первых изменений до новой профессии",
+    "steps": [
+      {
+        "title": "Начните работать со своими баллами на практикуме",
+        "text": "Бесплатный онлайн-практикум Анны Саба «Новая реальность», 25–28 ноября. 4 дня прямых эфиров, и на каждом эфире практика.",
+        "days": [
+          {
+            "day": "День 1",
+            "vip": false,
+            "name": "Спусковой крючок",
+            "text": "убираем тревогу, страх, обиду, вину и стыд и находим, что годами держало вас на месте."
+          },
+          {
+            "day": "День 2",
+            "vip": false,
+            "name": "Бесконечный поток",
+            "text": "находим, куда утекают силы, и возвращаем энергию себе."
+          },
+          {
+            "day": "День 3",
+            "vip": false,
+            "name": "Новая реальность",
+            "text": "проверяем цель на истинность и убираем сопротивление на пути к ней."
+          },
+          {
+            "day": "День 4",
+            "vip": true,
+            "name": "Магнит для масштаба",
+            "text": "как справляться со страхом и сомнениями, когда пора заявить о себе."
+          }
+        ]
+      },
+      {
+        "title": "Найдите корневую причину с психологом",
+        "text": "Блоки ТДО связаны между собой. Чаще всего есть одна корневая причина, которая держит сразу деньги, отношения и реализацию. Есть и вторичные выгоды: то, что старый сценарий вам даёт, и поэтому с ним трудно расстаться.",
+        "text2": "Увидеть это в одиночку трудно, потому что рефлекс срабатывает быстрее мысли. Поэтому корневую причину ищут вместе со специалистом."
+      },
+      {
+        "title": "Сделайте из своего опыта профессию",
+        "text": "Многие сильные и высокооплачиваемые терапевты пришли в профессию со своим ТДО. Они прошли этот путь сами и знают его изнутри, поэтому клиенты им доверяют.",
+        "text2": "В Институте психического здоровья доктора Анны Саба есть программа «Психолог краткосрочной терапии». Сначала вы прорабатываете свой ТДО, а потом помогаете другим.",
+        "sub": "Истории выпускниц",
+        "cases": [
+          {
+            "who": "Светлана, 37 лет, клинический психолог",
+            "intro": "",
+            "was": "дипломы есть, а выйти к живым клиентам страшно",
+            "now": "сессия 30 000 ₽, спокойно проявляется в соцсетях",
+            "num": "",
+            "quote": "Сейчас моя сессия стоит 30 тысяч рублей, я могу проявляться в интернете, у меня есть запросы на терапию",
+            "video": "case-70"
+          },
+          {
+            "who": "Екатерина, практикующий психолог",
+            "intro": "",
+            "was": "",
+            "now": "запись на месяц вперёд, купила ещё одну квартиру",
+            "num": "чек ×3",
+            "quote": "Моя запись на месяц вперёд, очень много изменений, чек вырос x3",
+            "video": "case-31"
+          },
+          {
+            "who": "Ангелина",
+            "intro": "",
+            "was": "тяжело с деньгами, напряжённые отношения с мужем, не хватало сил",
+            "now": "появились клиенты, путешествия, наладились отношения",
+            "num": "доход вырос в разы",
+            "quote": "Весь мой фокус был в чужих проблемах, в чужой жизни. Когда я отучилась и вернула себе себя, я поняла, что это вообще не так",
+            "video": "case-34"
+          },
+          {
+            "who": "Светлана, психолог",
+            "intro": "Пришла доработать свой ТДО",
+            "was": "",
+            "now": "",
+            "num": "консультация в 3 раза дороже",
+            "quote": "Эта программа поделила мою жизнь на до и после, это правда",
+            "video": "case-38"
+          },
+          {
+            "who": "Ольга",
+            "intro": "",
+            "was": "доход 0 ₽, страх перед неизвестностью",
+            "now": "любимая работа, сессия 10 000 ₽",
+            "num": "",
+            "quote": "Я прошла за год невероятную личную трансформацию, отработала весь ТДО и в процессе поняла, что хочу быть психологом",
+            "video": "case-50"
+          },
+          {
+            "who": "Ольга, врач",
+            "intro": "",
+            "was": "ТДО 6 из 10, неуверенность и комплексы",
+            "now": "нет претензий ни к себе, ни к родителям, ни к миру",
+            "num": "",
+            "quote": "За эти 6 месяцев мы отработали своё ТДО и стали психически здоровыми людьми",
+            "video": "case-60"
+          },
+          {
+            "who": "Аминат, психолог",
+            "intro": "",
+            "was": "позиция спасателя",
+            "now": "уверенно ведёт консультации методом ДПДГ",
+            "num": "",
+            "quote": "Это обучение было самым лучшим вложением в моей жизни",
+            "video": "case-63"
+          }
+        ],
+        "under": "Это личные истории выпускниц, результаты у каждого свои. Узнать о программе подробнее можно на практикуме: Анна расскажет о ней на эфирах."
+      }
+    ],
+    "regButton": "Записаться на практикум бесплатно",
+    "regNote": "4 подарка придут в Telegram-бота сразу после регистрации",
+    "moreLabel": "Подробнее о практикуме",
+    "moreUrl": "/novaya-realnost-36/",
+    "registered": "✓ Вы уже зарегистрированы. Эфиры начнутся 25 ноября, ссылка придёт в Telegram-бот",
+    "vipCaption": "VIP-билет включает регистрацию на практикум"
+  },
+  "vip": {
+    "eyebrow": "Следующий шаг",
+    "titleA": "Начните с блока «",
+    "titleB": "» на личной встрече с психологом",
+    "titleNone": "Личная встреча с психологом: найдите, с чего начать",
+    "p": [
+      "VIP-билет практикума «Новая реальность» – это прежде всего личная встреча с психологом один на один. Вы приходите со своим результатом теста и вместе находите цепочку, которая сильнее всего держит ваши деньги, отношения или силы.",
+      "С вами работает практикующий психолог, выпускник Института психического здоровья доктора Анны Саба. Он обучен авторскому методу Анны EMDR 3.0 – подходу к работе с детскими переживаниями, о которых вы только что читали."
+    ],
+    "meetTitle": "На личной встрече вы",
+    "meet": [
+      "найдёте цепочку, которая сильнее всего держит именно вас;",
+      "обсудите, что старый сценарий вам давал и почему с ним трудно расстаться;",
+      "получите пошаговый план: что менять первым."
+    ],
+    "meetNote": "Встреча помогает увидеть причину и выбрать первые шаги. Обычно консультация психолога такого уровня стоит от 15 000 ₽, а в VIP-билет она уже входит.",
+    "moreTitle": "Ещё в VIP-билете",
+    "more": [
+      "Записи и презентации всех 4 эфиров.",
+      "Эфир 4, только для VIP: «Магнит для масштаба» – как справляться со страхом и сомнениями, когда пора заявить о себе.",
+      "Практика на 60 минут: вы почувствуете свою новую реальность и увидите, что мешает в неё перейти.",
+      "Для тех, кому интересна профессия: мастер-класс «Как за 6 месяцев освоить профессию EMDR-терапевта»."
+    ],
+    "priceLabel": "VIP-билет",
+    "price": "1 980 ₽",
+    "old": "14 990 ₽",
+    "button": "Взять VIP-билет с личной встречей за 1 980 ₽",
+    "offerUrl": "https://doctor-saba.com/sales/shop/offer/id/8830645",
+    "offerId": "8830645",
+    "note": "Если вы уже купили VIP-билет, второй раз платить не нужно."
+  },
+  "video": {
+    "B": {
+      "src": "video/tdo-B.mp4",
+      "on": false
+    },
+    "C": {
+      "src": "video/tdo-C.mp4",
+      "on": false
+    },
+    "M": {
+      "src": "video/tdo-M.mp4",
+      "on": false
+    },
+    "O": {
+      "src": "video/tdo-O.mp4",
+      "on": false
+    },
+    "A": {
+      "src": "video/tdo-A.mp4",
+      "on": false
+    },
+    "R": {
+      "src": "video/tdo-R.mp4",
+      "on": false
+    },
+    "Z": {
+      "src": "video/tdo-Z.mp4",
+      "on": false
+    },
+    "E": {
+      "src": "video/tdo-E.mp4",
+      "on": false
+    },
+    "D": {
+      "src": "video/tdo-D.mp4",
+      "on": false
+    },
+    "N": {
+      "src": "video/tdo-N.mp4",
+      "on": false
+    }
+  }
+};
+
+/* ============================================================
+   ЛОГИКА (движок «Кода денег», переделан под галочки)
+   ============================================================ */
+(function () {
+  'use strict';
+
+  const Q = CONFIG.questions;
+  const TOTAL = Q.length;
+  const PRIORITY = Q.map(q => q.k);                 // B C M O A R Z E D – порядок при равенстве
+  const MAXP = TOTAL * 4;                             // 36
+  const app = document.getElementById('app');
+  const params = new URLSearchParams(location.search);
+  // UTM первого касания: квиз запоминает метки из первой ссылки с utm и не перетирает их пустыми;
+  // форма регистрации и маяк счётчика берут их отсюда, а не подставленные utm.js direct/none.
+  const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+  const firstUtm = (() => {
+    const K = 'tdo_utm_first'; let f = null;
+    try { f = JSON.parse(localStorage.getItem(K) || 'null'); } catch (e) { f = null; }
+    const cur = (window.dsUtm && window.dsUtm.current) || {};
+    if (!(f && f.utm_source) && cur.utm_source && cur.utm_source !== 'direct') {
+      f = {}; UTM_KEYS.forEach((k) => { if (cur[k]) f[k] = String(cur[k]).slice(0, 100); });
+      try { localStorage.setItem(K, JSON.stringify(f)); } catch (e) { /* storage недоступен */ }
+    }
+    return (f && f.utm_source) ? f : {};
+  })();
+  function utmHref(href) {
+    if (!firstUtm.utm_source) return href;
+    try { const u = new URL(href); UTM_KEYS.forEach((k) => { if (firstUtm[k]) u.searchParams.set(k, firstUtm[k]); });
+      if (!firstUtm.utm_term) u.searchParams.set('utm_term', 'test-tdo'); return u.toString(); } catch (e) { return href; }
+  }
+  const DEBUG = params.get('debug') === '1';
+  // ?r=<ключ> открывает расшифровку сразу (превью для владельца)
+  const PREVIEW = CONFIG.results[params.get('r')] ? params.get('r') : null;
+  const SS_KEY = 'tdo_quiz_v2';
+
+  // ---------- state + sessionStorage ----------
+  const state = { step: 'intro', answers: {} };     // answers: { "1": [0, 2], ... } – индексы отмеченных пунктов
+  function loadState() {
+    try {
+      const raw = sessionStorage.getItem(SS_KEY);
+      if (!raw) return;
+      const s = JSON.parse(raw);
+      if (s && typeof s === 'object') {
+        if (typeof s.step === 'string') state.step = s.step;
+        if (s.answers && typeof s.answers === 'object') state.answers = s.answers;
+      }
+    } catch (e) { /* storage недоступен — работаем без него */ }
+  }
+  function saveState() {
+    if (PREVIEW) return;
+    try { sessionStorage.setItem(SS_KEY, JSON.stringify(state)); } catch (e) { /* no-op */ }
+  }
+
+  // ---------- analytics ----------
+  // Счётчик шагов на нашем сервере: один маяк на шаг, без личных данных. Превью (?r=) и ?debug=1 не считаются.
+  const STATS_URL = 'https://baza.serenkov.com/quiz-stats/api/e';
+  function visitorId() {
+    try {
+      let v = localStorage.getItem('kl_vid');
+      if (!v) { v = Date.now().toString(36) + Math.random().toString(36).slice(2, 10); localStorage.setItem('kl_vid', v); }
+      return v;
+    } catch (e) { return 'n' + Math.random().toString(36).slice(2, 12); }
+  }
+  function track(event, data) {
+    if (DEBUG) console.log('[analytics]', event, data);
+    if (PREVIEW || DEBUG) return;
+    const q = new URLSearchParams({
+      ev: event.indexOf('result_view_') === 0 ? 'result_view_' + String(event.slice(12)).replace(/[^A-Za-z0-9]/g, '').slice(0, 4) : event,
+      v: visitorId(),
+      s: (firstUtm.utm_source || new URLSearchParams(location.search).get('utm_source') || '').replace(/[^A-Za-z0-9._-]/g, '').slice(0, 40),
+      q: 'tdo',
+      r: String((data && data.result) || '').replace(/[^A-Za-z0-9]/g, '').slice(0, 8)
+    });
+    const url = STATS_URL + '?' + q;
+    try { if (navigator.sendBeacon && navigator.sendBeacon(url)) return; } catch (e) { /* fall through */ }
+    try { fetch(url, { mode: 'no-cors', keepalive: true }).catch(() => {}); } catch (e) { /* no-op */ }
+  }
+
+  // ---------- helpers ----------
+  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const svg = (d, extra) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"${extra || ''}>${d}</svg>`;
+  const ICON = {
+    back: svg('<path d="M15 5l-7 7 7 7"/>'),
+    arrow: svg('<path d="M5 12h14M13 6l6 6-6 6"/>'),
+    left: svg('<path d="M15 5l-7 7 7 7"/>'),
+    right: svg('<path d="M9 5l7 7-7 7"/>'),
+    close: svg('<path d="M6 6l12 12M18 6L6 18"/>'),
+    check: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+    play: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.8v14.4a1 1 0 0 0 1.5.86l11.2-7.2a1 1 0 0 0 0-1.72L8.5 3.94A1 1 0 0 0 7 4.8z"/></svg>',
+    branch: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3v8a5 5 0 0 0 5 5h9M15 12l4 4-4 4"/></svg>'
+  };
+  const ARROW = `<span class="ar" aria-hidden="true">${ICON.arrow}</span>`;
+  const TI = `<span class="ti" aria-hidden="true">${ICON.check}</span>`;
+  const K_CLASS = ['k-phys', 'k-tech', 'k-psy', 'k-tac'];
+  const cap = (s) => String(s).charAt(0).toUpperCase() + String(s).slice(1);   // после разнесения «метка: текст» на две строки          // Ситуация / Рефлекс / Мысль / Итог
+  const SPH_CLASS = { 'Деньги': 'k-phys', 'Отношения': 'k-psy', 'Реализация': 'k-tac' };
+
+  // ---------- типографика (как typo()/tp()/hd() движка): слова не меняются, только вид пробела ----------
+  const NBSP = '\u00a0';
+  function typo(s) {
+    let t = String(s).replace(/\s+/g, ' ').trim();
+    t = t.replace(/ - /g, ' – ');
+    const shortW = /(^|[\s«(\u00a0])([а-яёА-ЯЁ]{1,2}|без|для|что|как|под|при|про)\s(?=\S)/g;
+    t = t.replace(shortW, '$1$2' + NBSP).replace(shortW, '$1$2' + NBSP);
+    t = t.replace(/(\d[\d%]*)\s(?=\S)/g, '$1' + NBSP);
+    t = t.replace(/\s(–)/g, NBSP + '$1');                           // неразрывный пробел ПЕРЕД тире
+    t = t.replace(/(\d) (\d{3})/g, '$1' + NBSP + '$2');
+    t = t.replace(/ ([^ ]+) ([^ ]+)$/, (m, a, b) => (a + b).length <= 22 ? ' ' + a + NBSP + b : m);   // два последних слова вместе, если строка от этого не вылезет
+    return t;
+  }
+  function tp(s) {
+    return typo(s).replace(/(?<=^|[\s«(>\u00a0])([а-яёА-ЯЁ]{1,2}|без|для|что|как|под|при|про|обо|его|её|им) (?=\S)/g, '$1' + NBSP)
+      .replace(/(^|[\s>\u00a0«(])([а-яёА-ЯЁA-Za-z0-9]+-[а-яёА-ЯЁA-Za-z0-9]+)(?![^<]*>)/g, '$1<span class="nw">$2</span>')
+      .replace(/(\d+–\d+(?:\u00a0[а-яё]+)?)(?![^<]*>)/g, '<span class="nw">$1</span>')
+      .replace(/Анна Саба/g, 'Анна' + NBSP + 'Саба').replace(/Анны Саба/g, 'Анны' + NBSP + 'Саба');
+  }
+  const T = (s) => tp(esc(s));
+  function hd(s) {
+    return String(s).replace(/\s+/g, ' ').trim()
+      .replace(/(?<=^|[\s«(>\u00a0])(в|во|и|с|со|к|ко|у|о|об|а|на|за|по|до|из|от|не|ни|но|для|без|при|про|под|над|что|как) (?=\S)/gi, '$1\u00a0')
+      .replace(/\s(–)/g, '\u00a0$1')
+      .replace(/ ([^ ]+) ([^ ]+)$/, (m, a, b) => (a + b).length <= 16 ? ' ' + a + '\u00a0' + b : m)   // два последних слова вместе, если они короткие
+      .replace(/(^|[\s>\u00a0«(])([а-яёА-ЯЁA-Za-z0-9]+-[а-яёА-ЯЁA-Za-z0-9]+)(?![^<]*>)/g, '$1<span class="nw">$2</span>');
+  }
+  const H = (s) => hd(esc(s));
+
+  // Заголовки: строка из одного слова недопустима. Склеиваем неразрывным пробелом по факту вёрстки (как в движке).
+  function fixHeadLines(root) {
+    (root || document).querySelectorAll('h1, h2, h3, h4, .fixl').forEach(el => {
+      if (el.dataset.src == null) el.dataset.src = el.innerHTML; else el.innerHTML = el.dataset.src;
+      for (let it = 0; it < 8; it++) {
+        const words = [];
+        const tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+        let n;
+        while ((n = tw.nextNode())) {
+          const re = /[^\s\u00a0]+/g; let m;
+          while ((m = re.exec(n.data))) {
+            const r = document.createRange(); r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length);
+            const rr = r.getClientRects(); if (!rr.length) continue;
+            words.push({ node: n, i: m.index, top: Math.round(rr[0].top) });
+          }
+        }
+        if (words.length < 3) break;
+        const lines = [];
+        words.forEach((w, k) => { const L = lines.find(l => Math.abs(l.top - w.top) < 4); if (L) L.k.push(k); else lines.push({ top: w.top, k: [k] }); });
+        if (lines.length < 2) break;
+        const lone = lines[lines.length - 1].k.length === 1 ? lines[lines.length - 1] : lines.find(l => l.k.length === 1);
+        if (!lone) break;
+        const glue = (j) => {
+          if (j < 0 || j + 1 >= words.length) return null;
+          const w = words[j + 1];
+          let node = null, at = -1;
+          if (w.i > 0 && /\s/.test(w.node.data[w.i - 1])) { node = w.node; at = w.i - 1; }
+          else { const pn = words[j].node; if (pn !== w.node && /\s/.test(pn.data[pn.data.length - 1])) { node = pn; at = pn.data.length - 1; } }
+          if (!node) return null;
+          const ch = node.data[at];
+          node.data = node.data.slice(0, at) + '\u00a0' + node.data.slice(at + 1);
+          return () => { node.data = node.data.slice(0, at) + ch + node.data.slice(at + 1); };
+        };
+        const k = lone.k[0];
+        let done = false;
+        for (const j of [k - 1, k]) {
+          const undo = glue(j);
+          if (!undo) continue;
+          if (el.scrollWidth > el.clientWidth + 1) { undo(); continue; }
+          done = true; break;
+        }
+        if (!done) break;
+      }
+    });
+  }
+  let fitRaf = 0, lastW = window.innerWidth;
+  window.addEventListener('resize', () => {
+    if (Math.abs(window.innerWidth - lastW) < 2) return;          // меняется только ширина – высоту (панель Safari) не трогаем
+    lastW = window.innerWidth;
+    cancelAnimationFrame(fitRaf);
+    fitRaf = requestAnimationFrame(() => fixHeadLines(app));
+  });
+
+  function withUtm(url) {
+    if (!url) return '';
+    const utm = new URLSearchParams();
+    params.forEach((v, k) => { if (/^utm_/i.test(k)) utm.set(k, v); });
+    const q = utm.toString();
+    if (!q) return url;
+    const hashIdx = url.indexOf('#');
+    const base = hashIdx >= 0 ? url.slice(0, hashIdx) : url;
+    const hash = hashIdx >= 0 ? url.slice(hashIdx) : '';
+    return base + (base.includes('?') ? '&' : '?') + q + hash;
+  }
+  const imgTag = (url) => url ? `<img src="${esc(url)}" alt="" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">` : '';
+  const VIP_ON = !!window.DS_VIP;
+
+  function setRes(on) {
+    document.documentElement.classList.toggle('res', on);
+    if (!on) hideSticky(true);
+  }
+  function after(label) {
+    fixHeadLines(app);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => fixHeadLines(app));
+    afterFixedRender(label);
+  }
+
+  // ---------- 1. главный экран ----------
+  function introTitle(title, accent) {
+    const t = typo(esc(title));
+    if (!accent) return t;
+    const src = esc(accent).trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '[ \\u00a0]');
+    return t.replace(new RegExp(src), m => '<span class="acc">' + m + '</span>');
+  }
+  function renderIntro() {
+    setRes(false);
+    const a = CONFIG.author, i = CONFIG.intro;
+    app.innerHTML = `
+<section class="scr hx" data-label="Главный экран">
+  <div class="wrap hx-in">
+    <div class="hx-head">
+      <div class="hx-top"><span class="pill">${T(VIP_ON ? i.badge.replace(/^Бесплатный тест/, 'Тест') : i.badge)}</span></div>
+      <h1>${introTitle(i.title, i.titleAccent)}</h1>
+    </div>
+    <div class="by"><span class="by-ava">${imgTag(a.photo)}</span><span class="by-t"><b>${esc(a.name).replace(' ', '&nbsp;')}</b><span>${T(a.role)}</span></span></div>
+    <div class="hx-scen">
+      <p class="lead bal">${T(i.lead)}</p>
+      <ul class="sc">${i.scenarios.map(s => `<li><span class="bx" aria-hidden="true"></span><span>${T(s)}</span></li>`).join('')}</ul>
+    </div>
+    <div class="hx-acts">
+      <button type="button" class="btn" id="startBtn"><span>${T(i.button)}</span>${ARROW}</button>
+    </div>
+  </div>
+</section>`;
+    document.getElementById('startBtn').addEventListener('click', () => { track('quiz_start'); go('q1'); });
+    after('Главный экран');
+  }
+
+  // ---------- 2. вопрос с галочками ----------
+  const picked = (n) => (Array.isArray(state.answers[n]) ? state.answers[n] : []);
+  function renderQuestion(n) {
+    setRes(false);
+    const q = Q[n - 1], sel = picked(n);
+    const pct = Math.round(n / TOTAL * 100);
+    const counter = CONFIG.ui.counter.replace('{n}', n).replace('{total}', TOTAL);
+    app.innerHTML = `
+<section class="scr s-q" data-label="Вопрос ${n}">
+  <div class="wrap q-in">
+    <div>
+      <div class="qbar">
+        <button type="button" class="back" id="backBtn">${ICON.back}<span>${esc(CONFIG.ui.back)}</span></button>
+        <span class="qcount mk k-tech">${esc(counter)}</span>
+      </div>
+      <div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}"><div class="prog-fill" style="width:${pct}%"></div></div>
+    </div>
+    <div class="q-mid">
+    <div class="qbody">
+      <h2 class="qt">${H(q.title)}</h2>
+      <p class="qsub quote">${T(q.sub)}</p>
+      <p class="qhint">${T(CONFIG.ui.hint)}</p>
+      <div class="opts" role="group" aria-label="${esc(q.title)}">
+        ${q.options.map((o, idx) => `<label class="opt${sel.includes(idx) ? ' on' : ''}"><input type="checkbox" data-idx="${idx}"${sel.includes(idx) ? ' checked' : ''}><span class="cb" aria-hidden="true">${ICON.check}</span><span class="ot">${T(o)}</span></label>`).join('')}
+      </div>
+    </div>
+    <div class="q-acts"><button type="button" class="btn" id="nextBtn"><span id="nextText"></span>${ARROW}</button></div>
+    </div>
+  </div>
+</section>`;
+    const setBtn = () => { document.getElementById('nextText').innerHTML = T(picked(n).length ? CONFIG.ui.next : CONFIG.ui.nextNone); };
+    setBtn();
+    app.querySelectorAll('.opt input').forEach(inp => {
+      inp.addEventListener('change', () => {
+        const idx = Number(inp.dataset.idx);
+        const cur = picked(n).filter(x => x !== idx);
+        if (inp.checked) cur.push(idx);
+        state.answers[n] = cur.sort();
+        inp.closest('.opt').classList.toggle('on', inp.checked);
+        saveState(); setBtn();
+      });
+    });
+    document.getElementById('backBtn').addEventListener('click', () => go(n === 1 ? 'intro' : 'q' + (n - 1)));
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      state.answers[n] = picked(n);
+      track('q' + n + '_answer', { count: picked(n).length });
+      advance(n);
+    });
+    after('Вопрос ' + n);
+  }
+  function advance(n) {
+    const target = n === TOTAL ? 'match' : 'q' + (n + 1);
+    if (CONFIG.loaders[n] && !fastMode) {
+      state.step = target; saveState();                // при перезагрузке во время анализа попадём сразу на следующий шаг
+      renderLoader(n, () => go(target));
+    } else go(target);
+  }
+
+  // ---------- 3. экраны анализа ----------
+  let loaderTimers = [];
+  function clearLoaderTimers() { loaderTimers.forEach(clearTimeout); loaderTimers = []; }
+  function renderLoader(n, done, opts) {
+    opts = opts || {};
+    setRes(false);
+    clearLoaderTimers();
+    const L = CONFIG.loaders[n];
+    app.innerHTML = `
+<section class="scr s-load" data-label="Анализ после вопроса ${n}" aria-live="polite">
+  <div class="wrap c-in">
+    <div class="spin" aria-hidden="true"></div>
+    <h2>${H(L.title)}</h2>
+    ${L.items.length ? `<ul class="lchecks">${L.items.map(t => `<li${opts.static ? ' class="on"' : ''}>${TI}<span>${T(t)}</span></li>`).join('')}</ul>` : ''}
+    <div class="lbar" aria-hidden="true"><i style="--d:${L.duration}ms${opts.static ? ';animation:none;width:100%' : ''}"></i></div>
+  </div>
+</section>`;
+    after('Анализ после вопроса ' + n);
+    if (opts.static) return;
+    const items = app.querySelectorAll('.lchecks li');
+    items.forEach((li, i) => {
+      const t = Math.round((L.duration - 700) * (i + 1) / (items.length + 0.4));
+      loaderTimers.push(setTimeout(() => li.classList.add('on'), t));
+    });
+    loaderTimers.push(setTimeout(() => { clearLoaderTimers(); done(); }, L.duration));
+  }
+
+  // ---------- подсчёт ----------
+  function counts() {
+    const c = {};
+    Q.forEach((q, i) => { c[q.k] = picked(i + 1).length; });
+    return c;
+  }
+  const total = (c) => Object.values(c).reduce((a, b) => a + b, 0);
+  function computeResult() {
+    const c = counts();
+    let best = null;
+    PRIORITY.forEach(k => { if (c[k] >= 2 && (best === null || c[k] > c[best])) best = k; });   // строгое «больше» ⇒ при равенстве раньше в B C M O A R Z E D
+    const code = best || 'N';
+    const order = PRIORITY.filter(k => c[k] >= 1).sort((a, b) => (c[b] - c[a]) || (PRIORITY.indexOf(a) - PRIORITY.indexOf(b)));
+    if (best) { order.splice(order.indexOf(best), 1); order.unshift(best); }
+    return { code, counts: c, order, secondary: PRIORITY.filter(k => k !== best && c[k] >= 2) };
+  }
+
+  // ---------- 4. экран совпадений ----------
+  function renderMatch() {
+    setRes(false);
+    const M = CONFIG.match, r = computeResult(), K = total(r.counts);
+    app.innerHTML = `
+<section class="scr s-match" data-label="Экран совпадений">
+  <div class="wrap c-in">
+    <div class="mt-card">
+      <p class="eyebrow">${esc(M.eyebrow)}</p>
+      <p class="lead">${esc(M.lead)}</p>
+      <p class="mt-num"><b>${K}</b><span>${esc(M.of).replace(' ', '&nbsp;')}</span></p>
+      <p class="bal">${T(r.code === 'N' ? M.textN : M.text)}</p>
+    </div>
+    <p class="quote bal">${T(M.note)}</p>
+    <button type="button" class="btn" id="matchBtn"><span>${T(M.button)}</span>${ARROW}</button>
+  </div>
+</section>`;
+    document.getElementById('matchBtn').addEventListener('click', () => { track('match_next', { count: K }); go('result'); });
+    after('Экран совпадений');
+  }
+
+  // ---------- 5. расшифровка ----------
+  let currentResult = null;
+  const blockName = (k) => Q[PRIORITY.indexOf(k)].title;
+  const stripQ = (s) => String(s).replace(/^«(.*)»$/, '$1');
+
+  // превью ?r=: главный блок 3 галочки, второй 2, третий 1 (для N – два блока по 1)
+  function previewAnswers(key) {
+    const a = {};
+    if (key === 'N') { a[1] = [0]; a[9] = [2]; return a; }
+    const i = PRIORITY.indexOf(key);
+    a[i + 1] = [0, 1, 2];
+    a[((i + 1) % TOTAL) + 1] = [0, 3];
+    a[((i + 3) % TOTAL) + 1] = [1];
+    return a;
+  }
+
+  function videoHtml(key) {
+    const V = (CONFIG.video && CONFIG.video[key]) || {};
+    const RS = CONFIG.resultScreen;
+    const box = V.on && V.src
+      ? `<div class="vfr"><video controls playsinline preload="none" src="${esc(V.src)}"${V.poster ? ` poster="${esc(V.poster)}"` : ''}></video></div>`
+      : `<div class="vsoon" role="img" aria-label="${esc(RS.videoSoon)}"><span class="pl">${ICON.play}</span><p>${esc(RS.videoSoon)}</p></div>`;
+    return `<figure class="vid">${box}<figcaption class="vid-cap">${T(RS.videoCaption)}</figcaption></figure>`;
+  }
+
+  function chainHtml(k, cnt, isMain, showCaption) {
+    const R = CONFIG.results[k], S = CONFIG.structure, RS = CONFIG.resultScreen, SC = CONFIG.scheme;
+    const q = Q[PRIORITY.indexOf(k)];
+    const mine = picked(PRIORITY.indexOf(k) + 1).map(i => q.options[i]);
+    const step = (i, title, body) => `<div class="ch"><div class="ch-cap"><span class="ch-n">${i}</span><h3>${H(title)}</h3></div><div class="ch-box">${body}</div></div>`;
+    const s1 = `${mine.length ? `<div class="mine"><p class="lbl">${esc(RS.checked)}</p><ul class="ticks">${mine.map(t => `<li>${TI}<span>${T(t)}</span></li>`).join('')}</ul></div>` : ''}
+      <p class="lbl">${esc(RS.recognize)}</p><ul class="tags">${R.recognize.map(t => `<li>${T(t)}</li>`).join('')}</ul>`;
+    const s2 = `<ul class="tags">${R.origin.map(t => `<li>${T(t)}</li>`).join('')}</ul><p>${T(R.originNote)}</p>`;
+    const rows = SC.steps.map((st, i) => `<div class="rx-r ${K_CLASS[i]}${i === 1 ? ' hot' : ''}"><span class="pill">${H(st)}</span><p>${T(cap(R.reflex[i]))}</p></div>${i === 1 ? `<p class="rx-side">${ICON.branch}<span>${T(SC.side)}</span></p>` : ''}`).join('');
+    const s3 = `<div class="rx">${rows}</div>${showCaption ? `<p class="small">${T(SC.caption)}</p>` : ''}
+      <div class="quote"><p class="lbl-m">${esc(S.girl)}</p><p class="lead">${T(R.girl)}</p></div>
+      <p class="lbl">${esc(S.words)}</p><ul class="words">${R.words.map(t => `<li>${T(t)}</li>`).join('')}</ul>`;
+    const s4 = `<ul class="sph">${R.spheres.map(s => `<li class="${SPH_CLASS[s[0]] || 'k-tech'}"><span class="pill">${esc(s[0])}</span><p>${T(cap(s[1]))}</p></li>`).join('')}</ul>`;
+    return `<section class="sec blk${isMain ? ' main' : ' sm'}" id="b-${k}"><div class="wrap">
+      <div class="blk-h">
+        <div class="row"><span class="mk">${esc(stripQ(R.block))}</span><span class="pill">${cnt}&nbsp;из&nbsp;4</span></div>
+        ${isMain ? '' : `<h2>${H(R.name)}</h2><p class="lead">${T(R.lead)}</p>`}
+      </div>
+      <div class="chain">${step(1, S.chain[0], s1)}${step(2, S.chain[1], s2)}${step(3, S.chain[2], s3)}${step(4, S.chain[3], s4)}</div>
+    </div></section>`;
+  }
+
+  function regFormHtml() {
+    const D = CONFIG.todo;
+    return `<form id="rgForm" class="rg-form" action="https://doctor-saba.com/pl/lite/block-public/process-html?id=2260261966" method="post" accept-charset="UTF-8" target="_top">
+      <input type="hidden" name="formParams[setted_offer_id]" value="">
+      <input type="hidden" name="formParams[willCreatePaidDeal]" value="">
+      <input type="hidden" name="__gc__internal__form__helper" id="rgLoc" value="">
+      <input type="hidden" name="__gc__internal__form__helper_ref" id="rgRef" value="">
+      <input type="hidden" name="requestTime" value="1792414165">
+      <input type="hidden" name="requestSimpleSign" value="e8c55248f71272eea73c01cb5f9d6ef5">
+      <input type="hidden" name="isHtmlWidget" value="1">
+      <input type="text" name="formParams[full_name]" id="rgName" maxlength="60" placeholder="Введите ваше имя" autocomplete="given-name" required>
+      <input type="email" name="formParams[email]" id="rgEmail" maxlength="60" placeholder="Введите ваш e-mail" autocomplete="email" required>
+      <input type="tel" name="formParams[phone]" id="rgPhone" maxlength="24" inputmode="tel" placeholder="Введите ваш телефон" autocomplete="tel" required>
+      <label class="rg-ck"><input type="checkbox" name="pdpConfirmCheckbox" required><span>Я&nbsp;<a href="https://doctor-saba.com/doctor-saba-soglasie-na-opd" target="_blank" rel="noopener">согласна</a> на&nbsp;обработку моих персональных данных в&nbsp;соответствии с&nbsp;<a href="https://doctor-saba.com/doctor-saba-politika-opd" target="_blank" rel="noopener">Политикой обработки персональных&nbsp;данных</a></span></label>
+      <label class="rg-ck"><input type="checkbox" name="confirmMailingCheckbox"><span>Даю <a href="https://doctor-saba.com/doctor-saba-soglasie-na-reklamu" target="_blank" rel="noopener">согласие</a> на&nbsp;получение информационных и&nbsp;маркетинговых рассылок (можно отказаться в&nbsp;любой момент в&nbsp;личном&nbsp;кабинете)</span></label>
+      <button type="submit" class="btn" id="rgSubmit"><span>${T(D.regButton)}</span>${ARROW}</button>
+    </form>`;
+  }
+
+  function vipHtml(main) {
+    const V = CONFIG.vip, D = CONFIG.todo;
+    const title = main ? V.titleA + stripQ(blockName(main)) + V.titleB : V.titleNone;
+    return `<article class="vipc" id="vipCard">
+      <p class="eyebrow">${esc(V.eyebrow)}</p>
+      <h3>${H(title)}</h3>
+      <div class="txt">${V.p.map(p => `<p>${T(p)}</p>`).join('')}</div>
+      <div class="vbox a"><p class="lbl">${esc(V.meetTitle)}</p><ul class="ticks">${V.meet.map(t => `<li>${TI}<span>${T(t)}</span></li>`).join('')}</ul></div>
+      <p class="small">${T(V.meetNote)}</p>
+      <div class="vbox b"><p class="lbl">${esc(V.moreTitle)}</p><ul class="tags">${V.more.map(t => `<li>${T(t)}</li>`).join('')}</ul></div>
+      <div class="price"><span>${esc(V.priceLabel)}</span><b>${esc(V.price).replace(/ /g, '&nbsp;')}</b><s>${esc(V.old).replace(/ /g, '&nbsp;')}</s></div>
+      <button type="button" class="btn ${VIP_ON ? '' : 'btn-sec'}" id="vipBtn"><span>${T(V.button)}</span>${ARROW}</button>
+      <p class="small vip-cap reg-only">${T(D.vipCaption)}</p>
+      <p class="small vip-cap">${T(V.note)}</p>
+    </article>`;
+  }
+
+  function casesHtml(list) {
+    return `<div class="cases-sh"><div class="cases" id="cases" tabindex="0" aria-label="${esc(CONFIG.todo.steps[2].sub)}">${list.map(c => {
+      const tall = c.video === 'case-70';
+      return `<article class="case">
+        <div class="cv${tall ? ' tall' : ''}"><video controls playsinline preload="none" poster="cases/${c.video}.jpg" src="cases/${c.video}.mp4"></video><button type="button" class="cv-pl" aria-label="Смотреть видео">${ICON.play}</button></div>
+        <p class="who">${T(c.who)}</p>
+        ${c.intro ? `<p class="small">${T(c.intro)}</p>` : ''}
+        ${c.num ? `<p class="num">${T(c.num)}</p>` : ''}
+        ${c.was || c.now ? `<div class="bs">${c.was ? `<p><span class="bl">Было</span><span>${T(c.was)}</span></p>` : ''}${c.now ? `<p><span class="bl now">Стало</span><span>${T(c.now)}</span></p>` : ''}</div>` : ''}
+        <blockquote>${T('«' + c.quote + '»')}</blockquote>
+      </article>`; }).join('')}</div>
+      <div class="cnav"><button type="button" id="cPrev" aria-label="Назад">${ICON.left}</button><output id="cOut">1 / ${list.length}</output><button type="button" id="cNext" aria-label="Дальше">${ICON.right}</button></div></div>`;
+  }
+
+  function renderResult() {
+    setRes(true);
+    clearLoaderTimers();
+    if (PREVIEW) state.answers = previewAnswers(PREVIEW);
+    const r = computeResult();
+    const code = r.code, key = code;
+    const c = r.counts, K = total(c);
+    const S = CONFIG.structure, RS = CONFIG.resultScreen, W = CONFIG.why, D = CONFIG.todo;
+    const isN = code === 'N';
+    const RN = CONFIG.results.N;
+    const head = isN ? { name: RN.name, lead: RN.lead } : CONFIG.results[code];
+    const range = S.ranges.find(x => K >= x.from && K <= x.to) || S.ranges[0];
+    // блоки для расшифровки: у главного результата – все с 1+ галочкой; у N – «Где реакция всё же может сработать»
+    const blocks = isN ? [] : r.order;
+    const ones = isN ? PRIORITY.filter(k => c[k] === 1) : [];
+    const tocItems = [];
+    blocks.forEach(k => tocItems.push({ href: '#b-' + k, t: CONFIG.results[k].block, c: c[k] }));
+    if (isN && ones.length) tocItems.push({ href: '#where', t: RN.where });
+    tocItems.push({ href: '#why', t: W.title, sep: 1 }, { href: '#todo', t: D.title, sep: 1 });
+
+    const scaleHtml = PRIORITY.map(k => `<li class="${c[k] ? '' : 'z'}${k === code ? ' main' : ''}">
+        <span class="nm">${c[k] && !isN ? `<a href="#b-${k}">${T(stripQ(blockName(k)))}</a>` : T(stripQ(blockName(k)))}</span>
+        <span class="seg" aria-hidden="true">${[0, 1, 2, 3].map(i => `<i${i < c[k] ? ' class="f"' : ''}></i>`).join('')}</span>
+        <span class="ct">${c[k]}/4</span></li>`).join('');
+
+    const whereHtml = isN && ones.length ? `<section class="sec" id="where"><div class="wrap">
+        <div class="head"><h2>${H(RN.where)}</h2></div>
+        <ul class="where">${ones.map(k => { const R = CONFIG.results[k], qi = PRIORITY.indexOf(k); const opt = Q[qi].options[picked(qi + 1)[0]];
+          return `<li><span class="mk">${esc(stripQ(R.block))}</span><ul class="ticks"><li>${TI}<span>${T(opt)}</span></li></ul><p class="small">${esc(R.spheres[0][0])}: ${T(R.spheres[0][1])}</p></li>`; }).join('')}</ul>
+      </div></section>` : '';
+
+    const st = D.steps;
+    app.innerHTML = `
+<div class="scr s-result" data-label="Расшифровка" data-key="${esc(key)}">
+  <header class="sec nol rhead" id="resHead"><div class="wrap">
+    <p class="eyebrow">${esc(RS.eyebrow)}</p>
+    <h1>${H(head.name)}</h1>
+    <p class="lead">${T(head.lead)}</p>
+    ${isN ? `<p>${T(RN.text)}</p>` : ''}
+    <p class="small">${T(RS.hint)}</p>
+    ${videoHtml(key)}
+  </div></header>
+
+  <section class="sec" id="score"><div class="wrap">
+    <div class="head"><h2>${H(S.score)}</h2></div>
+    <p class="score"><b>${K}</b><span>из&nbsp;${MAXP}</span></p>
+    <ul class="scale">${scaleHtml}</ul>
+    ${S.scaleNote ? `<p class="small scale-note">${T(S.scaleNote)}</p>` : ''}
+  </div></section>
+
+  <section class="sec" id="meaning"><div class="wrap">
+    <div class="head"><h2>${H(S.meaning)}</h2></div>
+    <div class="plate"><p>${T(range.text)}</p></div>
+  </div></section>
+
+  <section class="sec" id="toc"><div class="wrap">
+    <div class="head"><h2>${H(S.toc)}</h2></div>
+    <ol class="toc">${tocItems.map((t, i) => `<li${t.sep ? ' class="sep"' : ''}><a href="${t.href}"><span class="tn">${i + 1}</span><span class="tt">${T(stripQ(t.t))}</span>${t.c ? `<span class="tc">${t.c}&nbsp;из&nbsp;4</span>` : '<span class="tc"></span>'}</a></li>`).join('')}</ol>
+  </div></section>
+
+  ${blocks.map((k, i) => chainHtml(k, c[k], i === 0, i === 0)).join('')}
+  ${whereHtml}
+
+  <section class="band" id="why"><div class="wrap">
+    <h2>${H(W.title)}</h2>
+    <div class="txt">${W.p.map(p => `<p>${T(p)}</p>`).join('')}</div>
+    <div class="amy" aria-label="${esc(W.title)}">
+      <div class="amy-b">Триггер</div>
+      <div class="amy-b hot">Амигдала<small>(0,1&nbsp;с)</small></div>
+      <div class="amy-b">Реакция</div>
+      <div class="amy-b late">${T('Мысль приходит потом')}</div>
+    </div>
+    <div class="wcard"><h3>${H(W.sub)}</h3><ul class="nums">${W.list.map(t => `<li><span>${T(t)}</span></li>`).join('')}</ul><p class="quote"><b>${T(W.under)}</b></p></div>
+    <p>${T(W.p4)}</p>
+    <p class="hl">${T(W.p5)}</p>
+    <p>${T(W.p6)}</p>
+    <blockquote class="quote-soft lotus" style="background:#fff">${T(W.line)}</blockquote>
+  </div></section>
+
+  <section class="sec after-band" id="todo"><div class="wrap">
+    <div class="head"><h2>${H(D.title)}</h2><p class="lead">${T(D.sub)}</p></div>
+    <ol class="steps">
+      <li class="st"><span class="st-n">1</span><div class="st-b">
+        <h3>${H(st[0].title)}</h3>
+        <p>${T(st[0].text)}</p>
+        <div class="days">${st[0].days.map((d, i) => `<div class="day ${d.vip ? 'k-psy vipd' : 'k-tech'}"><div class="dh"><span class="mk">${esc(d.day)}</span>${d.vip ? `<span class="pill">только для&nbsp;VIP</span>` : ''}</div><h4>${H('«' + d.name + '»')}</h4><p>${T(cap(d.text))}</p></div>`).join('')}</div>
+        <div class="reg-only" id="reg"><div class="form">${regFormHtml()}<p class="small form-note">${T(D.regNote)}</p></div>
+          <a class="more" id="moreLink" href="${esc(withUtm(D.moreUrl))}">${T(D.moreLabel)} <span aria-hidden="true">→</span></a></div>
+        <div class="vip-only"><p class="done">${TI}<span>${T(D.registered.replace(/^✓\s*/, ''))}</span></p></div>
+      </div></li>
+      <li class="st"><span class="st-n">2</span><div class="st-b">
+        <h3>${H(st[1].title)}</h3>
+        <p>${T(st[1].text)}</p>
+        ${st[1].text2 ? `<p>${T(st[1].text2)}</p>` : ''}
+        ${vipHtml(isN ? null : code)}
+      </div></li>
+      <li class="st"><span class="st-n">3</span><div class="st-b">
+        <h3>${H(st[2].title)}</h3>
+        <p>${T(st[2].text)}</p>
+        <p>${T(st[2].text2)}</p>
+        <h3 style="margin-top:.6em">${H(st[2].sub)}</h3>
+        ${casesHtml(st[2].cases)}
+        <p class="quote">${T(st[2].under)}</p>
+      </div></li>
+    </ol>
+  </div></section>
+</div>`;
+    currentResult = { key, name: head.name };
+    window.scrollTo(0, 0);
+    track('result_view_' + code, { result: key, count: K });
+    if (!VIP_ON) bindRegisterForm();
+    document.getElementById('vipBtn').addEventListener('click', () => { track('vip_click', { result: key }); openVip('card'); });
+    bindCases();
+    const sl = document.getElementById('stickyBtn');
+    document.getElementById('stickyText').innerHTML = T(VIP_ON ? CONFIG.ui.stickyVip : D.regButton);
+    sl.setAttribute('href', VIP_ON ? '#vipCard' : '#reg');
+    sl.onclick = (e) => {
+      e.preventDefault(); track('cta_sticky_click', { result: key });
+      const t = document.getElementById(VIP_ON ? 'vipCard' : 'reg');
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (!VIP_ON) setTimeout(() => { const i = document.getElementById('rgName'); if (i) i.focus({ preventScroll: true }); }, 600);
+    };
+    initSticky();
+    after('Расшифровка');
+  }
+
+  function bindCases() {
+    const box = document.getElementById('cases'); if (!box) return;
+    const cards = Array.from(box.children), out = document.getElementById('cOut');
+    const prev = document.getElementById('cPrev'), next = document.getElementById('cNext');
+    const cur = () => { const x = box.scrollLeft + box.clientWidth / 2; let b = 0, d = 1e9; cards.forEach((c, i) => { const m = c.offsetLeft + c.offsetWidth / 2; if (Math.abs(m - x) < d) { d = Math.abs(m - x); b = i; } }); return b; };
+    const upd = () => { const i = cur(); out.textContent = (i + 1) + ' / ' + cards.length; prev.disabled = i === 0; next.disabled = i === cards.length - 1; };
+    const to = (i) => { const c = cards[Math.max(0, Math.min(cards.length - 1, i))]; box.scrollTo({ left: c.offsetLeft - (box.clientWidth - c.offsetWidth) / 2, behavior: 'smooth' }); };
+    prev.addEventListener('click', () => to(cur() - 1));
+    next.addEventListener('click', () => to(cur() + 1));
+    box.addEventListener('scroll', () => { cancelAnimationFrame(box._r); box._r = requestAnimationFrame(upd); }, { passive: true });
+    // одно видео за раз
+    box.querySelectorAll('.cv-pl').forEach(bt => bt.addEventListener('click', () => { const v = bt.parentNode.querySelector('video'); const pr = v.play(); if (pr && pr.catch) pr.catch(() => {}); }));
+    box.querySelectorAll('video').forEach(v => v.addEventListener('play', () => {
+      v.parentNode.classList.add('playing');
+      track('case_play', { result: currentResult && currentResult.key });
+      box.querySelectorAll('video').forEach(o => { if (o !== v && !o.paused) o.pause(); });
+    }));
+    upd();
+  }
+
+  // ---------- форма регистрации на практикум (GetCourse 2260261966, из движка) ----------
+  // Отправка обычная, в верхнее окно (target="_top"): GetCourse сам переводит на страницу «Спасибо» практикума.
+  // Перед отправкой результат теста кладётся в localStorage (kl_reg), чтобы «Спасибо» / бот знали, какую расшифровку прислать.
+  let rgSent = false;
+  const REG_KEY = 'kl_reg';
+  function bindRegisterForm() {
+    const f = document.getElementById('rgForm'); if (!f) return;
+    rgSent = false;
+    document.getElementById('rgLoc').value = utmHref(location.href);
+    document.getElementById('rgRef').value = document.referrer;
+    const ph = document.getElementById('rgPhone');
+    const fmt = (v) => {
+      let d = v.replace(/\D/g, '').slice(0, 15); if (!d) return '+'; if (d[0] === '8') d = '7' + d.slice(1);
+      if (d[0] === '7') { d = d.slice(0, 11); const a = d.slice(1, 4), b = d.slice(4, 7), c = d.slice(7, 9), e = d.slice(9, 11);
+        return '+7' + (a ? ' (' + a : '') + (b ? ') ' + b : '') + (c ? '-' + c : '') + (e ? '-' + e : ''); }
+      return '+' + d;
+    };
+    ph.addEventListener('focus', () => { if (!ph.value) ph.value = '+'; });
+    ph.addEventListener('blur', () => { if (ph.value === '+') ph.value = ''; });
+    ph.addEventListener('input', () => { ph.value = fmt(ph.value); const n = ph.value.replace(/\D/g, '').length; ph.setCustomValidity(n >= 10 ? '' : 'Введите телефон полностью, с кодом страны'); });
+    f.addEventListener('focusin', () => { if (!f._t) { f._t = 1; track('register_open', { result: currentResult && currentResult.key }); } });
+    f.addEventListener('submit', (e) => {
+      if (rgSent) { e.preventDefault(); return; }
+      rgSent = true;
+      document.getElementById('rgSubmit').setAttribute('aria-busy', 'true');
+      document.getElementById('rgLoc').value = utmHref(location.href);
+      const key = String((currentResult && currentResult.key) || 'N').toLowerCase();
+      const email = String(document.getElementById('rgEmail').value || '').trim().toLowerCase();
+      try { localStorage.setItem(REG_KEY, JSON.stringify({ key, test: 'tdo', name: (currentResult && currentResult.name) || '', email, ts: Date.now() })); } catch (err) { /* no-op */ }
+      track('register_submit', { result: key });
+    });
+  }
+  window.addEventListener('pageshow', (e) => {
+    if (!e.persisted) return;
+    rgSent = false; const b = document.getElementById('rgSubmit'); if (b) b.removeAttribute('aria-busy');
+  });
+
+  // ---------- окно оплаты VIP: форма заказа GetCourse (из движка) ----------
+  let vm = null, vmPrev = null, vmSent = false;
+  function buildVip() {
+    const V = CONFIG.vip;
+    vm = document.createElement('div');
+    vm.id = 'vm'; vm.className = 'rg'; vm.hidden = true;
+    vm.innerHTML = `<div class="rg-box" role="dialog" aria-modal="true" aria-labelledby="vmTitle">
+    <button type="button" class="rg-x" id="vmClose" aria-label="Закрыть">${ICON.close}</button>
+    <h2 class="rg-h" id="vmTitle"><span class="nw">VIP-участие</span> в&nbsp;практикуме</h2>
+    <p class="rg-date">Онлайн · <b>25–28&nbsp;ноября</b> · тариф VIP</p>
+    <form id="vmForm" class="rg-form" action="${esc(V.offerUrl)}" method="post" enctype="multipart/form-data" accept-charset="UTF-8" target="_top">
+      <input type="hidden" name="OrderForm[selected_offer_id]" value="${esc(V.offerId)}"><input type="hidden" name="OrderForm[created_by_object_type]" value="sales_widget">
+      <input type="email" name="OrderForm[email]" id="vmEmail" maxlength="100" placeholder="Введите ваш e-mail" autocomplete="email" inputmode="email" required>
+      <input type="text" name="OrderForm[full_name]" maxlength="60" placeholder="Введите ваше имя" autocomplete="given-name" required>
+      <input type="tel" name="OrderForm[phone]" maxlength="30" placeholder="Введите ваш телефон" autocomplete="tel" inputmode="tel" required>
+      <label class="rg-ck"><input type="checkbox" required><span>Даю согласие с&nbsp;договором <a href="https://doctor-saba.com/doctor-saba-oferta-obrazovanie" target="_blank" rel="noopener">офертой на&nbsp;образовательные услуги</a></span></label>
+      <label class="rg-ck"><input type="checkbox" name="pdpConfirmCheckbox" required><span>Я&nbsp;<a href="https://doctor-saba.com/doctor-saba-soglasie-na-opd" target="_blank" rel="noopener">согласна</a> на&nbsp;обработку моих персональных данных в&nbsp;соответствии с&nbsp;<a href="https://doctor-saba.com/doctor-saba-politika-opd" target="_blank" rel="noopener">Политикой обработки персональных&nbsp;данных</a></span></label>
+      <label class="rg-ck"><input type="checkbox" name="confirmMailingCheckbox"><span>Даю <a href="https://doctor-saba.com/doctor-saba-soglasie-na-reklamu" target="_blank" rel="noopener">согласие</a> на&nbsp;получение информационных и&nbsp;маркетинговых рассылок</span></label>
+      <div class="vm-sum"><span>К оплате</span><span><strong>${esc(V.price).replace(/ /g, '&nbsp;')}</strong><s>${esc(V.old).replace(/ /g, '&nbsp;')}</s></span></div>
+      <button type="submit" class="btn" id="vmSubmit"><span>Перейти к&nbsp;оплате</span>${ARROW}</button>
+    </form></div>`;
+    document.body.appendChild(vm);
+    vm.querySelector('#vmClose').addEventListener('click', closeVip);
+    vm.addEventListener('click', (e) => { if (e.target === vm) closeVip(); });
+    const f = vm.querySelector('#vmForm');
+    f.addEventListener('submit', (e) => {
+      if (vmSent) { e.preventDefault(); return; }
+      vmSent = true; document.getElementById('vmSubmit').setAttribute('aria-busy', 'true');
+      if (window.dsUtm && window.dsUtm.tag) f.action = window.dsUtm.tag(V.offerUrl);   // откуда пришла – в заказ
+      track('vip_submit', { result: currentResult && currentResult.key });
+    });
+    window.addEventListener('pageshow', (e) => { if (e.persisted) { vmSent = false; const b = document.getElementById('vmSubmit'); if (b) b.removeAttribute('aria-busy'); } });
+    window.addEventListener('keydown', (e) => { if (vm && !vm.hidden && e.key === 'Escape') { e.preventDefault(); closeVip(); } });
+  }
+  function openVip(from) {
+    if (!vm) buildVip();
+    if (!vm.hidden) return;
+    vmPrev = document.activeElement;
+    vm.hidden = false;
+    document.documentElement.classList.add('rg-open');
+    hideSticky();
+    requestAnimationFrame(() => vm.classList.add('on'));
+    fixHeadLines(vm);
+    if (!params.has('shot')) setTimeout(() => { const i = document.getElementById('vmEmail'); if (i) i.focus({ preventScroll: true }); }, 30);
+    track('vip_open', { from: from || 'cta', result: currentResult && currentResult.key });
+  }
+  function closeVip() {
+    if (!vm || vm.hidden) return;
+    vm.classList.remove('on'); vm.hidden = true;
+    document.documentElement.classList.remove('rg-open');
+    if (vmPrev && vmPrev.focus) vmPrev.focus({ preventScroll: true });
+    if (document.getElementById('todo')) initSticky();
+  }
+  window.__openVip = openVip;
+
+  // ---------- липкая кнопка: появляется после шапки расшифровки, прячется, когда форма / VIP на экране ----------
+  let io = null, headPassed = false, targetVisible = false;
+  function updateSticky() {
+    const on = headPassed && !targetVisible;
+    const el = document.getElementById('sticky');
+    el.classList.toggle('on', on);
+    el.setAttribute('aria-hidden', on ? 'false' : 'true');
+  }
+  function hideSticky(reset) {
+    if (reset) { headPassed = false; targetVisible = false; }
+    if (io) { io.disconnect(); io = null; }
+    updateSticky();
+  }
+  function initSticky() {
+    hideSticky(true);
+    const headEl = document.getElementById('resHead');
+    const target = document.getElementById(VIP_ON ? 'vipCard' : 'reg');
+    if (!('IntersectionObserver' in window) || !headEl || !target) return;
+    io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.target === headEl) headPassed = !e.isIntersecting && e.boundingClientRect.top < 0;
+        if (e.target === target) targetVisible = e.isIntersecting;
+      });
+      updateSticky();
+    }, { threshold: 0, rootMargin: '0px 0px -72px 0px' });
+    io.observe(headEl); io.observe(target);
+  }
+
+  // ---------- навигация ----------
+  let fastMode = false;
+  function go(step) {
+    state.step = step;
+    saveState();
+    render(step);
+    window.scrollTo(0, 0);
+  }
+  function render(step) {
+    clearLoaderTimers();
+    if (step !== 'result') { if (vm && !vm.hidden) closeVip(); }
+    if (step === 'intro') renderIntro();
+    else if (step === 'match') renderMatch();
+    else if (step === 'result') renderResult();
+    else if (/^q\d+$/.test(step)) {
+      const n = Number(step.slice(1));
+      if (n >= 1 && n <= TOTAL) renderQuestion(n); else renderIntro();
+    } else if (/^l\d+$/.test(step)) {             // только для debug-панели
+      const n = Number(step.slice(1));
+      if (CONFIG.loaders[n]) renderLoader(n, () => {}, { static: true }); else renderIntro();
+    } else renderIntro();
+  }
+
+  // ---------- проверка «экран помещается» (debug) ----------
+  function measure() {
+    const el = app.querySelector('.scr');
+    if (!el) return null;
+    const over = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    return { label: el.dataset.label || '?', height: document.documentElement.scrollHeight, viewport: window.innerHeight, overflow: over };
+  }
+  function afterFixedRender(label) {
+    if (!DEBUG) return;
+    requestAnimationFrame(() => {
+      const m = measure(); if (!m) return;
+      const el = app.querySelector('.scr');
+      const fixed = !el.classList.contains('s-result');
+      if (fixed && m.overflow > 0) { el.classList.add('overflow'); console.warn(label + ' не помещается на ' + m.overflow + ' px'); }
+      else { el.classList.remove('overflow'); console.log(label + ': ок'); }
+      const st = document.getElementById('dbgStatus');
+      if (st) st.textContent = fixed ? (m.overflow > 0 ? ('НЕ ПОМЕЩАЕТСЯ +' + m.overflow + 'px') : 'ок') : '';
+    });
+  }
+  function checkAll() {
+    const saved = JSON.stringify(state);
+    const res = [];
+    const push = () => { const m = measure(); if (m) res.push(m); };
+    renderIntro(); push();
+    for (let n = 1; n <= TOTAL; n++) { renderQuestion(n); push(); }
+    Object.keys(CONFIG.loaders).forEach(n => { renderLoader(Number(n), () => {}, { static: true }); push(); });
+    renderMatch(); push();
+    Object.assign(state, JSON.parse(saved));
+    render(state.step);
+    return res;
+  }
+  function runAs(key) {                       // пройти тест: в блоке key 3 галочки, в остальных 0
+    state.answers = {}; const i = PRIORITY.indexOf(key);
+    if (i >= 0) state.answers[i + 1] = [0, 1, 2];
+    go('match');
+  }
+  function resetAll() {
+    try { sessionStorage.removeItem(SS_KEY); } catch (e) { /* no-op */ }
+    state.step = 'intro'; state.answers = {};
+    go('intro');
+  }
+  function initDebug() {
+    const screens = [['intro', 'Главный']];
+    for (let n = 1; n <= TOTAL; n++) { screens.push(['q' + n, 'Вопрос ' + n]); if (CONFIG.loaders[n]) screens.push(['l' + n, 'Анализ после ' + n]); }
+    screens.push(['match', 'Совпадения'], ['result', 'Расшифровка']);
+    const bar = document.createElement('div');
+    bar.id = 'dbg';
+    bar.innerHTML = `<button type="button" class="tg" id="dbgToggle">debug</button>
+      <select id="dbgGo">${screens.map(s => `<option value="${s[0]}">${s[1]}</option>`).join('')}</select>
+      <button type="button" id="dbgCheck">Проверить все</button>
+      <button type="button" id="dbgRunB">Пройти как B</button>
+      <button type="button" id="dbgReset">Сброс</button>
+      <span id="dbgStatus"></span>`;
+    document.body.appendChild(bar);
+    const sel = bar.querySelector('#dbgGo');
+    sel.value = state.step;
+    sel.addEventListener('change', () => go(sel.value));
+    bar.querySelector('#dbgCheck').addEventListener('click', () => {
+      const res = checkAll(), bad = res.filter(r => r.overflow > 0);
+      console.table(res);
+      document.getElementById('dbgStatus').textContent = bad.length ? ('не помещается: ' + bad.map(b => b.label + ' +' + b.overflow + 'px').join('; ')) : ('все ' + res.length + ' экранов ок, ' + window.innerWidth + '×' + window.innerHeight);
+    });
+    bar.querySelector('#dbgRunB').addEventListener('click', () => runAs('B'));
+    bar.querySelector('#dbgReset').addEventListener('click', resetAll);
+    bar.querySelector('#dbgToggle').addEventListener('click', () => bar.classList.toggle('min'));
+  }
+
+  // ---------- старт ----------
+  document.getElementById('footName').textContent = CONFIG.author.name;
+  document.getElementById('footRole').textContent = CONFIG.author.role;
+  loadState();
+  if (PREVIEW) state.step = 'result';
+  if (DEBUG && params.get('go')) state.step = params.get('go');        // ?debug=1&go=q3 – сразу нужный экран (для проверок)
+  if (state.step === 'result' && !PREVIEW && !Object.keys(state.answers).length) state.step = 'intro';
+  track('quiz_open');
+  render(state.step);
+  if (DEBUG && params.get('open') === 'vip' && state.step === 'result') openVip('debug');
+  if (DEBUG) { initDebug(); window.__tdo = { go, checkAll, runAs, resetAll, measure, state, CONFIG, computeResult }; }
+})();
+</script>
+</body>
+</html>
