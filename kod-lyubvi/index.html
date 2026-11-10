@@ -3787,6 +3787,7 @@ const CONFIG = {
       ev: event.indexOf('result_view_') === 0 ? 'result_view_' + String(event.slice(12)).replace(/[^A-Za-z0-9]/g, '').slice(0, 4) : event,
       v: visitorId(),
       s: (new URLSearchParams(location.search).get('utm_source') || '').replace(/[^A-Za-z0-9._-]/g, '').slice(0, 40),
+      q: 'kl',
       r: String((data && data.result) || '').replace(/[^A-Za-z0-9]/g, '').slice(0, 8)
     });
     const url = STATS_URL + '?' + q;

@@ -4942,6 +4942,24 @@ const CONFIG = {
   const TOTAL = CONFIG.questions.length;
   const app = document.getElementById('app');
   const params = new URLSearchParams(location.search);
+  // UTM первого касания (msg 3239 у Александры): квиз запоминает метки из первой ссылки с utm и не перетирает их пустыми;
+  // форма регистрации и маяк счётчика берут их отсюда, а не подставленные utm.js direct/none.
+  const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+  const firstUtm = (() => {
+    const K = 'kd_utm_first'; let f = null;
+    try { f = JSON.parse(localStorage.getItem(K) || 'null'); } catch (e) { f = null; }
+    const cur = (window.dsUtm && window.dsUtm.current) || {};
+    if (!(f && f.utm_source) && cur.utm_source && cur.utm_source !== 'direct') {
+      f = {}; UTM_KEYS.forEach((k) => { if (cur[k]) f[k] = String(cur[k]).slice(0, 100); });
+      try { localStorage.setItem(K, JSON.stringify(f)); } catch (e) { /* storage недоступен */ }
+    }
+    return (f && f.utm_source) ? f : {};
+  })();
+  function utmHref(href) {
+    if (!firstUtm.utm_source) return href;
+    try { const u = new URL(href); UTM_KEYS.forEach((k) => { if (firstUtm[k]) u.searchParams.set(k, firstUtm[k]); });
+      if (!firstUtm.utm_term) u.searchParams.set('utm_term', 'kod-deneg-quiz'); return u.toString(); } catch (e) { return href; }
+  }
   const DEBUG = params.get('debug') === '1';
   // ?r=<key> opens that decoding directly (owner preview links)
   const PREVIEW = CONFIG.results[params.get('r')] ? params.get('r') : null;
@@ -4984,7 +5002,8 @@ const CONFIG = {
     const q = new URLSearchParams({
       ev: event.indexOf('result_view_') === 0 ? 'result_view_' + String(event.slice(12)).replace(/[^A-Za-z0-9]/g, '').slice(0, 4) : event,
       v: visitorId(),
-      s: (new URLSearchParams(location.search).get('utm_source') || '').replace(/[^A-Za-z0-9._-]/g, '').slice(0, 40),
+      s: (firstUtm.utm_source || new URLSearchParams(location.search).get('utm_source') || '').replace(/[^A-Za-z0-9._-]/g, '').slice(0, 40),
+      q: 'kd',
       r: String((data && data.result) || '').replace(/[^A-Za-z0-9]/g, '').slice(0, 8)
     });
     const url = STATS_URL + '?' + q;
@@ -5756,7 +5775,7 @@ const CONFIG = {
   }
   function bindRegisterForm() {
     const f = document.getElementById('rgForm');
-    document.getElementById('rgLoc').value = location.href;
+    document.getElementById('rgLoc').value = utmHref(location.href);
     document.getElementById('rgRef').value = document.referrer;
     // маска телефона — как в виджете GetCourse
     const ph = document.getElementById('rgPhone');
@@ -5773,7 +5792,7 @@ const CONFIG = {
       if (rgSent) { e.preventDefault(); return; }               // второй раз не отправляем
       rgSent = true;
       document.getElementById('rgSubmit').setAttribute('aria-busy', 'true');
-      document.getElementById('rgLoc').value = location.href;
+      document.getElementById('rgLoc').value = utmHref(location.href);
       const key = String((currentResult && currentResult.key) || 'N').toLowerCase();
       const email = String(document.getElementById('rgEmail').value || '').trim().toLowerCase();
       try {
