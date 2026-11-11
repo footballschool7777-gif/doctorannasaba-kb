@@ -47,7 +47,11 @@ main{max-width:620px;margin:0 auto;padding:6px 10px 80px}
 #ebar{position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;gap:10px;align-items:center;justify-content:center;padding:10px;background:#fff;box-shadow:0 -1px 4px rgba(0,0,0,.15);font-size:14px}
 #ebar button{font:inherit;padding:8px 14px;border:0;border-radius:10px;background:#2481cc;color:#fff;cursor:pointer}
 #ebar button.off{background:#9aa}
-body.editing .ed{outline:2px dashed #2481cc;outline-offset:-2px;background:#f6fbff}
+body.editing :is(.ed, .goal, .anna, .kbtn, .day span){outline:2px dashed #2481cc;outline-offset:-2px;background:#f6fbff}
+body.editing .day span{background:#2481cc;color:#fff}
+#ebar{flex-wrap:wrap}
+#ebar .fmt{background:#eef4fa;color:#1d2a36;min-width:38px;padding:8px 10px}
+#ebar .fmt b,#ebar .fmt i,#ebar .fmt u{pointer-events:none}
 .kbd{display:flex;flex-direction:column;gap:4px;margin:4px 0 0;max-width:var(--bw,480px)}.kbtn{display:block;text-align:center;background:rgba(40,60,30,.35);color:#fff;border-radius:10px;padding:9px 12px;font-weight:600;font-size:14px;text-decoration:none}.anna{background:#fff6d6;border:1px dashed #d9b84a;border-radius:12px;padding:10px 14px;font-size:14px;color:#5a4a10;margin:6px 0;text-wrap:balance}.anna .atm{display:block;text-align:right;color:#a08a40;font-size:12px}.bubble .text p{text-wrap:balance}.anna a{color:#2481cc}</style>
 </head>
 <body class="">
@@ -136,7 +140,7 @@ const tok = (() => { const m = (location.search + location.hash).match(/edit=([\
 function note(t) { const n = document.getElementById('emsg'); if (n) n.textContent = t; }
 function setEdit(on) {
   document.body.classList.toggle('editing', on);
-  document.querySelectorAll('.ed').forEach(e => e.contentEditable = on);
+  document.querySelectorAll('.ed, .goal, .anna, .kbtn, .day span').forEach(e => e.contentEditable = on);
   document.getElementById('etog').textContent = on ? 'Закончить правку' : 'Править тексты';
 }
 function save() {
@@ -155,10 +159,26 @@ function save() {
 if (tok && location.hostname === 'doctorannasaba.ru') location.replace('https://baza.serenkov.com/pkt-edit/api/live/' + PAGE + '/?edit=' + tok);
 else if (tok) {
   const bar = document.createElement('div'); bar.id = 'ebar';
-  bar.innerHTML = '<button id="etog">Править тексты</button><button id="esave">Сохранить</button><span id="emsg">Правка текстов постов</span>';
+  bar.innerHTML = '<button id="etog">Править тексты</button><button class="fmt" data-c="bold" title="Жирный"><b>Ж</b></button><button class="fmt" data-c="italic" title="Курсив"><i>К</i></button><button class="fmt" data-c="underline" title="Подчеркнуть"><u>Ч</u></button><button class="fmt" data-c="link" title="Ссылка">🔗</button><button class="fmt" data-c="removeFormat" title="Убрать оформление">✕</button><button id="esave">Сохранить</button><span id="emsg">Выделите слова и нажмите Ж, К или Ч</span>';
   document.body.appendChild(bar);
   document.getElementById('etog').onclick = () => setEdit(!document.body.classList.contains('editing'));
   document.getElementById('esave').onclick = save;
+  /* formatting: keep selection on mousedown, apply command */
+  bar.querySelectorAll('.fmt').forEach(b => {
+    b.onmousedown = e => e.preventDefault();
+    b.onclick = () => {
+      if (!document.body.classList.contains('editing')) setEdit(true);
+      const c = b.dataset.c;
+      if (c === 'link') { const u = prompt('Адрес ссылки'); if (u) document.execCommand('createLink', false, u); }
+      else document.execCommand(c, false, null);
+    };
+  });
+  /* paste as plain text so foreign fonts and colours do not get in */
+  document.addEventListener('paste', e => {
+    if (!document.body.classList.contains('editing')) return;
+    e.preventDefault();
+    document.execCommand('insertText', false, (e.clipboardData || window.clipboardData).getData('text/plain'));
+  });
   document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); save(); } });
 }
 /* viewers get a newly published version automatically */
