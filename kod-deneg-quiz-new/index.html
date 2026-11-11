@@ -5778,7 +5778,7 @@ const CONFIG = {
       const key = String((currentResult && currentResult.key) || 'N').toLowerCase();
       const email = String(document.getElementById('rgEmail').value || '').trim().toLowerCase();
       try {
-        localStorage.setItem(REG_KEY, JSON.stringify({ key, name: (currentResult && currentResult.name) || '', email, ts: Date.now() }));
+        localStorage.setItem(REG_KEY, JSON.stringify({ key, quiz: 'kd', name: (currentResult && currentResult.name) || '', email, ts: Date.now() }));
       } catch (err) { /* storage недоступен — регистрация всё равно уходит */ }
       track('register_submit', { result: key });
     });

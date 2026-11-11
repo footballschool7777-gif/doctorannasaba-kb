@@ -51,7 +51,7 @@ var h=document.getElementById('tgh'),n=String(r.name||'').replace(/[<>&"]/g,'');
 if(h&&n)h.innerHTML='Перейдите в&nbsp;<em>Telegram</em>, чтобы получить расшифровку «'+n.replace(/ (\S+)$/,'&nbsp;$1')+'», бонусы и&nbsp;именной&nbsp;билет';
 if(r.sent)return;var tries=0;
 function send(){tries++;fetch(EV,{method:'POST',headers:{'Content-Type':'application/json'},keepalive:true,
-body:JSON.stringify({email:r.email,customData:{key:r.key,name:n}})}).then(function(x){if(!x.ok)throw 0;r.sent=Date.now();
+body:JSON.stringify({email:r.email,customData:{key:r.key,name:n,quiz:String(r.quiz||r.test||'kl').replace(/[^a-z]/g,'').slice(0,8)}})}).then(function(x){if(!x.ok)throw 0;r.sent=Date.now();
 try{localStorage.setItem('kl_reg',JSON.stringify(r))}catch(e){}}).catch(function(){if(tries<6)setTimeout(send,1500*tries)})}
 setTimeout(send,1500)})();
 </script>
