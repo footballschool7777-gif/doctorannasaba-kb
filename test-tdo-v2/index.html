@@ -592,7 +592,7 @@ const CONFIG = {
     "caption": "Между ситуацией и вашим ответом проходит меньше секунды. Вы ещё думаете, а детская привычка уже сработала. Родители делали так, как учили их самих, и зла вам не хотели."
   },
   "structure": {
-    "score": "Ваш результат",
+    "score": "Ваши баллы",
     "meaning": "Что это значит",
     "toc": "Что дальше в расшифровке",
     "ranges": [
@@ -703,7 +703,7 @@ const CONFIG = {
         ],
         [
           "Работа и мечты",
-          "не беретесь за большое: «пусть это сделает кто-то получше»."
+          "не беретесь за большое: «пусть сделает кто-то опытнее»."
         ]
       ]
     },
@@ -1223,6 +1223,14 @@ const CONFIG = {
       "src": "video/tdo-N.mp4",
       "on": false
     }
+  },
+  "reality": {
+    "title": "Что сейчас происходит в вашей жизни",
+    "like": "Похоже на вас:",
+    "rootTitle": "Почему так сложилось",
+    "girl": "Тогда маленькая девочка решила:",
+    "also": "Такие же детские правила видны и в других ваших ответах:",
+    "auto": "В детстве это правило помогало. Сейчас оно включается само, раньше, чем вы успеваете подумать. Поэтому одни и те же истории повторяются:"
   }
 };
 
@@ -1701,7 +1709,7 @@ const CONFIG = {
     tocItems.push({ href: '#why', t: W.title, sep: 1 }, { href: '#todo', t: D.title, sep: 1 });
 
     const scaleHtml = PRIORITY.map(k => `<li class="${c[k] ? '' : 'z'}${k === code ? ' main' : ''}">
-        <span class="nm">${c[k] && !isN ? `<a href="#b-${k}">${T(stripQ(blockName(k)))}</a>` : T(stripQ(blockName(k)))}</span>
+        <span class="nm">${T(stripQ(blockName(k)))}</span>
         <span class="seg" aria-hidden="true">${[0, 1, 2, 3].map(i => `<i${i < c[k] ? ' class="f"' : ''}></i>`).join('')}</span>
         <span class="ct">${c[k]}/4</span></li>`).join('');
 
@@ -1711,6 +1719,23 @@ const CONFIG = {
           return `<li><span class="mk">${esc(stripQ(R.block))}</span><ul class="ticks"><li>${TI}<span>${T(opt)}</span></li></ul><p class="small">${esc(R.spheres[0][0])}: ${T(R.spheres[0][1])}</p></li>`; }).join('')}</ul>
       </div></section>` : '';
 
+    const RL = CONFIG.reality, MR = isN ? null : CONFIG.results[code];
+    const top = blocks.slice(0, 3);
+    const likes = isN ? [] : [MR.recognize[0], MR.recognize[1], ...top.slice(1).map(k => CONFIG.results[k].recognize[0])];
+    const realityHtml = isN ? '' : `<section class="sec" id="reality"><div class="wrap">
+    <div class="head"><h2>${H(RL.title)}</h2></div>
+    <div class="plate"><p>${T(range.text)}</p></div>
+    <p class="lbl">${esc(RL.like)}</p>
+    <ul class="ticks">${likes.map(t => `<li>${TI}<span>${T(t)}</span></li>`).join('')}</ul>
+  </div></section>
+  <section class="sec" id="root"><div class="wrap">
+    <div class="head"><h2>${H(RL.rootTitle)}</h2></div>
+    <p>${T(MR.originNote)}</p>
+    <div class="quote"><p class="lbl-m">${esc(RL.girl)}</p><p class="lead">${T('«' + MR.girl.replace(/\.$/, '') + '»')}</p></div>
+    ${top.length > 1 ? `<p>${T(RL.also)} ${top.slice(1).map(k => '«' + CONFIG.results[k].name + '»').join(', ')}.</p>` : ''}
+    <p>${T(RL.auto)}</p>
+    <ul class="sph">${MR.spheres.map(s => `<li class="${SPH_CLASS[s[0]] || 'k-tech'}"><span class="pill">${esc(s[0])}</span><p>${T(cap(s[1]))}</p></li>`).join('')}</ul>
+  </div></section>`;
     const st = D.steps;
     app.innerHTML = `
 <div class="scr s-result" data-label="Расшифровка" data-key="${esc(key)}">
@@ -1730,17 +1755,7 @@ const CONFIG = {
     ${S.scaleNote ? `<p class="small scale-note">${T(S.scaleNote)}</p>` : ''}
   </div></section>
 
-  <section class="sec" id="meaning"><div class="wrap">
-    <div class="head"><h2>${H(S.meaning)}</h2></div>
-    <div class="plate"><p>${T(range.text)}</p></div>
-  </div></section>
-
-  <section class="sec" id="toc"><div class="wrap">
-    <div class="head"><h2>${H(S.toc)}</h2></div>
-    <ol class="toc">${tocItems.map((t, i) => `<li${t.sep ? ' class="sep"' : ''}><a href="${t.href}"><span class="tn">${i + 1}</span><span class="tt">${T(stripQ(t.t))}</span>${t.c ? `<span class="tc">${t.c}&nbsp;из&nbsp;4</span>` : '<span class="tc"></span>'}</a></li>`).join('')}</ol>
-  </div></section>
-
-  ${blocks.map((k, i) => chainHtml(k, c[k], i === 0, i === 0)).join('')}
+  ${isN ? '' : realityHtml}
   ${whereHtml}
 
   <section class="band" id="why"><div class="wrap">
@@ -1750,7 +1765,7 @@ const CONFIG = {
       <div class="amy-b">Триггер</div>
       <div class="amy-b hot">Амигдала<small>(0,1&nbsp;с)</small></div>
       <div class="amy-b">Реакция</div>
-      <div class="amy-b late">${T('Мысль приходит потом')}</div>
+      <div class="amy-b late">${T('Понимание приходит потом')}</div>
     </div>
     <div class="wcard"><h3>${H(W.sub)}</h3><ul class="nums">${W.list.map(t => `<li><span>${T(t)}</span></li>`).join('')}</ul><p class="quote"><b>${T(W.under)}</b></p></div>
     <p>${T(W.p4)}</p>
