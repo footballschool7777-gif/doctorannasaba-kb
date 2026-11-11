@@ -1616,7 +1616,7 @@ const CONFIG = {
     const s1 = `${mine.length ? `<div class="mine"><p class="lbl">${esc(RS.checked)}</p><ul class="ticks">${mine.map(t => `<li>${TI}<span>${T(t)}</span></li>`).join('')}</ul></div>` : ''}
       <p class="lbl">${esc(RS.recognize)}</p><ul class="tags">${R.recognize.map(t => `<li>${T(t)}</li>`).join('')}</ul>`;
     const s2 = `<ul class="tags">${R.origin.map(t => `<li>${T(t)}</li>`).join('')}</ul><p>${T(R.originNote)}</p>`;
-    const rows = SC.steps.map((st, i) => `<div class="rx-r ${K_CLASS[i]}${i === 1 ? ' hot' : ''}"><span class="pill">${H(st)}</span><p>${T(cap(R.reflex[i]))}</p></div>${i === 1 ? `<p class="rx-side">${ICON.branch}<span>${T(SC.side)}</span></p>` : ''}`).join('');
+    const rows = SC.steps.map((st, i) => `<div class="rx-r ${K_CLASS[i]}${i === 1 ? ' hot' : ''}"><span class="pill">${H(st)}</span><p>${T(cap(R.reflex[i]))}</p></div>`).join('');
     const s3 = `<div class="rx">${rows}</div>${showCaption ? `<p class="small">${T(SC.caption)}</p>` : ''}
       <div class="quote"><p class="lbl-m">${esc(S.girl)}</p><p class="lead">${T(R.girl)}</p></div>
       <p class="lbl">${esc(S.words)}</p><ul class="words">${R.words.map(t => `<li>${T(t)}</li>`).join('')}</ul>`;
