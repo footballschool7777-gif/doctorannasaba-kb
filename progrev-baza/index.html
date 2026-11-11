@@ -19,6 +19,13 @@ ul{margin:0;padding-left:18px}li{margin:0 0 4px;text-wrap:balance}
 .sr{background:var(--m);border-radius:16px;padding:16px 18px;margin:0 0 10px}.sr h3 small{color:var(--mut);font-weight:600}.sr p{margin:0 0 6px;text-wrap:balance}.sr .fin{font-weight:700;margin:0}
 .after p{margin:0 0 6px;text-wrap:balance}
 @media(max-width:520px){.card{grid-template-columns:1fr;gap:4px}.d{display:flex;gap:8px;align-items:baseline}}
+body.editing :is(h1, h2, h3, li, .lead, .intro p, .sr p, .after p, .tags span, .path span){outline:2px dashed #2481cc;outline-offset:-2px;background:#f6fbff}
+#ebar{position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;gap:10px;align-items:center;justify-content:center;padding:10px;background:#fff;box-shadow:0 -1px 4px rgba(0,0,0,.15);font-size:14px}
+#ebar button{font:inherit;padding:8px 14px;border:0;border-radius:10px;background:#2481cc;color:#fff;cursor:pointer}
+#ebar button.off{background:#9aa}
+#ebar{flex-wrap:wrap}
+#ebar .fmt{background:#eef4fa;color:#1d2a36;min-width:38px;padding:8px 10px}
+#ebar .fmt b,#ebar .fmt i,#ebar .fmt u{pointer-events:none}
 </style></head><body><div class="wrap">
 <section class="intro"><h1>Прогрев всей базы на&nbsp;практикум и&nbsp;ПКТ</h1>
 <p><b>Для Анны.</b> Каждый день – тема и тезисы. По&nbsp;ним можно записать аудио или написать пост своими словами.</p>
@@ -28,4 +35,61 @@ ul{margin:0;padding-left:18px}li{margin:0 0 4px;text-wrap:balance}
 <h2>Мультсериал про деньги: 4 серии</h2><article class="sr"><h3>Серия 1 «Деньги сквозь пальцы» <small>13.11</small></h3><p>Марина, 41 год, бухгалтер. Зарплата та же пять лет. Как только появляются деньги – ломается машина, болит зуб, брат просит взаймы. Отказать не может. Вечером считает до зарплаты и вспоминает, как в 20 лет мечтала о своём доме у моря.</p><p class="fin">Финал: «Почему деньги у Марины не держатся – в следующей серии».</p></article><article class="sr"><h3>Серия 2 «Богатые – воры» <small>16.11</small></h3><p>Детство: папа у телевизора ругает «буржуев, которые разворовали страну». Маленькая Марина запоминает: богатый – значит плохой. Сейчас: видит соседку в новой машине и думает «наверное, муж богатый». Сама хочет денег, но каждый раз отступает.</p><p class="fin">Финал: «Головой она хочет денег, а внутри их ненавидит».</p></article><article class="sr"><h3>Серия 3 «Страшно ждать» <small>19.11</small></h3><p>Марине предлагают должность выше, а она отказывается: «не потяну». Подруга зовёт вместе открыть магазин – страшно вложить и ждать. Каждый раз, когда ничего не ясно, её разрывает, как с бывшим, который не писал. Детство: мама то хвалит, то кричит, и Марина угадывает её настроение.</p><p class="fin">Финал: «Она понимает, откуда это. Но понимание ничего не меняет».</p></article><article class="sr"><h3>Серия 4 «Выход» <small>22.11</small></h3><p>Марина годами ходила к психологу, говорила – и всё оставалось по-старому. Потом попадает к психологу, который работает методом ДПДГ. После нескольких встреч видит начальника – и впервые нет жара. Спокойно просит повышение. Через полгода её деньги перестают утекать.</p><p class="fin">Финал: «Как переписать свои реакции – на бесплатном практикуме «Новая реальность» 25–28 ноября».</p></article>
 <h2>Практикум и после</h2><section class="after">
 <p><b>25–27.11</b> – напоминание перед каждым&nbsp;эфиром.</p><p><b>28.11</b> – продажа ПКТ на эфире.</p><p><b>29–30.11</b> – дожим ПКТ: кейсы выпускников, ответы на сомнения, срок предложения.</p></section>
-</div></body></html>
+</div>
+<script>
+/* owner edit mode: ?edit=<token> shows the bar; saving goes to pkt-edit (doctorannasaba.ru live in 1-2 min) */
+const PAGE = 'progrev-baza';
+const tok = (() => { const m = (location.search + location.hash).match(/edit=([\w-]+)/); try { if (m) sessionStorage.setItem('pr-edit', m[1]); return sessionStorage.getItem('pr-edit'); } catch (e) { return m && m[1]; } })();
+function note(t) { const n = document.getElementById('emsg'); if (n) n.textContent = t; }
+function setEdit(on) {
+  document.body.classList.toggle('editing', on);
+  document.querySelectorAll('h1, h2, h3, li, .lead, .intro p, .sr p, .after p, .tags span, .path span').forEach(e => e.contentEditable = on);
+  document.getElementById('etog').textContent = on ? 'Закончить правку' : 'Править тексты';
+}
+function save() {
+  setEdit(false);
+  const doc = document.documentElement.cloneNode(true);
+  doc.querySelectorAll('[contenteditable]').forEach(e => e.removeAttribute('contenteditable'));
+  doc.querySelector('body').classList.remove('editing');
+  const b = doc.querySelector('#ebar'); if (b) b.remove();
+  note('Сохраняю…');
+  fetch('https://baza.serenkov.com/pkt-edit/api/save', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ page: PAGE, token: tok, html: '<!doctype html>\n' + doc.outerHTML }) })
+    .then(r => note(r.ok ? 'Сохранено. На сайте через 1–2 минуты' : 'Не сохранилось, нажмите ещё раз'))
+    .catch(() => note('Нет связи, нажмите ещё раз'));
+}
+/* the owner edits the fresh copy straight from disk: Pages lags 1-2 min and a stale tab would wipe newer saves */
+if (tok && location.hostname === 'doctorannasaba.ru') location.replace('https://baza.serenkov.com/pkt-edit/api/live/' + PAGE + '/?edit=' + tok);
+else if (tok) {
+  const bar = document.createElement('div'); bar.id = 'ebar';
+  bar.innerHTML = '<button id="etog">Править тексты</button><button class="fmt" data-c="bold" title="Жирный"><b>Ж</b></button><button class="fmt" data-c="italic" title="Курсив"><i>К</i></button><button class="fmt" data-c="underline" title="Подчеркнуть"><u>Ч</u></button><button class="fmt" data-c="link" title="Ссылка">🔗</button><button class="fmt" data-c="removeFormat" title="Убрать оформление">✕</button><button id="esave">Сохранить</button><span id="emsg">Выделите слова и нажмите Ж, К или Ч</span>';
+  document.body.appendChild(bar);
+  document.getElementById('etog').onclick = () => setEdit(!document.body.classList.contains('editing'));
+  document.getElementById('esave').onclick = save;
+  /* formatting: keep selection on mousedown, apply command */
+  bar.querySelectorAll('.fmt').forEach(b => {
+    b.onmousedown = e => e.preventDefault();
+    b.onclick = () => {
+      if (!document.body.classList.contains('editing')) setEdit(true);
+      const c = b.dataset.c;
+      if (c === 'link') { const u = prompt('Адрес ссылки'); if (u) document.execCommand('createLink', false, u); }
+      else document.execCommand(c, false, null);
+    };
+  });
+  /* paste as plain text so foreign fonts and colours do not get in */
+  document.addEventListener('paste', e => {
+    if (!document.body.classList.contains('editing')) return;
+    e.preventDefault();
+    document.execCommand('insertText', false, (e.clipboardData || window.clipboardData).getData('text/plain'));
+  });
+  document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); save(); } });
+}
+/* viewers get a newly published version automatically */
+if (location.protocol !== 'file:' && !tok) {
+  let v = null;
+  setInterval(() => fetch(location.href, { method: 'HEAD', cache: 'no-store' }).then(r => {
+    const t = r.headers.get('etag') || r.headers.get('last-modified'); if (!t) return;
+    if (v && t !== v) location.reload(); v = t; }).catch(() => {}), 30000);
+}
+</script>
+</body></html>
