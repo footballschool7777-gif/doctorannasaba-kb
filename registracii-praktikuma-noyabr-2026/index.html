@@ -297,7 +297,7 @@
       }
     }
     $('allDates').onclick=()=>{state.selected=[...state.data.dates];renderControls();render();};
-    $('defaultDates').onclick=()=>{state.selected=[...(state.data.defaultDays||state.data.dates)];renderControls();render();};
+    $('defaultDates').onclick=()=>{state.selected=state.data.dates.filter(day=>day!=='2026-11-13');renderControls();render();};
     $('clearFilters').onclick=()=>{state.channel='';state.filters=Object.fromEntries(FIELDS.map(x=>[x,'']));render();};
     fetch('./data.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('data.json вернул HTTP '+r.status);return r.json();}).then(init).catch(err=>{
       $('loading').classList.add('hidden');$('fatal').classList.remove('hidden');$('fatal').innerHTML=`<b>Не удалось открыть данные.</b><p style="margin-top:7px">${esc(err.message)}</p><p class="muted" style="margin-top:7px">Проверьте, что корректный data.json лежит рядом с index.html и страница открыта через веб-сервер.</p>`;
