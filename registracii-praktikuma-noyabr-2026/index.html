@@ -152,7 +152,7 @@
         </section>
 
         <section class="card hidden" id="quizCard" style="margin-top:18px">
-          <div class="section-head"><div><h2>Тест Ирины</h2><p class="muted">Отдельный согласованный разрез. Не смешивается с регистрациями GetCourse и оплатами.</p></div></div>
+          <div class="section-head"><div><h2>Тест «Код денег»</h2><p class="muted">Отдельные этапы сайта и ChatPlace. Фильтр дат применяется, UTM-фильтры заказов GetCourse не меняют показатели теста.</p></div></div>
           <div id="quiz"></div>
         </section>
       </div>
@@ -201,9 +201,11 @@
     }
     function renderFilters(rows){
       const channels=[...new Set((rows||[]).map(r=>r.channel))].sort((a,b)=>a.localeCompare(b,'ru'));
+      if(state.channel && !channels.includes(state.channel))state.channel='';
       const channelSelect='<div class="field"><label for="f-channel">Площадка</label><select id="f-channel"><option value="">Все площадки</option>'+channels.map(v=>'<option value="'+esc(v)+'"'+(v===state.channel?' selected':'')+'>'+esc(v)+'</option>').join('')+'</select></div>';
       $('filters').innerHTML=channelSelect+FIELDS.map((field,i)=>{
         const values=[...new Set((rows||[]).map(r=>String(arr(r)[i]||'')).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ru'));
+        if(state.filters[field] && state.filters[field]!=='__empty__' && !values.includes(state.filters[field]))state.filters[field]='';
         return `<div class="field"><label for="f-${field}">${field}</label><select id="f-${field}" data-field="${field}"><option value="">Все значения</option><option value="__empty__"${state.filters[field]==="__empty__"?" selected":""}>Без метки</option>${values.map(v=>`<option value="${esc(v)}"${state.filters[field]===v?' selected':''}>${esc(v)}</option>`).join('')}</select></div>`;
       }).join('');
       $('filters').onchange=e=>{if(e.target.id==='f-channel'){state.channel=e.target.value;render();return;}if(!e.target.dataset.field)return;state.filters[e.target.dataset.field]=e.target.value;render();};
@@ -280,10 +282,19 @@
       $('recommendation').innerHTML=`<b>${esc(text)}</b><p>${esc(hypothesis)}</p><p>${esc(hypothesis2)}</p><small>Заказы без метки кампании в этом срезе: ${fmt(missing)}.</small>`;
     }
     function renderQuiz(){
-      const q=state.data.quiz,card=$('quizCard');if(!q){card.classList.add('hidden');return;}card.classList.remove('hidden');
-      if(Array.isArray(q.rows)){
-        const cols=q.columns||Object.keys(q.rows[0]||{});$('quiz').innerHTML=`<div class="table-wrap"><table><thead><tr>${cols.map(c=>`<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${q.rows.map(r=>`<tr>${cols.map(c=>`<td>${esc(r[c]??'—')}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
-      }else $('quiz').innerHTML=`<pre style="white-space:pre-wrap;margin:0">${esc(JSON.stringify(q,null,2))}</pre>`;
+      const q=state.data.quiz,card=$('quizCard');
+      if(!q){card.classList.add('hidden');return;}
+      card.classList.remove('hidden');
+      const showingAll=key(state.selected)===key(state.data.dates);
+      const rows=(q.rows||[]).filter(r=>r.date==='period' ? showingAll : state.selected.includes(r.date));
+      const cols=q.columns||[];
+      $('quiz').innerHTML=(q.note?'<p class="proof">'+esc(q.note)+'</p>':'')+
+        (rows.length ? '<div class="table-wrap"><table><thead><tr>'+cols.map(c=>'<th>'+esc(c)+'</th>').join('')+'</tr></thead><tbody>'+
+        rows.map(r=>'<tr>'+cols.map(c=>'<td>'+esc(r[c]??'—')+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>':'<p class="muted">Для выбранных дат нет отдельного измерения. Агрегат за четыре дня виден в режиме «12–15 ноября».</p>');
+      if(showingAll && q.reels?.length){
+        const items=q.reels.map(r=>'<tr><td><a href="'+esc(r.url)+'" target="_blank" rel="noopener">'+esc(r.brand+' · '+r.url.split('/').filter(Boolean).at(-1))+'</a></td><td>'+esc(r.basis)+'</td><td>'+esc(r.views??'—')+'</td><td>'+esc(r.comments??'—')+'</td></tr>').join('');
+        $('quiz').innerHTML+='<details><summary>Публичные Reels теста · '+q.reels.length+'</summary><div class="table-wrap"><table><thead><tr><th>Reels</th><th>Источник связи</th><th>Просмотры</th><th>Комментарии</th></tr></thead><tbody>'+items+'</tbody></table></div></details>';
+      }
     }
     $('allDates').onclick=()=>{state.selected=[...state.data.dates];renderControls();render();};
     $('defaultDates').onclick=()=>{state.selected=[...(state.data.defaultDays||state.data.dates)];renderControls();render();};
