@@ -43,9 +43,21 @@ p{margin:8px 0 0;text-wrap:pretty}details p{font-size:15px;color:#4a413e}.mute{c
 .cell p{margin:0 0 8px;font-size:15px;line-height:1.5}.cell p:last-child{margin:0}
 @media (max-width:420px){.panel select{font-size:14px;padding:9px 8px}.panel label{font-size:12px}.stats b{font-size:15px}}
 .tags a{color:var(--acc)}
+.ch>summary{color:var(--ink)}
+.ch .st{font-weight:600;color:var(--acc)}
+.chb label{display:block;font-size:12px;color:var(--mute);margin:12px 0 4px}
+.chb textarea,.chb input,.chb select{width:100%;box-sizing:border-box;font:400 15px/1.45 Manrope,system-ui,sans-serif;color:var(--ink);background:var(--soft);border:1px solid #eadfd9;border-radius:10px;padding:9px 11px}
+.chb textarea{min-height:90px;resize:vertical}
+.chb .ro{background:var(--soft);border-radius:10px;padding:9px 11px;font-size:15px;line-height:1.45;white-space:pre-wrap}
+.chb .ro a,.chb ol a{color:var(--acc);word-break:break-all}
+.chb ol{margin:4px 0 0;padding-left:22px}
+.saved{font-size:12px;color:var(--mute);margin:8px 0 0;min-height:16px}
+.editing .cell .cv{outline:1px dashed #d9b9b0;border-radius:6px;padding:2px 4px;margin:0 -4px}
+.editbar{background:var(--acc);color:#fff;border-radius:10px;padding:8px 12px;font-size:14px;margin:0 0 12px}
 </style></head><body><main>
 <h1>Панель управления</h1>
 <p class="lead">1444&nbsp;ролика из&nbsp;наших подборок. Пересылки сняты у&nbsp;роликов больше 300&nbsp;000 просмотров, у&nbsp;остальных стоит «нет данных». У&nbsp;364 роликов с&nbsp;речью – матрица хуков и&nbsp;текстов. Процент&nbsp;– доля комментариев и&nbsp;пересылок от&nbsp;просмотров.</p>
+<div class="editbar" id="eb" hidden>Режим правки: тексты матрицы и блок «Производство» сохраняются на сайте сами.</div>
 <div class="panel"><div class="row">
 <div><label for="acc">Аккаунт</label><select id="acc"></select></div>
 <div><label for="sort">Сортировать по</label><select id="sort">
@@ -62,6 +74,7 @@ p{margin:8px 0 0;text-wrap:pretty}details p{font-size:15px;color:#4a413e}.mute{c
 <option value="k100">100–300&nbsp;тыс.</option>
 <option value="k50">50–100&nbsp;тыс.</option>
 <option value="lt50">Меньше 50&nbsp;тыс.</option>
+<option value="chain">Только в&nbsp;производстве</option>
 </select></div></div><p class="count" id="cnt"></p></div>
 <div id="list"></div><button class="more" id="more" type="button">Показать ещё</button>
 <p class="mute">Цифры сняты 18.11.2026.</p></main>
@@ -80,9 +93,65 @@ const ru = n => n % 10 == 1 && n % 100 != 11 ? 'ролик' : (n % 10 >= 2 && n 
 acc.innerHTML = `<option value="">Все аккаунты – ${D.length}</option>` +
   Object.entries(byAcc).sort((a, b) => b[1] - a[1]).map(([u, n]) => `<option value="${esc(u)}">@${esc(u)} – ${n}</option>`).join('');
 const KEY = {v: 'v', cm: 'cm', sh: 'shs', cr: 'cr', sr: 'sr'};
-const RANGE = {all: [0, 1e12], m1: [1e6, 1e12], k300: [3e5, 1e6], k100: [1e5, 3e5], k50: [5e4, 1e5], lt50: [0, 5e4]};
+const RANGE = {chain: [0, 1e12], all: [0, 1e12], m1: [1e6, 1e12], k300: [3e5, 1e6], k100: [1e5, 3e5], k50: [5e4, 1e5], lt50: [0, 5e4]};
 const rng = document.getElementById('rng');
 let rows = [], shown = 0; const STEP = 20;
+
+const API = 'https://baza.serenkov.com/panel-anny/api/';
+let TOK = ''; try { const q = new URLSearchParams(location.search).get('k'); if (q) localStorage.setItem('panelTok', q); TOK = localStorage.getItem('panelTok') || ''; } catch (e) {}
+const EDIT = !!TOK;
+if (EDIT) { document.body.classList.add('editing'); document.getElementById('eb').hidden = false; }
+let ST = {};
+const stp = fetch(API + 'state', {cache: 'no-store'}).then(r => r.json()).then(j => ST = j.rows || {}).catch(() => {});
+const STL = {'': 'не начато', text: 'текст одобрен', heygen: 'видео с Анной готово', montage: 'монтаж готов', posted: 'выставлено'};
+const rz = n => (n % 10 >= 2 && n % 10 <= 4 && !(n % 100 >= 12 && n % 100 <= 14)) ? 'раза' : 'раз';
+const stl = s => { const n = (s.posts || []).length; return n ? (s.status && s.status != 'posted' ? STL[s.status] + ', ' : '') + `выставлено ${n}${NB}${rz(n)}` : STL[s.status || '']; };
+const cvText = el => el.innerText.replace(/\r/g, '').replace(/\n{3,}/g, '\n\n').trim();
+async function put(c, f, v, note) {
+  const st = ST[c] = ST[c] || {}; st[f] = v;
+  try {
+    const r = await fetch(API + 'save', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({token: TOK, c, f, v})});
+    const j = await r.json(); if (!r.ok) throw new Error(j.error || r.status);
+    if (note) note.textContent = 'Сохранено ' + j.at.slice(11, 16);
+  } catch (e) { if (note) note.textContent = 'Не сохранилось: ' + e.message + '. Скопируйте текст и попробуйте ещё раз.'; }
+}
+const links = t => esc(t).replace(/https?:\/\/\S+/g, u => `<a href="${u}" target="_blank">${u}</a>`);
+function chain(x) {
+  const s = ST[x.c] || {};
+  if (!EDIT && !s.status && !s.ok_text && !s.heygen && !s.montage && !(s.posts || []).length) return '';
+  const n = (s.posts || []).length;
+  return `<details class="mx ch" data-ch="${x.c}"><summary>Производство: <span class="st">${stl(s)}</span></summary><div class="mxb chb"></div></details>`;
+}
+function chainBody(c) {
+  const s = ST[c] || {}, P = s.posts || [];
+  if (!EDIT) return (s.ok_text ? `<label>Одобренный текст</label><div class="ro">${esc(s.ok_text)}</div>` : '') +
+    (s.heygen ? `<label>Видео с Анной (HeyGen)</label><div class="ro">${links(s.heygen)}</div>` : '') +
+    (s.montage ? `<label>Монтаж</label><div class="ro">${links(s.montage)}</div>` : '') +
+    (P.length ? `<label>Выставлено ${P.length}${NB}${rz(P.length)}</label><ol>${P.map(p => `<li>${p.where ? esc(p.where) + ': ' : ''}<a href="${esc(p.url)}" target="_blank">${esc(p.url)}</a></li>`).join('')}</ol>` : '');
+  return `<label>Этап</label><select data-f="status">${Object.entries(STL).map(([k, v]) => `<option value="${k}"${(s.status || '') == k ? ' selected' : ''}>${v}</option>`).join('')}</select>
+  <label>Одобренный текст</label><textarea data-f="ok_text">${esc(s.ok_text || '')}</textarea>
+  <label>Видео с Анной (HeyGen), ссылка</label><input data-f="heygen" value="${esc(s.heygen || '')}">
+  <label>Монтаж, ссылка</label><input data-f="montage" value="${esc(s.montage || '')}">
+  <label>Публикации, по${NB}ссылке на${NB}строку</label><textarea data-f="posts">${esc(P.map(p => p.url).join('\n'))}</textarea>
+  <p class="saved"></p>`;
+}
+list.addEventListener('toggle', e => {
+  const d = e.target; if (!d.classList || !d.classList.contains('ch') || !d.open) return;
+  d.querySelector('.chb').innerHTML = chainBody(d.dataset.ch);
+}, true);
+list.addEventListener('change', e => {
+  const el = e.target, d = el.closest('.ch'); if (!d || !el.dataset.f) return;
+  const c = d.dataset.ch, f = el.dataset.f, note = d.querySelector('.saved');
+  let v = el.value;
+  if (f == 'posts') v = v.split(/\s+/).filter(u => /^https?:\/\//.test(u)).map(url => ({url}));
+  put(c, f, v, note).then(() => { const s = ST[c]; d.querySelector('.st').textContent = stl(s); });
+});
+list.addEventListener('focusout', e => {
+  const el = e.target; if (!el.classList || !el.classList.contains('cv') || !EDIT) return;
+  const v = cvText(el), c = el.dataset.c, f = el.dataset.f, m = MX && MX[c];
+  const old = ST[c] && ST[c][f] != null ? ST[c][f] : (m && m[f]) || '';
+  if (v != old.trim()) put(c, f, v, el.closest('.mxb').querySelector('.saved'));
+});
 function card(x, i) {
   const k = sort.value;
   const txt = x.m ? `<details class="mx" data-c="${x.c}"><summary>Матрица: 3 хука, 2 текста, призыв</summary><div class="mxb">Загружаю…</div></details>` : '';
@@ -96,13 +165,13 @@ function card(x, i) {
   </div>
   <div class="tags">Где лежит: ${x.w.map(esc).join(', ') || '–'} · <a href="https://www.instagram.com/reel/${x.c}/" target="_blank">открыть в${NB}Instagram</a></div>
   <div class="vid"><iframe src="https://www.instagram.com/reel/${x.c}/embed/" loading="lazy" allowtransparency="true" allow="encrypted-media" scrolling="no" title="Ролик ${i}"></iframe></div>
-  ${txt}</div></article>`;
+  ${txt}${chain(x)}</div></article>`;
 }
 function draw(reset) {
   if (reset) {
     const k = KEY[sort.value];
     const [lo, hi] = RANGE[rng.value];
-    rows = D.filter(x => (!acc.value || x.u == acc.value) && x.v >= lo && x.v < hi).sort((a, b) => b[k] - a[k] || b.v - a.v);
+    rows = D.filter(x => (!acc.value || x.u == acc.value) && x.v >= lo && x.v < hi && (rng.value != 'chain' || (ST[x.c] && ST[x.c].status))).sort((a, b) => b[k] - a[k] || b.v - a.v);
     shown = 0; list.innerHTML = '';
     cnt.textContent = `${rows.length} ${ru(rows.length)}` + ((sort.value == 'sh' || sort.value == 'sr') ? `. Пересылки сняты только у${NB}роликов больше 300${NB}000 просмотров, остальные внизу` : '');
   }
@@ -116,24 +185,25 @@ acc.onchange = sort.onchange = rng.onchange = () => { draw(true); save(); };
 more.onclick = () => draw(false);
 let MX = null; const mxp = fetch('mx.json?v=364').then(r => r.json()).then(j => MX = j);
 const paras = t => t.split(/\n\s*\n/).map(p => `<p>${nb(p.trim())}</p>`).join('');
-const cell = (lab, t, pc) => t ? `<div class="cell"><div class="lab"><span>${lab}${pc ? ' · схожесть ' + pc + '%' : ''}</span><button type="button" data-copy>Копировать</button></div>${paras(t)}</div>` : '';
+const cell = (lab, t, pc, f, c) => { const e = ST[c] && ST[c][f] != null ? ST[c][f] : t; return (e || EDIT) ? `<div class="cell"><div class="lab"><span>${lab}${pc && e == t ? ' · схожесть ' + pc + '%' : ''}${e != t ? ' · исправлено' : ''}</span><button type="button" data-copy>Копировать</button></div><div class="cv" data-f="${f}" data-c="${c}"${EDIT ? ' contenteditable="true"' : ''}>${paras(e || '')}</div></div>` : ''; };
 list.addEventListener('toggle', async e => {
-  const d = e.target; if (!d.classList || !d.classList.contains('mx') || !d.open || d.dataset.ok) return;
-  await mxp; const m = MX[d.dataset.c]; d.dataset.ok = 1;
+  const d = e.target; if (!d.classList || !d.classList.contains('mx') || !d.dataset.c || !d.open || d.dataset.ok) return;
+  await mxp; await stp; const m = MX[d.dataset.c], c = d.dataset.c; d.dataset.ok = 1;
   d.querySelector('.mxb').innerHTML = !m ? 'Матрицы пока нет.' :
     (m.l != 'ru' ? '<p class="tags">Оригинал не на русском: «оригинал» – перевод один в один.</p>' : '') +
-    '<h3>Хук</h3>' + cell('Оригинал', m.ho) + cell('Переписан на 90%', m.h9, m.s[0]) + cell('Переписан на 80%', m.h8, m.s[1]) +
-    '<h3>Основной текст</h3>' + cell('Один в один', m.bo) + cell('Переписан на 90%', m.b9, m.s[2]) +
-    '<h3>Призыв к действию</h3>' + (m.cta ? cell('Как в исходнике', m.cta) : '<p class="tags">В исходнике призыва нет.</p>');
+    '<h3>Хук</h3>' + cell('Оригинал', m.ho, 0, 'ho', c) + cell('Переписан на 90%', m.h9, m.s[0], 'h9', c) + cell('Переписан на 80%', m.h8, m.s[1], 'h8', c) +
+    '<h3>Основной текст</h3>' + cell('Один в один', m.bo, 0, 'bo', c) + cell('Переписан на 90%', m.b9, m.s[2], 'b9', c) +
+    '<h3>Призыв к действию</h3>' + ((m.cta || EDIT || (ST[c] && ST[c].cta)) ? cell('Как в исходнике', m.cta, 0, 'cta', c) : '<p class="tags">В исходнике призыва нет.</p>') +
+    (EDIT ? '<p class="saved"></p>' : '');
 }, true);
 list.addEventListener('click', e => {
   const b = e.target.closest('[data-copy]'); if (!b) return;
-  const t = [...b.closest('.cell').querySelectorAll('p')].map(p => p.textContent).join('\n\n');
+  const t = cvText(b.closest('.cell').querySelector('.cv'));
   const ok = () => { b.textContent = 'Скопировано'; setTimeout(() => b.textContent = 'Копировать', 1500); };
   if (navigator.clipboard) navigator.clipboard.writeText(t).then(ok, () => {}); else { const a = document.createElement('textarea'); a.value = t; document.body.appendChild(a); a.select(); document.execCommand('copy'); a.remove(); ok(); }
 });
 const h = decodeURIComponent(location.hash.slice(1)).split('-');
 const h0 = h[0].split('~'); if (KEY[h0[0]]) sort.value = h0[0]; if (RANGE[h0[1]]) rng.value = h0[1];
 if (h[1] && byAcc[h.slice(1).join('-')]) acc.value = h.slice(1).join('-');
-draw(true);
+stp.then(() => draw(true));
 </script></body></html>
