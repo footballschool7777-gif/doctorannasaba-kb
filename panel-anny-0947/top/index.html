@@ -54,18 +54,32 @@ p{margin:8px 0 0;text-wrap:pretty}details p{font-size:15px;color:#4a413e}.mute{c
 .saved{font-size:12px;color:var(--mute);margin:8px 0 0;min-height:16px}
 .editing .cell .cv{outline:1px dashed #d9b9b0;border-radius:6px;padding:2px 4px;margin:0 -4px}
 .editbar{background:var(--acc);color:#fff;border-radius:10px;padding:8px 12px;font-size:14px;margin:0 0 12px}
+.gate{position:fixed;inset:0;z-index:50;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:16px}
+.gate[hidden]{display:none}
+.gate div{max-width:420px;width:100%;text-align:center}.gate h2{margin:0 0 18px}
+.gate button,.send button{display:block;width:100%;margin:0 0 10px;padding:16px;border:0;border-radius:12px;background:var(--acc);color:#fff;font:700 16px Manrope,system-ui,sans-serif;cursor:pointer}
+.whobar{font-size:14px;color:var(--mute);margin:0 0 10px}.whobar b{color:var(--ink)}.whobar button{border:0;background:none;color:var(--acc);font:700 14px Manrope,system-ui,sans-serif;cursor:pointer;padding:0 0 0 6px}
+.chips{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;margin:0 0 10px;padding:0 0 4px;scrollbar-width:thin}
+.chips button{border:1px solid #e3d6d0;background:#fff;border-radius:999px;padding:7px 12px;font:600 13px Manrope,system-ui,sans-serif;color:var(--ink);cursor:pointer;white-space:nowrap}
+.chips button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.cell .lab .bt{display:flex;gap:12px}
+.okb{background:#fff4ee;border:1px solid #f0d5c8;border-radius:10px;padding:10px 12px;margin:14px 0 8px}
+.okb textarea{width:100%;box-sizing:border-box;min-height:110px;font:400 15px/1.45 Manrope,system-ui,sans-serif;border:1px solid #eadfd9;border-radius:8px;padding:8px 10px;resize:vertical}
+.send{margin:10px 0 0}.send button{font-size:15px;padding:13px}.send .alt{background:#fff;color:var(--acc);border:2px solid var(--acc)}
 </style></head><body><main>
 <h1>Панель управления</h1>
 <p class="lead">1545&nbsp;роликов из&nbsp;наших подборок. Пересылки сняты у&nbsp;роликов больше 300&nbsp;000 просмотров, у&nbsp;остальных стоит «нет данных». У&nbsp;461 роликов с&nbsp;речью – матрица хуков и&nbsp;текстов. Процент&nbsp;– доля комментариев и&nbsp;пересылок от&nbsp;просмотров.</p>
+<div class="gate" id="gate"><div><h2>Кто сейчас работает?</h2><button type="button" data-who="evgeny">Евгений</button><button type="button" data-who="zemskova">Анна Земскова</button></div></div>
+<p class="whobar" id="whobar"></p>
 <div class="editbar" id="eb" hidden>Режим правки: тексты матрицы и блок «Производство» сохраняются на сайте сами.</div>
-<div class="panel"><div class="row">
-<div><label for="acc">Аккаунт</label><select id="acc"></select></div>
-<div><label for="sort">Сортировать по</label><select id="sort">
+<div class="panel"><label>Автор</label><div class="chips" id="chips"></div><select id="acc" hidden></select><div class="row">
+<div style="grid-column:1/-1"><label for="sort">Сортировать по</label><select id="sort">
 <option value="v">Просмотры</option>
 <option value="cm">Комментарии</option>
 <option value="sh">Пересылки</option>
 <option value="cr">% в&nbsp;комментарии</option>
 <option value="sr">% в&nbsp;пересылку</option>
+<option value="d">Дата, сначала новые</option>
 </select></div></div>
 <div class="row" style="margin-top:10px"><div style="grid-column:1/-1"><label for="rng">Просмотры</label><select id="rng">
 <option value="all">Все</option>
@@ -84,7 +98,7 @@ const NB = ' ';
 const fmt = n => n.toLocaleString('ru-RU').replace(/\s/g, NB);
 const pct = (a, b) => b ? (a / b * 100) : 0;
 const pf = x => x.toFixed(x < 1 ? 2 : 1).replace('.', ',') + '%';
-D.forEach(x => { x.cr = pct(x.cm, x.v); x.sr = x.sh == null ? -1 : pct(x.sh, x.v); x.shs = x.sh == null ? -1 : x.sh; });
+D.forEach(x => { x.cr = pct(x.cm, x.v); x.sr = x.sh == null ? -1 : pct(x.sh, x.v); x.shs = x.sh == null ? -1 : x.sh; x.ts = Date.parse(x.d) || 0; });
 const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const nb = s => esc(s).replace(/(^|\s)([а-яёa-z]{1,2}) /gi, '$1$2' + NB);
 const acc = document.getElementById('acc'), sort = document.getElementById('sort'), list = document.getElementById('list'), cnt = document.getElementById('cnt'), more = document.getElementById('more');
@@ -92,7 +106,11 @@ const byAcc = {}; D.forEach(x => byAcc[x.u] = (byAcc[x.u] || 0) + 1);
 const ru = n => n % 10 == 1 && n % 100 != 11 ? 'ролик' : (n % 10 >= 2 && n % 10 <= 4 && !(n % 100 >= 12 && n % 100 <= 14)) ? 'ролика' : 'роликов';
 acc.innerHTML = `<option value="">Все аккаунты – ${D.length}</option>` +
   Object.entries(byAcc).sort((a, b) => b[1] - a[1]).map(([u, n]) => `<option value="${esc(u)}">@${esc(u)} – ${n}</option>`).join('');
-const KEY = {v: 'v', cm: 'cm', sh: 'shs', cr: 'cr', sr: 'sr'};
+const chips = document.getElementById('chips');
+const drawChips = () => chips.innerHTML = `<button type="button" data-u="" class="${acc.value ? '' : 'on'}">Все авторы – ${D.length}</button>` +
+  Object.entries(byAcc).sort((a, b) => b[1] - a[1]).map(([u, n]) => `<button type="button" data-u="${esc(u)}" class="${acc.value == u ? 'on' : ''}">@${esc(u)} – ${n}</button>`).join('');
+chips.addEventListener('click', e => { const b = e.target.closest('[data-u]'); if (!b) return; acc.value = b.dataset.u; drawChips(); draw(true); save(); });
+const KEY = {v: 'v', cm: 'cm', sh: 'shs', cr: 'cr', sr: 'sr', d: 'ts'};
 const RANGE = {chain: [0, 1e12], all: [0, 1e12], m1: [1e6, 1e12], k300: [3e5, 1e6], k100: [1e5, 3e5], k50: [5e4, 1e5], lt50: [0, 5e4]};
 const rng = document.getElementById('rng');
 let rows = [], shown = 0; const STEP = 20;
@@ -102,6 +120,15 @@ let TOK = ''; try { const q = new URLSearchParams(location.search).get('k'); if 
 const EDIT = !!TOK;
 if (EDIT) { document.body.classList.add('editing'); document.getElementById('eb').hidden = false; }
 let ST = {};
+const WHO = {evgeny: 'Евгений', zemskova: 'Анна Земскова'};
+let ME = ''; try { ME = localStorage.getItem('panelWho') || ''; } catch (e) {}
+const gate = document.getElementById('gate'), whobar = document.getElementById('whobar');
+function setMe(w) { ME = w; try { localStorage.setItem('panelWho', w); } catch (e) {} gate.hidden = !!ME; whobar.innerHTML = ME ? `Сейчас работает: <b>${WHO[ME]}</b><button type="button" id="chg">Сменить</button>` : ''; document.querySelectorAll('.send').forEach(el => el.innerHTML = sendBtns()); }
+gate.addEventListener('click', e => { const b = e.target.closest('[data-who]'); if (b) setMe(b.dataset.who); });
+whobar.addEventListener('click', e => { if (e.target.id == 'chg') { ME = ''; gate.hidden = false; } });
+const sendBtns = () => ME == 'evgeny'
+  ? `<button type="button" data-send="dm">Передать Джарвису: в${NB}личку (только для${NB}Евгения)</button><button type="button" class="alt" data-send="smm">Передать Джарвису: в${NB}рабочий чат Анны Саба, раздел СММ (для${NB}всех)</button>`
+  : `<button type="button" data-send="smm">Передать Джарвису на${NB}генерацию: в${NB}рабочий чат Анны Саба, раздел СММ</button>`;
 const stp = fetch(API + 'state', {cache: 'no-store'}).then(r => r.json()).then(j => ST = j.rows || {}).catch(() => {});
 const STL = {'': 'не начато', text: 'текст одобрен', heygen: 'видео с Анной готово', montage: 'монтаж готов', posted: 'выставлено'};
 const rz = n => (n % 10 >= 2 && n % 10 <= 4 && !(n % 100 >= 12 && n % 100 <= 14)) ? 'раза' : 'раз';
@@ -110,7 +137,7 @@ const cvText = el => el.innerText.replace(/\r/g, '').replace(/\n{3,}/g, '\n\n').
 async function put(c, f, v, note) {
   const st = ST[c] = ST[c] || {}; st[f] = v;
   try {
-    const r = await fetch(API + 'save', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({token: TOK, c, f, v})});
+    const r = await fetch(API + 'save', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({token: TOK, c, f, v, who: ME})});
     const j = await r.json(); if (!r.ok) throw new Error(j.error || r.status);
     if (note) note.textContent = 'Сохранено ' + j.at.slice(11, 16);
   } catch (e) { if (note) note.textContent = 'Не сохранилось: ' + e.message + '. Скопируйте текст и попробуйте ещё раз.'; }
@@ -185,7 +212,7 @@ acc.onchange = sort.onchange = rng.onchange = () => { draw(true); save(); };
 more.onclick = () => draw(false);
 let MX = null; const mxp = fetch('mx.json?v=461').then(r => r.json()).then(j => MX = j);
 const paras = t => t.split(/\n\s*\n/).map(p => `<p>${nb(p.trim())}</p>`).join('');
-const cell = (lab, t, pc, f, c) => { const e = ST[c] && ST[c][f] != null ? ST[c][f] : t; return (e || EDIT) ? `<div class="cell"><div class="lab"><span>${lab}${pc && e == t ? ' · схожесть ' + pc + '%' : ''}${e != t ? ' · исправлено' : ''}</span><button type="button" data-copy>Копировать</button></div><div class="cv" data-f="${f}" data-c="${c}"${EDIT ? ' contenteditable="true"' : ''}>${paras(e || '')}</div></div>` : ''; };
+const cell = (lab, t, pc, f, c) => { const e = ST[c] && ST[c][f] != null ? ST[c][f] : t; return (e || EDIT) ? `<div class="cell"><div class="lab"><span>${lab}${pc && e == t ? ' · схожесть ' + pc + '%' : ''}${e != t ? ' · исправлено' : ''}</span><span class="bt">${EDIT ? '<button type="button" data-totext>В текст</button>' : ''}<button type="button" data-copy>Копировать</button></span></div><div class="cv" data-f="${f}" data-c="${c}"${EDIT ? ' contenteditable="true"' : ''}>${paras(e || '')}</div></div>` : ''; };
 list.addEventListener('toggle', async e => {
   const d = e.target; if (!d.classList || !d.classList.contains('mx') || !d.dataset.c || !d.open || d.dataset.ok) return;
   await mxp; await stp; const m = MX[d.dataset.c], c = d.dataset.c; d.dataset.ok = 1;
@@ -194,8 +221,29 @@ list.addEventListener('toggle', async e => {
     '<h3>Хук</h3>' + cell('Оригинал', m.ho, 0, 'ho', c) + cell('Переписан на 90%', m.h9, m.s[0], 'h9', c) + cell('Переписан на 80%', m.h8, m.s[1], 'h8', c) +
     '<h3>Основной текст</h3>' + cell('Один в один', m.bo, 0, 'bo', c) + cell('Переписан на 90%', m.b9, m.s[2], 'b9', c) +
     '<h3>Призыв к действию</h3>' + ((m.cta || EDIT || (ST[c] && ST[c].cta)) ? cell('Как в исходнике', m.cta, 0, 'cta', c) : '<p class="tags">В исходнике призыва нет.</p>') +
-    (EDIT ? '<p class="saved"></p>' : '');
+    (EDIT ? `<div class="okb"><label class="tags">Одобренный текст (собирается кнопками «В текст», можно править)</label><textarea data-ok="${c}">${esc((ST[c] && ST[c].ok_text) || '')}</textarea><div class="send">${sendBtns()}</div></div><p class="saved"></p>` : '');
 }, true);
+list.addEventListener('click', e => {
+  const b = e.target.closest('[data-totext]'); if (!b) return;
+  const d = b.closest('.mx'), c = d.dataset.c, t = cvText(b.closest('.cell').querySelector('.cv'));
+  const ta = d.querySelector('[data-ok]'); const v = (ta.value.trim() ? ta.value.trim() + '\n\n' : '') + t;
+  ta.value = v; put(c, 'ok_text', v, d.querySelector('.saved'));
+  b.textContent = 'Добавлено'; setTimeout(() => b.textContent = 'В текст', 1500);
+});
+list.addEventListener('change', e => { const ta = e.target; if (!ta.dataset || !ta.dataset.ok) return; put(ta.dataset.ok, 'ok_text', ta.value.trim(), ta.closest('.mxb').querySelector('.saved')); });
+list.addEventListener('click', async e => {
+  const b = e.target.closest('[data-send]'); if (!b) return;
+  const d = b.closest('.mx'), c = d.dataset.c, note = d.querySelector('.saved'), ta = d.querySelector('[data-ok]');
+  if (!ta.value.trim()) { note.textContent = 'Сначала соберите одобренный текст кнопками «В текст».'; return; }
+  await put(c, 'ok_text', ta.value.trim(), null);
+  b.disabled = true; note.textContent = 'Передаю…';
+  try {
+    const r = await fetch(API + 'send', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({token: TOK, c, who: ME, where: b.dataset.send})});
+    const j = await r.json(); if (!r.ok) throw new Error(j.error || r.status);
+    note.textContent = 'Передано Джарвису. Сценарий и смета придут ' + (b.dataset.send == 'dm' ? 'в личку.' : 'в рабочий чат, раздел СММ.');
+  } catch (err) { note.textContent = 'Не передалось: ' + err.message; }
+  b.disabled = false;
+});
 list.addEventListener('click', e => {
   const b = e.target.closest('[data-copy]'); if (!b) return;
   const t = cvText(b.closest('.cell').querySelector('.cv'));
@@ -205,5 +253,6 @@ list.addEventListener('click', e => {
 const h = decodeURIComponent(location.hash.slice(1)).split('-');
 const h0 = h[0].split('~'); if (KEY[h0[0]]) sort.value = h0[0]; if (RANGE[h0[1]]) rng.value = h0[1];
 if (h[1] && byAcc[h.slice(1).join('-')]) acc.value = h.slice(1).join('-');
+setMe(ME); drawChips();
 stp.then(() => draw(true));
 </script></body></html>
