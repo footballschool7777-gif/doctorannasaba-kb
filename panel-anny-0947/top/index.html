@@ -63,8 +63,8 @@ p{margin:8px 0 0;text-wrap:pretty}details p{font-size:15px;color:#4a413e}.mute{c
 .chips button{border:1px solid #e3d6d0;background:#fff;border-radius:999px;padding:7px 12px;font:600 13px Manrope,system-ui,sans-serif;color:var(--ink);cursor:pointer;white-space:nowrap}
 .chips button.on{background:var(--acc);border-color:var(--acc);color:#fff}
 .cell .lab .bt{display:flex;gap:12px}
-.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 14px}
-.tabs button{padding:12px;border:2px solid var(--acc);border-radius:12px;background:#fff;color:var(--acc);font:800 15px Manrope,system-ui,sans-serif;cursor:pointer}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 14px}
+.tabs button{padding:10px 6px;line-height:1.2;border:2px solid var(--acc);border-radius:12px;background:#fff;color:var(--acc);font:800 15px Manrope,system-ui,sans-serif;cursor:pointer}
 .tabs button.on{background:var(--acc);color:#fff}
 .zone{border-radius:16px;padding:12px;margin:0 0 18px}.zone h2{margin:0 0 10px;font-size:18px}
 .z-no{background:#fff1e6}.z-yes{background:#e9f6ec}
@@ -81,6 +81,37 @@ p{margin:8px 0 0;text-wrap:pretty}details p{font-size:15px;color:#4a413e}.mute{c
 .pubf button{padding:13px;border:0;border-radius:12px;background:var(--acc);color:#fff;font:700 15px Manrope,system-ui,sans-serif;cursor:pointer}
 .pubf .hint{font-size:12px;color:var(--mute);margin:0}
 
+.cwtop{background:#fff;border-radius:14px;padding:12px;margin:0 0 12px}
+.cwtop input{width:100%;box-sizing:border-box;font:600 16px Manrope,system-ui,sans-serif;padding:11px 12px;border:1px solid #e3d6d0;border-radius:10px}
+.cwtop .tags{margin:8px 0 0}
+.cwl{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.cwl button{border:1px solid #e3d6d0;background:#fff;border-radius:10px;padding:9px 12px;font:800 14px Manrope,system-ui,sans-serif;color:var(--ink);cursor:pointer;text-align:left}
+.cwl button small{display:block;font:600 11px Manrope,system-ui,sans-serif;color:var(--mute);margin-top:2px}
+.cwl button.pend{border-color:var(--acc)}
+.cwsec{font-size:15px;margin:6px 0 8px}
+details.cwold>summary{cursor:pointer;color:var(--acc);font-weight:700;margin:0 0 10px}
+.cwback{border:0;background:none;color:var(--acc);font:700 15px Manrope,system-ui,sans-serif;cursor:pointer;padding:0;margin:0 0 10px}
+.cwf{background:#fff;border-radius:14px;padding:12px;margin:0 0 14px}
+.cwf h3{margin:0 0 4px;font-size:16px;line-height:1.35}
+.cwf .tags{margin:0 0 8px}
+.cws{border-left:3px solid var(--acc);padding:6px 0 6px 10px;margin:0 0 14px;scroll-margin-top:12px}
+.cws.hl{background:#fff4ee}
+.cws .sn{font-size:12px;color:var(--mute);margin:0 0 4px}.cws .sn b{color:var(--ink)}
+.cws .tx{font-size:15px;line-height:1.5;white-space:pre-wrap;word-break:break-word}
+.editing .cws .tx[contenteditable],.editing .cwb span[contenteditable]{outline:1px dashed #d9b9b0;border-radius:6px;padding:2px 4px}
+.cwb{display:flex;flex-direction:column;gap:6px;margin:8px 0 0}
+.cwb div{background:var(--soft);border-radius:10px;padding:7px 10px;font-size:13px;line-height:1.4}
+.cwb span{font-weight:800}
+.cwb a{color:var(--acc);word-break:break-all}
+.cwn{font-size:13px;line-height:1.45;color:var(--mute);margin:8px 0 0}.cwn a,.cwb .go a{color:var(--acc);font-weight:700}
+.cws .chg{color:var(--acc);font-size:12px;font-weight:700}
+.cwpub{background:#fff;border-radius:14px;padding:12px;margin:0 0 14px}.cwpub h3{margin:0 0 6px;font-size:16px}
+.cwpub .ro{background:var(--soft);border-radius:10px;padding:8px 10px;font-size:14px;line-height:1.45;margin:0 0 6px;white-space:pre-wrap}
+.cwsave{position:sticky;bottom:0;background:var(--bg);padding:10px 0;margin:0 0 10px}
+.cwsave button{width:100%;padding:15px;border:0;border-radius:12px;background:var(--acc);color:#fff;font:700 16px Manrope,system-ui,sans-serif;cursor:pointer}
+.cwsave button:disabled{opacity:.45}
+.cwed{background:#fff1e6;border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.45;margin:0 0 12px}
+
 .okb{background:#fff4ee;border:1px solid #f0d5c8;border-radius:10px;padding:10px 12px;margin:14px 0 8px}
 .okb textarea{width:100%;box-sizing:border-box;min-height:110px;font:400 15px/1.45 Manrope,system-ui,sans-serif;border:1px solid #eadfd9;border-radius:8px;padding:8px 10px;resize:vertical}
 .send{margin:10px 0 0}.send button{font-size:15px;padding:13px}.send .alt{background:#fff;color:var(--acc);border:2px solid var(--acc)}
@@ -89,8 +120,8 @@ p{margin:8px 0 0;text-wrap:pretty}details p{font-size:15px;color:#4a413e}.mute{c
 <p class="lead">1545&nbsp;роликов из&nbsp;наших подборок. Пересылки сняты у&nbsp;роликов больше 300&nbsp;000 просмотров, у&nbsp;остальных стоит «нет данных». У&nbsp;1400 роликов с&nbsp;речью – матрица хуков и&nbsp;текстов. Процент&nbsp;– доля комментариев и&nbsp;пересылок от&nbsp;просмотров.</p>
 <div class="gate" id="gate"><div><h2>Кто сейчас работает?</h2><button type="button" data-who="evgeny">Евгений</button><button type="button" data-who="zemskova">Анна Земскова</button></div></div>
 <p class="whobar" id="whobar"></p>
-<div class="tabs" id="tabs"><button type="button" data-tab="refs" class="on">Референсы</button><button type="button" data-tab="videos">Видео</button></div>
-<div id="videos" hidden></div><div id="refs">
+<div class="tabs" id="tabs"><button type="button" data-tab="refs" class="on">Референсы</button><button type="button" data-tab="videos">Видео</button><button type="button" data-tab="cw">Кодовые слова</button></div>
+<div id="videos" hidden></div><div id="cw" hidden></div><div id="refs">
 <div class="editbar" id="eb" hidden>Режим правки: тексты матрицы и блок «Производство» сохраняются на сайте сами.</div>
 <div class="panel"><label>Автор</label><div class="chips" id="chips"></div><select id="acc" hidden></select><div class="row">
 <div style="grid-column:1/-1"><label for="sort">Сортировать по</label><select id="sort">
@@ -319,8 +350,97 @@ document.getElementById('videos').addEventListener('click', async e => {
     if (n) n.textContent = 'Передано Джарвису. Ссылку и скрин поставлю сюда после выхода, отчёт – ' + (ME == 'evgeny' ? 'в личку.' : 'в рабочий чат, раздел СММ.');
   } catch (err) { note.textContent = 'Не передалось: ' + err.message; b.disabled = false; }
 });
+
+// ---- tab «Кодовые слова» (stage 3, msg 20172) ----
+const cwBox = document.getElementById('cw');
+let CWL = null, CWA = {}, cwAcc = '', cwQ = '', CWW = null;
+const CWN = {'школа': 'школа', 'институт': 'институт', annasaba_psy: '@annasaba_psy', anna_saba_psy: '@anna_saba_psy', telegram: 'Telegram'};
+const linkSteps = (t, aid) => esc(t).replace(/шаг (\d+)/g, (m, n) => `<a href="#" data-goto="${aid}-${n}">шаг${NB}${n}</a>`);
+async function cwLoad() {
+  if (CWL) return cwList();
+  cwBox.innerHTML = '<p class="tags">Загружаю кодовые слова…</p>';
+  try { const j = await (await fetch(API + 'codewords', {cache: 'no-store'})).json(); CWL = j.words || []; CWA = j.accounts || {}; CWL.built = j.built; }
+  catch (e) { cwBox.innerHTML = '<p class="tags">Не загрузилось, обновите страницу.</p>'; return; }
+  cwList();
+}
+function cwBtn(x) {
+  const d = new Date(x.latest * 1000), dd = pad(d.getDate()) + '.' + pad(d.getMonth() + 1);
+  return `<button type="button" data-w="${esc(x.key)}" class="${x.pending ? 'pend' : ''}">${esc(x.word)}<small>${x.accounts.map(a => CWN[a] || a).join(', ')} · ${dd}${x.pending ? ' · правка ждёт' : ''}${x.loops ? ' · ПЕТЛЯ' : ''}</small></button>`;
+}
+function cwList() {
+  CWW = null;
+  const q = cwQ.trim().toLowerCase().replace(/ё/g, 'е');
+  const ws = CWL.filter(x => (!cwAcc || x.accounts.includes(cwAcc)) && (!q || x.key.includes(q)));
+  const edge = Date.now() / 1000 - 21 * 86400;
+  const fresh = ws.filter(x => x.latest >= edge), old = ws.filter(x => x.latest < edge);
+  const accs = {}; CWL.forEach(x => x.accounts.forEach(a => accs[a] = (accs[a] || 0) + 1));
+  const built = CWL.built ? new Date(CWL.built) : null;
+  cwBox.innerHTML = `<div class="cwtop"><input type="search" id="cwq" placeholder="Найти слово" value="${esc(cwQ)}">
+    <div class="chips" style="margin:10px 0 0"><button type="button" data-ca="" class="${cwAcc ? '' : 'on'}">Все – ${CWL.length}</button>${Object.entries(accs).map(([a, n]) => `<button type="button" data-ca="${a}" class="${cwAcc == a ? 'on' : ''}">${CWN[a] || a} – ${n}</button>`).join('')}</div>
+    <p class="tags">Нажмите на слово – откроется вся воронка: что человек получает в комментариях и в директе, кнопки и ссылки, что будет, если он подписан и если нет.${built ? ` Данные из ChatPlace на ${pad(built.getDate())}.${pad(built.getMonth() + 1)} ${pad(built.getHours())}:${pad(built.getMinutes())}.` : ''}</p></div>
+    <h2 class="cwsec">Свежие, за 3 недели – ${fresh.length}</h2><div class="cwl">${fresh.map(cwBtn).join('') || '<p class="tags">Нет.</p>'}</div>
+    ${old.length ? `<details class="cwold"${q ? ' open' : ''}><summary>Старые слова – ${old.length}</summary><div class="cwl">${old.map(cwBtn).join('')}</div></details>` : ''}`;
+  const inp = document.getElementById('cwq');
+  inp.addEventListener('input', () => { cwQ = inp.value; const pos = inp.selectionStart; cwList(); const n = document.getElementById('cwq'); n.focus(); n.setSelectionRange(pos, pos); });
+}
+function cwStep(f, s) {
+  const ed = EDIT && ME ? ' contenteditable="true"' : '';
+  const btns = s.buttons.map(b => `<div><span data-cwf="btn" data-aid="${f.aid}" data-mid="${s.mid}" data-n="${s.n}" data-idx="${b.idx}"${ed}>${esc(b.text)}</span>` +
+    (b.url ? `<br>Ссылка: <a href="${esc(b.url)}" target="_blank" rel="noopener">${esc(b.url)}</a>` : `<br><span class="go">Нажатие → ${linkSteps(b.go, f.aid)}</span>`) +
+    (b.clicks != null ? ` · нажали ${b.clicks}` : '') + '</div>').join('');
+  return `<div class="cws" id="cw-${f.aid}-${s.n}"><p class="sn"><b>Шаг ${s.n}</b>${s.seen != null ? ` · получили ${s.seen}` : ''}${s.media ? ' · с картинкой или видео' : ''} <span class="chg"></span></p>
+    <div class="tx" data-cwf="text" data-aid="${f.aid}" data-mid="${s.mid}" data-n="${s.n}"${ed}>${esc(s.text || '(без текста)')}</div>
+    ${btns ? `<div class="cwb">${btns}</div>` : ''}<p class="cwn">Дальше: ${linkSteps(s.next, f.aid)}</p></div>`;
+}
+function cwFunnel(f, title) {
+  if (f.error) return `<div class="cwf"><h3>${title}</h3><p class="tags">Не прочиталась: ${esc(f.error)}</p></div>`;
+  return `<div class="cwf"><h3>${title}</h3><p class="tags">${esc(f.name)} · ${esc(f.bot)}${f.status && f.status != 'Active' ? ' · ' + esc(f.status) : ''}${f.loops && f.loops.length ? ' · <b>есть петля</b>' : ''}${f.builder ? ` · <a href="${esc(f.builder)}" target="_blank" rel="noopener">в ChatPlace</a>` : ''}</p>${f.steps.map(s => cwStep(f, s)).join('')}</div>`;
+}
+async function cwOpen(key) {
+  cwBox.innerHTML = '<p class="tags">Открываю воронку…</p>';
+  let w; try { const r = await fetch(API + 'codewords?w=' + encodeURIComponent(key), {cache: 'no-store'}); w = await r.json(); if (!r.ok) throw new Error(w.error); }
+  catch (e) { cwBox.innerHTML = `<button type="button" class="cwback" data-cwback>← Все слова</button><p class="tags">Не открылось: ${esc(e.message)}</p>`; return; }
+  CWW = w;
+  const pend = (w.edits || []).filter(e => e.status == 'requested');
+  const pub = w.public.length ? w.public.map(p => `<p class="tags">${CWN[p.account] || p.account}: правило «${esc(p.rule)}»</p>${p.answers.map(a => `<div class="ro">${esc(a)}</div>`).join('')}`).join('')
+    : '<p class="tags">Публичного ответа под комментарием для этого слова нет.</p>';
+  cwBox.innerHTML = `<button type="button" class="cwback" data-cwback>← Все слова</button>
+    <h2 style="margin:0 0 6px">${esc(w.word)}</h2><p class="tags">${w.accounts.map(a => CWN[a] || a).join(', ')}</p>
+    ${pend.length ? `<div class="cwed">Правка от ${pend.map(e => esc(e.at.slice(8, 10) + '.' + e.at.slice(5, 7) + ' ' + e.at.slice(11)) + ' (' + (WHO[e.by] || e.by) + ')').join(', ')} передана Джарвису и ещё вносится. Ниже – как воронка стоит в ChatPlace сейчас.</div>` : ''}
+    <div class="cwpub"><h3>Ответ под комментарием</h3>${pub}</div>
+    ${w.funnels.map(f => cwFunnel(f, 'Директ · ' + (CWN[f.account] || f.account))).join('')}
+    ${w.telegram.map(f => cwFunnel(f, 'Продолжение в Telegram · @saba_anna_bot')).join('')}
+    ${EDIT && ME ? `<div class="cwsave"><button type="button" data-cwsave disabled>Сохранить и отправить Джарвису</button><p class="saved"></p></div>
+    <p class="tags">Текст сообщений и названия кнопок можно исправить прямо здесь. После «Сохранить» Джарвис внесёт правку в ChatPlace, проверит воронку и пришлёт скрин ${ME == 'evgeny' ? 'вам в личку' : 'в рабочий чат Анны Саба, раздел СММ, с отметкой Анны Земсковой'}.</p>` : ''}`;
+  window.scrollTo(0, 0);
+}
+const cwOrig = el => { const f = CWW && [...CWW.funnels, ...CWW.telegram].find(x => x.aid == el.dataset.aid); const s = f && f.steps.find(x => x.mid == el.dataset.mid); if (!s) return ''; return el.dataset.cwf == 'text' ? (s.text || '(без текста)') : s.buttons[+el.dataset.idx].text; };
+const cwVal = el => el.innerText.replace(/\r/g, '').replace(/\n{3,}/g, '\n\n').trim();
+const cwChanges = () => [...cwBox.querySelectorAll('[data-cwf]')].filter(el => cwVal(el) != cwOrig(el).trim()).map(el => ({aid: el.dataset.aid, mid: el.dataset.mid, n: +el.dataset.n, field: el.dataset.cwf, idx: +(el.dataset.idx || 0), old: cwOrig(el), new: cwVal(el)}));
+cwBox.addEventListener('input', e => {
+  if (!e.target.closest('[data-cwf]')) return;
+  const ch = cwChanges(), b = cwBox.querySelector('[data-cwsave]');
+  if (b) { b.disabled = !ch.length; b.textContent = ch.length ? `Сохранить и отправить Джарвису (${ch.length})` : 'Сохранить и отправить Джарвису'; }
+  const st = e.target.closest('.cws'); if (st) st.querySelector('.chg').textContent = [...st.querySelectorAll('[data-cwf]')].some(el => cwVal(el) != cwOrig(el).trim()) ? '· исправлено' : '';
+});
+cwBox.addEventListener('click', async e => {
+  const w = e.target.closest('[data-w]'); if (w) return cwOpen(w.dataset.w);
+  const ca = e.target.closest('[data-ca]'); if (ca) { cwAcc = ca.dataset.ca; return cwList(); }
+  if (e.target.closest('[data-cwback]')) { if (cwChanges().length && !confirm('Есть несохранённые правки. Уйти без сохранения?')) return; return cwList(); }
+  const g = e.target.closest('[data-goto]');
+  if (g) { e.preventDefault(); const el = document.getElementById('cw-' + g.dataset.goto); if (el) { el.scrollIntoView({behavior: 'smooth', block: 'start'}); el.classList.add('hl'); setTimeout(() => el.classList.remove('hl'), 1800); } return; }
+  const sv = e.target.closest('[data-cwsave]'); if (!sv) return;
+  const ch = cwChanges(), note = sv.parentNode.querySelector('.saved'); if (!ch.length) return;
+  sv.disabled = true; note.textContent = 'Передаю…';
+  try {
+    const r = await fetch(API + 'cw-save', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({token: TOK, who: ME, word: CWW.key, changes: ch})});
+    const j = await r.json(); if (!r.ok) throw new Error(j.error || r.status);
+    note.textContent = 'Передано Джарвису (' + ch.length + '). Отчёт со скрином придёт ' + (ME == 'evgeny' ? 'в личку.' : 'в рабочий чат, раздел СММ.');
+    const l = CWL.find(x => x.key == CWW.key); if (l) l.pending++;
+  } catch (err) { note.textContent = 'Не передалось: ' + err.message + '. Правки на экране сохранены, попробуйте ещё раз.'; sv.disabled = false; }
+});
 const tabs = document.getElementById('tabs');
-const showTab = t => { tabs.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.tab == t)); document.getElementById('refs').hidden = t != 'refs'; document.getElementById('videos').hidden = t != 'videos'; if (t == 'videos') drawVideos(); try { localStorage.setItem('panelTab', t); } catch (e) {} };
+const showTab = t => { tabs.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.tab == t)); document.getElementById('refs').hidden = t != 'refs'; document.getElementById('videos').hidden = t != 'videos'; cwBox.hidden = t != 'cw'; if (t == 'videos') drawVideos(); if (t == 'cw') cwLoad(); try { localStorage.setItem('panelTab', t); } catch (e) {} };
 tabs.addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (b) showTab(b.dataset.tab); });
 setMe(ME); drawChips();
 stp.then(() => { draw(true); let t = 'refs'; try { t = localStorage.getItem('panelTab') || 'refs'; } catch (e) {} showTab(t); });
