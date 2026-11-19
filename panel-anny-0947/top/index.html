@@ -356,12 +356,15 @@ const cwBox = document.getElementById('cw');
 let CWL = null, CWA = {}, cwAcc = '', cwQ = '', CWW = null;
 const CWN = {'школа': 'школа', 'институт': 'институт', annasaba_psy: '@annasaba_psy', anna_saba_psy: '@anna_saba_psy', telegram: 'Telegram'};
 const linkSteps = (t, aid) => esc(t).replace(/шаг (\d+)/g, (m, n) => `<a href="#" data-goto="${aid}-${n}">шаг${NB}${n}</a>`);
-async function cwLoad() {
-  if (CWL) return cwList();
-  cwBox.innerHTML = '<p class="tags">Загружаю кодовые слова…</p>';
-  try { const j = await (await fetch(API + 'codewords', {cache: 'no-store'})).json(); CWL = j.words || []; CWA = j.accounts || {}; CWL.built = j.built; }
-  catch (e) { cwBox.innerHTML = '<p class="tags">Не загрузилось, обновите страницу.</p>'; return; }
-  cwList();
+let CWP = null;
+function cwLoad() {
+  if (CWL) return Promise.resolve(cwList());
+  return CWP || (CWP = (async () => {
+    cwBox.innerHTML = '<p class="tags">Загружаю кодовые слова…</p>';
+    try { const j = await (await fetch(API + 'codewords', {cache: 'no-store'})).json(); CWL = j.words || []; CWA = j.accounts || {}; CWL.built = j.built; }
+    catch (e) { CWP = null; cwBox.innerHTML = '<p class="tags">Не загрузилось, обновите страницу.</p>'; return; }
+    cwList();
+  })());
 }
 function cwBtn(x) {
   const d = new Date(x.latest * 1000), dd = pad(d.getDate()) + '.' + pad(d.getMonth() + 1);
@@ -443,5 +446,7 @@ const tabs = document.getElementById('tabs');
 const showTab = t => { tabs.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.tab == t)); document.getElementById('refs').hidden = t != 'refs'; document.getElementById('videos').hidden = t != 'videos'; cwBox.hidden = t != 'cw'; if (t == 'videos') drawVideos(); if (t == 'cw') cwLoad(); try { localStorage.setItem('panelTab', t); } catch (e) {} };
 tabs.addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (b) showTab(b.dataset.tab); });
 setMe(ME); drawChips();
-stp.then(() => { draw(true); let t = 'refs'; try { t = localStorage.getItem('panelTab') || 'refs'; } catch (e) {} showTab(t); });
+stp.then(() => { draw(true); let t = 'refs'; try { t = localStorage.getItem('panelTab') || 'refs'; } catch (e) {}
+  const qw = new URLSearchParams(location.search).get('w');  // direct link to one code word: ?w=<word>
+  if (qw) { showTab('cw'); cwLoad().then(() => cwOpen(qw.toLowerCase())); } else showTab(t); });
 </script></body></html>
