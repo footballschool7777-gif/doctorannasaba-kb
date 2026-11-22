@@ -318,6 +318,7 @@ body.ipz-has-stick{padding-bottom:84px}
 .ipz-mo .ipz-wg iframe{height:auto}
 .ipz .ipz-formcta{margin-top:18px}
 .ipz .ipz-formcta .ipz-btn{width:100%;justify-content:center}
+@media(min-width:900px){.ipz .ipz-btn{white-space:nowrap}}
 .ipz-mo .ipz-ld{text-align:center;color:#5b6866;padding:40px 0;font-family:Manrope,Arial,sans-serif}
 </style></head>
 <body style="margin:0">
@@ -460,7 +461,7 @@ function ensure(){if(mo)return;mo=document.createElement('div');mo.className='ip
 mo.addEventListener('click',function(e){if(e.target===mo||e.target.classList.contains('ipz-mx'))close()});document.addEventListener('keydown',function(e){if(e.key==='Escape')close()})}
 function close(){if(!mo)return;mo.classList.remove('on');box.innerHTML='';document.documentElement.style.overflow=''}
 function open(w){ensure();box.innerHTML='<div class="ipz-wg"><div class="ipz-ld">Загружаем форму…</div></div>';var c=box.firstChild;
-var s=document.createElement('script');s.id=w.hash;s.src='https://ipzdas.ru/pl/lite/widget/script?id='+w.id+'&nc='+Date.now();c.appendChild(s);
+var s=document.createElement('script');s.id=w.hash;s.src='https://ipzdas.ru/pl/lite/widget/script?id='+w.id+'&nc='+Date.now();s.onload=function(){document.dispatchEvent(new Event('StartWidget'+w.hash))};c.appendChild(s);
 var t=setInterval(function(){var f=c.querySelector('iframe');if(f&&f.offsetHeight>40){var l=c.querySelector('.ipz-ld');if(l)l.remove();clearInterval(t)}},300);setTimeout(function(){clearInterval(t)},20000);
 mo.classList.add('on');document.documentElement.style.overflow='hidden'}
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');

@@ -358,6 +358,7 @@ body.ipz-has-stick{padding-bottom:84px}
 .ipz-mo .ipz-wg iframe{height:auto}
 .ipz .ipz-formcta{margin-top:18px}
 .ipz .ipz-formcta .ipz-btn{width:100%;justify-content:center}
+@media(min-width:900px){.ipz .ipz-btn{white-space:nowrap}}
 .ipz-mo .ipz-ld{text-align:center;color:#5b6866;padding:40px 0;font-family:Manrope,Arial,sans-serif}
 </style></head>
 <body style="margin:0" class="ipz-has-stick">
@@ -490,9 +491,9 @@ function w(n){return n==1?'курс':'курса'}
 var items=[].slice.call(root.querySelectorAll('.ipz-ci')),sum=root.querySelector('.ipz-sum');
 var pre=root.getAttribute('data-pre');items.forEach(function(b){if(pre&&b.dataset.k==pre)b.setAttribute('aria-pressed','true');b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')=='true'?'false':'true');draw()})});
 function draw(){var sel=items.filter(function(b){return b.getAttribute('aria-pressed')=='true'}).map(function(b){return b.dataset.k}),n=sel.length;
-if(!n){sum.innerHTML='<div class="ipz-sempty">Отметьте курсы слева, и&nbsp;здесь появится цена со&nbsp;скидкой.</div><div class="ipz-snext">1&nbsp;курс&nbsp;– −30%, 2&nbsp;курса&nbsp;– −40%, 3&nbsp;курса&nbsp;– −50%</div>';return}
+if(!n){sum.innerHTML='<div class="ipz-sempty">Отметьте курсы слева, и&nbsp;здесь появится цена со&nbsp;скидкой.</div><div class="ipz-snext">1&nbsp;курс&nbsp;–&nbsp;−30%, 2&nbsp;курса&nbsp;–&nbsp;−40%, 3&nbsp;курса&nbsp;–&nbsp;−50%</div>';return}
 var full=sel.reduce(function(a,k){return a+F[k]},0),tot=n==1?T[sel[0]]:full*(1-D[n]/100);
-var nx=n<3?'<div class="ipz-snext">Добавьте ещё 1&nbsp;курс&nbsp;– скидка станет '+D[n+1]+'%</div>':'<div class="ipz-snext">Максимальная скидка&nbsp;– 50%</div>';
+var nx=n<3?'<div class="ipz-snext">Добавьте ещё 1&nbsp;курс&nbsp;– скидка станет&nbsp;'+D[n+1]+'%</div>':'<div class="ipz-snext">Максимальная скидка&nbsp;– 50%</div>';
 sum.innerHTML='<div class="ipz-sl"><span>Выбрано</span><span>'+n+' '+w(n)+'</span></div><div class="ipz-sl"><span>Полная цена</span><span><s>'+f(full)+'</s></span></div><div class="ipz-sl"><span>Скидка <span class="ipz-sdisc">−'+D[n]+'%</span></span><span>−'+f(full-tot)+'</span></div>'
 +'<div class="ipz-stot">'+f(tot)+'</div><div class="ipz-sinst">или '+f(tot/12)+' в рассрочку на 12 месяцев</div>'+nx+'<a class="ipz-btn" href="/institut/#form">Оставить заявку на '+n+' '+w(n)+'</a>'}
 draw()})();
@@ -569,7 +570,7 @@ function ensure(){if(mo)return;mo=document.createElement('div');mo.className='ip
 mo.addEventListener('click',function(e){if(e.target===mo||e.target.classList.contains('ipz-mx'))close()});document.addEventListener('keydown',function(e){if(e.key==='Escape')close()})}
 function close(){if(!mo)return;mo.classList.remove('on');box.innerHTML='';document.documentElement.style.overflow=''}
 function open(w){ensure();box.innerHTML='<div class="ipz-wg"><div class="ipz-ld">Загружаем форму…</div></div>';var c=box.firstChild;
-var s=document.createElement('script');s.id=w.hash;s.src='https://ipzdas.ru/pl/lite/widget/script?id='+w.id+'&nc='+Date.now();c.appendChild(s);
+var s=document.createElement('script');s.id=w.hash;s.src='https://ipzdas.ru/pl/lite/widget/script?id='+w.id+'&nc='+Date.now();s.onload=function(){document.dispatchEvent(new Event('StartWidget'+w.hash))};c.appendChild(s);
 var t=setInterval(function(){var f=c.querySelector('iframe');if(f&&f.offsetHeight>40){var l=c.querySelector('.ipz-ld');if(l)l.remove();clearInterval(t)}},300);setTimeout(function(){clearInterval(t)},20000);
 mo.classList.add('on');document.documentElement.style.overflow='hidden'}
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');
