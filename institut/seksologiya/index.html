@@ -357,6 +357,7 @@ body.ipz-has-stick{padding-bottom:84px}
 .ipz-mo .ipz-wg{padding:52px 12px 12px;min-height:200px}
 .ipz-mo .ipz-wg iframe{height:auto}
 .ipz .ipz-formcta{margin-top:18px}
+.ipz .ipz-tar .ipz-pay{margin-top:16px;width:100%;justify-content:center}
 .ipz .ipz-formcta .ipz-btn{width:100%;justify-content:center}
 @media(min-width:900px){.ipz .ipz-btn{white-space:nowrap}}
 .ipz-mo .ipz-ld{text-align:center;color:#5b6866;padding:40px 0;font-family:Manrope,Arial,sans-serif}
@@ -468,7 +469,7 @@ body.ipz-has-stick{padding-bottom:84px}
         <div class="ipz-pay ipz-hl">
           <h3>Зафиксировать цену&nbsp;– предоплата 5&nbsp;000&nbsp;₽</h3>
           <p>Остаток полностью или&nbsp;в&nbsp;рассрочку&nbsp;– после звонка менеджера отдела&nbsp;заботы.</p>
-          <a class="ipz-btn ipz-paylink" href="https://ipzdas.ru/institut-seksologiya-oplata" data-course="seksologiya" data-pay="prepay">Внести предоплату 5&nbsp;000&nbsp;₽</a><p class="ipz-paynote">На&nbsp;странице оплаты будет кнопка «Оплатить частично&nbsp;– 5&nbsp;000&nbsp;₽».</p>
+          <a class="ipz-btn ipz-paylink" href="https://ipzdas.ru/institut-seksologiya-oplata" data-course="seksologiya" data-pay="prepay">Внести&nbsp;предоплату&nbsp;5&nbsp;000&nbsp;₽</a><p class="ipz-paynote">На&nbsp;странице оплаты будет кнопка «Оплатить частично&nbsp;– 5&nbsp;000&nbsp;₽».</p>
         </div>
         <div class="ipz-pay">
           <h3>Оплатить&nbsp;полностью</h3>
@@ -491,9 +492,9 @@ function w(n){return n==1?'курс':'курса'}
 var items=[].slice.call(root.querySelectorAll('.ipz-ci')),sum=root.querySelector('.ipz-sum');
 var pre=root.getAttribute('data-pre');items.forEach(function(b){if(pre&&b.dataset.k==pre)b.setAttribute('aria-pressed','true');b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')=='true'?'false':'true');draw()})});
 function draw(){var sel=items.filter(function(b){return b.getAttribute('aria-pressed')=='true'}).map(function(b){return b.dataset.k}),n=sel.length;
-if(!n){sum.innerHTML='<div class="ipz-sempty">Отметьте курсы слева, и&nbsp;здесь появится цена со&nbsp;скидкой.</div><div class="ipz-snext">1&nbsp;курс&nbsp;–&nbsp;−30%, 2&nbsp;курса&nbsp;–&nbsp;−40%, 3&nbsp;курса&nbsp;–&nbsp;−50%</div>';return}
+if(!n){sum.innerHTML='<div class="ipz-sempty">Отметьте курсы слева, и&nbsp;здесь появится цена со&nbsp;скидкой.</div><div class="ipz-snext">1&nbsp;курс&nbsp;–&nbsp;−30%<br>2&nbsp;курса&nbsp;–&nbsp;−40%<br>3&nbsp;курса&nbsp;–&nbsp;−50%</div>';return}
 var full=sel.reduce(function(a,k){return a+F[k]},0),tot=n==1?T[sel[0]]:full*(1-D[n]/100);
-var nx=n<3?'<div class="ipz-snext">Добавьте ещё 1&nbsp;курс&nbsp;– скидка станет&nbsp;'+D[n+1]+'%</div>':'<div class="ipz-snext">Максимальная скидка&nbsp;– 50%</div>';
+var nx=n<3?'<div class="ipz-snext">Добавьте ещё 1&nbsp;курс&nbsp;–&nbsp;скидка&nbsp;станет&nbsp;'+D[n+1]+'%</div>':'<div class="ipz-snext">Максимальная скидка&nbsp;– 50%</div>';
 sum.innerHTML='<div class="ipz-sl"><span>Выбрано</span><span>'+n+' '+w(n)+'</span></div><div class="ipz-sl"><span>Полная цена</span><span><s>'+f(full)+'</s></span></div><div class="ipz-sl"><span>Скидка <span class="ipz-sdisc">−'+D[n]+'%</span></span><span>−'+f(full-tot)+'</span></div>'
 +'<div class="ipz-stot">'+f(tot)+'</div><div class="ipz-sinst">или '+f(tot/12)+' в рассрочку на 12 месяцев</div>'+nx+'<a class="ipz-btn" href="/institut/#form">Оставить заявку на '+n+' '+w(n)+'</a>'}
 draw()})();
@@ -564,7 +565,7 @@ if(!last)return;var v=last.nodeValue.replace(/\s+$/,''),i=v.lastIndexOf(' ');var
 if(document.readyState!=='loading')glue();else document.addEventListener('DOMContentLoaded',glue);})();
 </script><script>
 (function(){
-var W={"seksologiya": {"id": 1688488, "hash": "520b9c3df565dbd3d51c0d3c851309deeb55f4e8"}, "sistemnaya-terapiya": {"id": 1688490, "hash": "6683a84c922b4752994588b51ccde0b356275d7c"}, "rasstrojstva-lichnosti": {"id": 1688492, "hash": "58927f15257cfa2dce31404da47a506254a975e1"}, "lead": {"id": 1658779, "hash": "de2f1790f6f74f1bc08d2e578dc69420fefe47c2"}};
+var W={"seksologiya": {"id": 1688488, "hash": "520b9c3df565dbd3d51c0d3c851309deeb55f4e8"}, "sistemnaya-terapiya": {"id": 1688490, "hash": "6683a84c922b4752994588b51ccde0b356275d7c"}, "rasstrojstva-lichnosti": {"id": 1688492, "hash": "58927f15257cfa2dce31404da47a506254a975e1"}, "lead": {"id": 1658779, "hash": "de2f1790f6f74f1bc08d2e578dc69420fefe47c2"}, "pomoshnik-1": {"id": 1688502, "hash": "dff20892fb351427faca0d72e809ff0f06f733a0"}, "pomoshnik-3": {"id": 1688503, "hash": "653d29e6517588f12762391ef062148bf7145e96"}, "pomoshnik-6": {"id": 1688504, "hash": "8b15adff21d0895a1faf3121f85588fc8f388393"}};
 var mo,box;
 function ensure(){if(mo)return;mo=document.createElement('div');mo.className='ipz-mo';mo.innerHTML='<div class="ipz-mb" role="dialog" aria-modal="true"><button type="button" class="ipz-mx" aria-label="Закрыть">×</button><div class="ipz-mi"></div></div>';document.body.appendChild(mo);box=mo.querySelector('.ipz-mi');
 mo.addEventListener('click',function(e){if(e.target===mo||e.target.classList.contains('ipz-mx'))close()});document.addEventListener('keydown',function(e){if(e.key==='Escape')close()})}
@@ -574,7 +575,7 @@ var s=document.createElement('script');s.id=w.hash;s.src='https://ipzdas.ru/pl/l
 var t=setInterval(function(){var f=c.querySelector('iframe');if(f&&f.offsetHeight>40){var l=c.querySelector('.ipz-ld');if(l)l.remove();clearInterval(t)}},300);setTimeout(function(){clearInterval(t)},20000);
 mo.classList.add('on');document.documentElement.style.overflow='hidden'}
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');
-var m=h.match(/institut-([a-z-]+)-oplata/);if(m&&W[m[1]]){e.preventDefault();open(W[m[1]]);return}
+var m=h.match(/institut-([a-z0-9-]+)-oplata/);if(m&&W[m[1]]){e.preventDefault();open(W[m[1]]);return}
 if(/#form$/.test(h)&&W.lead){e.preventDefault();open(W.lead)}},true);
 var st=document.querySelector('.ipz-stick'),pk=document.getElementById('pakety');
 if(st&&pk&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(x){st.classList.toggle('ipz-hide',x.isIntersecting)})},{threshold:0.15}).observe(pk)}

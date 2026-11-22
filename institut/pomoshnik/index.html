@@ -317,6 +317,7 @@ body.ipz-has-stick{padding-bottom:84px}
 .ipz-mo .ipz-wg{padding:52px 12px 12px;min-height:200px}
 .ipz-mo .ipz-wg iframe{height:auto}
 .ipz .ipz-formcta{margin-top:18px}
+.ipz .ipz-tar .ipz-pay{margin-top:16px;width:100%;justify-content:center}
 .ipz .ipz-formcta .ipz-btn{width:100%;justify-content:center}
 @media(min-width:900px){.ipz .ipz-btn{white-space:nowrap}}
 .ipz-mo .ipz-ld{text-align:center;color:#5b6866;padding:40px 0;font-family:Manrope,Arial,sans-serif}
@@ -383,7 +384,7 @@ body.ipz-has-stick{padding-bottom:84px}
 <section class="ipz-sec" id="order">
   <div class="ipz-wrap">
     <div class="ipz-head"><p class="ipz-kick">Тарифы</p><h2 class="ipz-h2">Подписка <em>на&nbsp;помощника</em></h2></div>
-    <div class="ipz-tars"><div class="ipz-tar"><h3>1&nbsp;месяц</h3><span class="ipz-new">50&nbsp;000&nbsp;₽</span><p class="ipz-inst">50&nbsp;000&nbsp;₽ в&nbsp;месяц</p></div><div class="ipz-tar ipz-hl"><span class="ipz-badge ipz-soft">Скидка&nbsp;10%</span><h3>3&nbsp;месяца</h3><span class="ipz-new">135&nbsp;000&nbsp;₽</span><p class="ipz-inst">45&nbsp;000&nbsp;₽ в&nbsp;месяц</p></div><div class="ipz-tar"><span class="ipz-badge">Скидка&nbsp;30%</span><h3>6&nbsp;месяцев</h3><span class="ipz-new">210&nbsp;000&nbsp;₽</span><p class="ipz-inst">35&nbsp;000&nbsp;₽ в&nbsp;месяц</p></div></div>
+    <div class="ipz-tars"><div class="ipz-tar"><h3>1&nbsp;месяц</h3><span class="ipz-new">50&nbsp;000&nbsp;₽</span><p class="ipz-inst">50&nbsp;000&nbsp;₽ в&nbsp;месяц</p><a class="ipz-btn ipz-pay" href="https://ipzdas.ru/institut-pomoshnik-1-oplata">Оплатить</a></div><div class="ipz-tar ipz-hl"><span class="ipz-badge ipz-soft">Скидка&nbsp;10%</span><h3>3&nbsp;месяца</h3><span class="ipz-new">135&nbsp;000&nbsp;₽</span><p class="ipz-inst">45&nbsp;000&nbsp;₽ в&nbsp;месяц</p><a class="ipz-btn ipz-pay" href="https://ipzdas.ru/institut-pomoshnik-3-oplata">Оплатить</a></div><div class="ipz-tar"><span class="ipz-badge">Скидка&nbsp;30%</span><h3>6&nbsp;месяцев</h3><span class="ipz-new">210&nbsp;000&nbsp;₽</span><p class="ipz-inst">35&nbsp;000&nbsp;₽ в&nbsp;месяц</p><a class="ipz-btn ipz-pay" href="https://ipzdas.ru/institut-pomoshnik-6-oplata">Оплатить</a></div></div>
     <div class="ipz-pay ipz-one">
       <h3>Оставить&nbsp;заявку</h3>
       <p>Помощник начинает работать с&nbsp;5&nbsp;декабря 2026. Заявка сейчас&nbsp;– место в&nbsp;первом&nbsp;запуске.</p>
@@ -455,7 +456,7 @@ if(!last)return;var v=last.nodeValue.replace(/\s+$/,''),i=v.lastIndexOf(' ');var
 if(document.readyState!=='loading')glue();else document.addEventListener('DOMContentLoaded',glue);})();
 </script><script>
 (function(){
-var W={"seksologiya": {"id": 1688488, "hash": "520b9c3df565dbd3d51c0d3c851309deeb55f4e8"}, "sistemnaya-terapiya": {"id": 1688490, "hash": "6683a84c922b4752994588b51ccde0b356275d7c"}, "rasstrojstva-lichnosti": {"id": 1688492, "hash": "58927f15257cfa2dce31404da47a506254a975e1"}, "lead": {"id": 1658779, "hash": "de2f1790f6f74f1bc08d2e578dc69420fefe47c2"}};
+var W={"seksologiya": {"id": 1688488, "hash": "520b9c3df565dbd3d51c0d3c851309deeb55f4e8"}, "sistemnaya-terapiya": {"id": 1688490, "hash": "6683a84c922b4752994588b51ccde0b356275d7c"}, "rasstrojstva-lichnosti": {"id": 1688492, "hash": "58927f15257cfa2dce31404da47a506254a975e1"}, "lead": {"id": 1658779, "hash": "de2f1790f6f74f1bc08d2e578dc69420fefe47c2"}, "pomoshnik-1": {"id": 1688502, "hash": "dff20892fb351427faca0d72e809ff0f06f733a0"}, "pomoshnik-3": {"id": 1688503, "hash": "653d29e6517588f12762391ef062148bf7145e96"}, "pomoshnik-6": {"id": 1688504, "hash": "8b15adff21d0895a1faf3121f85588fc8f388393"}};
 var mo,box;
 function ensure(){if(mo)return;mo=document.createElement('div');mo.className='ipz-mo';mo.innerHTML='<div class="ipz-mb" role="dialog" aria-modal="true"><button type="button" class="ipz-mx" aria-label="Закрыть">×</button><div class="ipz-mi"></div></div>';document.body.appendChild(mo);box=mo.querySelector('.ipz-mi');
 mo.addEventListener('click',function(e){if(e.target===mo||e.target.classList.contains('ipz-mx'))close()});document.addEventListener('keydown',function(e){if(e.key==='Escape')close()})}
@@ -465,7 +466,7 @@ var s=document.createElement('script');s.id=w.hash;s.src='https://ipzdas.ru/pl/l
 var t=setInterval(function(){var f=c.querySelector('iframe');if(f&&f.offsetHeight>40){var l=c.querySelector('.ipz-ld');if(l)l.remove();clearInterval(t)}},300);setTimeout(function(){clearInterval(t)},20000);
 mo.classList.add('on');document.documentElement.style.overflow='hidden'}
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');
-var m=h.match(/institut-([a-z-]+)-oplata/);if(m&&W[m[1]]){e.preventDefault();open(W[m[1]]);return}
+var m=h.match(/institut-([a-z0-9-]+)-oplata/);if(m&&W[m[1]]){e.preventDefault();open(W[m[1]]);return}
 if(/#form$/.test(h)&&W.lead){e.preventDefault();open(W.lead)}},true);
 var st=document.querySelector('.ipz-stick'),pk=document.getElementById('pakety');
 if(st&&pk&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(x){st.classList.toggle('ipz-hide',x.isIntersecting)})},{threshold:0.15}).observe(pk)}
