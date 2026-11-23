@@ -350,6 +350,10 @@
 </style><style>
 .ipz .ipz-sv{display:block;background:#f3f6f5}
 .ipz .ipz-sv img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.ipz .ipz-stick{display:inline-flex;align-items:center;gap:12px;margin-top:22px;padding:10px 22px 10px 10px;border-radius:999px;background:#f3c64d;color:#16211f!important;font-weight:800;font-size:17px;text-decoration:none!important;transform:rotate(-2deg);box-shadow:0 8px 22px rgba(13,92,88,.18);transition:transform .2s}
+.ipz .ipz-stick:hover{transform:rotate(0) scale(1.03)}
+.ipz .ipz-stick b{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:#0d5c58;color:#fff;font-size:15px;font-weight:800}
+@media (max-width:860px){.ipz .ipz-stick{font-size:15px;margin-top:16px}.ipz .ipz-stick b{width:42px;height:42px;font-size:13px}}
 .ipz .ipz-stick.ipz-fix{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));margin:0;z-index:60;transform:translateX(-50%) rotate(-2deg);white-space:nowrap;transition:opacity .25s,transform .25s}
 .ipz .ipz-stick.ipz-fix:hover{transform:translateX(-50%) scale(1.03)}
 .ipz .ipz-stick.ipz-fix.ipz-hide{opacity:0;pointer-events:none;transform:translateX(-50%) translateY(20px)}
@@ -364,11 +368,11 @@ body.ipz-has-stick{padding-bottom:84px}
 .ipz-ch{padding:56px 22px 26px;font-family:Manrope,Arial,sans-serif;text-align:center;max-width:520px;margin:0 auto}
 .ipz-ch h3{font-family:Lora,Georgia,serif;font-size:24px;line-height:1.25;color:#10201f;margin:0 0 8px;text-wrap:balance}
 .ipz-ch .ipz-chs{color:#5b6866;margin:0 0 22px;font-size:16px}
-.ipz-cb{display:block;width:100%;margin:0 0 12px;padding:16px 18px;border-radius:14px;border:2px solid #0d5c58;background:#fff;color:#0d5c58;font:700 17px/1.3 Manrope,Arial,sans-serif;cursor:pointer;text-wrap:balance}
-.ipz-cb small{display:block;font-weight:500;font-size:13px;opacity:.85;margin-top:4px}
-.ipz-cb1{background:#0d5c58;color:#fff}
-.ipz-cb3{border-color:#c9d6d4;color:#10201f}
-.ipz-cb:hover{filter:brightness(1.05)}
+.ipz-pb{display:block;width:100%;margin:0 0 12px;padding:16px 18px;border-radius:14px;border:2px solid #0d5c58;background:#fff;color:#0d5c58;font:700 17px/1.3 Manrope,Arial,sans-serif;cursor:pointer;text-wrap:balance}
+.ipz-pb small{display:block;font-weight:500;font-size:13px;opacity:.85;margin-top:4px}
+.ipz-pb1{background:#0d5c58;color:#fff}
+.ipz-pb3{border-color:#c9d6d4;color:#10201f}
+.ipz-pb:hover{filter:brightness(1.05)}
 .ipz-gr{padding:52px 24px 30px;text-align:center;font-family:Manrope,Arial,sans-serif;max-width:480px;margin:0 auto}
 .ipz-gr .ipz-grb{display:inline-block;background:#e8f1ef;color:#0d5c58;font-weight:700;font-size:14px;border-radius:999px;padding:6px 14px;margin:0 0 16px}
 .ipz-gr h3{font-family:Lora,Georgia,serif;font-size:30px;line-height:1.2;color:#10201f;margin:0 0 12px;text-wrap:balance}
@@ -589,10 +593,10 @@ var s=document.createElement('script');s.id=w.hash;s.src='https://ipzdas.ru/pl/l
 var t=setInterval(function(){var f=c.querySelector('iframe');if(f&&f.offsetHeight>40){var l=c.querySelector('.ipz-ld');if(l)l.remove();clearInterval(t)}},300);setTimeout(function(){clearInterval(t)},20000);
 mo.classList.add('on');document.documentElement.style.overflow='hidden'}
 function choose(k){ensure();var c=C[k]||['',''];box.innerHTML='<div class="ipz-ch"><h3>'+c[0]+'</h3><p class="ipz-chs">Как вам удобнее?</p>'
-+'<button type="button" class="ipz-cb ipz-cb1" data-w="'+k+'">Внести предоплату 5&nbsp;000&nbsp;₽<small>цена фиксируется, остаток или рассрочка&nbsp;– после звонка отдела&nbsp;заботы</small></button>'
-+(W[k+'-full']?'<button type="button" class="ipz-cb" data-w="'+k+'-full">Оплатить полностью '+c[1]+'</button>':'')
-+'<button type="button" class="ipz-cb ipz-cb3" data-w="lead2">Оставить заявку и&nbsp;уточнить условия</button></div>';
-box.querySelectorAll('.ipz-cb').forEach(function(b){b.addEventListener('click',function(){var w=W[b.getAttribute('data-w')]||W.lead;open(w)})});
++'<button type="button" class="ipz-pb ipz-pb1" data-w="'+k+'">Внести предоплату 5&nbsp;000&nbsp;₽<small>цена фиксируется, остаток или рассрочка&nbsp;– после звонка отдела&nbsp;заботы</small></button>'
++(W[k+'-full']?'<button type="button" class="ipz-pb" data-w="'+k+'-full">Оплатить полностью '+c[1]+'</button>':'')
++'<button type="button" class="ipz-pb ipz-pb3" data-w="lead2">Оставить заявку и&nbsp;уточнить условия</button></div>';
+box.querySelectorAll('.ipz-pb').forEach(function(b){b.addEventListener('click',function(){var w=W[b.getAttribute('data-w')]||W.lead;open(w)})});
 mo.classList.add('on');document.documentElement.style.overflow='hidden'}
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');
 var m=h.match(/institut-([a-z0-9-]+)-oplata/);if(m&&W[m[1]]){e.preventDefault();choose(m[1]);return}
