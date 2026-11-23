@@ -506,7 +506,7 @@ function w(n){return n==1?'курс':'курса'}
 var items=[].slice.call(root.querySelectorAll('.ipz-ci')),sum=root.querySelector('.ipz-sum');
 var pre=root.getAttribute('data-pre');items.forEach(function(b){if(pre&&b.dataset.k==pre)b.setAttribute('aria-pressed','true');b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')=='true'?'false':'true');draw()})});
 function draw(){var sel=items.filter(function(b){return b.getAttribute('aria-pressed')=='true'}).map(function(b){return b.dataset.k}),n=sel.length;
-if(!n){sum.innerHTML='<div class="ipz-sempty">Отметьте курсы слева, и&nbsp;здесь появится цена со&nbsp;скидкой.</div><div class="ipz-snext">1&nbsp;курс&nbsp;–&nbsp;−30%<br>2&nbsp;курса&nbsp;–&nbsp;−40%<br>3&nbsp;курса&nbsp;–&nbsp;−50%</div>';return}
+if(!n){sum.innerHTML='<div class="ipz-sempty">Отметьте курсы слева, и&nbsp;здесь появится цена со&nbsp;скидкой.</div><div class="ipz-snext">1&nbsp;курс&nbsp;– скидка&nbsp;30%<br>2&nbsp;курса&nbsp;– скидка&nbsp;40%<br>3&nbsp;курса&nbsp;– скидка&nbsp;50%</div>';return}
 var full=sel.reduce(function(a,k){return a+F[k]},0),tot=n==1?T[sel[0]]:full*(1-D[n]/100);
 var nx=n<3?'<div class="ipz-snext">Добавьте ещё 1&nbsp;курс&nbsp;–&nbsp;скидка&nbsp;станет&nbsp;'+D[n+1]+'%</div>':'<div class="ipz-snext">Максимальная скидка&nbsp;– 50%</div>';
 sum.innerHTML='<div class="ipz-sl"><span>Выбрано</span><span>'+n+' '+w(n)+'</span></div><div class="ipz-sl"><span>Полная цена</span><span><s>'+f(full)+'</s></span></div><div class="ipz-sl"><span>Скидка <span class="ipz-sdisc">−'+D[n]+'%</span></span><span>−'+f(full-tot)+'</span></div>'
