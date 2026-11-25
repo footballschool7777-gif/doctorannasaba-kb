@@ -618,6 +618,28 @@ em { font-style: normal; color: var(--gold-text); }
 .deck-stage .slide.s-pains .pzg .pc .pt { font-size: 26px; }
 .deck-stage .slide.s-pains .pzg { gap: 30px 30px; }
 
+/* owner msg 1042: statement with themed picture */
+.deck-stage .slide.s-stpic{display:grid;grid-template-columns:1fr 820px;gap:70px;align-items:center;padding-right:90px}
+.deck-stage .slide.s-stpic .st-wrap{text-align:left;max-width:none;margin:0;order:1}
+.deck-stage .slide.s-stpic .st-wrap .st{font-size:64px;line-height:1.12;text-align:left}
+.deck-stage .slide.s-stpic .st-wrap .st-sub{font-size:30px;text-align:left;margin-left:0}
+.deck-stage .slide.s-stpic .st-wrap .kicker{justify-content:flex-start}
+.deck-stage .slide.s-stpic .sp-img{order:2;height:820px;border-radius:28px;overflow:hidden;box-shadow:0 30px 70px rgba(60,40,10,.25)}
+.deck-stage .slide.s-stpic .sp-img img{width:100%;height:100%;object-fit:cover;display:block}
+.deck-stage .slide.s-rules .rl{grid-template-columns:400px 1fr 1fr}
+.s-rules .rl-img{border-radius:32px;overflow:hidden}
+.s-rules .rl-img img{width:100%;height:100%;object-fit:cover;object-position:30% 50%;display:block}
+.deck-stage .slide.s-bon1{display:grid;grid-template-columns:1fr 600px;grid-template-rows:auto auto;column-gap:64px;align-content:center}
+.s-bon1 .b1-img{grid-column:2;grid-row:1 / span 2;height:760px;border-radius:32px;overflow:hidden;box-shadow:0 30px 70px rgba(60,40,10,.22)}
+.s-bon1 .b1-img img{width:100%;height:100%;object-fit:cover;display:block}
+.s-bon1 .b1-txt,.s-bon1 .b1-cards{grid-column:1}
+.s-bon1 .b1-txt{grid-row:1;align-self:end}.s-bon1 .b1-cards{grid-row:2;align-self:start}
+.deck-stage .slide.s-bon1 .b1c b{font-size:38px}
+.deck-stage .slide.s-rules .rc{text-align:left}
+.deck-stage .slide.s-bon1 .b1-cards{display:grid;grid-template-columns:1fr 1fr}
+.deck-stage .slide.s-bon1 .b1-cards{display:grid!important;grid-template-columns:1fr 1fr!important}
+.deck-stage .slide.s-bon1 .b1c{min-width:0;width:auto}
+
 /* ===========================================
    WHITE THEME after Yu. Muradyan's deck (owner msg 826-827):
    white slides, Montserrat, indigo text, orange accents, outlined cards
@@ -927,8 +949,8 @@ em { font-style: normal; color: var(--gold-text); }
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>03</span></div>
 </section>
 <!-- 4. system -->
-<section class="slide t-statement ">
-<div class="st-wrap"><div class="kicker r d1">Человек – это система</div><h2 class="st r d2">Смотреть нужно <em>на все сферы сразу</em></h2><p class="st-sub r d3">Деньги, отношения, здоровье, реализация, предназначение и энергия связаны между собой. Закрываете одну дыру – открывается другая.</p></div>
+<section class="slide t-statement s-stpic">
+<div class="sp-img r d1"><img src="assets/gen/system.jpg" alt=""></div><div class="st-wrap"><div class="kicker r d1">Человек – это система</div><h2 class="st r d2">Смотреть нужно <em>на все сферы сразу</em></h2><p class="st-sub r d3">Деньги, отношения, здоровье, реализация, предназначение и энергия связаны между собой. Закрываете одну дыру – открывается другая.</p></div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>04</span></div>
 </section>
 <!-- 5. nothing -->
@@ -1002,6 +1024,7 @@ em { font-style: normal; color: var(--gold-text); }
 
 <div class="head"><div class="kicker r d1">Правила практикума</div><h2 class="h2 r d2">2 правила, чтобы <em>получить результат</em></h2></div>
 <div class="rl">
+  <div class="rl-img r d2"><img src="assets/gen/rules.jpg" alt=""></div>
   <div class="rc r d3"><span class="rn">1</span><b>Будьте на эфирах</b><p>Так вы почувствуете энергетику. Это нужно вам, а не мне: вы делаете это для себя.</p><p class="rq">Спросите себя: нужен ли мне результат в <span class="nw">какой-то</span> сфере жизни?</p></div>
   <div class="rc r d4"><span class="rn">2</span><b>Пишите в комментариях, когда я спрашиваю</b><p>Я здесь для вас. Обратная связь и вовлечённость – это уже начало работы и психотерапия.</p><p class="rq">Если вы не готовы даже написать, с чего бы изменениям войти в вашу жизнь?</p></div>
 </div>
@@ -1028,10 +1051,11 @@ em { font-style: normal; color: var(--gold-text); }
 <!-- 14. bonus-1 -->
 <section class="slide t-html s-bon1">
 
+<div class="b1-img r d2"><img src="assets/gen/bonus.jpg" alt=""></div>
 <div class="b1-txt"><div class="kicker r d1">Бонус <span class="nw">1-го</span> эфира</div><h2 class="h2 r d2">Будьте онлайн до конца – и заберёте <em>записи <span class="nw">2-х</span> терапевтических сессий</em></h2></div>
 <div class="b1-cards">
   <div class="b1c r d3"><span class="bt">Сессия 1</span><b>«Соединение с деньгами через тень»</b></div>
-  <div class="b1c r d4"><span class="bt">Сессия 2</span><b>«Деньги, предназначение, проявленность, реализация»</b></div>
+  <div class="b1c r d4"><span class="bt">Сессия 2</span><b>«Деньги, предназначение,<br>проявленность,<br>реализация»</b></div>
 </div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>14</span></div>
 </section>
@@ -1054,8 +1078,8 @@ em { font-style: normal; color: var(--gold-text); }
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>17</span></div>
 </section>
 <!-- 18. dream -->
-<section class="slide t-statement ">
-<div class="st-wrap"><div class="kicker r d1">Практика</div><h2 class="st r d2">Закройте глаза и вспомните: <em>о чём вы мечтали в 20 лет?</em></h2><p class="st-sub r d3">Какой вы видели свою жизнь, работу, отношения, доход.<br>А теперь откройте глаза и посмотрите на свою реальность.</p></div>
+<section class="slide t-statement s-stpic">
+<div class="sp-img r d1"><img src="assets/gen/dream.jpg" alt=""></div><div class="st-wrap"><div class="kicker r d1">Практика</div><h2 class="st r d2">Закройте глаза и вспомните: <em>о чём вы мечтали в 20 лет?</em></h2><p class="st-sub r d3">Какой вы видели свою жизнь, работу, отношения, доход.<br>А теперь откройте глаза и посмотрите на свою реальность.</p></div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>18</span></div>
 </section>
 <!-- 19. ask -->
@@ -1071,13 +1095,13 @@ em { font-style: normal; color: var(--gold-text); }
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>20</span></div>
 </section>
 <!-- 21. swamp -->
-<section class="slide t-statement ">
-<div class="st-wrap"><div class="kicker r d1">Это как болото</div><h2 class="st r d2">Чем больше шевелишься, <em>тем сильнее засасывает</em></h2><p class="st-sub r d3">Что бы человек ни делал, ничего не улучшается. Тогда он ищет помощь со стороны: из болота только так и выбираются. Важно выбрать правильных спасателей и правильный инструмент.</p></div>
+<section class="slide t-statement s-stpic">
+<div class="sp-img r d1"><img src="assets/gen/swamp.jpg" alt=""></div><div class="st-wrap"><div class="kicker r d1">Это как болото</div><h2 class="st r d2">Чем больше шевелишься, <em>тем сильнее засасывает</em></h2><p class="st-sub r d3">Что бы человек ни делал, ничего не улучшается. Тогда он ищет помощь со стороны: из болота только так и выбираются. Важно выбрать правильных спасателей и правильный инструмент.</p></div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>21</span></div>
 </section>
 <!-- 22. escalator -->
-<section class="slide t-statement ">
-<div class="st-wrap"><div class="kicker r d1">Ещё одна метафора</div><h2 class="st r d2">Жизнь как <em>эскалатор, который едет вниз</em></h2><p class="st-sub r d3">Чтобы подняться, нужно двигаться быстрее него. Мир ускоряется, ИИ меняет профессии. Медленные изменения не успевают, отсюда и откаты. Есть быстрые методы, просто о них нужно знать.</p></div>
+<section class="slide t-statement s-stpic">
+<div class="sp-img r d1"><img src="assets/gen/escalator.jpg" alt=""></div><div class="st-wrap"><div class="kicker r d1">Ещё одна метафора</div><h2 class="st r d2">Жизнь как <em>эскалатор, который едет вниз</em></h2><p class="st-sub r d3">Чтобы подняться, нужно двигаться быстрее него. Мир ускоряется, ИИ меняет профессии. Медленные изменения не успевают, отсюда и откаты. Есть быстрые методы, просто о них нужно знать.</p></div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>22</span></div>
 </section>
 <!-- 23. tries -->
@@ -1087,8 +1111,8 @@ em { font-style: normal; color: var(--gold-text); }
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>23</span></div>
 </section>
 <!-- 24. steps -->
-<section class="slide t-statement ">
-<div class="st-wrap"><h2 class="st r d2">Расскажу по шагам, как входить в психотерапию, чтобы получить <em>максимальный результат в самые короткие сроки</em></h2><p class="st-sub r d3">Без проработок мам и пап годами</p></div>
+<section class="slide t-statement s-stpic">
+<div class="sp-img r d1"><img src="assets/gen/steps.jpg" alt=""></div><div class="st-wrap"><h2 class="st r d2">Расскажу по шагам, как входить в психотерапию, чтобы получить <em>максимальный результат в самые короткие сроки</em></h2><p class="st-sub r d3">Без проработок мам и пап годами</p></div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>24</span></div>
 </section>
 <!-- 25. law-price -->
