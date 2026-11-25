@@ -1,0 +1,51 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VIP-тариф – практикум «Новая реальность»</title><meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Unbounded:wght@600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#f6f1e8}
+body{padding:16px 16px 28px;font-family:Montserrat,Arial,sans-serif;color:#2d3036}
+.top{text-align:center;max-width:560px;margin:4px auto 14px;color:#8a6a2e;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-wrap:balance}
+.card{max-width:560px;margin:0 auto;background:#fff;border-radius:22px;padding:24px 20px;box-sizing:border-box;border:1px solid rgba(45,48,54,.1);box-shadow:0 14px 40px rgba(45,48,54,.12)}
+h1{font-family:Unbounded,Montserrat,sans-serif;font-size:24px;line-height:1.2;margin:0 0 14px;text-align:center;text-wrap:balance}
+h2{font-family:Unbounded,Montserrat,sans-serif;font-size:17px;font-weight:600;color:#8a6a2e;margin:0 0 10px}
+ul{padding-left:20px;margin:0 0 14px}li{margin:0 0 7px;font-size:15px;line-height:1.4;text-wrap:pretty}li::marker{color:#e9ad3f}
+.bonus{background:#fff8e6;border-left:4px solid #e9ad3f;border-radius:12px;padding:10px 14px;margin:0 0 10px;font-size:14.5px;line-height:1.45;text-wrap:pretty}
+.bonus b{display:block;color:#8a6a2e;font-size:12px;letter-spacing:.1em;margin-bottom:3px}
+.pr{font-family:Unbounded,Montserrat,sans-serif;font-size:30px;font-weight:600;text-align:center;margin:16px 0 12px}.pr s{font-size:17px;color:#9aa0a8;margin-left:10px;font-weight:400}
+.btn{display:block;width:100%;padding:17px;border:0;border-radius:40px;background:linear-gradient(135deg,#f6c766,#e9ad3f);color:#2d3036;font-family:Unbounded,Montserrat,sans-serif;font-size:17px;font-weight:600;cursor:pointer;box-shadow:0 10px 26px rgba(233,173,63,.4)}
+/* modal: visibility, not display:none, so the GC widget can measure its height */
+.mod{position:fixed;inset:0;background:rgba(30,32,36,.55);display:flex;align-items:flex-start;justify-content:center;padding:24px 12px;overflow-y:auto;visibility:hidden;opacity:0;transition:opacity .2s;z-index:50}
+.mod.on{visibility:visible;opacity:1}
+.mbox{position:relative;width:100%;max-width:520px;background:#fff;border-radius:22px;padding:22px 18px 12px;box-sizing:border-box}
+.mbox h3{font-family:Unbounded,Montserrat,sans-serif;font-size:20px;margin:0 36px 8px 0}
+.x{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;border:0;background:#f4f6f9;color:#6c727c;font-size:20px;line-height:32px;cursor:pointer;padding:0}
+.gc-w{min-height:300px}
+</style></head><body>
+<div class="top">Практикум «Новая реальность» · доктор Анна&nbsp;Саба</div>
+<div class="card">
+<h1>Перейти на VIP-тариф</h1>
+<h2>Вы получите:</h2>
+<ul>
+<li>3 прямых эфира</li>
+<li>4-й VIP-эфир – «Магнит для масштаба»</li>
+<li>Записи и презентации всех эфиров</li>
+<li>Домашние задания и дополнительные бонусные материалы</li>
+<li>Чат участников практикума и участие в&nbsp;розыгрыше призов</li>
+</ul>
+<div class="bonus"><b>🎁 БОНУС</b>Практика на 60 минут «Прочувствуй свою новую реальность и узнай, что тебе не даёт в&nbsp;неё перейти»</div>
+<div class="bonus"><b>🎁 БОНУС</b>Личный разбор-диагностика вашей ситуации от практикующего психолога: деньги, отношения, реализация, предназначение, здоровье. Вы получите пошаговый план без розовых очков. Разборы проводят действующие психологи, выпускники Института психического здоровья доктора Анны&nbsp;Саба. Средняя цена консультации психологов такого уровня от&nbsp;15&nbsp;000&nbsp;₽ (для вас по цене VIP-тарифа).</div>
+<div class="bonus"><b>🎁 БОНУС</b>Мастер-класс: как с нуля за 6 месяцев освоить востребованную профессию EMDR-терапевта, помогать себе, родным, близким, выстроить очередь из клиентов и выйти на доход от&nbsp;300&nbsp;000&nbsp;₽/мес.</div>
+<div class="pr">1&nbsp;980&nbsp;₽<s>14&nbsp;990&nbsp;₽</s></div>
+<button class="btn" id="open" type="button">ПЕРЕЙТИ НА VIP</button>
+</div>
+<div class="mod" id="mod"><div class="mbox"><button class="x" id="cls" type="button" aria-label="Закрыть">×</button>
+<h3>Введите данные</h3>
+<div class="gc-w"><script id="8cd15f60968269f231a867c90d1ee95a91f991e4" src="https://doctor-saba.com/pl/lite/widget/script?id=1691054"></script></div>
+</div></div>
+<script>
+var m=document.getElementById('mod');
+document.getElementById('open').onclick=function(){m.classList.add('on')};
+document.getElementById('cls').onclick=function(){m.classList.remove('on')};
+m.addEventListener('click',function(e){if(e.target===m)m.classList.remove('on')});
+</script>
+</body></html>
