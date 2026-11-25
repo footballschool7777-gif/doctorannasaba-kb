@@ -567,6 +567,56 @@ em { font-style: normal; color: var(--gold-text); }
 .deck-stage .slide.s-path .path .ps b, .deck-stage .slide.s-path .path .pfin b { font-size: 29px; white-space: normal; }
 .deck-stage .slide.s-path .path .ps p, .deck-stage .slide.s-path .path .pfin p { font-size: 26px; }
 .deck-stage .slide.s-six .li b + p { font-size: 27px; }
+/* owner voice msg 1040: new opening – pains, balance wheel, path, rules, bonus of live 1 */
+.deck-stage .slide.s-pains .head { margin-bottom: 36px; }
+.s-pains .pzg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 28px; }
+.s-pains .pzc { padding: 30px 36px 32px; border-radius: 28px; background: #f8f7f4; border: 2px solid #ebe8e1; }
+.s-pains .pzt { display: block; font: 800 24px var(--ft); letter-spacing: 0.12em; text-transform: uppercase; color: #b87a10; }
+.s-pains .pzc ul { margin-top: 16px; list-style: none; display: grid; gap: 10px; }
+.s-pains .pzc li { position: relative; padding-left: 30px; font-size: 28px; line-height: 1.28; color: #1a1a1a; }
+.s-pains .pzc li::before { content: ""; position: absolute; left: 2px; top: 13px; width: 12px; height: 12px; border-radius: 50%; background: #f5a623; }
+.deck-stage .slide.s-wheel { display: grid; grid-template-columns: 1fr 760px; gap: 60px; align-items: center; padding: 70px 110px; }
+.s-wheel .lead { margin-top: 30px; font-size: 34px; line-height: 1.35; color: #1a1a1a; }
+.s-wheel .wh-note { margin-top: 28px; padding-left: 28px; border-left: 6px solid #c0392b; font: 700 32px/1.3 var(--ft); color: #1a1a1a; }
+.s-wheel svg { width: 760px; height: 760px; overflow: visible; }
+.s-wheel .wh-grid polygon, .s-wheel .wh-grid line { fill: none; stroke: #e2ded5; stroke-width: 2; }
+.s-wheel .wh-shape { fill: rgba(245, 166, 35, 0.18); stroke: #f5a623; stroke-width: 4; stroke-linejoin: round; }
+.s-wheel .wh-flow path { fill: none; stroke: #c0392b; stroke-width: 4; stroke-dasharray: 12 10; opacity: 0.85; }
+.slide.visible.s-wheel .wh-flow path { animation: wh-flow 1.6s linear infinite; }
+@keyframes wh-flow { to { stroke-dashoffset: -44; } }
+.s-wheel .wh-hole { fill: #c0392b; }
+.s-wheel .wh-lab text { font: 700 30px var(--ft); fill: #1a1a1a; text-anchor: middle; }
+.s-wheel .wh-lab text.bad { fill: #c0392b; }
+.s-nothing .nl { margin-top: 50px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 22px; }
+.s-nothing .ns { position: relative; padding: 34px 30px 36px; border-radius: 28px; background: #f8f7f4; border: 2px solid #ebe8e1; }
+.s-nothing .ns:nth-child(3) { background: #f1ede6; } .s-nothing .ns:nth-child(4) { background: #3a3a3a; border-color: #3a3a3a; }
+.s-nothing .ns.end { background: #1a1a1a; border-color: #1a1a1a; }
+.s-nothing .nn { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: #f5a623; font: 800 28px var(--ft); color: #1a1a1a; }
+.s-nothing .ns b { display: block; margin-top: 24px; font: 700 34px/1.15 var(--ft); color: #1a1a1a; }
+.s-nothing .ns p { margin-top: 14px; font-size: 27px; line-height: 1.3; color: #1a1a1a; }
+.s-nothing .ns:nth-child(4) b, .s-nothing .ns:nth-child(4) p, .s-nothing .ns.end b, .s-nothing .ns.end p { color: #fff; }
+.s-nothing .ns.end .nn { background: #c0392b; color: #fff; }
+.s-rules .rl { margin-top: 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+.s-rules .rc { padding: 44px 48px; border-radius: 32px; background: #f8f7f4; border: 2px solid #ebe8e1; }
+.s-rules .rn { font: 800 80px/1 var(--ft); color: #f5a623; }
+.s-rules .rc b { display: block; margin-top: 18px; font: 700 40px/1.15 var(--ft); color: #1a1a1a; }
+.s-rules .rc p { margin-top: 18px; font-size: 29px; line-height: 1.35; color: #1a1a1a; }
+.s-rules .rc p.rq { margin-top: 22px; padding-left: 24px; border-left: 6px solid #f5a623; font-weight: 700; }
+.s-tariff .cmp li.hl { font-weight: 800; color: #1a1a1a; }
+.deck-stage .slide.s-bon1 { display: flex; flex-direction: column; justify-content: center; padding: 80px 120px; }
+.s-bon1 .h2 { max-width: 1500px; }
+.s-bon1 .b1-cards { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.s-bon1 .b1c { padding: 48px 50px; border-radius: 34px; background: #1a1a1a; }
+.s-bon1 .b1c + .b1c { background: #f8f7f4; border: 2px solid #ebe8e1; }
+.s-bon1 .bt { font-size: 22px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #f5a623; }
+.s-bon1 .b1c + .b1c .bt { color: #b87a10; }
+.s-bon1 .b1c b { display: block; margin-top: 20px; font: 700 44px/1.18 var(--ft); color: #fff; }
+.s-bon1 .b1c + .b1c b { color: #1a1a1a; }
+.deck-stage .slide.s-nothing .nl .ns b { white-space: normal; font-size: 31px; overflow-wrap: normal; }
+.deck-stage .slide.s-nothing .nl .ns { padding: 30px 26px 32px; }
+.deck-stage .slide.s-pains .pzg .pc li { font-size: 31px; }
+.deck-stage .slide.s-pains .pzg .pc .pt { font-size: 26px; }
+.deck-stage .slide.s-pains .pzg { gap: 30px 30px; }
 
 /* ===========================================
    WHITE THEME after Yu. Muradyan's deck (owner msg 826-827):
@@ -841,61 +891,66 @@ em { font-style: normal; color: var(--gold-text); }
 <div class="cover-card r d3"><img src="assets/anna-v3.jpg" alt="Анна Саба"><div class="plate"><b>Анна Саба</b><span><span class="nw">врач-психиатр</span> и психотерапевт<br>основатель Института психического здоровья</span></div></div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>01</span></div>
 </section>
-<!-- 2. for-whom -->
-<section class="slide t-list ">
-<div class="head"><div class="kicker r d1">О практикуме</div><h2 class="h2 r d2">Для кого этот практикум</h2></div>
-<div class="grid c3 "><div class="li r d3"><b>Жизнь идёт не так</b><p>Вы чувствуете, что жизнь идёт не так, как хочется</p></div><div class="li r d4"><b>Новый уровень</b><p>Вы хотите выйти на новый уровень в доходе, отношениях, энергии и реализации</p></div><div class="li r d5"><b>Новая профессия</b><p>Вы думаете о смене профессии или о втором доходе</p></div></div><p class="note r d9">Даже если вы уже многое перепробовали, но всё равно случался откат и повторялись старые сценарии</p>
+<!-- 2. pains -->
+<section class="slide t-html s-pains">
+
+<div class="head"><div class="kicker r d1">Узнаёте себя?</div><h2 class="h2 r d2">Когда в жизни <em><span class="nw">что-то</span> идёт не так</em></h2></div>
+<div class="pzg">
+  <div class="pzc r d3"><span class="pzt">Финансы</span><ul><li>Финансовый потолок</li><li>Долги, кредиты</li><li>Деньги утекают сквозь пальцы</li></ul></div>
+  <div class="pzc r d3"><span class="pzt">Отношения</span><ul><li>Хорошая девочка, всё сама</li><li>Одни и те же ссоры</li><li>Пара есть, а вы одиноки</li></ul></div>
+  <div class="pzc r d4"><span class="pzt">Реализация</span><ul><li>Серая мышка</li><li>Тише воды, ниже травы</li><li>Своё дело долго не идёт</li></ul></div>
+  <div class="pzc r d4"><span class="pzt">Здоровье</span><ul><li>Постоянно <span class="nw">какие-то</span> проблемы</li><li>Всё внимание уходит на лечение</li><li>Жизнь в тревоге</li></ul></div>
+  <div class="pzc r d5"><span class="pzt">Предназначение</span><ul><li>Живёте не свою жизнь</li><li>Мечты из 20 лет забыты</li><li>Непонятно, чего хочется</li></ul></div>
+  <div class="pzc r d5"><span class="pzt">Энергия</span><ul><li>Сил нет уже с утра</li><li>День сурка</li><li>Ничего не радует</li></ul></div>
+</div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>02</span></div>
 </section>
-<!-- 3. path -->
-<section class="slide t-html s-path">
+<!-- 3. wheel -->
+<section class="slide t-html s-wheel">
 
-<div class="head"><div class="kicker r d1">Ваш путь на практикуме</div><h2 class="h2 r d2">4 дня прямых эфиров, на каждом – практика</h2></div>
-<div class="path">
-  <div class="ps r d3"><span class="pn">Эфир 1</span><b>Спусковой крючок</b><p>Убираем угнетающие чувства и находим затык, который годами держал вас на месте</p></div>
-  <div class="ps r d4"><span class="pn">Эфир 2</span><b>Бесконечный поток</b><p>Возвращаем энергию себе и ставим предохранители от откатов</p></div>
-  <div class="ps r d5"><span class="pn">Эфир 3</span><b>Новая реальность</b><p>Проверяем цель на истинность и строим прямой путь к ней</p></div>
-  <div class="pfin r d6"><span class="pn">Эфир 4 · VIP</span><b>Магнит для масштаба</b><p>Состояние, где возможности сами находят вас</p></div>
+<div class="wh-txt">
+  <div class="kicker r d1">Что будет, если ничего не делать</div>
+  <h2 class="h2 r d2">Всё утекает <em>в одну сферу</em></h2>
+  <p class="lead r d3">Проблема видна в деньгах. А причина может лежать глубже: в отношениях, здоровье, реализации, предназначении или энергии.</p>
+  <p class="wh-note r d4">Пока дыра не закрыта, силы из всех сфер уходят туда.</p>
 </div>
+<div class="wh-pic r d3">
+<svg viewBox="0 0 760 760" aria-hidden="true">
+  <defs><marker id="wh-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+  <g class="wh-grid"><polygon points="380,80 640,230 640,530 380,680 120,530 120,230"/><polygon points="380,180 553,280 553,480 380,580 207,480 207,280"/><polygon points="380,280 467,330 467,430 380,480 293,430 293,330"/>
+  <line x1="380" y1="380" x2="380" y2="80"/><line x1="380" y1="380" x2="640" y2="230"/><line x1="380" y1="380" x2="640" y2="530"/><line x1="380" y1="380" x2="380" y2="680"/><line x1="380" y1="380" x2="120" y2="530"/><line x1="380" y1="380" x2="120" y2="230"/></g>
+  <polygon class="wh-shape" points="380,330 570,270 600,510 380,440 210,480 170,260"/>
+  <g class="wh-flow"><path d="M560,280 Q470,180 400,135" marker-end="url(#wh-ar)"/><path d="M590,500 Q560,250 410,130" marker-end="url(#wh-ar)"/><path d="M380,430 Q300,260 375,140" marker-end="url(#wh-ar)"/><path d="M220,470 Q250,240 365,135" marker-end="url(#wh-ar)"/><path d="M180,265 Q260,170 355,125" marker-end="url(#wh-ar)"/></g>
+  <circle class="wh-hole" cx="380" cy="110" r="22"/>
+  <g class="wh-lab"><text x="380" y="50" class="bad">Финансы</text><text x="676" y="222" text-anchor="start">Отношения</text><text x="676" y="550" text-anchor="start">Реализация</text><text x="380" y="728">Здоровье</text><text x="84" y="550" text-anchor="end">Предназначение</text><text x="84" y="222" text-anchor="end">Энергия</text></g>
+</svg></div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>03</span></div>
 </section>
-<!-- 4. program -->
-<section class="slide t-list ">
-<div class="head"><div class="kicker r d1">Программа практикума</div><h2 class="h2 r d2">Что будет на каждом эфире</h2></div>
-<div class="grid c2 "><div class="li r d3"><b>Эфир 1 · «Спусковой крючок»</b><p>Убираем угнетающие чувства: тревогу, страх, обиду, вину, стыд.<br>Результат: найден затык, который годами держал вас на месте. Прошлое больше вас не беспокоит.</p></div><div class="li r d4"><b>Эфир 2 · «Бесконечный поток»</b><p>Находим, куда сливался ресурс, перекрываем утечки, восстанавливаем силы, ставим предохранители от откатов.<br>Результат: сил хватает на всё, вы больше не откатываетесь в старые реакции.</p></div><div class="li r d5"><b>Эфир 3 · «Новая реальность»</b><p>Проверяем цель на истинность, выстраиваем прямой путь к реализации желания, убираем сопротивление и саботаж.<br>Результат: у вас на руках пошаговый план. Подумали → сделали.</p></div><div class="li r d6"><b>Эфир 4 · VIP · «Магнит для масштаба»</b><p>Переходим в состояние, где всё в жизни даётся легко, а возможности сами находят вас.<br>Если вы встречали людей, про которых думали: «Вот бы мне так везло», здесь вы сможете перейти в это состояние.</p></div></div>
+<!-- 4. system -->
+<section class="slide t-statement ">
+<div class="st-wrap"><div class="kicker r d1">Человек – это система</div><h2 class="st r d2">Смотреть нужно <em>на все сферы сразу</em></h2><p class="st-sub r d3">Деньги, отношения, здоровье, реализация, предназначение и энергия связаны между собой. Закрываете одну дыру – открывается другая.</p></div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>04</span></div>
 </section>
-<!-- 5. bonus -->
-<section class="slide t-html s-bon s-bon2">
+<!-- 5. nothing -->
+<section class="slide t-html s-nothing">
 
-<div class="head"><div class="kicker r d1">Бонусы для всех, кто будет онлайн</div><h2 class="h2 r d2">За каждый эфир – свой подарок</h2></div>
-<div class="bon">
-  <div class="bc main r d3"><span class="bt"><span class="nw">1-й</span> эфир · записи <span class="nw">2-х</span> терапевтических сессий</span><b>«Соединение с деньгами через тень»</b><p>Терапевтическая сессия №2: «Деньги, предназначение, проявленность, реализация»</p></div>
-  <div class="bc r d4"><span class="bt"><span class="nw">2-й</span> эфир</span><b>Курс «Деньги 2.0»</b><p>9 уроков</p></div>
-  <div class="bc r d5"><span class="bt"><span class="nw">3-й</span> эфир · практика с Михаилом Саба</span><b>НАЗВАНИЕ ВПИШЕТ ЕВГЕНИЙ</b><p>Практика с Михаилом Саба</p></div>
-  <div class="bc r d6"><span class="bt"><span class="nw">4-й</span> эфир · только для <span class="nw">VIP-тарифа</span></span><b>«Магнит для денег и для масштаба»</b><p>Совместный эфир: Анна и Михаил Саба</p></div>
+<div class="head"><div class="kicker r d1">Если ничего не делать или делать неправильно</div><h2 class="h2 r d2">Куда ведёт <em>этот путь</em></h2></div>
+<div class="nl">
+  <div class="ns r d3"><span class="nn">1</span><b>Стараетесь<br>больше</b><p>А ничего не выходит</p></div>
+  <div class="ns r d4"><span class="nn">2</span><b>Откаты</b><p>Шаг вперёд и два назад</p></div>
+  <div class="ns r d5"><span class="nn">3</span><b>К 40–50 годам</b><p>Разочарование в себе и в жизни</p></div>
+  <div class="ns r d6"><span class="nn">4</span><b>Тяжёлые<br>мысли</b><p>Человек доживает свою жизнь</p></div>
+  <div class="ns end r d7"><span class="nn">5</span><b>Болезни</b><p>Прямой путь в один конец</p></div>
 </div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>05</span></div>
 </section>
 <!-- 6. result -->
 <section class="slide t-list ">
-<div class="head"><div class="kicker r d1">Результат практикума</div><h2 class="h2 r d2">Пошаговая методология, которая за вас</h2></div>
-<div class="grid c3 "><div class="li r d3"><b>Сценарии</b><p>Разберёт повторяющиеся сценарии и даст чёткий план, как выйти из них быстро и без откатов</p></div><div class="li r d4"><b>Состояние</b><p>Уберёт тревогу и стресс, чтобы вы созидали из состояния изобилия, а не из страха и травмы</p></div><div class="li r d5"><b>Новый уровень</b><p>Покажет, как выйти на новый уровень в доходе, энергии, отношениях и других сферах</p></div></div><p class="note r d9">После практикума вы сможете сами безопасно и легко применять эту методологию на себе</p>
+<div class="head"><div class="kicker r d1">Результат практикума</div><h2 class="h2 r d2">ЗАГЛУШКА: заголовок результата впишет Евгений</h2></div>
+<div class="grid c3 "><div class="li r d3"><b>ЗАГЛУШКА 1</b><p>Текст результата впишет Евгений</p></div><div class="li r d4"><b>ЗАГЛУШКА 2</b><p>Текст результата впишет Евгений</p></div><div class="li r d5"><b>ЗАГЛУШКА 3</b><p>Текст результата впишет Евгений</p></div></div><p class="note r d9">ЗАГЛУШКА: итоговую строку впишет Евгений</p>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>06</span></div>
 </section>
-<!-- 7. tariffs -->
-<section class="slide t-html s-find s-tariff">
-
-<div class="head"><div class="kicker r d1">Организационная информация</div><h2 class="h2 r d2">2 тарифа практикума</h2></div>
-<div class="agents">
-  <div class="ag r d3"><b>STANDART</b><p><s>990&nbsp;₽</s> бесплатно</p><ul class="cmp">
-    <li>3 прямых эфира</li><li>Домашние задания после эфиров</li><li>Дополнительные бонусные материалы</li><li>Чат участников практикума</li><li>Участие в розыгрыше призов</li></ul></div>
-  <div class="ag plus r d5"><b>VIP · всё и сразу</b><p><s>14&nbsp;990&nbsp;₽</s> 1&nbsp;980&nbsp;₽</p><ul class="cmp">
-    <li>3 прямых эфира и <span class="nw">4-й</span> <span class="nw">VIP-эфир</span> «Магнит для масштаба»</li><li>Записи и презентации всех эфиров</li><li>Бонус: практика на 60 минут «Прочувствуй свою новую реальность и узнай, что тебе не даёт в неё перейти»</li><li>Бонус: личный <span class="nw">разбор-диагностика</span> от психолога, выпускника института. Консультация такого уровня стоит от 15 000 ₽</li><li>Бонус: <span class="nw">мастер-класс</span> о профессии <span class="nw">EMDR-терапевта</span> с доходом от 300 000 ₽ в месяц</li></ul></div>
-</div>
-<div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>07</span></div>
-</section>
-<!-- 8. author -->
+<!-- 7. author -->
 <section class="slide t-html s-author">
 
 <div class="au-photo r d1"><img src="assets/anna-v3.jpg" alt="Анна Саба"></div>
@@ -910,76 +965,109 @@ em { font-style: normal; color: var(--gold-text); }
   </div>
   <p class="au-edu r d7">Сеченовский университет · НМИЦ им. В.П. Сербского · РУДН</p>
 </div>
+<div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>07</span></div>
+</section>
+<!-- 8. path -->
+<section class="slide t-html s-path">
+
+<div class="head"><div class="kicker r d1">Ваш путь на практикуме</div><h2 class="h2 r d2">4 дня прямых эфиров, на каждом – практика</h2></div>
+<div class="path">
+  <div class="ps r d3"><span class="pn">Эфир 1</span><b>Спусковой крючок</b><p>Убираем угнетающие чувства и находим затык, который годами держал вас на месте</p></div>
+  <div class="ps r d4"><span class="pn">Эфир 2</span><b>Бесконечный поток</b><p>Возвращаем энергию себе и ставим предохранители от откатов</p></div>
+  <div class="ps r d5"><span class="pn">Эфир 3</span><b>Новая реальность</b><p>Проверяем цель на истинность и строим прямой путь к ней</p></div>
+  <div class="pfin r d6"><span class="pn">Эфир 4 · VIP</span><b>Магнит для масштаба</b><p>Состояние, где возможности сами находят вас</p></div>
+</div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>08</span></div>
 </section>
-<!-- 9. plan -->
+<!-- 9. program -->
 <section class="slide t-list ">
-<div class="head"><div class="kicker r d1">Эфир 1 · «Спусковой крючок»</div><h2 class="h2 r d2">Что разберём сегодня</h2></div>
-<div class="grid c2 dots"><div class="li r d3"><p>Когда человек понимает, что пора <span class="nw">что-то</span> менять</p></div><div class="li r d4"><p>Почему книги, подкасты, марафоны и разговорная терапия дают откат</p></div><div class="li r d5"><p>5 страхов, которые держат вас на месте</p></div><div class="li r d6"><p>Как страх, тревога, стыд, вина и обида связаны с вашим доходом</p></div><div class="li r d7"><p>Формула больших денег: почему одни зарабатывают много, а другие мало</p></div><div class="li r d8"><p>Мышление, реакции и тест ТДО: откуда берётся ваш сценарий</p></div><div class="li r d9"><p>Какой метод перерабатывает травму быстро и без откатов</p></div><div class="li r d9"><p>Практика на эфире: убираем угнетающие чувства</p></div></div>
+<div class="head"><div class="kicker r d1">Программа практикума</div><h2 class="h2 r d2">Что будет на каждом эфире</h2></div>
+<div class="grid c2 "><div class="li r d3"><b>Эфир 1 · «Спусковой крючок»</b><p>Убираем угнетающие чувства: тревогу, страх, обиду, вину, стыд.<br>Результат: найден затык, который годами держал вас на месте. Прошлое больше вас не беспокоит.</p></div><div class="li r d4"><b>Эфир 2 · «Бесконечный поток»</b><p>Находим, куда сливался ресурс, перекрываем утечки, восстанавливаем силы, ставим предохранители от откатов.<br>Результат: сил хватает на всё, вы больше не откатываетесь в старые реакции.</p></div><div class="li r d5"><b>Эфир 3 · «Новая реальность»</b><p>Проверяем цель на истинность, выстраиваем прямой путь к реализации желания, убираем сопротивление и саботаж.<br>Результат: у вас на руках пошаговый план. Подумали → сделали.</p></div><div class="li r d6"><b>Эфир 4 · VIP · «Магнит для масштаба»</b><p>Переходим в состояние, где всё в жизни даётся легко, а возможности сами находят вас.<br>Если вы встречали людей, про которых думали: «Вот бы мне так везло», здесь вы сможете перейти в это состояние.</p></div></div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>09</span></div>
 </section>
-<!-- 10. ask -->
-<section class="slide t-ask ">
-<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>вопрос 1</div>
-<h2 class="ask-q r d2">Где вы сейчас работаете?</h2><div class="opts"><span class="opt r d3">В найме</span><span class="opt r d4">Своё дело, бизнес</span><span class="opt r d5">Работаю на себя: помогающий практик, мастер, эксперт</span></div><p class="ask-note r d6">Напишите в чат свою профессию</p></div>
+<!-- 10. bonus -->
+<section class="slide t-html s-bon s-bon2">
+
+<div class="head"><div class="kicker r d1">Бонусы для всех, кто будет онлайн</div><h2 class="h2 r d2">За каждый эфир – свой подарок</h2></div>
+<div class="bon">
+  <div class="bc main r d3"><span class="bt"><span class="nw">1-й</span> эфир · записи <span class="nw">2-х</span> терапевтических сессий</span><b>«Соединение с деньгами через тень»</b><p>Терапевтическая сессия №2: «Деньги, предназначение, проявленность, реализация»</p></div>
+  <div class="bc r d4"><span class="bt"><span class="nw">2-й</span> эфир</span><b>Курс «Деньги 2.0»</b><p>9 уроков</p></div>
+  <div class="bc r d5"><span class="bt"><span class="nw">3-й</span> эфир · практика с Михаилом Саба</span><b>НАЗВАНИЕ ВПИШЕТ ЕВГЕНИЙ</b><p>Практика с Михаилом Саба</p></div>
+  <div class="bc r d6"><span class="bt"><span class="nw">4-й</span> эфир · только для <span class="nw">VIP-тарифа</span></span><b>«Магнит для денег и для масштаба»</b><p>Совместный эфир: Анна и Михаил Саба</p></div>
+</div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>10</span></div>
 </section>
-<!-- 11. ask -->
-<section class="slide t-ask ">
-<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>вопрос 2</div>
-<h2 class="ask-q r d2">Была ли у вас мысль сменить сферу?</h2><div class="opts"><span class="opt r d3">Да, часто</span><span class="opt r d4">Иногда</span><span class="opt r d5">Нет</span></div></div>
+<!-- 11. rules -->
+<section class="slide t-html s-rules">
+
+<div class="head"><div class="kicker r d1">Правила практикума</div><h2 class="h2 r d2">2 правила, чтобы <em>получить результат</em></h2></div>
+<div class="rl">
+  <div class="rc r d3"><span class="rn">1</span><b>Будьте на эфирах</b><p>Так вы почувствуете энергетику. Это нужно вам, а не мне: вы делаете это для себя.</p><p class="rq">Спросите себя: нужен ли мне результат в <span class="nw">какой-то</span> сфере жизни?</p></div>
+  <div class="rc r d4"><span class="rn">2</span><b>Пишите в комментариях, когда я спрашиваю</b><p>Я здесь для вас. Обратная связь и вовлечённость – это уже начало работы и психотерапия.</p><p class="rq">Если вы не готовы даже написать, с чего бы изменениям войти в вашу жизнь?</p></div>
+</div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>11</span></div>
 </section>
-<!-- 12. ask -->
-<section class="slide t-ask ">
-<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>вопрос 3</div>
-<h2 class="ask-q r d2">Почему вы её ещё не сменили?</h2><p class="ask-note r d6">Пишите честно, здесь все свои</p></div>
+<!-- 12. tariffs -->
+<section class="slide t-html s-find s-tariff">
+
+<div class="head"><div class="kicker r d1">Как получить записи эфиров</div><h2 class="h2 r d2">Записи есть только в тарифе <em>VIP</em></h2></div>
+<div class="agents">
+  <div class="ag r d3"><b>STANDART</b><p><s>990&nbsp;₽</s> бесплатно</p><ul class="cmp">
+    <li>3 прямых эфира</li><li>Домашние задания после эфиров</li><li>Дополнительные бонусные материалы</li><li>Чат участников практикума</li><li>Участие в розыгрыше призов</li></ul></div>
+  <div class="ag plus r d5"><b>VIP · всё и сразу</b><p><s>14&nbsp;990&nbsp;₽</s> 1&nbsp;980&nbsp;₽</p><ul class="cmp">
+    <li>3 прямых эфира и <span class="nw">4-й</span> <span class="nw">VIP-эфир</span> «Магнит для масштаба»</li><li class="hl">Записи и презентации всех эфиров</li><li>Бонус: практика на 60 минут «Прочувствуй свою новую реальность и узнай, что тебе не даёт в неё перейти»</li><li>Бонус: личный <span class="nw">разбор-диагностика</span> от психолога, выпускника института. Консультация такого уровня стоит от 15 000 ₽</li><li>Бонус: <span class="nw">мастер-класс</span> о профессии <span class="nw">EMDR-терапевта</span> с доходом от 300 000 ₽ в месяц</li></ul></div>
+</div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>12</span></div>
 </section>
-<!-- 13. dream -->
-<section class="slide t-statement ">
-<div class="st-wrap"><div class="kicker r d1">Практика</div><h2 class="st r d2">Закройте глаза и вспомните: <em>о чём вы мечтали в 20 лет?</em></h2><p class="st-sub r d3">Какой вы видели свою жизнь, работу, отношения, доход.<br>А теперь откройте глаза и посмотрите на свою реальность.</p></div>
+<!-- 13. plan -->
+<section class="slide t-list ">
+<div class="head"><div class="kicker r d1">Эфир 1 · «Спусковой крючок»</div><h2 class="h2 r d2">Что разберём сегодня</h2></div>
+<div class="grid c2 dots"><div class="li r d3"><p>ЗАГЛУШКА: тема 1 – впишет Евгений</p></div><div class="li r d4"><p>ЗАГЛУШКА: тема 2 – впишет Евгений</p></div><div class="li r d5"><p>ЗАГЛУШКА: тема 3 – впишет Евгений</p></div><div class="li r d6"><p>ЗАГЛУШКА: тема 4 – впишет Евгений</p></div><div class="li r d7"><p>ЗАГЛУШКА: тема 5 – впишет Евгений</p></div><div class="li r d8"><p>ЗАГЛУШКА: тема 6 – впишет Евгений</p></div></div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>13</span></div>
 </section>
-<!-- 14. ask -->
-<section class="slide t-ask ">
-<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>вопрос 4</div>
-<h2 class="ask-q r d2">Совпадает ли картинка? Что вы сейчас чувствуете?</h2></div>
+<!-- 14. bonus-1 -->
+<section class="slide t-html s-bon1">
+
+<div class="b1-txt"><div class="kicker r d1">Бонус <span class="nw">1-го</span> эфира</div><h2 class="h2 r d2">Будьте онлайн до конца – и заберёте <em>записи <span class="nw">2-х</span> терапевтических сессий</em></h2></div>
+<div class="b1-cards">
+  <div class="b1c r d3"><span class="bt">Сессия 1</span><b>«Соединение с деньгами через тень»</b></div>
+  <div class="b1c r d4"><span class="bt">Сессия 2</span><b>«Деньги, предназначение, проявленность, реализация»</b></div>
+</div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>14</span></div>
 </section>
 <!-- 15. ask -->
 <section class="slide t-ask ">
-<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>вопрос 5</div>
-<h2 class="ask-q r d2">Кому кажется, что менять <span class="nw">что-то</span> уже поздно?</h2><p class="ask-note r d6">Пишите «Я» в чат</p></div>
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>вопрос 1</div>
+<h2 class="ask-q r d2">Где вы сейчас работаете?</h2><div class="opts"><span class="opt r d3">В найме</span><span class="opt r d4">Своё дело, бизнес</span><span class="opt r d5">Работаю на себя: помогающий практик, мастер, эксперт</span></div><p class="ask-note r d6">Напишите в чат свою профессию</p></div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>15</span></div>
 </section>
-<!-- 16. when -->
-<section class="slide t-statement ">
-<div class="st-wrap"><h2 class="st r d2">Когда человек задумывается, что <em>надо <span class="nw">что-то</span> менять?</em></h2><p class="st-sub r d3">Когда всё хорошо? Нет.<br>Когда в жизни начинают происходить события.</p></div>
+<!-- 16. ask -->
+<section class="slide t-ask ">
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>вопрос 2</div>
+<h2 class="ask-q r d2">Была ли у вас мысль сменить сферу?</h2><div class="opts"><span class="opt r d3">Да, часто</span><span class="opt r d4">Иногда</span><span class="opt r d5">Нет</span></div></div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>16</span></div>
 </section>
-<!-- 17. money -->
-<section class="slide t-list ">
-<div class="head"><div class="kicker r d1">Финансы</div><h2 class="h2 r d2">И тут вы задумываетесь, что <em><span class="nw">что-то</span> идёт не так</em></h2></div>
-<div class="grid c1 dots"><div class="li r d3"><p>Своё дело долго не идёт, хотя сил вкладываете много</p></div><div class="li r d4"><p>Сокращения на работе, мошенники</p></div><div class="li r d5"><p>Деньги утекают сквозь пальцы: пришли, а дальше поломки, починки, и уже пусто</p></div></div>
+<!-- 17. ask -->
+<section class="slide t-ask ">
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>вопрос 3</div>
+<h2 class="ask-q r d2">Почему вы её ещё не сменили?</h2><p class="ask-note r d6">Пишите честно, здесь все свои</p></div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>17</span></div>
 </section>
-<!-- 18. love -->
-<section class="slide t-list ">
-<div class="head"><div class="kicker r d1">Отношения</div><h2 class="h2 r d2">И тут вы задумываетесь, что <em><span class="nw">что-то</span> идёт не так</em></h2></div>
-<div class="grid c1 dots"><div class="li r d3"><p>Это совсем не то, о чём вы мечтали: всё серо, одинаково, одни и те же ссоры</p></div><div class="li r d4"><p>Падает желание, люди становятся сожителями и отдаляются. Жизнь превращается в борьбу</p></div><div class="li r d5"><p>Пара есть, но вы одиноки: не хочется рассказывать человеку то, что у вас на душе</p></div></div>
+<!-- 18. dream -->
+<section class="slide t-statement ">
+<div class="st-wrap"><div class="kicker r d1">Практика</div><h2 class="st r d2">Закройте глаза и вспомните: <em>о чём вы мечтали в 20 лет?</em></h2><p class="st-sub r d3">Какой вы видели свою жизнь, работу, отношения, доход.<br>А теперь откройте глаза и посмотрите на свою реальность.</p></div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>18</span></div>
 </section>
-<!-- 19. friends -->
-<section class="slide t-list ">
-<div class="head"><div class="kicker r d1">Друзья и близкие</div><h2 class="h2 r d2">И тут вы задумываетесь, что <em><span class="nw">что-то</span> идёт не так</em></h2></div>
-<div class="grid c1 dots"><div class="li r d3"><p>С подругой уже неинтересно часами обсуждать её бывшего или настоящего</p></div><div class="li r d4"><p>С близкими не о чем поговорить, всё одно и то же</p></div><div class="li r d5"><p>День сурка</p></div></div>
+<!-- 19. ask -->
+<section class="slide t-ask ">
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>вопрос 4</div>
+<h2 class="ask-q r d2">Совпадает ли картинка? Что вы сейчас чувствуете?</h2></div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>19</span></div>
 </section>
-<!-- 20. health -->
-<section class="slide t-list ">
-<div class="head"><div class="kicker r d1">Здоровье</div><h2 class="h2 r d2">Проблемы со здоровьем <em>забирают всё внимание</em></h2></div>
-<div class="grid c1 dots"><div class="li r d3"><p>Человек забывает про мечты и реализацию</p></div><div class="li r d4"><p>Решает проблемы со здоровьем, живя в тревоге</p></div><div class="li r d5"><p>И чаще всего становится только хуже</p></div></div>
+<!-- 20. ask -->
+<section class="slide t-ask ">
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>вопрос 5</div>
+<h2 class="ask-q r d2">Кому кажется, что менять <span class="nw">что-то</span> уже поздно?</h2><p class="ask-note r d6">Пишите «Я» в чат</p></div>
 <div class="foot"><span>Анна Саба · практикум «Новая реальность»</span><span>20</span></div>
 </section>
 <!-- 21. swamp -->
