@@ -1035,6 +1035,11 @@ em { font-style: normal; color: var(--gold-text); }
 .s-wheel .wn text, .s-wheel .wc text { font: 800 24px var(--ft); fill: #fff; text-anchor: middle; }
 .s-wheel .wc text { font-size: 28px; }
 .s-wheel .wl text.dim { fill: #b5afa6; }
+
+/* slide 3: even connector line between the step numbers (msg 1067) */
+.deck-stage .slide.s-wheel .wch li { padding: 16px 0 16px 76px; }
+.deck-stage .slide.s-wheel .wch li::before { top: 12px; width: 50px; height: 50px; font: 800 24px/50px var(--ft); box-shadow: 0 0 0 6px #fbe9e6; z-index: 1; }
+.deck-stage .slide.s-wheel .wch li:not(:last-child)::after { left: 24px; top: 62px; bottom: -12px; height: auto; border-left: 0; width: 3px; border-radius: 2px; background: linear-gradient(#c0392b, #e8a39b); }
 </style>
 </head>
 <body>
