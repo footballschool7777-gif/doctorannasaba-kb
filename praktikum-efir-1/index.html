@@ -1068,6 +1068,19 @@ em { font-style: normal; color: var(--gold-text); }
 .deck-stage .slide.s-bon3 .g3::after { background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.85)); }
 .deck-stage .slide.s-bon3 .g3 .gt b { font-size: 28px; line-height: 1.15; text-wrap: balance; }
 .deck-stage .slide.s-bon3 .g3 .gt p.g3who { margin-top: 10px; font-size: 22px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #f5a623; }
+/* slide 10: four gifts in sequence, calm palette (msg 1089) */
+.deck-stage .slide.s-bon3 .bg3.bq { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: none; gap: 30px; height: 720px; margin-top: 36px; position: relative; }
+.deck-stage .slide.s-bon3 .bq::before { content: ''; position: absolute; left: 6%; right: 6%; top: 400px; border-top: 2px dashed #e6d3ad; z-index: 0; }
+.deck-stage .slide.s-bon3 .bq .q { position: relative; z-index: 1; background: #fffdf8; border: 1px solid #efe4cf; border-radius: 26px; box-shadow: 0 14px 40px rgba(120,90,40,.08); display: flex; flex-direction: column; overflow: hidden; }
+.deck-stage .slide.s-bon3 .bq .qi { position: relative; height: 400px; }
+.deck-stage .slide.s-bon3 .bq .qi img { position: static; width: 100%; height: 100%; object-fit: cover; display: block; }
+.deck-stage .slide.s-bon3 .bq .qi img.g3saba { object-position: 50% 25%; }
+.deck-stage .slide.s-bon3 .bq .qn { position: absolute; left: 24px; bottom: -28px; width: 56px; height: 56px; border-radius: 50%; background: #fffdf8; border: 2px solid #e2c48a; color: #b8862b; font: 800 26px/52px var(--ft); text-align: center; }
+.deck-stage .slide.s-bon3 .bq .qt { padding: 40px 28px 24px; text-align: left; background: none; border: 0; border-radius: 0; box-shadow: none; margin: 0; width: auto; }
+.deck-stage .slide.s-bon3 .bq .qt::before, .deck-stage .slide.s-bon3 .bq .qt::after { content: none; }
+.deck-stage .slide.s-bon3 .bq .qk { display: block; font: 700 17px var(--ft); letter-spacing: .1em; text-transform: uppercase; color: #b8862b; }
+.deck-stage .slide.s-bon3 .bq .qt b { display: block; margin-top: 10px; font: 800 28px/1.16 var(--ft); color: #2b2622; text-wrap: balance; }
+.deck-stage .slide.s-bon3 .bq .qt p { margin-top: 10px; font-size: 20px; line-height: 1.3; color: #6b6259; text-wrap: balance; }
 </style>
 </head>
 <body>
@@ -1178,11 +1191,11 @@ em { font-style: normal; color: var(--gold-text); }
 <section class="slide t-html s-bon3">
 
 <div class="head"><div class="kicker r d1">Бонусы для&nbsp;тех, кто&nbsp;будет&nbsp;онлайн</div><h2 class="h2 r d2">За&nbsp;каждый эфир&nbsp;– <em>свой&nbsp;подарок</em></h2></div>
-<div class="bg3">
-  <div class="g1 r d3"><img src="assets/gen/b1.jpg" alt=""><div class="gt"><span class="gk">За&nbsp;<span class="nw">1-й</span>&nbsp;эфир</span><b>Записи <span class="nw">2-х</span> терапевтических&nbsp;сессий</b><p>«Соединение с&nbsp;деньгами через&nbsp;тень»</p><p>«Деньги, предназначение,<br>проявленность,&nbsp;реализация»</p></div></div>
-  <div class="g2 g2v r d4"><span class="gk">За&nbsp;<span class="nw">2-й</span>&nbsp;эфир</span><div class="g2m"><b>Вебинар<br>«Деньги&nbsp;2.0»</b></div></div>
-  <div class="g3 r d5"><img class="g3saba" src="assets/gen/b3-saba.jpg" alt="Михаил и Анна Саба"><div class="gt"><span class="gk">За&nbsp;<span class="nw">3-й</span>&nbsp;эфир</span><b>Практика на&nbsp;соединение с&nbsp;нужной веткой&nbsp;реальности</b><p class="g3who">Практику проведет Михаил&nbsp;Саба</p></div></div>
-  <div class="g4 r d6"><div class="gt"><span class="gk">За&nbsp;<span class="nw">4-й</span> эфир · только&nbsp;VIP</span><b>«Магнит для&nbsp;денег<br>и&nbsp;для&nbsp;масштаба»</b><p>Совместный эфир Анны и&nbsp;Михаила&nbsp;Саба</p></div><img src="assets/gen/b4.jpg" alt=""></div>
+<div class="bg3 bq">
+  <div class="q r d3"><div class="qi"><img src="assets/gen/p1.jpg" alt=""><span class="qn">1</span></div><div class="qt"><span class="qk"><span class="nw">1-й</span>&nbsp;эфир</span><b>Записи <span class="nw">2-х</span> терапевтических&nbsp;сессий</b><p>«Соединение с&nbsp;деньгами через&nbsp;тень»</p><p>«Деньги, предназначение, проявленность,&nbsp;реализация»</p></div></div>
+  <div class="q r d4"><div class="qi"><img src="assets/gen/p2.jpg" alt="" style="object-position:38% 50%"><span class="qn">2</span></div><div class="qt"><span class="qk"><span class="nw">2-й</span>&nbsp;эфир</span><b>Вебинар «Деньги&nbsp;2.0»</b></div></div>
+  <div class="q r d5"><div class="qi"><img class="g3saba" src="assets/gen/b3-saba.jpg" alt="Михаил и Анна Саба"><span class="qn">3</span></div><div class="qt"><span class="qk"><span class="nw">3-й</span>&nbsp;эфир</span><b>Практика на&nbsp;соединение с&nbsp;нужной веткой&nbsp;реальности</b><p>Практику проведет Михаил&nbsp;Саба</p></div></div>
+  <div class="q r d6"><div class="qi"><img src="assets/gen/p4.jpg" alt="" style="object-position:80% 50%"><span class="qn">4</span></div><div class="qt"><span class="qk"><span class="nw">4-й</span>&nbsp;эфир · только&nbsp;VIP</span><b>Эфир «Магнит для&nbsp;масштаба»</b><p>Совместный эфир Анны и&nbsp;Михаила&nbsp;Саба</p></div></div>
 </div>
 <div class="foot"><span>Анна&nbsp;Саба · практикум «Новая реальность»</span><span>10</span></div>
 </section>
