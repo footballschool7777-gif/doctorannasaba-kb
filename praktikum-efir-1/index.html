@@ -1037,6 +1037,23 @@ section.slide.s-clients39 .c39-t { margin: 0 0 14px; font-size: 34px; line-heigh
 section.slide.s-clients39 .c39-t em { font-family: var(--fs); font-style: italic; font-weight: 600; color: var(--sun); }
 section.slide.s-clients39 .c39-p { margin: 0; font-size: 25px; line-height: 1.45; color: rgba(255,255,255,.88); text-wrap: pretty; }
 </style>
+<style id="s40-1199">
+section.slide.s-layer40 .st-wrap { max-width: 1200px; position: relative; z-index: 2; }
+section.slide.s-layer40 .l40-k { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-bottom: 30px; }
+section.slide.s-layer40 .l40-k .kicker { margin: 0; color: var(--sun); }
+section.slide.s-layer40 .l40-arr { color: var(--sun); font-size: 26px; line-height: 1; }
+section.slide.s-layer40 .st { font-family: var(--fs); font-style: italic; font-weight: 500; font-size: 78px; line-height: 1.12; color: #fff; margin-bottom: 40px; }
+section.slide.s-layer40 .st em { color: var(--sun); font-weight: 600; }
+section.slide.s-layer40 .l40-p { margin: 0; padding: 26px 32px; border-radius: 18px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); font-size: 27px; line-height: 1.45; color: rgba(255,255,255,.86); text-wrap: pretty; }
+section.slide.s-layer40 .l40-viz { position: absolute; right: 120px; top: 50%; transform: translateY(-50%); width: 420px; height: 560px; z-index: 1; }
+section.slide.s-layer40 .l40-viz span { position: absolute; left: 0; right: 0; height: 110px; border-radius: 50%; border: 2px solid rgba(255,255,255,.22); }
+section.slide.s-layer40 .l40-viz .l1 { top: 0; }
+section.slide.s-layer40 .l40-viz .l2 { top: 140px; border-color: rgba(255,255,255,.3); }
+section.slide.s-layer40 .l40-viz .l3 { top: 280px; border-color: rgba(255,255,255,.42); }
+section.slide.s-layer40 .l40-viz .l4 { top: 420px; border-color: var(--sun); background: rgba(240,200,80,.12); }
+section.slide.s-layer40 .l40-dot { position: absolute; left: 50%; top: 40px; width: 30px; height: 30px; margin-left: -15px; border-radius: 50%; background: var(--sun); box-shadow: 0 0 30px rgba(240,200,80,.7); animation: l40down 4s ease-in-out infinite; }
+@keyframes l40down { 0% { transform: translateY(0); opacity: 0; } 10% { opacity: 1; } 75% { transform: translateY(420px); opacity: 1; } 100% { transform: translateY(420px); opacity: 0; } }
+</style>
 </head>
 <body>
 <div class="deck-viewport">
@@ -1372,8 +1389,9 @@ section.slide.s-clients39 .c39-p { margin: 0; font-size: 25px; line-height: 1.45
 <div class="foot"><span>Анна&nbsp;Саба · практикум «Новая реальность»</span><span>39</span></div>
 </section>
 <!-- 39. why-earn -->
-<section class="slide t-statement x-quote">
-<div class="st-wrap"><div class="kicker r d1">Переходим на еще один слой ниже</div><div class="kicker r d1">Давайте разберем</div><h2 class="st r d2">Почему одни люди зарабатывают много, <em>а&nbsp;другие&nbsp;мало?</em></h2><p class="st-sub r d3">Это то&nbsp;касается любой профессии. Но мы разберем на&nbsp;примере психологии: эфир психотерапевтический, в конце будет практика, и&nbsp;вы&nbsp;все&nbsp;так&nbsp;или&nbsp;иначе с&nbsp;психологией знакомы, а кто-то из вас уже задумывается о том, чтобы стать психологом.</p></div>
+<section class="slide t-statement x-dark s-layer40">
+<div class="l40-viz" aria-hidden="true"><span class="l1"></span><span class="l2"></span><span class="l3"></span><span class="l4"></span><i class="l40-dot"></i></div>
+<div class="st-wrap"><div class="l40-k r d1"><span class="kicker">Переходим на еще один слой ниже</span><span class="l40-arr">↓</span><span class="kicker">Давайте разберем</span></div><h2 class="st r d2">Почему одни люди зарабатывают много, <em>а&nbsp;другие&nbsp;мало?</em></h2><p class="l40-p r d3">Это то&nbsp;касается любой профессии. Но мы разберем на&nbsp;примере психологии: эфир психотерапевтический, в конце будет практика, и&nbsp;вы&nbsp;все&nbsp;так&nbsp;или&nbsp;иначе с&nbsp;психологией знакомы, а кто-то из вас уже задумывается о том, чтобы стать психологом.</p></div>
 <div class="foot"><span>Анна&nbsp;Саба · практикум «Новая реальность»</span><span>40</span></div>
 </section>
 <!-- 40. formula -->
@@ -1381,8 +1399,7 @@ section.slide.s-clients39 .c39-p { margin: 0; font-size: 25px; line-height: 1.45
 
 <div class="fm"><div class="kicker r d1">Всё&nbsp;начинается с&nbsp;потребности&nbsp;человека</div>
 <h2 class="h2 r d2">Формула больших&nbsp;денег</h2>
-<div class="fm-card r d3"><p>Решите проблему человека за&nbsp;<em>максимально короткий срок</em>, чтобы&nbsp;он&nbsp;прилагал <em>меньше&nbsp;усилий</em></p></div>
-<p class="lead r d4">Вспомните свой опыт с&nbsp;психологами и&nbsp;перенесите эти смыслы на&nbsp;свою&nbsp;работу</p></div>
+<div class="fm-card r d3"><p>Решите проблему человека за&nbsp;<em>максимально короткий срок</em>, чтобы&nbsp;он&nbsp;прилагал <em>меньше&nbsp;усилий</em></p></div></div>
 <div class="foot"><span>Анна&nbsp;Саба · практикум «Новая реальность»</span><span>41</span></div>
 </section>
 <!-- 41. request -->
