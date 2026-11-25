@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="color-scheme" content="light">
+  <title>База Анны Саба · Регистрации на практикум</title>
+  <style>
+    :root {
+      --bg:#f4f1eb; --paper:#fffefb; --ink:#20231f; --muted:#6d7069;
+      --line:#ddd9cf; --soft:#eeebe3; --accent:#9f452f; --accent-soft:#f4e4de;
+      --green:#2d6c4e; --green-soft:#e3efe8; --amber:#96631f; --amber-soft:#f7ecd8;
+      --shadow:0 14px 36px rgba(37,34,27,.07); --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.48 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    button,select{font:inherit;color:inherit}
+    button{cursor:pointer}
+    a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+    .shell{width:min(1240px,100%);margin:auto;padding:24px max(16px,env(safe-area-inset-right)) 64px max(16px,env(safe-area-inset-left))}
+    .hero{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:26px 28px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(135deg,#fffefb 0%,#f7eee8 100%);box-shadow:var(--shadow)}
+    .eyebrow,.label{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+    h1{max-width:760px;margin:7px 0 9px;font:500 clamp(28px,4vw,48px)/1.08 Georgia,"Times New Roman",serif;letter-spacing:-.025em}
+    h2{margin:0 0 4px;font:500 25px/1.2 Georgia,"Times New Roman",serif}
+    h3{margin:0 0 5px;font-size:16px}
+    p{margin:0}
+    .sub,.muted{color:var(--muted)}
+    .meta{text-align:right;white-space:nowrap}
+    .badge{display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border-radius:999px;background:var(--green-soft);color:var(--green);font-size:12px;font-weight:800}
+    .badge:before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+    .meta .muted{display:block;margin-top:7px;font-size:12px}
+    .panel,.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .panel{margin-top:18px;padding:20px}
+    .panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:16px}
+    .date-list{display:flex;flex-wrap:wrap;gap:8px}
+    .date-btn,.ghost,.mode-btn{border:1px solid var(--line);background:#fff;border-radius:12px;padding:9px 12px;font-weight:700}
+    .date-btn[aria-pressed="true"],.mode-btn[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
+    .date-btn small{display:block;font-weight:500;opacity:.72}
+    .ghost:hover,.date-btn:hover,.mode-btn:hover{border-color:#9c978c}
+    .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .ghost{padding:7px 11px;font-size:13px;background:var(--soft)}
+    .mode-row{display:flex;flex-wrap:wrap;gap:8px}
+    .mode-btn{padding:7px 11px;font-size:13px}
+    .filters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+    .field label{display:block;margin:0 0 5px;color:var(--muted);font-size:12px;font-weight:700}
+    select{width:100%;min-height:42px;border:1px solid var(--line);border-radius:11px;background:#fff;padding:8px 36px 8px 10px}
+    .kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:18px}
+    .kpi{padding:16px 17px}
+    .kpi .value{margin:5px 0 2px;font:500 clamp(23px,3vw,34px)/1.05 Georgia,"Times New Roman",serif;font-variant-numeric:tabular-nums}
+    .kpi .note{min-height:34px;color:var(--muted);font-size:12px}
+    .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin-top:18px}
+    .card{padding:20px;min-width:0}
+    .section-head{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;margin-bottom:14px}
+    .section-head .muted{font-size:13px}
+    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:13px}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    th{position:sticky;top:0;z-index:1;background:#f4f1eb;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em;text-align:left}
+    th,td{padding:11px 12px;border-bottom:1px solid var(--soft);vertical-align:top;white-space:nowrap}
+    tr:last-child td{border-bottom:0}
+    th.num,td.num{text-align:right;font-variant-numeric:tabular-nums}
+    .source-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .source{display:flex;justify-content:space-between;gap:12px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+    .source b:last-child{font-variant-numeric:tabular-nums}
+    .source small{display:block;color:var(--muted)}
+    .campaigns{display:grid;gap:12px}
+    .campaign{padding:15px;border:1px solid var(--line);border-radius:14px;background:#fff}
+    .campaign-top{display:flex;justify-content:space-between;gap:12px}
+    .campaign-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .campaign-links a{display:inline-block;padding:6px 9px;border-radius:10px;background:var(--accent-soft);font-size:12px;font-weight:700}
+    .proof{margin-top:7px;color:var(--muted);font-size:12px}
+    .callout{border:1px solid #ead4c9;background:#fbf2ed;border-radius:15px;padding:16px}
+    .callout.green{border-color:#cadecf;background:#eff6f1}
+    .funnel{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+    .step{position:relative;padding:12px;border-radius:12px;background:#fff;border:1px solid var(--line)}
+    .step:not(:last-child):after{content:"→";position:absolute;right:-9px;top:50%;transform:translateY(-50%);z-index:2;color:var(--muted);font-weight:800}
+    .step b{display:block;margin-bottom:3px}
+    .step span{color:var(--muted);font-size:12px}
+    .empty,.error{padding:30px 18px;text-align:center;border:1px dashed var(--line);border-radius:14px;color:var(--muted)}
+    .error{border-color:#d8aea3;background:#fbefeb;color:#7f3525}
+    .loading{min-height:340px;display:grid;place-items:center}
+    .spinner{width:28px;height:28px;border:3px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 10px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .hidden{display:none!important}
+    .footer{margin-top:18px;color:var(--muted);font-size:12px;text-align:center}
+    @media(max-width:1000px){.kpis{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:1fr}.filters{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:680px){.shell{padding-top:10px}.hero{padding:20px;align-items:flex-start;flex-direction:column}.meta{text-align:left}.panel{padding:16px}.panel-head{display:block}.mode-row{margin-top:12px}.filters{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.kpi{padding:14px}.source-grid{grid-template-columns:1fr}.funnel{grid-template-columns:1fr 1fr}.step:nth-child(2):after{display:none}th,td{padding:10px}.campaign-top{display:block}.campaign-top b{display:block;margin-top:6px}}
+  details summary{cursor:pointer;color:#75512d;font-weight:650;margin:.45em 0} .campaign-detail .campaign-links{max-height:18rem;overflow:auto} .field select{max-width:100%}</style>
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <div class="eyebrow">База Анны Саба</div>
+        <h1>Регистрации на практикум «Новая реальность»</h1>
+        <p class="sub">Уникальные участники, заказы и источники до регистрации — без персональных данных.</p>
+      </div>
+      <div class="meta"><span class="badge">Агрегированные данные</span><span class="muted" id="asof">Загрузка…</span></div>
+    </header>
+
+    <div id="loading" class="panel loading"><div><div class="spinner"></div><b>Загружаю срез</b><p class="muted">Читаю data.json рядом со страницей</p></div></div>
+    <div id="fatal" class="panel error hidden"></div>
+
+    <div id="app" class="hidden">
+      <section class="panel" aria-labelledby="filters-title">
+        <div class="panel-head">
+          <div><h2 id="filters-title">Период и атрибуция</h2><p class="muted">Каждая дата включается отдельно. Фильтры применяются к уже дедуплицированным участникам окна.</p></div>
+          <div class="mode-row" id="modeRow" aria-label="Тип UTM"></div>
+        </div>
+        <div class="date-list" id="dateList"></div>
+        <div class="actions"><button class="ghost" id="allDates">12–15 ноября · все четыре дня</button><button class="ghost" id="defaultDates">12, 14 и 15 ноября</button><button class="ghost" id="clearFilters">Сбросить фильтры</button></div>
+        <div class="filters" id="filters"></div>
+      </section>
+
+      <section class="kpis" id="kpis" aria-label="Итоговые показатели"></section>
+
+      <div id="emptyWindow" class="panel empty hidden"></div>
+      <div id="results">
+        <section class="grid">
+          <article class="card">
+            <div class="section-head"><div><h2>По дням</h2><p class="muted">Дневной итог дедуплицирован отдельно; «впервые в окне» считается по полному выбранному периоду.</p></div></div>
+            <div class="table-wrap"><table><thead><tr><th>Дата</th><th class="num">Заказы</th><th class="num">Люди</th><th class="num">Новые</th><th class="num">Впервые в окне</th></tr></thead><tbody id="dailyRows"></tbody></table></div>
+          </article>
+          <article class="card">
+            <div class="section-head"><div><h2>Площадки заказа</h2><p class="muted">Telegram-каналы, боты, MAX и e-mail остаются отдельными там, где они размечены.</p></div></div>
+            <div class="source-grid" id="channels"></div>
+          </article>
+        </section>
+
+        <section class="card" style="margin-top:18px">
+          <div class="section-head"><div><h2>UTM-разрез</h2><p class="muted" id="utmCaption"></p></div></div>
+          <div class="table-wrap"><table><thead><tr><th>source</th><th>medium</th><th>campaign</th><th>content</th><th>term</th><th>group</th><th class="num">Люди</th><th class="num">Заказы</th><th class="num">Новые</th></tr></thead><tbody id="utmRows"></tbody></table></div>
+        </section>
+
+        <section class="grid">
+          <article class="card">
+            <div class="section-head"><div><h2>Связь с Reels</h2><p class="muted">Ссылки ведут на опубликованные ролики, привязанные к воронке с этой UTM. Общая ссылка на регистрацию не различает ролики. В списке показаны проверенные текущие привязки в школе и институте. Ролики могли выйти раньше выбранных дат. Для annasaba_psy ChatPlace не вернул медиатеку. Одна привязка не равна одной регистрации с ролика.</p></div></div>
+            <div class="campaigns" id="campaigns"></div>
+          </article>
+          <article class="card">
+            <div class="section-head"><div><h2>Что масштабировать</h2><p class="muted">Рекомендация строится только по регистрациям текущего среза.</p></div></div>
+            <div class="callout green" id="recommendation"></div>
+            <div class="funnel">
+              <div class="step"><b>Просмотры</b><span>Увидели публикацию</span></div>
+              <div class="step"><b>Переходы</b><span>Нажали ссылку</span></div>
+              <div class="step"><b>Регистрации</b><span>Оформили бесплатный заказ</span></div>
+              <div class="step"><b>Оплаты</b><span>Отдельная метрика продаж</span></div>
+            </div>
+            <p class="proof">Эти этапы нельзя подменять друг другом: много просмотров не доказывает переходы, регистрация на бесплатный оффер не является оплатой.</p>
+          </article>
+        </section>
+
+        <section class="card hidden" id="quizCard" style="margin-top:18px">
+          <div class="section-head"><div><h2>Тест «Код денег»</h2><p class="muted">Отдельные этапы сайта и ChatPlace. Фильтр дат применяется, UTM-фильтры заказов GetCourse не меняют показатели теста.</p></div></div>
+          <div id="quiz"></div>
+        </section>
+      </div>
+      <p class="footer" id="snapshot"></p>
+    </div>
+  </main>
+
+  <script>
+  (() => {
+    'use strict';
+    const FIELDS = ['source','medium','campaign','content','term','group'];
+    const MODES = {u:'UTM заказа',g:'Системные UTM',p:'Первое касание'};
+    const state = {data:null, selected:[], mode:'u', filters:Object.fromEntries(FIELDS.map(x=>[x,'']))};
+    const $ = id => document.getElementById(id);
+    const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const fmt = value => Number(value || 0).toLocaleString('ru-RU');
+    const pct = (part,total) => total ? (100*part/total).toFixed(1).replace('.',',')+'%' : '0%';
+    const dateLabel = iso => new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'short'}).format(new Date(iso+'T12:00:00'));
+    const key = dates => [...dates].sort().join(',');
+    const arr = (row, mode=state.mode) => Array.isArray(row[mode]) ? [...row[mode],...Array(6).fill('')].slice(0,6) : Array(6).fill('');
+    const selectedRows = () => state.data.windows[key(state.selected)] || null;
+    const filteredRows = rows => (rows || []).filter(row => (!state.channel || row.channel===state.channel) && arr(row).every((v,i) => !state.filters[FIELDS[i]] || (state.filters[FIELDS[i]]==='__empty__' ? !v : String(v||'')===state.filters[FIELDS[i]])));
+    const sums = rows => (rows || []).reduce((a,r)=>({people:a.people+(+r.n||0),orders:a.orders+(+r.orders||0),fresh:a.fresh+(+r.new||0)}),{people:0,orders:0,fresh:0});
+    const isInstagram = row => String(row.channel||'').toLocaleLowerCase('ru-RU').includes('instagram');
+    const exact = row => state.data.exactReels && state.data.exactReels[JSON.stringify(arr(row,'u'))];
+
+    function validate(d){
+      if(!d || !Array.isArray(d.dates) || !d.windows || typeof d.windows!=='object') throw new Error('В data.json нет обязательных полей dates или windows.');
+      if(!d.dates.length) throw new Error('В data.json не указаны даты среза.');
+      d.dates.forEach(x=>{ if(!/^\d{4}-\d{2}-\d{2}$/.test(x)) throw new Error('Некорректная дата в data.json: '+x); });
+    }
+    function init(d){
+      validate(d); state.data=d;
+      state.selected=(Array.isArray(d.defaultDays)&&d.defaultDays.length?d.defaultDays:d.dates).filter(x=>d.dates.includes(x));
+      if(!state.selected.length) state.selected=[d.dates[d.dates.length-1]];
+      $('asof').textContent='Срез: '+(d.asof||'время не указано');
+      $('snapshot').textContent=['Выгрузка GetCourse: '+(d.snapshot||'не указан'),d.first_stored?'Начало проверки новых участников: '+d.first_stored:''].filter(Boolean).join(' · ');
+      renderControls(); render();
+      $('loading').classList.add('hidden'); $('app').classList.remove('hidden');
+    }
+    function renderControls(){
+      $('dateList').innerHTML=state.data.dates.map(d=>`<button class="date-btn" data-date="${esc(d)}" aria-pressed="${state.selected.includes(d)}"><span>${esc(dateLabel(d))}</span><small>${esc(d)}</small></button>`).join('');
+      $('modeRow').innerHTML=Object.entries(MODES).map(([k,v])=>`<button class="mode-btn" data-mode="${k}" aria-pressed="${state.mode===k}">${esc(v)}</button>`).join('');
+      $('dateList').onclick=e=>{const b=e.target.closest('[data-date]');if(!b)return;const d=b.dataset.date;state.selected=state.selected.includes(d)?state.selected.filter(x=>x!==d):[...state.selected,d].sort();renderControls();render();};
+      $('modeRow').onclick=e=>{const b=e.target.closest('[data-mode]');if(!b)return;state.mode=b.dataset.mode;state.filters=Object.fromEntries(FIELDS.map(x=>[x,'']));renderControls();render();};
+    }
+    function renderFilters(rows){
+      const channels=[...new Set((rows||[]).map(r=>r.channel))].sort((a,b)=>a.localeCompare(b,'ru'));
+      if(state.channel && !channels.includes(state.channel))state.channel='';
+      const channelSelect='<div class="field"><label for="f-channel">Площадка</label><select id="f-channel"><option value="">Все площадки</option>'+channels.map(v=>'<option value="'+esc(v)+'"'+(v===state.channel?' selected':'')+'>'+esc(v)+'</option>').join('')+'</select></div>';
+      $('filters').innerHTML=channelSelect+FIELDS.map((field,i)=>{
+        const values=[...new Set((rows||[]).map(r=>String(arr(r)[i]||'')).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ru'));
+        if(state.filters[field] && state.filters[field]!=='__empty__' && !values.includes(state.filters[field]))state.filters[field]='';
+        return `<div class="field"><label for="f-${field}">${field}</label><select id="f-${field}" data-field="${field}"><option value="">Все значения</option><option value="__empty__"${state.filters[field]==="__empty__"?" selected":""}>Без метки</option>${values.map(v=>`<option value="${esc(v)}"${state.filters[field]===v?' selected':''}>${esc(v)}</option>`).join('')}</select></div>`;
+      }).join('');
+      $('filters').onchange=e=>{if(e.target.id==='f-channel'){state.channel=e.target.value;render();return;}if(!e.target.dataset.field)return;state.filters[e.target.dataset.field]=e.target.value;render();};
+    }
+    function render(){
+      const rows=selectedRows();
+      renderFilters(rows||[]);
+      document.querySelectorAll('[data-date]').forEach(b=>b.setAttribute('aria-pressed',state.selected.includes(b.dataset.date)));
+      if(!state.selected.length){showEmpty('Выберите хотя бы один день.');return;}
+      if(!rows){showEmpty('Для сочетания '+key(state.selected)+' в data.json нет готового дедуплицированного окна.');return;}
+      const visible=filteredRows(rows); hideEmpty();
+      renderKpis(visible); renderDaily(visible); renderChannels(visible); renderUtm(visible); renderCampaigns(visible); renderRecommendation(visible); renderQuiz();
+    }
+    function showEmpty(text){$('emptyWindow').textContent=text;$('emptyWindow').classList.remove('hidden');$('results').classList.add('hidden');$('kpis').innerHTML='';}
+    function hideEmpty(){$('emptyWindow').classList.add('hidden');$('results').classList.remove('hidden');}
+    function renderKpis(rows){
+      const t=sums(rows), returning=Math.max(0,t.people-t.fresh), extra=Math.max(0,t.orders-t.people);
+      const instaRows=rows.filter(isInstagram), insta=sums(instaRows).people;
+      const unknown=sums(instaRows.filter(r=>!exact(r))).people;
+      const cards=[
+        ['Заказы',fmt(t.orders),extra?fmt(extra)+' сверх уникальных участников':'без повторных заказов'],
+        ['Люди',fmt(t.people),'уникальные в выбранном окне'],
+        ['Впервые',fmt(t.fresh),pct(t.fresh,t.people)+' всех участников'],
+        ['Повторные',fmt(returning),'участники, уже бывшие в базе'],
+        ['Доля Instagram',pct(insta,t.people),fmt(insta)+' регистраций'],
+        ['Без точного Reels',fmt(unknown),pct(unknown,insta)+' Instagram-регистраций'],
+        ['Неизвестная кампания',fmt(rows.filter(r=>!arr(r,'u')[2]).reduce((a,r)=>a+r.n,0)),'без utm_campaign заказа'],
+        ['Без точной площадки',fmt(rows.filter(r=>/не указан|не установ|^op$/.test(r.channel)).reduce((a,r)=>a+r.n,0)),'прямые и неразмеченные маршруты']
+      ];
+      $('kpis').innerHTML=cards.map(c=>`<article class="card kpi"><div class="label">${esc(c[0])}</div><div class="value">${esc(c[1])}</div><div class="note">${esc(c[2])}</div></article>`).join('');
+    }
+    function renderDaily(fullRows){
+      $('dailyRows').innerHTML=state.selected.map(d=>{
+        const daily=filteredRows(state.data.windows[d]||[]), dt=sums(daily), first=sums(fullRows.filter(r=>r.d===d)).people;
+        return `<tr><td><b>${esc(dateLabel(d))}</b><br><span class="muted">${esc(d)}</span></td><td class="num">${fmt(dt.orders)}</td><td class="num">${fmt(dt.people)}</td><td class="num">${fmt(dt.fresh)}</td><td class="num"><b>${fmt(first)}</b></td></tr>`;
+      }).join('');
+    }
+    function renderChannels(rows){
+      const map=new Map(); rows.forEach(r=>{const k=String(r.channel||'Не размечено').trim()||'Не размечено';const v=map.get(k)||{people:0,orders:0};v.people+=+r.n||0;v.orders+=+r.orders||0;map.set(k,v);});
+      const items=[...map].sort((a,b)=>b[1].people-a[1].people);
+      $('channels').innerHTML=items.length?items.map(([name,v])=>`<div class="source"><div><b>${esc(name)}</b><small>${fmt(v.orders)} заказов</small></div><b>${fmt(v.people)}</b></div>`).join(''):'<div class="empty">Нет строк после фильтрации.</div>';
+    }
+    function renderUtm(rows){
+      const map=new Map(); rows.forEach(r=>{const a=arr(r),k=JSON.stringify(a),v=map.get(k)||{a,people:0,orders:0,fresh:0};v.people+=+r.n||0;v.orders+=+r.orders||0;v.fresh+=+r.new||0;map.set(k,v);});
+      const items=[...map.values()].sort((a,b)=>b.people-a.people);
+      $('utmCaption').textContent=MODES[state.mode]+'. Пустая ячейка означает, что метки нет. Персональные и непроверенные пользовательские метки объединены в «иная_метка».';
+      $('utmRows').innerHTML=items.length?items.map(v=>`<tr>${v.a.map(x=>`<td>${x?esc(x):'<span class="muted">—</span>'}</td>`).join('')}<td class="num"><b>${fmt(v.people)}</b></td><td class="num">${fmt(v.orders)}</td><td class="num">${fmt(v.fresh)}</td></tr>`).join(''):'<tr><td colspan="9" class="muted">Нет строк после фильтрации.</td></tr>';
+    }
+    function renderCampaigns(rows){
+      const exactRows=rows.filter(r=>exact(r)), exactPeople=sums(exactRows).people;
+      const cm=new Map(); rows.forEach(r=>{const c=String(arr(r,'u')[2]||'').trim();if(c){const v=cm.get(c)||0;cm.set(c,v+(+r.n||0));}});
+      const blocks=[];
+      if(exactPeople) blocks.push(`<div class="campaign"><div class="campaign-top"><h3>Точно доказанные Reels</h3><b>${fmt(exactPeople)} регистраций</b></div><div class="campaign-links">${exactRows.map(r=>{const x=exact(r);return `<a href="${esc(x.url)}" target="_blank" rel="noopener">Открыть Reels</a>`;}).join('')}</div><p class="proof">Индивидуальная ссылка совпала по полной цепочке UTM.</p></div>`);
+      [...cm].sort((a,b)=>b[1]-a[1]).forEach(([campaign,count])=>{
+        const links=(state.data.campaignLinks&&state.data.campaignLinks[campaign])||[];
+        if(!links.length)return;
+        blocks.push(`<div class="campaign"><div class="campaign-top"><div><h3>${esc(campaign)}</h3><p class="muted">Общая кампания по кодовому слову</p></div><b>${fmt(count)} регистраций</b></div><div class="campaign-detail"><details><summary>Показать ссылки на Reels · ${links.length}</summary><div class="campaign-links">${links.map((x,i)=>`<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.account||'Reels')} · ${esc(x.url.split('/').filter(Boolean).at(-1))}</a>`).join('')}</div></details></div><p class="proof">${esc([...new Set(links.map(x=>x.proof).filter(Boolean))].join(' ')||'Связь кандидатная: делить регистрации между этими роликами нельзя.')}</p></div>`);
+      });
+      $('campaigns').innerHTML=blocks.length?blocks.join(''):'<div class="empty">Для выбранного среза нет доказанной или кандидатной связи с Reels.</div>';
+    }
+    function renderRecommendation(rows){
+      const t=sums(rows); if(!t.people){$('recommendation').innerHTML='<b>Нет данных для рекомендации.</b><p class="proof">Измените фильтры или период.</p>';return;}
+      const channels=new Map();rows.forEach(r=>{const k=r.channel||'Не размечено';channels.set(k,(channels.get(k)||0)+(+r.n||0));});
+      const lead=[...channels].sort((a,b)=>b[1]-a[1])[0];
+      const campaigns=new Map();rows.forEach(r=>{const c=arr(r,'u')[2];if(c)campaigns.set(c,(campaigns.get(c)||0)+(+r.n||0));});
+      const top=[...campaigns].sort((a,b)=>b[1]-a[1])[0];
+      const newShare=pct(t.fresh,t.people);
+      let text=`Сначала масштабировать площадку «${lead[0]}»: ${fmt(lead[1])} регистраций (${pct(lead[1],t.people)} окна), доля впервые пришедших во всём срезе — ${newShare}.`;
+      if(top) text+=` Внутри размеченных заказов лидирует кампания «${top[0]}» — ${fmt(top[1])} регистраций.`;
+      text+=' Следующую серию стоит проверить на этой механике: каждому ролику назначить отдельную utm_content и сравнить регистрации по роликам. Без данных о расходах и оплатах вывод об окупаемости сделать нельзя.';
+      const tagged=rows.filter(r=>arr(r,'u')[2]);const missing=t.people-sums(tagged).people;
+      const hypothesis=top ? 'Гипотеза 1. Повторить две публикации с механикой '+top[0]+', дать каждому ролику отдельную utm_content и сравнить уникальные регистрации за одинаковые 48 часов.' : 'Гипотеза 1. Присвоить тестовым публикациям отдельные utm_content и сравнить уникальные регистрации за одинаковые 48 часов.';
+      const hypothesis2='Гипотеза 2. Повторить одно приглашение на площадке «'+lead[0]+'» с отдельной меткой. Оценивать регистрации на 100 зафиксированных переходов. В этой выгрузке знаменатель по переходам отсутствует.';
+      $('recommendation').innerHTML=`<b>${esc(text)}</b><p>${esc(hypothesis)}</p><p>${esc(hypothesis2)}</p><small>Заказы без метки кампании в этом срезе: ${fmt(missing)}.</small>`;
+    }
+    function renderQuiz(){
+      const q=state.data.quiz,card=$('quizCard');
+      if(!q){card.classList.add('hidden');return;}
+      card.classList.remove('hidden');
+      const showingAll=key(state.selected)===key(state.data.dates);
+      const rows=(q.rows||[]).filter(r=>r.date==='period' ? showingAll : state.selected.includes(r.date));
+      const cols=q.columns||[];
+      $('quiz').innerHTML=(q.note?'<p class="proof">'+esc(q.note)+'</p>':'')+
+        (rows.length ? '<div class="table-wrap"><table><thead><tr>'+cols.map(c=>'<th>'+esc(c)+'</th>').join('')+'</tr></thead><tbody>'+
+        rows.map(r=>'<tr>'+cols.map(c=>'<td>'+esc(r[c]??'—')+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>':'<p class="muted">Для выбранных дат нет отдельного измерения. Агрегат за четыре дня виден в режиме «12–15 ноября».</p>');
+      if(showingAll && q.reels?.length){
+        const items=q.reels.map(r=>'<tr><td><a href="'+esc(r.url)+'" target="_blank" rel="noopener">'+esc(r.brand+' · '+r.url.split('/').filter(Boolean).at(-1))+'</a></td><td>'+esc(r.basis)+'</td><td>'+esc(r.views??'—')+'</td><td>'+esc(r.comments??'—')+'</td></tr>').join('');
+        $('quiz').innerHTML+='<details><summary>Публичные Reels теста · '+q.reels.length+'</summary><div class="table-wrap"><table><thead><tr><th>Reels</th><th>Источник связи</th><th>Просмотры</th><th>Комментарии</th></tr></thead><tbody>'+items+'</tbody></table></div></details>';
+      }
+    }
+    $('allDates').onclick=()=>{state.selected=[...state.data.dates];renderControls();render();};
+    $('defaultDates').onclick=()=>{state.selected=state.data.dates.filter(day=>day!=='2026-11-13');renderControls();render();};
+    $('clearFilters').onclick=()=>{state.channel='';state.filters=Object.fromEntries(FIELDS.map(x=>[x,'']));render();};
+    fetch('./data.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('data.json вернул HTTP '+r.status);return r.json();}).then(init).catch(err=>{
+      $('loading').classList.add('hidden');$('fatal').classList.remove('hidden');$('fatal').innerHTML=`<b>Не удалось открыть данные.</b><p style="margin-top:7px">${esc(err.message)}</p><p class="muted" style="margin-top:7px">Проверьте, что корректный data.json лежит рядом с index.html и страница открыта через веб-сервер.</p>`;
+    });
+  })();
+  </script>
+</body>
+</html>

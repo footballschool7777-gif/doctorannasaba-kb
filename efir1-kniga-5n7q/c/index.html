@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Эфир 1. Как за 4 дня выйти из угнетающих чувств · C. Контраст</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+:root{
+--ft:'Unbounded','Manrope',system-ui,sans-serif; --fb:'Manrope',system-ui,sans-serif;
+--hl:#e0a21a;
+
+--bg:#e9e1d1;--bg2:#ddd2bd;--card:#fffefa;--card2:#f4ecda;--ink:#14100a;--muted:#4a4032;--gold:#d6a24a;--gold2:#b9832e;--goldt:#7a4a0c;--frame:#14100a;--line:rgba(20,16,10,.28);
+--sbg:#fffefa;--sink:#14100a;--smuted:#4a4032;--sacc:#d6a24a;--saccT:#7a4a0c;--saccsoft:rgba(214,162,74,.35);--scard:#f4ecda;--sline:rgba(20,16,10,.3);
+--srad:6px;--sborder:3px solid #14100a;--sshadow:10px 10px 0 rgba(20,16,10,.88);
+--sdeco:linear-gradient(90deg,#d6a24a 0,#d6a24a 100%) top/100% 1.4cqh no-repeat;
+--crad:.5cqw;--cborder:2px solid #14100a;--cshadow:.5cqw .5cqw 0 rgba(20,16,10,.85);--hw:700;--qw:700;--showbg:#14100a;
+
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fb);-webkit-text-size-adjust:100%}
+button{font:inherit;color:inherit;cursor:pointer}
+/* ---------- chrome ---------- */
+.bar{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 20px;background:var(--bg);border-bottom:1px solid var(--line)}
+.brand{min-width:0}
+.brand b{display:block;font:600 15px/1.2 var(--ft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand span{display:block;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btns{display:flex;gap:8px;flex:none}
+.btn{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 14px;font-weight:700;font-size:14px;line-height:1.2}
+.btn:hover{border-color:var(--gold2)}
+.btn.on{background:var(--gold);color:#23190d;border-color:var(--gold2)}
+.btn kbd{font:600 11px var(--fb);opacity:.55;margin-left:4px}
+.only-m{display:none}
+.editbar{display:none;position:sticky;top:57px;z-index:29;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 20px;background:var(--bg2);border-bottom:1px solid var(--line)}
+body.edit .editbar{display:flex}
+.editbar .st{margin-left:auto;font-size:12px;color:var(--muted)}
+.editbar .btn{padding:6px 11px;font-size:13px}
+.editbar .danger{color:#a3281c}
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;max-width:1380px;margin:0 auto;padding:24px 20px 80px}
+#toc{position:sticky;top:76px;align-self:start;max-height:calc(100vh - 96px);overflow:auto;padding-right:6px;font-size:13px}
+body.edit #toc{top:124px;max-height:calc(100vh - 144px)}
+#toc .tb{font:600 11px var(--ft);letter-spacing:.06em;text-transform:uppercase;color:var(--goldt);margin:16px 0 6px}
+#toc .tb:first-child{margin-top:0}
+#toc a{display:flex;gap:8px;padding:6px 8px;border-radius:8px;color:var(--ink);text-decoration:none;line-height:1.3}
+#toc a span{flex:none;width:22px;color:var(--muted);font-weight:700}
+#toc a:hover{background:var(--bg2)}
+#toc a.act{background:var(--bg2);box-shadow:inset 3px 0 0 var(--gold2)}
+#app{display:flex;flex-direction:column;gap:44px;min-width:0;max-width:1060px;width:100%}
+.page{scroll-margin-top:130px}
+.cap{display:flex;align-items:center;gap:12px;margin:12px 4px 0;font-size:13px;color:var(--muted)}
+.cap .num{font:600 13px var(--ft);color:var(--goldt)}
+.cap .blk{font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:12px}
+.cap .kind{margin-left:auto;display:none;align-items:center;gap:8px}
+body.edit .cap .kind{display:flex}
+.cap select{font:600 12px var(--fb);padding:4px 6px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.cap .btn{padding:4px 9px;font-size:12px}
+.notes{margin:8px 4px 0;padding:14px 16px;background:var(--card2);border:1px solid var(--line);border-radius:12px;color:var(--ink);font-size:15px;line-height:1.55}
+.notes label{display:block;font:600 11px var(--ft);letter-spacing:.06em;text-transform:uppercase;color:var(--goldt);margin-bottom:6px}
+.notes .nt{white-space:pre-wrap;text-wrap:pretty}
+/* ---------- slide ---------- */
+.sl{--u:1;--fs:1;position:relative;container-type:size;width:100%;aspect-ratio:16/9;overflow:hidden;
+ background:var(--sbg);color:var(--sink);border-radius:var(--srad);border:var(--sborder);box-shadow:var(--sshadow);font-family:var(--fb)}
+.sl::before{content:"";position:absolute;inset:0;background:var(--sdeco);pointer-events:none}
+.inner{position:absolute;inset:0;padding:5.5cqh 6.2cqw;display:flex;flex-direction:column}
+.c{flex:1 1 auto;min-height:0;min-width:0;display:flex;flex-direction:column;overflow:hidden;position:relative}
+.t{min-width:0;margin-block:auto;width:100%}
+.sl [data-f]{white-space:pre-wrap;overflow-wrap:normal;min-width:0;text-wrap:pretty}
+.sl [data-f]:empty{display:none}
+.h1,.h2{font-family:var(--ft);font-weight:var(--hw);line-height:1.12;letter-spacing:-.01em;text-wrap:balance;margin:0}
+.h1{font-size:calc(var(--u)*5.4cqw*var(--fs))}
+.h2{font-size:calc(var(--u)*3.9cqw*var(--fs))}
+.tx3{font-size:calc(var(--u)*2.6cqw*var(--fs));line-height:1.28;font-weight:700;text-wrap:pretty}
+.tx4{font-size:calc(var(--u)*2.15cqw*var(--fs));line-height:1.42;font-weight:500;color:var(--smuted);text-wrap:pretty}
+.tx5{font-size:calc(var(--u)*1.55cqw*var(--fs));line-height:1.4;font-weight:600}
+.tx6{font-size:calc(var(--u)*1.15cqw);line-height:1.3;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--saccT)}
+.h1+.tx4,.h2+.tx4{margin-top:calc(var(--u)*1.8cqw)}
+.rule{width:calc(var(--u)*9cqw);height:calc(var(--u)*.6cqw);background:var(--sacc);border-radius:9px;margin-bottom:calc(var(--u)*2.4cqw)}
+/* title */
+.k-title .c,.k-image-split .c{flex-direction:row;gap:5cqw;align-items:stretch}
+.k-title .t{flex:1 1 56%}
+.k-title .tx6{margin-bottom:calc(var(--u)*2cqw)}
+.ph{flex:0 0 38%;border-radius:var(--crad);overflow:hidden;background:var(--scard);position:relative}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+.k-image-split .c{flex-direction:row-reverse}
+.k-image-split .ph{flex:0 0 44%}
+.k-image-split .t{flex:1 1 50%}
+/* section */
+.k-section .t{text-align:left}
+.k-section .h1{font-size:calc(var(--u)*6cqw*var(--fs))}
+.k-section .tx4{letter-spacing:.06em;font-weight:700;color:var(--saccT);font-size:calc(var(--u)*2.3cqw*var(--fs))}
+/* statement */
+.k-statement .t{border-left:calc(var(--u)*.9cqw) solid var(--sacc);padding-left:calc(var(--u)*3.2cqw)}
+.k-statement .h1{font-size:calc(var(--u)*5.6cqw*var(--fs))}
+/* list */
+.k-list .c{gap:calc(var(--u)*2cqw)}
+.k-list .t{display:flex;flex-direction:column;gap:calc(var(--u)*2cqw)}
+ul.its{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:calc(var(--u)*1.1cqw)}
+.it{display:flex;align-items:center;gap:calc(var(--u)*1.8cqw);background:var(--scard);border:var(--cborder);border-radius:var(--crad);padding:calc(var(--u)*1.3cqw) calc(var(--u)*2cqw)}
+.it .n{flex:none;display:grid;place-items:center;width:calc(var(--u)*4.4cqw);height:calc(var(--u)*4.4cqw);border-radius:50%;background:var(--sacc);color:#23190d;font:700 calc(var(--u)*1.8cqw)/1 var(--ft)}
+.it .tx{flex:1;min-width:0}
+.k-list .tx4:last-child{padding:calc(var(--u)*1.2cqw) calc(var(--u)*2cqw);border-left:calc(var(--u)*.6cqw) solid var(--sacc);margin:0;color:var(--sink);font-weight:700}
+/* cards */
+.k-cards .t{display:flex;flex-direction:column;gap:calc(var(--u)*2cqw)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:calc(var(--u)*1.5cqw)}
+.grid.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{position:relative;background:var(--scard);border:var(--cborder);border-radius:var(--crad);padding:calc(var(--u)*2cqw);display:flex;flex-direction:column;gap:calc(var(--u)*1.2cqw);box-shadow:var(--cshadow)}
+.card .n{font:700 calc(var(--u)*2.2cqw)/1 var(--ft);color:var(--saccT)}
+.card .n::after{content:"";display:block;width:calc(var(--u)*4cqw);height:calc(var(--u)*.45cqw);background:var(--sacc);border-radius:9px;margin-top:calc(var(--u)*1cqw)}
+/* quote */
+.k-quote .c{align-items:center;text-align:center}
+.k-quote .t{max-width:88%;width:auto;position:relative}
+.k-quote .t::before{content:"\201C";display:block;font:700 calc(var(--u)*16cqw)/.7 var(--ft);color:var(--sacc);height:calc(var(--u)*7cqw);overflow:visible}
+.k-quote .h1{font-size:calc(var(--u)*4.6cqw*var(--fs));font-weight:var(--qw)}
+.k-quote .tx4{border-top:1px solid var(--sline);padding-top:calc(var(--u)*1.8cqw);margin-top:calc(var(--u)*2.4cqw)}
+/* question */
+.k-question .c{flex-direction:row;align-items:center;gap:5cqw}
+.qm{flex:0 0 calc(var(--u)*17cqw);aspect-ratio:1;border-radius:50%;background:var(--sacc);color:#23190d;display:grid;place-items:center;font:700 calc(var(--u)*11cqw)/1 var(--ft);align-self:center;box-shadow:0 0 0 calc(var(--u)*1.2cqw) var(--saccsoft)}
+.k-question .t{flex:1}
+.k-question .h1{font-size:calc(var(--u)*5cqw*var(--fs))}
+/* refrain */
+.k-refrain .inner{padding:4cqh 4.6cqw}
+.k-refrain .c{border:calc(var(--u)*.35cqw) solid var(--sacc);border-radius:var(--crad);padding:calc(var(--u)*3cqw) calc(var(--u)*4cqw);align-items:center;text-align:center;position:relative}
+.k-refrain .c::before{content:"";position:absolute;inset:calc(var(--u)*1cqw);border:1px solid var(--sline);border-radius:calc(var(--crad) * .6);pointer-events:none}
+.k-refrain .t{width:100%;text-align:center}
+.k-refrain .t::before,.k-refrain .t::after{content:"\25C6  \25C6  \25C6";display:block;color:var(--sacc);letter-spacing:.3em;font-size:calc(var(--u)*1.4cqw);margin:calc(var(--u)*1.2cqw) 0}
+.k-refrain .h1{font-size:calc(var(--u)*5cqw*var(--fs));color:var(--saccT)}
+.k-refrain .tx4{color:var(--sink)}
+/* formula */
+.k-formula .t{display:flex;flex-direction:column;gap:calc(var(--u)*3.2cqw)}
+.fm{display:flex;flex-wrap:wrap;align-items:center;gap:calc(var(--u)*1.4cqw)}
+.pill{background:var(--scard);border:var(--cborder);border-radius:var(--crad);padding:calc(var(--u)*1.6cqw) calc(var(--u)*2.2cqw);font-size:calc(var(--u)*2.6cqw*var(--fs));font-weight:700;line-height:1.25;text-wrap:balance;max-width:100%}
+.pill.res{background:var(--sacc);color:#23190d;border-color:transparent}
+.op{font:700 calc(var(--u)*4cqw)/1 var(--ft);color:var(--saccT)}
+.fm-edit{font-size:calc(var(--u)*2.6cqw*var(--fs));font-weight:700;line-height:1.3}
+body:not(.edit) .fm-edit{display:none!important}
+body.edit .fm-view{display:none}
+/* text rules */
+.sl .h1,.sl .h2{text-wrap:balance}
+/* edit highlight */
+body.edit [contenteditable]{outline:2px dashed var(--hl);outline-offset:3px;background:rgba(224,162,26,.15);border-radius:6px;cursor:text}
+body.edit [contenteditable]:focus{outline:2px solid var(--hl);background:rgba(224,162,26,.26)}
+body.edit .sl [data-f]:empty{display:block;min-height:1em;min-width:6cqw}
+body.edit [data-f]:empty::before{content:attr(data-ph);opacity:.55;font-style:italic;font-weight:500}
+.ix{display:none;flex:none;border:0;background:rgba(163,40,28,.14);color:#c0392b;border-radius:50%;width:calc(var(--u)*2.6cqw);height:calc(var(--u)*2.6cqw);font-size:calc(var(--u)*1.8cqw);line-height:1;padding:0}
+body.edit .ix{display:block}
+.card .ix{position:absolute;top:calc(var(--u)*1cqw);right:calc(var(--u)*1cqw)}
+/* toast */
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#23190d;color:#fff;padding:10px 16px;border-radius:10px;font-size:14px;opacity:0;pointer-events:none;transition:.25s;z-index:100}
+#toast.on{opacity:1;transform:translateX(-50%)}
+/* ---------- show mode ---------- */
+body.show{overflow:hidden;background:#000}
+body.show .bar,body.show .editbar,body.show #toc,body.show .cap,body.show .notes{display:none!important}
+body.show .layout{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:0;max-width:none;background:var(--showbg)}
+body.show #app{max-width:none;width:auto;display:block}
+body.show .page:not(.cur){display:none}
+body.show .page{width:min(100vw,calc(100vh*16/9))}
+body.show .sl{border-radius:0;border:0;box-shadow:none}
+body.show.fx .page.cur .c{animation:rise .55s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(2.2cqh)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){body.show.fx .page.cur .c{animation:none}}
+#hud{display:none;position:fixed;right:14px;bottom:10px;z-index:50;font:600 12px var(--fb);color:rgba(255,255,255,.55);pointer-events:none}
+body.show #hud{display:block}
+/* ---------- tablet / phone ---------- */
+@media (max-width:900px){
+ .layout{grid-template-columns:minmax(0,1fr);gap:0;padding:16px 14px 70px}
+ .only-m{display:inline-block}
+ #toc{display:none;position:fixed;top:57px;left:0;right:0;max-height:60vh;z-index:40;background:var(--bg);padding:12px 16px;border-bottom:1px solid var(--line);box-shadow:0 14px 30px rgba(0,0,0,.25)}
+ body.tocopen #toc{display:block}
+ body.edit #toc{top:57px;max-height:60vh}
+ .bar{padding:8px 12px}.editbar{padding:8px 12px;top:53px}
+ .btn kbd{display:none}
+ #app{gap:30px}
+}
+@media (max-width:700px){
+ body:not(.show) .sl{--u:2.15;aspect-ratio:4/5}
+ body:not(.show) .k-title .c,body:not(.show) .k-image-split .c{flex-direction:column}
+ body:not(.show) .k-title .ph,body:not(.show) .k-image-split .ph{flex:0 0 38%;order:-1}
+ body:not(.show) .ph img{object-position:50% 38%}
+ body:not(.show) .k-question .c{flex-direction:column;align-items:flex-start;justify-content:center;gap:4cqw}
+ body:not(.show) .qm{flex-basis:auto;width:16cqw}
+ body:not(.show) .grid,body:not(.show) .grid.g3{grid-template-columns:minmax(0,1fr)}
+ body:not(.show) .inner{padding:5cqw 6cqw}
+ .brand span{display:none}
+ .brand b{font-size:13px}
+ .btn{padding:7px 10px;font-size:13px}
+ .notes{font-size:14px}
+}
+
+.sl.k-section,.sl.k-refrain,.sl.k-question{--sbg:#14100a;--sink:#f7efe0;--smuted:#c8bca5;--sacc:#e8c27a;--saccT:#e8c27a;--saccsoft:rgba(232,194,122,.28);--scard:#241d12;--sline:rgba(232,194,122,.4);--cborder:2px solid #e8c27a;--cshadow:none;--sborder:3px solid #14100a;
+ --sdeco:linear-gradient(90deg,#e8c27a 0,#e8c27a 100%) top/100% 1.4cqh no-repeat}
+.sl.k-refrain .tx4{color:#f7efe0}
+.btn{border:2px solid var(--ink);border-radius:6px}
+.bar{border-bottom:3px solid var(--ink)}
+.page .notes{border:2px solid var(--ink);border-radius:6px}
+.k-statement .h1{text-transform:none}
+body.show .sl{border:0}
+
+</style>
+</head>
+<body>
+<header class="bar">
+ <div class="brand"><b id="dt"></b><span id="ds"></span></div>
+ <div class="btns">
+  <button class="btn only-m" id="bToc" type="button">Оглавление</button>
+  <button class="btn" id="bShow" type="button">Показ <kbd>F</kbd></button>
+  <button class="btn" id="bEdit" type="button">&#9998; Правка <kbd>E</kbd></button>
+ </div>
+</header>
+<div class="editbar" id="editbar">
+ <button class="btn" id="bAdd" type="button">+ Слайд после текущего</button>
+ <button class="btn danger" id="bDel" type="button">Удалить слайд</button>
+ <button class="btn" id="bDl" type="button">Скачать файл с правками</button>
+ <button class="btn" id="bCopy" type="button">Скопировать правки</button>
+ <button class="btn danger" id="bReset" type="button">Сбросить правки</button>
+ <span class="st" id="st"></span>
+</div>
+<div class="layout"><nav id="toc" aria-label="Оглавление"></nav><main id="app"></main></div>
+<div id="hud"></div>
+<div id="toast"></div>
+<script type="application/json" id="deck">{"title": "Эфир 1. Как за 4 дня выйти из угнетающих чувств", "subtitle": "Практикум «Новая реальность» · Анна Саба", "slides": [{"id": "s01", "block": "Начало", "kind": "title", "title": "Как за 4 дня выйти из угнетающих чувств", "body": "на новый уровень дохода, энергии, отношений и реализации. Эфир 1 практикума «Новая реальность»", "notes": "Приветствие. Анна представляется. Сегодня первый из четырёх дней практикума. Попросить написать в чат «+», кто слышит и видит.", "img": "img/anna-hero-warm.jpg"}, {"id": "s02", "block": "Начало", "kind": "cards", "title": "Что будет за 4 дня", "body": "", "notes": "Программа дней – дословно по смыслу лендинга практикума. На каждом эфире будет практика.", "items": ["День 1. «Спусковой крючок»: находим затык и убираем угнетающие чувства", "День 2. «Бесконечный поток»: возвращаем энергию и ставим защиту от откатов", "День 3. «Новая реальность»: прямой путь к цели без саботажа", "День 4. VIP «Магнит для масштаба»: всё даётся легко"]}, {"id": "s03", "block": "Начало", "kind": "cards", "title": "Ваши подарки за участие", "body": "", "notes": "Подарки получают те, кто зарегистрировался. Сказать честно: на практикуме будут презентоваться продукты, это нормально, решаете вы сами.", "items": ["«Деньги х2»: как удвоить доход до Нового года", "Сессия «Убираем тревогу»: спокойствие, уверенность и лёгкость", "Гайд «Волшебная женщина»: как построить счастливые отношения"]}, {"id": "s04", "block": "Начало", "kind": "image-split", "title": "Я врач-психотерапевт, а не блогер", "body": "Больше 10 лет практики, 7000+ консультаций, 150+ выпускников. Я обучаю специалистов методу ДПДГ", "notes": "Цифры: «больше 11 лет» в голосовом, на лендинге «10+» – говорить так, как на лендинге. Подчеркнуть: я не продаю мотивацию, я работаю с нейрофизиологией. Про текущие приёмы не говорить.", "img": "img/anna-hero-kind.jpg"}, {"id": "s05", "block": "Начало", "kind": "statement", "title": "Человек – это машина", "body": "Её можно настроить на болезнь. А можно настроить на успех", "notes": "Ключевая мысль Анны. Медитации, аффирмации, марафоны – это гигиена, как чистить зубы. Хорошо, но настройку машины они не меняют."}, {"id": "s06", "block": "Кто вы", "kind": "cards", "title": "Где вы сейчас", "body": "Напишите в чат цифру", "notes": "Дать залу время написать. Читать вслух несколько ответов.", "items": ["Работаю в найме. Напишите, кем", "У меня своё дело", "Работаю на себя: коуч, массажист, консультант, психолог, таролог", "Пока ищу себя"]}, {"id": "s07", "block": "Кто вы", "kind": "question", "title": "Вы думали сменить сферу?", "body": "Как часто эта мысль приходит? И почему вы до сих пор этого не сделали?", "notes": "Пусть напишут в чат «да» или «нет» и как давно думают."}, {"id": "s08", "block": "Кто вы", "kind": "statement", "title": "Закройте глаза на минуту", "body": "Вспомните себя 20 лет назад. О чём вы мечтали? Кем хотели стать?", "notes": "Медленно, с паузами. Дать 30–40 секунд тишины."}, {"id": "s09", "block": "Кто вы", "kind": "question", "title": "Это совпадает с тем, как вы живёте сейчас?", "body": "Что вы чувствуете, когда сравниваете мечту и реальность?", "notes": "Попросить написать одно слово – чувство."}, {"id": "s10", "block": "Кто вы", "kind": "question", "title": "Кому кажется, что уже поздно?", "body": "Напишите «+» в чат, если такая мысль есть", "notes": "Мягко: поздно не бывает. К концу эфира станет понятно, почему эта мысль – программа."}, {"id": "s11", "block": "Реальность", "kind": "section", "title": "Давайте честно посмотрим на реальность", "body": "Четыре сферы жизни, и в каждой – одно и то же чувство", "notes": "Переход. Дальше четыре сферы, после каждой – рефрен."}, {"id": "s12", "block": "Реальность", "kind": "list", "title": "Деньги", "body": "", "notes": "Описывать как узнавание, без осуждения. Работа, которая не приносит ни морального, ни финансового удовлетворения.", "items": ["Своё дело не идёт, или сокращение на работе", "Мошенники, неудачные вложения", "Деньги утекают: машина, зубы, сборы на ребёнка", "Вы пашете 7 лет, а доход тот же"], "img": "img/b-money.png"}, {"id": "s13", "block": "Реальность", "kind": "refrain", "title": "И тут вы задумываетесь, что что-то идёт не так", "body": "Сфера 1. Деньги", "notes": "Рефрен. Произносить одинаково после каждой сферы."}, {"id": "s14", "block": "Реальность", "kind": "list", "title": "Отношения", "body": "", "notes": "Узнавание. Без примеров из личной жизни Евгения и Анны.", "items": ["Рядом не тот человек, или годами живёте без брака", "Одиноко вдвоём", "О своих страхах не расскажешь – обесценит", "Вы держите всё на себе"], "img": "img/b-love.png"}, {"id": "s15", "block": "Реальность", "kind": "refrain", "title": "И тут вы задумываетесь, что что-то идёт не так", "body": "Сфера 2. Отношения", "notes": "Рефрен."}, {"id": "s16", "block": "Реальность", "kind": "list", "title": "Друзья и окружение", "body": "", "notes": "Подпитка чужой ущербностью: кому-то выгодно, чтобы вы оставались на месте.", "items": ["Вы для всех спасатель", "После встреч вы выжаты как лимон", "Подруги подпитываются за ваш счёт", "Окружение тянет вас вниз"]}, {"id": "s17", "block": "Реальность", "kind": "refrain", "title": "И тут вы задумываетесь, что что-то идёт не так", "body": "Сфера 3. Друзья", "notes": "Рефрен."}, {"id": "s18", "block": "Реальность", "kind": "list", "title": "Здоровье", "body": "", "notes": "Связь тела и психики – подробно позже. Здесь только узнавание.", "items": ["Всё внимание уходит на тело", "Постоянная тревога", "Анализы в норме, а врачи разводят руками"], "img": "img/b-calm.png"}, {"id": "s19", "block": "Реальность", "kind": "refrain", "title": "И тут вы задумываетесь, что что-то идёт не так", "body": "Сфера 4. Здоровье", "notes": "Рефрен. После него – пауза."}, {"id": "s20", "block": "Реальность", "kind": "statement", "title": "Вы как будто в болоте", "body": "И чтобы выбраться, нужен правильный спасатель и правильный инструмент", "notes": "Не любой спасатель вытащит. Плохой инструмент держит в болоте годами."}, {"id": "s21", "block": "Реальность", "kind": "statement", "title": "Вы идёте вверх по эскалатору, который едет вниз", "body": "Если идёте медленнее эскалатора, вы всегда внизу. Даже когда стараетесь", "notes": "Метафора из голосового: эскалатор медленный, вы быстрые – вы наверху. Эскалатор быстрый, вы медленные – внизу, хотя делаете что-то и стараетесь. Небольшие изменения за 2–3 года не успевают за жизнью. Нужно ускоряться: быстрые методы есть."}, {"id": "s22", "block": "Реальность", "kind": "statement", "title": "Мир меняется быстрее, чем долгая терапия", "body": "Искусственный интеллект ускорил всё. Маленькие перемены за три года станут неактуальны", "notes": "Из голосового: время идёт настолько быстро, что мир не успевает подстраиваться. Нужно опередить изменения."}, {"id": "s23", "block": "Реальность", "kind": "list", "title": "Что вы уже пробовали", "body": "", "notes": "Не обесценивать: это гигиена, просто поговорить – и легче на час, на день. Потом всё возвращается на круги своя. Это откат.", "items": ["Книги и подкасты", "Разговорная терапия", "Марафоны и медитации", "Обучения и курсы"]}, {"id": "s24", "block": "Реальность", "kind": "refrain", "title": "Через несколько дней – откат", "body": "Всё возвращается на круги своя", "notes": "Задания психотерапевта человек не делает в течение дня: им движут привычки."}, {"id": "s25", "block": "Реальность", "kind": "formula", "title": "Сегодня вы получите", "body": "Пошаговый план, с чего начинать психотерапию → и формулу больших денег", "notes": "Обещание эфира. Разбираем слой за слоем: от поступков к реакциям, от реакций к их источнику."}, {"id": "s26", "block": "Примеры", "kind": "section", "title": "Посмотрим на живые примеры", "body": "Где именно вы себя останавливаете", "notes": "Переход. Четыре ситуации, в каждой зал узнаёт себя."}, {"id": "s27", "block": "Примеры", "kind": "statement", "title": "Поднять цену на свои услуги", "body": "Вы знаете, что пора. Компетенции уже есть. Но страшно, что все уйдут", "notes": "Закон 1 (следующий слайд)."}, {"id": "s28", "block": "Примеры", "kind": "formula", "title": "Закон 1", "body": "Поднять цену работает всегда → уйдут не все → останутся те, кто ценит", "notes": "Компетенции уже есть. Останавливает чувство."}, {"id": "s29", "block": "Примеры", "kind": "statement", "title": "Попросить прибавку", "body": "Страх перед начальником. Ощущение, что выпрашиваете. Стыд перед коллегами", "notes": "Узнавание."}, {"id": "s30", "block": "Примеры", "kind": "statement", "title": "Проявляться на камеру", "body": "Вы понимаете, что нужно вести соцсети. Но в голове одно: «Что люди подумают?»", "notes": "Связка с реакцией, которая берёт верх над мышлением – подробно в блоке «Формула»."}, {"id": "s31", "block": "Примеры", "kind": "statement", "title": "Работа без удовлетворения за 70 тысяч", "body": "А вас тянет в психологию: подруги звонят за советом, люди сами вам открываются", "notes": "Работа, которая не приносит ни морального, ни финансового удовлетворения. Признаки, что вам в профессию помощи: к вам идут за советом, вам доверяют."}, {"id": "s32", "block": "Примеры", "kind": "list", "title": "Пять страхов, которые держат на месте", "body": "", "notes": "Спросить: какой страх ваш? Напишите цифру. Разбор каждого – дальше в эфире.", "items": ["У меня не получится", "Мама и подруги скажут: «А я тебе говорила»", "Муж скажет: «Тебя разводят сектанты»", "Я не смогу помочь человеку", "У меня не будет клиентов"]}, {"id": "s33", "block": "Примеры", "kind": "formula", "title": "Закон 2", "body": "Где много предложения → там есть спрос → тревожность у людей растёт", "notes": "Психологов много, потому что спрос огромный и растёт. Места хватит."}, {"id": "s34", "block": "Чувства", "kind": "refrain", "title": "Страх, тревога, вина, обида, стыд", "body": "Пять угнетающих чувств, которые управляют вашим доходом", "notes": "Рефрен эфира."}, {"id": "s35", "block": "Чувства", "kind": "cards", "title": "Прямая связь с деньгами", "body": "", "notes": "Страх, тревога и стыд связаны с доходом напрямую – это видно сразу.", "items": ["Страх: не поднимаю цену, не прошу прибавку", "Тревога: держусь за старый доход", "Стыд: не проявляюсь, «что подумают»"]}, {"id": "s36", "block": "Чувства", "kind": "statement", "title": "Вина и обида: связь неочевидная", "body": "Одна часть вас хочет содержать маму. Другая не хочет. И вы застреваете между ними", "notes": "Законы семейной системы – мягко, без терминов. Обида на подруг, которые не поддержали, тоже держит энергию."}, {"id": "s37", "block": "Чувства", "kind": "statement", "title": "«Как дорого» при каждой оплате", "body": "Каждый раз вы вините деньги и обижаетесь на них. Обида растёт снежным комом", "notes": "Неочевидная связь: так живёт большинство людей. Деньги приходят туда, где к ним нет обиды."}, {"id": "s38", "block": "Чувства", "kind": "statement", "title": "Откуда стыд", "body": "Из детства: «я недостойна». Вы заходите в дорогой магазин и чувствуете, что вам здесь не место", "notes": "Из созвона: стыд закладывается в детстве. Сейчас время, где многие окружены людьми с нарциссическими чертами, и стыд только усиливается."}, {"id": "s39", "block": "Разбор страхов", "kind": "section", "title": "Разберём пять страхов по одному", "body": "", "notes": "Переход."}, {"id": "s40", "block": "Разбор страхов", "kind": "statement", "title": "Страх 1. «У меня не получится»", "body": "Вопрос не в том, получится ли. Вопрос: до какой точки боли вы готовы дойти, прежде чем начнёте?", "notes": "Вы всё равно выбираете: оставаться – тоже выбор."}, {"id": "s41", "block": "Разбор страхов", "kind": "statement", "title": "Страх 2. «А я тебе говорила»", "body": "Это обесценивание. Слушая его, вы живёте чужую жизнь", "notes": "Тем, кто обесценивает, бывает выгодно, чтобы вы оставались на месте."}, {"id": "s42", "block": "Разбор страхов", "kind": "statement", "title": "Страх 3. «Тебя разводят сектанты»", "body": "Он вам муж или отец? Оковы финансовой зависимости снимаются вашим доходом", "notes": "Мягко. Решение о своей жизни принимает взрослый человек сам."}, {"id": "s43", "block": "Разбор страхов", "kind": "statement", "title": "Страх 4. «Я не смогу помочь»", "body": "Это «я не до…». На обучении вы получаете все инструменты", "notes": "На курсе ПКТ даются все инструменты, и вы сначала проходите путь сами."}, {"id": "s44", "block": "Разбор страхов", "kind": "statement", "title": "Страх 5. «Не будет клиентов»", "body": "С 4-го месяца обучения маркетологи приводят клиентов. Лучшим ученикам – клиенты из соцсетей", "notes": "Из текста «Вебинар 1»: с 4-го месяца ПКТ сервис маркетологов приводит клиентов."}, {"id": "s45", "block": "Защиты психики", "kind": "quote", "title": "«У меня всё нормально»", "body": "Самая частая фраза. И самая частая защита психики", "notes": "Мозг отскакивает от неприятного, как мячик."}, {"id": "s46", "block": "Защиты психики", "kind": "statement", "title": "Не помните детство?", "body": "Это не плохая память. Психика стёрла то, что было слишком тяжело", "notes": "Защиты работают сами, без вашего решения."}, {"id": "s47", "block": "Защиты психики", "kind": "cards", "title": "Как психика защищается", "body": "", "notes": "Итог – «ум робота»: человек живёт, не чувствуя себя.", "items": ["Диссоциация: «это было не со мной»", "Вытеснение: «я не помню»", "Идеализация: «у меня было прекрасное детство»", "Рационализация: «так было надо»"]}, {"id": "s48", "block": "Формула больших денег", "kind": "question", "title": "Почему одни психологи зарабатывают много, а другие мало?", "body": "И врачи. И риелторы. И любой специалист", "notes": "Вспомните свой опыт с психологами, если он был. И переносите смыслы на свою работу."}, {"id": "s49", "block": "Формула больших денег", "kind": "statement", "title": "Всё начинается с потребности", "body": "У человека болит зуб, он идёт к стоматологу. В психологии тоже: есть проблема, и её хочется решить", "notes": "Из голосового."}, {"id": "s50", "block": "Формула больших денег", "kind": "formula", "title": "Формула больших денег", "body": "Реши проблему человека → за самый короткий срок → с минимумом его усилий", "notes": "По сути, сделай всё за него, чтобы он получил результат."}, {"id": "s51", "block": "Формула больших денег", "kind": "quote", "title": "«Я годами хожу по кругу»", "body": "«Не могу пробить финансовый потолок. Деньги приходят и быстро утекают. Что делать?»", "notes": "Пример запроса клиента."}, {"id": "s52", "block": "Формула больших денег", "kind": "refrain", "title": "Аксиома 1. С вами всё нормально", "body": "Вы не ущербная и не «какая-то не такая». Вы просто делаете что-то не то и не так", "notes": "Ключевой слайд. Произнести медленно."}, {"id": "s53", "block": "Формула больших денег", "kind": "cards", "title": "Изменить нужно две вещи", "body": "", "notes": "Финансовый потолок – это повторяющийся сценарий: много стараюсь, мало получаю.", "items": ["Мышление: понять причины и следствия, почему вы там, где вы есть", "Реакции: то, что запускает повторяющийся сценарий"]}, {"id": "s54", "block": "Формула больших денег", "kind": "statement", "title": "Реакция берёт верх над мышлением", "body": "Вы понимаете, что пора идти в соцсети. Но страх «что подумают люди» сильнее", "notes": "И человек либо делает плохо, либо не делает вообще."}, {"id": "s55", "block": "Формула больших денег", "kind": "refrain", "title": "Всё понимаете, но ничего не меняется?", "body": "Причина одна: вы не меняете реакции", "notes": "Это и есть вся тайна. Но изменить реакции непросто, и не все методы с этим справляются."}, {"id": "s56", "block": "Формула больших денег", "kind": "statement", "title": "Спустимся на этаж ниже", "body": "Откуда берутся наши реакции?", "notes": "Переход к ТДО."}, {"id": "s57", "block": "Программы и ТДО", "kind": "cards", "title": "Программы, которые управляют жизнью", "body": "", "notes": "Убеждения, которые человек не выбирал.", "items": ["«Мир жесток»", "«За счастье надо бороться»", "«Богатым быть опасно»", "«Хорошо там, где нас нет»"]}, {"id": "s58", "block": "Программы и ТДО", "kind": "statement", "title": "Родовые сценарии", "body": "Прадед пил, дед пил, отец пил. Сценарий передаётся, пока его не остановят", "notes": "Лояльность роду: «если я буду счастлива, я предам своих женщин»."}, {"id": "s59", "block": "Программы и ТДО", "kind": "statement", "title": "Программа «война с мужчиной»", "body": "Женщина выбирает партнёра по программе, как ключ к замку. И снова воюет", "notes": "Партнёров выбираем по программам."}, {"id": "s60", "block": "Программы и ТДО", "kind": "formula", "title": "ТДО", "body": "Травматический детский опыт → реакции → повторяющиеся сценарии", "notes": "Он есть у каждого человека, кто его не прорабатывал. Без проработки ТДО программы не видны. Расстановка упирается в травму."}, {"id": "s61", "block": "Программы и ТДО", "kind": "section", "title": "Тест: 10 вопросов о вашем детстве", "body": "До 18 лет. Отвечайте «да», если это было часто или очень часто", "notes": "Попросить взять листок и считать баллы. Каждое «да» – 1 балл."}, {"id": "s62", "block": "Программы и ТДО", "kind": "list", "title": "Вопросы 1–3", "body": "", "notes": "Читать медленно. Дословно с фото Евгения.", "items": ["Вас ругали, оскорбляли, угрожали, унижали? Или вы боялись физического вреда?", "Вас толкали, хватали, шлёпали, бросали в вас чем-то? Или били до следов?", "Взрослые или те, кто старше вас хотя бы на 5 лет, трогали вас с сексуальным подтекстом или совершали половой акт?"]}, {"id": "s63", "block": "Программы и ТДО", "kind": "list", "title": "Вопросы 4–6", "body": "", "notes": "Дословно.", "items": ["Вам казалось, что никто в семье вас не любит и не считает важным? Что в семье не принято заботиться, выражать теплоту и поддерживать?", "Вы были голодны, в грязной одежде, вас некому было защитить? Родители были пьяны или «под кайфом» и не могли заботиться о вас или отвести к доктору?", "Ваши родители жили раздельно или были в разводе?"], "start": 4}, {"id": "s64", "block": "Программы и ТДО", "kind": "list", "title": "Вопросы 7–10", "body": "", "notes": "Дословно.", "items": ["Вашу маму или мачеху толкали, били, угрожали ножом или пистолетом?", "Вы жили с пьющим человеком, алкоголиком или тем, кто употреблял наркотики?", "У кого-то из живущих с вами была депрессия, психическое заболевание или попытка самоубийства?", "Кто-то из живущих с вами был в тюрьме?"], "start": 7}, {"id": "s65", "block": "Программы и ТДО", "kind": "question", "title": "Сколько баллов вы насчитали?", "body": "Напишите цифру в чат. От 4 баллов – это повод для серьёзной работы", "notes": "Шапиро, 2018: от 4 баллов – комплексное ПТСР, лечение EMDR 3.0. Медицинские формулировки – словами Анны как врача."}, {"id": "s66", "block": "Программы и ТДО", "kind": "cards", "title": "Как ТДО проявляется в каждой сфере", "body": "", "notes": "Свяжите свои баллы со сферами.", "items": ["Деньги: потолок, долги и кредиты, тревога за деньги", "Отношения: «хорошая девочка», «со мной что-то не так», мама для мужа, «всё сама»", "Здоровье: постоянные проблемы", "Реализация: серая мышка, тише воды ниже травы"]}, {"id": "s67", "block": "Программы и ТДО", "kind": "statement", "title": "Человек вырастает с букетом травм", "body": "Реакции становятся автоматическими. Вы перестаёте их замечать", "notes": "Чем больше времени проходит, тем сильнее автоматизмы."}, {"id": "s68", "block": "Программы и ТДО", "kind": "statement", "title": "Поэтому с возрастом время летит быстрее", "body": "Человек всё больше живёт на автопилоте", "notes": "Из голосового."}, {"id": "s69", "block": "Программы и ТДО", "kind": "list", "title": "Как ТДО бьёт по деньгам", "body": "", "notes": "Программа «засасывает» обратно в недостаточность.", "items": ["Вы не позволяете себе", "«Богатым быть опасно»", "Страх перед теми, кто выше", "В стрессе держитесь за старый доход"]}, {"id": "s70", "block": "Программы и ТДО", "kind": "statement", "title": "Деньги не лечат тревогу", "body": "С деньгами она только растёт", "notes": "Тревога – это реакция нервной системы."}, {"id": "s71", "block": "Программы и ТДО", "kind": "formula", "title": "Автоматизм можно расщёлкнуть", "body": "Метод ДПДГ → автоматизм разжимается → появляется выбор", "notes": "Энергия – это валюта. Пока вы «терпите», энергия уходит на белый шум. Большинство женщин живут в зажимах."}, {"id": "s72", "block": "Методы", "kind": "section", "title": "Вы пошли к психологу. Что будет дальше?", "body": "Разные специалисты – разные методы и разный результат", "notes": "Возвращаемся к запросу: доход годами на месте."}, {"id": "s73", "block": "Методы", "kind": "cards", "title": "Методы психотерапии", "body": "", "notes": "Описать путь клиента в каждом: что делает специалист и чего ждать.", "items": ["Когнитивно-поведенческая терапия", "Гипнотерапия", "Телесная терапия", "Гештальт-терапия", "ДПДГ (EMDR)"]}, {"id": "s74", "block": "Методы", "kind": "statement", "title": "КПТ – хорошая, но долгая", "body": "Два-три года на небольшие изменения. Сама реакция при этом не меняется", "notes": "Не обесценивать КПТ: метод хороший. Плюс домашние задания, которые человек не делает – им движут привычки."}, {"id": "s75", "block": "Методы", "kind": "statement", "title": "Разговорная терапия", "body": "Поговорили, стало легче на час или на день. Потом всё возвращается", "notes": "На уровне тела ничего не меняется – значит, не меняется ничего. Человек живёт в той же анестезии."}, {"id": "s76", "block": "Методы", "kind": "statement", "title": "В ДПДГ сразу виден саботаж", "body": "Нужно следить глазами. И сразу видно: не хватает концентрации, лезут мысли", "notes": "Так же вы саботируете новую профессию или сложную задачу: мозг – автомат. Болтать не надо, вы молчите и думаете."}, {"id": "s77", "block": "Методы", "kind": "statement", "title": "Тело не врёт", "body": "Слёзы, жар, тяжесть, тошнота во время сессии. Тело показывает, где проблема", "notes": "Тело – главный индикатор. Начинается разморозка. Люди живут, не чувствуя тело."}, {"id": "s78", "block": "Методы", "kind": "image-split", "title": "Мозг: кора и амигдала", "body": "Амигдала запускает реакцию раньше, чем кора успевает подумать. ДПДГ меняет нейрофизиологию", "notes": "Здесь фото мозга (заменить картинку). Психология и психотерапия – разное. ДПДГ – максимально физиологичный процесс, как заживает ссадина.", "img": "img/anna-hero-dark.jpg"}, {"id": "s79", "block": "Методы", "kind": "list", "title": "Шесть тезисов: 1–3", "body": "", "notes": "Из текста «Вебинар 1».", "items": ["Проработка ТДО – точка входа. Расстановки, родовое, энергетика – только после неё", "Метод выбора – ДПДГ. Второй – травмоориентированная КПТ, но она долгая", "Гипноз и телесная терапия – вспомогательные"]}, {"id": "s80", "block": "Методы", "kind": "list", "title": "Шесть тезисов: 4–6", "body": "", "notes": "Из текста «Вебинар 1». Метод рекомендует Всемирная организация здравоохранения.", "items": ["Азы мышления нужны всем: как восприятие меняет поведение", "Травму не лечат гештальт, психоанализ, семейная и системная терапия", "Травма излечима: через нейрофизиологию и ДПДГ"], "start": 4}, {"id": "s81", "block": "Методы", "kind": "refrain", "title": "Травма излечима", "body": "Всемирная организация здравоохранения рекомендует ДПДГ для работы с травмой", "notes": "Психоаналитики могут сказать, что травма не лечится. Травма излечима."}, {"id": "s82", "block": "Методы", "kind": "statement", "title": "ДПДГ за 1000 рублей на Авито не работает", "body": "Нужен комплекс. Его дают только на курсе ПКТ", "notes": "Без продажи в лоб: просто факт."}, {"id": "s83", "block": "Экономика", "kind": "question", "title": "Почему в России популярна разговорная терапия?", "body": "Она дешёвая, ей легко научиться, и результат идёт долго", "notes": "Долгий результат – это обесценивание и меньшая цена. Рынок так устроен: системе не выгодно, чтобы вы были здоровы. Не все психологи такие."}, {"id": "s84", "block": "Экономика", "kind": "cards", "title": "Две модели специалиста", "body": "", "notes": "Выгоревший специалист не сконцентрирован на вас и не может дать максимальный результат. Быстрый результат – клиенты приводят других по сарафану.", "items": ["3–5 тысяч за сессию, 30 клиентов, выгорание", "20–30 тысяч за сессию, 3 клиента раз в неделю = 360 тысяч в месяц"]}, {"id": "s85", "block": "Экономика", "kind": "statement", "title": "Ваш чек определяет ваше окружение", "body": "Клиент за 5 тысяч рекомендует тех, кто платит 5 тысяч. Клиент за 50 – тех, кто платит 50", "notes": "То же на уровне 100 и 200 тысяч."}, {"id": "s86", "block": "Экономика", "kind": "formula", "title": "Чек = инструменты", "body": "Инструменты → эффективность → скорость и результат → высокий чек", "notes": "30% – сессия, 70% – учёба и жизнь клиента. Инструменты дают качество и скорость."}, {"id": "s87", "block": "Как стать", "kind": "question", "title": "Как стать тем, кто быстро меняет жизни?", "body": "", "notes": "Переход."}, {"id": "s88", "block": "Как стать", "kind": "statement", "title": "Сначала пройти путь самому", "body": "На курсе ПКТ вы сначала прорабатываете все 10 ТДО. Все и полностью", "notes": "Потом не нужно ходить в психотерапию. Потом осваиваете профессию."}, {"id": "s89", "block": "Как стать", "kind": "statement", "title": "Люди видят ваши изменения", "body": "И вы начинаете работать с клиентами уже на обучении", "notes": ""}, {"id": "s90", "block": "Как стать", "kind": "list", "title": "Как приходят в профессию", "body": "", "notes": "", "items": ["Люди быстро вам открываются", "Вы ясно видите их ситуацию и даёте дельный совет", "Вас за это благодарят", "Высокий и стабильный доход, вы ценны людям"]}, {"id": "s91", "block": "Как стать", "kind": "image-split", "title": "Психолог краткосрочной терапии", "body": "Авторский метод ДПДГ 3.0. Диплом при любом высшем образовании", "notes": "Доход от 300 тысяч к концу курса, если делать по инструкциям – слова Анны. Тему финансов не обесцениваем.", "img": "img/anna-au-smile.webp"}, {"id": "s92", "block": "Автоматизмы", "kind": "statement", "title": "Как таблетка для похудения", "body": "После ДПДГ нужное действие перестаёт требовать усилий", "notes": "Тело само перерабатывает, домашних заданий нет."}, {"id": "s93", "block": "Автоматизмы", "kind": "quote", "title": "«Нет, мне неудобно»", "body": "Мама в родительском чате впервые спокойно отказала. Без вины и без объяснений", "notes": "Пример нового автоматизма."}, {"id": "s94", "block": "Автоматизмы", "kind": "refrain", "title": "Робот, который живёт в вашу пользу", "body": "Автоматизмы остаются. Только теперь они работают на вас", "notes": ""}, {"id": "s95", "block": "Сложные случаи", "kind": "statement", "title": "Доход – это самое лёгкое", "body": "Я хочу показать, как метод работает там, где ничего не помогает", "notes": "Особенно здоровье – оно тяжело поддаётся воздействию."}, {"id": "s96", "block": "Сложные случаи", "kind": "image-split", "title": "История студентки", "body": "Её случай – её словами", "notes": "Кейс подаём обобщённо, без имени и подробностей. Беременность и безопасность метода. ЭКО стоит от 400 тысяч до 1 миллиона – сверить цифру с Анной.", "img": "img/anna-hero-warm.jpg"}, {"id": "s97", "block": "Сложные случаи", "kind": "list", "title": "Что уходит попутно", "body": "Говорю как врач", "notes": "Слова Анны как врача, без обещания излечения конкретному человеку. Мост: у студентов курса проводится диагностика. Тарифы Масштаб и VIP, кнопка.", "items": ["Лишний вес", "Аллергии", "Скачки давления", "Панические атаки"]}, {"id": "s98", "block": "Практика", "kind": "section", "title": "Практика прямо сейчас", "body": "Сядьте удобно на стуле", "notes": "Практика на стульях."}, {"id": "s99", "block": "Практика", "kind": "statement", "title": "Представьте себя без этих программ", "body": "Вдох. Выдох. Что вы чувствуете в теле?", "notes": "Медленно, 2–3 минуты. Попросить написать ощущения в чат."}, {"id": "s100", "block": "Практика", "kind": "refrain", "title": "Вот что мешает", "body": "Именно это мы убираем на программе", "notes": ""}, {"id": "s101", "block": "Завтра", "kind": "cards", "title": "Завтра, день 2: «Бесконечный поток»", "body": "", "notes": "По лендингу. Из голосового Евгения: завтра разберём мозг – где сидят травмы.", "items": ["Находим, куда утекали силы", "Перекрываем утечки и восстанавливаем силы", "Ставим предохранители от откатов"]}, {"id": "s102", "block": "Завтра", "kind": "cards", "title": "Не пропустите", "body": "", "notes": "", "items": ["Подарки получают участники всех дней", "День 4 – VIP «Магнит для масштаба»"]}, {"id": "s103", "block": "Завтра", "kind": "title", "title": "Спасибо, что были со мной", "body": "До встречи завтра на эфире", "notes": "Попрощаться. Напомнить про подарки.", "img": "img/anna-hero-kind.jpg"}]}</script>
+<script>
+(function(){
+'use strict';
+var KINDS={title:'Титул',section:'Разделитель',statement:'Мысль',list:'Список',cards:'Карточки',quote:'Цитата',question:'Вопрос в зал',refrain:'Рефрен',formula:'Формула','image-split':'Фото + текст'};
+var PH={title:'Заголовок',body:'Текст',notes:'Что говорить',block:'Блок',items:'Пункт'};
+var DECK=JSON.parse(document.getElementById('deck').textContent);
+var ORIG=JSON.parse(JSON.stringify(DECK));
+var KEY='deck:'+(DECK.title||'');
+try{var raw=localStorage.getItem(KEY);if(raw){var o=JSON.parse(raw);if(o&&o.deck&&(o.t||0)>(DECK._saved||0)){DECK=o.deck;}}}catch(e){}
+var editing=false,show=false,cur=0;
+var PT=(function(){try{var d=document.createElement('div');d.contentEditable='plaintext-only';return d.contentEditable==='plaintext-only'}catch(e){return false}})();
+var $=function(s,r){return (r||document).querySelector(s)};
+var app=$('#app');
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function ce(){return editing?' contenteditable="'+(PT?'plaintext-only':'true')+'" spellcheck="false"':''}
+function F(f,txt,cls,extra){return '<div class="'+cls+'" data-f="'+f+'" data-ph="'+PH[f]+'"'+(extra||'')+ce()+'>'+esc(txt)+'</div>'}
+function pills(txt){
+ var out='',eq=false;
+ String(txt||'').split(/\s*(→|=)\s*/).forEach(function(t){
+  if(t==='')return;
+  if(t==='→')out+='<span class="op">→</span>';
+  else if(t==='='){out+='<span class="op">=</span>';eq=true}
+  else out+='<span class="pill'+(eq?' res':'')+'">'+esc(t)+'</span>';
+ });
+ return out;
+}
+function items(s,cls){
+ var a=s.items||[];
+ return a.map(function(x,i){
+  return '<'+(cls==='card'?'div class="card"':'li class="it"')+'><span class="n">'+(i+(s.start||1))+'</span><span class="tx tx3" data-f="items" data-i="'+i+'" data-ph="'+PH.items+'"'+ce()+'>'+esc(x)+'</span><button class="ix" type="button" data-act="di" data-i="'+i+'" contenteditable="false" title="Удалить пункт">&times;</button></'+(cls==='card'?'div':'li')+'>';
+ }).join('');
+}
+function body(s,cls){return F('body',s.body,cls||'tx4')}
+function slide(s,i){
+ var k=KINDS[s.kind]?s.kind:'statement',h='';
+ var img=s.img?'<div class="ph"><img src="'+esc(s.img)+'" alt=""></div>':'';
+ switch(k){
+  case 'title':h='<div class="t"><div class="tx6">'+esc(DECK.subtitle||'')+'</div>'+F('title',s.title,'h1')+body(s)+'</div>'+img;break;
+  case 'section':h='<div class="t"><div class="rule"></div>'+F('title',s.title,'h1')+body(s)+'</div>';break;
+  case 'statement':h='<div class="t">'+F('title',s.title,'h1')+body(s)+'</div>';break;
+  case 'list':h='<div class="t">'+F('title',s.title,'h2')+'<ul class="its">'+items(s,'it')+'</ul>'+body(s)+'</div>';break;
+  case 'cards':var n=(s.items||[]).length;h='<div class="t">'+F('title',s.title,'h2')+'<div class="grid'+(n===3||n>4?' g3':'')+'">'+items(s,'card')+'</div>'+body(s)+'</div>';break;
+  case 'quote':h='<div class="t">'+F('title',s.title,'h1')+body(s)+'</div>';break;
+  case 'question':h='<div class="qm" aria-hidden="true">?</div><div class="t">'+F('title',s.title,'h1')+body(s)+'</div>';break;
+  case 'refrain':h='<div class="t">'+F('title',s.title,'h1')+body(s)+'</div>';break;
+  case 'formula':h='<div class="t">'+F('title',s.title,'h2')+'<div class="fm fm-view">'+pills(s.body)+'</div>'+F('body',s.body,'fm-edit')+'</div>';break;
+  case 'image-split':h='<div class="t">'+F('title',s.title,'h2')+body(s)+'</div>'+(img||'<div class="ph"></div>');break;
+ }
+ var opts=Object.keys(KINDS).map(function(x){return '<option value="'+x+'"'+(x===k?' selected':'')+'>'+KINDS[x]+'</option>'}).join('');
+ return '<section class="page" id="p'+i+'" data-i="'+i+'"><div class="sl k-'+k+'"><div class="inner"><div class="c">'+h+'</div></div></div>'+
+ '<div class="cap"><span class="num">'+(i+1)+'</span>'+F('block',s.block,'blk')+
+ '<span class="kind"><select data-act="kind">'+opts+'</select>'+((k==='list'||k==='cards')?'<button class="btn" type="button" data-act="ai">+ пункт</button>':'')+'</span></div>'+
+ '<div class="notes"><label>Что говорить</label>'+F('notes',s.notes,'nt')+'</div></section>';
+}
+function toc(){
+ var h='',last=null;
+ DECK.slides.forEach(function(s,i){
+  if(s.block!==last){h+='<div class="tb">'+esc(s.block)+'</div>';last=s.block}
+  h+='<a href="#p'+i+'" data-i="'+i+'"><span>'+(i+1)+'</span><em style="font-style:normal">'+esc(s.title)+'</em></a>';
+ });
+ $('#toc').innerHTML=h;
+}
+function render(){
+ app.innerHTML=DECK.slides.map(slide).join('');
+ toc();
+ $('#dt').textContent=DECK.title||'';$('#ds').textContent=DECK.subtitle||'';
+ if(cur>=DECK.slides.length)cur=DECK.slides.length-1;
+ markCur();
+ fitAll();
+}
+/* ---------- fit ---------- */
+function over(sl){
+ var c=sl.querySelector('.c');
+ if(c.scrollHeight>c.clientHeight+1||c.scrollWidth>c.clientWidth+1)return true;
+ var f=sl.querySelectorAll('[data-f]');for(var i=0;i<f.length;i++){if(f[i].scrollWidth>f[i].clientWidth+1)return true}
+ return false;
+}
+function fitSlide(p){
+ var sl=p.querySelector('.sl');
+ if(!sl||!sl.offsetWidth)return;
+ var fs=1;sl.style.setProperty('--fs',1);
+ for(var n=0;n<10&&over(sl);n++){fs*=.94;sl.style.setProperty('--fs',fs.toFixed(3))}
+ sl.dataset.fs=fs.toFixed(2);
+}
+function fitAll(){document.querySelectorAll('.page').forEach(fitSlide)}
+var ft=null;function fitLater(){clearTimeout(ft);ft=setTimeout(function(){show?fitSlide(pg(cur)):fitAll()},120)}
+function pg(i){return document.getElementById('p'+i)}
+/* ---------- current ---------- */
+function markCur(){
+ document.querySelectorAll('#toc a').forEach(function(a){a.classList.toggle('act',+a.dataset.i===cur)});
+ document.querySelectorAll('.page').forEach(function(p){p.classList.toggle('cur',+p.dataset.i===cur)});
+ var h=$('#hud');if(h)h.textContent=(cur+1)+' / '+DECK.slides.length;
+ var st=$('#st');if(st&&editing)st.dataset.cur=cur+1;
+}
+function onScroll(){
+ if(show)return;
+ var ps=document.querySelectorAll('.page'),best=0,off=window.innerHeight*.35;
+ for(var i=0;i<ps.length;i++){if(ps[i].getBoundingClientRect().top<off)best=i}
+ if(best!==cur){cur=best;markCur()}
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+function goTo(i){cur=Math.max(0,Math.min(DECK.slides.length-1,i));
+ if(show){markCur();fitSlide(pg(cur));return}
+ markCur();pg(cur).scrollIntoView({behavior:'smooth',block:'start'});}
+/* ---------- save ---------- */
+var sv=null;
+function stat(t){var s=$('#st');if(s)s.textContent=t}
+function save(){
+ clearTimeout(sv);
+ sv=setTimeout(function(){
+  try{localStorage.setItem(KEY,JSON.stringify({t:Date.now(),deck:DECK}));stat('Сохранено в браузере')}catch(e){stat('Браузер не сохраняет: скачайте файл')}
+ },250);
+ stat('Сохраняю…');
+}
+function toast(t){var e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove('on')},2200)}
+/* ---------- edit ---------- */
+function readEl(el){return el.innerText.replace(/\n$/,'')}
+app.addEventListener('input',function(ev){
+ var el=ev.target.closest('[data-f]');if(!el||!editing)return;
+ var p=el.closest('.page'),i=+p.dataset.i,s=DECK.slides[i],f=el.dataset.f,v=readEl(el);
+ if(f==='items')s.items[+el.dataset.i]=v;else s[f]=v;
+ if(f==='body'){var fv=p.querySelector('.fm-view');if(fv)fv.innerHTML=pills(v)}
+ if(f==='title'||f==='block')toc();
+ cur=i;save();fitLater();
+});
+app.addEventListener('paste',function(ev){
+ if(!editing)return;ev.preventDefault();
+ var t=(ev.clipboardData||window.clipboardData).getData('text/plain');
+ document.execCommand('insertText',false,t);
+});
+app.addEventListener('focusin',function(ev){var p=ev.target.closest&&ev.target.closest('.page');if(p){cur=+p.dataset.i;markCur()}});
+app.addEventListener('keydown',function(ev){
+ if(editing&&ev.key==='Enter'&&!PT&&ev.target.isContentEditable){ev.preventDefault();document.execCommand('insertText',false,'\n')}
+});
+app.addEventListener('change',function(ev){
+ var sel=ev.target.closest('[data-act=kind]');if(!sel)return;
+ var i=+sel.closest('.page').dataset.i;DECK.slides[i].kind=sel.value;cur=i;save();render();
+});
+app.addEventListener('click',function(ev){
+ var b=ev.target.closest('[data-act]');
+ if(show){var w=window.innerWidth;goTo(cur+(ev.clientX<w*.33?-1:1));return}
+ if(!b)return;
+ var i=+b.closest('.page').dataset.i,s=DECK.slides[i];
+ if(b.dataset.act==='di'){s.items.splice(+b.dataset.i,1);save();render()}
+ if(b.dataset.act==='ai'){s.items=s.items||[];s.items.push('Новый пункт');save();render()}
+});
+function setEdit(on){
+ if(on&&show)exitShow();
+ editing=on;document.body.classList.toggle('edit',on);
+ $('#bEdit').classList.toggle('on',on);
+ render();
+ if(on)stat(' ');
+}
+$('#bEdit').onclick=function(){setEdit(!editing)};
+// viewers (no ?edit in URL) get no edit button or key
+var CAN=/[?&]edit\b/.test(location.search);if(!CAN)$('#bEdit').style.display='none';
+$('#bAdd').onclick=function(){
+ var c=DECK.slides[cur]||{};
+ var n={id:'n'+Date.now().toString(36),block:c.block||'',kind:'statement',title:'Новый слайд',body:'',items:[],notes:''};
+ DECK.slides.splice(cur+1,0,n);cur++;save();render();
+ var p=pg(cur);p.scrollIntoView({block:'start'});var t=p.querySelector('[data-f=title]');if(t)t.focus();
+};
+$('#bDel').onclick=function(){
+ if(DECK.slides.length<2){toast('Последний слайд удалить нельзя');return}
+ if(!window.confirm('Удалить слайд '+(cur+1)+'?'))return;
+ DECK.slides.splice(cur,1);if(cur>=DECK.slides.length)cur=DECK.slides.length-1;save();render();
+};
+function serialize(){
+ DECK._saved=Date.now();
+ var cl=document.documentElement.cloneNode(true);
+ cl.querySelector('#app').innerHTML='';cl.querySelector('#toc').innerHTML='';
+ cl.querySelector('#hud').textContent='';cl.querySelector('#toast').textContent='';cl.querySelector('#toast').className='';
+ var b=cl.querySelector('body');b.className='';b.removeAttribute('style');
+ cl.querySelector('#dt').textContent='';cl.querySelector('#ds').textContent='';cl.querySelector('#st').textContent='';
+ cl.querySelector('#deck').textContent=JSON.stringify(DECK).replace(/</g,'\\u003c');
+ return '<!doctype html>\n'+cl.outerHTML;
+}
+$('#bDl').onclick=function(){
+ var html=serialize();
+ var blob=new Blob([html],{type:'text/html;charset=utf-8'});
+ var a=document.createElement('a');a.href=URL.createObjectURL(blob);
+ var nm=(location.pathname.split('/').pop()||'deck.html');if(!/\.html?$/i.test(nm))nm='deck.html';
+ a.download=nm;document.body.appendChild(a);a.click();
+ setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},1500);
+ try{localStorage.setItem(KEY,JSON.stringify({t:Date.now(),deck:DECK}))}catch(e){}
+ toast('Файл скачан: '+nm);
+};
+function diff(){
+ var out=[],oi={};ORIG.slides.forEach(function(s){oi[s.id]=s});
+ var seen={};
+ DECK.slides.forEach(function(s,i){
+  seen[s.id]=1;var o=oi[s.id],n=i+1;
+  if(!o){out.push('Слайд '+n+' (новый): '+s.title+(s.body?' / '+s.body:''));return}
+  ['block','kind','title','body','notes'].forEach(function(f){
+   if((o[f]||'')!==(s[f]||''))out.push('Слайд '+n+', '+(PH[f]||f)+': '+(o[f]||'')+' → '+(s[f]||''));
+  });
+  var a=o.items||[],b=s.items||[],m=Math.max(a.length,b.length);
+  for(var j=0;j<m;j++)if((a[j]||'')!==(b[j]||''))out.push('Слайд '+n+', пункт '+(j+1)+': '+(a[j]||'(нет)')+' → '+(b[j]||'(удалён)'));
+ });
+ ORIG.slides.forEach(function(s,i){if(!seen[s.id])out.push('Удалён слайд (был '+(i+1)+'): '+s.title)});
+ return out.join('\n');
+}
+window.__diff=diff;window.__serialize=serialize;window.__deck=function(){return DECK};
+$('#bCopy').onclick=function(){
+ var t=diff()||'Правок нет';
+ function fb(){var x=document.createElement('textarea');x.value=t;document.body.appendChild(x);x.select();try{document.execCommand('copy')}catch(e){}x.remove()}
+ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).catch(fb);else fb();
+ toast(diff()?'Правки скопированы':'Правок нет');
+};
+$('#bReset').onclick=function(){
+ if(!window.confirm('Сбросить все правки к версии этого файла?'))return;
+ try{localStorage.removeItem(KEY)}catch(e){}
+ DECK=JSON.parse(JSON.stringify(ORIG));cur=0;render();toast('Правки сброшены');
+};
+/* ---------- show ---------- */
+function enterShow(){
+ if(editing)setEdit(false);
+ show=true;document.body.classList.add('show','fx');
+ markCur();fitSlide(pg(cur));
+ var r=document.documentElement.requestFullscreen;
+ try{var pr=r&&document.documentElement.requestFullscreen();if(pr&&pr.catch)pr.catch(function(){})}catch(e){}
+}
+function exitShow(){
+ if(!show)return;show=false;document.body.classList.remove('show','fx');
+ try{if(document.fullscreenElement)document.exitFullscreen()}catch(e){}
+ fitAll();var p=pg(cur);if(p)p.scrollIntoView({block:'start'});
+}
+$('#bShow').onclick=enterShow;
+document.addEventListener('fullscreenchange',function(){if(!document.fullscreenElement&&show)exitShow()});
+$('#bToc').onclick=function(){document.body.classList.toggle('tocopen')};
+$('#toc').addEventListener('click',function(ev){
+ var a=ev.target.closest('a');if(!a)return;ev.preventDefault();
+ document.body.classList.remove('tocopen');goTo(+a.dataset.i);
+});
+document.addEventListener('keydown',function(ev){
+ if(ev.ctrlKey||ev.metaKey||ev.altKey)return;
+ var tg=ev.target,typing=tg&&(tg.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(tg.tagName));
+ if(show){
+  var k=ev.key;
+  if(k==='ArrowRight'||k===' '||k==='PageDown'||k==='ArrowDown'){ev.preventDefault();goTo(cur+1)}
+  else if(k==='ArrowLeft'||k==='PageUp'||k==='ArrowUp'){ev.preventDefault();goTo(cur-1)}
+  else if(k==='Home'){goTo(0)}else if(k==='End'){goTo(DECK.slides.length-1)}
+  else if(k==='Escape'||k==='f'||k==='F'||k==='а'||k==='А'){exitShow()}
+  return;
+ }
+ if(typing){if(ev.key==='Escape')tg.blur();return}
+ if(ev.key==='f'||ev.key==='F'||ev.key==='а'||ev.key==='А')enterShow();
+ else if(CAN&&(ev.key==='e'||ev.key==='E'||ev.key==='у'||ev.key==='У'))setEdit(!editing);
+});
+window.addEventListener('resize',fitLater);
+if(document.fonts){document.fonts.ready.then(fitLater);document.fonts.addEventListener&&document.fonts.addEventListener('loadingdone',fitLater)}
+window.__fitAll=fitAll;window.__enterShow=enterShow;window.__setEdit=setEdit;window.__go=goTo;
+render();
+})();
+</script>
+</body>
+</html>

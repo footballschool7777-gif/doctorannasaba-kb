@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Разбор Instagram Школы – ноябрь</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf7f4;--card:#fff;--ink:#2b2523;--mute:#8a7f7a;--acc:#b5546b;--soft:#f6eef0;--ok:#3d8a66;--okSoft:#e9f3ee;--zero:#c9c0bb;--line:#ece4df;
+  /* шкала текста: 6 размеров */
+  --f1:13px;--f2:16px;--f3:19px;
+  --f4:clamp(24px,2.6vw + 14px,34px);
+  --f5:clamp(30px,3vw + 18px,48px);
+  --f6:clamp(26px,2.9vw + 16px,46px);
+  --wrap:1080px;--r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 var(--f2)/1.55 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,li,td,th,figcaption,caption,small,.lbl{text-wrap:balance}
+h1,h2,h3,p,ul,ol{margin:0}
+b,strong{font-weight:800}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+section{scroll-margin-top:12px}
+.sec{padding:56px 0}
+.sec.soft{background:var(--soft)}
+h2{font-size:var(--f4);line-height:1.18;font-weight:800;letter-spacing:-.01em;margin:0 0 24px;max-width:22ch}
+.sub{color:var(--mute);margin:-12px 0 24px;max-width:62ch}
+.n{font-weight:800;color:var(--acc);white-space:nowrap}
+.g{font-weight:800;color:var(--ok);white-space:nowrap}
+.z{font-weight:800;color:#6b605b;white-space:nowrap}
+
+/* ---------- первый экран ---------- */
+.hero{background:linear-gradient(180deg,#fff 0%,var(--bg) 70%)}
+.hero-in{height:100vh;height:100svh;display:flex;flex-direction:column;max-width:var(--wrap);margin:0 auto;padding:14px 20px 16px}
+.lottery{position:relative;flex:1 1 auto;min-height:0;margin:0 0 14px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.hx-text{flex:0 0 auto;display:flex;flex-direction:column}
+.over{font-size:var(--f1);font-weight:600;color:var(--acc);letter-spacing:.02em;margin:0 0 8px}
+h1{font-size:var(--f6);line-height:1.12;font-weight:800;letter-spacing:-.015em;margin:0 0 10px}
+.lead{color:var(--mute);margin:0 0 14px;max-width:46ch}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 14px;padding:0;list-style:none}
+.stats li{background:var(--card);border-radius:var(--r);padding:10px 10px 11px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.stats b{display:block;font-size:var(--f3);line-height:1.15;color:var(--acc);white-space:nowrap}
+.stats span{display:block;font-size:var(--f1);line-height:1.3;color:var(--mute);margin-top:4px}
+.btn{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 22px;border-radius:var(--r);background:linear-gradient(135deg,#c2627a,var(--acc) 55%,#9c4259);color:#fff;font-weight:800;font-size:var(--f2);text-decoration:none;box-shadow:0 8px 22px -10px rgba(181,84,107,.8)}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);transform:translateX(-120%);animation:shine 4.5s ease-in-out 2.4s infinite}
+.btn svg{flex:0 0 auto}
+@keyframes shine{0%,62%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+
+/* образ «лотерея → система» */
+.zero,.step{position:absolute;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800}
+.zero{width:clamp(30px,8.5vw,46px);aspect-ratio:9/14;background:#f1ece9;border:1px solid #e4dcd7;color:var(--zero);font-size:var(--f3);transform:translate(-50%,-50%) rotate(var(--r0));animation:pop .7s cubic-bezier(.3,1.4,.5,1) both,drift 5s ease-in-out infinite alternate;animation-delay:var(--d),calc(var(--d) + .8s)}
+.zero::before{content:"";position:absolute;top:6px;left:6px;width:0;height:0;border-left:6px solid #ddd3cd;border-top:4px solid transparent;border-bottom:4px solid transparent}
+@keyframes pop{from{opacity:0;transform:translate(-50%,-50%) rotate(calc(var(--r0) * 3)) scale(.4)}to{opacity:1;transform:translate(-50%,-50%) rotate(var(--r0)) scale(1)}}
+@keyframes drift{from{transform:translate(-50%,-50%) rotate(var(--r0))}to{transform:translate(-50%,calc(-50% - 4px)) rotate(calc(var(--r0) * -.6))}}
+.arrow{position:absolute;left:46%;top:50%;width:6%;height:2px;background:var(--acc);transform:translate(-50%,-50%);opacity:.75;animation:fade .6s ease-out 1s both}
+.arrow::after{content:"";position:absolute;right:-1px;top:-5px;border-left:9px solid var(--acc);border-top:6px solid transparent;border-bottom:6px solid transparent}
+.step{right:var(--x);bottom:var(--y);width:30%;height:clamp(26px,22%,52px);background:var(--card);color:var(--ok);font-size:var(--f1);box-shadow:0 6px 18px -8px rgba(61,138,102,.45),0 0 0 1px rgba(61,138,102,.18);animation:rise .8s cubic-bezier(.2,.9,.3,1) both;animation-delay:var(--d)}
+.step::before{content:"";position:absolute;left:0;top:18%;bottom:18%;width:3px;border-radius:0 3px 3px 0;background:var(--ok)}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:.75}}
+.end .zero,.end .step,.end .arrow,.end .btn::after{animation:none!important}
+.end .arrow{opacity:.75}
+@media (prefers-reduced-motion:reduce){.zero,.step,.arrow,.btn::after{animation:none!important}.arrow{opacity:.75}html{scroll-behavior:auto}}
+
+/* ---------- итоги ---------- */
+.duo{display:grid;gap:14px}
+.card{background:var(--card);border-radius:var(--r);padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.card h3{font-size:var(--f3);font-weight:800;margin:0 0 12px;display:flex;align-items:center;gap:10px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--ok);flex:0 0 auto}
+.dot.gray{background:var(--zero)}
+.bars{display:flex;align-items:flex-end;gap:4px;height:64px;margin:0 0 14px;padding:0 0 1px;border-bottom:1px solid var(--line)}
+.bars i{flex:1;border-radius:3px 3px 0 0;background:var(--ok);opacity:.8;min-height:2px}
+.bars.lot i{background:var(--zero)}
+.bars.lot i.win{background:var(--acc);opacity:1}
+.verdict{margin-top:14px;background:var(--card);border-left:4px solid var(--acc);border-radius:0 var(--r) var(--r) 0;padding:16px 20px;font-size:var(--f3);line-height:1.4;font-weight:600}
+
+/* ---------- ролики ---------- */
+.reels{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+.reel{background:var(--card);border-radius:var(--r);padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.05);display:flex;flex-direction:column}
+.num{font-style:normal;width:34px;height:34px;border-radius:50%;background:var(--acc);color:#fff;font-weight:800;font-size:var(--f1);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.vid{max-width:400px;width:100%;margin:0 auto 14px;border-radius:12px;overflow:hidden;background:var(--soft)}
+.vid iframe{display:block;width:100%;height:calc(min(100vw - 68px, 400px) * 1.25 + 215px);border:0}
+.reel h3{font-size:var(--f3);line-height:1.3;font-weight:800;margin:0 0 12px;display:flex;gap:10px;align-items:flex-start}
+.reel h3 span{padding-top:4px}
+.kpi{list-style:none;padding:0;margin:0 0 12px;display:flex;flex-wrap:wrap;gap:6px}
+.kpi li{background:var(--soft);border-radius:10px;padding:6px 12px;line-height:1.35;white-space:nowrap;max-width:100%}
+@media (max-width:359px){.kpi li{white-space:normal}.stats li{padding:9px 7px 10px}.stats b{font-size:var(--f2)}}
+.kpi b{font-size:var(--f3);color:var(--acc)}
+.reel p+p{margin-top:10px}
+
+/* ---------- не сработало ---------- */
+.fails{list-style:none;padding:0;display:grid;gap:12px}
+.fails li{background:#f4f0ed;border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 18px 64px;position:relative}
+.fails li::before{content:"0";position:absolute;left:16px;top:16px;width:34px;height:44px;border-radius:8px;background:#fff;border:1px solid #e4dcd7;color:var(--zero);font-weight:800;font-size:var(--f3);display:flex;align-items:center;justify-content:center;transform:rotate(-6deg)}
+.fails li:nth-child(2)::before{transform:rotate(5deg)}.fails li:nth-child(3)::before{transform:rotate(-2deg)}.fails li:nth-child(4)::before{transform:rotate(8deg)}
+
+/* ---------- референсы ---------- */
+.tbl{width:100%;border-collapse:separate;border-spacing:0;background:var(--card);border-radius:var(--r);overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.tbl caption{text-align:left;font-size:var(--f3);line-height:1.3;font-weight:800;padding:0 0 12px}
+.tbl th{font-size:var(--f1);font-weight:600;color:var(--mute);text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);text-transform:uppercase;letter-spacing:.04em}
+.tbl td{padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:middle}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td.v{white-space:nowrap;font-weight:800}
+.share{display:flex;align-items:center;gap:12px}
+.share b{min-width:3ch}
+.share i{display:block;height:10px;border-radius:5px;background:var(--acc);opacity:.85;width:calc(var(--p) * 3)}
+.tbl tr.best .share i{background:var(--ok)}
+.tbl tr.best .share b{color:var(--ok)}
+.tbl tr.low .share i{background:var(--zero)}
+.note{color:var(--mute);font-size:var(--f1);margin:12px 0 28px}
+.three{list-style:none;padding:0;display:grid;gap:12px;counter-reset:c}
+.three li{background:var(--card);border-radius:var(--r);padding:18px 18px 18px 66px;position:relative;box-shadow:0 1px 3px rgba(0,0,0,.05);counter-increment:c}
+.three li::before{content:counter(c);position:absolute;left:18px;top:16px;width:34px;height:34px;border-radius:50%;background:var(--acc);color:#fff;font-weight:800;font-size:var(--f1);display:flex;align-items:center;justify-content:center}
+
+/* ---------- решения ---------- */
+.steps{list-style:none;padding:0;display:grid;gap:12px;counter-reset:s}
+.steps li{counter-increment:s;background:var(--card);border-radius:var(--r);padding:18px 18px 18px 60px;position:relative;box-shadow:0 1px 3px rgba(0,0,0,.05);min-height:76px}
+.steps li::before{content:counter(s);position:absolute;left:18px;top:14px;font-size:var(--f5);line-height:1;font-weight:800;color:var(--acc);opacity:.9}
+.steps.sys li::before{color:var(--ok)}
+.steps.sys li{border-left:3px solid var(--ok)}
+
+/* ---------- план ---------- */
+.plan{list-style:none;padding:0;display:grid;gap:0;position:relative}
+.plan li{position:relative;padding:0 0 22px 46px}
+.plan li::before{content:"";position:absolute;left:8px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--card);border:4px solid var(--ok)}
+.plan li::after{content:"";position:absolute;left:17px;top:24px;bottom:0;width:2px;background:linear-gradient(var(--ok),rgba(61,138,102,.2))}
+.plan li:last-child::after{display:none}
+.plan .pc{background:var(--card);border-radius:var(--r);padding:16px 18px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.plan b{color:var(--ok)}
+
+/* ---------- видео ---------- */
+.player{border-radius:var(--r);overflow:hidden;background:#2b2523;aspect-ratio:16/9;box-shadow:0 18px 40px -24px rgba(43,37,35,.6)}
+.player video{display:block;width:100%;height:100%;object-fit:contain;background:#2b2523}
+
+footer{padding:28px 0 40px;color:var(--mute);font-size:var(--f1);border-top:1px solid var(--line)}
+
+/* ---------- компьютер ---------- */
+@media (min-width:760px){
+  .duo{grid-template-columns:1fr 1fr}
+  .fails{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .steps li:last-child:nth-child(odd){grid-column:1/-1}
+  .steps li{padding-left:74px}
+  .three{grid-template-columns:repeat(3,1fr)}
+  .plan{grid-template-columns:repeat(3,1fr);gap:16px}
+  .plan li{padding:44px 0 0;display:flex}
+  .plan .pc{flex:1}
+  .plan li::before{left:0;top:0}
+  .plan li::after{left:24px;right:-16px;top:10px;bottom:auto;width:auto;height:2px;background:linear-gradient(90deg,var(--ok),rgba(61,138,102,.2))}
+}
+@media (min-width:980px){
+  .sec{padding:88px 0}
+  .reels{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+  .vid iframe{height:calc((min(100vw, 1080px) - 116px) / 3 * 1.25 + 180px)}
+  .hero-in{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);grid-template-rows:1fr;gap:48px;align-items:center;padding:32px 40px}
+  .hx-text{order:1}
+  .lottery{order:2;height:min(64vh,520px);max-height:none;margin:0}
+  .stats{gap:10px}
+  .stats li{padding:14px 14px 15px}
+  .wrap{padding:0 40px}
+}
+/* телефон: таблица превращается в карточки */
+@media (max-width:759px){
+  .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}
+  .tbl{background:none;box-shadow:none;border-radius:0;overflow:visible}
+  .tbl thead{display:none}
+  .tbl caption{display:block}
+  .tbl tr{background:var(--card);border-radius:var(--r);padding:14px 16px;margin:0 0 10px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+  .tbl td{border:0;padding:0}
+  .tbl td.t{font-weight:600;margin:0 0 8px}
+  .tbl td.v{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:6px 0 0;border-top:1px solid var(--line);margin-top:6px}
+  .tbl td.v::before{content:attr(data-l);font-size:var(--f1);font-weight:600;color:var(--mute);white-space:nowrap}
+  .share i{width:calc(var(--p) * 1.6)}
+}
+</style>
+</head>
+<body>
+
+<section class="hero" id="top">
+  <div class="hero-in">
+    <div class="lottery" id="lottery" aria-hidden="true">
+      <div class="zero" style="left:6%;top:22%;--r0:-12deg;--d:.05s">0</div>
+      <div class="zero" style="left:19%;top:64%;--r0:9deg;--d:.25s">0</div>
+      <div class="zero" style="left:31%;top:28%;--r0:16deg;--d:.12s">0</div>
+      <div class="zero" style="left:9%;top:82%;--r0:-6deg;--d:.4s">0</div>
+      <div class="zero" style="left:40%;top:72%;--r0:-14deg;--d:.32s">0</div>
+      <div class="zero" style="left:22%;top:14%;--r0:4deg;--d:.5s">0</div>
+      <div class="zero" style="left:43%;top:20%;--r0:-4deg;--d:.18s">0</div>
+      <div class="zero" style="left:31%;top:88%;--r0:11deg;--d:.58s">0</div>
+      <div class="zero" style="left:7%;top:50%;--r0:7deg;--d:.45s">0</div>
+      <div class="arrow"></div>
+      <div class="step" style="--x:20%;--y:6%;--d:1.15s">26 184</div>
+      <div class="step" style="--x:10%;--y:38%;--d:1.45s">43 293</div>
+      <div class="step" style="--x:0%;--y:70%;--d:1.75s">272 740</div>
+    </div>
+    <div class="hx-text">
+      <p class="over">Школа Анны Саба · Instagram · 1–17 ноября 2026</p>
+      <h1>Что залетает у Школы в ленте и пробниках – и что делать дальше</h1>
+      <p class="lead">Разбор 367 роликов Школы и 1 510 роликов референсов. Только цифры из статистики.</p>
+      <ul class="stats">
+        <li><b>995 302</b><span>просмотра в ленте</span></li>
+        <li><b>935 844</b><span>просмотра в пробниках</span></li>
+        <li><b>27%</b><span>просмотров ленты дал один ролик</span></li>
+      </ul>
+      <a class="btn hero-btn" href="#video"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#fff" opacity=".25"/><path d="M7 5.5v7l5.5-3.5z" fill="#fff"/></svg>Смотреть видеоразбор</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="itogi">
+  <div class="wrap">
+    <h2>Итоги ноября в двух строках</h2>
+    <div class="duo">
+      <div class="card">
+        <h3><i class="dot"></i>Лента</h3>
+        <div class="bars" aria-hidden="true"><i style="height:58%"></i><i style="height:78%"></i><i style="height:52%"></i><i style="height:60%"></i><i style="height:68%"></i><i style="height:49%"></i><i style="height:50%"></i><i style="height:74%"></i><i style="height:65%"></i><i style="height:51%"></i><i style="height:59%"></i><i style="height:66%"></i><i style="height:49%"></i><i style="height:77%"></i><i style="height:64%"></i><i style="height:54%"></i></div>
+        <p><span class="n">120 публикаций</span>: 67 рилсов и 53 карусели. Всего <span class="n">995 302</span> просмотра, обычный ролик набирает <span class="g">3 858</span>. Ни одной публикации меньше 200 просмотров.</p>
+      </div>
+      <div class="card">
+        <h3><i class="dot gray"></i>Пробники</h3>
+        <div class="bars lot" aria-hidden="true"><i style="height:0%"></i><i style="height:2%"></i><i style="height:3%"></i><i style="height:0%"></i><i style="height:4%"></i><i style="height:0%"></i><i style="height:0%"></i><i style="height:0%"></i><i style="height:3%"></i><i style="height:6%"></i><i style="height:2%"></i><i class="win" style="height:100%"></i><i style="height:0%"></i><i style="height:0%"></i><i style="height:2%"></i><i style="height:0%"></i></div>
+        <p><span class="n">247 пробных рилсов</span>. Всего <span class="n">935 844</span> просмотра, но обычный пробник набирает <span class="z">199</span>. <span class="z">64 пробника</span> получили ноль.</p>
+      </div>
+    </div>
+    <p class="verdict">Вывод: Лента работает ровно. Пробники – лотерея: почти все просмотры дал один формат.</p>
+  </div>
+</section>
+
+<section class="sec soft" id="zaletelo">
+  <div class="wrap">
+    <h2>Три ролика, которые сделали месяц</h2>
+    <div class="reels">
+      <article class="reel">
+        <div class="vid"><iframe src="https://www.instagram.com/reel/Dfms6PvMLSW/embed" loading="lazy" allowtransparency="true" allowfullscreen scrolling="no" title="Instagram Dfms6PvMLSW"></iframe></div>
+        <h3><i class="num">1</i><span>Анна в студии: «Когда мужчина крутит роман…»</span></h3>
+        <ul class="kpi">
+          <li><b>272 740</b> просмотров</li>
+          <li><b>7 043</b> репоста</li>
+          <li><b>7 162</b> сохранения</li>
+          <li><b>2 111</b> комментариев</li>
+        </ul>
+        <p>Настоящая съёмка Анны, 106 секунд. Первая фраза – смелое утверждение о нём: «Когда мужчина крутит роман с другой женщиной, он становится грубым с той, кому врёт».</p>
+        <p>Дальше Анна объясняет, что у него в голове, и перечисляет признаки, которые женщина уже узнала у себя. Его пересылают подругам: репостов и сохранений в 4–5 раз больше, чем у любого другого формата.</p>
+      </article>
+      <article class="reel">
+        <div class="vid"><iframe src="https://www.instagram.com/reel/DfaBT4HNPjQ/embed" loading="lazy" allowtransparency="true" allowfullscreen scrolling="no" title="Instagram DfaBT4HNPjQ"></iframe></div>
+        <h3><i class="num">2</i><span>Тест-картинка «Найди миллионера среди бедных»</span></h3>
+        <ul class="kpi">
+          <li><b>103</b> пробника</li>
+          <li><b>91%</b> всех просмотров пробников</li>
+          <li>рекорд <b>43 293</b></li>
+        </ul>
+        <p>Неподвижная картинка на 5 секунд: четыре женщины под номерами и строка «Этот тест покажет, насколько ты чувствуешь людей».</p>
+        <p>В среднем её смотрят 12 секунд – то есть пересматривают, пока выбирают. Каждый из 103 пробников набрал больше нуля. Зато репостов и сохранений почти нет: тест приносит охват и комментарии, но не доверие.</p>
+      </article>
+      <article class="reel">
+        <div class="vid"><iframe src="https://www.instagram.com/reel/DfR1s7xz7vR/embed" loading="lazy" allowtransparency="true" allowfullscreen scrolling="no" title="Instagram DfR1s7xz7vR"></iframe></div>
+        <h3><i class="num">3</i><span>Аватар: «36 вопросов, чтобы влюбить за 45 минут»</span></h3>
+        <ul class="kpi">
+          <li><b>26 184</b> просмотра</li>
+          <li><b>1 214</b> комментариев</li>
+        </ul>
+        <p>Знаменитый эксперимент и обещание «как получить вопросы, скажу в конце». Лучший ролик с аватаром в ленте.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="ne-srabotalo">
+  <div class="wrap">
+    <h2>Куда ушли слоты впустую</h2>
+    <ul class="fails">
+      <li><b>«Вопросы» в пробниках</b> – <span class="z">17 из 19</span> роликов набрали ноль. Тот же текст аватаром в ленте дал <span class="g">26 184</span>. Скорее всего, причина в копиях: одно и то же видео выставили по 20 раз в день, а повторы Instagram не показывает.</li>
+      <li><b>Мультики «Это Лера…» и «Когда…»</b> – обычный ролик набирает <span class="z">1 274</span>, больше 60% людей листают дальше в первые секунды. В первой секунде нет мысли, а история длинная.</li>
+      <li><b>Аватар в пробниках</b> – обычный ролик набирает <span class="z">118</span>. Исключения выросли до 8–11 тысяч: формула из трёх шагов, «Если мужчина пропал» и знаменитый эксперимент.</li>
+      <li><b>Пробники «Код»</b> – 6 роликов, на всех вместе <span class="z">1 просмотр</span>.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec soft" id="referensy">
+  <div class="wrap">
+    <h2>Что общего у роликов на миллионы</h2>
+    <p class="sub">1 510 роликов 21 автора: Анна Чёрная, Инна Белова, @hardtruthtalk, Наталья Жукова, Диана Вальтер и другие.</p>
+    <table class="tbl">
+      <caption>Какая первая фраза приносит больше</caption>
+      <thead><tr><th>тип</th><th>обычный ролик</th><th>доля роликов от миллиона</th></tr></thead>
+      <tbody>
+        <tr><td class="t">Жёсткая правда: «Никогда…», «Самая опасная…»</td><td class="v" data-l="обычный ролик">319 284</td><td class="v" data-l="доля роликов от миллиона"><span class="share" style="--p:21px"><i></i><b>21%</b></span></td></tr>
+        <tr class="best"><td class="t">«Если у мужчины…», «Если он…»</td><td class="v" data-l="обычный ролик">416 041</td><td class="v" data-l="доля роликов от миллиона"><span class="share" style="--p:33px"><i></i><b>33%</b></span></td></tr>
+        <tr><td class="t">От первого лица: «У нас с мужем…»</td><td class="v" data-l="обычный ролик">110 403</td><td class="v" data-l="доля роликов от миллиона"><span class="share" style="--p:25px"><i></i><b>25%</b></span></td></tr>
+        <tr><td class="t">Бытовой вопрос: «Почему жена не хочет интима?»</td><td class="v" data-l="обычный ролик">135 831</td><td class="v" data-l="доля роликов от миллиона"><span class="share" style="--p:12px"><i></i><b>12%</b></span></td></tr>
+        <tr class="low"><td class="t">«Вы…», «У вас…», «Если ваш муж…»</td><td class="v" data-l="обычный ролик">78 068</td><td class="v" data-l="доля роликов от миллиона"><span class="share" style="--p:3px"><i></i><b>3%</b></span></td></tr>
+      </tbody>
+    </table>
+    <p class="note">Сравнивать типы между собой. Выборки собраны из лучших роликов, поэтому сами цифры выше обычных.</p>
+    <ol class="three">
+      <li>Первая фраза – готовая мысль на 6–12 слов, без вступления. «Никогда не перезванивайте дважды» – <span class="n">5,3 миллиона</span>.</li>
+      <li>У <span class="n">8 из 10</span> самых просматриваемых роликов нет просьбы писать в комментарии. Охват делает мысль, а кодовое слово делает комментарии и заявки.</li>
+      <li>Финал – одна сильная фраза, без морали. «Молчание – это тоже ответ. Научитесь его слышать».</li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="lenta">
+  <div class="wrap">
+    <h2>Лента: пять решений</h2>
+    <ol class="steps">
+      <li>Снимать саму Анну 2–3 раза в неделю в формате ролика на 272 тысячи: смелое утверждение о мужчине в первой фразе, что у него в голове, признаки, кодовое слово в конце. Длина до 110 секунд нормальна, если мысль держит.</li>
+      <li>Темы на репосты: измена, его холодность, «он делает вас виноватой», «он пропал».</li>
+      <li>Аватар – только для формул, списков и знаменитых экспериментов с обещанием «скажу в конце».</li>
+      <li>Мультики убрать из ленты или переделать первую секунду: мысль и лицо сразу.</li>
+      <li>Карусели оставить 2–3 в день. Карусели с записью на практикум набирают <span class="g">11 507</span> против <span class="z">4 551</span> у обычных «Хотите…?».</li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec soft" id="probniki">
+  <div class="wrap">
+    <h2>Пробники: из лотереи в систему</h2>
+    <ol class="steps sys">
+      <li>Тест-картинку оставить, но каждый день делать новые темы: «Найди изменщика», «Кто из них манипулятор», «Какая выйдет замуж первой».</li>
+      <li>Каждый пробник – другое видео: другая первая фраза, первый кадр или музыка. 20 одинаковых файлов дают ноль.</li>
+      <li>В пробники ставить ролики с самостоятельной первой фразой: «Никогда…», «Если у мужчины…», бытовой вопрос. Одна мысль, финал без просьбы.</li>
+      <li>Проверить время: пробники в 11–13 часов набрали <span class="g">5 693</span>, вечерние – <span class="z">257</span>. Дни были разные, поэтому нужна чистая проверка.</li>
+      <li>Победитель пробника идёт в ленту уже с кодовым словом.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="plan">
+  <div class="wrap">
+    <h2>Как проверить за 14 дней</h2>
+    <ol class="plan">
+      <li><div class="pc"><b>Неделя 1:</b> 3 новых тест-картинки в день по 5 копий с разными первыми кадрами. Ещё 5 пробников – ролики Анны с первой фразой «жёсткая правда» и «Если у мужчины…».</div></li>
+      <li><div class="pc"><b>Неделя 2:</b> победителей по просмотрам переносим в ленту с кодовым словом. Анна снимает 3 ролика в студии по формуле ролика на 272 тысячи.</div></li>
+      <li><div class="pc"><b>Каждый понедельник</b> – таблица: просмотры, досмотр, репосты, сохранения по каждому формату.</div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec soft" id="video">
+  <div class="wrap">
+    <h2>Видеоразбор за 5 минут</h2>
+    <div class="player"><video controls preload="metadata" poster="img/poster.jpg" src="video.mp4"></video></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Данные: Metricool и HikerAPI на 17.11.2026, просмотры за всё время. Пробники с 14 ноября ещё набирают статистику.</div>
+</footer>
+
+<script>
+(function(){
+  var q=new URLSearchParams(location.search);
+  var hero=document.querySelector('.hero');
+  if(q.get('p')==='end') hero.classList.add('end');
+  var box=document.getElementById('lottery');
+  box.addEventListener('click',function(){
+    hero.classList.remove('end');
+    box.querySelectorAll('.zero,.step,.arrow').forEach(function(e){e.style.animation='none';void e.offsetWidth;e.style.animation='';});
+  });
+})();
+</script>
+</body>
+</html>
