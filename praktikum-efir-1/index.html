@@ -1616,6 +1616,32 @@ section.slide.s-end83 .e84-ph img { width: 100%; height: 100%; object-fit: cover
 .deck-stage section.slide.s-plan14 .p14-tag{flex:0 0 auto;background:#fff;color:var(--teal);border-radius:999px;padding:8px 18px;font-weight:800;font-size:18px;letter-spacing:.08em;text-transform:uppercase}
 .deck-stage section.slide.s-plan14 .p14-prac p{margin:0;font-size:30px;line-height:1.3;font-weight:700;color:#fff;text-wrap:balance}
 </style>
+<style id="res6-plan14b-1363">
+/* slide 6: photo result cards */
+.deck-stage section.slide.s-res6 .head{margin-bottom:44px}
+.deck-stage section.slide.s-res6 .r6{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.deck-stage section.slide.s-res6 .r6c{position:relative;height:560px;border-radius:26px;overflow:hidden;background:var(--ink);box-shadow:0 30px 60px -30px rgba(13,92,88,.45)}
+.deck-stage section.slide.s-res6 .r6c img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.deck-stage section.slide.s-res6 .r6c::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,40,38,0) 30%,rgba(10,40,38,.55) 58%,rgba(8,34,32,.92) 100%)}
+.deck-stage section.slide.s-res6 .r6n{position:absolute;z-index:2;top:26px;left:30px;font-family:var(--fs);font-style:normal;font-weight:500;font-size:64px;line-height:1;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.deck-stage section.slide.s-res6 .r6t{position:absolute;z-index:2;left:36px;right:36px;bottom:36px}
+.deck-stage section.slide.s-res6 .r6t i{display:block;width:54px;height:3px;background:var(--teal-3);margin-bottom:20px}
+.deck-stage section.slide.s-res6 .r6t b{display:block;font-weight:800;font-size:36px;line-height:1.2;color:#fff;text-wrap:balance}
+/* slide 14: teal side panel + numbered list */
+.deck-stage section.slide.s-plan14b{padding-left:860px}
+.deck-stage section.slide.s-plan14b .p14-side{position:absolute;left:0;top:0;bottom:0;width:740px;background:var(--teal);color:#fff;padding:120px 70px 120px var(--pad-x);display:flex;flex-direction:column;justify-content:space-between}
+.deck-stage section.slide.s-plan14b .p14-side .kicker{color:rgba(255,255,255,.75)}
+.deck-stage section.slide.s-plan14b .p14-side .h2{color:#fff;margin-top:26px;font-size:76px;line-height:1.08}
+.deck-stage section.slide.s-plan14b .p14-prac{border-top:1px solid rgba(255,255,255,.28);padding-top:30px}
+.deck-stage section.slide.s-plan14b .p14-tag{display:inline-block;background:#fff;color:var(--teal);border-radius:999px;padding:9px 20px;font-weight:800;font-size:18px;letter-spacing:.08em;text-transform:uppercase}
+.deck-stage section.slide.s-plan14b .p14-prac p{margin:22px 0 0;font-size:32px;line-height:1.3;font-weight:700;color:#fff;text-wrap:balance}
+.deck-stage section.slide.s-plan14b .p14-list{display:flex;flex-direction:column}
+.deck-stage section.slide.s-plan14b .p14-i{display:grid;grid-template-columns:110px 1fr;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line)}
+.deck-stage section.slide.s-plan14b .p14-i:first-child{border-top:1px solid var(--line)}
+.deck-stage section.slide.s-plan14b .p14-n{font-family:var(--fs);font-weight:500;font-size:56px;line-height:1;color:var(--teal-2)}
+.deck-stage section.slide.s-plan14b .p14-i p{margin:0;font-size:31px;line-height:1.35;font-weight:600;color:var(--ink);text-wrap:balance}
+.deck-stage section.slide.s-plan14b .foot{left:860px}
+</style>
 </head>
 <body>
 <div class="deck-viewport">
@@ -1675,9 +1701,13 @@ section.slide.s-end83 .e84-ph img { width: 100%; height: 100%; object-fit: cover
 <div class="foot"><span>Анна&nbsp;Саба · практикум «Новая реальность»</span><span>5</span></div>
 </section>
 <!-- 6. result -->
-<section class="slide t-list">
+<section class="slide t-html s-res6">
 <div class="head"><div class="kicker r d1">Результат&nbsp;практикума</div><h2 class="h2 r d2">Что вы получите через 4 дня</h2></div>
-<div class="grid c3 "><div class="li r d3"><b>Пошаговый план выхода из угнетающих чувств</b></div><div class="li r d4"><b>Соединение со своей новой реальностью</b></div><div class="li r d5"><b>Ключ к большим деньгам</b></div></div>
+<div class="r6">
+  <div class="r6c r d3"><img src="assets/gen/day1.jpg" alt=""><span class="r6n">01</span><div class="r6t"><i></i><b>Пошаговый план выхода из угнетающих чувств</b></div></div>
+  <div class="r6c r d4"><img src="assets/gen/day3.jpg" alt=""><span class="r6n">02</span><div class="r6t"><i></i><b>Соединение со своей новой реальностью</b></div></div>
+  <div class="r6c r d5"><img src="assets/gen/escalator.jpg" alt=""><span class="r6n">03</span><div class="r6t"><i></i><b>Ключ к большим деньгам</b></div></div>
+</div>
 <div class="foot"><span>Анна&nbsp;Саба · практикум «Новая реальность»</span><span>6</span></div>
 </section>
 <!-- 7. for-whom -->
@@ -1773,7 +1803,11 @@ section.slide.s-end83 .e84-ph img { width: 100%; height: 100%; object-fit: cover
 <div class="foot"><span>Анна&nbsp;Саба · практикум «Новая реальность»</span><span>13</span></div>
 </section>
 <!-- 13. plan -->
-<section class="slide t-list bg-mist s-plan14"> <div class="head"><div class="kicker r d1">Эфир 1 · «Спусковой&nbsp;крючок»</div><h2 class="h2 r d2">Что&nbsp;разберём&nbsp;сегодня</h2></div> <div class="p14-grid"><div class="p14-i r d3"><span class="p14-n">01</span><p>Секрет больших денег&nbsp;– покажу формулу, которая работает в&nbsp;любой&nbsp;профессии.</p></div><div class="p14-i r d4"><span class="p14-n">02</span><p>Почему одни люди зарабатывают много, а&nbsp;другие&nbsp;мало?</p></div><div class="p14-i r d5"><span class="p14-n">03</span><p>Как травматический детский опыт влияет на&nbsp;ваши деньги сегодня и&nbsp;как&nbsp;его&nbsp;переработать?</p></div><div class="p14-i r d6"><span class="p14-n">04</span><p>Почему человек может всё осознавать, но&nbsp;его жизнь не&nbsp;меняется, и&nbsp;он раз за&nbsp;разом сваливается в&nbsp;одни и&nbsp;те&nbsp;же&nbsp;сценарии?</p></div></div> <div class="p14-prac r d7"><span class="p14-tag">На&nbsp;эфире будет практика</span><p>Соединения с&nbsp;собой настоящим для выхода на&nbsp;новый уровень&nbsp;дохода</p></div> <div class="foot"><span>Анна&nbsp;Саба · практикум «Новая реальность»</span><span>14</span></div> </section>
+<section class="slide t-html bg-mist s-plan14b">
+<div class="p14-side"><div class="p14-head"><div class="kicker r d1">Эфир 1 · «Спусковой&nbsp;крючок»</div><h2 class="h2 r d2">Что&nbsp;разберём сегодня</h2></div><div class="p14-prac r d7"><span class="p14-tag">На&nbsp;эфире будет практика</span><p>Соединения с&nbsp;собой настоящим для выхода на&nbsp;новый уровень&nbsp;дохода</p></div></div>
+<div class="p14-list"><div class="p14-i r d3"><span class="p14-n">01</span><p>Секрет больших денег&nbsp;– покажу формулу, которая работает в&nbsp;любой&nbsp;профессии.</p></div><div class="p14-i r d4"><span class="p14-n">02</span><p>Почему одни люди зарабатывают много, а&nbsp;другие&nbsp;мало?</p></div><div class="p14-i r d5"><span class="p14-n">03</span><p>Как травматический детский опыт влияет на&nbsp;ваши деньги сегодня и&nbsp;как&nbsp;его&nbsp;переработать?</p></div><div class="p14-i r d6"><span class="p14-n">04</span><p>Почему человек может всё осознавать, но&nbsp;его жизнь не&nbsp;меняется, и&nbsp;он раз за&nbsp;разом сваливается в&nbsp;одни и&nbsp;те&nbsp;же&nbsp;сценарии?</p></div></div>
+<div class="foot"><span>Анна&nbsp;Саба · практикум «Новая реальность»</span><span>14</span></div>
+</section>
 <!-- 14. bonus-1 -->
 <section class="slide t-html s-bon1">
 
