@@ -934,6 +934,39 @@ section.slide.s-ask29 .a29-next { display: flex; gap: 16px; align-items: flex-st
 section.slide.s-ask29 .a29-arr { flex: 0 0 40px; height: 40px; border-radius: 50%; background: var(--teal); color: #fff; display: grid; place-items: center; font-size: 22px; margin-top: 2px; }
 section.slide.s-ask29 .a29-next p { margin: 0; font-size: 24px; line-height: 1.45; color: var(--grey); text-wrap: balance; }
 </style>
+<style id="s30-33-1183">
+section.slide.s-fears30 .f30{display:grid;grid-template-columns:repeat(6,1fr);gap:22px;margin-top:44px}
+section.slide.s-fears30 .f30-c{grid-column:span 2;position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px 34px 32px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+section.slide.s-fears30 .f30-c:nth-child(n+4){grid-column:span 3}
+section.slide.s-fears30 .f30-c:nth-child(1),section.slide.s-fears30 .f30-c:nth-child(4){background:var(--mist)}
+section.slide.s-fears30 .f30-n{font-family:var(--fs);font-weight:500;font-size:64px;line-height:1;color:var(--teal-3)}
+section.slide.s-fears30 .f30-c b{font-weight:800;font-size:31px;line-height:1.2;color:var(--ink);text-wrap:balance}
+section.slide.s-fears30 .f30-c p{font-size:23px;line-height:1.35;color:var(--grey);text-wrap:balance}
+section.slide.s-fears30 .f30-c q{quotes:"«" "»";font-family:var(--fs);font-style:italic;font-size:25px;line-height:1.35;color:var(--teal);border-left:3px solid var(--teal-3);padding-left:16px;text-wrap:balance}
+section.slide.s-base31 .agents{display:none}
+section.slide.s-base31 .b31{margin-left:0;margin-top:40px;max-width:900px;display:flex;flex-direction:column;gap:24px}
+section.slide.s-base31 .b31-g{border-radius:22px;padding:34px 40px 38px;background:var(--mist);border:1px solid var(--line)}
+section.slide.s-base31 .b31-g>b{display:block;font-weight:600;font-size:22px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+section.slide.s-base31 .b31-dark{background:var(--teal);border-color:var(--teal)}
+section.slide.s-base31 .b31-dark>b{color:var(--teal-3)}
+section.slide.s-base31 .b31-g ul{list-style:none;margin-top:22px;display:flex;flex-wrap:wrap;gap:14px}
+section.slide.s-base31 .b31-g li{display:flex;align-items:center;gap:14px;background:#fff;border-radius:999px;padding:12px 30px 12px 12px;font-weight:700;font-size:34px;line-height:1.2;color:var(--ink)}
+section.slide.s-base31 .b31-g li i{font-style:normal;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--teal);color:#fff;font-family:var(--fs);font-weight:500;font-size:24px}
+section.slide.s-base31 .b31-dark li i{background:var(--teal-3);color:var(--teal)}
+section.slide.s-guilt32 .g32{display:grid;grid-template-columns:1fr;gap:14px;margin-top:36px}
+section.slide.s-guilt32 .g32-c{display:flex;align-items:center;gap:26px;background:#fff;border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:16px;padding:20px 30px}
+section.slide.s-guilt32 .g32-n{display:block;font-family:var(--fs);font-weight:500;font-size:46px;line-height:1;color:var(--teal-3);flex:none;width:60px}
+section.slide.s-guilt32 .g32-c p{font-size:27px;line-height:1.35;font-weight:600;color:var(--ink);text-wrap:balance}
+section.slide.s-guilt32 .g32-law{margin-top:10px;display:flex;gap:28px;align-items:center;background:var(--teal);border-radius:22px;padding:34px 40px;color:#fff}
+section.slide.s-guilt32 .g32-law svg{flex:none;width:72px;height:72px;color:var(--teal-3)}
+section.slide.s-guilt32 .g32-law p{font-family:var(--fs);font-style:italic;font-size:31px;line-height:1.35;color:#fff;text-wrap:balance}
+section.slide.s-hurt33 .h33{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+section.slide.s-hurt33 .h33-c{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px 28px 24px;display:flex;flex-direction:column;gap:8px}
+section.slide.s-hurt33 .h33-c:nth-child(2),section.slide.s-hurt33 .h33-c:nth-child(3){background:var(--mist)}
+section.slide.s-hurt33 .h33-n{font-family:var(--fs);font-weight:500;font-size:38px;line-height:1;color:var(--teal-3)}
+section.slide.s-hurt33 .h33-t{align-self:flex-start;background:var(--teal);color:#fff;border-radius:999px;padding:6px 16px;font-weight:700;font-size:16px;letter-spacing:.08em;text-transform:uppercase}
+section.slide.s-hurt33 .h33-c p{font-size:22px;line-height:1.36;font-weight:500;color:var(--ink);text-wrap:balance}
+</style>
 </head>
 <body>
 <div class="deck-viewport">
@@ -1190,34 +1223,49 @@ section.slide.s-ask29 .a29-next p { margin: 0; font-size: 24px; line-height: 1.4
 <div class="foot"><span>Анна&nbsp;Саба · практикум «Новая реальность»</span><span>29</span></div>
 </section>
 <!-- 29. fears -->
-<section class="slide t-list s-fears">
+<section class="slide t-list s-fears s-fears30">
 <div class="head"><div class="kicker r d1">У&nbsp;каждого&nbsp;своё</div><h2 class="h2 r d2">5 страхов перед новой&nbsp;профессией</h2></div>
-<div class="grid c1 bare"><div class="li r d3"><b>1. Страшно, что&nbsp;не&nbsp;получится</b><p></p></div><div class="li r d4"><b>2. Страшно, что&nbsp;скажут мама и&nbsp;подруги</b><p>Стыдно не&nbsp;достичь результата и&nbsp;услышать: «Я&nbsp;же&nbsp;тебе говорила. Да&nbsp;какой из&nbsp;тебя&nbsp;психолог»</p></div><div class="li r d5"><b>3. Страшно, что&nbsp;муж будет&nbsp;осуждать</b><p>Стыдно не&nbsp;оправдать ожиданий и&nbsp;услышать: «Я&nbsp;же&nbsp;предупреждал. Тебя там&nbsp;разводят»</p></div><div class="li r d6"><b>4. Страшно, что&nbsp;не&nbsp;сможете реально помочь&nbsp;человеку</b><p></p></div><div class="li r d7"><b>5. Страшно, что&nbsp;не&nbsp;будет&nbsp;клиентов</b><p>Психологов ведь и&nbsp;так&nbsp;много</p></div></div>
+<div class="f30">
+<div class="f30-c r d3"><span class="f30-n">01</span><b>Страшно, что&nbsp;не&nbsp;получится</b></div>
+<div class="f30-c r d4"><span class="f30-n">02</span><b>Страшно, что&nbsp;скажут мама и&nbsp;подруги</b><p>Стыдно не&nbsp;достичь результата и&nbsp;услышать:</p><q>Я&nbsp;же&nbsp;тебе говорила. Да&nbsp;какой из&nbsp;тебя&nbsp;психолог</q></div>
+<div class="f30-c r d5"><span class="f30-n">03</span><b>Страшно, что&nbsp;муж будет&nbsp;осуждать</b><p>Стыдно не&nbsp;оправдать ожиданий и&nbsp;услышать:</p><q>Я&nbsp;же&nbsp;предупреждал. Тебя там&nbsp;разводят</q></div>
+<div class="f30-c r d6"><span class="f30-n">04</span><b>Страшно, что&nbsp;не&nbsp;сможете реально помочь&nbsp;человеку</b></div>
+<div class="f30-c r d7"><span class="f30-n">05</span><b>Страшно, что&nbsp;не&nbsp;будет&nbsp;клиентов</b><p>Психологов ведь и&nbsp;так&nbsp;много</p></div>
+</div>
 <div class="foot"><span>Анна&nbsp;Саба · практикум «Новая реальность»</span><span>30</span></div>
 </section>
 <!-- 30. base -->
-<section class="slide t-html s-find s-base">
+<section class="slide t-html s-find s-base s-base31">
 <div class="sp-img r d1"><img src="assets/gen/n-weight.jpg" alt=""></div>
-
 <div class="head"><div class="kicker r d1">В&nbsp;основе всего, что&nbsp;держит вас&nbsp;на&nbsp;месте</div><h2 class="h2 r d2">5 угнетающих&nbsp;чувств</h2></div>
-<div class="agents">
-  <div class="ag plus r d3"><b>Прямая связь с&nbsp;доходом</b><ul class="cmp"><li>Страх</li><li>Тревога</li><li>Стыд</li></ul></div>
-  <div class="ag r d5"><b>Прямая и неочевидная связь с&nbsp;доходом</b><ul class="cmp"><li>Вина</li><li>Обида</li></ul></div>
+<div class="b31">
+  <div class="b31-g b31-dark r d3"><b>Прямая связь с&nbsp;доходом</b><ul><li><i>1</i>Страх</li><li><i>2</i>Тревога</li><li><i>3</i>Стыд</li></ul></div>
+  <div class="b31-g r d5"><b>Прямая и неочевидная связь с&nbsp;доходом</b><ul><li><i>4</i>Вина</li><li><i>5</i>Обида</li></ul></div>
 </div>
 <div class="foot"><span>Анна&nbsp;Саба · практикум «Новая реальность»</span><span>31</span></div>
 </section>
 <!-- 31. guilt -->
-<section class="slide t-list has-pic">
+<section class="slide t-list has-pic s-guilt32">
 <div class="sp-img r d1"><img src="assets/gen/n-split.jpg" alt=""></div>
 <div class="head"><div class="kicker r d1">связь с&nbsp;доходом</div><h2 class="h2 r d2">Где вы можете испытывать вину?</h2></div>
-<div class="grid c1 dots"><div class="li r d3"><p>2&nbsp;части вас: одна не&nbsp;хочет содержать маму, другая&nbsp;хочет</p></div><div class="li r d4"><p>Вина перед мамой (родными), если&nbsp;вы&nbsp;зарабатываете&nbsp;много</p></div><div class="li r d5"><p>Какой ещё долг вы должны отдать родителю за&nbsp;жизнь?</p></div><div class="li r d6"><p>Это нарушение законов системы: назад энергия не&nbsp;течёт. Если вы спасаете родителей, то у вас не будет ни денег, ни нормальной личной жизни.</p></div></div>
+<div class="g32">
+<div class="g32-c r d3"><span class="g32-n">01</span><p>2&nbsp;части вас: одна не&nbsp;хочет содержать маму, другая&nbsp;хочет</p></div>
+<div class="g32-c r d4"><span class="g32-n">02</span><p>Вина перед мамой (родными), если&nbsp;вы&nbsp;зарабатываете&nbsp;много</p></div>
+<div class="g32-c r d5"><span class="g32-n">03</span><p>Какой ещё долг вы должны отдать родителю за&nbsp;жизнь?</p></div>
+<div class="g32-law r d6"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6v36M10 14h28M10 14l-6 14h12zM38 14l-6 14h12zM16 42h16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Это нарушение законов системы: назад энергия не&nbsp;течёт. Если вы спасаете родителей, то&nbsp;у&nbsp;вас не&nbsp;будет ни&nbsp;денег, ни&nbsp;нормальной личной&nbsp;жизни.</p></div>
+</div>
 <div class="foot"><span>Анна&nbsp;Саба · практикум «Новая реальность»</span><span>32</span></div>
 </section>
 <!-- 32. resent -->
-<section class="slide t-list has-pic flip">
+<section class="slide t-list has-pic flip s-hurt33">
 <div class="sp-img sp-snow r d1" aria-hidden="true"><svg viewBox="0 0 720 1080" preserveAspectRatio="xMidYMid slice"><path class="slope" d="M0 300 L720 854 L720 1080 L0 1080 Z"></path><path class="sl" d="M0 300 L720 854"></path><g class="roll" transform="translate(420 620) scale(.8)"><g transform="translate(0 -80)"><g class="spin"><circle class="ball" r="80"></circle><path class="ball2" d="M-50 -20 C-20 -40 20 -40 50 -10 M-40 30 C-10 20 20 30 40 45"></path></g></g></g></svg></div>
-<div class="head"><div class="kicker r d1">связь с&nbsp;доходом</div><h2 class="h2 r d2" style="font-family: Manrope, sans-serif; color: rgb(22, 33, 31); white-space-collapse: collapse;">Где вы можете испытывать обиду?</h2></div>
-<div class="grid c1 dots"><div class="li r d3"><p>Обида на&nbsp;подруг, которые отвернутся, если&nbsp;у&nbsp;вас&nbsp;всё&nbsp;получится</p></div><div class="li r d4"><p>Неочевидная связь с доходом: вы&nbsp;виноватите деньги и&nbsp;обижены на&nbsp;них, что&nbsp;их&nbsp;в&nbsp;вашей жизни&nbsp;нет (это происходит бессознательно, когда вы испытываете угнетающие чувства, глядя на свой счет, платя за что-либо)</p></div><div class="li r d5"><p>Каждая оплата с&nbsp;мыслью «опять платить» или&nbsp;<span style="font-family: var(--fb);">«снова подорожало»&nbsp;</span><font face="var(--fb)">вносит свою </font>лепту<font face="var(--fb)">&nbsp;в копилку вашего </font>безденежья, и вы этого даже не замечаете&nbsp;</p></div><div class="li r d6"><p><span style="font-family: var(--fb);">Неочевидная связь с доходом: работаешь много, толку мало, ругаешь работу, таким образом ты обижен(а) на своё дело, поэтому оно и не даёт тебе денег</span></p></div></div>
+<div class="head"><div class="kicker r d1">связь с&nbsp;доходом</div><h2 class="h2 r d2">Где вы можете испытывать обиду?</h2></div>
+<div class="h33">
+<div class="h33-c r d3"><span class="h33-n">01</span><p>Обида на&nbsp;подруг, которые отвернутся, если&nbsp;у&nbsp;вас всё&nbsp;получится</p></div>
+<div class="h33-c r d4"><span class="h33-n">02</span><span class="h33-t">Неочевидная связь с&nbsp;доходом</span><p>Вы вините деньги и&nbsp;обижены на&nbsp;них за&nbsp;то, что&nbsp;их нет в&nbsp;вашей жизни. Это происходит бессознательно: вы&nbsp;испытываете угнетающие чувства, когда смотрите на&nbsp;свой счёт или за&nbsp;что-то&nbsp;платите</p></div>
+<div class="h33-c r d5"><span class="h33-n">03</span><p>Каждая оплата с&nbsp;мыслью «опять платить» или&nbsp;«снова подорожало» вносит свою лепту в&nbsp;копилку вашего безденежья, и&nbsp;вы этого даже не&nbsp;замечаете</p></div>
+<div class="h33-c r d6"><span class="h33-n">04</span><span class="h33-t">Неочевидная связь с&nbsp;доходом</span><p>Вы много работаете, а&nbsp;толку мало, и&nbsp;ругаете работу. Так вы обижаетесь на&nbsp;своё дело, поэтому оно и&nbsp;не&nbsp;даёт вам&nbsp;денег</p></div>
+</div>
 <div class="foot"><span>Анна&nbsp;Саба · практикум «Новая реальность»</span><span>33</span></div>
 </section>
 <!-- 33. each -->
