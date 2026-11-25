@@ -1117,6 +1117,29 @@ section.slide.s-desc46 .d46-vip { display: flex; gap: 20px; align-items: flex-st
 section.slide.s-desc46 .d46-vip span { flex: none; padding: 6px 14px; border-radius: 30px; background: var(--sun); color: var(--ink); font-size: 18px; font-weight: 700; letter-spacing: .08em; }
 section.slide.s-desc46 .d46-vip p { margin: 0; font-size: 22px; line-height: 1.45; color: var(--grey); text-wrap: balance; }
 </style>
+<style id="s47-1218">
+section.slide.s-tdo47 .st { font-size: 66px; margin-bottom: 44px; }
+section.slide.s-tdo47 .st em { font-family: var(--fs); font-style: italic; color: var(--teal); font-weight: 500; }
+section.slide.s-tdo47 .t47-row { display: grid; grid-template-columns: 280px 1fr; gap: 36px; align-items: baseline; padding: 22px 0; border-top: 1px solid var(--line); }
+section.slide.s-tdo47 .t47-row:last-child { border-bottom: 1px solid var(--line); }
+section.slide.s-tdo47 .t47-row b { font-family: var(--fs); font-style: italic; font-weight: 500; font-size: 52px; line-height: 1; color: var(--teal); white-space: nowrap; }
+section.slide.s-tdo47 .t47-row:nth-child(2) b { font-size: 40px; }
+section.slide.s-tdo47 .t47-row p { margin: 0; font-size: 28px; line-height: 1.4; color: var(--ink); text-wrap: balance; }
+section.slide.s-tdo47 .t47-dots { display: flex; gap: 16px; margin-top: 40px; }
+section.slide.s-tdo47 .t47-dots i { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--teal-3); animation: t47 6s infinite; }
+section.slide.s-tdo47 .t47-dots i:nth-child(n) { animation-delay: calc(var(--d, 0) * 1s); }
+section.slide.s-tdo47 .t47-dots i:nth-child(1) { animation-delay: 0.35s; }
+section.slide.s-tdo47 .t47-dots i:nth-child(2) { animation-delay: 0.70s; }
+section.slide.s-tdo47 .t47-dots i:nth-child(3) { animation-delay: 1.05s; }
+section.slide.s-tdo47 .t47-dots i:nth-child(4) { animation-delay: 1.40s; }
+section.slide.s-tdo47 .t47-dots i:nth-child(5) { animation-delay: 1.75s; }
+section.slide.s-tdo47 .t47-dots i:nth-child(6) { animation-delay: 2.10s; }
+section.slide.s-tdo47 .t47-dots i:nth-child(7) { animation-delay: 2.45s; }
+section.slide.s-tdo47 .t47-dots i:nth-child(8) { animation-delay: 2.80s; }
+section.slide.s-tdo47 .t47-dots i:nth-child(9) { animation-delay: 3.15s; }
+section.slide.s-tdo47 .t47-dots i:nth-child(10) { animation-delay: 3.50s; }
+@keyframes t47 { 0%, 8% { background: transparent; } 14%, 80% { background: var(--teal); border-color: var(--teal); } 90%, 100% { background: transparent; } }
+</style>
 </head>
 <body>
 <div class="deck-viewport">
@@ -1502,16 +1525,16 @@ section.slide.s-desc46 .d46-vip p { margin: 0; font-size: 22px; line-height: 1.4
 <div class="foot"><span>Анна&nbsp;Саба · практикум «Новая реальность»</span><span>46</span></div>
 </section>
 <!-- 46. tdo-rules -->
-<section class="slide t-html s-tdo">
-
-<div class="head"><div class="kicker r d1">Опросник травматического детского&nbsp;опыта</div><h2 class="h2 r d2">Вместе сейчас пройдём тест ТДО</h2></div>
-<div class="grid c3">
-  <div class="li r d3"><b>10</b><p>вопросов</p></div>
-  <div class="li r d4"><b>«Да» = 1&nbsp;балл</b><p><span style="font-family: var(--fb);">пишите в чат ДА или НЕТ</span></p></div>
-  <div class="li r d5"><b>0–10</b><p>посчитайте, сколько у вас баллов, и напишите в чат<br></p></div>
+<section class="slide t-statement s-stpic flip s-tdo47">
+<div class="sp-img r d1"><img src="assets/gen/n-tdo47.jpg" alt=""></div>
+<div class="st-wrap"><div class="kicker r d1">Опросник травматического детского&nbsp;опыта</div>
+<h2 class="st r d2">Вместе сейчас пройдём <em>тест&nbsp;ТДО</em></h2>
+<div class="t47 r d3">
+<div class="t47-row"><b>10</b><p>вопросов</p></div>
+<div class="t47-row"><b>«Да» =&nbsp;1&nbsp;балл</b><p>пишите в&nbsp;чат ДА или&nbsp;НЕТ</p></div>
+<div class="t47-row"><b>0–10</b><p>посчитайте, сколько у&nbsp;вас баллов, и&nbsp;напишите в&nbsp;чат</p></div>
 </div>
-<p class="note r d6"><br></p>
-<div class="tdo-scale r d6" aria-hidden="true"><div class="bar"><i></i></div><span class="tk" style="left:0%"></span><span class="tk" style="left:10%"></span><span class="tk" style="left:20%"></span><span class="tk" style="left:30%"></span><span class="tk" style="left:40%"></span><span class="tk" style="left:50%"></span><span class="tk" style="left:60%"></span><span class="tk" style="left:70%"></span><span class="tk" style="left:80%"></span><span class="tk" style="left:90%"></span><span class="tk" style="left:100%"></span></div>
+<div class="t47-dots r d4" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
 <div class="foot"><span>Анна&nbsp;Саба · практикум «Новая реальность»</span><span>47</span></div>
 </section>
 <!-- 47. tdo-1 -->
