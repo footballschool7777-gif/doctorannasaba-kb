@@ -2295,7 +2295,7 @@ ph.addEventListener('focus',()=>{if(!ph.value)ph.value='+'});
 ph.addEventListener('blur',()=>{if(ph.value==='+')ph.value=''});
 ph.addEventListener('input',()=>{ph.value=fmt(ph.value);const n=ph.value.replace(/\D/g,'').length;ph.setCustomValidity(n>=10?'':'Введите телефон полностью, с кодом страны')});
 document.getElementById('tf-loc').value=location.href;document.getElementById('tf-ref').value=document.referrer;
-const VIP_OFFER='8830645',FREE_ACTION=f.action,NAMES={email:'email',full_name:'full_name',phone:'phone'};
+const VIP_OFFER='8963587',FREE_ACTION=f.action,NAMES={email:'email',full_name:'full_name',phone:'phone'};
 const gcHidden=Array.from(f.querySelectorAll('input[type=hidden]'));
 const vipHidden=[['OrderForm[selected_offer_id]',VIP_OFFER],['OrderForm[created_by_object_type]','sales_widget']].map(([n,v])=>{const i=document.createElement('input');i.type='hidden';i.name=n;i.value=v;i.disabled=true;f.prepend(i);return i});
 const ofl=f.querySelector('.tf-vip-only'),of=document.getElementById('tf-oferta'),bt=document.getElementById('tf-btn');
