@@ -2011,6 +2011,33 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 .deck-stage section.slide.t-cover .cv-ret li::before { content: ""; position: absolute; left: 0; top: 9px; width: 14px; height: 14px; border-radius: 50%; background: var(--teal); }
 .deck-stage section.slide.t-cover .cv-motto { margin-top: 26px; font-weight: 800; font-size: 28px; color: var(--teal); }
 
+/* msg 1498: recap of live 1 grows to 8 cards */
+.deck-stage section.slide.s-e2-recap .e2-cards.rc8 { gap: 18px 24px; margin-top: 34px; }
+.deck-stage section.slide.s-e2-recap .rc8 .e2-c { padding: 22px 30px; gap: 20px; border-radius: 22px; align-items: center; }
+.deck-stage section.slide.s-e2-recap .rc8 .e2-c p { font-size: 26px; line-height: 1.3; }
+.deck-stage section.slide.s-e2-recap .rc8 .e2-c .n { font-size: 22px; padding-top: 0; }
+
+/* msg 1499: slide 3 insights – new design and photo */
+.deck-stage section.slide.s-ins3 { background: var(--teal); color: #fff; padding-right: 980px; }
+.deck-stage section.slide.s-ins3 .chat { display: inline-flex; align-items: center; gap: 16px; padding: 12px 28px 12px 14px; border-radius: 999px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.35); font-weight: 800; font-size: 24px; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; }
+.deck-stage section.slide.s-ins3 .chat svg { width: 44px; height: 44px; padding: 9px; border-radius: 50%; background: #fff; }
+.deck-stage section.slide.s-ins3 .chat svg path { fill: var(--teal); }
+.deck-stage section.slide.s-ins3 .i3-l { align-self: flex-start; }
+.deck-stage section.slide.s-ins3 .i3-h { margin-top: 44px; font-weight: 700; font-size: 104px; line-height: 1.04; letter-spacing: -0.03em; color: #fff; text-wrap: balance; }
+.deck-stage section.slide.s-ins3 .i3-p { margin-top: 44px; padding-top: 36px; border-top: 2px solid rgba(255,255,255,.3); max-width: 760px; font-weight: 500; font-size: 40px; line-height: 1.32; color: var(--teal-3); text-wrap: balance; }
+.deck-stage section.slide.s-ins3 .i3-r { position: absolute; right: 72px; top: 72px; bottom: 72px; width: 800px; border-radius: 400px 400px 36px 36px; overflow: visible; }
+.deck-stage section.slide.s-ins3 .i3-r img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; border-radius: 400px 400px 36px 36px; display: block; box-shadow: 0 40px 80px rgba(0,0,0,.25); }
+.deck-stage section.slide.s-ins3 .i3-b { position: absolute; display: flex; gap: 12px; padding: 26px 34px; background: #fff; border-radius: 34px 34px 34px 8px; box-shadow: 0 18px 40px rgba(0,0,0,.18); }
+.deck-stage section.slide.s-ins3 .i3-b i { width: 16px; height: 16px; border-radius: 50%; background: var(--teal-2); animation: i3dot 1.4s infinite ease-in-out; }
+.deck-stage section.slide.s-ins3 .i3-b i:nth-child(2) { animation-delay: .2s; }
+.deck-stage section.slide.s-ins3 .i3-b i:nth-child(3) { animation-delay: .4s; }
+.deck-stage section.slide.s-ins3 .i3-b.b1 { left: -70px; top: 300px; }
+.deck-stage section.slide.s-ins3 .i3-b.b2 { left: -110px; top: 470px; transform: scale(.85); }
+.deck-stage section.slide.s-ins3 .i3-b.b3 { right: -30px; top: 620px; border-radius: 34px 34px 8px 34px; }
+.deck-stage section.slide.s-ins3 .foot { right: auto; width: 820px; border-color: rgba(255,255,255,.2); color: var(--teal-3); }
+.deck-stage section.slide.s-ins3 .foot span:last-child { color: #fff; }
+@keyframes i3dot { 0%,80%,100% { opacity: .3; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-6px); } }
+
 </style>
 </head>
 <body>
@@ -2028,18 +2055,25 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 </section>
 <!-- 2 -->
 <section class="slide t-list s-e2-recap">
-<div class="head"><div class="kicker r d1">на 1-м эфире</div><h2 class="h2 r d2">Мы с вами</h2></div>
-<div class="e2-cards c2">
-<div class="e2-c r d3"><span class="n">01</span><p>Прошли тест ТДО (напишите ваши были в чате)</p></div>
-<div class="e2-c r d4"><span class="n">02</span><p>Изучили формулу больших денег (кто уже подумал, как её применить на своей профессии)</p></div>
-<div class="e2-c r d5"><span class="n">03</span><p>Узнали о самом эффективном и быстром методе переработки травм, который меняет ваши реакции и мышление -- ДПДГ 3.0</p></div>
-<div class="e2-c r d6"><span class="n">04</span><p>Сделали практику освобождения от ТДО</p><p><br></p><p><br></p></div>
+<div class="head"><div class="kicker r d1">на&nbsp;1-м&nbsp;эфире</div><h2 class="h2 r d2">Мы&nbsp;с&nbsp;вами</h2></div>
+<div class="e2-cards c2 rc8">
+<div class="e2-c r d3"><span class="n">01</span><p>Прошли тест ТДО (напишите ваши баллы в&nbsp;чате)</p></div>
+<div class="e2-c r d3"><span class="n">02</span><p>Изучили формулу больших денег (кто уже подумал, как её&nbsp;применить в&nbsp;своей&nbsp;профессии)</p></div>
+<div class="e2-c r d4"><span class="n">03</span><p>Узнали о&nbsp;самом эффективном и&nbsp;быстром методе переработки травм, который меняет ваши реакции и&nbsp;мышление&nbsp;– ДПДГ&nbsp;3.0</p></div>
+<div class="e2-c r d4"><span class="n">04</span><p>Сделали практику освобождения от&nbsp;ТДО</p></div>
+<div class="e2-c r d5"><span class="n">05</span><p>Узнали от&nbsp;Регины (выпускницы ПКТ), как после проработки ТДО худеют и&nbsp;беременеют</p></div>
+<div class="e2-c r d5"><span class="n">06</span><p>Узнали, с&nbsp;чего стоит начинать психотерапию и&nbsp;чем психолог отличается от&nbsp;психотерапевта</p></div>
+<div class="e2-c r d6"><span class="n">07</span><p>Записались на&nbsp;ГРАНТ (вы&nbsp;сможете получить от&nbsp;50 до&nbsp;200к&nbsp;рублей)</p></div>
+<div class="e2-c r d6"><span class="n">08</span><p>Кто захотел быть на&nbsp;4-м дне на&nbsp;эфире «Магнит для&nbsp;денег», который я&nbsp;проведу совместно с&nbsp;мужем Михаилом Саба, записались на&nbsp;VIP-тариф</p></div>
 </div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>2</span></div>
 </section>
 <!-- 3 -->
-<section class="slide t-ask ask-pic">
-<div class="sp-img r d1"><img src="assets/gen/n-chat58.jpg" alt=""></div>
-<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path></svg>Пишите в&nbsp;чате</div><h2 class="ask-q r d2">Инсайты вчерашнего дня - это нужно для закрепления и плавного входа во 2-й эфир практикума</h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>3</span></div>
+<section class="slide t-html s-ins3">
+<div class="i3-l"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path></svg>Пишите в&nbsp;чате</div>
+<h2 class="i3-h r d2">Инсайты вчерашнего&nbsp;дня</h2>
+<p class="i3-p r d3">Это нужно для&nbsp;закрепления и&nbsp;плавного входа во&nbsp;2&#8209;й&nbsp;эфир&nbsp;практикума</p></div>
+<div class="i3-r r d2"><img src="assets/gen/n-dream.jpg" alt="">
+<div class="i3-b b1 r d3"><i></i><i></i><i></i></div><div class="i3-b b2 r d4"><i></i><i></i><i></i></div><div class="i3-b b3 r d5"><i></i><i></i><i></i></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>3</span></div>
 </section>
 <!-- 4 -->
 <section class="slide t-html bg-mist s-plan14b s-e2-plan">
@@ -2143,7 +2177,7 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 <section class="slide t-html s-e2-melt">
 <div class="head"><div class="kicker r d1">100% энергии&nbsp;дня</div><h2 class="h2 r d2">День по&nbsp;шагам</h2></div>
 <div class="e2-melt noswipe" data-lv="100,80,70,52,44,36,12,3">
-<div class="e2-bat big r d3"><i style="width: 100%;"></i><span class="pct">100%</span></div>
+<div class="e2-bat big r d3"><i></i><span class="pct">100%</span></div>
 <div class="e2-steps r d4">
 <div class="e2-st"><span class="n">1</span><p>Собрать ребёнка, одеть, отвезти в&nbsp;школу,&nbsp;накормить</p></div>
 <div class="e2-st"><span class="n">2</span><p>Погладить мужу</p></div>
@@ -2455,7 +2489,7 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 <!-- 63 -->
 <section class="slide t-html s-e2-video">
 <div class="head"><div class="kicker r d1">Кейс Валентины</div><h2 class="h2 r d2">Какой Валентина была <em>ДО</em> и&nbsp;какой стала <em>ПОСЛЕ</em></h2></div>
-<div class="e2-vid noswipe r d3"><video controls="" playsinline="" preload="metadata" src="assets/video/valentina-do-posle.mp4"></video></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>63</span></div>
+<div class="e2-vid noswipe r d3"><video controls playsinline preload="metadata" src="assets/video/valentina-do-posle.mp4"></video></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>63</span></div>
 </section>
 <!-- 64 -->
 <section class="slide t-statement s-stpic s-e2-fear">
@@ -2607,8 +2641,8 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 </section>
 </main>
 </div>
-
-
+</main>
+</div>
 <div class="progress" id="progress"></div>
 <div class="deck-controls" id="controls"><span id="counter">1 / 84</span><span>← → пробел · E правка текста</span></div>
 <div class="edit-hotzone"></div>
