@@ -2051,6 +2051,25 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 .deck-stage section.slide.s-q4 .q4-acc { border: 2px solid var(--teal); }
 .deck-stage section.slide.s-q4 .q4-tag { align-self: flex-start; margin-top: auto; padding: 8px 20px; border-radius: 999px; background: var(--teal); color: #fff; font-weight: 800; font-size: 20px; letter-spacing: .08em; text-transform: uppercase; }
 
+/* msg 1503: колесо баланса – нет энергии */
+.slide.s-e2-wheel { grid-template-columns: 1fr 660px; gap: 48px; padding-top: 64px; padding-bottom: 110px; }
+.s-e2-wheel .h2 { font-size: 54px; line-height: 1.1; }
+.s-e2-wheel .wch { margin-top: 22px; }
+.s-e2-wheel .wch li { font-size: 25px; padding: 7px 0 7px 62px; }
+.s-e2-wheel .wch li::before { width: 42px; height: 42px; line-height: 42px; font-size: 20px; top: 4px; }
+.s-e2-wheel .wch li:not(:last-child)::after { left: 20.5px; top: 46px; }
+.s-e2-wheel .wch li.w6 { margin-top: 12px; padding: 20px 28px 20px 82px; border-radius: 24px; background: var(--teal); color: #fff; font-weight: 500; font-size: 24px; line-height: 1.4; }
+.s-e2-wheel .wch li.w6::before { left: 22px; top: 20px; background: #fff; color: var(--teal); }
+.s-e2-wheel .wh-pic svg { width: 660px; height: 603px; }
+.s-e2-wheel .ghost { fill: rgba(240,143,122,.08); stroke: #f08f7a; stroke-width: 3; stroke-dasharray: 12 9; }
+.s-e2-wheel .wl text.bad { fill: #d9654d; font-weight: 800; }
+.s-e2-wheel .wc circle { fill: var(--teal); stroke: none; }
+
+/* msg 1508: человек – это система */
+.s-e2-sys .st-sub { font-size: 29px; margin-top: 24px; }
+.s-e2-sys .st + .st-sub { margin-top: 34px; }
+.s-e2-sys .sys-n { margin-top: 30px; display: inline-block; padding: 12px 26px; border-radius: 999px; background: var(--teal); color: #fff; font-weight: 700; font-size: 28px; }
+
 </style>
 </head>
 <body>
@@ -2100,28 +2119,59 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 </div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>4</span></div>
 </section>
 <!-- 5 -->
+<section class="slide t-html s-wheel s-e2-wheel">
+<div class="wh-txt">
+  <div class="kicker r d1">Колесо баланса</div>
+  <h2 class="h2 r d2">Что происходит, когда у&nbsp;вас нет энергии, <em>жизненных&nbsp;сил</em></h2>
+  <ol class="wch">
+    <li class="r d3">Вы&nbsp;просыпаетесь&nbsp;уставшей</li>
+    <li class="r d3">У&nbsp;вас повышенная&nbsp;раздражительность</li>
+    <li class="r d4">Вы&nbsp;не&nbsp;можете сконцентрироваться&nbsp;на&nbsp;одном&nbsp;деле</li>
+    <li class="r d4">Вам нужно делать какие-то дела во&nbsp;внешнем мире для&nbsp;других,&nbsp;но&nbsp;не&nbsp;для&nbsp;себя</li>
+    <li class="r d5">Вы&nbsp;не&nbsp;уделяете времени тому, что&nbsp;действительно&nbsp;хотите</li>
+    <li class="w6 r d6">Из-за того, что у&nbsp;вас происходит рассинхрон ваших истинных желаний с&nbsp;действительностью, в&nbsp;которой вы&nbsp;живёте, вы&nbsp;испытываете чувство отвращения к&nbsp;собственной лени и&nbsp;потом к&nbsp;себе, и&nbsp;угнетающие чувства пожирают вас, особенно перед сном, когда вы&nbsp;задумываетесь о&nbsp;смысле&nbsp;своей&nbsp;жизни</li>
+  </ol>
+</div>
+<div class="wh-pic r d2">
+<svg viewBox="-80 -40 920 840" aria-hidden="true">
+  <g class="wg"><circle cx="380" cy="380" r="58"></circle><circle cx="380" cy="380" r="116"></circle><circle cx="380" cy="380" r="174"></circle><circle cx="380" cy="380" r="232"></circle><circle cx="380" cy="380" r="290"></circle><line x1="380" y1="380" x2="525.0" y2="128.9"></line><line x1="380" y1="380" x2="670.0" y2="380.0"></line><line x1="380" y1="380" x2="525.0" y2="631.1"></line><line x1="380" y1="380" x2="235.0" y2="631.1"></line><line x1="380" y1="380" x2="90.0" y2="380.0"></line><line x1="380" y1="380" x2="235.0" y2="128.9"></line></g>
+  <path class="ghost" d="M380,380 L670.0,380.0 A290,290 0 0 1 525.0,631.1 Z"></path>
+  <g class="wss"><path class="ws" style="--k:0.5;--i:0" d="M380,380 L235.0,128.9 A290,290 0 0 1 525.0,128.9 Z" fill="#3d8580"></path><path class="ws" style="--k:0.62;--i:1" d="M380,380 L525.0,128.9 A290,290 0 0 1 670.0,380.0 Z" fill="#5f9a95"></path><path class="ws sick" style="--k:0.1;--i:2" d="M380,380 L670.0,380.0 A290,290 0 0 1 525.0,631.1 Z" fill="#f08f7a"></path><path class="ws" style="--k:0.46;--i:3" d="M380,380 L525.0,631.1 A290,290 0 0 1 235.0,631.1 Z" fill="#86b3ae"></path><path class="ws" style="--k:0.56;--i:4" d="M380,380 L235.0,631.1 A290,290 0 0 1 90.0,380.0 Z" fill="#a9c7c4"></path><path class="ws" style="--k:0.66;--i:5" d="M380,380 L90.0,380.0 A290,290 0 0 1 235.0,128.9 Z" fill="#2a716c"></path></g>
+  <g class="wc"><circle cx="380" cy="380" r="12"></circle></g>
+  <g class="wl"><text x="380.0" y="48.0" text-anchor="middle">Финансы</text><text x="664.1" y="226.0" text-anchor="start">Отношения</text><text x="664.1" y="554.0" text-anchor="start" class="bad">Энергия</text><text x="380.0" y="730.0" text-anchor="middle">Здоровье</text><text x="95.9" y="554.0" text-anchor="end">Реализация</text><text x="95.9" y="226.0" text-anchor="end">Предназначение</text></g>
+</svg></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>5</span></div>
+</section>
+<!-- 6 -->
+<section class="slide t-statement s-stpic s-e2-sys">
+<div class="sp-img r d1"><img src="assets/gen/n-system.jpg" alt=""></div>
+<div class="st-wrap"><div class="kicker r d1">Напоминаю: человек&nbsp;–&nbsp;это&nbsp;система</div><h2 class="st r d2">Смотреть на&nbsp;все сферы <em>нужно&nbsp;вместе</em></h2>
+<p class="st-sub r d3">Если вы&nbsp;хотите больше денег, то&nbsp;вам нужно разобраться с&nbsp;вашей энергией. И&nbsp;речь здесь не&nbsp;о&nbsp;том, что вам нужно вырабатывать больше энергии, а&nbsp;о&nbsp;том, куда вам инвестировать тот запас энергии, который сейчас у&nbsp;вас выделяется&nbsp;в&nbsp;течение&nbsp;дня.</p>
+<p class="st-sub r d4">Зачастую люди расходуют свою энергию абсолютно не&nbsp;туда, куда надо, и&nbsp;поэтому не&nbsp;получают результат и&nbsp;годами топчутся&nbsp;на&nbsp;месте.</p>
+<p class="sys-n r d5">Сегодня будут&nbsp;такие&nbsp;примеры</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>6</span></div>
+</section>
+<!-- 7 -->
 <section class="slide t-html s-bon1 s-e2-bon">
 <div class="b1-img r d2"><img src="assets/gen/n-p2.jpg" alt=""></div>
 <div class="b1-txt"><div class="kicker r d1">Бонус <span class="nw">2-го</span> эфира</div><h2 class="h2 r d2">Будьте до&nbsp;конца</h2></div>
 <div class="b1-cards">
   <div class="b1c r d3"><span class="bt">Вебинар</span><b>«Деньги 2.0. Законы больших&nbsp;денег»</b></div>
-</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>5</span></div>
+</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>7</span></div>
 </section>
-<!-- 6 -->
+<!-- 8 -->
 <section class="slide t-statement s-stpic flip s-e2-prac">
 <div class="sp-img r d1"><img src="assets/gen/n-day2p.jpg" alt=""></div>
 <div class="st-wrap"><div class="kicker r d1">Практика в&nbsp;конце&nbsp;эфира</div><h2 class="st r d2">Пополняем вашу <em>библиотеку состояний</em></h2>
 <div class="e2-two r d3"><div><span class="lb">Вчера</span><p>Состояние соединения с&nbsp;собой.</p></div><div class="on"><span class="lb">Сегодня</span><p>Состояние для&nbsp;денежного&nbsp;взлёта.</p></div></div>
-<p class="st-sub r d4">Из&nbsp;него деньги создавать гораздо проще, чем из&nbsp;вины, тревоги и&nbsp;страха</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>6</span></div>
+<p class="st-sub r d4">Из&nbsp;него деньги создавать гораздо проще, чем из&nbsp;вины, тревоги и&nbsp;страха</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>8</span></div>
 </section>
-<!-- 7 -->
+<!-- 9 -->
 <section class="slide t-statement s-stpic s-e2-ep3">
 <div class="sp-img r d1"><img src="assets/gen/day3.jpg" alt=""></div>
 <div class="st-wrap"><div class="kicker r d1">Что будет на&nbsp;<span class="nw">3-м</span> эфире</div><h2 class="st r d2">Эфир 3 <em>«Новая реальность»</em></h2>
 <ul class="e2-dots r d3"><li>Проверяем цель на&nbsp;истинность</li><li>Убираем сопротивление и&nbsp;саботаж</li></ul>
-<div class="e2-bcard r d4"><img src="assets/gen/b3-saba-c.jpg" alt="Михаил и Анна Саба"><div><span class="lb">Бонус</span><b>Практика соединения с&nbsp;нужной веткой&nbsp;реальности</b><p>Проводит Михаил&nbsp;Саба.</p></div></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>7</span></div>
+<div class="e2-bcard r d4"><img src="assets/gen/b3-saba-c.jpg" alt="Михаил и Анна Саба"><div><span class="lb">Бонус</span><b>Практика соединения с&nbsp;нужной веткой&nbsp;реальности</b><p>Проводит Михаил&nbsp;Саба.</p></div></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>9</span></div>
 </section>
-<!-- 8 -->
+<!-- 10 -->
 <section class="slide t-html s-grant s-e2-grant">
 <div class="head"><div class="kicker r d1">Гранты</div><h2 class="h2 r d2">На&nbsp;<span class="nw">3-м</span> эфире розыгрыш грантов <em>на&nbsp;ПКТ</em></h2></div>
 <div class="gw">
@@ -2133,31 +2183,31 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
   <div class="gs"><span>всего</span><b>2&nbsp;200&nbsp;000&nbsp;₽</b></div>
   <div class="gst"><span class="gn">1</span><p>Оставьте заявку <strong>сейчас</strong></p></div>
   <div class="gst"><span class="gn">2</span><p>Будьте на&nbsp;<span class="nw">3-м</span> эфире</p></div>
-</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>8</span></div>
+</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>10</span></div>
 </section>
-<!-- 9 -->
+<!-- 11 -->
 <section class="slide t-statement x-dark s-stpic flip s-e2-ep4">
 <div class="sp-img r d1"><img src="assets/gen/b3-saba.jpg" alt="" style="object-position:50% 20%"></div>
 <div class="st-wrap"><div class="kicker r d1">Что будет на&nbsp;<span class="nw">4-м</span> эфире</div><span class="e2-vip r d1">только VIP</span>
 <h2 class="st r d2">Эфир 4 <em>«Магнит для&nbsp;денег»</em></h2>
 <ul class="e2-dots r d3"><li>Состояние, где всё даётся&nbsp;легко</li><li>Возможности находят вас&nbsp;сами</li></ul>
-<p class="st-sub r d4">Совместный эфир и&nbsp;практика Анны и&nbsp;Михаила&nbsp;Саба</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>9</span></div>
+<p class="st-sub r d4">Совместный эфир и&nbsp;практика Анны и&nbsp;Михаила&nbsp;Саба</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>11</span></div>
 </section>
-<!-- 10 -->
+<!-- 12 -->
 <section class="slide t-html s-tar2 s-e2-tar">
 <div class="head"><div class="kicker r d1">VIP-тариф</div><h2 class="h2 r d2">Как получить <em>записи эфиров</em></h2></div>
 <div class="tw">
   <div class="tf r d3"><span class="tn">STANDART</span><div class="tp"><b>Бесплатно</b></div></div>
   <div class="tv r d4"><span class="tn">VIP</span><div class="tp"><s>14&nbsp;990&nbsp;₽</s><b>1&nbsp;980&nbsp;₽</b></div><ul>
     <li class="hl">Записи и&nbsp;презентации</li><li><span class="nw">4-й</span> эфир</li><li>Практика 60&nbsp;минут</li><li>Личная диагностика от&nbsp;выпускника&nbsp;института</li><li><span class="nw">Мастер-класс</span> о&nbsp;профессии <span class="nw">EMDR-терапевта</span></li></ul></div>
-</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>10</span></div>
+</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>12</span></div>
 </section>
-<!-- 11 -->
+<!-- 13 -->
 <section class="slide t-ask ask-live">
 <div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path></svg>вопрос</div><h2 class="ask-q r d2">Кому знакомо?</h2><p class="ask-note r d4">Пишите «Я» в&nbsp;чат</p></div>
-<div class="ask-anim" aria-hidden="true"><span class="ab b1"><i></i><i></i><i></i></span><span class="ab b2"><i></i><i></i><i></i></span><span class="ab b3"><i></i><i></i><i></i></span></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>11</span></div>
+<div class="ask-anim" aria-hidden="true"><span class="ab b1"><i></i><i></i><i></i></span><span class="ab b2"><i></i><i></i><i></i></span><span class="ab b3"><i></i><i></i><i></i></span></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>13</span></div>
 </section>
-<!-- 12 -->
+<!-- 14 -->
 <section class="slide t-statement s-stpic s-e2-sym">
 <div class="sp-img r d1"><img src="assets/gen/n-burnout.jpg" alt=""></div>
 <div class="st-wrap"><div class="kicker r d1">Проблематика: симптомы нехватки&nbsp;энергии</div><h2 class="h2 r d2">Симптомы</h2>
@@ -2168,25 +2218,25 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 <div class="e2-c r d4"><span class="n">04</span><p>Цель есть, а&nbsp;сил на&nbsp;неё нет&nbsp;– лень и&nbsp;саботаж</p></div>
 <div class="e2-c r d5"><span class="n">05</span><p>Купили курс&nbsp;– начинаете смотреть, зеваете и&nbsp;хочется&nbsp;спать</p></div>
 <div class="e2-c r d5"><span class="n">06</span><p>Срочные дела сыплются одно за&nbsp;другим</p></div>
-</div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>12</span></div>
+</div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>14</span></div>
 </section>
-<!-- 13 -->
+<!-- 15 -->
 <section class="slide t-statement x-dark s-e2-split">
-<div class="e2-halves"><div class="off r d2"><p>Где сил нет, там всё и&nbsp;плохо.</p></div><div class="on r d3"><p>Где есть силы, там есть&nbsp;результат.</p></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>13</span></div>
+<div class="e2-halves"><div class="off r d2"><p>Где сил нет, там всё и&nbsp;плохо.</p></div><div class="on r d3"><p>Где есть силы, там есть&nbsp;результат.</p></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>15</span></div>
 </section>
-<!-- 14 -->
+<!-- 16 -->
 <section class="slide t-statement s-e2-hubs">
 <div class="e2-hub-l"><div class="kicker r d1">Энергия</div><h2 class="st r d2">Энергия управляет деньгами, реализацией и&nbsp;отношениями</h2>
 <p class="st-sub r d3">Куда вы&nbsp;её&nbsp;направляете, там и&nbsp;результат.</p><p class="e2-acc r d4">Деньги прямо зависят от&nbsp;вашей&nbsp;энергии.</p></div>
-<div class="e2-hub r d3" aria-hidden="true"><span class="c">Энергия</span><span class="s s1">Деньги</span><span class="s s2">Реализация</span><span class="s s3">Отношения</span><i class="l l1"></i><i class="l l2"></i><i class="l l3"></i></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>14</span></div>
+<div class="e2-hub r d3" aria-hidden="true"><span class="c">Энергия</span><span class="s s1">Деньги</span><span class="s s2">Реализация</span><span class="s s3">Отношения</span><i class="l l1"></i><i class="l l2"></i><i class="l l3"></i></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>16</span></div>
 </section>
-<!-- 15 -->
+<!-- 17 -->
 <section class="slide t-statement s-stpic flip s-e2-full">
 <div class="sp-img r d1"><img src="assets/gen/dream.jpg" alt=""></div>
 <div class="st-wrap"><div class="kicker r d1">Контент · 100% энергии&nbsp;дня</div><h2 class="st r d2">Представим: вы&nbsp;проснулись, у&nbsp;вас <em>100% времени дня и&nbsp;100%&nbsp;энергии</em></h2>
-<div class="e2-bat r d3" aria-hidden="true"><i></i><span>100%</span></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>15</span></div>
+<div class="e2-bat r d3" aria-hidden="true"><i></i><span>100%</span></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>17</span></div>
 </section>
-<!-- 16 -->
+<!-- 18 -->
 <section class="slide t-html s-e2-melt">
 <div class="head"><div class="kicker r d1">100% энергии&nbsp;дня</div><h2 class="h2 r d2">День по&nbsp;шагам</h2></div>
 <div class="e2-melt noswipe" data-lv="100,80,70,52,44,36,12,3">
@@ -2199,45 +2249,45 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 <div class="e2-st"><span class="n">5</span><p>Мама позвонила</p></div>
 <div class="e2-st"><span class="n">6</span><p>Забрать ребёнка, приготовить, убрать,&nbsp;уроки</p></div>
 <div class="e2-st last"><span class="n">7</span><p>Вечер «для&nbsp;себя», а&nbsp;в&nbsp;полосе почти&nbsp;ноль</p></div>
-</div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>16</span></div>
+</div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>18</span></div>
 </section>
-<!-- 17 -->
+<!-- 19 -->
 <section class="slide t-ask ask-pic">
 <div class="sp-img r d1"><img src="assets/gen/n-pkt-b.jpg" alt=""></div>
-<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path></svg>вопрос в&nbsp;чат</div><h2 class="ask-q r d2">Напишите в&nbsp;чат свою цель одной&nbsp;фразой</h2><div class="opts"><span class="opt r d3">больше денег</span><span class="opt r d4">своё дело</span><span class="opt r d5">здоровье</span></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>17</span></div>
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path></svg>вопрос в&nbsp;чат</div><h2 class="ask-q r d2">Напишите в&nbsp;чат свою цель одной&nbsp;фразой</h2><div class="opts"><span class="opt r d3">больше денег</span><span class="opt r d4">своё дело</span><span class="opt r d5">здоровье</span></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>19</span></div>
 </section>
-<!-- 18 -->
+<!-- 20 -->
 <section class="slide t-ask ask-plain s-e2-slide">
 <div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path></svg>вопрос в&nbsp;чат</div><h2 class="ask-q r d2">Сколько процентов дня вы&nbsp;тратите на&nbsp;свою&nbsp;цель?</h2>
 <div class="e2-range noswipe r d3"><output class="e2-out">20%</output><div class="e2-track"><span class="band" aria-hidden="true"></span><input type="range" min="0" max="100" value="20" step="1" aria-label="Процент дня на цель"></div><div class="e2-scale" aria-hidden="true"><span>0%</span><span>100%</span></div></div>
-<p class="ask-note r d4">Напишите цифру</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>18</span></div>
+<p class="ask-note r d4">Напишите цифру</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>20</span></div>
 </section>
-<!-- 19 -->
+<!-- 21 -->
 <section class="slide t-statement s-e2-q">
 <div class="head"><div class="kicker r d1">100% энергии&nbsp;дня</div><h2 class="h2 r d2">У&nbsp;энергии есть&nbsp;качество</h2></div>
 <div class="e2-cmp">
 <div class="e2-p"><span class="ic sun" aria-hidden="true"></span><span class="lb">Утром</span><p>Мозг свежий, не&nbsp;забит&nbsp;информацией.</p></div>
 <div class="e2-p dark"><span class="ic moon" aria-hidden="true"></span><span class="lb">Вечером</span><p>Ребёнок выбесил, домашку не&nbsp;хочет делать, вы&nbsp;на&nbsp;него накричали, и&nbsp;с&nbsp;этими чувствами идёте делать своё&nbsp;дело.</p></div>
-</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>19</span></div>
+</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>21</span></div>
 </section>
-<!-- 20 -->
+<!-- 22 -->
 <section class="slide t-statement s-stpic">
 <div class="sp-img r d1"><img src="assets/gen/n-mind44.jpg" alt=""></div>
-<div class="st-wrap"><h2 class="st r d2">Вы&nbsp;вроде занимаетесь своим, а&nbsp;<em>фокус на&nbsp;внешнем</em></h2><p class="st-sub r d3">Погрузиться целиком не&nbsp;получается, энергия расплескалась за&nbsp;день.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>20</span></div>
+<div class="st-wrap"><h2 class="st r d2">Вы&nbsp;вроде занимаетесь своим, а&nbsp;<em>фокус на&nbsp;внешнем</em></h2><p class="st-sub r d3">Погрузиться целиком не&nbsp;получается, энергия расплескалась за&nbsp;день.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>22</span></div>
 </section>
-<!-- 21 -->
+<!-- 23 -->
 <section class="slide t-statement s-stpic flip s-e2-or">
 <div class="sp-img r d1"><img src="assets/gen/n-choice.jpg" alt=""></div>
 <div class="st-wrap"><h2 class="st r d2">Решает состояние: <em>из&nbsp;какого состояния вы&nbsp;живёте</em></h2>
-<div class="e2-or"><p class="q r d3">«Я&nbsp;всем должна, мне стыдно, я&nbsp;плохая мать и&nbsp;жена»</p><span class="or r d4">или</span><p class="ok r d5">Спокойное состояние, где вы&nbsp;занимаетесь собой и&nbsp;вам&nbsp;хорошо</p></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>21</span></div>
+<div class="e2-or"><p class="q r d3">«Я&nbsp;всем должна, мне стыдно, я&nbsp;плохая мать и&nbsp;жена»</p><span class="or r d4">или</span><p class="ok r d5">Спокойное состояние, где вы&nbsp;занимаетесь собой и&nbsp;вам&nbsp;хорошо</p></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>23</span></div>
 </section>
-<!-- 22 -->
+<!-- 24 -->
 <section class="slide t-statement s-stpic s-e2-got">
 <div class="sp-img r d1"><img src="assets/gen/n-door.jpg" alt=""></div>
 <div class="st-wrap"><div class="kicker r d1">Поняли, что тормозит,&nbsp;– и&nbsp;всё равно&nbsp;откат</div><h2 class="st r d2">Допустим, вчера вы&nbsp;поняли:</h2>
-<ul class="e2-dots big r d3"><li>Не&nbsp;хочу больше быть хорошей девочкой, тащить всё на&nbsp;себе</li><li>Хочу время для&nbsp;себя и&nbsp;своего&nbsp;дохода</li></ul></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>22</span></div>
+<ul class="e2-dots big r d3"><li>Не&nbsp;хочу больше быть хорошей девочкой, тащить всё на&nbsp;себе</li><li>Хочу время для&nbsp;себя и&nbsp;своего&nbsp;дохода</li></ul></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>24</span></div>
 </section>
-<!-- 23 -->
+<!-- 25 -->
 <section class="slide t-list s-e2-cost">
 <div class="e2-cost-l"><div class="kicker r d1">Пример</div><p class="e2-lead r d2">Женщина, муж, ребёнок, быт. Хочет новый уровень дохода, начинает уделять этому&nbsp;время.</p><h2 class="h2 r d3">Чем придётся&nbsp;пожертвовать?</h2></div>
 <div class="e2-xs">
@@ -2245,129 +2295,129 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 <div class="e2-x r d5"><span aria-hidden="true"></span><p>Не&nbsp;развозить&nbsp;его</p></div>
 <div class="e2-x r d6"><span aria-hidden="true"></span><p>Не&nbsp;гладить и&nbsp;не&nbsp;убирать&nbsp;бесконечно</p></div>
 <div class="e2-x r d7"><span aria-hidden="true"></span><p>Не&nbsp;следить, выпила ли&nbsp;мама&nbsp;таблетку</p></div>
-</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>23</span></div>
+</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>25</span></div>
 </section>
-<!-- 24 -->
+<!-- 26 -->
 <section class="slide t-ask ask-live">
 <div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path></svg>вопрос в&nbsp;чат</div><h2 class="ask-q r d2">Что вы&nbsp;почувствуете в&nbsp;этот&nbsp;момент?</h2><div class="opts"><span class="opt r d3">стыд</span><span class="opt r d4">вину</span><span class="opt r d5">тревогу</span><span class="opt r d6">«я&nbsp;же&nbsp;хорошая»</span></div></div>
-<div class="ask-anim" aria-hidden="true"><span class="ab b1"><i></i><i></i><i></i></span><span class="ab b2"><i></i><i></i><i></i></span><span class="ab b3"><i></i><i></i><i></i></span></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>24</span></div>
+<div class="ask-anim" aria-hidden="true"><span class="ab b1"><i></i><i></i><i></i></span><span class="ab b2"><i></i><i></i><i></i></span><span class="ab b3"><i></i><i></i><i></i></span></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>26</span></div>
 </section>
-<!-- 25 -->
+<!-- 27 -->
 <section class="slide t-statement x-dark s-e2-loop">
 <div class="e2-ring" aria-hidden="true"><span></span><i></i></div>
 <div class="st-wrap"><p class="e2-pre r d1">Вы&nbsp;понимаете, что вами движет, но&nbsp;как только начинаете делать по-новому, угнетающие чувства&nbsp;возвращаются.</p>
-<h2 class="st r d2">Без проработки ТДО вы&nbsp;рано или поздно <em>вернётесь в&nbsp;старое</em></h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>25</span></div>
+<h2 class="st r d2">Без проработки ТДО вы&nbsp;рано или поздно <em>вернётесь в&nbsp;старое</em></h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>27</span></div>
 </section>
-<!-- 26 -->
+<!-- 28 -->
 <section class="slide t-statement s-stpic flip">
 <div class="sp-img r d1"><img src="assets/gen/day2.jpg" alt=""></div>
 <div class="st-wrap"><div class="kicker r d1">Вспышка вдохновения и&nbsp;почему она&nbsp;гаснет</div><h2 class="st r d2">Жизнь подкидывает&nbsp;проверочки</h2>
 <div class="e2-tags r d3"><span>Подкаст</span><span>эфир</span><span>яркий человек</span></div>
-<p class="st-sub r d4">– и&nbsp;поток: творить, делать, рвать и&nbsp;метать.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>26</span></div>
+<p class="st-sub r d4">– и&nbsp;поток: творить, делать, рвать и&nbsp;метать.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>28</span></div>
 </section>
-<!-- 27 -->
+<!-- 29 -->
 <section class="slide t-statement s-stpic s-e2-body">
 <div class="sp-img r d1"><img src="assets/gen/n-body62.jpg" alt=""></div>
-<div class="st-wrap"><h2 class="st r d2">Если тело откликнулось вдохновением&nbsp;– это уже повод начать: <em>тело хочет</em></h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>27</span></div>
+<div class="st-wrap"><h2 class="st r d2">Если тело откликнулось вдохновением&nbsp;– это уже повод начать: <em>тело хочет</em></h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>29</span></div>
 </section>
-<!-- 28 -->
+<!-- 30 -->
 <section class="slide t-statement s-stpic flip s-e2-fade">
 <div class="sp-img r d1"><img src="assets/gen/swamp2.jpg" alt=""></div>
 <div class="st-wrap"><h2 class="st r d2">Но&nbsp;запал гаснет, и&nbsp;многие решают <em>«это не&nbsp;моё»</em></h2>
 <div class="e2-why r d3"><span class="lb">Почему:</span><div class="e2-tags"><span>рутина засасывает&nbsp;обратно</span><span>спина</span><span>тревога</span><span>страх</span><span>вина</span></div></div>
-<p class="st-sub r d4">Цветочек не&nbsp;успел распуститься, а&nbsp;его уже съели&nbsp;автоматизмы.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>28</span></div>
+<p class="st-sub r d4">Цветочек не&nbsp;успел распуститься, а&nbsp;его уже съели&nbsp;автоматизмы.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>30</span></div>
 </section>
-<!-- 29 -->
+<!-- 31 -->
 <section class="slide t-statement x-dark s-e2-match">
 <div class="e2-matchv" aria-hidden="true"><span class="stick"></span><span class="fl"></span><span class="sm"></span></div>
-<div class="st-wrap"><p class="e2-pre r d1">И&nbsp;вы&nbsp;ещё рассказали подруге или мужу&nbsp;–&nbsp;обесценили.</p><h2 class="st r d2"><em>Спичка потухла.</em></h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>29</span></div>
+<div class="st-wrap"><p class="e2-pre r d1">И&nbsp;вы&nbsp;ещё рассказали подруге или мужу&nbsp;–&nbsp;обесценили.</p><h2 class="st r d2"><em>Спичка потухла.</em></h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>31</span></div>
 </section>
-<!-- 30 -->
+<!-- 32 -->
 <section class="slide t-statement s-stpic s-e2-good">
 <div class="sp-img r d1"><img src="assets/gen/n-cage.jpg" alt=""></div>
 <div class="st-wrap"><div class="kicker r d1">Хорошая новость</div><h2 class="st r d2">Если вам хоть чуть-чуть кажется <em>«было бы&nbsp;классно»</em>&nbsp;– это уже&nbsp;хорошо</h2>
-<p class="st-sub r d3">Огонь есть, его завалило бытом и&nbsp;болью.</p><p class="e2-acc r d4">Расчищают его через проработку&nbsp;ТДО.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>30</span></div>
-</section>
-<!-- 31 -->
-<section class="slide t-ask ask-pic">
-<div class="sp-img r d1"><img src="assets/gen/day4.jpg" alt=""></div>
-<div class="ask-wrap"><div class="kicker r d1">Где фокус, там и&nbsp;результат</div><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path></svg>вопрос в&nbsp;чат</div><h2 class="ask-q r d2">Чем вы&nbsp;восхищаетесь в&nbsp;других&nbsp;людях?</h2><div class="opts"><span class="opt r d3">Результат</span><span class="opt r d4">внешность</span><span class="opt r d5">доход на&nbsp;любимом&nbsp;деле</span></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>31</span></div>
-</section>
-<!-- 32 -->
-<section class="slide t-ask ask-plain s-e2-focus">
-<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path></svg>вопрос</div><h2 class="ask-q r d2">Как думаете, на&nbsp;чём фокусируются эти люди&nbsp;– на&nbsp;других или на&nbsp;себе?</h2><div class="opts"><span class="opt r d3">на&nbsp;других</span><span class="opt r d4">на&nbsp;себе</span></div>
-<div class="e2-note r d5"><span class="lb">Анна о&nbsp;себе</span><p>Муж, дети&nbsp;– если бы&nbsp;она фокусировалась только на&nbsp;них, не&nbsp;ходила бы&nbsp;в&nbsp;зал и&nbsp;так бы&nbsp;не&nbsp;выглядела.</p></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>32</span></div>
+<p class="st-sub r d3">Огонь есть, его завалило бытом и&nbsp;болью.</p><p class="e2-acc r d4">Расчищают его через проработку&nbsp;ТДО.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>32</span></div>
 </section>
 <!-- 33 -->
-<section class="slide t-statement s-stpic flip">
-<div class="sp-img r d1"><img src="assets/gen/n-system.jpg" alt=""></div>
-<div class="st-wrap"><div class="kicker r d1">Закон систем</div><h2 class="st r d2">Когда вы&nbsp;начинаете меняться, <em>муж поначалу&nbsp;обесценивает</em></h2><p class="st-sub r d3">Система тянет вас обратно, вылезают его программы и&nbsp;ваши.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>33</span></div>
+<section class="slide t-ask ask-pic">
+<div class="sp-img r d1"><img src="assets/gen/day4.jpg" alt=""></div>
+<div class="ask-wrap"><div class="kicker r d1">Где фокус, там и&nbsp;результат</div><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path></svg>вопрос в&nbsp;чат</div><h2 class="ask-q r d2">Чем вы&nbsp;восхищаетесь в&nbsp;других&nbsp;людях?</h2><div class="opts"><span class="opt r d3">Результат</span><span class="opt r d4">внешность</span><span class="opt r d5">доход на&nbsp;любимом&nbsp;деле</span></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>33</span></div>
 </section>
 <!-- 34 -->
-<section class="slide t-statement x-dark s-e2-flame">
-<div class="e2-glow" aria-hidden="true"><span></span><span></span><span></span></div>
-<div class="st-wrap"><p class="e2-pre r d1">Но&nbsp;если вы&nbsp;похудеете и&nbsp;начнёте больше зарабатывать, окружение начнёт вами восхищаться, тянуться к&nbsp;вам и&nbsp;тоже&nbsp;меняться.</p><h2 class="st r d2">Вы&nbsp;станете для&nbsp;них <em>пламенем</em></h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>34</span></div>
+<section class="slide t-ask ask-plain s-e2-focus">
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path></svg>вопрос</div><h2 class="ask-q r d2">Как думаете, на&nbsp;чём фокусируются эти люди&nbsp;– на&nbsp;других или на&nbsp;себе?</h2><div class="opts"><span class="opt r d3">на&nbsp;других</span><span class="opt r d4">на&nbsp;себе</span></div>
+<div class="e2-note r d5"><span class="lb">Анна о&nbsp;себе</span><p>Муж, дети&nbsp;– если бы&nbsp;она фокусировалась только на&nbsp;них, не&nbsp;ходила бы&nbsp;в&nbsp;зал и&nbsp;так бы&nbsp;не&nbsp;выглядела.</p></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>34</span></div>
 </section>
 <!-- 35 -->
-<section class="slide t-statement s-e2-men">
-<div class="st-wrap"><span class="e2-bar r d1"></span><h2 class="st r d2">С&nbsp;мужчинами так же: восхищает тот, кто <em>горит своим&nbsp;делом</em> и&nbsp;готов говорить о&nbsp;нём&nbsp;бесконечно</h2><p class="e2-acc big r d3">Это энергия, и&nbsp;она&nbsp;зажигает.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>35</span></div>
+<section class="slide t-statement s-stpic flip">
+<div class="sp-img r d1"><img src="assets/gen/n-system.jpg" alt=""></div>
+<div class="st-wrap"><div class="kicker r d1">Закон систем</div><h2 class="st r d2">Когда вы&nbsp;начинаете меняться, <em>муж поначалу&nbsp;обесценивает</em></h2><p class="st-sub r d3">Система тянет вас обратно, вылезают его программы и&nbsp;ваши.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>35</span></div>
 </section>
 <!-- 36 -->
+<section class="slide t-statement x-dark s-e2-flame">
+<div class="e2-glow" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="st-wrap"><p class="e2-pre r d1">Но&nbsp;если вы&nbsp;похудеете и&nbsp;начнёте больше зарабатывать, окружение начнёт вами восхищаться, тянуться к&nbsp;вам и&nbsp;тоже&nbsp;меняться.</p><h2 class="st r d2">Вы&nbsp;станете для&nbsp;них <em>пламенем</em></h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>36</span></div>
+</section>
+<!-- 37 -->
+<section class="slide t-statement s-e2-men">
+<div class="st-wrap"><span class="e2-bar r d1"></span><h2 class="st r d2">С&nbsp;мужчинами так же: восхищает тот, кто <em>горит своим&nbsp;делом</em> и&nbsp;готов говорить о&nbsp;нём&nbsp;бесконечно</h2><p class="e2-acc big r d3">Это энергия, и&nbsp;она&nbsp;зажигает.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>37</span></div>
+</section>
+<!-- 38 -->
 <section class="slide t-list s-e2-blog">
 <div class="head"><div class="kicker r d1">Пример</div><h2 class="h2 r d2">Блогер, которая снимает готовку сверху, без&nbsp;лица</h2></div>
 <div class="e2-facts">
 <div class="r d3"><b>Миллионы</b><p>подписчиков, интеграции.</p></div>
 <div class="r d4"><b>Обычный ужин</b><p>стал многомиллионным&nbsp;делом.</p></div>
 <div class="dark r d5"><b>Потому что</b><p>это её&nbsp;энергия и&nbsp;её&nbsp;кайф.</p></div>
-</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>36</span></div>
+</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>38</span></div>
 </section>
-<!-- 37 -->
+<!-- 39 -->
 <section class="slide t-statement s-stpic flip s-e2-stop">
 <div class="sp-img r d1"><img src="assets/gen/n-self38.jpg" alt=""></div>
 <div class="st-wrap"><h2 class="st r d2">А&nbsp;что останавливает&nbsp;вас:</h2>
 <div class="e2-bub"><p class="r d3">«кто я&nbsp;такая»</p><p class="r d4">«я&nbsp;не&nbsp;умею&nbsp;снимать»</p><p class="r d5">«другие делают&nbsp;лучше»</p></div>
-<p class="e2-acc r d6">– снова угнетающие&nbsp;чувства.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>37</span></div>
+<p class="e2-acc r d6">– снова угнетающие&nbsp;чувства.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>39</span></div>
 </section>
-<!-- 38 -->
+<!-- 40 -->
 <section class="slide t-statement s-stpic s-e2-girl">
 <div class="sp-img r d1"><img src="assets/gen/n-child.jpg" alt=""></div>
 <div class="st-wrap"><div class="kicker r d1">Позиция Бога и&nbsp;две&nbsp;иллюзии</div><h2 class="st r d2">Почему тогда стыдно оставить мужа без&nbsp;поглаженной&nbsp;рубашки?</h2>
-<p class="e2-acc r d3">За&nbsp;этим стоит «хорошая девочка» из&nbsp;детства.</p><p class="st-sub r d4">Хотя ребёнок в&nbsp;4–5&nbsp;лет может сам одеться, помыться и&nbsp;почистить&nbsp;зубы.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>38</span></div>
-</section>
-<!-- 39 -->
-<section class="slide t-statement x-dark s-e2-god">
-<div class="st-wrap"><p class="e2-pre r d1">Большинство женщин живёт&nbsp;так:</p><h2 class="st r d2">всё для&nbsp;всех, но&nbsp;не&nbsp;для&nbsp;себя</h2>
-<p class="e2-mid r d3">Вы&nbsp;контролируете жизни других людей&nbsp;– <em>это позиция&nbsp;Бога.</em></p><p class="st-sub r d4">А&nbsp;себя взять в&nbsp;руки, похудеть, реализоваться не&nbsp;можете.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>39</span></div>
-</section>
-<!-- 40 -->
-<section class="slide t-statement s-e2-ill">
-<div class="e2-ill-n" aria-hidden="true">1</div>
-<div class="st-wrap"><div class="kicker r d1">Иллюзия 1</div><h2 class="st r d2">Что вы&nbsp;управляете <em>чужими жизнями</em></h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>40</span></div>
+<p class="e2-acc r d3">За&nbsp;этим стоит «хорошая девочка» из&nbsp;детства.</p><p class="st-sub r d4">Хотя ребёнок в&nbsp;4–5&nbsp;лет может сам одеться, помыться и&nbsp;почистить&nbsp;зубы.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>40</span></div>
 </section>
 <!-- 41 -->
+<section class="slide t-statement x-dark s-e2-god">
+<div class="st-wrap"><p class="e2-pre r d1">Большинство женщин живёт&nbsp;так:</p><h2 class="st r d2">всё для&nbsp;всех, но&nbsp;не&nbsp;для&nbsp;себя</h2>
+<p class="e2-mid r d3">Вы&nbsp;контролируете жизни других людей&nbsp;– <em>это позиция&nbsp;Бога.</em></p><p class="st-sub r d4">А&nbsp;себя взять в&nbsp;руки, похудеть, реализоваться не&nbsp;можете.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>41</span></div>
+</section>
+<!-- 42 -->
+<section class="slide t-statement s-e2-ill">
+<div class="e2-ill-n" aria-hidden="true">1</div>
+<div class="st-wrap"><div class="kicker r d1">Иллюзия 1</div><h2 class="st r d2">Что вы&nbsp;управляете <em>чужими жизнями</em></h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>42</span></div>
+</section>
+<!-- 43 -->
 <section class="slide t-statement s-stpic s-e2-ill2">
 <div class="sp-img r d1"><img src="assets/gen/n-path.jpg" alt=""></div>
 <div class="st-wrap"><div class="kicker r d1">Иллюзия 2</div><h2 class="st r d2">Что дети будут с&nbsp;вами всегда и&nbsp;будут&nbsp;благодарны</h2>
-<p class="e2-acc r d3">Они вырастут, женятся и&nbsp;уедут.</p><p class="st-sub r d4">В&nbsp;12–14&nbsp;лет ребёнок устаёт от&nbsp;гиперконтроля и&nbsp;начинает&nbsp;огрызаться.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>41</span></div>
+<p class="e2-acc r d3">Они вырастут, женятся и&nbsp;уедут.</p><p class="st-sub r d4">В&nbsp;12–14&nbsp;лет ребёнок устаёт от&nbsp;гиперконтроля и&nbsp;начинает&nbsp;огрызаться.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>43</span></div>
 </section>
-<!-- 42 -->
+<!-- 44 -->
 <section class="slide t-ask ask-pic s-e2-alone">
 <div class="sp-img r d1"><img src="assets/gen/n-office.jpg" alt=""></div>
-<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path></svg>вопрос</div><h2 class="ask-q r d2">А&nbsp;если ребёнок уедет в&nbsp;другую страну, а&nbsp;муж уйдёт&nbsp;– что вы&nbsp;будете&nbsp;делать?</h2><p class="ask-note r d4">Вы&nbsp;знаете всё обо&nbsp;всех, но&nbsp;не&nbsp;знаете&nbsp;себя.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>42</span></div>
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path></svg>вопрос</div><h2 class="ask-q r d2">А&nbsp;если ребёнок уедет в&nbsp;другую страну, а&nbsp;муж уйдёт&nbsp;– что вы&nbsp;будете&nbsp;делать?</h2><p class="ask-note r d4">Вы&nbsp;знаете всё обо&nbsp;всех, но&nbsp;не&nbsp;знаете&nbsp;себя.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>44</span></div>
 </section>
-<!-- 43 -->
+<!-- 45 -->
 <section class="slide t-statement s-stpic s-e2-24">
 <div class="sp-img r d1"><img src="assets/gen/n-mirror.jpg" alt=""></div>
 <div class="st-wrap"><p class="e2-pre dk r d1">Мы&nbsp;приходим в&nbsp;жизнь одни и&nbsp;уходим&nbsp;одни.</p><div class="e2-big r d2">24&nbsp;часа</div><p class="e2-acc r d3">в&nbsp;сутки вы&nbsp;с&nbsp;собой.</p>
-<h2 class="st r d4">Когда вы&nbsp;последний раз просто долго смотрели на&nbsp;себя в&nbsp;зеркало?</h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>43</span></div>
+<h2 class="st r d4">Когда вы&nbsp;последний раз просто долго смотрели на&nbsp;себя в&nbsp;зеркало?</h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>45</span></div>
 </section>
-<!-- 44 -->
+<!-- 46 -->
 <section class="slide t-statement s-e2-medal">
 <div class="e2-medal-l"><div class="kicker r d1">Вторичные выгоды</div><h2 class="st r d2">Почему можно знать всё это и&nbsp;не&nbsp;меняться?</h2>
 <p class="st-sub r d3"><b>Вторичные выгоды:</b> вы&nbsp;чувствуете себя живой, когда нужны и&nbsp;получаете&nbsp;признание.</p><p class="e2-acc r d4">Медальку «я&nbsp;хорошая мама» вы&nbsp;вешаете себе&nbsp;сами.</p></div>
-<div class="e2-medal r d3" aria-hidden="true"><span class="rib"></span><span class="disc"><b>я&nbsp;хорошая&nbsp;мама</b></span></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>44</span></div>
+<div class="e2-medal r d3" aria-hidden="true"><span class="rib"></span><span class="disc"><b>я&nbsp;хорошая&nbsp;мама</b></span></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>46</span></div>
 </section>
-<!-- 45 -->
+<!-- 47 -->
 <section class="slide t-statement s-e2-ill-loop">
 <div class="head"><div class="kicker r d1">Вторичные выгоды</div><h2 class="h2 r d2">Вторичная выгода&nbsp;болезни</h2></div>
 <div class="e2-flow">
@@ -2375,9 +2425,9 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 <div class="r d4"><span class="n">02</span><p>Её&nbsp;жалеют</p></div><i class="r d4">→</i>
 <div class="on r d5"><span class="n">03</span><p>Она получает&nbsp;любовь</p></div>
 </div>
-<p class="e2-back r d6"><span aria-hidden="true">↺</span>Чем больше говорит о&nbsp;боли, тем больше мозг ищет&nbsp;подтверждение.</p><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>45</span></div>
+<p class="e2-back r d6"><span aria-hidden="true">↺</span>Чем больше говорит о&nbsp;боли, тем больше мозг ищет&nbsp;подтверждение.</p><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>47</span></div>
 </section>
-<!-- 46 -->
+<!-- 48 -->
 <section class="slide t-html s-e2-trig">
 <div class="head"><div class="kicker r d1">Если бы&nbsp;ТДО был&nbsp;проработан</div><h2 class="h2 r d2">Внешний триггер → <em>ваш выбор</em></h2></div>
 <div class="e2-trs">
@@ -2386,101 +2436,101 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 <div class="e2-tr r d4"><b>Уроки</b><i aria-hidden="true">→</i><p>Репетитор</p></div>
 <div class="e2-tr r d5"><b>Таблетки мамы</b><i aria-hidden="true">→</i><p>Взрослый человек</p></div>
 <div class="e2-tr r d6"><b>Подруга</b><i aria-hidden="true">→</i><p>Хотите помогаете, хотите&nbsp;нет</p></div>
-</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>46</span></div>
+</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>48</span></div>
 </section>
-<!-- 47 -->
+<!-- 49 -->
 <section class="slide t-statement s-stpic flip s-e2-filter">
 <div class="sp-img r d1"><img src="assets/gen/n-norm43.jpg" alt="" style="object-position:50% 30%"></div>
 <div class="st-wrap"><h2 class="st r d2">После проработки ТДО <em>фильтр снимается</em></h2>
 <p class="st-sub r d3">Вы&nbsp;чётко видите свои задачи и&nbsp;куда деть&nbsp;энергию,</p>
-<div class="e2-body r d4"><span class="lb">связь с&nbsp;телом:</span><div class="e2-tags"><span>моё&nbsp;– не&nbsp;моё</span><span>хочу&nbsp;– не&nbsp;хочу</span></div></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>47</span></div>
+<div class="e2-body r d4"><span class="lb">связь с&nbsp;телом:</span><div class="e2-tags"><span>моё&nbsp;– не&nbsp;моё</span><span>хочу&nbsp;– не&nbsp;хочу</span></div></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>49</span></div>
 </section>
-<!-- 48 -->
+<!-- 50 -->
 <section class="slide t-list s-e2-home">
 <div class="head"><div class="kicker r d1">Если бы&nbsp;ТДО был&nbsp;проработан</div><h2 class="h2 r d2">И&nbsp;бытовое&nbsp;меняется</h2></div>
 <div class="e2-cmp">
 <div class="e2-p"><span class="lb">Уроки</span><p>Уроки с&nbsp;ребёнком в&nbsp;кайф и&nbsp;быстрее, без&nbsp;крика «ты&nbsp;тупой».</p></div>
 <div class="e2-p dark"><span class="lb">Готовка</span><p>Многие женщины любят готовить&nbsp;– и&nbsp;превращают это в&nbsp;доход.</p></div>
-</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>48</span></div>
+</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>50</span></div>
 </section>
-<!-- 49 -->
+<!-- 51 -->
 <section class="slide s-cases70 s-e2-kat">
 <div class="w70"><div class="kicker r d1">Результаты выпускников курса ПКТ&nbsp;– психолог краткосрочной&nbsp;терапии</div><h2 class="h70 r d1">Как зарабатывают <span>наши выпускники</span></h2>
-<div class="g70"><div class="c70 r d2"><img src="assets/cases/c-ekaterina.webp" alt=""><div class="c70-t"><div class="c70-n"><b>Екатерина&nbsp;Сидак</b></div><div class="c70-big">доход ×&nbsp;2,5</div><p><i>было</i>Практикующий психолог, упёрлась в&nbsp;финансовый&nbsp;потолок</p><p><i>стало</i>Купила ещё одну квартиру в&nbsp;МОСКВЕ, запись на&nbsp;месяц&nbsp;вперёд</p></div></div></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>49</span></div>
+<div class="g70"><div class="c70 r d2"><img src="assets/cases/c-ekaterina.webp" alt=""><div class="c70-t"><div class="c70-n"><b>Екатерина&nbsp;Сидак</b></div><div class="c70-big">доход ×&nbsp;2,5</div><p><i>было</i>Практикующий психолог, упёрлась в&nbsp;финансовый&nbsp;потолок</p><p><i>стало</i>Купила ещё одну квартиру в&nbsp;МОСКВЕ, запись на&nbsp;месяц&nbsp;вперёд</p></div></div></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>51</span></div>
 </section>
-<!-- 50 -->
+<!-- 52 -->
 <section class="slide t-list s-e2-case1">
 <div class="head"><div class="kicker r d1">Случай из&nbsp;практики: от&nbsp;переедания к&nbsp;команде</div><h2 class="h2 r d2">Клиент выпускницы ПКТ Екатерины&nbsp;Сидак</h2></div>
 <div class="e2-facts two">
 <div class="r d3"><b>Доход был, но&nbsp;деньги утекали сквозь&nbsp;пальцы</b><p>Мошенники, глупые покупки, терял в&nbsp;инвестициях, спасал всех и&nbsp;раздавал&nbsp;деньги.</p></div>
 <div class="dark r d4"><span class="lb">И&nbsp;ещё</span><p class="big">Доход не&nbsp;рос: ощущение, что топчется на&nbsp;месте. И&nbsp;не&nbsp;было удовольствия от&nbsp;жизни.</p></div>
-</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>50</span></div>
+</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>52</span></div>
 </section>
-<!-- 51 -->
+<!-- 53 -->
 <section class="slide t-list s-e2-case1">
 <div class="head"><div class="kicker r d1">Было 7&nbsp;баллов&nbsp;ТДО</div><h2 class="h2 r d2">Начали убирать&nbsp;ТДО</h2></div>
-<ul class="e2-dots big r d3" style="columns:2;column-gap:56px"><li>Снизился саботаж</li><li>Стало гораздо больше&nbsp;энергии</li><li>Стал увереннее в&nbsp;себе</li><li>Перестал расфокусироваться</li><li>Принял и&nbsp;полюбил&nbsp;себя</li><li>Доход начал плавно&nbsp;расти</li><li>Стали появляться новые&nbsp;возможности</li></ul><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>51</span></div>
+<ul class="e2-dots big r d3" style="columns:2;column-gap:56px"><li>Снизился саботаж</li><li>Стало гораздо больше&nbsp;энергии</li><li>Стал увереннее в&nbsp;себе</li><li>Перестал расфокусироваться</li><li>Принял и&nbsp;полюбил&nbsp;себя</li><li>Доход начал плавно&nbsp;расти</li><li>Стали появляться новые&nbsp;возможности</li></ul><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>53</span></div>
 </section>
-<!-- 52 -->
+<!-- 54 -->
 <section class="slide t-statement x-dark s-e2-quote">
 <div class="st-wrap"><div class="kicker r d1">А&nbsp;потом приходит на&nbsp;встречу и&nbsp;говорит</div>
 <h2 class="st r d2">«Чтобы у&nbsp;меня были кубики пресса, мне надо скинуть 5&nbsp;кг, но&nbsp;я&nbsp;не&nbsp;могу»</h2>
-<p class="st-sub r d3">«Сладкое не&nbsp;ем. Тренируюсь, но&nbsp;переедаю. Не&nbsp;могу&nbsp;остановиться»</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>52</span></div>
+<p class="st-sub r d3">«Сладкое не&nbsp;ем. Тренируюсь, но&nbsp;переедаю. Не&nbsp;могу&nbsp;остановиться»</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>54</span></div>
 </section>
-<!-- 53 -->
+<!-- 55 -->
 <section class="slide t-statement s-stpic flip s-e2-layer">
 <div class="sp-img r d1"><img src="assets/gen/n-weight.jpg" alt=""></div>
-<div class="st-wrap"><div class="kicker r d1">Первый слой: еда&nbsp;– источник&nbsp;удовольствия</div><h2 class="st r d2">Удовольствие давал хруст орехов и&nbsp;вафель. <em>Не&nbsp;вкус, а&nbsp;хруст</em></h2><p class="e2-acc r d3">Пересел на&nbsp;болгарский перец&nbsp;– и&nbsp;за&nbsp;неделю скинул 2&nbsp;кг.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>53</span></div>
+<div class="st-wrap"><div class="kicker r d1">Первый слой: еда&nbsp;– источник&nbsp;удовольствия</div><h2 class="st r d2">Удовольствие давал хруст орехов и&nbsp;вафель. <em>Не&nbsp;вкус, а&nbsp;хруст</em></h2><p class="e2-acc r d3">Пересел на&nbsp;болгарский перец&nbsp;– и&nbsp;за&nbsp;неделю скинул 2&nbsp;кг.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>55</span></div>
 </section>
-<!-- 54 -->
+<!-- 56 -->
 <section class="slide t-list s-e2-link">
 <div class="head"><div class="kicker r d1">Второй слой</div><h2 class="h2 r d2">Нашли сцепку: еда&nbsp;– это&nbsp;удовольствие</h2></div>
 <div class="e2-facts">
 <div class="r d3"><b>Любимый человек</b><p>Раньше удовольствием было время с&nbsp;ней. Расстались&nbsp;– и&nbsp;этот источник&nbsp;исчез.</p></div>
 <div class="r d4"><b>Теннис, бокс,&nbsp;зал</b><p>Рутина: удовольствие есть, но&nbsp;не&nbsp;на&nbsp;100%.</p></div>
 <div class="dark r d5"><b>Еда</b><p>Осталась главным источником&nbsp;удовольствия.</p></div>
-</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>54</span></div>
+</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>56</span></div>
 </section>
-<!-- 55 -->
+<!-- 57 -->
 <section class="slide t-statement s-e2-two-src">
 <div class="e2-src-l"><div class="kicker r d1">Третий слой</div><h2 class="st r d2">100% удовольствия&nbsp;– вести свой бизнес&nbsp;стратегически</h2>
 <p class="st-sub r d3">Он&nbsp;днём и&nbsp;ночью придумывает идеи, а&nbsp;сотрудники их&nbsp;внедряют.</p><p class="e2-acc r d4">Но&nbsp;раньше 80% работы он&nbsp;делал руками&nbsp;сам.</p></div>
-<div class="e2-src r d3" aria-hidden="true"><div><span>1</span><b>Еда</b></div><div class="on"><span>2</span><b>Бизнес</b></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>55</span></div>
+<div class="e2-src r d3" aria-hidden="true"><div><span>1</span><b>Еда</b></div><div class="on"><span>2</span><b>Бизнес</b></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>57</span></div>
 </section>
-<!-- 56 -->
+<!-- 58 -->
 <section class="slide t-statement x-dark s-e2-pride">
 <div class="st-wrap"><div class="kicker r d1">Почему всё&nbsp;сам</div>
 <div class="e2-bub light r d2"><p>«Никто лучше меня не&nbsp;сделает»</p><p>«Все глупые»</p><p>«Сотрудники не&nbsp;будут пахать, как&nbsp;я»</p></div>
-<p class="st-sub r d3">Поэтому он&nbsp;саботировал обучение сотрудников. Даже классного человека подавит&nbsp;и&nbsp;уволит.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>56</span></div>
+<p class="st-sub r d3">Поэтому он&nbsp;саботировал обучение сотрудников. Даже классного человека подавит&nbsp;и&nbsp;уволит.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>58</span></div>
 </section>
-<!-- 57 -->
+<!-- 59 -->
 <section class="slide t-statement s-stpic s-e2-team">
 <div class="sp-img r d1"><img src="assets/gen/n-clients.jpg" alt="" style="object-position:50% 50%"></div>
 <div class="st-wrap"><h2 class="st r d2">Начали с&nbsp;еды, а&nbsp;пришли к&nbsp;<em>настоящей причине</em></h2><p class="st-sub r d3">После проработки стал активнее нанимать. Энергия уходит в&nbsp;обучение&nbsp;сотрудников.</p>
-<div class="e2-badge r d4"><b>Это ДПДГ + травмоориентированная&nbsp;КПТ</b><span>– этому учат на&nbsp;ПКТ</span></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>57</span></div>
+<div class="e2-badge r d4"><b>Это ДПДГ + травмоориентированная&nbsp;КПТ</b><span>– этому учат на&nbsp;ПКТ</span></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>59</span></div>
 </section>
-<!-- 58 -->
+<!-- 60 -->
 <section class="slide t-list s-e2-mom">
 <div class="head"><div class="kicker r d1">Кейс: женщина с&nbsp;тремя&nbsp;детьми</div><h2 class="h2 r d2">Ученица Анны</h2></div>
 <div class="e2-ba">
 <div class="r d3"><p>Педагог по&nbsp;диплому, всю жизнь не&nbsp;работала, рассчитывала на&nbsp;отца</p></div>
 <i class="r d4" aria-hidden="true">→</i>
 <div class="on r d5"><p>После работы с&nbsp;Анной начала кайфовать от&nbsp;своей жизни: похудела,&nbsp;спорт</p></div>
-</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>58</span></div>
+</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>60</span></div>
 </section>
-<!-- 59 -->
+<!-- 61 -->
 <section class="slide t-statement x-dark s-e2-bloom">
 <div class="st-wrap"><p class="e2-pre r d1">Энергия из&nbsp;угнетающей стала расцветающей&nbsp;– и&nbsp;в&nbsp;этот момент&nbsp;она</p>
 <div class="e2-tags r d2"><span>встретила мужчину</span><span>вышла замуж</span><span>пошла преподавать в&nbsp;колледж</span></div>
-<h2 class="st r d3">Сначала энергия, <em>потом всё&nbsp;остальное</em></h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>59</span></div>
+<h2 class="st r d3">Сначала энергия, <em>потом всё&nbsp;остальное</em></h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>61</span></div>
 </section>
-<!-- 60 -->
+<!-- 62 -->
 <section class="slide t-statement s-e2-val1">
 <div class="e2-val-t"><div class="kicker r d1">Кейс Валентины</div><h2 class="st r d2">Посмотрите, как за&nbsp;3&nbsp;месяца можно <em>измениться внешне</em></h2>
 <p class="st-sub r d3">А&nbsp;начиналось всё&nbsp;так:</p><div class="e2-tags r d4"><span>40&nbsp;лет</span><span>трое детей</span><span>развод после 16&nbsp;лет&nbsp;брака</span></div></div>
-<div class="e2-val-ph r d2"><img src="assets/cases/case-valentina.jpg" alt="Валентина до и после"></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>60</span></div>
+<div class="e2-val-ph r d2"><img src="assets/cases/case-valentina.jpg" alt="Валентина до и после"></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>62</span></div>
 </section>
-<!-- 61 -->
+<!-- 63 -->
 <section class="slide t-list s-e2-val2">
 <div class="head"><div class="kicker r d1">Кейс Валентины</div><h2 class="h2 r d2">Валентина. Со&nbsp;стороны&nbsp;– сильная, «удобная» женщина, которой все восхищаются. <em>А&nbsp;внутри:</em></h2></div>
 <div class="e2-qs">
@@ -2490,42 +2540,42 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 <div class="r d4"><span aria-hidden="true"></span><p>«Двадцать лет ждала, что он&nbsp;станет другим. Я&nbsp;его сама придумала и&nbsp;ждала, ждала,&nbsp;ждала».</p></div>
 <div class="r d5"><span aria-hidden="true"></span><p>«Меня тянет к&nbsp;тем, с&nbsp;кем заведомо ничего не&nbsp;будет. Женатые, без&nbsp;перспективы. Вижу только&nbsp;таких».</p></div>
 <div class="r d5"><span aria-hidden="true"></span><p>«Больше всего боюсь остаться&nbsp;одна».</p></div>
-</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>61</span></div>
+</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>63</span></div>
 </section>
-<!-- 62 -->
+<!-- 64 -->
 <section class="slide t-statement s-e2-val3">
 <div class="e2-v3-l"><div class="kicker r d1">Кейс Валентины</div><p class="e2-pre dk r d2">Корень всего этого нашли, естественно, в&nbsp;детстве, где любовь надо было выслуживать, а&nbsp;рядом жили насилие и&nbsp;страх.</p>
 <p class="st-sub r d3">По&nbsp;шкале детского травматического опыта у&nbsp;Валентины</p><div class="e2-big r d3">8&nbsp;баллов из&nbsp;10</div>
 <div class="e2-dots10 r d4" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
-<div class="e2-v3-r r d4"><h3>Почему результат такой&nbsp;быстрый?</h3><p>Мы&nbsp;работали через мой <b>авторский протокол EMDR&nbsp;3.0.</b></p><p>Именно этот метод я&nbsp;даю ученикам моей программы ПКТ и&nbsp;обучаю ему будущих&nbsp;психологов.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>62</span></div>
-</section>
-<!-- 63 -->
-<section class="slide t-html s-e2-video">
-<div class="head"><div class="kicker r d1">Кейс Валентины</div><h2 class="h2 r d2">Какой Валентина была <em>ДО</em> и&nbsp;какой стала <em>ПОСЛЕ</em></h2></div>
-<div class="e2-vid noswipe r d3"><video controls playsinline preload="metadata" src="assets/video/valentina-do-posle.mp4"></video></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>63</span></div>
-</section>
-<!-- 64 -->
-<section class="slide t-statement s-stpic s-e2-fear">
-<div class="sp-img r d1"><img src="assets/gen/n-ceiling.jpg" alt=""></div>
-<div class="st-wrap"><div class="kicker r d1">Страх «не&nbsp;получится»</div><h2 class="st r d2">Многие хотят сменить работу, но&nbsp;страшно: <em>опора уходит из-под&nbsp;ног</em></h2><p class="st-sub r d3">Без проработки ТДО вы&nbsp;не&nbsp;решитесь, пока жизнь не&nbsp;устроит холодный&nbsp;душ.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>64</span></div>
+<div class="e2-v3-r r d4"><h3>Почему результат такой&nbsp;быстрый?</h3><p>Мы&nbsp;работали через мой <b>авторский протокол EMDR&nbsp;3.0.</b></p><p>Именно этот метод я&nbsp;даю ученикам моей программы ПКТ и&nbsp;обучаю ему будущих&nbsp;психологов.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>64</span></div>
 </section>
 <!-- 65 -->
+<section class="slide t-html s-e2-video">
+<div class="head"><div class="kicker r d1">Кейс Валентины</div><h2 class="h2 r d2">Какой Валентина была <em>ДО</em> и&nbsp;какой стала <em>ПОСЛЕ</em></h2></div>
+<div class="e2-vid noswipe r d3"><video controls playsinline preload="metadata" src="assets/video/valentina-do-posle.mp4"></video></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>65</span></div>
+</section>
+<!-- 66 -->
+<section class="slide t-statement s-stpic s-e2-fear">
+<div class="sp-img r d1"><img src="assets/gen/n-ceiling.jpg" alt=""></div>
+<div class="st-wrap"><div class="kicker r d1">Страх «не&nbsp;получится»</div><h2 class="st r d2">Многие хотят сменить работу, но&nbsp;страшно: <em>опора уходит из-под&nbsp;ног</em></h2><p class="st-sub r d3">Без проработки ТДО вы&nbsp;не&nbsp;решитесь, пока жизнь не&nbsp;устроит холодный&nbsp;душ.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>66</span></div>
+</section>
+<!-- 67 -->
 <section class="slide t-statement s-stpic flip s-e2-step">
 <div class="sp-img r d1"><img src="assets/gen/n-price2.jpg" alt=""></div>
 <div class="st-wrap"><div class="kicker r d1">Выход без&nbsp;прыжка</div><h2 class="st r d2">Учиться <em>параллельно с&nbsp;работой</em></h2>
-<ul class="e2-dots big r d3"><li>Работа может дать первых&nbsp;клиентов</li><li>Коллеги увидят ваше&nbsp;преображение</li></ul></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>65</span></div>
-</section>
-<!-- 66 -->
-<section class="slide t-statement s-e2-rise">
-<div class="e2-rise-l"><div class="kicker r d1">Кейс <span class="nw">1-го</span> потока</div><h2 class="st r d2">После проработки ТДО ученицу быстро <em>повысили до&nbsp;руководителя</em></h2><p class="e2-acc big r d3">Доход вырос.</p></div>
-<div class="e2-risev r d3" aria-hidden="true"><i style="--h:22%"></i><i style="--h:30%"></i><i style="--h:38%"></i><i style="--h:58%"></i><i style="--h:76%"></i><i class="on" style="--h:96%"></i></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>66</span></div>
-</section>
-<!-- 67 -->
-<section class="slide s-cases70 s-e2-olga">
-<div class="w70"><div class="kicker r d1">Страх «не&nbsp;получится»</div><h2 class="h70 r d1">Кейс Ольги, <span>инженера-конструктора</span></h2>
-<div class="g70"><div class="c70 r d2"><img src="assets/cases/c-olga-eng.webp" alt=""><div class="c70-t"><div class="c70-n"><b>Ольга</b></div><div class="c70-big">200&nbsp;000&nbsp;₽ в&nbsp;месяц</div><p><i>было</i>Инженер-конструктор. Пошла учиться, чтобы проработать свой травматический детский&nbsp;опыт.</p><p><i>стало</i>Взяла клиентов, доход от&nbsp;200&nbsp;000&nbsp;₽ в&nbsp;месяц. Во&nbsp;время обучения затеяла ремонт за&nbsp;7&nbsp;млн и&nbsp;недавно его&nbsp;закончила.</p></div></div></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>67</span></div>
+<ul class="e2-dots big r d3"><li>Работа может дать первых&nbsp;клиентов</li><li>Коллеги увидят ваше&nbsp;преображение</li></ul></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>67</span></div>
 </section>
 <!-- 68 -->
+<section class="slide t-statement s-e2-rise">
+<div class="e2-rise-l"><div class="kicker r d1">Кейс <span class="nw">1-го</span> потока</div><h2 class="st r d2">После проработки ТДО ученицу быстро <em>повысили до&nbsp;руководителя</em></h2><p class="e2-acc big r d3">Доход вырос.</p></div>
+<div class="e2-risev r d3" aria-hidden="true"><i style="--h:22%"></i><i style="--h:30%"></i><i style="--h:38%"></i><i style="--h:58%"></i><i style="--h:76%"></i><i class="on" style="--h:96%"></i></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>68</span></div>
+</section>
+<!-- 69 -->
+<section class="slide s-cases70 s-e2-olga">
+<div class="w70"><div class="kicker r d1">Страх «не&nbsp;получится»</div><h2 class="h70 r d1">Кейс Ольги, <span>инженера-конструктора</span></h2>
+<div class="g70"><div class="c70 r d2"><img src="assets/cases/c-olga-eng.webp" alt=""><div class="c70-t"><div class="c70-n"><b>Ольга</b></div><div class="c70-big">200&nbsp;000&nbsp;₽ в&nbsp;месяц</div><p><i>было</i>Инженер-конструктор. Пошла учиться, чтобы проработать свой травматический детский&nbsp;опыт.</p><p><i>стало</i>Взяла клиентов, доход от&nbsp;200&nbsp;000&nbsp;₽ в&nbsp;месяц. Во&nbsp;время обучения затеяла ремонт за&nbsp;7&nbsp;млн и&nbsp;недавно его&nbsp;закончила.</p></div></div></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>69</span></div>
+</section>
+<!-- 70 -->
 <section class="slide t-list s-e2-realtor">
 <div class="head"><div class="kicker r d1">Куда идти учиться: эконом или&nbsp;VIP</div><h2 class="h2 r d2">Пример: вы&nbsp;с&nbsp;нуля хотите стать&nbsp;риелтором</h2></div>
 <div class="e2-tiers">
@@ -2534,39 +2584,39 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 <div class="vip r d5"><b>VIP</b><span class="bar" aria-hidden="true"></span></div>
 </div>
 <p class="e2-tline r d6">Учиться везде полгода, время на&nbsp;сделку одно и&nbsp;то&nbsp;же.</p>
-<p class="e2-q r d7">Кто зарабатывает&nbsp;больше?</p><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>68</span></div>
+<p class="e2-q r d7">Кто зарабатывает&nbsp;больше?</p><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>70</span></div>
 </section>
-<!-- 69 -->
+<!-- 71 -->
 <section class="slide t-list s-e2-vip">
 <div class="head"><div class="kicker r d1">Куда идти учиться: эконом или&nbsp;VIP</div><h2 class="h2 r d2">VIP: одна сделка&nbsp;– <em>как чей-то годовой&nbsp;доход</em></h2></div>
 <div class="e2-cmp">
 <div class="e2-p dark"><span class="lb">VIP</span><p>Умеете VIP&nbsp;– продадите и&nbsp;эконом.</p><p>VIP передаёт вас из&nbsp;рук в&nbsp;руки.</p></div>
 <div class="e2-p"><span class="lb">Эконом</span><p>В&nbsp;экономе клиентов ищете каждый&nbsp;раз.</p></div>
-</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>69</span></div>
+</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>71</span></div>
 </section>
-<!-- 70 -->
+<!-- 72 -->
 <section class="slide t-statement x-dark s-e2-dpdg">
 <div class="e2-dg-l"><div class="kicker r d1">В&nbsp;психологии так&nbsp;же</div><h2 class="st r d2">Есть десятки методов, и&nbsp;есть ДПДГ&nbsp;– <em>самый эффективный</em></h2>
 <p class="st-sub r d3">Студентам запрещено брать&nbsp;меньше</p><div class="e2-big sun r d4">10&nbsp;000&nbsp;₽ <small>за&nbsp;сессию</small></div></div>
-<div class="e2-dg r d3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on">ДПДГ</i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>70</span></div>
+<div class="e2-dg r d3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on">ДПДГ</i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>72</span></div>
 </section>
-<!-- 71 -->
+<!-- 73 -->
 <section class="slide t-statement s-stpic flip s-e2-start">
 <div class="sp-img r d1"><img src="assets/gen/escalator.jpg" alt=""></div>
-<div class="st-wrap"><h2 class="st r d2">Вы&nbsp;на&nbsp;старте&nbsp;– <em>выбирайте там, где деньги&nbsp;есть</em></h2><p class="st-sub r d3">Самая глупая ошибка&nbsp;– пойти в&nbsp;масс-маркет и&nbsp;конкурировать&nbsp;ценой.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>71</span></div>
+<div class="st-wrap"><h2 class="st r d2">Вы&nbsp;на&nbsp;старте&nbsp;– <em>выбирайте там, где деньги&nbsp;есть</em></h2><p class="st-sub r d3">Самая глупая ошибка&nbsp;– пойти в&nbsp;масс-маркет и&nbsp;конкурировать&nbsp;ценой.</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>73</span></div>
 </section>
-<!-- 72 -->
+<!-- 74 -->
 <section class="slide t-statement s-e2-3070">
 <div class="head"><div class="kicker r d1">Философия Анны</div><h2 class="h2 r d2">Психолог работает 30% времени, 70%&nbsp;– <em>семья, учёба и&nbsp;он&nbsp;сам</em></h2></div>
 <div class="e2-split r d3" aria-hidden="true"><div class="a"><b>30%</b><span>работает</span></div><div class="b"><b>70%</b><span>семья, учёба и&nbsp;он&nbsp;сам</span></div></div>
-<p class="e2-acc big r d4">Психолог в&nbsp;ресурсе даёт больше&nbsp;– и&nbsp;его цена&nbsp;растёт.</p><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>72</span></div>
+<p class="e2-acc big r d4">Психолог в&nbsp;ресурсе даёт больше&nbsp;– и&nbsp;его цена&nbsp;растёт.</p><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>74</span></div>
 </section>
-<!-- 73 -->
+<!-- 75 -->
 <section class="slide t-statement s-stpic s-e2-zoom">
 <div class="sp-img r d1"><img src="assets/gen/n-consult.jpg" alt=""></div>
-<div class="st-wrap"><div class="kicker r d1">Ученики в&nbsp;зуме</div><h2 class="st r d2">Сейчас выйдут две студентки&nbsp;ПКТ</h2><p class="st-sub r d3">Уже берут клиентов за&nbsp;деньги&nbsp;–</p><div class="e2-big r d4">10&nbsp;000&nbsp;₽,</div><p class="st-sub r d5">ещё во&nbsp;время&nbsp;учёбы</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>73</span></div>
+<div class="st-wrap"><div class="kicker r d1">Ученики в&nbsp;зуме</div><h2 class="st r d2">Сейчас выйдут две студентки&nbsp;ПКТ</h2><p class="st-sub r d3">Уже берут клиентов за&nbsp;деньги&nbsp;–</p><div class="e2-big r d4">10&nbsp;000&nbsp;₽,</div><p class="st-sub r d5">ещё во&nbsp;время&nbsp;учёбы</p></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>75</span></div>
 </section>
-<!-- 74 -->
+<!-- 76 -->
 <section class="slide t-list s-e2-qs">
 <div class="head"><div class="kicker r d1">Ученики в&nbsp;зуме</div><h2 class="h2 r d2">Вопросы студенткам</h2></div>
 <div class="e2-rows c2">
@@ -2577,17 +2627,17 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 <div class="e2-row r d5"><span class="n">05</span><p>Что почувствовали&nbsp;после</p></div>
 <div class="e2-row r d5"><span class="n">06</span><p>Что изменилось в&nbsp;вас и&nbsp;в&nbsp;жизни</p></div>
 <div class="e2-row r d6"><span class="n">07</span><p>Отзыв клиента</p></div>
-</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>74</span></div>
+</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>76</span></div>
 </section>
-<!-- 75 -->
+<!-- 77 -->
 <section class="slide t-statement s-e2-grow">
 <div class="head"><div class="kicker r d1">Ученики в&nbsp;зуме</div><h2 class="h2 r d2">Сейчас 10&nbsp;000&nbsp;₽, дальше <em>15–20&nbsp;тысяч и&nbsp;выше</em></h2></div>
 <div class="e2-grow">
 <div class="e2-steps3 r d3"><div style="--h:34%"><b>10&nbsp;000&nbsp;₽</b><span>Сейчас</span></div><div style="--h:62%"><b>15–20&nbsp;тысяч</b><span>дальше</span></div><div class="on" style="--h:92%"><b>и&nbsp;выше</b><span></span></div></div>
 <div class="e2-svc r d4"><span class="lb">Скоро</span><p>Сервис, который ведёт соцсети и&nbsp;приводит&nbsp;клиентов.</p><b>Лучшим студентам&nbsp;– клиенты от&nbsp;нас.</b></div>
-</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>75</span></div>
+</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>77</span></div>
 </section>
-<!-- 76 -->
+<!-- 78 -->
 <section class="slide t-html s-grant s-e2-grant">
 <div class="head"><div class="kicker r d1">Гранты</div><h2 class="h2 r d2">Розыгрыш грантов <em>на&nbsp;<span class="nw">3-м</span> эфире</em></h2></div>
 <div class="gw">
@@ -2599,24 +2649,24 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
   <div class="gs"><span>всего</span><b>2&nbsp;200&nbsp;000&nbsp;₽</b></div>
   <div class="gst"><span class="gn">1</span><p>Оставьте заявку <strong>сейчас</strong></p></div>
   <div class="gst"><span class="gn">2</span><p>Будьте на&nbsp;<span class="nw">3-м</span> эфире</p></div>
-</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>76</span></div>
-</section>
-<!-- 77 -->
-<section class="slide t-statement x-dark s-go77 s-e2-go">
-<div class="go77-c" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-<div class="go77-t"><div class="go77-k r d1">Переходим к&nbsp;практике</div><h2 class="go77-h r d2">Состояние для&nbsp;денежного&nbsp;взлёта</h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>77</span></div>
-</section>
-<!-- 78 -->
-<section class="slide t-statement s-stpic flip s-e2-hw">
-<div class="sp-img r d1"><img src="assets/gen/n-tdo47.jpg" alt=""></div>
-<div class="st-wrap"><h2 class="st r d2">Домашнее <em>задание</em></h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>78</span></div>
+</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>78</span></div>
 </section>
 <!-- 79 -->
-<section class="slide t-ask ask-live">
-<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path></svg>домашнее задание</div><h2 class="ask-q r d2">Пришлите ответы в&nbsp;группу&nbsp;участников</h2></div>
-<div class="ask-anim" aria-hidden="true"><span class="ab b1"><i></i><i></i><i></i></span><span class="ab b2"><i></i><i></i><i></i></span><span class="ab b3"><i></i><i></i><i></i></span></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>79</span></div>
+<section class="slide t-statement x-dark s-go77 s-e2-go">
+<div class="go77-c" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<div class="go77-t"><div class="go77-k r d1">Переходим к&nbsp;практике</div><h2 class="go77-h r d2">Состояние для&nbsp;денежного&nbsp;взлёта</h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>79</span></div>
 </section>
 <!-- 80 -->
+<section class="slide t-statement s-stpic flip s-e2-hw">
+<div class="sp-img r d1"><img src="assets/gen/n-tdo47.jpg" alt=""></div>
+<div class="st-wrap"><h2 class="st r d2">Домашнее <em>задание</em></h2></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>80</span></div>
+</section>
+<!-- 81 -->
+<section class="slide t-ask ask-live">
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path></svg>домашнее задание</div><h2 class="ask-q r d2">Пришлите ответы в&nbsp;группу&nbsp;участников</h2></div>
+<div class="ask-anim" aria-hidden="true"><span class="ab b1"><i></i><i></i><i></i></span><span class="ab b2"><i></i><i></i><i></i></span><span class="ab b3"><i></i><i></i><i></i></span></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>81</span></div>
+</section>
+<!-- 82 -->
 <section class="slide t-html s-path2 s-e2-path">
 <div class="head"><div class="kicker r d1">Что будет на&nbsp;<span class="nw">3-м</span> и&nbsp;<span class="nw">4-м</span> эфирах</div><h2 class="h2 r d2">Ваш путь за&nbsp;4&nbsp;дня</h2></div>
 <div class="pms">
@@ -2628,36 +2678,36 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
     <div class="pm-b"><span class="pm-k">День 3</span><b>Новая реальность</b><ul><li>Проверяем цель на&nbsp;истинность</li><li>Убираем сопротивление и&nbsp;саботаж</li></ul></div><div class="pm-res"><span>Результат</span><p>Пошаговый план: подумали&nbsp;–&nbsp;сделали</p></div></div>
   <div class="pm vip hi r d6"><div class="pm-img"><img src="assets/gen/n-day4w.jpg" alt=""><span class="pm-n">04</span><span class="pm-vip">только для&nbsp;VIP&nbsp;тарифа</span></div>
     <div class="pm-b"><span class="pm-k">День 4</span><b>Магнит для&nbsp;денег</b><ul><li>Переходим в&nbsp;состояние, где всё даётся&nbsp;легко</li><li>Возможности начинают находить вас&nbsp;сами</li></ul></div><div class="pm-res"><span>Результат</span><p>Вы&nbsp;в&nbsp;состоянии «мне&nbsp;везёт»</p></div></div>
-</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>80</span></div>
-</section>
-<!-- 81 -->
-<section class="slide t-statement x-dark s-e2-grant3">
-<div class="st-wrap"><div class="kicker r d1">Гранты</div><div class="e2-gst r d2"><div><span class="gn">1</span><p>Оставьте заявку</p></div><div><span class="gn">2</span><p>Будьте на&nbsp;<span class="nw">3-м</span> эфире</p></div></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>81</span></div>
-</section>
-<!-- 82 -->
-<section class="slide t-html s-tar2 s-take82 s-e2-vip74">
-<div class="e2-v74-l"><h2 class="st r d2">VIP-тариф</h2><div class="t82-btn r d5"><span>Кнопка под&nbsp;видео</span><i>↓</i></div></div>
-<div class="tv r d3"><span class="tn">VIP-ТАРИФ</span><ul><li class="hl">Записи</li><li><span class="nw">4-й</span> эфир</li><li>Диагностика</li></ul></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>82</span></div>
+</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>82</span></div>
 </section>
 <!-- 83 -->
+<section class="slide t-statement x-dark s-e2-grant3">
+<div class="st-wrap"><div class="kicker r d1">Гранты</div><div class="e2-gst r d2"><div><span class="gn">1</span><p>Оставьте заявку</p></div><div><span class="gn">2</span><p>Будьте на&nbsp;<span class="nw">3-м</span> эфире</p></div></div></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>83</span></div>
+</section>
+<!-- 84 -->
+<section class="slide t-html s-tar2 s-take82 s-e2-vip74">
+<div class="e2-v74-l"><h2 class="st r d2">VIP-тариф</h2><div class="t82-btn r d5"><span>Кнопка под&nbsp;видео</span><i>↓</i></div></div>
+<div class="tv r d3"><span class="tn">VIP-ТАРИФ</span><ul><li class="hl">Записи</li><li><span class="nw">4-й</span> эфир</li><li>Диагностика</li></ul></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>84</span></div>
+</section>
+<!-- 85 -->
 <section class="slide t-html s-bon1 s-take82 s-e2-take">
 <div class="b1-img r d2"><img src="assets/gen/n-bonus.jpg" alt=""></div>
 <div class="b1-txt"><div class="kicker r d1">Бонусы</div><h2 class="h2 r d2">Заберите бонус <em><span class="nw">2-го</span> эфира</em></h2><div class="t82-btn r d5"><span>Кнопка под&nbsp;видео</span><i>↓</i></div></div>
 <div class="b1-cards">
   <div class="b1c r d3"><span class="bt">Вебинар</span><b>«Деньги 2.0»</b></div>
-</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>83</span></div>
+</div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>85</span></div>
 </section>
-<!-- 84 -->
+<!-- 86 -->
 <section class="slide t-statement x-dark s-end83">
 <div class="st-wrap"><h2 class="st r d2">Благодарю за&nbsp;<em>участие!</em></h2><p class="st-sub r d3">Пишите ваши инсайты в&nbsp;чат.</p><div class="e83 r d4" aria-hidden="true"><span></span><span></span><span></span></div></div>
-<div class="e84-ph r d3" aria-hidden="true"><img src="assets/gen/anna-founder.jpg" alt=""></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>84</span></div>
+<div class="e84-ph r d3" aria-hidden="true"><img src="assets/gen/anna-founder.jpg" alt=""></div><div class="foot"><span>Анна&nbsp;Саба · практикум «Новая&nbsp;реальность»</span><span>86</span></div>
 </section>
 </main>
 </div>
 </main>
 </div>
 <div class="progress" id="progress"></div>
-<div class="deck-controls" id="controls"><span id="counter">1 / 84</span><span>← → пробел · E правка текста</span></div>
+<div class="deck-controls" id="controls"><span id="counter">1 / 86</span><span>← → пробел · E правка текста</span></div>
 <div class="edit-hotzone"></div>
 <button class="edit-toggle" id="editToggle" title="Правка текста (E)">✎</button>
 <script>
