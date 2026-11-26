@@ -783,7 +783,7 @@ html.rg-open,html.rg-open body{overflow:hidden!important}
 .ia-who{display:flex;flex-direction:column;gap:2px;min-width:0}
 .ia-who b{font:800 16px/1.2 var(--fb);color:#f6dc9e;letter-spacing:-.005em}
 .ia-who span{font:600 13px/1.25 var(--fb);color:#e9dfcf;opacity:.9;white-space:nowrap}
-/* пилюля как «25–28 ноября» */
+/* пилюля как «16–19 декабря» */
 .ia-head{display:flex;flex-direction:column;align-items:flex-start;gap:calc(var(--ia-g) * .7 + 2px)}
 .ia-pill span{display:inline-block;padding:6px 12px;border-radius:10px;font:800 13px/1 var(--fb);color:#1a1208;
   background:linear-gradient(180deg,#f6dc9e,#d6a24a);box-shadow:0 6px 16px -8px rgba(90,60,20,.7);white-space:nowrap}
@@ -2243,7 +2243,7 @@ const CONFIG = {
     "mainUrl": "#register",
     "registerTitle": "Регистрация на онлайн-практикум",
     "registerName": "«Как выйти из угнетающих чувств в новую счастливую реальность»",
-    "registerDates": "25–28 ноября",
+    "registerDates": "16–19 декабря",
     "registerNote": "Полная расшифровка и 4 подарка придут в Telegram-бота сразу после регистрации",
     "registerButton": "Записаться на практикум",
     "secondaryButton": "Подробнее об онлайн-практикуме",
@@ -2391,7 +2391,7 @@ const CONFIG = {
       <p class="vp-bridge">${tp(esc(VIP.bridge))}</p>
       <h2 class="vp-h">${hd(VIP.title).replace('VIP-билет', 'VIP&#8209;билет')}</h2>
       <article class="vt" id="vipTicket">
-        <div class="vt-h"><span class="vt-star" aria-hidden="true">✦</span><p class="vt-nm">VIP-БИЛЕТ</p><p class="vt-s">${tp('практикум «Новая реальность»')}</p><p class="vt-d">25–28&nbsp;ноября</p></div>
+        <div class="vt-h"><span class="vt-star" aria-hidden="true">✦</span><p class="vt-nm">VIP-БИЛЕТ</p><p class="vt-s">${tp('практикум «Новая реальность»')}</p><p class="vt-d">16–19&nbsp;декабря</p></div>
         <div class="vt-b">
           <div class="vt-tx">${VIP.body.map(x => `<p>${tp(vipRich(x))}</p>`).join('')}</div>
           <ul class="vt-l">${VIP.list.map(t => `<li>${tp(esc(t))}</li>`).join('')}</ul>
@@ -2413,7 +2413,7 @@ const CONFIG = {
     vm.innerHTML = `<div class="rg-box" role="dialog" aria-modal="true" aria-labelledby="vmTitle">
     <button type="button" class="rg-x" id="vmClose" aria-label="Закрыть">${ICON.close || '×'}</button>
     <h2 class="rg-h" id="vmTitle">VIP-участие в&nbsp;практикуме</h2>
-    <p class="rg-date">Онлайн · <b>25–28&nbsp;ноября</b> · тариф VIP</p>
+    <p class="rg-date">Онлайн · <b>16–19&nbsp;декабря</b> · тариф VIP</p>
     <form id="vmForm" class="rg-form" action="${VIP.offerUrl}" method="post" enctype="multipart/form-data" accept-charset="UTF-8" target="_top">
       <input type="hidden" name="OrderForm[selected_offer_id]" value="${VIP.offerId}"><input type="hidden" name="OrderForm[created_by_object_type]" value="sales_widget">
       <input type="email" name="OrderForm[email]" id="vmEmail" maxlength="100" placeholder="Введите ваш e-mail" autocomplete="email" inputmode="email" required>
