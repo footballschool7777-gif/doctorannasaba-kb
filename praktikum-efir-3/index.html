@@ -4229,6 +4229,13 @@ body.all .deck-controls { display: none !important; }
 .e3-sv3 .s3-fl{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 2h10v4l-2 4v12H9V10L7 6z' fill='%23fff'/%3E%3C/svg%3E")!important}
 .e3-sv3 .s3-cam{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 7h3l2-2h6l2 2h3v12H4z' fill='%23fff'/%3E%3Ccircle cx='12' cy='13' r='3.5' fill='%23333'/%3E%3C/svg%3E")!important}
 .e3-sv3 .s3-home{position:absolute;left:50%;bottom:12px;width:140px;height:5px;margin-left:-70px;border-radius:3px;background:#fff}
+/* msg 1827: e3-lk redesign – full-bleed cinematic photo, heading bottom-left */
+.e3-lk .lk-ph{left:0;right:0;width:auto}
+.e3-lk .lk-ph img{object-position:50% 40%}
+.e3-lk .lk-ph::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,22,0) 35%,rgba(10,20,22,.55) 62%,rgba(10,20,22,.88) 100%),linear-gradient(90deg,rgba(10,20,22,.35) 0%,rgba(10,20,22,0) 55%)}
+.e3-lk .lk-l{top:auto;bottom:110px;transform:none;left:130px;width:1180px}
+.e3-lk .lk-l::before{content:'';display:block;width:96px;height:6px;border-radius:3px;background:#f3c64d;margin-bottom:34px}
+.e3-lk .e3-h{color:#fff;font-size:82px;line-height:1.1;text-shadow:0 4px 30px rgba(0,0,0,.35)}
 
 </style>
 </head>
