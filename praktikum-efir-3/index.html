@@ -2760,7 +2760,7 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 <style id="efir3">
 /* efir 3: compact template set on top of efir1/efir2 tokens */
 .deck-stage section.slide *, .deck-stage section.slide { font-style: normal !important; }
-#counter, .deck-stage section.slide .foot { display: none !important; }
+.deck-stage section.slide .foot { display: none !important; }
 .slide.e3 { padding: 96px var(--pad-x) 96px; justify-content: center; }
 .e3 .kicker { margin-bottom: 18px; }
 .e3 .e3-h { font-family: var(--fb); font-weight: 800; font-size: 68px; line-height: 1.1; letter-spacing: -0.022em; color: var(--ink); text-wrap: balance; max-width: 1560px; }
@@ -3029,6 +3029,354 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 .e3-stack + .e3-note, .e3-stack ~ div { margin-top: 18px; }
 .e3-stack .sr span { font-size: 28px; } .e3-stack .sr { padding: 14px 36px; }
 
+/* real cases from @saba_case (msg 1661/1673): photo stack + was/became */
+.slide.e3-cs { padding: 72px 110px 72px 760px !important; justify-content: center; background: var(--mist); }
+.e3-cs .ph { position: absolute; left: 90px; top: 90px; bottom: 90px; width: 580px; }
+.e3-cs .ph img { position: absolute; object-fit: cover; border-radius: 30px; box-shadow: 0 30px 60px -28px rgba(20,40,40,.45); border: 10px solid #fff; }
+.e3-cs .ph.one img { inset: 0; width: 100%; height: 100%; }
+.e3-cs .ph.two img:nth-child(1) { left: 0; top: 0; width: 400px; height: 600px; transform: rotate(-3deg); }
+.e3-cs .ph.two img:nth-child(2) { right: 0; bottom: 0; width: 360px; height: 520px; transform: rotate(3deg); }
+.e3-cs .big { position: absolute; left: 50%; bottom: -26px; transform: translateX(-50%); white-space: nowrap; background: var(--sun); color: var(--ink); font-weight: 800; font-size: 40px; padding: 16px 34px; border-radius: 99px; box-shadow: 0 16px 30px -16px rgba(0,0,0,.4); z-index: 2; }
+.e3-cs .e3-h { font-size: 52px; max-width: 1080px; }
+.e3-cs .e3-h span { display: block; color: var(--teal); font-size: 40px; margin-top: 10px; line-height: 1.15; }
+.e3-cs .ab { margin-top: 36px; display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 22px; align-items: stretch; }
+.e3-cs .ab > div { border-radius: 26px; padding: 28px 32px; }
+.e3-cs .ab .a { background: #fff; border: 1px solid var(--line); }
+.e3-cs .ab .b { background: var(--teal); }
+.e3-cs .ab .t { font-weight: 800; font-size: 26px; letter-spacing: .08em; text-transform: uppercase; color: var(--grey); margin-bottom: 14px; }
+.e3-cs .ab .b .t { color: var(--sun); }
+.e3-cs .ab p { position: relative; padding-left: 30px; font-size: 27px; line-height: 1.34; font-weight: 600; color: var(--ink); margin: 0 0 12px; }
+.e3-cs .ab p:last-child { margin-bottom: 0; }
+.e3-cs .ab p::before { content: ""; position: absolute; left: 0; top: 14px; width: 12px; height: 12px; border-radius: 50%; background: #c9d3d3; }
+.e3-cs .ab .b p { color: #fff; }
+.e3-cs .ab .b p::before { background: var(--sun); }
+.e3-cs .q { margin-top: 30px; padding-left: 28px; border-left: 6px solid var(--sun); font-weight: 700; font-size: 31px; line-height: 1.35; color: var(--ink); max-width: 1040px; text-wrap: balance; }
+
+/* msg 1681: life staircase, figure grows, time speeds up */
+.e3-life { margin-top: 26px; width: 1660px; }
+.e3-life .lf-stage { position: relative; height: 360px; }
+.e3-life .st { position: absolute; background: linear-gradient(#fff,#e7efee); border-top: 4px solid var(--teal); border-radius: 6px 6px 0 0; }
+.e3-life .ag { position: absolute; left: 0; right: 0; bottom: 10px; text-align: center; font-weight: 800; font-size: 24px; color: var(--grey); animation-duration: 6.14s; animation-iteration-count: infinite; animation-timing-function: linear; animation-play-state: paused; }
+.e3-life .fg { position: absolute; left: 0; bottom: 0; width: 60px; height: 120px; transform-origin: 50% 100%; animation: lfmove 6.14s linear infinite paused; }
+.e3-life .fg svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.e3-life .fg circle { fill: var(--sun, #f2c94c); stroke: var(--ink); stroke-width: 4; }
+.e3-life .fg path { fill: none; stroke: var(--ink); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+.e3-life .lf-bar { position: relative; margin-top: 16px; height: 14px; border-radius: 99px; background: #dfe8e7; }
+.e3-life .lf-bar i { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: 99px; background: linear-gradient(90deg,var(--teal),var(--sun,#f2c94c),#e8664f); animation: lfbar 6.14s linear infinite paused; }
+.e3-life .lf-bar b { position: absolute; right: 0; top: 22px; font-weight: 800; font-size: 22px; letter-spacing: .06em; text-transform: uppercase; color: var(--teal); }
+.slide.active .e3-life .fg, .slide.active .e3-life .ag, .slide.active .e3-life .lf-bar i, .slide.visible .e3-life .fg, .slide.visible .e3-life .ag, .slide.visible .e3-life .lf-bar i { animation-play-state: running; }
+.e3-life + .e3-cards { margin-top: 40px; }
+@keyframes lfmove{11.39%{transform:translate(62px,-40px) scale(0.55)}29.29%{transform:translate(247px,-70px) scale(0.64)}42.18%{transform:translate(431px,-100px) scale(0.73)}51.46%{transform:translate(616px,-130px) scale(0.82)}58.14%{transform:translate(800px,-160px) scale(0.91)}62.95%{transform:translate(984px,-190px) scale(1.00)}66.42%{transform:translate(1169px,-220px) scale(1.09)}68.91%{transform:translate(1353px,-250px) scale(1.18)}70.71%{transform:translate(1538px,-280px) scale(1.27)}100%{transform:translate(1538px,-280px) scale(1.27)}}
+@keyframes lfa0{0%,11.38%{color:var(--grey);transform:none}11.39%,100%{color:var(--teal);transform:scale(1.12)}}
+@keyframes lfa1{0%,29.279999999999998%{color:var(--grey);transform:none}29.29%,100%{color:var(--teal);transform:scale(1.12)}}
+@keyframes lfa2{0%,42.17%{color:var(--grey);transform:none}42.18%,100%{color:var(--teal);transform:scale(1.12)}}
+@keyframes lfa3{0%,51.45%{color:var(--grey);transform:none}51.46%,100%{color:var(--teal);transform:scale(1.12)}}
+@keyframes lfa4{0%,58.13%{color:var(--grey);transform:none}58.14%,100%{color:var(--teal);transform:scale(1.12)}}
+@keyframes lfa5{0%,62.940000000000005%{color:var(--grey);transform:none}62.95%,100%{color:var(--teal);transform:scale(1.12)}}
+@keyframes lfa6{0%,66.41%{color:var(--grey);transform:none}66.42%,100%{color:var(--teal);transform:scale(1.12)}}
+@keyframes lfa7{0%,68.89999999999999%{color:var(--grey);transform:none}68.91%,100%{color:var(--teal);transform:scale(1.12)}}
+@keyframes lfa8{0%,70.69999999999999%{color:var(--grey);transform:none}70.71%,100%{color:var(--teal);transform:scale(1.12)}}
+@keyframes lfbar{11.39%{width:0.0%}29.29%{width:12.5%}42.18%{width:25.0%}51.46%{width:37.5%}58.14%{width:50.0%}62.95%{width:62.5%}66.42%{width:75.0%}68.91%{width:87.5%}70.71%{width:100.0%}100%{width:100%}}
+/* msg 1676/1677: cover in black, today + result cards */
+.t-cover .cover-card img { object-position: 50% 12%; }
+.t-cover .h1 { margin-top: 18px; }
+.t-cover .cv-pill { margin-top: 20px; }
+.t-cover .cv-box { margin-top: 28px; display: grid; grid-template-columns: 1fr; gap: 18px; max-width: 900px; }
+.t-cover .cv-box .cv-ret { margin-top: 0; max-width: none; padding: 22px 30px; }
+.t-cover .cv-ret ul li { font-size: 22px; }
+.t-cover .cv-res { padding: 22px 30px; border-radius: 18px; background: var(--teal); color: #fff; }
+.t-cover .cv-res b { display: block; font-weight: 800; font-size: 26px; letter-spacing: .04em; text-transform: uppercase; color: var(--sun, #f2c94c); }
+.t-cover .cv-res ul { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; }
+.t-cover .cv-res li { position: relative; padding-left: 30px; font-weight: 700; font-size: 23px; line-height: 1.35; color: #fff; text-wrap: balance; }
+.t-cover .cv-res li::before { content: "—"; position: absolute; left: 0; color: var(--sun, #f2c94c); }
+
+/* msg 1683: fork – old path to dead end, after TDO work path 2 */
+.e3-fork { position: relative; margin-top: 36px; width: 1640px; height: 380px; }
+.e3-fork .fk-map { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.e3-fork .fk-map path { fill: none; stroke-linecap: round; }
+.e3-fork .p0 { stroke: rgba(255,255,255,.55); stroke-width: 8; }
+.e3-fork .p1 { stroke: rgba(255,255,255,.35); stroke-width: 8; stroke-dasharray: 4 18; }
+.e3-fork .wall { stroke: #e8664f; stroke-width: 14; }
+.e3-fork .p2 { stroke: var(--sun, #f2c94c); stroke-width: 8; stroke-dasharray: 1000; stroke-dashoffset: 1000; }
+.e3-fork .nr { fill: var(--sun, #f2c94c); opacity: .25; transform-box: fill-box; transform-origin: center; }
+.e3-fork .fk-l { position: absolute; font-weight: 800; font-size: 24px; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.e3-fork .l1 { left: 760px; top: 70px; color: rgba(255,255,255,.6); }
+.e3-fork .dead { left: 1090px; top: 72px; color: #e8664f; }
+.e3-fork .l2 { left: 900px; top: 326px; color: var(--sun, #f2c94c); }
+.e3-fork .nrl { left: 1380px; top: 352px; color: #fff; }
+.e3-fork .fk-fig { position: absolute; left: 0; top: 0; width: 60px; height: 120px; margin: -112px 0 0 -30px; transform: translate(80px,250px); }
+.e3-fork .fk-fig svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.e3-fork .fk-fig circle { fill: var(--sun, #f2c94c); stroke: #fff; stroke-width: 4; }
+.e3-fork .fk-fig path { fill: none; stroke: #fff; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+.e3-fork .fk-q { position: absolute; left: 50%; top: -74px; transform: translateX(-50%); font-weight: 900; font-size: 64px; line-height: 1; color: var(--sun, #f2c94c); opacity: 0; }
+@keyframes fkmove{0%{transform:translate(80px,250px)}12%{transform:translate(560px,250px)}30%{transform:translate(1040px,90px)}34%{transform:translate(1040px,90px)}44%{transform:translate(560px,250px)}52%{transform:translate(80px,250px)}62%{transform:translate(560px,250px)}76%{transform:translate(560px,250px)}92%{transform:translate(1480px,310px)}100%{transform:translate(1480px,310px)}}
+@keyframes fkq { 0%,62%{opacity:0} 64%{opacity:1} 67%{opacity:.15} 70%{opacity:1} 73%{opacity:.15} 75.5%{opacity:1} 77%,100%{opacity:0} }
+@keyframes fkp2 { 0%,76%{stroke-dashoffset:1000} 92%,100%{stroke-dashoffset:0} }
+@keyframes fknr { 0%,90%{opacity:.25;transform:scale(1)} 95%{opacity:.9;transform:scale(1.5)} 100%{opacity:.6;transform:scale(1.3)} }
+@keyframes fkdead { 0%,29%{opacity:.45} 31%,40%{opacity:1} 52%,100%{opacity:.45} }
+.slide.active .e3-fork .fk-fig, .slide.visible .e3-fork .fk-fig { animation: fkmove 12s linear infinite; }
+.slide.active .e3-fork .fk-q, .slide.visible .e3-fork .fk-q { animation: fkq 12s linear infinite; }
+.slide.active .e3-fork .p2, .slide.visible .e3-fork .p2 { animation: fkp2 12s linear infinite; }
+.slide.active .e3-fork .nr, .slide.visible .e3-fork .nr { animation: fknr 12s linear infinite; }
+.slide.active .e3-fork .dead, .slide.visible .e3-fork .dead { animation: fkdead 12s linear infinite; }
+
+.e3-fork .p2b { stroke: rgba(242,201,76,.28); stroke-width: 8; stroke-dasharray: 4 18; }
+.t-cover .cv-name { font-size: 24px; margin-top: 10px; }
+.t-cover .h1 { font-size: 64px; margin-top: 14px; }
+.t-cover .cv-box { margin-top: 22px; gap: 14px; }
+.t-cover .cv-box .cv-ret, .t-cover .cv-res { padding: 18px 28px; }
+.t-cover .cv-ret ul { margin-top: 10px; gap: 6px; }
+.deck-stage section.slide.t-cover { padding-top: 56px; padding-bottom: 56px; }
+
+/* msg 1691: visible slide counter, bottom right */
+.deck-controls { display: flex !important; opacity: 1 !important; top: auto !important; bottom: 18px !important; left: auto !important; right: 22px; transform: none !important; padding: 6px 14px !important; gap: 0 !important; background: rgba(13,92,88,.78) !important; font-size: 17px !important; font-weight: 700; letter-spacing: .04em; pointer-events: none; }
+.deck-controls span:not(#counter) { display: none !important; }
+body.all .deck-controls { display: none !important; }
+
+/* msg 1684: 4 reasons */
+.e3-four.slide.e3 { padding-top: 64px; padding-bottom: 64px; }
+.e3-four .kicker { font-size: 20px; }
+.e3-four .e3-h { font-size: 54px; }
+.e3-four .e3-h .nl { display: block; }
+.e3-four .e3-sub { margin-top: 14px; font-size: 30px; }
+.e3-four .e3-h3 { margin-top: 34px; font-family: var(--fb); font-weight: 800; font-size: 34px; line-height: 1.25; color: var(--teal); max-width: 1500px; text-wrap: balance; }
+.e3-four .e3-cards { margin-top: 22px; }
+.e3-four .e3-card b { font-size: 29px; line-height: 1.25; }
+.e3-four .e3-card p { font-size: 22px; line-height: 1.38; }
+.e3-four .e3-note { margin-top: 24px; }
+
+/* msg 1685: envy scene with thoughts */
+.e3-envy .e3-img img { object-position: center bottom; }
+.e3-tags { position: absolute; inset: 0; pointer-events: none; }
+.e3-tags .tg { position: absolute; padding: 9px 18px; border-radius: 999px; background: rgba(255,255,255,.9); color: var(--ink); font-family: var(--fb); font-weight: 700; font-size: 24px; line-height: 1.2; white-space: nowrap; box-shadow: 0 8px 24px rgba(10,40,40,.18); opacity: 0; }
+.slide.active .e3-tags .tg { animation: e3tg .6s ease-out forwards; }
+.e3-tags .tg.big { left: 50% !important; top: 47% !important; transform: translate(-50%,-50%); background: #b8442f; color: #fff; font-size: 40px; padding: 16px 30px; }
+.slide.active .e3-tags .tg.big { animation: e3tgb .8s ease-out 5.4s forwards; }
+@keyframes e3tg { from { opacity: 0; transform: translateY(14px) scale(.9); } to { opacity: 1; transform: none; } }
+@keyframes e3tgb { from { opacity: 0; transform: translate(-50%,-50%) scale(.6); } to { opacity: 1; transform: translate(-50%,-50%) scale(1); } }
+
+/* msg 1686: law of the system, network */
+.e3-law.slide.e3 { background: #fbfaf7; }
+.e3-law .kicker, .e3-law .e3-h, .e3-law .e3-sub { max-width: 960px; }
+.e3-law .e3-h { font-size: 66px; }
+.e3-net { position: absolute; right: 110px; top: 50%; width: 720px; height: 720px; margin-top: -360px; }
+.e3-net svg { width: 100%; height: 100%; overflow: visible; }
+.e3-net .ln { stroke: var(--teal); stroke-opacity: .35; stroke-width: 3; fill: none; }
+.e3-net .ln.hx { stroke-dasharray: 6 10; }
+.e3-net .nd circle { fill: #fff; stroke: var(--teal); stroke-width: 4; }
+.e3-net .ic circle { fill: var(--teal); }
+.e3-net .ic path { stroke: var(--teal); stroke-width: 6; stroke-linecap: round; fill: none; }
+.e3-net .core { filter: drop-shadow(0 18px 40px rgba(232,166,40,.45)); }
+.e3-net .ct { fill: #fff; font-family: var(--fb); font-weight: 800; font-size: 36px; text-anchor: middle; }
+.e3-net .ring { fill: none; stroke: #f3c64d; stroke-width: 3; transform-origin: 360px 360px; animation: e3ring 3.2s ease-out infinite; }
+.e3-net .ring.r2 { animation-delay: 1.6s; }
+.e3-net .coin circle { fill: #f3c64d; stroke: #fff; stroke-width: 3; }
+.e3-net .coin text { fill: #0d5c58; font-family: var(--fb); font-weight: 800; font-size: 22px; text-anchor: middle; }
+@keyframes e3ring { from { transform: scale(.8); opacity: .9; } to { transform: scale(2); opacity: 0; } }
+
+/* msg 1687: energy drain */
+.e3-viz svg.dr { width: 100%; height: 100%; display: block; }
+.e3-viz .me circle { fill: #fff; }
+.e3-viz .me path { stroke: #fff; stroke-width: 5; stroke-linecap: round; fill: none; }
+.e3-viz .glow { animation: e3dim 6s ease-in-out infinite; transform-origin: 390px 230px; }
+.e3-viz .tr { stroke: rgba(243,198,77,.28); stroke-width: 14; fill: none; stroke-linecap: round; }
+.e3-viz .tr.off { stroke: rgba(255,255,255,.25); stroke-width: 4; stroke-dasharray: 4 14; }
+.e3-viz .fl { stroke: #ffd978; stroke-width: 12; fill: none; stroke-linecap: round; stroke-dasharray: 2 34; animation: e3flow 1.2s linear infinite; }
+.e3-viz .bk .b { fill: rgba(255,255,255,.08); stroke: rgba(255,255,255,.55); stroke-width: 3; }
+.e3-viz .bk.off .b { stroke-dasharray: 8 8; animation: e3blink 2s ease-in-out infinite; }
+.e3-viz .bk .lv { fill: #f3c64d; transform-box: fill-box; transform-origin: 50% 100%; animation: e3fill 6s ease-in-out infinite; }
+.e3-viz .bk text { fill: #fff; font-family: var(--fb); font-weight: 800; font-size: 32px; text-anchor: middle; }
+.e3-viz .bk text.s { font-size: 22px; font-weight: 600; fill: rgba(255,255,255,.75); }
+@keyframes e3flow { to { stroke-dashoffset: -36; } }
+@keyframes e3fill { 0% { transform: scaleY(.08); } 70%, 100% { transform: scaleY(1); } }
+@keyframes e3dim { 0%, 100% { opacity: 1; transform: scale(1); } 70% { opacity: .35; transform: scale(.7); } }
+@keyframes e3blink { 50% { stroke-opacity: .2; } }
+
+/* msg 1689: paradox -- source of light */
+.e3-par .kicker, .e3-par .e3-h { max-width: 1060px; }
+.e3-lite { position: absolute; right: 120px; top: 70px; width: 600px; height: 460px; }
+.e3-lite svg { width: 100%; height: 100%; overflow: visible; }
+.e3-lite .rays path { stroke: #f3c64d; stroke-opacity: .5; stroke-width: 4; stroke-dasharray: 10 18; }
+.e3-lite .rays { transform-origin: 300px 230px; animation: e3spin 30s linear infinite; }
+.e3-lite .halo { transform-origin: 300px 230px; animation: e3halo 4s ease-in-out infinite; }
+.e3-lite .hero circle { fill: #e8a628; }
+.e3-lite .hero path { stroke: #e8a628; stroke-width: 6; stroke-linecap: round; fill: none; }
+.e3-lite .pp circle { fill: var(--teal); }
+.e3-lite .pp path { stroke: var(--teal); stroke-width: 6; stroke-linecap: round; fill: none; }
+.e3-lite .pp { animation: e3draw 4s ease-in-out infinite alternate; }
+@keyframes e3spin { to { transform: rotate(360deg); } }
+@keyframes e3halo { 50% { transform: scale(1.18); } }
+@keyframes e3draw { from { transform: translateY(0); } to { transform: translateY(46px); } }
+
+/* msg 1690: ОДНАКО -- rollback */
+.e3-back .kicker, .e3-back .e3-h, .e3-back .e3-sub, .e3-back .e3-chips, .e3-back .e3-note { max-width: 1060px; }
+.e3-back .e3-h { font-size: 62px; }
+.e3-bk { position: absolute; right: 100px; top: 50%; width: 640px; height: 520px; margin-top: -260px; }
+.e3-bk svg { width: 100%; height: 100%; overflow: visible; }
+.e3-bk .sl { stroke: #e7b3a6; stroke-width: 10; stroke-linecap: round; }
+.e3-bk .goal { fill: #f3c64d; opacity: .9; animation: e3halo 4s ease-in-out infinite; transform-origin: 590px 105px; }
+.e3-bk .gl, .e3-bk .sp { font-family: var(--fb); font-weight: 700; font-size: 24px; fill: var(--grey); text-anchor: middle; }
+.e3-bk .sp { text-anchor: start; }
+.e3-bk .st0 { fill: #b8442f; }
+.e3-bk .arr, .e3-bk .arrh { stroke: #b8442f; stroke-width: 5; fill: none; stroke-dasharray: 10 10; stroke-linecap: round; }
+.e3-bk .arrh { stroke-dasharray: none; }
+.e3-bk .who circle { fill: var(--ink); }
+.e3-bk .who path { stroke: var(--ink); stroke-width: 6; stroke-linecap: round; fill: none; }
+.e3-bk .wt circle { fill: #b8442f; fill-opacity: .9; }
+.e3-bk .wt text { fill: #fff; font-family: var(--fb); font-weight: 800; font-size: 20px; text-anchor: middle; }
+
+/* msg 1693: text-only resource slide */
+.e3-resw.slide.e3 { background: radial-gradient(900px 600px at 85% 20%, rgba(243,198,77,.18), transparent 70%), radial-gradient(900px 700px at 10% 90%, rgba(13,92,88,.10), transparent 70%), #fbfaf7; align-items: center; text-align: center; }
+.e3-resw .e3-h { font-size: 96px; max-width: 1400px; margin: 0 auto; }
+.e3-res { margin-top: 70px; display: flex; align-items: center; justify-content: center; gap: 40px; }
+.e3-res .it { width: 560px; padding: 46px 40px; border-radius: 32px; background: #fff; border: 1px solid var(--line); box-shadow: 0 24px 60px rgba(13,92,88,.12); }
+.e3-res .it .n { display: block; font-family: var(--fb); font-weight: 800; font-size: 26px; letter-spacing: .14em; color: var(--sun-2, #c98f12); margin-bottom: 14px; }
+.e3-res .it b { font-family: var(--fb); font-size: 46px; line-height: 1.15; color: var(--teal); }
+.e3-res .pl { font-family: var(--fb); font-weight: 800; font-size: 80px; color: #f3c64d; }
+
+/* msg 1696: family slide */
+.e3-famw { background: radial-gradient(120% 90% at 50% 0%, #eef6f4 0%, #fbfaf7 60%) !important; text-align: center; }
+.e3-famw .kicker, .e3-famw h2 { margin-left: auto; margin-right: auto; text-align: center; }
+.e3-famw h2 { font-size: 84px; }
+.e3-fam { display: flex; gap: 56px; justify-content: center; margin-top: 54px; }
+.e3-fam .t { width: 440px; padding: 34px 30px 38px; border-radius: 34px; background: #fff;
+  box-shadow: 0 24px 60px -24px rgba(20,80,80,.28); border: 1px solid rgba(31,122,120,.12); display: flex; flex-direction: column; align-items: center; }
+.e3-fam .ic { width: 300px; height: 250px; }
+.e3-fam-svg { width: 100%; height: 100%; }
+.e3-fam-svg .glow { fill: #e3f1ee; }
+.e3-fam-svg .fg { fill: #1f7a78; }
+.e3-fam-svg .f2 { fill: #e8a87c; }
+.e3-fam-svg .arm { fill: none; stroke: #1f7a78; stroke-width: 9; stroke-linecap: round; }
+.e3-fam-svg .hp { fill: #e86a5a; }
+.e3-fam-svg .star path { fill: #f2c14e; }
+.e3-fam .n { font-size: 20px; letter-spacing: .14em; color: #1f7a78; font-weight: 700; margin-top: 8px; }
+.e3-fam b { font-size: 46px; line-height: 1.15; margin-top: 6px; color: #1d2b2b; }
+.slide.active .e3-fam-svg .hrt { animation: e3beat 1.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.slide.active .e3-fam-svg .glow { animation: e3glow 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.slide.active .e3-fam-svg .kid { animation: e3hop 2.4s ease-in-out infinite; }
+.slide.active .e3-fam-svg .star { animation: e3twk 2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes e3beat { 0%,100% { transform: translate(70px,-8px) scale(1); } 15% { transform: translate(70px,-8px) scale(1.15); } 30% { transform: translate(70px,-8px) scale(.98); } 45% { transform: translate(70px,-8px) scale(1.1); } }
+@keyframes e3glow { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.06); opacity: .7; } }
+@keyframes e3hop { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes e3twk { 0%,100% { transform: scale(1) rotate(0); opacity: 1; } 50% { transform: scale(1.25) rotate(20deg); opacity: .6; } }
+@media (max-width: 900px) { .e3-fam { flex-direction: column; align-items: center; gap: 24px; } }
+
+/* msg 1697: round video case */
+.e3-krug { display: flex !important; flex-direction: row !important; align-items: center; gap: 90px; padding: 0 130px !important; background: radial-gradient(90% 90% at 20% 50%, #e6f2ef 0%, #fbfaf7 65%) !important; }
+.e3-krug .kr { position: relative; width: 620px; height: 620px; flex: none; }
+.e3-krug .kr video { position: absolute; inset: 20px; width: 580px; height: 580px; border-radius: 50%; object-fit: cover; background: #1f7a78; box-shadow: 0 30px 70px -30px rgba(20,80,80,.45); }
+.e3-krug .ring { position: absolute; inset: 0; border-radius: 50%; border: 6px solid #1f7a78; border-right-color: #f2c14e; }
+.slide.active .e3-krug .ring { animation: e3spin 9s linear infinite; }
+.e3-krug .tx { max-width: 860px; }
+.e3-krug h2 { font-size: 66px; line-height: 1.12; margin: 14px 0 34px; }
+.e3-krug .q { font-size: 32px; line-height: 1.4; padding: 26px 30px; border-left: 6px solid #f2c14e; background: #fff; border-radius: 0 20px 20px 0; }
+.e3-krug .cap { font-size: 26px; color: #1f7a78; margin-top: 26px; font-weight: 600; }
+@media (max-width: 900px) { .e3-krug { flex-direction: column !important; padding: 24px 16px !important; gap: 24px; } .e3-krug .kr { width: 300px; height: 300px; } .e3-krug .kr video { inset: 10px; width: 280px; height: 280px; } .e3-krug h2 { font-size: 34px; } .e3-krug .q { font-size: 18px; } }
+.e3-famw h2 { font-size: 84px !important; }
+.e3-fam .t { width: 520px !important; }
+.e3-fam .ic { width: 380px !important; height: 310px !important; }
+.e3-fam b { font-size: 54px !important; }
+
+/* msg 1700: parenting slide */
+.e3-vosp { background: linear-gradient(100deg, #fbfaf7 0%, #fbfaf7 58%, #eef6f4 100%) !important; }
+.e3-vosp > *:not(.e3-mar) { max-width: 1060px; }
+.e3-vv { display: flex; flex-direction: column; gap: 0; margin-top: 30px; }
+.e3-vv .v { padding: 24px 32px; border-radius: 26px; }
+.e3-vv .v1 { background: #fff; border: 1px solid rgba(31,122,120,.15); box-shadow: 0 16px 40px -24px rgba(20,80,80,.3); }
+.e3-vv .v2 { background: #e9876f; color: #fff; }
+.e3-vv .t { font-size: 18px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: #1f7a78; }
+.e3-vv .v2 .t { color: #fff3d6; }
+.e3-vv b { display: block; font-size: 38px; line-height: 1.15; margin-top: 6px; }
+.e3-vv p { font-size: 27px; line-height: 1.35; margin: 8px 0 0; opacity: .85; }
+.e3-vv .or { align-self: flex-start; margin: -6px 0 -6px 40px; position: relative; z-index: 2; background: #1f7a78; color: #fff; font-weight: 700; font-size: 20px; padding: 6px 18px; border-radius: 99px; }
+.e3-vnote { margin-top: 26px; padding: 22px 30px; border-radius: 22px; background: #0f4f4d; color: #fff; display: flex; flex-direction: column; gap: 6px; }
+.e3-vnote b { font-size: 31px; line-height: 1.25; }
+.e3-vnote span { font-size: 27px; color: #f2c14e; font-weight: 600; }
+.e3-mar { position: absolute; right: 110px; top: 50%; transform: translateY(-50%); width: 560px; height: 600px; }
+.e3-mar-svg { width: 100%; height: 100%; overflow: visible; }
+.e3-mar-svg .bar { fill: #7a5a3a; }
+.e3-mar-svg .pa { fill: #0f4f4d; }
+.e3-mar-svg .c1 { fill: #1f7a78; }
+.e3-mar-svg .c2 { fill: #e9876f; }
+.e3-mar-svg .str { stroke: #b9a27a; stroke-width: 2.5; stroke-dasharray: 8 8; fill: none; }
+.e3-mar-svg .lb { font: 700 26px/1 inherit; fill: #0f4f4d; font-family: inherit; }
+.e3-mar-svg .lb.s { font-size: 24px; fill: #1f7a78; }
+.slide.active .e3-mar-svg .str { animation: e3str 1.2s linear infinite; }
+.slide.active .e3-mar-svg .k1 { animation: e3sway 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 0; }
+.slide.active .e3-mar-svg .k2 { animation: e3sway 2.4s ease-in-out infinite reverse; transform-box: fill-box; transform-origin: 50% 0; }
+@keyframes e3str { to { stroke-dashoffset: -32; } }
+@keyframes e3sway { 0%,100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
+@media (max-width: 900px) { .e3-mar { position: static; transform: none; width: 280px; height: 300px; margin: 16px auto 0; } .e3-vv b { font-size: 22px; } .e3-vv p, .e3-vnote span { font-size: 16px; } .e3-vnote b { font-size: 18px; } }
+.e3-mar { top: 110px !important; transform: none !important; right: 90px !important; width: 600px !important; height: 860px !important; }
+.e3-mar > div, .e3-mar-svg { width: 100%; height: 100%; }
+.e3-mar-svg .arm { stroke: #0f4f4d; stroke-width: 14; stroke-linecap: round; fill: none; }
+.e3-mar-svg .lb { font-size: 30px; letter-spacing: .04em; }
+.e3-mar-svg .lb.s { font-size: 30px; }
+.e3-mar-svg .lb.s:last-of-type { fill: #d0664c; }
+@media (max-width: 900px) { .e3-mar { position: static !important; width: 260px !important; height: 372px !important; margin: 16px auto 0; } }
+.e3-mar-svg .k1 { transform-origin: 170px 248px !important; transform-box: view-box !important; }
+.e3-mar-svg .k2 { transform-origin: 430px 248px !important; transform-box: view-box !important; }
+
+/* msg 1702: lens of trauma */
+.e3-lens { background: linear-gradient(120deg, #0f3f3d 0%, #155654 55%, #1f6a66 100%) !important; color: #fff; display: flex !important; flex-direction: row-reverse; align-items: center; gap: 80px; padding: 0 120px !important; }
+.e3-lens .ph { position: relative; flex: 0 0 640px; height: 640px; }
+.e3-lens .ph img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 14px solid #f2e6d0; box-shadow: 0 40px 80px -30px rgba(0,0,0,.6); }
+.e3-lens .ph .ring { position: absolute; inset: -34px; border-radius: 50%; border: 2px dashed rgba(242,193,78,.6); }
+.slide.active .e3-lens .ph .ring { animation: e3spin 40s linear infinite; }
+.e3-lens .tx { flex: 1; min-width: 0; }
+.e3-lens .kicker { color: #f2c14e !important; }
+.e3-lens h2 { font-size: 76px; line-height: 1.05; margin: 14px 0 30px; color: #fff; }
+.e3-lens .ln { display: flex; gap: 20px; align-items: flex-start; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); border-radius: 24px; padding: 24px 28px; }
+.e3-lens .ln .ico { font-size: 46px; line-height: 1; color: #f2c14e; }
+.e3-lens .ln p { margin: 0; font-size: 31px; line-height: 1.35; }
+.e3-lens .fl { margin-top: 18px; display: flex; flex-direction: column; align-items: flex-start; }
+.e3-lens .ls { background: #f2e6d0; color: #0f3f3d; border-radius: 22px; padding: 18px 28px; position: relative; }
+.e3-lens .ls b { font-size: 36px; }
+.e3-lens .ls.s2 { background: #e9876f; color: #fff; padding-right: 96px; }
+.e3-lens .ls.s2 p { margin: 0; font-size: 29px; line-height: 1.35; }
+.e3-lens .ls.s2 p b { font-size: inherit; }
+.e3-lens .ar { font-size: 40px; color: #f2c14e; margin: 2px 0 2px 40px; line-height: 1.1; }
+.e3-lens .cy { position: absolute; right: 24px; top: 50%; margin-top: -32px; font-size: 56px; line-height: 64px; }
+.slide.active .e3-lens .cy { animation: e3spin 4s linear infinite; }
+@media (max-width: 900px) { .e3-lens { flex-direction: column; gap: 20px; padding: 24px 16px !important; } .e3-lens .ph { flex: 0 0 auto; width: 230px; height: 230px; } .e3-lens h2 { font-size: 30px; margin: 8px 0 14px; } .e3-lens .ln p, .e3-lens .ls.s2 p { font-size: 15px; } .e3-lens .ls b { font-size: 18px; } .e3-lens .ln .ico { font-size: 26px; } .e3-lens .ls.s2 { padding-right: 56px; } .e3-lens .cy { font-size: 30px; right: 14px; margin-top: -18px; line-height: 36px; } }
+
+/* msg 1703: path slide with ripples */
+.e3-path { display: flex !important; align-items: center; gap: 40px; padding: 0 110px 0 130px !important; background: radial-gradient(circle at 78% 52%, #e6f2ef 0%, #fbfaf7 55%) !important; }
+.e3-path .tx { flex: 1 1 0; min-width: 0; }
+.e3-path h2 { font-size: 86px; line-height: 1.05; margin: 14px 0 36px; }
+.e3-path .pt { position: relative; display: flex; flex-direction: column; gap: 22px; }
+.e3-path .pt::before { content: ""; position: absolute; left: 35px; top: 30px; bottom: 30px; width: 3px; background: linear-gradient(#1f7a78, #e9876f); }
+.e3-path .p { position: relative; display: flex; align-items: center; gap: 28px; }
+.e3-path .p span { flex: 0 0 72px; height: 72px; border-radius: 50%; background: #fff; border: 3px solid #1f7a78; color: #1f7a78; font-weight: 800; font-size: 26px; display: flex; align-items: center; justify-content: center; z-index: 1; }
+.e3-path .p b { font-size: 40px; line-height: 1.2; }
+.e3-path .p.last span { background: #e9876f; border-color: #e9876f; color: #fff; }
+.e3-path .p.last b { background: #0f4f4d; color: #fff; padding: 26px 32px; border-radius: 26px; font-size: 36px; line-height: 1.3; }
+.e3-path .vis { flex: 0 0 640px; height: 640px; }
+.e3-rip-svg { width: 100%; height: 100%; overflow: visible; }
+.e3-rip-svg .w { fill: none; stroke: #1f7a78; stroke-width: 3; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.e3-rip-svg .glow { fill: #f2c14e; opacity: .28; }
+.e3-rip-svg .mom { fill: #0f4f4d; }
+.e3-rip-svg .kid { fill: #e9876f; }
+.e3-rip-svg .gift rect { fill: #1f7a78; } .e3-rip-svg .gift .lid { fill: #0f4f4d; } .e3-rip-svg .gift .rb { fill: #f2c14e; }
+.e3-rip-svg .hrt { fill: #e9876f; }
+.e3-rip-svg .lb { font-family: inherit; font-weight: 700; font-size: 30px; fill: #0f4f4d; }
+.slide.active .e3-rip-svg .w { animation: e3rip 4.5s ease-out infinite; }
+.slide.active .e3-rip-svg .w2 { animation-delay: 1.5s; } .slide.active .e3-rip-svg .w3 { animation-delay: 3s; }
+.slide.active .e3-rip-svg .gift { animation: e3gift 2.4s ease-in-out infinite; }
+@keyframes e3rip { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(3.6); opacity: 0; } }
+@keyframes e3gift { 0%,100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+@media (max-width: 900px) { .e3-path { flex-direction: column; padding: 24px 16px !important; gap: 10px; } .e3-path h2 { font-size: 34px; margin: 8px 0 16px; } .e3-path .p b { font-size: 18px; } .e3-path .p.last b { font-size: 17px; padding: 14px 16px; } .e3-path .p span { flex-basis: 40px; height: 40px; font-size: 15px; } .e3-path .pt::before { left: 19px; } .e3-path .vis { flex: 0 0 auto; width: 240px; height: 240px; } }
+
+.e3-path { flex-direction: row !important; justify-content: space-between; }
+.e3-path .tx { flex: 0 1 1000px !important; max-width: 1000px !important; }
+.e3-path .vis { flex: 0 0 600px !important; width: 600px !important; height: 600px !important; }
+.e3-lens .tx { max-width: 1000px; }
+.e3-lens h2 { font-size: 72px !important; }
+.e3-lens .ls { display: block; min-height: 0; }
+.e3-lens .ls b { font-size: 36px; letter-spacing: 0; }
+.e3-lens .ls.s2 p { letter-spacing: 0; font-weight: 500; }
+@media (max-width: 900px) { .e3-path { flex-direction: column !important; } .e3-path .tx { max-width: none !important; flex: none !important; } .e3-path .vis { width: 240px !important; height: 240px !important; flex: none !important; } }
+
 </style>
 </head>
 <body>
@@ -3040,118 +3388,198 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 <p class="cv-name r d1">«Как за&nbsp;4 дня выйти из&nbsp;угнетающих чувств на&nbsp;новый уровень дохода, реализации,&nbsp;отношений»</p>
 <div class="cv-pill r d2">Эфир 3&nbsp;из&nbsp;4</div>
 <h1 class="h1 r d2">Новая денежная <span class="tl">реальность</span></h1>
-<div class="cv-ret r d3"><b>Сегодня:</b><ul><li>проверим ваше желание на&nbsp;истинность: ваша ли&nbsp;это цель или её&nbsp;навязали общество, родители,&nbsp;соцсети</li><li>как доводить дело до&nbsp;конца и&nbsp;не&nbsp;сливаться: поставим предохранители от&nbsp;саботажа</li><li>соединимся со&nbsp;своим желанием и&nbsp;прочувствуем состояние, когда самое смелое желание уже&nbsp;реализовано</li></ul></div></div>
-<div class="cover-card r d3"><img src="assets/anna-v3.jpg" alt="Анна Саба"><div class="plate"><b>Анна&nbsp;Саба</b><span><span class="nw">врач-психиатр</span> и&nbsp;психотерапевт<br>основатель Института психического&nbsp;здоровья</span></div></div>
+<div class="cv-box"><div class="cv-ret r d3"><b>Сегодня:</b><ul><li>проверим ваше желание на&nbsp;истинность: ваша ли&nbsp;это цель или её&nbsp;навязали общество, родители,&nbsp;соцсети</li><li>как доводить дело до&nbsp;конца и&nbsp;не&nbsp;сливаться: поставим предохранители от&nbsp;саботажа</li><li>соединимся со&nbsp;своим желанием и&nbsp;прочувствуем состояние, когда самое смелое желание уже&nbsp;реализовано</li></ul></div><div class="cv-res r d4"><b>Результат:</b><ul><li>У&nbsp;вас на&nbsp;руках пошаговый план по&nbsp;достижению своей&nbsp;цели</li><li>От&nbsp;идеи до&nbsp;реализации минимум времени: подумал(а) →&nbsp;сделал(а)</li></ul></div></div></div>
+<div class="cover-card r d3"><img src="assets/e3/e3-anna-black.jpg" alt="Анна Саба"><div class="plate"><b>Анна&nbsp;Саба</b><span><span class="nw">врач-психиатр</span> и&nbsp;психотерапевт<br>основатель Института психического&nbsp;здоровья</span></div></div>
 </section>
 <!-- 2 -->
-<section class="slide e3 e3-sp">
-<div class="e3-img"><img src="assets/e3/e3-day1.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">На&nbsp;1-м&nbsp;эфире</div><h2 class="e3-h r d2">Мы&nbsp;разбирались с&nbsp;угнетающими чувствами и&nbsp;выстраивали причинно-следственные&nbsp;связи</h2><p class="e3-sub r d3">И&nbsp;вы&nbsp;уже понимаете, как травматический детский опыт (ТДО) влияет на&nbsp;вашу жизнь</p></div>
+<section class="slide t-html s-ins3">
+<div class="i3-l"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path></svg>Пишите в&nbsp;чате</div>
+<h2 class="i3-h r d2">Инсайты вчерашнего&nbsp;дня</h2>
+<p class="i3-p r d3">Это нужно для&nbsp;закрепления и&nbsp;плавного входа&nbsp;в&nbsp;3&#8209;й&nbsp;эфир&nbsp;практикума</p></div>
+<div class="i3-r r d2"><img src="assets/gen/e2-dream.jpg" alt="">
+<div class="i3-b b1 r d3"><i></i><i></i><i></i></div><div class="i3-b b2 r d4"><i></i><i></i><i></i></div><div class="i3-b b3 r d5"><i></i><i></i><i></i></div></div>
 </section>
 <!-- 3 -->
-<section class="slide e3 bg-mist">
-<div class="kicker r d1">С каждым годом</div><h2 class="e3-h r d2">Если не&nbsp;переработать ТДО, то:</h2><div class="e3-cards" style="--c:3"><div class="e3-card r d4"><span class="n">1</span><b>Больше автоматизмов</b></div><div class="e3-card r d5"><span class="n">2</span><b>Быстрее бежит&nbsp;время</b></div><div class="e3-card hot r d6"><span class="n">3</span><b>Шансы что-то изменить близки к 0</b></div></div>
+<section class="slide t-html bg-mist s-q4">
+<div class="head"><div class="kicker r d1">Что будет&nbsp;сегодня</div><h2 class="h2 r d2">Эфир 3 ·&nbsp;что&nbsp;разберём&nbsp;сегодня</h2></div>
+<div class="q4-grid">
+<div class="q4-c q4-dark r d3"><span class="q4-n">01</span><p>Проверим желание на&nbsp;истинность: это ваша цель или&nbsp;её&nbsp;навязали общество, родители,&nbsp;соцсети?</p></div>
+<div class="q4-c r d4"><span class="q4-n">02</span><p>Как доводить дело до&nbsp;конца и&nbsp;не&nbsp;сливаться: предохранители&nbsp;от&nbsp;саботажа</p></div>
+<div class="q4-c r d5"><span class="q4-n">03</span><p>Соединимся со&nbsp;своим желанием и&nbsp;прочувствуем состояние, когда самое смелое желание&nbsp;уже&nbsp;реализовано</p></div>
+<div class="q4-c r d6"><span class="q4-n">04</span><p>Объявим победителей розыгрыша&nbsp;грантов</p></div>
+<div class="q4-c q4-acc r d7"><span class="q4-n">05</span><p>Практика соединения с&nbsp;собой настоящим&nbsp;от&nbsp;Михаила&nbsp;Саба</p><span class="q4-tag">Сделаем в&nbsp;конце</span></div>
+</div>
 </section>
 <!-- 4 -->
-<section class="slide e3 e3-dk">
-<div class="kicker r d1">Хорошая новость</div><h2 class="e3-h r d2">При проработке ТДО жизнь меняется и&nbsp;в&nbsp;50, и&nbsp;в&nbsp;60, и&nbsp;даже в&nbsp;70&nbsp;лет</h2><p class="e3-sub r d3">Т.к. меняются ваши реакции на ситуации</p><div class="e3-ages"><span>50</span><span>60</span><span>70</span></div>
+<section class="slide t-html s-path2 s-e2-path">
+<div class="head"><div class="kicker r d1">что вас ждёт&nbsp;за&nbsp;4&nbsp;дня?</div><h2 class="h2 r d2">Ваш путь: сегодня&nbsp;<em>третий эфир</em></h2></div>
+<div class="pms">
+  <div class="pm done r d3"><div class="pm-img"><img src="assets/gen/e2-day1w.jpg" alt=""><span class="pm-n">01</span><span class="pm-ok">пройден</span></div>
+    <div class="pm-b"><span class="pm-k">День&nbsp;1</span><b>Спусковой&nbsp;крючок</b><ul><li>Убираем тревогу, страх,&nbsp;обиду,&nbsp;вину,&nbsp;стыд</li><li>Находим затык, который годами&nbsp;держал&nbsp;на&nbsp;месте</li></ul></div><div class="pm-res"><span>Результат</span><p>Прошлое больше&nbsp;вас&nbsp;не&nbsp;беспокоит</p></div></div>
+  <div class="pm done r d4"><div class="pm-img"><img src="assets/gen/e2-day2w.jpg" alt=""><span class="pm-n">02</span><span class="pm-ok">пройден</span></div>
+    <div class="pm-b"><span class="pm-k">День&nbsp;2</span><b>Бесконечный&nbsp;поток</b><ul><li>Находим, куда утекали силы, и&nbsp;перекрываем&nbsp;утечки</li><li>Ставим предохранители&nbsp;от&nbsp;откатов</li></ul></div><div class="pm-res"><span>Результат</span><p>Сил хватает на&nbsp;всё,&nbsp;откатов&nbsp;нет</p></div></div>
+  <div class="pm now r d5"><div class="pm-img"><img src="assets/gen/e2-day3w.jpg" alt=""><span class="pm-n">03</span><span class="pm-here">мы&nbsp;здесь</span></div>
+    <div class="pm-b"><span class="pm-k">День&nbsp;3 ·&nbsp;сегодня</span><b>Новая&nbsp;реальность</b><ul><li>Проверяем цель&nbsp;на&nbsp;истинность</li><li>Убираем сопротивление&nbsp;и&nbsp;саботаж</li></ul></div><div class="pm-res"><span>Результат</span><p>Пошаговый план:&nbsp;подумали&nbsp;–&nbsp;сделали</p></div></div>
+  <div class="pm next vip r d6"><div class="pm-img"><img src="assets/gen/e2-day4w.jpg" alt=""><span class="pm-n">04</span><span class="pm-vip">только для&nbsp;VIP&nbsp;тарифа</span></div>
+    <div class="pm-b"><span class="pm-k">День&nbsp;4</span><b>Магнит для&nbsp;денег</b><ul><li>Переходим в&nbsp;состояние, где&nbsp;всё&nbsp;даётся&nbsp;легко</li><li>Возможности начинают&nbsp;находить&nbsp;вас&nbsp;сами</li></ul></div><div class="pm-res"><span>Результат</span><p>Вы&nbsp;в&nbsp;состоянии «мне&nbsp;везёт»</p></div></div>
+  <i class="pa pa2 r d5"><svg viewBox="0 0 60 40"><path d="M4 20 H50 M36 6 L52 20 L36 34"/></svg></i>
+  <i class="pa pa3 r d6"><svg viewBox="0 0 60 40"><path d="M4 20 H50 M36 6 L52 20 L36 34"/></svg></i>
+</div>
 </section>
 <!-- 5 -->
-<section class="slide e3">
-<div class="kicker r d1">В&nbsp;1 и 2 дни выступали выпускницы курса «Психолог краткосрочной&nbsp;терапии и здоровый человек»</div><h2 class="e3-h r d2">Регина и&nbsp;две Екатерины:</h2><h2 class="e3-h r d2">светятся, прекрасно выглядят, хорошо&nbsp;зарабатывают</h2><p class="e3-sub r d3">Вышли на&nbsp;новый уровень во&nbsp;всех&nbsp;смыслах</p><div class="e3-vs"><div class="col r d3"><div class="t">Одни</div><p>Используют навыки, полученные на&nbsp;курсе, в&nbsp;дополнение к&nbsp;основной&nbsp;работе</p></div><div class="mid r d4">и</div><div class="col b r d5"><div class="t">Другие</div><p>Полностью переквалифицировались</p></div></div><div class="e3-note sun r d8">И&nbsp;у&nbsp;тех, и&nbsp;у&nbsp;тех&nbsp;– фантастические&nbsp;результаты</div>
+<section class="slide t-html s-bon3 s-e2-bon3">
+<div class="head"><div class="kicker r d1">Бонусы для&nbsp;тех,&nbsp;кто&nbsp;будет&nbsp;онлайн</div><h2 class="h2 r d2">За&nbsp;каждый эфир&nbsp;вы&nbsp;получаете&nbsp;<em>новый подарок</em></h2></div>
+<div class="bg3 bq">
+  <div class="q done r d3"><div class="qi"><img src="assets/gen/e2-p1.jpg" alt=""><span class="qn">1</span></div><div class="qt"><span class="qk">Бонусы <span class="nw">1-го</span> эфира</span><b>Записи <span class="nw">2-х</span> терапевтических сессий</b><p>«Соединение с&nbsp;деньгами через&nbsp;тень»</p><p>«Деньги, предназначение, проявленность,&nbsp;реализация»</p></div></div>
+  <div class="q done r d4"><div class="qi"><img src="assets/gen/e2-p2.jpg" alt=""><span class="qn">2</span></div><div class="qt"><span class="qk">Бонус <span class="nw">2-го</span> эфира</span><b>Вебинар «Деньги 2.0. Законы больших&nbsp;денег»</b><p>Получат те, кто будет онлайн до&nbsp;конца&nbsp;эфира</p></div></div>
+  <div class="q now r d5"><div class="qi"><img class="g3saba" src="assets/gen/b3-saba-c.jpg" alt="Михаил и Анна Саба"><span class="qn">3</span><span class="q-here">сегодня</span></div><div class="qt"><span class="qk">Бонус <span class="nw">3-го</span> эфира</span><b>Практика на&nbsp;соединение с&nbsp;нужной веткой&nbsp;реальности</b><p>Практику проведёт Михаил&nbsp;Саба</p></div></div>
+  <div class="q next r d6"><div class="qi"><img src="assets/gen/e2-p4.jpg" alt=""><span class="qn">4</span><span class="q-vip">только VIP</span></div><div class="qt"><span class="qk">Бонус <span class="nw">4-го</span> эфира</span><b>Эфир «Магнит для&nbsp;денег»</b><p>Совместный эфир с&nbsp;моим мужем Михаилом Саба, совместная&nbsp;практика</p></div></div>
+</div>
 </section>
 <!-- 6 -->
-<section class="slide e3 e3-sp">
-<div class="e3-img"><img src="assets/gen/n-regina-in.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">ЕСть ли кто-то сейчас, кому хочется, но вы</div><h2 class="e3-h r d2">Думаете, что у вас не получится?</h2><p class="e3-sub r d3">Напишите в чат цифру 10</p></div>
+<section class="slide t-html s-rules s-e2-rules">
+<div class="head"><div class="kicker r d1">Напомню о&nbsp;правилах&nbsp;практикума</div><h2 class="h2 r d2">Чтобы&nbsp;<em>получить максимальный&nbsp;результат</em></h2></div>
+<div class="rl">
+  <div class="rl-img r d2"><img src="assets/gen/e2-rules.jpg" alt=""></div>
+  <div class="rc r d3"><span class="rn">1</span><b>Будьте в&nbsp;онлайне</b></div>
+  <div class="rc r d4"><span class="rn">2</span><b>Активно принимайте&nbsp;участие&nbsp;в&nbsp;чате</b><p class="rq">Вчера не&nbsp;все принимали активное участие в&nbsp;чате. Я&nbsp;призываю вас для&nbsp;получения максимального эффекта писать и&nbsp;отвечать на&nbsp;вопросы,&nbsp;когда&nbsp;я&nbsp;их&nbsp;задаю.</p></div>
+</div>
 </section>
 <!-- 7 -->
-<section class="slide e3 e3-dk">
-<div class="kicker r d1">Закон системы</div><h2 class="e3-h r d2">Результат, доступный одному, доступен каждому, кто находится в&nbsp;поле</h2><p class="e3-sub r d3"><b>А&nbsp;вы&nbsp;сейчас в&nbsp;этом&nbsp;поле</b></p>
+<section class="slide t-html s-tar2 s-e2-tar">
+<div class="head"><div class="kicker r d1">Как&nbsp;получить записи&nbsp;эфиров, личный разбор вашей&nbsp;ситуации&nbsp;и&nbsp;все&nbsp;бонусы</div><h2 class="h2 r d2">Перейдите на&nbsp;тариф&nbsp;<em>VIP</em></h2></div>
+<div class="tw">
+  <div class="tf r d3"><span class="tn">STANDART</span><div class="tp"><s>990&nbsp;₽</s><b>Бесплатно</b></div><ul>
+    <li>3 прямых&nbsp;эфира</li><li>Домашние задания&nbsp;после&nbsp;эфиров</li><li>Бонусные&nbsp;материалы</li><li>Группа участников</li><li>Розыгрыш&nbsp;призов</li><li class="no">Записей эфиров&nbsp;нет</li></ul></div>
+  <div class="tv r d4"><span class="tbadge">Всё&nbsp;и&nbsp;сразу</span><span class="tn">VIP-ТАРИФ</span><div class="tp"><s>14&nbsp;990&nbsp;₽</s><b>1&nbsp;980&nbsp;₽</b></div><ul>
+    <li class="hl">Записи и&nbsp;презентации&nbsp;всех&nbsp;эфиров</li><li>3 эфира +&nbsp;<span class="nw">4-й</span> <span class="nw">VIP-эфир</span> «Магнит для&nbsp;денег»: проведу вместе&nbsp;с&nbsp;мужем&nbsp;Михаилом&nbsp;Саба</li><li>Практика на&nbsp;60&nbsp;минут «Прочувствуй свою новую реальность и&nbsp;узнай, что&nbsp;тебе&nbsp;не&nbsp;даёт&nbsp;в&nbsp;неё&nbsp;перейти»</li><li>Личный <span class="nw">разбор-диагностика</span> от&nbsp;психолога, выпускника института. Такая консультация&nbsp;стоит&nbsp;от&nbsp;15&nbsp;000&nbsp;₽</li><li><span class="nw">Мастер-класс</span> о&nbsp;профессии <span class="nw">EMDR-терапевта</span> с&nbsp;доходом от&nbsp;300&nbsp;000&nbsp;₽&nbsp;в&nbsp;месяц</li></ul></div>
+</div>
 </section>
 <!-- 8 -->
-<section class="slide e3 e3-sp">
-<div class="e3-img"><img src="assets/e3/e3-chores.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">На&nbsp;2-м&nbsp;эфире</div><h2 class="e3-h r d2">Мы&nbsp;разобрались, куда утекает ваша энергия и&nbsp;почему цели часто не&nbsp;достигаются</h2><ul class="e3-list"><li class="r d3">Энергия сливается не&nbsp;туда, куда&nbsp;надо</li><li class="r d4">На&nbsp;быт, повседневные дела и&nbsp;обслуживание&nbsp;других</li><li class="r d5"><b>Но&nbsp;не&nbsp;на&nbsp;себя и&nbsp;не&nbsp;на&nbsp;свою&nbsp;реализацию</b></li></ul></div>
+<section class="slide t-html s-grant s-e2-grant">
+<div class="head"><div class="kicker r d1">Сегодня ·&nbsp;розыгрыш</div><h2 class="h2 r d2">Розыгрыш грантов <em>на&nbsp;обучение</em></h2>
+<p class="lead r d2">в&nbsp;Институте психического здоровья доктора Анны&nbsp;Саба на&nbsp;программе ПКТ&nbsp;–&nbsp;психолог&nbsp;краткосрочной&nbsp;терапии</p></div>
+<div class="gw">
+  <div class="gc gm r d3"><span class="gq">1&nbsp;грант</span><b>200&nbsp;000&nbsp;₽</b><p>выиграет один&nbsp;из&nbsp;вас</p></div>
+  <div class="gc r d4"><span class="gq">10&nbsp;грантов</span><b>100&nbsp;000&nbsp;₽</b><p>смогут выиграть&nbsp;10&nbsp;человек</p></div>
+  <div class="gc r d5"><span class="gq">20&nbsp;грантов</span><b>50&nbsp;000&nbsp;₽</b><p>смогут выиграть&nbsp;20&nbsp;человек</p></div>
+</div>
+<div class="gb r d6">
+  <div class="gs"><span>На&nbsp;гранты мы&nbsp;выделили</span><b>2&nbsp;200&nbsp;000&nbsp;₽</b></div>
+  <div class="gst"><span class="gn">1</span><p>Оставьте заявку на&nbsp;участие в&nbsp;розыгрыше гранта <strong>прямо&nbsp;сейчас</strong></p></div>
+  <div class="gst"><span class="gn">2</span><p>Будьте на&nbsp;эфире до&nbsp;конца, в&nbsp;момент объявления <strong>победителей</strong></p></div>
+</div>
 </section>
 <!-- 9 -->
-<section class="slide e3">
-<div class="kicker r d1">при&nbsp;этом&nbsp;парадокс</div><h2 class="e3-h r d2">Чем больше времени вы&nbsp;уделяете себе, своему делу, своей реализации,&nbsp;тем</h2><div class="e3-chain"><p class="st r d3"><span>01</span>у&nbsp;вас больше денег</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st r d4"><span>02</span>люди вами восхищаются и&nbsp;тянутся к&nbsp;вам</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st r d5"><span>03</span>больше хотят, как вы</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st last r d6"><span>04</span>вы становитесь для них источником света</p></div>
+<section class="slide e3 e3-sp">
+<div class="e3-img"><img src="assets/e3/e3-day1b.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">На&nbsp;1-м&nbsp;эфире</div><h2 class="e3-h r d2">Мы&nbsp;разбирались с&nbsp;угнетающими чувствами и&nbsp;выстраивали причинно-следственные&nbsp;связи</h2><p class="e3-sub r d3">И&nbsp;вы&nbsp;уже понимаете, как травматический детский опыт (ТДО) влияет на&nbsp;вашу&nbsp;жизнь</p></div>
 </section>
 <!-- 10 -->
-<section class="slide e3 e3-sp flip">
-<div class="e3-img"><img src="assets/e3/e3-spark.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Вы&nbsp;становитесь для&nbsp;них&nbsp;огнем</div><h2 class="e3-h r d2">Об который они хотят зажечь свою&nbsp;потухшую свечу</h2><div class="e3-note soft r d8">Чтобы прийти в&nbsp;это состояние, нужно переработать свой ТДО и начать заниматься тем, чего вы действительно хотите</div></div>
+<section class="slide e3 bg-mist">
+<div class="kicker r d1">С&nbsp;каждым&nbsp;годом</div><h2 class="e3-h r d2">Если не&nbsp;переработать ТДО,&nbsp;то:</h2><div class="e3-life r d3"><div class="lf-stage"><div class="st" style="left:0px;bottom:0;width:185px;height:40px"><span class="ag" style="animation-name:lfa0">5&nbsp;лет</span></div><div class="st" style="left:184px;bottom:0;width:185px;height:70px"><span class="ag" style="animation-name:lfa1">10&nbsp;лет</span></div><div class="st" style="left:369px;bottom:0;width:185px;height:100px"><span class="ag" style="animation-name:lfa2">15&nbsp;лет</span></div><div class="st" style="left:553px;bottom:0;width:185px;height:130px"><span class="ag" style="animation-name:lfa3">20&nbsp;лет</span></div><div class="st" style="left:738px;bottom:0;width:185px;height:160px"><span class="ag" style="animation-name:lfa4">30&nbsp;лет</span></div><div class="st" style="left:922px;bottom:0;width:185px;height:190px"><span class="ag" style="animation-name:lfa5">40&nbsp;лет</span></div><div class="st" style="left:1107px;bottom:0;width:185px;height:220px"><span class="ag" style="animation-name:lfa6">50&nbsp;лет</span></div><div class="st" style="left:1291px;bottom:0;width:185px;height:250px"><span class="ag" style="animation-name:lfa7">60&nbsp;лет</span></div><div class="st" style="left:1476px;bottom:0;width:185px;height:280px"><span class="ag" style="animation-name:lfa8">70&nbsp;лет</span></div><div class="fg"><svg viewBox="0 0 60 120"><circle cx="30" cy="14" r="12"/><path d="M30 28v46M30 40l-18 22M30 40l18 22M30 74l-14 40M30 74l14 40"/></svg></div></div><div class="lf-bar"><i></i><b>время ускоряется</b></div></div><div class="e3-cards tight" style="--c:3"><div class="e3-card r d4"><span class="n">1</span><b>Больше автоматизмов</b></div><div class="e3-card r d5"><span class="n">2</span><b>Быстрее бежит&nbsp;время</b></div><div class="e3-card hot r d6"><span class="n">3</span><b>Шансы что-то изменить близки к&nbsp;0</b></div></div>
 </section>
 <!-- 11 -->
-<section class="slide e3">
-<div class="kicker r d1">ОДНАКО</div><h2 class="e3-h r d2">Если вы, не проработавТДО, начнёте больше времени уделять себе и&nbsp;своей&nbsp;реализации</h2><p class="e3-sub r d3">Угнетающие чувства вас&nbsp;загрызут:</p><div class="e3-chips coral r d5"><span>обида</span><span>вина</span><span>страх</span><span>тревога</span><span>стыд</span></div><div class="e3-note coral r d8">И&nbsp;вы&nbsp;снова&nbsp;<span style="font-family: var(--fb);">словите&nbsp;откат и&nbsp;</span><span style="text-wrap-mode: wrap; font-family: var(--fb);">вернётесь в&nbsp;исходную точку, с которой начинали</span></div>
+<section class="slide e3 e3-dk">
+<div class="kicker r d1">Хорошая новость</div><h2 class="e3-h r d2">При проработке ТДО жизнь меняется и&nbsp;в&nbsp;50, и&nbsp;в&nbsp;60, и&nbsp;даже в&nbsp;70&nbsp;лет</h2><p class="e3-sub r d3">Т.к. меняются ваши реакции на&nbsp;ситуации</p><div class="e3-fork r d4"><svg class="fk-map" viewBox="0 0 1640 380"><path class="p0" d="M80 250H560"/><path class="p1" d="M560 250C720 250 820 90 1040 90"/><path class="wall" d="M1060 40V140"/><path class="p2b" d="M560 250C760 250 900 310 1480 310"/><path class="p2" d="M560 250C760 250 900 310 1480 310"/><circle class="nr" cx="1500" cy="310" r="34"/></svg><span class="fk-l l1">Путь 1</span><span class="fk-l dead">тупик</span><span class="fk-l l2">Путь 2</span><span class="fk-l nrl">новая реальность</span><div class="fk-fig"><svg viewBox="0 0 60 120"><circle cx="30" cy="14" r="12"/><path d="M30 28v46M30 40l-18 22M30 40l18 22M30 74l-14 40M30 74l14 40"/></svg><span class="fk-q">?</span></div></div>
 </section>
 <!-- 12 -->
-<section class="slide e3 e3-dk">
-<div class="kicker r d1">Поэтому</div><h2 class="e3-h r d2">Перерабатываем ТДО&nbsp;– и&nbsp;наша жизнь меняется <em>кардинально</em></h2><p class="e3-sub r d3">Это самый первый шаг, которым вы&nbsp;будете заниматься на&nbsp;курсе «Психолог краткосрочной&nbsp;терапии и здоровый человек»</p>
+<section class="slide e3 e3-four">
+<div class="kicker r d1">В&nbsp;1 и&nbsp;2 дни выступали выпускницы курса «Психолог краткосрочной терапии и&nbsp;здоровый&nbsp;человек»</div><h2 class="e3-h r d2">Регина и&nbsp;две Екатерины:<span class="nl">светятся, прекрасно выглядят, хорошо&nbsp;зарабатывают</span></h2><p class="e3-sub r d3">Вышли на&nbsp;новый уровень во&nbsp;всех&nbsp;смыслах</p><h3 class="e3-h3 r d4">На&nbsp;курс «Психолог краткосрочной терапии и&nbsp;здоровый человек» люди приходят по&nbsp;4&nbsp;причинам</h3><div class="e3-cards tight" style="--c:4"><div class="e3-card r d5"><span class="n">1</span><b>Проработать себя</b><p>И&nbsp;свой травматический детский опыт, чтобы больше не&nbsp;ходить по&nbsp;психологам и&nbsp;жить свою прекрасную&nbsp;жизнь</p></div><div class="e3-card r d6"><span class="n">2</span><b>Освоить новую&nbsp;профессию</b></div><div class="e3-card r d7"><span class="n">3</span><b>Получить источник дополнительного&nbsp;дохода</b></div><div class="e3-card r d8"><span class="n">4</span><b>Действующие психологи</b><p>Идут на&nbsp;повышение квалификации для&nbsp;освоения метода ДПДГ&nbsp;3.0</p></div></div><div class="e3-note sun r d9">И&nbsp;у&nbsp;всех&nbsp;– фантастические&nbsp;результаты</div>
 </section>
 <!-- 13 -->
-<section class="slide e3 e3-sp">
-<div class="e3-img"><img src="assets/e3/e3-body.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">После переработки тдо</div><h2 class="e3-h r d2">Вы&nbsp;получите колоссальный&nbsp;ресурс</h2><ul class="e3-list"><li class="r d3"><b>Внешние изменения</b></li><li class="r d4"><b>Внутренние изменения</b></li></ul></div>
+<section class="slide e3 e3-sp e3-envy">
+<div class="e3-img"><img src="assets/e3/e3-envy.jpg" alt=""><div class="e3-tags"><span class="tg" style="left:8%;top:4%;animation-delay:0.60s">Восхищение</span><span class="tg" style="left:58%;top:3%;animation-delay:1.15s">Стыд</span><span class="tg" style="left:30%;top:12%;animation-delay:1.70s">Обида</span><span class="tg" style="left:46%;top:20%;animation-delay:2.25s">Угнетающие чувства</span><span class="tg" style="left:6%;top:22%;animation-delay:2.80s">Страх</span><span class="tg" style="left:10%;top:31%;animation-delay:3.35s">«Это не&nbsp;для&nbsp;меня»</span><span class="tg" style="left:38%;top:29%;animation-delay:3.90s">«У&nbsp;меня так не&nbsp;получится»</span><span class="tg" style="left:7%;top:39%;animation-delay:4.45s">«Вот у&nbsp;них получается, потому&nbsp;что…»</span><span class="tg big" style="left:50%;top:50%">«Я&nbsp;ничтожество»</span></div></div><div class="e3-w"><div class="kicker r d1">ЕСть ли&nbsp;кто-то сейчас, кому хочется, но&nbsp;вы</div><h2 class="e3-h r d2">Думаете, что у&nbsp;вас не&nbsp;получится?</h2><p class="e3-sub r d3">Напишите в&nbsp;чат цифру&nbsp;10</p></div>
 </section>
 <!-- 14 -->
-<section class="slide e3 bg-mist">
-<div class="kicker r d1">ПРИЯТНЫЙ БОНУС ДЛЯ ТЕХ, У КОГО ЕСТЬ дети и партнёр</div><h2 class="e3-h r d2">Вы&nbsp;сможете помогать близким</h2><div class="e3-cards" style="--c:2"><div class="e3-card r d4"><span class="n">1</span><b>Мужу (жене)</b></div><div class="e3-card r d5"><span class="n">2</span><b>Детям</b></div></div>
+<section class="slide e3 e3-law">
+<div class="kicker r d1">Закон системы</div><h2 class="e3-h r d2">Результат, доступный одному, доступен каждому, кто находится в&nbsp;поле</h2><p class="e3-sub r d3"><b>А&nbsp;вы&nbsp;сейчас в&nbsp;этом&nbsp;поле</b></p><div class="e3-net r d4"><svg viewBox="0 0 720 720"><defs><radialGradient id="ngc"><stop offset="0" stop-color="#ffd978"/><stop offset="1" stop-color="#e8a628"/></radialGradient></defs><circle class="ring" cx="360" cy="360" r="150"/><circle class="ring r2" cx="360" cy="360" r="150"/><path class="ln hx" d="M360 90L594 225"/><path class="ln" d="M360 90L360 360"/><path class="ln hx" d="M594 225L594 495"/><path class="ln" d="M594 225L360 360"/><path class="ln hx" d="M594 495L360 630"/><path class="ln" d="M594 495L360 360"/><path class="ln hx" d="M360 630L126 495"/><path class="ln" d="M360 630L360 360"/><path class="ln hx" d="M126 495L126 225"/><path class="ln" d="M126 495L360 360"/><path class="ln hx" d="M126 225L360 90"/><path class="ln" d="M126 225L360 360"/><g class="coin"><circle r="19"/><text y="8">₽</text><animateMotion dur="2.6s" begin="0.0s" repeatCount="indefinite" path="M360 90L360 360"/><animate attributeName="opacity" values="0;1;1;0" dur="2.6s" begin="0.0s" repeatCount="indefinite"/></g><g class="coin"><circle r="19"/><text y="8">₽</text><animateMotion dur="2.6s" begin="1.3s" repeatCount="indefinite" path="M360 360L360 90"/><animate attributeName="opacity" values="0;1;1;0" dur="2.6s" begin="1.3s" repeatCount="indefinite"/></g><g class="coin"><circle r="19"/><text y="8">₽</text><animateMotion dur="2.6s" begin="0.4s" repeatCount="indefinite" path="M594 225L360 360"/><animate attributeName="opacity" values="0;1;1;0" dur="2.6s" begin="0.4s" repeatCount="indefinite"/></g><g class="coin"><circle r="19"/><text y="8">₽</text><animateMotion dur="2.6s" begin="1.7s" repeatCount="indefinite" path="M360 360L594 225"/><animate attributeName="opacity" values="0;1;1;0" dur="2.6s" begin="1.7s" repeatCount="indefinite"/></g><g class="coin"><circle r="19"/><text y="8">₽</text><animateMotion dur="2.6s" begin="0.8s" repeatCount="indefinite" path="M594 495L360 360"/><animate attributeName="opacity" values="0;1;1;0" dur="2.6s" begin="0.8s" repeatCount="indefinite"/></g><g class="coin"><circle r="19"/><text y="8">₽</text><animateMotion dur="2.6s" begin="2.1s" repeatCount="indefinite" path="M360 360L594 495"/><animate attributeName="opacity" values="0;1;1;0" dur="2.6s" begin="2.1s" repeatCount="indefinite"/></g><g class="coin"><circle r="19"/><text y="8">₽</text><animateMotion dur="2.6s" begin="1.2s" repeatCount="indefinite" path="M360 630L360 360"/><animate attributeName="opacity" values="0;1;1;0" dur="2.6s" begin="1.2s" repeatCount="indefinite"/></g><g class="coin"><circle r="19"/><text y="8">₽</text><animateMotion dur="2.6s" begin="2.5s" repeatCount="indefinite" path="M360 360L360 630"/><animate attributeName="opacity" values="0;1;1;0" dur="2.6s" begin="2.5s" repeatCount="indefinite"/></g><g class="coin"><circle r="19"/><text y="8">₽</text><animateMotion dur="2.6s" begin="1.6s" repeatCount="indefinite" path="M126 495L360 360"/><animate attributeName="opacity" values="0;1;1;0" dur="2.6s" begin="1.6s" repeatCount="indefinite"/></g><g class="coin"><circle r="19"/><text y="8">₽</text><animateMotion dur="2.6s" begin="2.9s" repeatCount="indefinite" path="M360 360L126 495"/><animate attributeName="opacity" values="0;1;1;0" dur="2.6s" begin="2.9s" repeatCount="indefinite"/></g><g class="coin"><circle r="19"/><text y="8">₽</text><animateMotion dur="2.6s" begin="2.0s" repeatCount="indefinite" path="M126 225L360 360"/><animate attributeName="opacity" values="0;1;1;0" dur="2.6s" begin="2.0s" repeatCount="indefinite"/></g><g class="coin"><circle r="19"/><text y="8">₽</text><animateMotion dur="2.6s" begin="3.3s" repeatCount="indefinite" path="M360 360L126 225"/><animate attributeName="opacity" values="0;1;1;0" dur="2.6s" begin="3.3s" repeatCount="indefinite"/></g><g class="nd" transform="translate(360 90)"><circle r="58"/><g class="ic" transform="translate(0 30)"><circle cx="0" cy="-64" r="13"/><path d="M0 -50v34M0 -42l-14 16M0 -42l14 16M0 -16l-11 16M0 -16l11 16"/></g></g><g class="nd" transform="translate(594 225)"><circle r="58"/><g class="ic" transform="translate(0 30)"><circle cx="0" cy="-64" r="13"/><path d="M0 -50v34M0 -42l-14 16M0 -42l14 16M0 -16l-11 16M0 -16l11 16"/></g></g><g class="nd" transform="translate(594 495)"><circle r="58"/><g class="ic" transform="translate(0 30)"><circle cx="0" cy="-64" r="13"/><path d="M0 -50v34M0 -42l-14 16M0 -42l14 16M0 -16l-11 16M0 -16l11 16"/></g></g><g class="nd" transform="translate(360 630)"><circle r="58"/><g class="ic" transform="translate(0 30)"><circle cx="0" cy="-64" r="13"/><path d="M0 -50v34M0 -42l-14 16M0 -42l14 16M0 -16l-11 16M0 -16l11 16"/></g></g><g class="nd" transform="translate(126 495)"><circle r="58"/><g class="ic" transform="translate(0 30)"><circle cx="0" cy="-64" r="13"/><path d="M0 -50v34M0 -42l-14 16M0 -42l14 16M0 -16l-11 16M0 -16l11 16"/></g></g><g class="nd" transform="translate(126 225)"><circle r="58"/><g class="ic" transform="translate(0 30)"><circle cx="0" cy="-64" r="13"/><path d="M0 -50v34M0 -42l-14 16M0 -42l14 16M0 -16l-11 16M0 -16l11 16"/></g></g><circle class="core" cx="360" cy="360" r="118" fill="url(#ngc)"/><text class="ct" x="360" y="370">Результат</text></svg></div>
 </section>
 <!-- 15 -->
-<section class="slide e3 e3-sp">
-<div class="e3-img"><img src="assets/e3/e3-child.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Что происходит с современными детьми?</div><h2 class="e3-h r d2">Всё больше тревожных&nbsp;детей</h2><ul class="e3-list"><li class="r d3">Увеличивается количество детских&nbsp;суицидов</li><li class="r d4">В школах давление за ОГЭ и ЕГЭ</li><li class="r d5">Родитель не знает, как помочь ребёнку</li></ul><div class="e3-note soft r d8">У вас есть ТДО, и у ваших детей будет ТДО, если его не переработать сразу</div></div>
+<section class="slide e3 e3-sp e3-drain">
+<div class="e3-img e3-viz"><svg class="dr" viewBox="0 0 780 1080" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="dbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f5f5a"/><stop offset="1" stop-color="#083c39"/></linearGradient><radialGradient id="dgl"><stop offset="0" stop-color="#ffd978" stop-opacity=".75"/><stop offset="1" stop-color="#ffd978" stop-opacity="0"/></radialGradient></defs><rect width="780" height="1080" fill="url(#dbg)"/><circle class="glow" cx="390" cy="230" r="170" fill="url(#dgl)"/><g class="me" transform="translate(390 300) scale(2.4)"><circle cx="0" cy="-64" r="13"/><path d="M0 -50v34M0 -42l-14 16M0 -42l14 16M0 -16l-11 16M0 -16l11 16"/></g><path class="tr" d="M390 320C390 520 110 560 110 760"/><path class="fl" style="animation-delay:0.0s" d="M390 320C390 520 110 560 110 760"/><g class="bk"><rect class="b" x="48" y="770" width="124" height="150" rx="16"/><rect class="lv" style="animation-delay:0.0s" x="54" y="776" width="112" height="138" rx="11"/><text x="110" y="975">Быт</text></g><path class="tr" d="M390 320C390 520 290 560 290 760"/><path class="fl" style="animation-delay:-0.4s" d="M390 320C390 520 290 560 290 760"/><g class="bk"><rect class="b" x="228" y="770" width="124" height="150" rx="16"/><rect class="lv" style="animation-delay:0.5s" x="234" y="776" width="112" height="138" rx="11"/><text x="290" y="975">Дела</text></g><path class="tr" d="M390 320C390 520 470 560 470 760"/><path class="fl" style="animation-delay:-0.8s" d="M390 320C390 520 470 560 470 760"/><g class="bk"><rect class="b" x="408" y="770" width="124" height="150" rx="16"/><rect class="lv" style="animation-delay:1.0s" x="414" y="776" width="112" height="138" rx="11"/><text x="470" y="975">Другие</text></g><path class="tr off" d="M390 320C390 520 665 560 665 760"/><g class="bk off"><rect class="b" x="603" y="770" width="124" height="150" rx="16"/><text x="665" y="975">Я</text><text class="s" x="665" y="1010">и&nbsp;моя&nbsp;реализация</text></g></svg></div><div class="e3-w"><div class="kicker r d1">На&nbsp;2-м&nbsp;эфире</div><h2 class="e3-h r d2">Мы&nbsp;разобрались, куда утекает ваша энергия и&nbsp;почему цели часто не&nbsp;достигаются</h2><ul class="e3-list"><li class="r d3">Энергия сливается не&nbsp;туда, куда&nbsp;надо</li><li class="r d4">На&nbsp;быт, повседневные дела и&nbsp;обслуживание&nbsp;других</li><li class="r d5"><b>Но&nbsp;не&nbsp;на&nbsp;себя и&nbsp;не&nbsp;на&nbsp;свою&nbsp;реализацию</b></li></ul></div>
 </section>
 <!-- 16 -->
-<section class="slide e3 e3-dk">
-<div class="kicker r d1">Вы&nbsp;по&nbsp;себе видите, как ТДО влияет на&nbsp;вас</div><h2 class="e3-h r d2">На&nbsp;вашего ребёнка он&nbsp;будет влиять как минимум так же, а&nbsp;скорее всего&nbsp;– <em>ещё жёстче</em></h2><p class="e3-sub r d3">Потому что сейчас дети живут в&nbsp;большем&nbsp;стрессе</p>
+<section class="slide e3 e3-par">
+<div class="e3-lite r d3"><svg viewBox="0 0 600 460"><defs><radialGradient id="lgl"><stop offset="0" stop-color="#ffe9a8"/><stop offset=".45" stop-color="#f3c64d" stop-opacity=".55"/><stop offset="1" stop-color="#f3c64d" stop-opacity="0"/></radialGradient></defs><g class="rays"><path transform="rotate(0 300 230)" d="M300 230V20"/><path transform="rotate(30 300 230)" d="M300 230V20"/><path transform="rotate(60 300 230)" d="M300 230V20"/><path transform="rotate(90 300 230)" d="M300 230V20"/><path transform="rotate(120 300 230)" d="M300 230V20"/><path transform="rotate(150 300 230)" d="M300 230V20"/><path transform="rotate(180 300 230)" d="M300 230V20"/><path transform="rotate(210 300 230)" d="M300 230V20"/><path transform="rotate(240 300 230)" d="M300 230V20"/><path transform="rotate(270 300 230)" d="M300 230V20"/><path transform="rotate(300 300 230)" d="M300 230V20"/><path transform="rotate(330 300 230)" d="M300 230V20"/></g><circle class="halo" cx="300" cy="230" r="150" fill="url(#lgl)"/><g class="hero" transform="translate(300 270) scale(1.7)"><circle cx="0" cy="-64" r="13"/><path d="M0 -50v34M0 -42l-14 16M0 -42l14 16M0 -16l-11 16M0 -16l11 16"/></g><g transform="rotate(0 300 230)"><g class="pp" style="animation-delay:0.0s"><g transform="translate(300 52) scale(.85)"><circle cx="0" cy="-64" r="13"/><path d="M0 -50v34M0 -42l-14 16M0 -42l14 16M0 -16l-11 16M0 -16l11 16"/></g></g></g><g transform="rotate(45 300 230)"><g class="pp" style="animation-delay:-0.5s"><g transform="translate(300 52) scale(.85)"><circle cx="0" cy="-64" r="13"/><path d="M0 -50v34M0 -42l-14 16M0 -42l14 16M0 -16l-11 16M0 -16l11 16"/></g></g></g><g transform="rotate(90 300 230)"><g class="pp" style="animation-delay:-1.0s"><g transform="translate(300 52) scale(.85)"><circle cx="0" cy="-64" r="13"/><path d="M0 -50v34M0 -42l-14 16M0 -42l14 16M0 -16l-11 16M0 -16l11 16"/></g></g></g><g transform="rotate(135 300 230)"><g class="pp" style="animation-delay:-1.5s"><g transform="translate(300 52) scale(.85)"><circle cx="0" cy="-64" r="13"/><path d="M0 -50v34M0 -42l-14 16M0 -42l14 16M0 -16l-11 16M0 -16l11 16"/></g></g></g><g transform="rotate(180 300 230)"><g class="pp" style="animation-delay:-2.0s"><g transform="translate(300 52) scale(.85)"><circle cx="0" cy="-64" r="13"/><path d="M0 -50v34M0 -42l-14 16M0 -42l14 16M0 -16l-11 16M0 -16l11 16"/></g></g></g><g transform="rotate(225 300 230)"><g class="pp" style="animation-delay:-2.5s"><g transform="translate(300 52) scale(.85)"><circle cx="0" cy="-64" r="13"/><path d="M0 -50v34M0 -42l-14 16M0 -42l14 16M0 -16l-11 16M0 -16l11 16"/></g></g></g><g transform="rotate(270 300 230)"><g class="pp" style="animation-delay:-3.0s"><g transform="translate(300 52) scale(.85)"><circle cx="0" cy="-64" r="13"/><path d="M0 -50v34M0 -42l-14 16M0 -42l14 16M0 -16l-11 16M0 -16l11 16"/></g></g></g><g transform="rotate(315 300 230)"><g class="pp" style="animation-delay:-3.5s"><g transform="translate(300 52) scale(.85)"><circle cx="0" cy="-64" r="13"/><path d="M0 -50v34M0 -42l-14 16M0 -42l14 16M0 -16l-11 16M0 -16l11 16"/></g></g></g></svg></div><div class="kicker r d1">при&nbsp;этом&nbsp;парадокс</div><h2 class="e3-h r d2">Чем больше времени вы&nbsp;уделяете себе, своему делу, своей реализации,&nbsp;тем</h2><div class="e3-chain"><p class="st r d3"><span>01</span>у&nbsp;вас больше&nbsp;денег</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st r d4"><span>02</span>люди вами восхищаются и&nbsp;тянутся к&nbsp;вам</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st r d5"><span>03</span>больше хотят, как&nbsp;вы</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st last r d6"><span>04</span>вы&nbsp;становитесь для&nbsp;них источником&nbsp;света</p></div>
 </section>
 <!-- 17 -->
-<section class="slide e3">
-<div class="kicker r d1">обратите внимание на то</div><h2 class="e3-h r d2">Как вы&nbsp;воспитываете своих&nbsp;детей?</h2><div class="e3-vs"><div class="col r d3"><div class="t">Вариант 1</div><p>Точно так же, как воспитывали&nbsp;вас</p><p>Тем самым наносите те&nbsp;же&nbsp;самые&nbsp;травмы</p></div><div class="mid r d4">или</div><div class="col b r d5"><div class="t">Вариант 2</div><p>Прямо противоположно</p><p>«Я никогда не буду поступать так со своим ребёнком, как мои родители поступали со мной»</p></div></div><div class="e3-note soft r d8">В&nbsp;обоих случаях градообразующее предприятие&nbsp;– ваши родители.&nbsp;</div><div class="e3-note soft r d8">Ни&nbsp;то, ни&nbsp;другое не&nbsp;приведёт к&nbsp;хорошим последствиям.</div>
+<section class="slide e3 e3-sp flip">
+<div class="e3-img"><img src="assets/e3/e3-spark.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Вы&nbsp;становитесь для&nbsp;них&nbsp;огнем</div><h2 class="e3-h r d2">Об&nbsp;который они хотят зажечь свою потухшую&nbsp;свечу</h2><div class="e3-note soft r d8">Чтобы прийти в&nbsp;это состояние, нужно переработать свой ТДО и&nbsp;начать заниматься тем, чего вы&nbsp;действительно&nbsp;хотите</div></div>
 </section>
 <!-- 18 -->
-<section class="slide e3 e3-sp flip">
-<div class="e3-img"><img src="assets/e3/e3-parent.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">сейчас многие воспитывают детей из</div><h2 class="e3-h r d2">Своей травматичной картины мира</h2><ul class="e3-list"><li class="r d3">А картина мира таких людей искажена последствиями их ТДО, и они видят мир через линзу своей травматики</li><li class="r d4">Совершают кучу&nbsp;ошибок</li><li class="r d5">Из-за которых дети получают травмы, отдаляются, разрывают контакт, а в будущем тратят кучу денег на психологов, и цикл повторяется</li></ul></div>
+<section class="slide e3 e3-back">
+<div class="e3-bk r d3"><svg viewBox="0 0 640 520"><path class="sl" d="M40 470L560 130"/><circle class="goal" cx="590" cy="105" r="46"/><text class="gl" x="590" y="40">цель</text><circle class="st0" cx="60" cy="470" r="14"/><text class="sp" x="70" y="515">исходная точка</text><path class="arr" d="M420 300C330 400 200 450 110 450"/><path class="arrh" d="M128 434L104 451L130 466"/><g class="who"><circle cx="0" cy="-64" r="13"/><path d="M0 -50v34M0 -42l-14 16M0 -42l14 16M0 -16l-11 16M0 -16l11 16"/><animateMotion dur="6s" repeatCount="indefinite" keyPoints="0;0.72;0.72;0" keyTimes="0;0.5;0.62;1" calcMode="linear" path="M60 470L560 145"/></g><g class="wt"><circle r="46"/><text y="7">обида</text><animateMotion dur="6s" repeatCount="indefinite" keyPoints="0;0.72;0.72;0" keyTimes="0;0.5;0.62;1" calcMode="linear" path="M-35 490L465 165"/><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.3;0.48;0.7;1" dur="6s" repeatCount="indefinite"/></g><g class="wt"><circle r="40"/><text y="7">вина</text><animateMotion dur="6s" repeatCount="indefinite" keyPoints="0;0.72;0.72;0" keyTimes="0;0.5;0.62;1" calcMode="linear" path="M20 545L520 220"/><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.3;0.48;0.7;1" dur="6s" repeatCount="indefinite"/></g><g class="wt"><circle r="44"/><text y="7">страх</text><animateMotion dur="6s" repeatCount="indefinite" keyPoints="0;0.72;0.72;0" keyTimes="0;0.5;0.62;1" calcMode="linear" path="M120 540L620 215"/><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.3;0.48;0.7;1" dur="6s" repeatCount="indefinite"/></g><g class="wt"><circle r="38"/><text y="7">стыд</text><animateMotion dur="6s" repeatCount="indefinite" keyPoints="0;0.72;0.72;0" keyTimes="0;0.5;0.62;1" calcMode="linear" path="M160 460L660 135"/><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.3;0.48;0.7;1" dur="6s" repeatCount="indefinite"/></g></svg></div><div class="kicker r d1">ОДНАКО</div><h2 class="e3-h r d2">Если вы, не&nbsp;проработав ТДО, начнёте больше времени уделять себе и&nbsp;своей&nbsp;реализации</h2><p class="e3-sub r d3">Угнетающие чувства вас&nbsp;загрызут:</p><div class="e3-chips coral r d5"><span>обида</span><span>вина</span><span>страх</span><span>тревога</span><span>стыд</span></div><div class="e3-note coral r d8">И&nbsp;вы&nbsp;снова словите откат и&nbsp;вернётесь в&nbsp;исходную точку, с&nbsp;которой&nbsp;начинали</div>
 </section>
 <!-- 19 -->
-<section class="slide e3">
-<div class="kicker r d1">Если вы&nbsp;хотите сохранить здоровый контакт и&nbsp;связь со своим ребёнком</div><h2 class="e3-h r d2">Путь следующий</h2><div class="e3-chain"><p class="st r d3"><span>01</span>Переработайтесь сами</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st r d4"><span>02</span>Ваше поведение изменится</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st last r d5"><span>03</span>Вы станете спокойней, уверенней в себе, реализованней, счастливее, и это самый лучший подарок для вашего ребенка<br></p></div>
+<section class="slide e3 e3-dk">
+<div class="kicker r d1">Поэтому</div><h2 class="e3-h r d2">Перерабатываем ТДО&nbsp;– и&nbsp;наша жизнь меняется <em>кардинально</em></h2><p class="e3-sub r d3">Это самый первый шаг, которым вы&nbsp;будете заниматься на&nbsp;курсе «Психолог краткосрочной терапии и&nbsp;здоровый&nbsp;человек»</p>
 </section>
 <!-- 20 -->
-<section class="slide e3 e3-dk">
-<div class="kicker r d1">НА&nbsp;В курсе «Психолог краткосрочной терапии здоровый человек»</div><h2 class="e3-h r d2">Вы&nbsp;осваиваете навык <em>на&nbsp;всю&nbsp;жизнь</em></h2><div class="e3-nums"><div class="e3-num r d3"><b>₽</b><span>Он всегда будет вас кормить, если вы захотите на&nbsp;этом&nbsp;зарабатывать</span></div><div class="e3-num r d4"><b>♥</b><span>Он&nbsp;сделает счастливой и&nbsp;вашу жизнь, и&nbsp;жизнь ваших&nbsp;окружающих</span></div></div>
+<section class="slide e3 e3-resw">
+<div class="kicker r d1">После переработки&nbsp;ТДО</div><h2 class="e3-h r d2">Вы&nbsp;получите <em>колоссальный</em> ресурс</h2><div class="e3-res"><div class="it r d4"><span class="n">01</span><b>Внешние изменения</b></div><div class="pl r d5">+</div><div class="it r d6"><span class="n">02</span><b>Внутренние изменения</b></div></div>
 </section>
 <!-- 21 -->
-<section class="slide e3 e3-sp">
-<div class="e3-img"><img src="assets/e3/e3-couple.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">частые случаи студентов</div><h2 class="e3-h r d2">Когда жена начинает перерабатывать ТДО мужа, и он взлетает в доходе</h2><ul class="e3-list"><li class="r d3">Это ваш большой вклад в&nbsp;семью и благополучие</li></ul></div>
+<section class="slide t-html s-e2-video s-e2-vid55">
+<div class="v55-pan"><div class="kicker r d1">Кейс Валентины</div><div class="v55-big r d2">3&nbsp;месяца</div><h2 class="v55-h r d3">Какой Валентина была <span>ДО</span> и&nbsp;какой стала <span>ПОСЛЕ</span></h2></div>
+<div class="e2-vid noswipe v55-vid r d3"><video controls playsinline preload="metadata" poster="assets/video/valentina-poster2.jpg" src="assets/video/valentina-do-posle.mp4"></video></div>
 </section>
 <!-- 22 -->
-<section class="slide e3 e3-dk">
-<div class="kicker r d1">Главное</div><h2 class="e3-h r d2">Только переработав травматический детский опыт, мы&nbsp;можем выйти в&nbsp;<em>новую реальность</em></h2>
+<section class="slide e3 e3-cs">
+<div class="ph one r d1"><img src="assets/sc/c79_79.webp" alt=""><span class="big r d6">3&nbsp;месяца</span></div><div class="kicker r d1">Кейс студентки&nbsp;ПКТ</div><h2 class="e3-h r d2">Татьяна<span>50&nbsp;лет оглядывалась на&nbsp;других</span></h2><div class="ab"><div class="a r d3"><div class="t">Было</div><p>Полвека сравнивала себя с&nbsp;другими</p><p>Без идеального макияжа не&nbsp;выходила из&nbsp;дома</p><p>Тащила на&nbsp;себе клиентов-жертв и&nbsp;выгорала</p></div><div class="b r d4"><div class="t">Стало</div><p>Приходят клиенты, готовые&nbsp;меняться</p><p>Меньше страхов и&nbsp;сравнения с&nbsp;другими</p><p>Не&nbsp;нужно быть идеальной, чтобы чувствовать свою&nbsp;ценность</p><p>Перестала давить на&nbsp;взрослого&nbsp;сына</p></div></div><div class="q r d5">«Ты&nbsp;станешь смелее, увереннее, полюбишь себя и&nbsp;сможешь помогать&nbsp;людям»</div>
 </section>
 <!-- 23 -->
-<section class="slide e3 bg-mist">
-<div class="kicker r d1">Давайте представим, что будет&nbsp;дальше</div><h2 class="e3-h r d2">Когда вы&nbsp;перерабатываетесь, ваши цели зачастую&nbsp;меняются</h2><p class="e3-sub r d3">Вы&nbsp;начинаете чувствовать, как хочется вам, а&nbsp;не&nbsp;другим</p><div class="e3-note soft r d8">Огромное количество людей живёт в&nbsp;картине мира, навязанной обществом, мамами, папами,&nbsp;другими</div>
+<section class="slide e3 e3-famw">
+<div class="kicker r d1">Приятный бонус для&nbsp;тех, у&nbsp;кого есть дети и&nbsp;партнёр</div><h2 class="e3-h r d2">Вы&nbsp;сможете помогать&nbsp;близким</h2><div class="e3-fam"><div class="t r d4"><div class="ic"><svg viewBox="0 0 240 200" class="e3-fam-svg"><circle class="glow" cx="120" cy="110" r="78"/><g class="fg"><circle cx="82" cy="70" r="16"/><path d="M82 88c-20 0-30 18-30 44v30h60v-30c0-26-10-44-30-44z"/></g><g class="fg f2"><circle cx="158" cy="64" r="17"/><path d="M158 84c-22 0-32 20-32 48v30h64v-30c0-28-10-48-32-48z"/></g><g class="hrt" transform="translate(70 -8)"><path class="hp" d="M50 30c-6-12-24-10-24 4 0 12 24 24 24 24s24-12 24-24c0-14-18-16-24-4z"/></g></svg></div><span class="n">01</span><b>Мужу (жене)</b></div><div class="t r d6"><div class="ic"><svg viewBox="0 0 240 200" class="e3-fam-svg"><circle class="glow" cx="120" cy="110" r="78"/><g class="fg"><circle cx="96" cy="58" r="17"/><path d="M96 78c-22 0-32 20-32 50v34h64v-34c0-30-10-50-32-50z"/></g><path class="arm" d="M118 104q20 6 30 22"/><g class="fg f2 kid"><circle cx="160" cy="104" r="12"/><path d="M160 118c-14 0-20 12-20 28v16h40v-16c0-16-6-28-20-28z"/></g><g class="star"><path d="M196 52l5 11 12 2-9 8 2 12-10-6-10 6 2-12-9-8 12-2z"/></g></svg></div><span class="n">02</span><b>Детям</b></div></div>
 </section>
 <!-- 24 -->
 <section class="slide e3 e3-sp">
-<div class="e3-img"><img src="assets/e3/e3-call.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Звоните кому-то посоветоваться, надо ли&nbsp;вам&nbsp;это?</div><h2 class="e3-h r d2">Значит, вы&nbsp;сами не&nbsp;можете себе ответить и&nbsp;не&nbsp;чувствуете&nbsp;себя</h2><ul class="e3-list"><li class="r d3">Как мы&nbsp;вчера выяснили, эти люди через призму своих травм накладывают на&nbsp;вас&nbsp;клеймо</li><li class="r d4">Нет собственного мнения&nbsp;– вы&nbsp;живёте чужую&nbsp;жизнь</li></ul><div class="e3-note coral r d8">И&nbsp;цели зачастую тоже&nbsp;чужие</div></div>
+<div class="e3-img"><img src="assets/e3/e3-child.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Что происходит с&nbsp;современными&nbsp;детьми?</div><h2 class="e3-h r d2">Всё больше тревожных&nbsp;детей</h2><ul class="e3-list"><li class="r d3">Увеличивается количество детских&nbsp;суицидов</li><li class="r d4">В&nbsp;школах давление за&nbsp;ОГЭ и&nbsp;ЕГЭ</li><li class="r d5">Родитель не&nbsp;знает, как помочь&nbsp;ребёнку</li></ul><div class="e3-note soft r d8">У&nbsp;вас есть ТДО, и&nbsp;у&nbsp;ваших детей будет ТДО, если его не&nbsp;переработать&nbsp;сразу</div></div>
 </section>
 <!-- 25 -->
+<section class="slide e3 e3-vosp">
+<div class="kicker r d1">Обратите внимание на&nbsp;то</div><h2 class="e3-h r d2">Как вы&nbsp;воспитываете своих&nbsp;детей?</h2><div class="e3-vv"><div class="v v1 r d3"><span class="t">Вариант 1</span><b>Точно так же, как воспитывали&nbsp;вас</b><p>Тем самым наносите те&nbsp;же&nbsp;самые&nbsp;травмы</p></div><div class="or r d4">или</div><div class="v v2 r d5"><span class="t">Вариант 2</span><b>Прямо противоположно</b><p>«Я&nbsp;никогда не&nbsp;буду поступать так со&nbsp;своим ребёнком, как мои родители поступали со&nbsp;мной»</p></div></div><div class="e3-vnote r d6"><b>В&nbsp;обоих случаях градообразующее предприятие&nbsp;– ваши&nbsp;родители.</b><span>Ни&nbsp;то, ни&nbsp;другое не&nbsp;приведёт к&nbsp;хорошим&nbsp;последствиям.</span></div><div class="e3-mar"><div class="r d2"><svg viewBox="0 0 600 860" class="e3-mar-svg"><g class="pa" transform="translate(240 150) scale(1.15)"><circle cx="0" cy="-58" r="20"/><path d="M0 -34c-26 0-38 22-38 54v40h76v-40c0-32-12-54-38-54z"/></g><g class="pa" transform="translate(360 150) scale(1.15)"><circle cx="0" cy="-58" r="20"/><path d="M0 -34c-26 0-38 22-38 54v40h76v-40c0-32-12-54-38-54z"/></g><path class="arm" d="M214 150 L200 236 M386 150 L400 236"/><rect class="bar" x="110" y="232" width="380" height="16" rx="8"/><text class="lb" x="300" y="44" text-anchor="middle">Ваши родители</text><g class="kid k1"><path class="str" d="M130 248 L148 596"/><path class="str" d="M210 248 L172 596"/><g class="c1" transform="translate(160 680) scale(1.15)"><circle cx="0" cy="-58" r="20"/><path d="M0 -34c-26 0-38 22-38 54v40h76v-40c0-32-12-54-38-54z"/></g></g><g class="kid k2"><path class="str" d="M390 248 L422 534"/><path class="str" d="M470 248 L458 534"/><g transform="rotate(180 440 640)"><g class="c2" transform="translate(440 680) scale(1.15)"><circle cx="0" cy="-58" r="20"/><path d="M0 -34c-26 0-38 22-38 54v40h76v-40c0-32-12-54-38-54z"/></g></g></g><text class="lb s" x="160" y="800" text-anchor="middle">Копия</text><text class="lb s" x="440" y="800" text-anchor="middle">Наоборот</text></svg></div></div>
+</section>
+<!-- 26 -->
+<section class="slide e3 e3-lens">
+<div class="ph r d1"><img src="assets/e3/e3-lens.jpg" alt=""><div class="ring"></div></div><div class="tx"><div class="kicker r d1">сейчас многие воспитывают детей&nbsp;из</div><h2 class="r d2">Своей травматичной<br>картины&nbsp;мира</h2><div class="ln r d3"><span class="ico">◎</span><p>А&nbsp;картина мира таких людей искажена последствиями их&nbsp;ТДО, и&nbsp;они видят мир через линзу своей&nbsp;травматики</p></div><div class="fl"><div class="ls r d4"><b>Совершают кучу&nbsp;ошибок</b></div><div class="ar r d4">↓</div><div class="ls s2 r d5"><p>Из-за которых дети получают травмы, отдаляются, разрывают контакт, а&nbsp;в&nbsp;будущем тратят кучу денег на&nbsp;психологов, <b>и&nbsp;цикл&nbsp;повторяется</b></p><span class="cy">↻</span></div></div></div>
+</section>
+<!-- 27 -->
+<section class="slide e3 e3-path">
+<div class="tx"><div class="kicker r d1">Если вы&nbsp;хотите сохранить здоровый контакт и&nbsp;связь со&nbsp;своим&nbsp;ребёнком</div><h2 class="r d2">Путь следующий</h2><div class="pt"><div class="p r d3"><span>01</span><b>Переработайтесь сами</b></div><div class="p r d4"><span>02</span><b>Ваше поведение&nbsp;изменится</b></div><div class="p last r d5"><span>03</span><b>Вы&nbsp;станете спокойней, уверенней в&nbsp;себе, реализованней, счастливее, и&nbsp;это самый лучший подарок для&nbsp;вашего&nbsp;ребенка</b></div></div></div><div class="vis r d2"><svg viewBox="0 0 640 640" class="e3-rip-svg"><circle class="w w1" cx="250" cy="330" r="90"/><circle class="w w2" cx="250" cy="330" r="90"/><circle class="w w3" cx="250" cy="330" r="90"/><circle class="glow" cx="250" cy="330" r="86"/><g class="mom" transform="translate(250 370)"><circle cx="0" cy="-74" r="26"/><path d="M0 -44c-34 0-48 28-48 70v34h96v-34c0-42-14-70-48-70z"/></g><g class="kid" transform="translate(520 420)"><circle cx="0" cy="-50" r="18"/><path d="M0 -29c-24 0-33 19-33 48v23h66v-23c0-29-9-48-33-48z"/></g><g class="gift" transform="translate(520 300)"><rect x="-30" y="-14" width="60" height="44" rx="6"/><rect class="lid" x="-36" y="-28" width="72" height="16" rx="5"/><rect class="rb" x="-5" y="-28" width="10" height="58"/><path class="hrt" d="M0 -40c-8-14-28-10-28 4 0 12 16 20 28 30 12-10 28-18 28-30 0-14-20-18-28-4z"/></g><text class="lb" x="250" y="470" text-anchor="middle">Вы</text><text class="lb" x="520" y="510" text-anchor="middle">Ваш ребёнок</text></svg></div>
+</section>
+<!-- 28 -->
+<section class="slide e3 e3-dk">
+<div class="kicker r d1">НА&nbsp;В&nbsp;курсе «Психолог краткосрочной терапии здоровый&nbsp;человек»</div><h2 class="e3-h r d2">Вы&nbsp;осваиваете навык <em>на&nbsp;всю&nbsp;жизнь</em></h2><div class="e3-nums"><div class="e3-num r d3"><b>₽</b><span>Он&nbsp;всегда будет вас кормить, если вы&nbsp;захотите на&nbsp;этом&nbsp;зарабатывать</span></div><div class="e3-num r d4"><b>♥</b><span>Он&nbsp;сделает счастливой и&nbsp;вашу жизнь, и&nbsp;жизнь ваших&nbsp;окружающих</span></div></div>
+</section>
+<!-- 29 -->
+<section class="slide e3 e3-sp">
+<div class="e3-img"><img src="assets/e3/e3-couple2.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Частые случаи&nbsp;студентов</div><h2 class="e3-h r d2">Когда жена начинает перерабатывать ТДО мужа, и&nbsp;он&nbsp;взлетает&nbsp;в&nbsp;доходе</h2><ul class="e3-list"><li class="r d3">Это ваш большой вклад в&nbsp;семью&nbsp;и&nbsp;благополучие</li></ul></div>
+</section>
+<!-- 30 -->
+<section class="slide e3 bg-mist">
+<div class="kicker r d1">Давайте представим, что будет&nbsp;дальше</div><h2 class="e3-h r d2">Когда вы&nbsp;перерабатываетесь, ваши цели зачастую&nbsp;меняются</h2><p class="e3-sub r d3">Вы&nbsp;начинаете чувствовать, как хочется вам, а&nbsp;не&nbsp;другим</p><div class="e3-note soft r d8">Огромное количество людей живёт в&nbsp;картине мира, навязанной обществом, мамами, папами,&nbsp;другими</div>
+</section>
+<!-- 31 -->
+<section class="slide e3 e3-sp">
+<div class="e3-img"><img src="assets/e3/e3-call.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Звоните кому-то посоветоваться, надо ли&nbsp;вам&nbsp;это?</div><h2 class="e3-h r d2">Значит, вы&nbsp;сами не&nbsp;можете себе ответить и&nbsp;не&nbsp;чувствуете&nbsp;себя</h2><ul class="e3-list"><li class="r d3">Как мы&nbsp;вчера выяснили, эти люди через призму своих травм накладывают на&nbsp;вас&nbsp;клеймо</li><li class="r d4">Нет собственного мнения&nbsp;– вы&nbsp;живёте чужую&nbsp;жизнь</li></ul><div class="e3-note coral r d8">И&nbsp;цели зачастую тоже&nbsp;чужие</div></div>
+</section>
+<!-- 32 -->
 <section class="slide e3">
 <div class="kicker r d1">После проработки&nbsp;ТДО</div><h2 class="e3-h r d2">Многие цели и&nbsp;желания кажутся уже&nbsp;невозбуждающими</h2><p class="e3-sub r d3">Они вас вообще никак не&nbsp;касаются.&nbsp;Почему?</p><div class="e3-cards" style="--c:3"><div class="e3-card r d4"><span class="n">1</span><b>Вы&nbsp;начинаете чувствовать себя, своё тело и&nbsp;свой внутренний&nbsp;отклик</b></div><div class="e3-card r d5"><span class="n">2</span><b>Действуете уже не&nbsp;из&nbsp;страдания и&nbsp;страха, <em>а&nbsp;из&nbsp;любви</em></b></div><div class="e3-card r d6"><span class="n">3</span><b>Поэтому немножко могут измениться&nbsp;ориентиры</b></div></div>
 </section>
-<!-- 26 -->
+<!-- 33 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Это не&nbsp;значит, что вы&nbsp;станете блаженной и&nbsp;вам ничего материального не&nbsp;будет&nbsp;нужно</div><h2 class="e3-h r d2">Наоборот: вы&nbsp;будете чётко видеть <em>свою дорогу и&nbsp;свой&nbsp;путь</em></h2>
 </section>
-<!-- 27 -->
+<!-- 34 -->
 <section class="slide e3 e3-sp">
 <div class="e3-img"><img src="assets/e3/e3-compass.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Многие к&nbsp;40–50 годам не&nbsp;понимают, куда&nbsp;идут</div><h2 class="e3-h r d2">Как будто сбились с&nbsp;пути, и&nbsp;у&nbsp;них нет&nbsp;компаса</h2><p class="e3-sub r d3">После переработки ТДО этот компас у&nbsp;вас появится: вы&nbsp;будете чётко знать, куда&nbsp;идти</p><ul class="e3-list"><li class="r d4">Знаешь, куда идти&nbsp;– точно туда&nbsp;придёшь</li><li class="r d5">Не&nbsp;знаешь&nbsp;– будешь метаться и&nbsp;бултыхаться</li></ul></div>
 </section>
-<!-- 28 -->
+<!-- 35 -->
 <section class="slide e3">
 <div class="e3-cycw"><div class="kicker r d1">Под действием&nbsp;ТДО</div><h2 class="e3-h r d2">Вы&nbsp;не&nbsp;знаете, куда идти&nbsp;– и&nbsp;ходите по&nbsp;кругу</h2>
 <p class="e3-sub r d3">Не&nbsp;доводить дело до&nbsp;конца в&nbsp;какой‑то&nbsp;момент уже стало вашей&nbsp;привычкой</p></div>
-<div class="e3-cyc r d3"><svg class="ring" viewBox="0 0 620 620"><circle cx="310" cy="310" r="300"></circle></svg>
+<div class="e3-cyc r d3"><svg class="ring" viewBox="0 0 620 620"><circle cx="310" cy="310" r="300"/></svg>
 <div class="ctr">замкнутый круг</div>
 <div class="nd r d4" style="left:50%;top:9%">Пробуете одно</div>
 <div class="nd r d5" style="left:91%;top:38%">Запал угасает</div>
@@ -3159,39 +3587,39 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 <div class="nd r d7" style="left:22%;top:86%">Второе, третье,&nbsp;четвёртое…</div>
 <div class="nd bad r d8" style="left:9%;top:38%">Покупаете курсы, которые никогда не&nbsp;принесут&nbsp;денег</div></div>
 </section>
-<!-- 29 -->
+<!-- 36 -->
 <section class="slide e3 e3-sp flip">
-<div class="e3-img"><img src="assets/e3/e3-courses.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Вами движет травма&nbsp;– прежде всего страх и&nbsp;страдание</div><h2 class="e3-h r d2">Это становится самосбыва­ющимся&nbsp;пророчеством</h2><ul class="e3-list"><li class="r d3">Вы&nbsp;покупаете очередной курс, который никак не&nbsp;принесёт вам&nbsp;денег</li><li class="r d4">А&nbsp;потом говорите: «Я&nbsp;же&nbsp;сама себе говорила. Зачем я&nbsp;это&nbsp;сделала?»</li></ul></div>
+<div class="e3-img"><img src="assets/e3/e3-courses.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Вами движет травма&nbsp;– прежде всего страх и&nbsp;страдание</div><h2 class="e3-h r d2">Это становится самосбыва&shy;ющимся&nbsp;пророчеством</h2><ul class="e3-list"><li class="r d3">Вы&nbsp;покупаете очередной курс, который никак не&nbsp;принесёт вам&nbsp;денег</li><li class="r d4">А&nbsp;потом говорите: «Я&nbsp;же&nbsp;сама себе говорила. Зачем я&nbsp;это&nbsp;сделала?»</li></ul></div>
 </section>
-<!-- 30 -->
+<!-- 37 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Итого</div><h2 class="e3-h r d2">Курс «Психолог краткосрочной терапии» <em>идеален</em> во&nbsp;всех&nbsp;смыслах</h2>
 </section>
-<!-- 31 -->
+<!-- 38 -->
 <section class="slide e3">
-<div class="kicker r d1">Почему</div><h2 class="e3-h r d2">Вы&nbsp;меняетесь&nbsp;– и&nbsp;окружение само приходит за&nbsp;помощью</h2><div class="e3-chain"><p class="st r d3"><span>01</span>Вы&nbsp;перерабатываете&nbsp;ТДО</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st r d4"><span>02</span>Меняетесь сами</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st r d5"><span>03</span>Окружение замечает и&nbsp;само просит у&nbsp;вас&nbsp;помощи</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st last r d6"><span>04</span>Вы&nbsp;можете сразу брать за&nbsp;это&nbsp;деньги</p></div><div class="e3-note soft r d8">Мы&nbsp;будем с&nbsp;вами над&nbsp;этим работать, чтобы вы&nbsp;не&nbsp;работали&nbsp;бесплатно</div>
+<div class="kicker r d1">Почему</div><h2 class="e3-h r d2">Вы&nbsp;меняетесь&nbsp;– и&nbsp;окружение само приходит за&nbsp;помощью</h2><div class="e3-chain"><p class="st r d3"><span>01</span>Вы&nbsp;перерабатываете&nbsp;ТДО</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st r d4"><span>02</span>Меняетесь сами</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st r d5"><span>03</span>Окружение замечает и&nbsp;само просит у&nbsp;вас&nbsp;помощи</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st last r d6"><span>04</span>Вы&nbsp;можете сразу брать за&nbsp;это&nbsp;деньги</p></div><div class="e3-note soft r d8">Мы&nbsp;будем с&nbsp;вами над&nbsp;этим работать, чтобы вы&nbsp;не&nbsp;работали&nbsp;бесплатно</div>
 </section>
-<!-- 32 -->
+<!-- 39 -->
 <section class="slide e3 e3-sp">
 <div class="e3-img"><img src="assets/e3/e3-session.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Вчера вы&nbsp;видели людей, которые сразу&nbsp;берут</div><h2 class="e3-h r d2"><span class="e3-big">от&nbsp;10&nbsp;000&nbsp;₽</span><span style="display:block">за&nbsp;сеанс</span></h2><ul class="e3-list"><li class="r d3">Окружение видит, как вы&nbsp;меняетесь, и&nbsp;вами&nbsp;восхищается</li><li class="r d4">Вы&nbsp;огонь для&nbsp;других&nbsp;– и&nbsp;это наполняет вас: хочется развиваться ещё&nbsp;больше</li></ul></div>
 </section>
-<!-- 33 -->
+<!-- 40 -->
 <section class="slide e3 bg-mist">
 <div class="kicker r d1">Дальше вы&nbsp;можете помогать своей семье, близким,&nbsp;родным</div><h2 class="e3-h r d2">Делать их&nbsp;жизнь легче и&nbsp;лучше</h2><p class="e3-sub r d3">Представьте, сколько денег ваши близкие сэкономят на&nbsp;психологах и&nbsp;помогающих практиках: у&nbsp;них будете вы, к&nbsp;кому они всегда смогут&nbsp;прийти</p><div class="e3-chips  r d5"><span>Протоколы работы с&nbsp;детьми</span><span>Протоколы работы с&nbsp;мужем</span></div><div class="e3-note coral r d8">Только нельзя работать со&nbsp;своими&nbsp;родителями</div>
 </section>
-<!-- 34 -->
+<!-- 41 -->
 <section class="slide e3 e3-sp">
 <div class="e3-img"><img src="assets/e3/e3-service.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">С&nbsp;4-го месяца&nbsp;обучения</div><h2 class="e3-h r d2">Сервис, который сам будет приводить вам&nbsp;клиентов</h2><p class="e3-sub r d3">Все маркетинговые инструменты, которые приводят к&nbsp;нам огромное количество клиентов, мы&nbsp;вам дадим. И&nbsp;не&nbsp;просто&nbsp;дадим:</p><ul class="e3-list"><li class="r d4">Сервис сам пишет за&nbsp;вас посты в&nbsp;соцсети</li><li class="r d5">Монтирует видео</li><li class="r d6">Помогает снимать&nbsp;рилсы</li></ul><div class="e3-note sun r d8">Своего времени вы&nbsp;на&nbsp;это почти не&nbsp;тратите&nbsp;– и&nbsp;снимается головная боль, где брать&nbsp;клиентов</div></div>
 </section>
-<!-- 35 -->
+<!-- 42 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Мы&nbsp;единственные в&nbsp;стране</div><h2 class="e3-h r d2">Кто создаёт такой сервис для&nbsp;своих студентов. <em>Больше такого нигде&nbsp;нет</em></h2><p class="e3-sub r d3">Всё, что мы&nbsp;применили за&nbsp;последние полгода и&nbsp;что масштабировало мою школу, мы&nbsp;отдадим вам. И&nbsp;не&nbsp;просто отдадим, чтобы вы&nbsp;сами с&nbsp;этим справлялись, а&nbsp;по&nbsp;сути сделаем это за&nbsp;вас</p>
 </section>
-<!-- 36 -->
+<!-- 43 -->
 <section class="slide e3">
 <div class="kicker r d1">Клиенты будут и&nbsp;от&nbsp;нас</div><h2 class="e3-h r d2">Два источника&nbsp;клиентов</h2><div class="e3-cards" style="--c:2"><div class="e3-card r d4"><span class="n">1</span><b>Сервис привлечения&nbsp;клиентов</b><p>Посты, видео, рилсы&nbsp;– по&nbsp;сути, всё делаем за&nbsp;вас</p></div><div class="e3-card hot r d5"><span class="n">2</span><b>Платформа записи на&nbsp;консультации</b><p>Мы&nbsp;готовим платформу, где люди записываются на&nbsp;консультации. Лучших студентов курса мы&nbsp;будем&nbsp;рекомендовать</p></div></div>
 </section>
-<!-- 37 -->
+<!-- 44 -->
 <section class="slide e3">
 <div class="kicker r d1">Курс длится 6&nbsp;месяцев</div><h2 class="e3-h r d2">Зарабатывать вы&nbsp;можете уже <em>с&nbsp;4-го&nbsp;месяца</em></h2><div class="e3-tl">
 <div class="m r d3"><i>месяц</i><b>1</b><p>Прорабатываете свой&nbsp;ТДО</p></div>
@@ -3201,292 +3629,300 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 <div class="m on r d6"><i>месяц</i><b>5</b><p>Соцсети раскачиваются</p></div>
 <div class="m end r d7"><i>месяц</i><b>6</b><p>К&nbsp;концу обучения соцсети&nbsp;раскачаны</p></div></div><div class="e3-note soft r d8">Мы&nbsp;нашли алгоритмы, при&nbsp;которых соцсети очень быстро раскачиваются за&nbsp;1&nbsp;месяц. У&nbsp;вас будет вся пошаговая&nbsp;методология</div>
 </section>
-<!-- 38 -->
+<!-- 45 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Поэтому страх</div><h2 class="e3-h r d2">«Кто-то уже работает с&nbsp;людьми, у&nbsp;кого-то уже есть клиенты»&nbsp;– <em>больше не&nbsp;актуален</em></h2>
 </section>
-<!-- 39 -->
+<!-- 46 -->
 <section class="slide e3 e3-sp">
 <div class="e3-img"><img src="assets/e3/e3-load.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Если вы&nbsp;всё равно не&nbsp;верите&nbsp;– мне действительно вас&nbsp;жаль</div><h2 class="e3-h r d2">А&nbsp;если под&nbsp;ложечкой сосёт&nbsp;– вдумайтесь, насколько вы&nbsp;в&nbsp;травме</h2><p class="e3-sub r d3">И&nbsp;сколько ещё вы&nbsp;хотите в&nbsp;этой заднице находиться. Как тяжело вашему телу носить 50-килограммовый&nbsp;груз</p></div>
 </section>
-<!-- 40 -->
+<!-- 47 -->
 <section class="slide e3 bg-mist">
 <div class="kicker r d1">Вы&nbsp;сами на&nbsp;себя это навесили и&nbsp;живёте эту&nbsp;жизнь</div><h2 class="e3-h r d2">Груз в&nbsp;50&nbsp;килограммов</h2><div class="e3-chips coral r d5"><span>травмы</span><span>лишний вес</span><span>убеждения</span><span>сомнения</span><span>страхи</span><span>обиды</span><span>тревоги</span></div><div class="e3-note coral r d8">Кому-то уже 40, кому-то 45, 50&nbsp;– и&nbsp;вы&nbsp;до&nbsp;сих пор носите это и&nbsp;всё ноете, ноете,&nbsp;ноете</div>
 </section>
-<!-- 41 -->
+<!-- 48 -->
 <section class="slide e3">
 <div class="kicker r d1">Чем больше вы&nbsp;ноете, тем хуже становится&nbsp;жизнь</div><h2 class="e3-h r d2">Она либо замирает, либо становится&nbsp;хуже</h2><div class="e3-vs"><div class="col r d3"><div class="t">Замирание</div><p>Это тоже&nbsp;регресс</p></div><div class="mid r d4">→</div><div class="col b r d5"><div class="t">Почему</div><p>Время идёт, и&nbsp;вы&nbsp;всё больше выходите на&nbsp;обочину жизни, доживая&nbsp;её</p></div></div>
 </section>
-<!-- 42 -->
+<!-- 49 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Когда у&nbsp;вас нет никаких ориентиров и&nbsp;целей</div><h2 class="e3-h r d2">Это прямой путь к&nbsp;онкологии, прямой путь к&nbsp;смерти</h2><p class="e3-sub r d3"><b>Всё, что не&nbsp;развивается,&nbsp;– умирает. Это закон&nbsp;природы</b></p>
 </section>
-<!-- 43 -->
+<!-- 50 -->
 <section class="slide e3 e3-sp">
 <div class="e3-img"><img src="assets/e3/e3-tree.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Не&nbsp;бывает чего-то&nbsp;среднего</div><h2 class="e3-h r d2">Вы&nbsp;либо развиваетесь, либо&nbsp;увядаете</h2><ul class="e3-list"><li class="r d3">Так растут&nbsp;деревья</li><li class="r d4">Новую машину купили&nbsp;– и&nbsp;она сразу начинает&nbsp;изнашиваться</li><li class="r d5">Наш организм растёт, а&nbsp;потом начинает обратный путь&nbsp;–&nbsp;разрушение</li></ul><div class="e3-note soft r d8">Только от&nbsp;человека зависит, как долго организм будет разрушаться: у&nbsp;кого-то 70&nbsp;лет&nbsp;– и&nbsp;он&nbsp;доживёт до&nbsp;90, у&nbsp;кого-то&nbsp;30</div></div>
 </section>
-<!-- 44 -->
+<!-- 51 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Закон</div><h2 class="e3-h r d2">Чем больше негативных эмоций и&nbsp;угнетающих чувств, тем быстрее разрушается&nbsp;организм</h2><p class="e3-sub r d3">И&nbsp;тем быстрее вы&nbsp;ловите&nbsp;болезни</p>
 </section>
-<!-- 45 -->
+<!-- 52 -->
 <section class="slide e3 bg-mist">
 <div class="kicker r d1">Кто до&nbsp;сих пор&nbsp;боится</div><h2 class="e3-h r d2">Не&nbsp;страшно всю жизнь прожить так, а&nbsp;потом <em>кусать локти?</em></h2><p class="e3-sub r d3">«Надо было попробовать». Что вы&nbsp;вообще не&nbsp;начали. Думаю, у&nbsp;многих такое&nbsp;было</p><div class="e3-note soft r d8">Вернувшись назад, вы&nbsp;бы&nbsp;точно приняли решение начать. И&nbsp;ваша жизнь, как вам кажется, была бы&nbsp;сейчас&nbsp;другой</div>
 </section>
-<!-- 46 -->
+<!-- 53 -->
 <section class="slide e3 e3-sp flip">
 <div class="e3-img"><img src="assets/e3/e3-road.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">А&nbsp;теперь быстро перенеситесь в&nbsp;точку А&nbsp;– в&nbsp;этот&nbsp;момент</div><h2 class="e3-h r d2">Кому страшно?</h2><ul class="e3-list"><li class="r d3">Вы&nbsp;понимаете, что история&nbsp;повторяется?</li><li class="r d4">Жизнь даёт вам ещё один&nbsp;шанс</li><li class="r d5">Вроде хочется, но&nbsp;страшно</li></ul><div class="e3-note sun r d8">И&nbsp;это ваш выбор: какую жизнь жить. Никто вас не&nbsp;заставляет</div></div>
 </section>
-<!-- 47 -->
+<!-- 54 -->
 <section class="slide e3">
 <div class="kicker r d1">Вы&nbsp;выбираете, что вам проецировать в&nbsp;жизни</div><h2 class="e3-h r d2">Страдание или другой&nbsp;путь</h2><div class="e3-vs"><div class="col r d3"><div class="t">Путь страдания</div><p>Нравится страдать, потому что жалеет подруга или мама? Это&nbsp;ущербность</p><p>Этот путь лёгкий&nbsp;– и&nbsp;точно приведёт к&nbsp;серьёзным последствиям: будет больно уже не&nbsp;только в&nbsp;мозгах, но&nbsp;и&nbsp;физически</p></div><div class="mid r d4">или</div><div class="col b r d5"><div class="t">Другой путь</div><p>Если вам это не&nbsp;нравится, наверное, стоит выбрать другой&nbsp;путь</p></div></div><div class="e3-note coral r d8">Тело никогда не&nbsp;врёт: потом всё отразится на&nbsp;теле. У&nbsp;кого-то уже&nbsp;отразилось</div>
 </section>
-<!-- 48 -->
+<!-- 55 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Когда вы&nbsp;задумываетесь об&nbsp;этом, становится страшно&nbsp;бездействовать</div><h2 class="e3-h r d2">И&nbsp;это <em>хорошо</em></h2><div class="e3-nums"><div class="e3-num hot r d3"><b>Новое</b><span>действие приводит к&nbsp;новым&nbsp;результатам</span></div><div class="e3-num r d4"><b>Старое</b><span>действие приводит к&nbsp;старым&nbsp;результатам</span></div></div>
 </section>
-<!-- 49 -->
-<section class="slide e3">
-<div class="kicker r d1">Если сейчас у&nbsp;вас нет денег и&nbsp;вы&nbsp;хотите нового&nbsp;– с&nbsp;этим нужно что-то&nbsp;делать</div><h2 class="e3-h r d2">За&nbsp;новое нужно заплатить&nbsp;цену</h2><div class="e3-chain"><p class="st r d3"><span>01</span>Раньше: бартер&nbsp;– продукт на&nbsp;продукт, продукты на&nbsp;вещи</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st r d4"><span>02</span>До&nbsp;этого: трудом&nbsp;– постараться,&nbsp;потрудиться</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st last r d5"><span>03</span>Сейчас, в&nbsp;капиталистическом мире, цена&nbsp;– это&nbsp;деньги</p></div><div class="e3-note soft r d8">Круг замыкается: вы&nbsp;хотите нового, но&nbsp;вам жалко&nbsp;денег</div>
-</section>
-<!-- 50 -->
-<section class="slide e3">
-<div class="kicker r d1">Но&nbsp;в&nbsp;чём&nbsp;проблема?</div><h2 class="e3-h r d2">Есть рассрочки</h2><div class="e3-nums"><div class="e3-num hot r d3"><b>12&nbsp;мес.</b><span>рассрочка</span></div><div class="e3-num r d4"><b>24&nbsp;мес.</b><span>если банк&nbsp;одобрит</span></div><div class="e3-num r d5"><b>6&nbsp;мес.</b><span>рассрочка от&nbsp;школы и&nbsp;от&nbsp;института</span></div></div>
-</section>
-<!-- 51 -->
-<section class="slide e3 e3-sp">
-<div class="e3-img"><img src="assets/e3/e3-study.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">За&nbsp;страхом денег стоит страх «у&nbsp;меня не&nbsp;получится»</div><h2 class="e3-h r d2">И&nbsp;это привычка. Смотрите: всего 2 лекции в&nbsp;неделю</h2><ul class="e3-list"><li class="r d3">Одну можно смотреть в&nbsp;записи</li><li class="r d4">На&nbsp;второй, по&nbsp;выходным, нужно быть в&nbsp;прямом эфире: там&nbsp;практика</li></ul></div>
-</section>
-<!-- 52 -->
-<section class="slide e3">
-<div class="kicker r d1">Как устроено&nbsp;обучение</div><h2 class="e3-h r d2">Чтобы к&nbsp;концу обучения у&nbsp;вас уже была клиентская&nbsp;база</h2><div class="e3-cards" style="--c:3"><div class="e3-card r d4"><span class="n">1</span><b>Первая половина&nbsp;обучения</b><p>Прорабатываете свой ТДО и&nbsp;осваиваете&nbsp;протоколы</p></div><div class="e3-card r d5"><span class="n">2</span><b>С&nbsp;4-го&nbsp;месяца</b><p>Сервис, который по&nbsp;сути сам привлекает вам&nbsp;клиентов</p></div><div class="e3-card hot r d6"><span class="n">3</span><b>Наш маркетолог</b><p>Консультирует, помогает и&nbsp;многие вещи делает за&nbsp;вас</p></div></div>
-</section>
-<!-- 53 -->
-<section class="slide e3 e3-dk">
-<div class="kicker r d1">А&nbsp;вам всё равно&nbsp;страшно</div><h2 class="e3-h r d2">Потому что вы&nbsp;не&nbsp;верите. Не&nbsp;в&nbsp;нас&nbsp;– <em>в&nbsp;себя</em></h2><p class="e3-sub r d3">Из&nbsp;этого замкнутого цикла вы&nbsp;никогда не&nbsp;выйдете, пока не&nbsp;сделаете встречный шаг своему&nbsp;желанию</p>
-</section>
-<!-- 54 -->
-<section class="slide e3">
-<div class="kicker r d1">Под ложечкой сосало, когда вы&nbsp;смотрели на&nbsp;выпускниц?</div><h2 class="e3-h r d2">Понимаете?</h2><div class="e3-cards" style="--c:3">
-<div class="e3-card img r d3"><img src="assets/gen/n-regina-in.jpg" alt=""><div class="tx"><b>Регина</b><p>похудела</p></div></div>
-<div class="e3-card img r d4"><img src="assets/cases/c-ekaterina.webp" alt=""><div class="tx"><b>Екатерина</b><p>доход в&nbsp;2 раза&nbsp;больше</p></div></div>
-<div class="e3-card img r d5"><img src="assets/e3/e3-dubai.jpg" alt=""><div class="tx"><b>Вторая Екатерина</b><p>живёт в&nbsp;Дубае</p></div></div></div><div class="e3-note coral r d8">Если вы&nbsp;не&nbsp;сделаете шаг в&nbsp;эту сторону, вы&nbsp;так и&nbsp;будете сидеть в&nbsp;своей заднице. Вот&nbsp;и&nbsp;всё</div>
-</section>
-<!-- 55 -->
-<section class="slide e3 e3-sp">
-<div class="e3-img"><img src="assets/e3/e3-desire.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Сегодня на&nbsp;эфире</div><h2 class="e3-h r d2">Мы&nbsp;соединимся с&nbsp;вашими истинными желаниями и&nbsp;с&nbsp;вашей новой&nbsp;реальностью</h2></div>
-</section>
 <!-- 56 -->
-<section class="slide e3 e3-sp flip">
-<div class="e3-img"><img src="assets/gen/b3-saba-c.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Главный бонус практикума для&nbsp;тех, кто не&nbsp;на&nbsp;VIP-тарифе</div><h2 class="e3-h r d2">В&nbsp;конце эфира выступит Михаил&nbsp;Саба, мой&nbsp;муж</h2><ul class="e3-list"><li class="r d3">Проведёт волшебную практику на&nbsp;соединение с&nbsp;собой&nbsp;настоящим</li><li class="r d4">Вы&nbsp;прочувствуете на&nbsp;уровне тела и&nbsp;ощущений, что будет с&nbsp;вами происходить, когда вы&nbsp;придёте к&nbsp;своему истинному&nbsp;желанию</li></ul></div>
+<section class="slide e3">
+<div class="kicker r d1">Если сейчас у&nbsp;вас нет денег и&nbsp;вы&nbsp;хотите нового&nbsp;– с&nbsp;этим нужно что-то&nbsp;делать</div><h2 class="e3-h r d2">За&nbsp;новое нужно заплатить&nbsp;цену</h2><div class="e3-chain"><p class="st r d3"><span>01</span>Раньше: бартер&nbsp;– продукт на&nbsp;продукт, продукты на&nbsp;вещи</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st r d4"><span>02</span>До&nbsp;этого: трудом&nbsp;– постараться,&nbsp;потрудиться</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st last r d5"><span>03</span>Сейчас, в&nbsp;капиталистическом мире, цена&nbsp;– это&nbsp;деньги</p></div><div class="e3-note soft r d8">Круг замыкается: вы&nbsp;хотите нового, но&nbsp;вам жалко&nbsp;денег</div>
 </section>
 <!-- 57 -->
 <section class="slide e3">
-<div class="kicker r d1">Также сегодня</div><h2 class="e3-h r d2">Мы&nbsp;объявим победителей <em>грантов</em></h2><div class="e3-nums"><div class="e3-num hot r d3"><b>200&nbsp;000&nbsp;₽</b><span>грант</span></div><div class="e3-num r d4"><b>100&nbsp;000&nbsp;₽</b><span>грант</span></div><div class="e3-num r d5"><b>50&nbsp;000&nbsp;₽</b><span>грант</span></div></div>
+<div class="kicker r d1">Но&nbsp;в&nbsp;чём&nbsp;проблема?</div><h2 class="e3-h r d2">Есть рассрочки</h2><div class="e3-nums"><div class="e3-num hot r d3"><b>12&nbsp;мес.</b><span>рассрочка</span></div><div class="e3-num r d4"><b>24&nbsp;мес.</b><span>если банк&nbsp;одобрит</span></div><div class="e3-num r d5"><b>6&nbsp;мес.</b><span>рассрочка от&nbsp;школы и&nbsp;от&nbsp;института</span></div></div>
 </section>
 <!-- 58 -->
 <section class="slide e3 e3-sp">
-<div class="e3-img"><img src="assets/e3/e3-diploma.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">И&nbsp;ещё&nbsp;сегодня</div><h2 class="e3-h r d2">Вы&nbsp;сможете записаться на&nbsp;курс «Психолог краткосрочной&nbsp;терапии»</h2><ul class="e3-list"><li class="r d3">Переработать свой&nbsp;ТДО</li><li class="r d4">Освоить новую профессию и&nbsp;получить диплом гособразца&nbsp;– работать&nbsp;официально</li><li class="r d5">Для кого-то это доп.&nbsp;доход</li><li class="r d6">Кто-то освоит для&nbsp;себя&nbsp;– а&nbsp;потом, если захочет, у&nbsp;вас будет корочка для&nbsp;работы с&nbsp;людьми</li><li class="r d7"><b>Как минимум&nbsp;– помогать своей&nbsp;семье</b></li></ul></div>
+<div class="e3-img"><img src="assets/e3/e3-study.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">За&nbsp;страхом денег стоит страх «у&nbsp;меня не&nbsp;получится»</div><h2 class="e3-h r d2">И&nbsp;это привычка. Смотрите: всего 2 лекции в&nbsp;неделю</h2><ul class="e3-list"><li class="r d3">Одну можно смотреть в&nbsp;записи</li><li class="r d4">На&nbsp;второй, по&nbsp;выходным, нужно быть в&nbsp;прямом эфире: там&nbsp;практика</li></ul></div>
 </section>
 <!-- 59 -->
+<section class="slide e3">
+<div class="kicker r d1">Как устроено&nbsp;обучение</div><h2 class="e3-h r d2">Чтобы к&nbsp;концу обучения у&nbsp;вас уже была клиентская&nbsp;база</h2><div class="e3-cards" style="--c:3"><div class="e3-card r d4"><span class="n">1</span><b>Первая половина&nbsp;обучения</b><p>Прорабатываете свой ТДО и&nbsp;осваиваете&nbsp;протоколы</p></div><div class="e3-card r d5"><span class="n">2</span><b>С&nbsp;4-го&nbsp;месяца</b><p>Сервис, который по&nbsp;сути сам привлекает вам&nbsp;клиентов</p></div><div class="e3-card hot r d6"><span class="n">3</span><b>Наш маркетолог</b><p>Консультирует, помогает и&nbsp;многие вещи делает за&nbsp;вас</p></div></div>
+</section>
+<!-- 60 -->
+<section class="slide e3 e3-dk">
+<div class="kicker r d1">А&nbsp;вам всё равно&nbsp;страшно</div><h2 class="e3-h r d2">Потому что вы&nbsp;не&nbsp;верите. Не&nbsp;в&nbsp;нас&nbsp;– <em>в&nbsp;себя</em></h2><p class="e3-sub r d3">Из&nbsp;этого замкнутого цикла вы&nbsp;никогда не&nbsp;выйдете, пока не&nbsp;сделаете встречный шаг своему&nbsp;желанию</p>
+</section>
+<!-- 61 -->
+<section class="slide e3">
+<div class="kicker r d1">Под ложечкой сосало, когда вы&nbsp;смотрели на&nbsp;выпускниц?</div><h2 class="e3-h r d2">Понимаете?</h2><div class="e3-cards" style="--c:3">
+<div class="e3-card img r d3"><img src="assets/gen/n-regina-in.jpg" alt=""><div class="tx"><b>Регина</b><p>похудела</p></div></div>
+<div class="e3-card img r d4"><img src="assets/e3/e3-pay.jpg" alt=""><div class="tx"><b>Екатерина</b><p>доход в&nbsp;2 раза&nbsp;больше</p></div></div>
+<div class="e3-card img r d5"><img src="assets/e3/e3-dubai.jpg" alt=""><div class="tx"><b>Вторая Екатерина</b><p>живёт в&nbsp;Дубае</p></div></div></div><div class="e3-note coral r d8">Если вы&nbsp;не&nbsp;сделаете шаг в&nbsp;эту сторону, вы&nbsp;так и&nbsp;будете сидеть в&nbsp;своей заднице. Вот&nbsp;и&nbsp;всё</div>
+</section>
+<!-- 62 -->
+<section class="slide e3 e3-sp">
+<div class="e3-img"><img src="assets/e3/e3-desire.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Сегодня на&nbsp;эфире</div><h2 class="e3-h r d2">Мы&nbsp;соединимся с&nbsp;вашими истинными желаниями и&nbsp;с&nbsp;вашей новой&nbsp;реальностью</h2></div>
+</section>
+<!-- 63 -->
+<section class="slide e3 e3-sp flip">
+<div class="e3-img"><img src="assets/gen/b3-saba-c.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Главный бонус практикума для&nbsp;тех, кто не&nbsp;на&nbsp;VIP-тарифе</div><h2 class="e3-h r d2">В&nbsp;конце эфира выступит Михаил&nbsp;Саба, мой&nbsp;муж</h2><ul class="e3-list"><li class="r d3">Проведёт волшебную практику на&nbsp;соединение с&nbsp;собой&nbsp;настоящим</li><li class="r d4">Вы&nbsp;прочувствуете на&nbsp;уровне тела и&nbsp;ощущений, что будет с&nbsp;вами происходить, когда вы&nbsp;придёте к&nbsp;своему истинному&nbsp;желанию</li></ul></div>
+</section>
+<!-- 64 -->
+<section class="slide e3">
+<div class="kicker r d1">Также сегодня</div><h2 class="e3-h r d2">Мы&nbsp;объявим победителей <em>грантов</em></h2><div class="e3-nums"><div class="e3-num hot r d3"><b>200&nbsp;000&nbsp;₽</b><span>грант</span></div><div class="e3-num r d4"><b>100&nbsp;000&nbsp;₽</b><span>грант</span></div><div class="e3-num r d5"><b>50&nbsp;000&nbsp;₽</b><span>грант</span></div></div>
+</section>
+<!-- 65 -->
+<section class="slide e3 e3-sp">
+<div class="e3-img"><img src="assets/e3/e3-diploma.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">И&nbsp;ещё&nbsp;сегодня</div><h2 class="e3-h r d2">Вы&nbsp;сможете записаться на&nbsp;курс «Психолог краткосрочной&nbsp;терапии»</h2><ul class="e3-list"><li class="r d3">Переработать свой&nbsp;ТДО</li><li class="r d4">Освоить новую профессию и&nbsp;получить диплом гособразца&nbsp;– работать&nbsp;официально</li><li class="r d5">Для кого-то это доп.&nbsp;доход</li><li class="r d6">Кто-то освоит для&nbsp;себя&nbsp;– а&nbsp;потом, если захочет, у&nbsp;вас будет корочка для&nbsp;работы с&nbsp;людьми</li><li class="r d7"><b>Как минимум&nbsp;– помогать своей&nbsp;семье</b></li></ul></div>
+</section>
+<!-- 66 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Поверьте</div><h2 class="e3-h r d2">Это гораздо выгоднее, чем ходить по&nbsp;психологам и&nbsp;прорабатывать всё&nbsp;отдельно</h2><p class="e3-sub r d3">Время идёт, и&nbsp;появляются новые проблемы, новые, новые. Поэтому лучше решить все проблемы <b>одним махом</b></p>
 </section>
-<!-- 60 -->
+<!-- 67 -->
 <section class="slide e3 e3-sp">
-<div class="e3-img"><img src="assets/cases/c-ekaterina.webp" alt="" style="object-position:center 20%"></div><div class="e3-w"><div class="kicker r d1">Так же, как многие&nbsp;ученики</div><h2 class="e3-h r d2">Екатерина вчера рассказывала: пришла переработать себя, а&nbsp;потом начала брать&nbsp;клиентов</h2><ul class="e3-list"><li class="r d3">Люди начали спрашивать: «А&nbsp;как? А&nbsp;что?»</li><li class="r d4">Она рассказывала&nbsp;– и&nbsp;к&nbsp;ней начали приходить&nbsp;клиенты</li></ul><div class="e3-note sun r d8">Многих из&nbsp;вас ждёт этот волшебный&nbsp;путь</div></div>
+<div class="e3-img"><img src="assets/e3/e3-call.jpg" alt="" style="object-position:center 20%"></div><div class="e3-w"><div class="kicker r d1">Так же, как многие&nbsp;ученики</div><h2 class="e3-h r d2">Екатерина вчера рассказывала: пришла переработать себя, а&nbsp;потом начала брать&nbsp;клиентов</h2><ul class="e3-list"><li class="r d3">Люди начали спрашивать: «А&nbsp;как? А&nbsp;что?»</li><li class="r d4">Она рассказывала&nbsp;– и&nbsp;к&nbsp;ней начали приходить&nbsp;клиенты</li></ul><div class="e3-note sun r d8">Многих из&nbsp;вас ждёт этот волшебный&nbsp;путь</div></div>
 </section>
-<!-- 61 -->
+<!-- 68 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Прямо сейчас</div><h2 class="e3-h r d2">Под видео появляется&nbsp;кнопка</h2>
 <p class="e3-sub r d3">Запишитесь на&nbsp;VIP-тариф на&nbsp;завтра</p>
 <div class="e3-btn r d4"><span>Кнопка под&nbsp;видео</span><i>↓</i></div>
 </section>
-<!-- 62 -->
+<!-- 69 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">А&nbsp;теперь</div><h2 class="e3-h r d2">Приступаем к&nbsp;контенту <em>сегодняшнего дня</em></h2>
 </section>
-<!-- 63 -->
+<!-- 70 -->
 <section class="slide e3 e3-sp">
 <div class="e3-img"><img src="assets/e3/e3-two.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Рассмотрим две категории&nbsp;людей</div><h2 class="e3-h r d2">С&nbsp;травматическим детским опытом и&nbsp;без&nbsp;него</h2><ul class="e3-list"><li class="r d3"><b>Первая</b>&nbsp;– люди с&nbsp;травматическим детским&nbsp;опытом</li><li class="r d4"><b>Вторая</b>&nbsp;– люди без&nbsp;травматического детского&nbsp;опыта</li></ul></div>
 </section>
-<!-- 64 -->
+<!-- 71 -->
 <section class="slide e3 bg-mist">
 <div class="kicker r d1">Первая категория: с&nbsp;ТДО</div><h2 class="e3-h r d2">Смотрит на&nbsp;мир через призму своей иллюзии об&nbsp;этом&nbsp;мире</h2><p class="e3-sub r d3">Какие там&nbsp;иллюзии?</p><div class="e3-chips coral r d5"><span>негативные установки</span><span>негативные убеждения</span><span>убеждения, навязанные&nbsp;обществом</span><span>родителями</span><span>знакомыми</span><span>мамами</span></div><div class="e3-note soft r d8">Если человек в&nbsp;целом не&nbsp;знает, что ему нужно, он&nbsp;просто живёт чужую жизнь. Мы&nbsp;с&nbsp;вами это уже&nbsp;выяснили</div>
 </section>
-<!-- 65 -->
+<!-- 72 -->
 <section class="slide e3 e3-sp flip">
 <div class="e3-img"><img src="assets/e3/e3-envy.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">И&nbsp;дальше что&nbsp;происходит?</div><h2 class="e3-h r d2">Цели у&nbsp;него чужие: начиная от&nbsp;одежды и&nbsp;заканчивая недвижимостью и&nbsp;машинами</h2><ul class="e3-list"><li class="r d3">Он&nbsp;хочет не&nbsp;потому, что ему правда хочется, а&nbsp;потому что увидел у&nbsp;другого и&nbsp;захотел так&nbsp;же</li><li class="r d4">Где-то позавидовал</li><li class="r d5">Или кто-то сказал, что надо вот так, а&nbsp;не&nbsp;иначе</li></ul><div class="e3-note coral r d8">И&nbsp;всё: ориентиры&nbsp;сбиваются</div></div>
 </section>
-<!-- 66 -->
+<!-- 73 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Он&nbsp;думает, что правда этого хочет. Но&nbsp;почему тогда этого&nbsp;нет?</div><h2 class="e3-h r d2">Потому что на&nbsp;это <em>не&nbsp;выделяется&nbsp;энергия</em></h2><p class="e3-sub r d3">А&nbsp;если энергия не&nbsp;выделяется и&nbsp;это его не&nbsp;вдохновляет, значит, на&nbsp;самом деле ему это и&nbsp;не&nbsp;надо. Вот и&nbsp;всё</p>
 </section>
-<!-- 67 -->
+<!-- 74 -->
 <section class="slide e3 e3-sp">
 <div class="e3-img"><img src="assets/e3/e3-kid.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Откуда берётся отсутствие своего мнения и&nbsp;ведомость?</div><h2 class="e3-h r d2">Одна из&nbsp;самых частых причин закладывается в&nbsp;детстве</h2><p class="e3-sub r d3">У&nbsp;кого такое&nbsp;было?</p><ul class="e3-list"><li class="r d4">Хочется сладенького или яблочко&nbsp;– а&nbsp;родители: «Нет, ты&nbsp;хочешь котлетку. Сначала&nbsp;котлетку»</li><li class="r d5">Говорите: «Я&nbsp;хочу погулять»&nbsp;– «Нет, ты&nbsp;хочешь спать. Сейчас надо&nbsp;спать»</li></ul></div>
 </section>
-<!-- 68 -->
+<!-- 75 -->
 <section class="slide e3">
 <div class="kicker r d1">Чем больше родители управляют жизнью ребёнка, тем больше он&nbsp;перестаёт чувствовать&nbsp;себя</div><h2 class="e3-h r d2">Особенно это касается современных детей&nbsp;– ваших детей, если вы&nbsp;так себя&nbsp;ведёте</h2><div class="e3-note soft r d8">Но&nbsp;нельзя впадать и&nbsp;в&nbsp;противоположность&nbsp;– разрешать ребёнку всё. Это отдельная тема. Сейчас я&nbsp;рассказываю суть: как зарождается&nbsp;ведомость</div>
 </section>
-<!-- 69 -->
+<!-- 76 -->
 <section class="slide e3">
-<div class="kicker r d1">Как растёт&nbsp;ведомость</div><h2 class="e3-h r d2">Ребёнок просто ждёт, пока за&nbsp;него всё&nbsp;решат</h2><div class="e3-chain"><p class="st r d3"><span>01</span>Растёт несамостоятельным: базовые вещи сделает, но&nbsp;самостоятельности&nbsp;нет</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st r d4"><span>02</span>Ждёт, что кто-то придёт и&nbsp;спасёт</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st r d5"><span>03</span>Нет своих желаний и&nbsp;своих&nbsp;целей</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st last r d6"><span>04</span>Живёт чужими&nbsp;жизнями</p></div>
+<div class="kicker r d1">Как растёт&nbsp;ведомость</div><h2 class="e3-h r d2">Ребёнок просто ждёт, пока за&nbsp;него всё&nbsp;решат</h2><div class="e3-chain"><p class="st r d3"><span>01</span>Растёт несамостоятельным: базовые вещи сделает, но&nbsp;самостоятельности&nbsp;нет</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st r d4"><span>02</span>Ждёт, что кто-то придёт и&nbsp;спасёт</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st r d5"><span>03</span>Нет своих желаний и&nbsp;своих&nbsp;целей</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st last r d6"><span>04</span>Живёт чужими&nbsp;жизнями</p></div>
 </section>
-<!-- 70 -->
+<!-- 77 -->
 <section class="slide e3 e3-sp">
 <div class="e3-img"><img src="assets/e3/e3-menu.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Ещё один очень интересный&nbsp;пример</div><h2 class="e3-h r d2">Люди без&nbsp;своего мнения очень долго&nbsp;выбирают</h2><ul class="e3-list"><li class="r d3">Не&nbsp;могут определиться даже с&nbsp;заказом в&nbsp;ресторане</li><li class="r d4">Замечали таких? Ждут, пока закажете вы, и&nbsp;заказывают то&nbsp;же&nbsp;самое</li><li class="r d5">Такого очень&nbsp;много</li></ul><div class="e3-note soft r d8">Эти люди разучились чувствовать себя. Они хотят то, что хотите&nbsp;вы</div></div>
 </section>
-<!-- 71 -->
+<!-- 78 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Почему не&nbsp;получается достичь результата там, где&nbsp;хочется?</div><h2 class="e3-h r d2">Энергия не&nbsp;выделяется <em>на&nbsp;неистинное&nbsp;желание</em></h2>
 </section>
-<!-- 72 -->
+<!-- 79 -->
 <section class="slide e3 e3-sp flip">
 <div class="e3-img"><img src="assets/e3/e3-goose.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Вторая категория: без&nbsp;ТДО</div><h2 class="e3-h r d2">Те, кто отработал и&nbsp;переработал свой травматический детский&nbsp;опыт</h2><ul class="e3-list"><li class="r d3">Смотрят на&nbsp;жизнь без&nbsp;иллюзий, как на&nbsp;данность, и&nbsp;чувствуют&nbsp;её</li><li class="r d4">Понимают свои неадекватности и&nbsp;умеют ими&nbsp;управлять</li><li class="r d5">Направляют энергию, во-первых, туда, куда надо, а&nbsp;во-вторых, туда, куда действительно хочется,&nbsp;– где путь&nbsp;души</li></ul></div>
 </section>
-<!-- 73 -->
+<!-- 80 -->
 <section class="slide e3 bg-mist">
-<div class="kicker r d1">Только туда, где путь души, выделяется много&nbsp;энергии</div><h2 class="e3-h r d2">Там мурашки. А&nbsp;где мурашки, то&nbsp;и&nbsp;хочется&nbsp;делать</h2><div class="e3-chain"><p class="st r d3"><span>01</span>Большие запасы&nbsp;энергии</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st r d4"><span>02</span>Мурашки</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st r d5"><span>03</span>Хочется делать</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st last r d6"><span>04</span>Работаете без&nbsp;усталости и&nbsp;не&nbsp;чувствуете&nbsp;её</p></div>
+<div class="kicker r d1">Только туда, где путь души, выделяется много&nbsp;энергии</div><h2 class="e3-h r d2">Там мурашки. А&nbsp;где мурашки, то&nbsp;и&nbsp;хочется&nbsp;делать</h2><div class="e3-chain"><p class="st r d3"><span>01</span>Большие запасы&nbsp;энергии</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st r d4"><span>02</span>Мурашки</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st r d5"><span>03</span>Хочется делать</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st last r d6"><span>04</span>Работаете без&nbsp;усталости и&nbsp;не&nbsp;чувствуете&nbsp;её</p></div>
 </section>
-<!-- 74 -->
+<!-- 81 -->
 <section class="slide e3">
 <div class="kicker r d1">Эти две категории очень сильно&nbsp;отличаются</div><h2 class="e3-h r d2">С&nbsp;ТДО и&nbsp;без&nbsp;ТДО</h2><div class="e3-vs"><div class="col r d3"><div class="t">С&nbsp;ТДО</div><p>Иллюзии, навязанные установки и&nbsp;убеждения</p><p>Чужие цели и&nbsp;сбитые&nbsp;ориентиры</p><p>Энергия не&nbsp;выделяется&nbsp;– результата&nbsp;нет</p></div><div class="mid r d4">или</div><div class="col b r d5"><div class="t">Без ТДО</div><p>Видят жизнь без&nbsp;иллюзий и&nbsp;чувствуют&nbsp;её</p><p>Управляют своими&nbsp;неадекватностями</p><p>Энергия идёт туда, где путь души,&nbsp;– работа без&nbsp;усталости</p></div></div>
 </section>
-<!-- 75 -->
+<!-- 82 -->
 <section class="slide e3 e3-sp">
 <div class="e3-img"><img src="assets/gen/b3-saba-c.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Как прочувствовать свою цель на&nbsp;истинность?</div><h2 class="e3-h r d2">Сегодня в&nbsp;конце мы&nbsp;сделаем&nbsp;практику</h2><ul class="e3-list"><li class="r d3">Кто не&nbsp;учился на&nbsp;ПКТ&nbsp;– у&nbsp;вас&nbsp;ТДО</li><li class="r d4">Разными конфигурациями мы&nbsp;можем снять этот барьер на&nbsp;время: на&nbsp;несколько дней или на&nbsp;один&nbsp;вечер</li><li class="r d5">Но&nbsp;дальше вы&nbsp;вернётесь в&nbsp;свою обыденность, и&nbsp;вас поглотят угнетающие чувства и&nbsp;рутина</li></ul><div class="e3-note sun r d8">Но&nbsp;почувствовать это всё равно стоит: хотя бы&nbsp;на&nbsp;уровне тела поймёте разницу. Практику сегодня проведёт&nbsp;Михаил</div></div>
 </section>
-<!-- 76 -->
+<!-- 83 -->
 <section class="slide e3">
 <div class="kicker r d1">Основополагающие ошибки при&nbsp;постановке&nbsp;целей</div><h2 class="e3-h r d2">Главное&nbsp;– энергия, которая выделяется на&nbsp;вашу&nbsp;цель</h2><div class="e3-cards" style="--c:3"><div class="e3-card r d4"><span class="n">1</span><b>Энергия</b><p>Выделяется только на&nbsp;истинную, настоящую цель, которую вы&nbsp;хотите всей душой и&nbsp;сердцем</p></div><div class="e3-card r d5"><span class="n">2</span><b>Удержать запал</b><p>Вы&nbsp;в&nbsp;любом случае столкнётесь с&nbsp;трудностями и&nbsp;непредвиденными&nbsp;ситуациями</p></div><div class="e3-card hot r d6"><span class="n">3</span><b>Не&nbsp;спасовать</b><p>Из-за привычки не&nbsp;доводить дело до&nbsp;конца люди часто пасуют перед&nbsp;трудностями</p></div></div>
 </section>
-<!-- 77 -->
+<!-- 84 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Нет цели&nbsp;– вы&nbsp;никуда не&nbsp;придёте и&nbsp;вернётесь туда, откуда&nbsp;начинали</div><h2 class="e3-h r d2">Есть цель&nbsp;– вы&nbsp;<em>точно туда&nbsp;придёте</em></h2><p class="e3-sub r d3">Если на&nbsp;неё выделяется энергия и&nbsp;вы&nbsp;можете преодолевать преграды и&nbsp;трудности</p>
 </section>
-<!-- 78 -->
+<!-- 85 -->
 <section class="slide e3 e3-sp">
 <div class="e3-img"><img src="assets/e3/e3-fall.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Как легче всего преодолевать&nbsp;трудности?</div><h2 class="e3-h r d2">Только в&nbsp;групповой&nbsp;динамике</h2><p class="e3-sub r d3">Кто занимался групповыми видами спорта, понимает, о&nbsp;чём&nbsp;я</p><ul class="e3-list"><li class="r d4">Что-то не&nbsp;получается&nbsp;– партнёры&nbsp;поддержат</li><li class="r d5">Вы&nbsp;подпитываетесь их&nbsp;энергией и&nbsp;двигаетесь&nbsp;дальше</li><li class="r d6">Упали&nbsp;– вам подали руку, вы&nbsp;идёте&nbsp;дальше</li></ul></div>
 </section>
-<!-- 79 -->
+<!-- 86 -->
 <section class="slide e3">
-<div class="kicker r d1">А&nbsp;когда вы&nbsp;наедине с&nbsp;собой</div><h2 class="e3-h r d2">Появляются разрушительные мысли: «А&nbsp;может, мне это не&nbsp;надо?»</h2><div class="e3-chain"><p class="st r d3"><span>01</span>Вы&nbsp;сталкиваетесь с&nbsp;трудностями</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st r d4"><span>02</span>Мозг хочет вернуть вас назад: «Может, это не&nbsp;моё?»</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st r d5"><span>03</span>Его задача&nbsp;– сохранить вам как можно больше энергии, чтобы вы&nbsp;ничего не&nbsp;делали</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st last r d6"><span>04</span>Лень берёт&nbsp;верх</p></div>
+<div class="kicker r d1">А&nbsp;когда вы&nbsp;наедине с&nbsp;собой</div><h2 class="e3-h r d2">Появляются разрушительные мысли: «А&nbsp;может, мне это не&nbsp;надо?»</h2><div class="e3-chain"><p class="st r d3"><span>01</span>Вы&nbsp;сталкиваетесь с&nbsp;трудностями</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st r d4"><span>02</span>Мозг хочет вернуть вас назад: «Может, это не&nbsp;моё?»</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st r d5"><span>03</span>Его задача&nbsp;– сохранить вам как можно больше энергии, чтобы вы&nbsp;ничего не&nbsp;делали</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st last r d6"><span>04</span>Лень берёт&nbsp;верх</p></div>
 </section>
-<!-- 80 -->
+<!-- 87 -->
 <section class="slide e3 e3-sp flip">
 <div class="e3-img"><img src="assets/e3/e3-team.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Поэтому групповая динамика всегда даёт лучший&nbsp;результат</div><h2 class="e3-h r d2">Все преграды и&nbsp;трудности обойти&nbsp;легче</h2><ul class="e3-list"><li class="r d3">Пришли, выгрузились, рассказали свои&nbsp;проблемы</li><li class="r d4">Вас поддержали&nbsp;– вы&nbsp;двигаетесь&nbsp;дальше</li><li class="r d5">Со&nbsp;стороны всегда виднее, иллюзия это или&nbsp;нет</li></ul></div>
 </section>
-<!-- 81 -->
+<!-- 88 -->
+<section class="slide e3 e3-cs">
+<div class="ph one r d1"><img src="assets/sc/c80_80.webp" alt=""><span class="big r d6">6&nbsp;месяцев</span></div><div class="kicker r d1">Кейс студентки&nbsp;ПКТ</div><h2 class="e3-h r d2">Ольга<span>Перестала искать подвох&nbsp;во&nbsp;всём</span></h2><div class="ab"><div class="a r d3"><div class="t">Было</div><p>Пришла проработать ТДО и&nbsp;«немножко стать&nbsp;психологом»</p><p>Не&nbsp;хватало уверенности, комплексы, во&nbsp;всём искала&nbsp;подвох</p><p>В&nbsp;процессе хотелось всё бросить: «Я&nbsp;же&nbsp;не&nbsp;психолог»</p></div><div class="b r d4"><div class="t">Стало</div><p>Стала увереннее, спокойнее и&nbsp;уравновешеннее</p><p>Ушли претензии к&nbsp;родителям и&nbsp;миру</p><p>Саботаж помогли пройти кураторы и&nbsp;группа</p><p>Нашла друзей, с&nbsp;которыми общается и&nbsp;после&nbsp;выпуска</p></div></div><div class="q r d5">«Я&nbsp;люблю жизнь, мир,&nbsp;людей»</div>
+</section>
+<!-- 89 -->
+<section class="slide e3 e3-krug">
+<div class="kr r d1"><div class="ring"></div><video controls playsinline preload="metadata" poster="assets/video/olga-krug.jpg" src="assets/video/olga-krug.mp4"></video></div><div class="tx"><div class="kicker r d1">Ольга, врач, студентка&nbsp;ПКТ</div><h2 class="r d2">Это здорово&nbsp;– найти дружбу&nbsp;во&nbsp;взрослом&nbsp;возрасте</h2><div class="q r d3">«За&nbsp;эти 6&nbsp;месяцев мы&nbsp;не&nbsp;только проработали своё ТДО. Мы&nbsp;познакомились друг с&nbsp;другом, делились непростыми историями и&nbsp;помогали&nbsp;справляться»</div><div class="cap r d4">Пройти момент саботажа ей&nbsp;помогли кураторы и&nbsp;группа</div></div>
+</section>
+<!-- 90 -->
 <section class="slide e3 bg-mist">
 <div class="kicker r d1">Наедине с&nbsp;собой вы&nbsp;часто принимаете неверные&nbsp;решения</div><h2 class="e3-h r d2">А&nbsp;подсказывать другим многим легко.&nbsp;Почему?</h2><p class="e3-sub r d3">Потому что со&nbsp;стороны&nbsp;видно</p><div class="e3-note sun r d8">В&nbsp;групповой динамике со&nbsp;стороны видны все ваши иллюзии&nbsp;– и&nbsp;вы&nbsp;просто не&nbsp;сольётесь. Вот и&nbsp;всё</div>
 </section>
-<!-- 82 -->
+<!-- 91 -->
 <section class="slide e3 e3-sp">
 <div class="e3-img"><img src="assets/e3/e3-lecture.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Ещё один весомый аргумент в&nbsp;пользу курса «Психолог краткосрочной&nbsp;терапии»</div><h2 class="e3-h r d2">Вы&nbsp;регулярно общаетесь со&nbsp;мной&nbsp;напрямую</h2><ul class="e3-list"><li class="r d3">Каждую неделю на&nbsp;лекциях задаёте свои&nbsp;вопросы</li><li class="r d4">Разбираем, что у&nbsp;вас&nbsp;триггерит</li><li class="r d5">На&nbsp;практике у&nbsp;вас будут супервизоры: с&nbsp;ними можно общаться, и&nbsp;они будут вас&nbsp;контролировать</li></ul></div>
 </section>
-<!-- 83 -->
+<!-- 92 -->
 <section class="slide e3 e3-sp">
 <div class="e3-img"><img src="assets/e3/e3-goal.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Далее по&nbsp;целям очень важно понимать&nbsp;следующее</div><h2 class="e3-h r d2">Давайте сейчас поиграем в&nbsp;игру</h2><ul class="e3-list"><li class="r d3">Напишите свою финансовую цель в&nbsp;разрезе года&nbsp;– через&nbsp;год</li><li class="r d4">Может, хотите скопить какую-то сумму или выйти на&nbsp;какой-то&nbsp;доход</li><li class="r d5">Напишите прямо цифрой,&nbsp;пожалуйста</li></ul></div>
 </section>
-<!-- 84 -->
+<!-- 93 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Окей, хорошо. Если вы&nbsp;поставите себе такую&nbsp;цель,</div><h2 class="e3-h r d2">то&nbsp;вряд ли&nbsp;<em>её&nbsp;достигнете</em></h2><p class="e3-sub r d3">Почему? Здесь мы&nbsp;сейчас соблюли два&nbsp;фактора</p>
 </section>
-<!-- 85 -->
+<!-- 94 -->
 <section class="slide e3">
 <div class="kicker r d1">Первое: поставили цель через год&nbsp;– это&nbsp;правильно</div><h2 class="e3-h r d2">Цель должна быть&nbsp;адекватна</h2><div class="e3-vs"><div class="col r d3"><div class="t">Адекватно</div><p>Цель через&nbsp;год</p><p>За&nbsp;это время реально можно что-то&nbsp;изменить</p></div><div class="mid r d4">или</div><div class="col b r d5"><div class="t">Неадекватно</div><p>Цель через месяц, не&nbsp;имея и&nbsp;близко такого&nbsp;дохода</p><p>Сейчас зарабатываете 50&nbsp;тысяч рублей, а&nbsp;ставите 500&nbsp;тысяч</p></div></div>
 </section>
-<!-- 86 -->
+<!-- 95 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Второе: почему она не&nbsp;сбудется и&nbsp;вы&nbsp;её&nbsp;не&nbsp;достигнете?</div><h2 class="e3-h r d2">Зачем вам <em>эти деньги?</em></h2>
 </section>
-<!-- 87 -->
+<!-- 96 -->
 <section class="slide e3">
-<div class="kicker r d1">Очень интересная&nbsp;игра</div><h2 class="e3-h r d2">Пишем, зачем вам эти&nbsp;деньги</h2><div class="e3-chain"><p class="st r d3"><span>01</span>1-й «зачем»: первый&nbsp;пункт</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st r d4"><span>02</span>2-й «зачем»</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st r d5"><span>03</span>3-й «зачем»</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st r d6"><span>04</span>4-й «зачем»</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st last r d7"><span>05</span>5-й «зачем»</p></div><div class="e3-note sun r d8">Пройдёте путь из&nbsp;пяти «зачем»&nbsp;– и&nbsp;хоть что-то станет понятно о&nbsp;себе: запутались вы&nbsp;или&nbsp;нет</div>
+<div class="kicker r d1">Очень интересная&nbsp;игра</div><h2 class="e3-h r d2">Пишем, зачем вам эти&nbsp;деньги</h2><div class="e3-chain"><p class="st r d3"><span>01</span>1-й «зачем»: первый&nbsp;пункт</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st r d4"><span>02</span>2-й «зачем»</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st r d5"><span>03</span>3-й «зачем»</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st r d6"><span>04</span>4-й «зачем»</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st last r d7"><span>05</span>5-й «зачем»</p></div><div class="e3-note sun r d8">Пройдёте путь из&nbsp;пяти «зачем»&nbsp;– и&nbsp;хоть что-то станет понятно о&nbsp;себе: запутались вы&nbsp;или&nbsp;нет</div>
 </section>
-<!-- 88 -->
+<!-- 97 -->
 <section class="slide e3 e3-sp flip">
 <div class="e3-img"><img src="assets/e3/e3-why.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Многие из&nbsp;вас просто запутались и&nbsp;не&nbsp;понимают, зачем им&nbsp;эта&nbsp;цель</div><h2 class="e3-h r d2">Если вы&nbsp;и&nbsp;ваше тело не&nbsp;понимаете зачем, энергия туда никогда не&nbsp;выделится</h2><ul class="e3-list"><li class="r d3">Почему так происходит? Из-за травматического детского&nbsp;опыта</li><li class="r d4">Исходя из&nbsp;него вы&nbsp;просто не&nbsp;можете&nbsp;почувствовать</li></ul></div>
 </section>
-<!-- 89 -->
+<!-- 98 -->
 <section class="slide e3 bg-mist">
 <div class="kicker r d1">Сегодня в&nbsp;конце эфира Михаил проведёт с&nbsp;вами&nbsp;практику</div><h2 class="e3-h r d2">Вы&nbsp;это почувствуете на&nbsp;уровне&nbsp;тела</h2><p class="e3-sub r d3">То, что вы&nbsp;сейчас написали, вы&nbsp;ощутите в&nbsp;теле</p><div class="e3-cards" style="--c:2"><div class="e3-card r d4"><b>Либо прилив большой&nbsp;энергии</b><p>Скорее всего, вы&nbsp;ощутите его в&nbsp;теле</p></div><div class="e3-card r d5"><b>Либо вообще&nbsp;ничего</b><p>И&nbsp;тогда многие вопросы&nbsp;снимаются</p></div></div>
 </section>
-<!-- 90 -->
+<!-- 99 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">В&nbsp;основе всего лежит травматический детский опыт&nbsp;– особенно у&nbsp;тех, кто&nbsp;запутался</div><h2 class="e3-h r d2">Не&nbsp;запутались&nbsp;– <em>это не&nbsp;значит, что у&nbsp;вас нет&nbsp;ТДО</em></h2><p class="e3-sub r d3">Скорее всего, в&nbsp;этом контексте вы&nbsp;просто поставили цель правильно. Вот и&nbsp;всё</p>
 </section>
-<!-- 91 -->
+<!-- 100 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Прежде чем приступить к&nbsp;практике с&nbsp;Михаилом</div><h2 class="e3-h r d2">Мы&nbsp;примем участие <em>в&nbsp;розыгрыше&nbsp;грантов</em></h2><p class="e3-sub r d3">Чтобы вы&nbsp;понимали, что можете получить по&nbsp;этим грантам, я&nbsp;расскажу подробнее о&nbsp;курсе «Психолог краткосрочной&nbsp;терапии»</p>
 </section>
-<!-- 92 -->
+<!-- 101 -->
 <section class="slide e3">
 <div class="kicker r d1">Гранты на&nbsp;обучение</div><h2 class="e3-h r d2">Мы&nbsp;выделили <em>2&nbsp;200&nbsp;000&nbsp;₽</em> на&nbsp;гранты</h2><div class="e3-fund"><div class="tot r d3"><span>Фонд грантов</span><b>2&nbsp;200&nbsp;000&nbsp;₽</b></div><div class="rows"><div class="fr r d4"><b>200&nbsp;000&nbsp;₽</b><span>×</span><strong>1</strong></div><div class="fr r d5"><b>100&nbsp;000&nbsp;₽</b><span>×</span><strong>10</strong></div><div class="fr r d6"><b>50&nbsp;000&nbsp;₽</b><span>×</span><strong>20</strong></div></div><div class="plus r d8"><b>+ 3&nbsp;гранта по&nbsp;100&nbsp;000&nbsp;₽</b> для&nbsp;тех, кто не&nbsp;подавал заявку: чтобы выиграть могли и&nbsp;те, кто пропустил 1-й и&nbsp;2-й&nbsp;эфиры</div></div>
 </section>
-<!-- 93 -->
+<!-- 102 -->
 <section class="slide e3 e3-sp">
 <div class="e3-img"><img src="assets/e3/e3-gift.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Что такое&nbsp;грант</div><h2 class="e3-h r d2">Это наша финансовая поддержка от&nbsp;Института психического здоровья доктора&nbsp;Анны&nbsp;Саба</h2><div class="e3-note sun r d8">Существенную часть обучения мы&nbsp;оплачиваем&nbsp;за&nbsp;вас</div></div>
 </section>
-<!-- 94 -->
+<!-- 103 -->
 <section class="slide e3 bg-mist">
-<div class="kicker r d1">Прежде чем разыграть&nbsp;гранты</div><h2 class="e3-h r d2">Расскажу, как устроена сама&nbsp;программа</h2><div class="e3-chain"><p class="st r d3"><span>01</span>Пройдём по&nbsp;шагам каждый&nbsp;модуль</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st r d4"><span>02</span>Поймёте, к&nbsp;какому результату вы&nbsp;придёте</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st last r d5"><span>03</span>Потом&nbsp;– гранты и&nbsp;розыгрыш</p></div>
+<div class="kicker r d1">Прежде чем разыграть&nbsp;гранты</div><h2 class="e3-h r d2">Расскажу, как устроена сама&nbsp;программа</h2><div class="e3-chain"><p class="st r d3"><span>01</span>Пройдём по&nbsp;шагам каждый&nbsp;модуль</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st r d4"><span>02</span>Поймёте, к&nbsp;какому результату вы&nbsp;придёте</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st last r d5"><span>03</span>Потом&nbsp;– гранты и&nbsp;розыгрыш</p></div>
 </section>
-<!-- 95 -->
+<!-- 104 -->
 <section class="slide e3">
 <div class="kicker r d1">Программа профессиональной&nbsp;переподготовки</div><h2 class="e3-h r d2">«Психолог краткосрочной терапии ДПДГ и&nbsp;здоровый&nbsp;человек»</h2><div class="e3-nums"><div class="e3-num r d3"><b>6</b><span>месяцев обучения</span></div><div class="e3-num r d4"><b>3</b><span>модуля</span></div><div class="e3-num r d5"><b>250</b><span>часов</span></div><div class="e3-num hot r d6"><b>ДПО</b><span>диплом гособразца</span></div></div><div class="e3-note soft r d8">2 занятия в&nbsp;неделю: лекция в&nbsp;записи и&nbsp;практика в&nbsp;прямом эфире по&nbsp;выходным. Доступ ко&nbsp;всем урокам&nbsp;– 1&nbsp;год</div>
 </section>
-<!-- 96 -->
+<!-- 105 -->
 <section class="slide e3 e3-roadsl">
-<div class="kicker r d1">Ваш путь за&nbsp;6&nbsp;месяцев</div><h2 class="e3-h r d2">Каждый месяц добавляет&nbsp;знаний</h2><div class="e3-road"><svg class="rl" viewBox="0 0 1720 120" preserveAspectRatio="none"><path d="M0 60 C 180 0, 300 120, 460 60 S 760 0, 900 60 S 1200 120, 1340 60 S 1600 0, 1720 60"></path></svg><div class="rs r d3"><i>1</i><b>Месяц 1</b><p>Модуль 1: основа метода ДПДГ. Групповая терапия со&nbsp;мной</p></div><div class="rs r d4"><i>2</i><b>Месяц 2</b><p>Модуль 2: работа с&nbsp;детской травмой и&nbsp;защитами</p></div><div class="rs r d5"><i>3</i><b>Месяц 3</b><p>Модуль 2: гипнотерапия, системная и&nbsp;групповая&nbsp;терапия</p></div><div class="rs r d6"><i>4</i><b>Месяц 4</b><p>Модуль 3: тревога, паника, депрессия,&nbsp;ПТСР</p><em>сервис</em></div><div class="rs r d7"><i>5</i><b>Месяц 5</b><p>Модуль 3: зависимости, пары,&nbsp;дети</p><em>сервис</em></div><div class="rs r d8"><i>6</i><b>Месяц 6</b><p>Модуль 3: итоговая аттестация и&nbsp;диплом</p><em>сервис</em></div><div class="band r d9"><span>4–6&nbsp;месяц</span>Параллельно&nbsp;– сервис «Помощник психолога в&nbsp;кармане»</div></div>
+<div class="kicker r d1">Ваш путь за&nbsp;6&nbsp;месяцев</div><h2 class="e3-h r d2">Каждый месяц добавляет&nbsp;знаний</h2><div class="e3-road"><svg class="rl" viewBox="0 0 1720 120" preserveAspectRatio="none"><path d="M0 60 C 180 0, 300 120, 460 60 S 760 0, 900 60 S 1200 120, 1340 60 S 1600 0, 1720 60"/></svg><div class="rs r d3"><i>1</i><b>Месяц 1</b><p>Модуль 1: основа метода ДПДГ. Групповая терапия со&nbsp;мной</p></div><div class="rs r d4"><i>2</i><b>Месяц 2</b><p>Модуль 2: работа с&nbsp;детской травмой и&nbsp;защитами</p></div><div class="rs r d5"><i>3</i><b>Месяц 3</b><p>Модуль 2: гипнотерапия, системная и&nbsp;групповая&nbsp;терапия</p></div><div class="rs r d6"><i>4</i><b>Месяц 4</b><p>Модуль 3: тревога, паника, депрессия,&nbsp;ПТСР</p><em>сервис</em></div><div class="rs r d7"><i>5</i><b>Месяц 5</b><p>Модуль 3: зависимости, пары,&nbsp;дети</p><em>сервис</em></div><div class="rs r d8"><i>6</i><b>Месяц 6</b><p>Модуль 3: итоговая аттестация и&nbsp;диплом</p><em>сервис</em></div><div class="band r d9"><span>4–6&nbsp;месяц</span>Параллельно&nbsp;– сервис «Помощник психолога в&nbsp;кармане»</div></div>
 </section>
-<!-- 97 -->
+<!-- 106 -->
 <section class="slide e3 e3-mod3">
 <div class="mtrack r d1"><i class="cur">1</i><i class="">2</i><i class="">3</i><i class="">4</i><i class="">5</i><i class="">6</i></div><div class="mod-side r d1"><span class="mod-st">Месяц 1</span><span class="mod-n">01</span><span class="mod-of">модуль из&nbsp;3</span><span class="mod-who">Анна&nbsp;Саба и&nbsp;преподаватели&nbsp;института</span></div><div class="mod-main"><div class="kicker r d1">Модуль 1</div><h2 class="e3-h r d2">Введение в&nbsp;метод ДПДГ и&nbsp;основы&nbsp;терапии</h2><p class="e3-sub r d3">Начинаете с&nbsp;себя: прорабатываете свой ТДО и&nbsp;понимаете, как работает&nbsp;метод</p><div class="mtopics"><div class="mt r d4"><b>1.1</b><p>История метода: как ДПДГ стал научно доказанным&nbsp;подходом</p></div><div class="mt r d5"><b>1.2</b><p>Как работают мозг и&nbsp;нервная система при&nbsp;ДПДГ</p></div><div class="mt r d6"><b>1.3</b><p>Позиция терапевта: отношения с&nbsp;клиентом, личность&nbsp;психолога</p></div><div class="mt r d7"><b>1.4</b><p>8-фазный протокол ДПДГ: алгоритм, показания,&nbsp;противопоказания</p></div></div><div class="mod-res r d9"><span class="mod-lab">Результат</span><p>Понимаете метод изнутри и&nbsp;прорабатываете себя. Аттестация&nbsp;модуля</p></div></div>
 </section>
-<!-- 98 -->
+<!-- 107 -->
 <section class="slide e3 e3-mod3">
 <div class="mtrack r d1"><i class="done">1</i><i class="cur">2</i><i class="cur">3</i><i class="">4</i><i class="">5</i><i class="">6</i></div><div class="mod-side r d1"><span class="mod-st">Месяцы 2–3</span><span class="mod-n">02</span><span class="mod-of">модуль из&nbsp;3</span><span class="mod-who">Анна&nbsp;Саба и&nbsp;преподаватели&nbsp;института</span></div><div class="mod-main"><div class="kicker r d1">Модуль 2</div><h2 class="e3-h r d2">Работа с&nbsp;травмой и&nbsp;защитными&nbsp;механизмами</h2><p class="e3-sub r d3">Работаете с&nbsp;комплексной детской травмой и&nbsp;сопротивлением</p><div class="mtopics"><div class="mt r d4"><b>2.1–2.2</b><p>Терапия детской травмы, ДПДГ 3.0 при&nbsp;детских&nbsp;травмах</p></div><div class="mt r d5"><b>2.3–2.4</b><p>Основы гипнотерапии и&nbsp;системной&nbsp;терапии</p></div><div class="mt r d6"><b>2.5–2.6</b><p>Сопротивление и&nbsp;защиты. Работа с&nbsp;родственниками&nbsp;клиента</p></div><div class="mt r d7"><b>2.7–2.8</b><p>Групповая терапия. Протокол «Любящие&nbsp;глаза»</p></div><div class="mt r d8"><b>2.9</b><p>Продвижение в&nbsp;соцсетях, личный бренд психолога, юридические&nbsp;нюансы</p></div></div></div>
 </section>
-<!-- 99 -->
+<!-- 108 -->
 <section class="slide e3 e3-mod3">
 <div class="mtrack r d1"><i class="done">1</i><i class="done">2</i><i class="done">3</i><i class="cur">4</i><i class="cur">5</i><i class="cur">6</i></div><div class="mod-side r d1"><span class="mod-st">Месяцы 4–6</span><span class="mod-n">03</span><span class="mod-of">модуль из&nbsp;3</span><span class="mod-who">Анна&nbsp;Саба и&nbsp;преподаватели&nbsp;института</span></div><div class="mod-main"><div class="kicker r d1">Модуль 3</div><h2 class="e3-h r d2">Терапия расстройств и&nbsp;состояний</h2><p class="e3-sub r d3">Осваиваете протоколы под&nbsp;конкретные запросы&nbsp;клиентов</p><div class="mtopics"><div class="mt r d4"><b>3.1</b><p>Абреакция, работа с&nbsp;горем, протокол для&nbsp;онкопациентов</p></div><div class="mt r d5"><b>3.2–3.3</b><p>ПТСР и&nbsp;ОКР</p></div><div class="mt r d6"><b>3.4–3.5</b><p>Панические атаки, фобии, тревога и&nbsp;депрессия</p></div><div class="mt r d7"><b>3.6–3.7</b><p>Диссоциативные расстройства,&nbsp;зависимости</p></div><div class="mt r d8"><b>3.8–3.9</b><p>Кошмарные сновидения, острое горе, супружеские&nbsp;пары</p></div><div class="mt r d9"><b>3.10–3.12</b><p>Дети по&nbsp;возрастам, сексуальные расстройства,&nbsp;РПП</p></div></div><div class="mod-res r d9"><span class="mod-lab">Результат</span><p>Все протоколы ДПДГ. Итоговая аттестация, экзамен и&nbsp;диплом&nbsp;гособразца</p></div></div>
 </section>
-<!-- 100 -->
+<!-- 109 -->
 <section class="slide e3 e3-sp">
 <div class="e3-img"><img src="assets/e3/e3-phone.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">С&nbsp;4-го месяца, параллельно с&nbsp;обучением</div><h2 class="e3-h r d2">Сервис «Помощник психолога&nbsp;в&nbsp;кармане»</h2><ul class="e3-list"><li class="r d3">Монтирует видео и&nbsp;ведёт&nbsp;соцсети</li><li class="r d4">Отправляет ссылки&nbsp;клиентам</li><li class="r d5">Берёт на&nbsp;себя всю операционную работу по&nbsp;привлечению&nbsp;клиентов</li><li class="r d6">Пользуетесь им&nbsp;по&nbsp;нашим&nbsp;инструкциям</li></ul><div class="e3-note sun r d8">Скоро выпустим его для&nbsp;всех психологов за&nbsp;<b>50&nbsp;000&nbsp;₽ в&nbsp;месяц</b>. У&nbsp;вас&nbsp;– <b>3&nbsp;месяца&nbsp;бесплатно</b>. К&nbsp;концу у&nbsp;вас база клиентов, и&nbsp;курс&nbsp;окупается</div></div>
 </section>
-<!-- 101 -->
+<!-- 110 -->
 <section class="slide e3 bg-mist">
 <div class="kicker r d1">Что внутри&nbsp;сервиса</div><h2 class="e3-h r d2">Самые передовые технологии и&nbsp;алгоритмы</h2><div class="e3-cards" style="--c:3"><div class="e3-card r d4"><b>Те&nbsp;же, что работают в&nbsp;соцсетях Анны&nbsp;Саба</b><p>Вы&nbsp;берёте то, что уже приводит&nbsp;клиентов</p></div><div class="e3-card r d5"><b>Сервис обновляется</b><p>Вы&nbsp;получаете новые возможности по&nbsp;ходу&nbsp;работы</p></div><div class="e3-card hot r d6"><b>Маркетологи помогают&nbsp;внедрить</b><p>Маркетологи Анны&nbsp;Саба консультируют и&nbsp;помогают&nbsp;запустить</p></div></div>
 </section>
-<!-- 102 -->
+<!-- 111 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Почему это&nbsp;важно</div><h2 class="e3-h r d2">Такого формата <em>нет больше ни&nbsp;у&nbsp;кого</em> в&nbsp;России</h2>
 </section>
-<!-- 103 -->
+<!-- 112 -->
 <section class="slide e3">
 <div class="kicker r d1">Мы&nbsp;единственные в&nbsp;России</div><h2 class="e3-h r d2">Кому и&nbsp;что даёт этот&nbsp;формат</h2><div class="e3-cards tight" style="--c:3"><div class="e3-card r d4"><span class="n">1</span><b>Сначала&nbsp;– вы&nbsp;сами</b><p>Прорабатываете свой ТДО и&nbsp;учитесь для&nbsp;себя</p></div><div class="e3-card r d5"><span class="n">2</span><b>Затем&nbsp;–&nbsp;профессия</b><p>Осваиваете все протоколы ДПДГ, при&nbsp;желании работаете с&nbsp;клиентами, получаете диплом&nbsp;гособразца</p></div><div class="e3-card hot r d6"><span class="n">3</span><b>Сервис привлечения&nbsp;клиентов</b><p>Такой есть только у&nbsp;нас</p></div><div class="e3-card r d7"><span class="n">4</span><b>Если у&nbsp;вас другая&nbsp;работа</b><p>Нутрициолог, стоматолог: ДПО как дополнение, а&nbsp;сервис развивает основную&nbsp;деятельность</p></div><div class="e3-card r d8"><span class="n">5</span><b>Если вы&nbsp;практикующий&nbsp;психолог</b><p>Получаете самый эффективный метод, поднимаете чек и&nbsp;больше&nbsp;зарабатываете</p></div></div>
 </section>
-<!-- 104 -->
+<!-- 113 -->
 <section class="slide e3 bg-mist">
 <div class="kicker r d1">Почему у&nbsp;многих психологов слабые&nbsp;результаты</div><h2 class="e3-h r d2">Ни&nbsp;одно обучение в&nbsp;России не&nbsp;идёт&nbsp;через&nbsp;ТДО</h2><div class="e3-nums"><div class="e3-num r d3"><b>95%</b><span>психологов сами живут с&nbsp;травмами</span></div><div class="e3-num r d4"><b>→</b><span>поэтому их&nbsp;клиенты получают слабый&nbsp;результат</span></div><div class="e3-num hot r d5"><b>1</b><span>наше обучение&nbsp;– единственное в&nbsp;России с&nbsp;полной переработкой&nbsp;ТДО</span></div></div>
 </section>
-<!-- 105 -->
+<!-- 114 -->
 <section class="slide e3">
 <div class="kicker r d1">Результаты обучения</div><h2 class="e3-h r d2">К&nbsp;чему вы&nbsp;придёте</h2><div class="e3-cards tight" style="--c:3"><div class="e3-card r d4"><span class="n">1</span><b>Переработаете весь свой&nbsp;ТДО</b><p>Жизнь меняется во&nbsp;всех&nbsp;сферах</p></div><div class="e3-card r d5"><span class="n">2</span><b>На&nbsp;основной&nbsp;работе</b><p>Скорее всего, начнёте зарабатывать больше и&nbsp;сможете брать дополнительных&nbsp;клиентов</p></div><div class="e3-card r d6"><span class="n">3</span><b>Просто проработать&nbsp;себя</b><p>Кто-то приходит именно за&nbsp;этим</p></div><div class="e3-card hot r d7"><span class="n">4</span><b>Психолог&nbsp;– «сапожник с&nbsp;сапогами»</b><p>Поднимаете чек, через сервис получаете много клиентов и&nbsp;выходите на&nbsp;новый уровень&nbsp;дохода</p></div><div class="e3-card r d8"><span class="n">5</span><b>Не&nbsp;хотите брать&nbsp;клиентов</b><p>Работаете с&nbsp;близкими: детьми, мужем или&nbsp;женой</p></div><div class="e3-card r d9"><span class="n">6</span><b>Без откатов</b><p>Жизнь меняется к&nbsp;лучшему, потому что это физиологический&nbsp;процесс</p></div></div>
 </section>
-<!-- 106 -->
+<!-- 115 -->
 <section class="slide e3 e3-sp flip">
 <div class="e3-img"><img src="assets/e3/e3-group.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Первый месяц</div><h2 class="e3-h r d2">Я&nbsp;лично веду групповую&nbsp;терапию</h2><ul class="e3-list"><li class="r d3">Я&nbsp;ваш личный&nbsp;психолог</li><li class="r d4">Мой час стоит&nbsp;200&nbsp;000&nbsp;₽</li><li class="r d5">За&nbsp;месяц&nbsp;– 4&nbsp;сессии</li></ul><div class="e3-note sun r d8"><b>800&nbsp;000&nbsp;₽</b>&nbsp;– для&nbsp;вас&nbsp;бесплатно</div></div>
 </section>
-<!-- 107 -->
+<!-- 116 -->
 <section class="slide e3 e3-sp flip">
 <div class="e3-img"><img src="assets/e3/e3-trans.jpg" alt="" style="object-position:50% 30%"></div><div class="e3-w"><div class="kicker r d1">Вопрос</div><h2 class="e3-h r d2">Сколько стоит полная трансформация&nbsp;жизни?</h2><p class="e3-sub r d3">Посмотрите на&nbsp;результаты наших&nbsp;учениц</p></div>
 </section>
-<!-- 108 -->
+<!-- 117 -->
 <section class="slide t-list s-e2-val">
 <div class="head"><div class="kicker r d1">Сейчас покажу Валентину: ей&nbsp;было 40&nbsp;лет, трое детей, развелась&nbsp;после&nbsp;16&nbsp;лет&nbsp;брака</div><h2 class="h2 r d2">Со&nbsp;стороны&nbsp;– сильная&nbsp;и&nbsp;«удобная»&nbsp;женщина.</h2><h2 class="h2 r d2"><em>А&nbsp;внутри:</em></h2></div>
 <div class="jv-two">
@@ -3502,192 +3938,155 @@ section.slide.s-e2-path .pm.hi { border: 3px solid var(--teal); box-shadow: 0 24
 <div class="e2-badge r d6"><b>Через 3&nbsp;месяца после работы по&nbsp;протоколу EMDR&nbsp;3.0 случилось следующее...&nbsp;Давайте&nbsp;посмотрим.</b></div></div>
 </div>
 </section>
-<!-- 109 -->
+<!-- 118 -->
 <section class="slide t-html s-e2-video s-e2-vid55">
 <div class="v55-pan"><div class="kicker r d1">Кейс Валентины</div><div class="v55-big r d2">3&nbsp;месяца</div><h2 class="v55-h r d3">Какой Валентина была <span>ДО</span> и&nbsp;какой стала <span>ПОСЛЕ</span></h2></div>
-<div class="e2-vid noswipe v55-vid r d3"><video controls="" playsinline="" preload="metadata" poster="assets/video/valentina-poster2.jpg" src="assets/video/valentina-do-posle.mp4"></video></div>
+<div class="e2-vid noswipe v55-vid r d3"><video controls playsinline preload="metadata" poster="assets/video/valentina-poster2.jpg" src="assets/video/valentina-do-posle.mp4"></video></div>
 </section>
-<!-- 110 -->
-<section class="slide t-list s-e2-kc1">
-<style>
-.jv-steps{display:grid;gap:16px;margin-top:28px}
-.jv-steps>div{display:flex;gap:22px;align-items:flex-start;padding:20px 26px;border-radius:22px;background:var(--mist);border:1px solid var(--line)}
-.jv-steps>div.on{background:var(--teal);border-color:var(--teal)}
-.jv-steps>div.on p{color:#fff}.jv-steps>div.on .n{color:var(--sun)}
-.jv-steps .n{flex:none;font-weight:800;font-size:30px;color:var(--teal);min-width:44px}
-.jv-steps p{font-weight:600;font-size:28px;line-height:1.3;color:var(--ink)}
-.jv-steps p b{font-weight:800}
-.jv-houses{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px;margin-top:8px}
-.jv-houses figure{margin:0;border-radius:28px;overflow:hidden;background:var(--mist);border:1px solid var(--line);display:flex;flex-direction:column}
-.jv-houses img{width:100%;height:330px;object-fit:cover;display:block}
-.jv-houses figcaption{padding:22px 28px 26px}
-.jv-houses b{font-weight:800;font-size:42px;color:var(--ink)}
-.jv-houses .bar{display:block;margin-top:16px;height:14px;border-radius:7px;background:var(--teal-3)}
-.jv-houses .vip{background:var(--teal);border-color:var(--teal)}
-.jv-houses .vip b{color:var(--sun)}.jv-houses .vip .bar{background:var(--sun)}
-.jv-houses figure:nth-child(1) .bar{width:30%}.jv-houses figure:nth-child(2) .bar{width:58%}.jv-houses figure:nth-child(3) .bar{width:100%}
-.jv-houses img{transition:transform 6s ease}.slide.active .jv-houses img,.slide.is-active .jv-houses img{transform:scale(1.06)}
-.jv-qs{display:grid;gap:14px;margin-top:26px}
-.jv-qs p{padding:18px 26px;border-left:4px solid var(--coral);background:var(--mist);border-radius:0 18px 18px 0;font-weight:600;font-size:27px;line-height:1.3;color:var(--ink)}
-.jv-score{display:flex;align-items:baseline;gap:22px;margin-top:26px}
-.jv-score .e2-big{margin:0;font-size:92px}
-.jv-score span{font-weight:600;font-size:28px;line-height:1.3;color:var(--ink);max-width:300px}
-.jv-kc{display:grid;grid-template-columns:520px 1fr;gap:64px;align-items:start}
-.jv-kc-card{padding:40px;border-radius:32px;background:var(--mist);border:1px solid var(--line)}
-.jv-kc-card img{width:200px;height:200px;border-radius:50%;object-fit:cover;display:block;margin-bottom:26px}
-.jv-kc-card p{font-weight:500;font-size:28px;line-height:1.35;color:var(--ink);margin-top:14px}
-.jv-kc-card .jv-lb{display:block;font-style:normal;font-weight:700;font-size:20px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:4px}
-.jv-kc-r h3{font-weight:800;font-size:46px;line-height:1.15;color:var(--ink);margin:14px 0 18px}
-section.slide .jv-two{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:start}
-section.slide.s-e2-video .e2-vid{margin:0 auto}
-section.slide .jv-qs{gap:12px;margin-top:0}
-/* gif-like motion, efir-1 style: thin line drawings, calm, plays when slide opens */
-.slide.active .jv-houses .bar,.slide.visible .jv-houses .bar{animation:jvw 1.1s cubic-bezier(.2,.8,.2,1) both}
-.jv-houses figure:nth-child(1) .bar{animation-delay:.7s!important}.jv-houses figure:nth-child(2) .bar{animation-delay:1.1s!important}.jv-houses figure:nth-child(3) .bar{animation-delay:1.5s!important}
-@keyframes jvw{from{width:0}}
-.e2-risev{position:relative}
-.slide.active .e2-risev i,.slide.visible .e2-risev i{transform-origin:50% 100%;animation:jvup .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(.5s + var(--k)*.13s)}
-@keyframes jvup{from{transform:scaleY(0)}}
-.jv-rline{position:absolute;left:0;top:0;width:600px;height:520px;overflow:visible;pointer-events:none}
-.jv-rline polyline{fill:none;stroke:var(--sun);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:900;stroke-dashoffset:0}
-.slide.active .jv-rline polyline,.slide.visible .jv-rline polyline{animation:jvdraw 1.6s ease-out 1.4s both}
-@keyframes jvdraw{from{stroke-dashoffset:900}}
-.jv-rline .dot{fill:var(--sun)}.jv-rline .halo{fill:none;stroke:var(--sun);stroke-width:3;transform-box:fill-box;transform-origin:center}
-.slide.active .jv-rline .dot,.slide.visible .jv-rline .dot{animation:jvpop .5s ease-out 2.9s both}
-.slide.active .jv-rline .halo,.slide.visible .jv-rline .halo{animation:jvhalo 2.6s ease-out 3.2s infinite both}
-@keyframes jvpop{from{opacity:0;transform:scale(0)}}
-@keyframes jvhalo{0%{opacity:.9;transform:scale(.6)}100%{opacity:0;transform:scale(2.6)}}
-.slide.active .e2-dg i,.slide.visible .e2-dg i{animation:jvfade .6s ease-out both;animation-delay:calc(.4s + var(--k)*.04s)}
-@keyframes jvfade{from{opacity:0;transform:translateY(10px)}}
-.e2-dg i.on{position:relative;overflow:hidden}
-.e2-dg i.on::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.75) 50%,transparent 65%);transform:translateX(-120%)}
-.slide.active .e2-dg i.on::after,.slide.visible .e2-dg i.on::after{animation:jvglint 3.6s ease-in-out 2.2s infinite}
-@keyframes jvglint{0%{transform:translateX(-120%)}35%,100%{transform:translateX(120%)}}
-.slide.active .e2-split .a,.slide.visible .e2-split .a{animation:jvwipe 1.2s cubic-bezier(.2,.8,.2,1) .6s both}
-.slide.active .e2-split .b,.slide.visible .e2-split .b{animation:jvwipe 1.4s cubic-bezier(.2,.8,.2,1) 1.4s both}
-@keyframes jvwipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
-.e2-steps3>div{position:relative}
-.slide.active .e2-steps3>div,.slide.visible .e2-steps3>div{animation:jvrise 1s cubic-bezier(.2,.8,.2,1) both}
-.e2-steps3>div:nth-child(1){animation-delay:.5s!important}.e2-steps3>div:nth-child(2){animation-delay:1s!important}.e2-steps3>div:nth-child(3){animation-delay:1.5s!important}
-@keyframes jvrise{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
-.jv-arrow{position:absolute;left:50%;bottom:44px;width:56px;height:110px;margin-left:-28px;overflow:visible}
-.jv-arrow path{fill:none;stroke:var(--sun);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
-.slide.active .jv-arrow,.slide.visible .jv-arrow{animation:jvpop .5s ease-out 2.4s both,jvbob 2.2s ease-in-out 2.9s infinite}
-@keyframes jvbob{50%{transform:translateY(-12px)}}
-.slide.active .e2-steps3>div.on,.slide.visible .e2-steps3>div.on{overflow:visible;clip-path:none;animation-name:jvup;transform-origin:50% 100%}
-@media (prefers-reduced-motion:reduce){[class*="jv-"],.e2-risev i,.e2-dg i,.e2-split>div,.e2-steps3>div,.jv-houses .bar{animation:none!important}}
-</style>
-<div class="kc1-img r d1"><img src="assets/cases/c-ekaterina.webp" alt=""></div>
-<div class="kc1-body"><div class="kicker r d1">Выпускница курса&nbsp;психолог&nbsp;краткосрочной&nbsp;терапии</div>
-<h2 class="kc1-h r d2">Екатерина&nbsp;Сидак: <span>доход вырос&nbsp;в&nbsp;2,5&nbsp;раза</span></h2>
-<div class="kc1-row r d3"><span class="jv-lb">было</span><p>Практикующий психолог, пришла для&nbsp;повышения квалификации и&nbsp;пробития&nbsp;финансового&nbsp;потолка</p></div>
-<div class="kc1-row on r d4"><span class="jv-lb">после курса</span><p>Купила квартиру&nbsp;в&nbsp;МОСКВЕ,&nbsp;запись&nbsp;на&nbsp;месяц&nbsp;вперёд</p></div></div>
+<!-- 119 -->
+<section class="slide e3 e3-cs">
+<div class="ph two r d1"><img src="assets/sc/c29_29.webp" alt=""><img src="assets/sc/c29_30.webp" alt=""><span class="big r d6">+1 квартира</span></div><div class="kicker r d1">Кейс студентки&nbsp;ПКТ</div><h2 class="e3-h r d2">Екатерина<span>Масштаб через поле, а&nbsp;не&nbsp;через&nbsp;методики</span></h2><div class="ab"><div class="a r d3"><div class="t">Было</div><p>Практикующий психолог: результат уже есть, но&nbsp;хотелось&nbsp;больше</p><p>Явных проблем на&nbsp;входе не&nbsp;было</p></div><div class="b r d4"><div class="t">Стало</div><p>Купила ещё одну&nbsp;квартиру</p><p>Запись к&nbsp;ней&nbsp;– на&nbsp;месяц&nbsp;вперёд</p><p>Клиенты присылают дорогие&nbsp;подарки</p><p>Брала обучение для&nbsp;личностного роста&nbsp;– и&nbsp;получила&nbsp;его</p></div></div><div class="q r d5">«Возможно всё! Я&nbsp;супер профи, и&nbsp;клиентов много. Кризисы только в&nbsp;головах у&nbsp;специалистов»</div>
 </section>
-<!-- 111 -->
-<section class="slide t-list s-e2-cs s-e2-cs1">
-<div class="cs-an cs-an1 r d1"><div class="an-big">7</div><div class="an-lb">баллов ТДО</div><div class="an-leak"><i style="left:22%;animation-delay:0.0s">₽</i><i style="left:48%;animation-delay:0.7s">₽</i><i style="left:70%;animation-delay:1.4s">₽</i><i style="left:35%;animation-delay:2.1s">₽</i><i style="left:60%;animation-delay:2.8s">₽</i></div></div>
-<div class="cs-body"><div class="kicker r d2">Случай из&nbsp;практики&nbsp;Екатерины&nbsp;Сидак</div><h3 class="cs-h r d3">Пришел клиент&nbsp;с&nbsp;7&nbsp;баллами&nbsp;ТДО</h3><p class="cs-sub r d3">Его доход был 2-3&nbsp;млн ₽ в&nbsp;месяц. Не&nbsp;получал удовольствия от&nbsp;жизни. Деньги&nbsp;вроде&nbsp;зарабатывались,&nbsp;но:</p><div class="cs-grid"><p class="r d4">утекали свозь&nbsp;пальцы</p><p class="r d4">попадался на&nbsp;мошенников</p><p class="r d4">совершал глупые&nbsp;покупки</p><p class="r d4">терял в&nbsp;инвестициях</p><p class="r d4">сливались на&nbsp;других людей:&nbsp;спасал&nbsp;других</p></div><div class="cs-total r d6"><b>Итого:</b> доход был, но&nbsp;деньги быстро уходили, а&nbsp;доход не&nbsp;рос,&nbsp;было&nbsp;ощущение,&nbsp;что&nbsp;топчется&nbsp;на&nbsp;месте</div></div>
+<!-- 120 -->
+<section class="slide e3 e3-cs">
+<div class="ph one r d1"><img src="assets/sc/c33_33.webp" alt=""></div><div class="kicker r d1">Кейс студентки&nbsp;ПКТ</div><h2 class="e3-h r d2">Ангелина<span>От&nbsp;потери себя&nbsp;– к&nbsp;своим базовым&nbsp;настройкам</span></h2><div class="ab"><div class="a r d3"><div class="t">Было</div><p>Тяжёлая ситуация с&nbsp;деньгами</p><p>Напряжённые отношения с&nbsp;мужем, большие проблемы с&nbsp;сыном</p><p>Не&nbsp;хватало сил даже на&nbsp;себя</p></div><div class="b r d4"><div class="t">Стало</div><p>Кайфует от&nbsp;дохода: клиенты, финансовые планы,&nbsp;путешествия</p><p>Наладились отношения с&nbsp;мужем и&nbsp;сыном</p><p>Результат&nbsp;– уже в&nbsp;середине&nbsp;обучения</p><p>Провела с&nbsp;мужем серию ДПДГ-сессий&nbsp;– её&nbsp;лучший&nbsp;кейс</p></div></div><div class="q r d5">«Попрощайся с&nbsp;унынием и&nbsp;начинай снова жить своим&nbsp;сердцем»</div>
 </section>
-<!-- 112 -->
+<!-- 121 -->
+<section class="slide e3 e3-cs">
+<div class="ph one r d1"><img src="assets/sc/c35_35.webp" alt=""></div><div class="kicker r d1">Кейс студентки&nbsp;ПКТ</div><h2 class="e3-h r d2">Екатерина<span>Лестница вверх без&nbsp;единого&nbsp;перелома</span></h2><div class="ab"><div class="a r d3"><div class="t">Было</div><p>Не&nbsp;психолог по&nbsp;образованию</p><p>Давно хотела переподготовку ради метода&nbsp;ДПДГ</p><p>Пошла учиться сразу, не&nbsp;раздумывая</p></div><div class="b r d4"><div class="t">Стало</div><p>Новая норма жизни стала намного&nbsp;выше</p><p>Сложный период проходит устойчиво, без&nbsp;истерик и&nbsp;позиции&nbsp;жертвы</p><p>Результат&nbsp;– после первых уроков и&nbsp;групповых&nbsp;сессий</p><p>Курс превзошёл высокие&nbsp;ожидания</p></div></div><div class="q r d5">«Бояться&nbsp;– это нормально, когда делаешь что-то новое. Хорошо, что это меня не&nbsp;остановило»</div>
+</section>
+<!-- 122 -->
+<section class="slide e3 e3-cs">
+<div class="ph two r d1"><img src="assets/sc/c36_36.webp" alt=""><img src="assets/sc/c36_37.webp" alt=""><span class="big r d6">30&nbsp;000&nbsp;₽ за&nbsp;сессию</span></div><div class="kicker r d1">Кейс студентки&nbsp;ПКТ</div><h2 class="e3-h r d2">Светлана<span>Отработала травму нелюбви и&nbsp;подняла&nbsp;чек</span></h2><div class="ab"><div class="a r d3"><div class="t">Было</div><p>Пришла доработать свой&nbsp;ТДО</p><p>Хотела наработать практику и&nbsp;закрепить&nbsp;знания</p></div><div class="b r d4"><div class="t">Стало</div><p>Травма нелюбви&nbsp;отступила</p><p>Стала увереннее как специалист&nbsp;– чек вырос до&nbsp;30&nbsp;000&nbsp;₽</p><p>Научилась говорить словами, а&nbsp;не&nbsp;замалчивать</p><p>Изменения заметила через 2&nbsp;месяца&nbsp;обучения</p></div></div><div class="q r d5">«Ты&nbsp;всё правильно делаешь! Ты&nbsp;на&nbsp;верном&nbsp;пути!»</div>
+</section>
+<!-- 123 -->
+<section class="slide e3 e3-cs">
+<div class="ph two r d1"><img src="assets/sc/c39_40.webp" alt=""><img src="assets/sc/c39_39.webp" alt=""><span class="big r d6">−18&nbsp;кг</span></div><div class="kicker r d1">Кейс студентки&nbsp;ПКТ</div><h2 class="e3-h r d2">Регина<span>От&nbsp;чужого сценария&nbsp;– к&nbsp;перепрошивке нервной&nbsp;системы</span></h2><div class="ab"><div class="a r d3"><div class="t">Было</div><p>Врач-стоматолог, 20&nbsp;лет опыта, 45&nbsp;лет, двое&nbsp;детей</p><p>Жила не&nbsp;свою жизнь, всё из&nbsp;позиции&nbsp;«надо»</p><p>Грусть, тревога,&nbsp;страх</p></div><div class="b r d4"><div class="t">Стало</div><p>Похудела на&nbsp;18&nbsp;кг</p><p>Стала спокойным, счастливым&nbsp;человеком</p><p>Получила вторую профессию и&nbsp;практикует ещё во&nbsp;время&nbsp;обучения</p><p>Сил хватает на&nbsp;две работы, детей, спорт и&nbsp;учёбу</p></div></div><div class="q r d5">«ПКТ&nbsp;– это полная перепрошивка нервной системы. Самый лучший подарок в&nbsp;моей&nbsp;жизни»</div>
+</section>
+<!-- 124 -->
+<section class="slide e3 e3-cs">
+<div class="ph two r d1"><img src="assets/sc/c42_41.webp" alt=""><img src="assets/sc/c42_42.webp" alt=""></div><div class="kicker r d1">Кейс студентки&nbsp;ПКТ</div><h2 class="e3-h r d2">Гульфия<span>От&nbsp;«всем должна»&nbsp;– к&nbsp;своей&nbsp;жизни</span></h2><div class="ab"><div class="a r d3"><div class="t">Было</div><p>Убирала свои желания, старалась быть удобной для&nbsp;всех</p><p>Финансировала родителей, напряжение с&nbsp;отцом</p></div><div class="b r d4"><div class="t">Стало</div><p>Ушла с&nbsp;нелюбимой&nbsp;профессии</p><p>С&nbsp;отцом общается спокойно и&nbsp;комфортно</p><p>Перестала контролировать всё&nbsp;подряд</p><p>Слышит себя и&nbsp;чувствует, чего&nbsp;хочет</p></div></div><div class="q r d5">«Беги, и&nbsp;ты&nbsp;освободишься от&nbsp;гнёта детских травм! Будто перерождение, другой&nbsp;человек!»</div>
+</section>
+<!-- 125 -->
+<section class="slide e3 e3-cs">
+<div class="ph two r d1"><img src="assets/sc/c44_45.webp" alt=""><img src="assets/sc/c44_44.webp" alt=""><span class="big r d6">Рассрочка закрыта</span></div><div class="kicker r d1">Кейс студентки&nbsp;ПКТ</div><h2 class="e3-h r d2">Ксения<span>От&nbsp;застоя&nbsp;– к&nbsp;опоре на&nbsp;себя</span></h2><div class="ab"><div class="a r d3"><div class="t">Было</div><p>Давно хотела получить профессию&nbsp;психолога</p><p>Депрессивный застой</p></div><div class="b r d4"><div class="t">Стало</div><p>Двигается за&nbsp;счёт внутреннего импульса, знает свои&nbsp;границы</p><p>Закрыла рассрочку ещё во&nbsp;время&nbsp;обучения</p><p>Делает то, что чувствует, не&nbsp;подстраиваясь под&nbsp;чужие&nbsp;ожидания</p><p>Полгода терапии стоят этих денег сами по&nbsp;себе, а&nbsp;профессия&nbsp;– в&nbsp;довесок</p></div></div><div class="q r d5">«Не&nbsp;думай, иди&nbsp;– и&nbsp;ты&nbsp;будешь в&nbsp;шоке от&nbsp;того, что с&nbsp;тобой&nbsp;произойдёт»</div>
+</section>
+<!-- 126 -->
+<section class="slide e3 e3-cs">
+<div class="ph two r d1"><img src="assets/sc/c51_51.webp" alt=""><img src="assets/sc/c51_52.webp" alt=""><span class="big r d6">10&nbsp;000&nbsp;₽ за&nbsp;сессию</span></div><div class="kicker r d1">Кейс студентки&nbsp;ПКТ</div><h2 class="e3-h r d2">Ольга<span>С&nbsp;нуля&nbsp;– в&nbsp;новую&nbsp;профессию</span></h2><div class="ab"><div class="a r d3"><div class="t">Было</div><p>Страх перед&nbsp;неизвестностью</p><p>Доход на&nbsp;старте&nbsp;– 0&nbsp;₽, только&nbsp;накопления</p><p>Волновали отношения с&nbsp;отцом</p></div><div class="b r d4"><div class="t">Стало</div><p>Появился доход: одна сессия&nbsp;–&nbsp;10&nbsp;000&nbsp;₽</p><p>На&nbsp;3-м модуле поняла: кайфует от&nbsp;роли терапевта, и&nbsp;за&nbsp;это ещё&nbsp;платят</p></div></div><div class="q r d5">«Не&nbsp;пожалела ни&nbsp;на&nbsp;секунду»</div>
+</section>
+<!-- 127 -->
+<section class="slide e3 e3-cs">
+<div class="ph one r d1"><img src="assets/sc/c61_61.webp" alt=""><span class="big r d6">45&nbsp;лет</span></div><div class="kicker r d1">Кейс студентки&nbsp;ПКТ</div><h2 class="e3-h r d2">Марина<span>В&nbsp;45&nbsp;лет&nbsp;– магистратура по&nbsp;психологии</span></h2><div class="ab"><div class="a r d3"><div class="t">Было</div><p>Неуверенность, тревога, детские&nbsp;обиды</p><p>Чувство, что она не&nbsp;на&nbsp;своём&nbsp;месте</p><p>Сомневалась, можно ли&nbsp;потратить на&nbsp;себя такие&nbsp;деньги</p></div><div class="b r d4"><div class="t">Стало</div><p>Поступила в&nbsp;магистратуру на&nbsp;факультет&nbsp;психологии</p><p>Просыпается&nbsp;– и&nbsp;ей&nbsp;уже&nbsp;хорошо</p><p>Проработала прошлое и&nbsp;освободилась</p><p>Попала в&nbsp;поддерживающую&nbsp;группу</p></div></div><div class="q r d5">«Я&nbsp;горжусь&nbsp;собой»</div>
+</section>
+<!-- 128 -->
+<section class="slide e3 e3-cs">
+<div class="ph one r d1"><img src="assets/sc/c62_62.webp" alt=""><span class="big r d6">100%</span></div><div class="kicker r d1">Кейс студентки&nbsp;ПКТ</div><h2 class="e3-h r d2">Аминат<span>Обучение, которым довольна на&nbsp;100%</span></h2><div class="ab"><div class="a r d3"><div class="t">Было</div><p>Пришла в&nbsp;психологию через личную&nbsp;терапию</p><p>Была в&nbsp;позиции&nbsp;спасателя</p><p>Не&nbsp;хватало навыков, чтобы дать результат прямо на&nbsp;сессии</p></div><div class="b r d4"><div class="t">Стало</div><p>Уверенно ведёт консультации методом ДПДГ&nbsp;3.0</p><p>Видит в&nbsp;клиентках сильных&nbsp;личностей</p><p>Выстроила систему&nbsp;работы</p><p>Первые результаты&nbsp;– ещё во&nbsp;время&nbsp;обучения</p></div></div><div class="q r d5">«Единственное обучение, которым я&nbsp;довольна на&nbsp;все 100%. Это моё лучшее&nbsp;вложение»</div>
+</section>
+<!-- 129 -->
+<section class="slide e3 e3-cs">
+<div class="ph two r d1"><img src="assets/sc/c77_77.webp" alt=""><img src="assets/sc/c77_78.webp" alt=""><span class="big r d6">2–3&nbsp;месяца</span></div><div class="kicker r d1">Кейс студентки&nbsp;ПКТ</div><h2 class="e3-h r d2">Екатерина Маркова<span>«Я&nbsp;должна выдержать всё»&nbsp;– и&nbsp;что изменилось на&nbsp;ПКТ</span></h2><div class="ab"><div class="a r d3"><div class="t">Было</div><p>Пыталась выдержать всё&nbsp;– дошло до&nbsp;панических&nbsp;атак</p><p>Нулевая самооценка,&nbsp;гиперконтроль</p><p>Безопасность связывала только с&nbsp;мужем</p></div><div class="b r d4"><div class="t">Стало</div><p>Ушли панические&nbsp;атаки</p><p>Мужа сократили&nbsp;– за&nbsp;1–2 недели вернулась в&nbsp;спокойствие</p><p>Ведёт блог и&nbsp;осваивает новую&nbsp;профессию</p><p>С&nbsp;родителями стало&nbsp;теплее</p></div></div><div class="q r d5">«Я&nbsp;знаю: что бы&nbsp;ни&nbsp;случилось, я&nbsp;справлюсь!»</div>
+</section>
+<!-- 130 -->
 <section class="slide t-list s-e2-cs s-e2-cs2">
 <div class="cs-an cs-an2 r d1"><div class="an-bars"><i style="--h:22%;animation-delay:0.00s"></i><i style="--h:32%;animation-delay:0.18s"></i><i style="--h:42%;animation-delay:0.36s"></i><i style="--h:54%;animation-delay:0.54s"></i><i style="--h:66%;animation-delay:0.72s"></i><i style="--h:80%;animation-delay:0.90s"></i><i style="--h:100%;animation-delay:1.08s"></i></div><div class="an-lb">7 перемен&nbsp;подряд</div></div>
 <div class="cs-body"><div class="kicker r d2">В&nbsp;процессе переработки&nbsp;ТДО</div><h3 class="cs-h r d3">Жизнь начала&nbsp;меняться</h3><div class="cs-num"><p class="r d4"><span>01</span>Снизился&nbsp;саботаж</p><p class="r d4"><span>02</span>Стало гораздо&nbsp;больше&nbsp;энергии</p><p class="r d5"><span>03</span>Стал увереннее&nbsp;в&nbsp;себе</p><p class="r d5"><span>04</span>Перестал&nbsp;расфокусироваться</p><p class="r d6"><span>05</span>Принял и&nbsp;полюбил&nbsp;себя</p><p class="r d6"><span>06</span>Доход начал&nbsp;плавно&nbsp;расти</p><p class="r d7"><span>07</span>Стали появляться&nbsp;новые&nbsp;возможности</p></div></div>
 </section>
-<!-- 113 -->
+<!-- 131 -->
 <section class="slide t-list s-e2-cs s-e2-cs3">
-<div class="cs-an cs-an3 r d1"><svg class="an-ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="84" class="bg"></circle><circle cx="100" cy="100" r="84" class="fg st"></circle></svg><div class="an-in"><b>5&nbsp;кг</b><span>не&nbsp;уходят</span></div></div>
+<div class="cs-an cs-an3 r d1"><svg class="an-ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="84" class="bg"/><circle cx="100" cy="100" r="84" class="fg st"/></svg><div class="an-in"><b>5&nbsp;кг</b><span>не&nbsp;уходят</span></div></div>
 <div class="cs-body"><div class="kicker r d2">А&nbsp;потом приходит&nbsp;на&nbsp;встречу&nbsp;и&nbsp;говорит</div><h3 class="cs-h r d3"></h3><blockquote class="cs-q r d3">«Чтобы у&nbsp;меня были кубики пресса, мне&nbsp;надо скинуть 5&nbsp;кг,&nbsp;но&nbsp;я&nbsp;не&nbsp;могу.<br>Сладкое не&nbsp;ем. Тренируюсь,&nbsp;но&nbsp;переедаю.<br><b>Не&nbsp;могу&nbsp;остановиться.»</b></blockquote></div>
 </section>
-<!-- 114 -->
+<!-- 132 -->
 <section class="slide t-list s-e2-cs s-e2-cs4">
 <div class="cs-an cs-an4 r d1"><div class="an-waves"><i></i><i></i><i></i></div><div class="an-in"><b>−2&nbsp;кг</b><span>за&nbsp;неделю</span></div></div>
 <div class="cs-body"><div class="kicker r d2">И&nbsp;дальше в&nbsp;ДПДГ 3.0 они&nbsp;находят&nbsp;сцепку</div><h3 class="cs-h r d3">Не&nbsp;еда&nbsp;источник&nbsp;удовольствия</h3><div class="cs-rows"><p class="r d4">Хруст орехов и&nbsp;вафель&nbsp;–&nbsp;главный&nbsp;источник&nbsp;удовольствия</p></div><div class="cs-big r d5">Не&nbsp;вкус&nbsp;– <span>а&nbsp;хруст</span></div><div class="cs-total r d6">Пересел на&nbsp;болгарский перец и&nbsp;скинул&nbsp;за&nbsp;первую неделю <b>2&nbsp;кг</b></div></div>
 </section>
-<!-- 115 -->
+<!-- 133 -->
 <section class="slide t-list s-e2-cs s-e2-cs5">
 <div class="cs-an cs-an5 r d1"><div class="an-meters"><div><span>Еда</span><p><i style="--w:50%;animation-delay:0.0s"></i></p><em>не&nbsp;100%</em></div><div><span>Спорт</span><p><i style="--w:65%;animation-delay:0.5s"></i></p><em>не&nbsp;100%</em></div><div><span>Бизнес</span><p><i style="--w:100%;animation-delay:1.0s"></i></p><em>100%</em></div></div></div>
 <div class="cs-body"><div class="kicker r d2">А&nbsp;дальше самое&nbsp;интересное</div><h3 class="cs-h r d3">От&nbsp;чего он&nbsp;ещё&nbsp;получал&nbsp;удовольствие?</h3><div class="cs-rows"><p class="r d4"><span class="cs-lb">ГОД назад</span>Нравилось проводить время с&nbsp;любимым человеком. Когда расстались, этот источник&nbsp;удовольствия&nbsp;исчез, пересел на&nbsp;еду&nbsp;и&nbsp;хрустяшки.</p><p class="r d5"><span class="cs-lb">СПОРТ?</span>Теннис, бокс, тренажёрный зал&nbsp;– хорошо, но&nbsp;не&nbsp;кайф&nbsp;на&nbsp;все&nbsp;100%.</p><p class="r d6 on"><span class="cs-lb">А&nbsp;что они поняли? От&nbsp;чего мурашки&nbsp;по&nbsp;коже?</span>Стратегическое ведение своего бизнеса: чтобы сотрудники внедряли идеи и&nbsp;доводили до&nbsp;конца. Готов днём и&nbsp;ночью придумывать идеи,&nbsp;но&nbsp;раньше <b>80%&nbsp;всей работы</b> делал руками&nbsp;сам.</p></div></div>
 </section>
-<!-- 116 -->
+<!-- 134 -->
 <section class="slide t-list s-e2-cs s-e2-cs6">
-<div class="cs-an cs-an6 r d1"><svg class="an-ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="84" class="bg"></circle><circle cx="100" cy="100" r="84" class="fg p80"></circle></svg><div class="an-in"><b>80%</b><span>работы сам</span></div></div>
+<div class="cs-an cs-an6 r d1"><svg class="an-ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="84" class="bg"/><circle cx="100" cy="100" r="84" class="fg p80"/></svg><div class="an-in"><b>80%</b><span>работы сам</span></div></div>
 <div class="cs-body"><div class="kicker r d2">Выяснили</div><h3 class="cs-h r d3">Почему он&nbsp;не&nbsp;делегировал&nbsp;рутину?</h3><div class="cs-qs"><p class="r d4">«быстрее сделать самому, чем объяснять,&nbsp;а&nbsp;потом&nbsp;контролировать»</p><p class="r d4">«никто лучше меня в&nbsp;этой&nbsp;области&nbsp;моего&nbsp;бизнеса&nbsp;не&nbsp;сделает»</p><p class="r d5">«они все&nbsp;какие-то&nbsp;глупые»</p><p class="r d5">«сотрудники никогда&nbsp;не&nbsp;будут&nbsp;пахать&nbsp;так,&nbsp;как&nbsp;я»</p></div><div class="cs-total r d6">Именно из-за&nbsp;этого он&nbsp;саботировал&nbsp;обучение&nbsp;сотрудников.</div><div class="cs-total r d6">Даже если к&nbsp;нему придёт классный сотрудник,&nbsp;он&nbsp;его&nbsp;подавит,&nbsp;найдёт,&nbsp;за&nbsp;что&nbsp;зацепиться,&nbsp;и&nbsp;уволит.</div></div>
 </section>
-<!-- 117 -->
+<!-- 135 -->
 <section class="slide t-list s-e2-cs s-e2-cs7">
-<div class="cs-an cs-an7 r d1"><svg class="an-net" viewBox="0 0 300 300"><g class="ln"><line x1="150" y1="150" x2="60" y2="60"></line><line x1="150" y1="150" x2="240" y2="60"></line><line x1="150" y1="150" x2="60" y2="240"></line><line x1="150" y1="150" x2="240" y2="240"></line></g><circle class="hub" cx="150" cy="150" r="34"></circle><circle class="nd" cx="60" cy="60" r="20"></circle><circle class="nd" cx="240" cy="60" r="20"></circle><circle class="nd" cx="60" cy="240" r="20"></circle><circle class="nd" cx="240" cy="240" r="20"></circle></svg><div class="an-lb">нанимает команду</div></div>
+<div class="cs-an cs-an7 r d1"><svg class="an-net" viewBox="0 0 300 300"><g class="ln"><line x1="150" y1="150" x2="60" y2="60"/><line x1="150" y1="150" x2="240" y2="60"/><line x1="150" y1="150" x2="60" y2="240"/><line x1="150" y1="150" x2="240" y2="240"/></g><circle class="hub" cx="150" cy="150" r="34"/><circle class="nd" cx="60" cy="60" r="20"/><circle class="nd" cx="240" cy="60" r="20"/><circle class="nd" cx="60" cy="240" r="20"/><circle class="nd" cx="240" cy="240" r="20"/></svg><div class="an-lb">нанимает команду</div></div>
 <div class="cs-body"><div class="kicker r d2">После переработки&nbsp;в&nbsp;ДПДГ&nbsp;3.0</div><h3 class="cs-h r d3">Стал инвестировать свою энергию не&nbsp;в&nbsp;рутину,&nbsp;а&nbsp;в&nbsp;рост&nbsp;бизнеса</h3><div class="cs-rows"><p class="r d4">То&nbsp;есть начал нанимать новых сотрудников&nbsp;и&nbsp;обучать&nbsp;их</p></div></div>
 </section>
-<!-- 118 -->
+<!-- 136 -->
 <section class="slide s-cases70 s-e2-olga">
 <div class="w70"><div class="kicker r d1">Ещё один&nbsp;кейс</div><h2 class="h70 r d1">Ольга, <span>инженер-конструктор</span></h2>
 <div class="g70"><div class="c70 r d2"><img src="assets/cases/c-olga-eng.webp" alt=""><div class="c70-t"><div class="c70-n"><b>Дополнительный доход после обучения&nbsp;от&nbsp;ДПДГ</b></div><div class="c70-big">+ 200&nbsp;000&nbsp;₽&nbsp;в&nbsp;месяц</div><p>Пошла учиться, чтобы проработать свой&nbsp;травматический&nbsp;детский&nbsp;опыт.</p><p>В&nbsp;результате начала вести клиентов, доход уже 200&nbsp;000&nbsp;₽ в&nbsp;месяц. Во&nbsp;время обучения затеяла ремонт за&nbsp;7&nbsp;млн&nbsp;и&nbsp;недавно&nbsp;его&nbsp;закончила.</p></div></div></div></div>
 </section>
-<!-- 119 -->
+<!-- 137 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Напишите в&nbsp;чат</div><h2 class="e3-h r d2">Сколько стоит <em>ваша</em> трансформация?</h2><p class="e3-sub r d3">Ваша новая жизнь, ваш новый&nbsp;доход</p>
 </section>
-<!-- 120 -->
+<!-- 138 -->
 <section class="slide e3 e3-sp flip">
 <div class="e3-img"><img src="assets/e3/e3-courses.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Мой путь</div><h2 class="e3-h r d2">Он&nbsp;стоил около&nbsp;1&nbsp;200&nbsp;000–1&nbsp;500&nbsp;000&nbsp;₽</h2><ul class="e3-list"><li class="r d3">И&nbsp;это без&nbsp;курсов повышения&nbsp;квалификации</li><li class="r d4">В&nbsp;другом месте каждый протокол покупается отдельно&nbsp;– выходит&nbsp;дороже</li><li class="r d5">И&nbsp;там нет версии&nbsp;3.0</li></ul></div>
 </section>
-<!-- 121 -->
+<!-- 139 -->
 <section class="slide e3 bg-mist">
 <div class="kicker r d1">Разница</div><h2 class="e3-h r d2">Базовые протоколы и&nbsp;ДПДГ 3.0&nbsp;– <em>небо и&nbsp;земля</em></h2><div class="e3-vs"><div class="col r d3"><div class="t">Базовые протоколы</div><p>Продаются по&nbsp;отдельности</p><p>Дольше и&nbsp;дороже</p></div><div class="mid r d4">→</div><div class="col b r d5"><div class="t">ДПДГ 3.0</div><p>Мой авторский метод, он&nbsp;патентуется</p><p>Самый эффективный и&nbsp;быстрый</p></div></div>
 </section>
-<!-- 122 -->
+<!-- 140 -->
 <section class="slide e3">
 <div class="kicker r d1">Что вы&nbsp;получаете</div><h2 class="e3-h r d2">Реальная ценность&nbsp;программы</h2><div class="e3-stack"><div class="sr r d3"><span>Ценность курса</span><b>1&nbsp;500&nbsp;000&nbsp;₽</b></div><div class="sr r d4"><span>4 сессии групповой терапии со&nbsp;мной</span><b>800&nbsp;000&nbsp;₽</b></div><div class="sr r d5"><span>Сессия Михаила&nbsp;Саба в&nbsp;конце обучения: он&nbsp;вводит вас в&nbsp;новую&nbsp;реальность</span><b>137&nbsp;000&nbsp;₽</b></div><div class="sr r d6"><span>Сервис «Помощник психолога в&nbsp;кармане»: 3&nbsp;месяца&nbsp;по&nbsp;50&nbsp;000&nbsp;₽</span><b>150&nbsp;000&nbsp;₽</b></div><div class="st r d8"><span>Реальная ценность</span><b>2&nbsp;587&nbsp;000&nbsp;₽</b></div></div><div class="e3-note soft r d8">Консультации моих маркетологов раз в&nbsp;месяц сюда не&nbsp;входят, хотя одна такая консультация стоит&nbsp;10–30&nbsp;тысяч&nbsp;₽</div>
 </section>
-<!-- 123 -->
+<!-- 141 -->
 <section class="slide e3 bg-mist">
 <div class="kicker r d1">Стоимость ПКТ</div><h2 class="e3-h r d2">Обучение на&nbsp;полгода</h2><div class="e3-offer"><div class="of-full r d3"><span class="lab">Реальная ценность</span><s class="old">2&nbsp;587&nbsp;000&nbsp;₽</s><span class="lab">Ваша цена</span><b class="new">450&nbsp;000&nbsp;₽</b><span class="pct">17% от&nbsp;ценности</span></div><div class="of-month r d5"><span class="lab">В&nbsp;рассрочку на&nbsp;12&nbsp;месяцев</span><b>37&nbsp;500&nbsp;₽</b><em>в&nbsp;месяц</em><p>450&nbsp;000&nbsp;₽ ÷ 12&nbsp;месяцев</p><p>Доступ ко&nbsp;всем урокам 1&nbsp;год</p></div></div>
 </section>
-<!-- 124 -->
+<!-- 142 -->
 <section class="slide e3">
 <div class="kicker r d1">С&nbsp;грантом</div><h2 class="e3-h r d2">Сколько стоит обучение с&nbsp;вашим&nbsp;грантом</h2><div class="e3-gprice"><div class="gp hot r d3"><span class="lab">Грант 200&nbsp;000&nbsp;₽</span><s class="old">450&nbsp;000&nbsp;₽</s><b class="new">250&nbsp;000&nbsp;₽</b><span class="pct">9,7% от&nbsp;ценности&nbsp;2&nbsp;587&nbsp;000&nbsp;₽</span><div class="mo"><span>Рассрочка 12&nbsp;мес</span><b>20&nbsp;833&nbsp;₽</b><em>в&nbsp;месяц</em></div><p>Этот грант один, разыграем его в&nbsp;конце</p></div><div class="gp r d4"><span class="lab">Грант 100&nbsp;000&nbsp;₽</span><s class="old">450&nbsp;000&nbsp;₽</s><b class="new">350&nbsp;000&nbsp;₽</b><span class="pct">13,5% от&nbsp;ценности&nbsp;2&nbsp;587&nbsp;000&nbsp;₽</span><div class="mo"><span>Рассрочка 12&nbsp;мес</span><b>29&nbsp;167&nbsp;₽</b><em>в&nbsp;месяц</em></div></div><div class="gp r d5"><span class="lab">Грант 50&nbsp;000&nbsp;₽</span><s class="old">450&nbsp;000&nbsp;₽</s><b class="new">400&nbsp;000&nbsp;₽</b><span class="pct">15,5% от&nbsp;ценности&nbsp;2&nbsp;587&nbsp;000&nbsp;₽</span><div class="mo"><span>Рассрочка 12&nbsp;мес</span><b>33&nbsp;333&nbsp;₽</b><em>в&nbsp;месяц</em></div></div></div>
 </section>
-<!-- 125 -->
+<!-- 143 -->
 <section class="slide e3">
-<div class="kicker r d1">Как получить&nbsp;грант</div><h2 class="e3-h r d2">Сначала быстро раздаём гранты 100&nbsp;000&nbsp;и&nbsp;50&nbsp;000&nbsp;₽</h2><div class="e3-chain"><p class="st r d3"><span>01</span>10&nbsp;грантов по&nbsp;100&nbsp;000&nbsp;₽ и&nbsp;20 по&nbsp;50&nbsp;000&nbsp;₽&nbsp;– тем, кто подал заявку; 3 по&nbsp;100&nbsp;000&nbsp;₽&nbsp;– тем, кто не&nbsp;подавал</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st r d4"><span>02</span>Кодовое слово пришло вам в&nbsp;SMS, на&nbsp;e-mail или в&nbsp;бот. Проверьте&nbsp;спам</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st last r d5"><span>03</span>Зафиксировать условия: оставить заявку и&nbsp;внести предоплату&nbsp;5&nbsp;000&nbsp;₽</p></div>
+<div class="kicker r d1">Как получить&nbsp;грант</div><h2 class="e3-h r d2">Сначала быстро раздаём гранты 100&nbsp;000&nbsp;и&nbsp;50&nbsp;000&nbsp;₽</h2><div class="e3-chain"><p class="st r d3"><span>01</span>10&nbsp;грантов по&nbsp;100&nbsp;000&nbsp;₽ и&nbsp;20 по&nbsp;50&nbsp;000&nbsp;₽&nbsp;– тем, кто подал заявку; 3 по&nbsp;100&nbsp;000&nbsp;₽&nbsp;– тем, кто не&nbsp;подавал</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st r d4"><span>02</span>Кодовое слово пришло вам в&nbsp;SMS, на&nbsp;e-mail или в&nbsp;бот. Проверьте&nbsp;спам</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st last r d5"><span>03</span>Зафиксировать условия: оставить заявку и&nbsp;внести предоплату&nbsp;5&nbsp;000&nbsp;₽</p></div>
 </section>
-<!-- 126 -->
+<!-- 144 -->
 <section class="slide e3 bg-mist">
 <div class="kicker r d1">А&nbsp;в&nbsp;конце&nbsp;– розыгрыш гранта&nbsp;200&nbsp;000&nbsp;₽</div><h2 class="e3-h r d2">Ваш грант остаётся с&nbsp;вами в&nbsp;любом&nbsp;случае</h2><div class="e3-vs"><div class="col r d3"><div class="t">Выиграли 200&nbsp;000&nbsp;₽</div><p>Обучение за&nbsp;250&nbsp;000&nbsp;₽</p></div><div class="mid r d4">или</div><div class="col b r d5"><div class="t">Не&nbsp;выиграли</div><p>Ваш грант 100&nbsp;000&nbsp;₽&nbsp;остаётся</p><p>Обучение за&nbsp;350&nbsp;000&nbsp;₽</p></div></div>
 </section>
-<!-- 127 -->
+<!-- 145 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Это марафон</div><h2 class="e3-h r d2">Небывалой <em>щедрости</em></h2><p class="e3-sub r d3">Даже 350&nbsp;000&nbsp;₽&nbsp;– это дёшево. Не&nbsp;расстраивайтесь, просто идите на&nbsp;обучение</p>
 </section>
-<!-- 128 -->
+<!-- 146 -->
 <section class="slide e3 e3-act">
-<div class="aw"><div class="kicker r d1">Как активировать&nbsp;грант</div><h2 class="e3-h r d2">Три шага на&nbsp;странице&nbsp;оплаты</h2><div class="e3-chain"><p class="st r d3"><span>01</span>Введите кодовое слово в&nbsp;поле&nbsp;промокода</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st r d4"><span>02</span>Нажмите «Применить»</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"></path></svg></i><p class="st last r d5"><span>03</span>Нажмите «Оплатить частично&nbsp;5&nbsp;000&nbsp;₽»</p></div><div class="e3-note coral r d8">Делиться кодовыми словами запрещено: такие коды мы&nbsp;блокируем</div></div><div class="e3-promo r d3"><div class="bar"><i></i><i></i><i></i></div><div class="frm"><p class="ttl">Заказ: «Психолог краткосрочной&nbsp;терапии»</p><div class="row"><div class="inp">Промокод: <u>ВАШЕ КОДОВОЕ&nbsp;СЛОВО</u></div><div class="btn ghost">Применить</div></div><div class="btn main">Оплатить частично&nbsp;5&nbsp;000&nbsp;₽</div></div><span class="pin p1">1</span><span class="pin p2">2</span><span class="pin p3">3</span></div>
+<div class="aw"><div class="kicker r d1">Как активировать&nbsp;грант</div><h2 class="e3-h r d2">Три шага на&nbsp;странице&nbsp;оплаты</h2><div class="e3-chain"><p class="st r d3"><span>01</span>Введите кодовое слово в&nbsp;поле&nbsp;промокода</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st r d4"><span>02</span>Нажмите «Применить»</p><i class="ar"><svg viewBox="0 0 40 28"><path d="M3 14h32M24 4l11 10-11 10"/></svg></i><p class="st last r d5"><span>03</span>Нажмите «Оплатить частично&nbsp;5&nbsp;000&nbsp;₽»</p></div><div class="e3-note coral r d8">Делиться кодовыми словами запрещено: такие коды мы&nbsp;блокируем</div></div><div class="e3-promo r d3"><div class="bar"><i></i><i></i><i></i></div><div class="frm"><p class="ttl">Заказ: «Психолог краткосрочной&nbsp;терапии»</p><div class="row"><div class="inp">Промокод: <u>ВАШЕ КОДОВОЕ&nbsp;СЛОВО</u></div><div class="btn ghost">Применить</div></div><div class="btn main">Оплатить частично&nbsp;5&nbsp;000&nbsp;₽</div></div><span class="pin p1">1</span><span class="pin p2">2</span><span class="pin p3">3</span></div>
 </section>
-<!-- 129 -->
+<!-- 147 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Почему не&nbsp;оплатить сразу&nbsp;полностью?</div><h2 class="e3-h r d2">Потому что сначала&nbsp;– <em>адмиссия</em></h2>
 </section>
-<!-- 130 -->
+<!-- 148 -->
 <section class="slide e3 e3-sp">
 <div class="e3-img"><img src="assets/e3/e3-admit.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Что такое&nbsp;адмиссия</div><h2 class="e3-h r d2">Разговор с&nbsp;психологами&nbsp;института</h2><ul class="e3-list"><li class="r d3">Это приёмная&nbsp;комиссия</li><li class="r d4">Мы&nbsp;создаём качественное окружение и&nbsp;берём не&nbsp;всех</li><li class="r d5">Важно, чтобы совпадали&nbsp;ценности</li><li class="r d6">Людям в&nbsp;неадекватном состоянии отказываем&nbsp;сразу</li></ul></div>
 </section>
-<!-- 131 -->
+<!-- 149 -->
 <section class="slide e3 bg-mist">
 <div class="kicker r d1">После адмиссии</div><h2 class="e3-h r d2">Два варианта</h2><div class="e3-vs"><div class="col r d3"><div class="t">Пришло письмо о&nbsp;зачислении</div><p>Оплачиваете обучение&nbsp;полностью</p><p>Цена с&nbsp;вашим грантом&nbsp;сохраняется</p></div><div class="mid r d4">или</div><div class="col b r d5"><div class="t">Пришёл отказ</div><p>Предоплату 5&nbsp;000&nbsp;₽&nbsp;возвращаем</p></div></div>
 </section>
-<!-- 132 -->
+<!-- 150 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Ждём</div><h2 class="e3-h r d2">Активируйте <em>гранты</em></h2><p class="e3-sub r d3">Пишите в&nbsp;чат, кто зафиксировал&nbsp;условия</p>
 </section>
-<!-- 133 -->
+<!-- 151 -->
 <section class="slide e3 e3-sp flip">
 <div class="e3-img"><img src="assets/e3/e3-speak.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Слово участнице</div><h2 class="e3-h r d2">Ирина записалась на&nbsp;3-й поток&nbsp;ПКТ</h2><ul class="e3-list"><li class="r d3">Сейчас она расскажет, почему&nbsp;решилась</li><li class="r d4">И&nbsp;что уже&nbsp;изменилось</li></ul></div>
 </section>
-<!-- 134 -->
+<!-- 152 -->
 <section class="slide e3 e3-sp">
 <div class="e3-img"><img src="assets/gen/b3-saba-c.jpg" alt=""></div><div class="e3-w"><div class="kicker r d1">Практика</div><h2 class="e3-h r d2">Михаил&nbsp;Саба проведёт практику соединения с&nbsp;вашей новой&nbsp;реальностью</h2><ul class="e3-list"><li class="r d3">Вы&nbsp;почувствуете в&nbsp;теле состояние, когда ваше самое смелое желание&nbsp;реализовано</li></ul></div>
 </section>
-<!-- 135 -->
+<!-- 153 -->
 <section class="slide t-html s-tar2 s-e2-tar">
 <div class="head"><div class="kicker r d1">Как&nbsp;получить записи&nbsp;эфиров, личный разбор вашей&nbsp;ситуации&nbsp;и&nbsp;все&nbsp;бонусы</div><h2 class="h2 r d2">Перейдите на&nbsp;тариф&nbsp;<em>VIP</em></h2></div>
 <div class="tw">
@@ -3697,16 +4096,16 @@ section.slide .jv-qs{gap:12px;margin-top:0}
     <li class="hl">Записи и&nbsp;презентации&nbsp;всех&nbsp;эфиров</li><li>3 эфира +&nbsp;<span class="nw">4-й</span> <span class="nw">VIP-эфир</span> «Магнит для&nbsp;денег»: проведу вместе&nbsp;с&nbsp;мужем&nbsp;Михаилом&nbsp;Саба</li><li>Практика на&nbsp;60&nbsp;минут «Прочувствуй свою новую реальность и&nbsp;узнай, что&nbsp;тебе&nbsp;не&nbsp;даёт&nbsp;в&nbsp;неё&nbsp;перейти»</li><li>Личный <span class="nw">разбор-диагностика</span> от&nbsp;психолога, выпускника института. Такая консультация&nbsp;стоит&nbsp;от&nbsp;15&nbsp;000&nbsp;₽</li><li><span class="nw">Мастер-класс</span> о&nbsp;профессии <span class="nw">EMDR-терапевта</span> с&nbsp;доходом от&nbsp;300&nbsp;000&nbsp;₽&nbsp;в&nbsp;месяц</li></ul></div>
 </div>
 </section>
-<!-- 136 -->
+<!-- 154 -->
 <section class="slide e3 e3-dk">
 <div class="kicker r d1">Финал эфира</div><h2 class="e3-h r d2">Розыгрыш гранта <em>200&nbsp;000&nbsp;₽</em></h2><p class="e3-sub r d3">Поздравляем победителя</p>
 </section>
 </main>
 </div>
-
-
+</main>
+</div>
 <div class="progress" id="progress"></div>
-<div class="deck-controls" id="controls"><span id="counter">1 / 136</span><span>← → пробел · E правка текста</span></div>
+<div class="deck-controls" id="controls"><span id="counter">1 / 154</span><span>← → пробел · E правка текста</span></div>
 <div class="edit-hotzone"></div>
 <button class="edit-toggle" id="editToggle" title="Правка текста (E)">✎</button>
 <script>
