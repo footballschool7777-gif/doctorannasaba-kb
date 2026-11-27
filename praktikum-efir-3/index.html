@@ -4349,6 +4349,28 @@ body.all .deck-controls { display: none !important; }
 .e3-tf .tf-sum p { margin: 0; font-size: 30px; font-weight: 600; line-height: 1.2; text-wrap: balance; }
 .slide.active.e3-tf .tf-sum em { animation: tfq 1.6s ease-in-out 1.6s infinite; }
 @keyframes tfq { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+/* msg 1875: cost redesign */
+.e3-cost2 .cs-w { grid-template-columns: 1.05fr 0.95fr; gap: 64px; margin-top: 50px; }
+.e3-cost2 .cs-top { display: flex; align-items: center; gap: 34px; }
+.e3-cost2 .n40 { flex: none; width: 190px; height: 190px; border-radius: 50%; background: var(--teal); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-shadow: 0 24px 50px -26px rgba(15,90,85,.7); }
+.e3-cost2 .n40 b { font-size: 92px; font-weight: 800; line-height: .9; }
+.e3-cost2 .n40 span { font-size: 17px; font-weight: 700; line-height: 1.15; margin-top: 6px; padding: 0 22px; opacity: .9; }
+.e3-cost2 .cs-l p { border: 0; padding: 0; margin: 0; }
+.e3-cost2 .cs-l p::before { display: none; }
+.e3-cost2 .cs-l p.one { font-size: 38px; font-weight: 700; line-height: 1.25; color: var(--ink); }
+.e3-cost2 .dots { display: grid; grid-template-columns: repeat(20, 1fr); gap: 10px; margin: 40px 0 34px; max-width: 760px; }
+.e3-cost2 .dots i { aspect-ratio: 1; border-radius: 50%; background: var(--teal); opacity: 0; transform: scale(.4); }
+.slide.active.e3-cost2 .dots i { animation: c2dot .35s ease-out forwards; animation-delay: calc(.5s + var(--k) * .04s); }
+@keyframes c2dot { to { opacity: 1; transform: none; } }
+.e3-cost2 .cs-l p.pr { display: inline-block; font-size: 34px; font-weight: 800; color: var(--ink); background: #fff; padding: 16px 28px; border-radius: 18px; box-shadow: 0 16px 34px -24px rgba(20,40,40,.4); }
+.e3-cost2 .cs-l p.pr span { font-weight: 600; color: var(--grey); }
+.e3-cost2 .cs-l p.nt { margin-top: 30px; font-size: 29px; font-weight: 600; line-height: 1.35; color: var(--grey); padding-left: 24px; border-left: 6px solid var(--sun); max-width: 760px; }
+.e3-cost2 .cs-r { background: none; box-shadow: none; padding: 0; border-radius: 0; }
+.e3-cost2 .rc { position: relative; background: #fff; padding: 40px 46px 56px; border-radius: 28px 28px 0 0; box-shadow: 0 30px 60px -36px rgba(20,40,40,.45);
+  -webkit-mask: radial-gradient(14px at 50% calc(100% + 4px), transparent 98%, #000) 50% / 40px 100%; mask: radial-gradient(14px at 50% calc(100% + 4px), transparent 98%, #000) 50% / 40px 100%; }
+.e3-cost2 .yrs { display: flex; align-items: center; gap: 16px; margin-top: 34px; font-size: 36px; }
+.e3-cost2 .yrs i { flex: none; width: 58px; height: 58px; border-radius: 50%; background: var(--sun); color: var(--ink); display: flex; align-items: center; justify-content: center; }
+.e3-cost2 .yrs i svg { width: 30px; height: 30px; }
 
 </style>
 </head>
@@ -4862,8 +4884,8 @@ body.all .deck-controls { display: none !important; }
 <div class="kicker r d1">Система, в&nbsp;которой получится у&nbsp;каждого</div><h2 class="e3-h r d2">Пошаговая программа, где теория сразу превращается&nbsp;в&nbsp;практику</h2><div class="sy-g"><div class="sy r d3"><span>01</span><p><b>2 занятия</b> в&nbsp;неделю по&nbsp;5 часов: лекция и&nbsp;практика</p></div><div class="sy r d4"><span>02</span><p><b>250 часов</b> обучения за&nbsp;6&nbsp;месяцев</p></div><div class="sy r d5"><span>03</span><p>Доступ к&nbsp;записям и&nbsp;материалам&nbsp;– <b>1 год</b></p></div><div class="sy r d6"><span>04</span><p>Преподаватели-практики и&nbsp;супервизоры</p></div><div class="sy r d7"><span>05</span><p>Супервизии и&nbsp;обратная&nbsp;связь</p></div><div class="sy r d8"><span>06</span><p>Гипнотерапия и&nbsp;системная&nbsp;психология</p></div><div class="sy r d9"><span>07</span><p>Личная терапия в&nbsp;ходе&nbsp;обучения</p></div></div>
 </section>
 <!-- 91 -->
-<section class="slide e3 e3-cost">
-<div class="kicker r d1">Сколько стоит&nbsp;обучение?</div><h2 class="e3-h r d2">Классический формат, которому&nbsp;училась&nbsp;я</h2><div class="cs-w"><div class="cs-l"><p class="r d3">Обучение каждому протоколу&nbsp;отдельно</p><p class="r d4">Всего 40&nbsp;протоколов</p><p class="r d5">Чтобы получить систему целиком и&nbsp;быть полноценным ДПДГ-терапевтом, нужно пройти все&nbsp;протоколы</p><p class="r d6">Стоимость каждого&nbsp;– от&nbsp;20&nbsp;000 до&nbsp;175&nbsp;000&nbsp;₽</p></div><div class="cs-r"><div class="cr r d4"><span>Протоколы</span><b>~1&nbsp;200&nbsp;000&nbsp;₽</b></div><div class="cr r d5"><span>Личная терапия</span><b>~300&nbsp;000&nbsp;₽</b></div><div class="cr tot r d6"><span>Всего</span><b>~1&nbsp;500&nbsp;000&nbsp;₽</b></div><p class="yrs r d7">И&nbsp;это длилось <u>несколько лет</u></p></div></div>
+<section class="slide e3 e3-cost e3-cost2">
+<div class="kicker r d1">Сколько стоит&nbsp;обучение?</div><h2 class="e3-h r d2">Классический формат, которому&nbsp;училась&nbsp;я</h2><div class="cs-w"><div class="cs-l"><div class="cs-top r d3"><div class="n40"><b>40</b><span>Всего 40&nbsp;протоколов</span></div><p class="one">Обучение каждому протоколу&nbsp;отдельно</p></div><div class="dots r d4"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i><i style="--k:3"></i><i style="--k:4"></i><i style="--k:5"></i><i style="--k:6"></i><i style="--k:7"></i><i style="--k:8"></i><i style="--k:9"></i><i style="--k:10"></i><i style="--k:11"></i><i style="--k:12"></i><i style="--k:13"></i><i style="--k:14"></i><i style="--k:15"></i><i style="--k:16"></i><i style="--k:17"></i><i style="--k:18"></i><i style="--k:19"></i><i style="--k:20"></i><i style="--k:21"></i><i style="--k:22"></i><i style="--k:23"></i><i style="--k:24"></i><i style="--k:25"></i><i style="--k:26"></i><i style="--k:27"></i><i style="--k:28"></i><i style="--k:29"></i><i style="--k:30"></i><i style="--k:31"></i><i style="--k:32"></i><i style="--k:33"></i><i style="--k:34"></i><i style="--k:35"></i><i style="--k:36"></i><i style="--k:37"></i><i style="--k:38"></i><i style="--k:39"></i></div><p class="pr r d5"><span>Стоимость каждого&nbsp;–</span> от&nbsp;20&nbsp;000 до&nbsp;175&nbsp;000&nbsp;₽</p><p class="nt r d6">Чтобы получить систему целиком и&nbsp;быть полноценным ДПДГ-терапевтом, нужно пройти&nbsp;все&nbsp;протоколы</p></div><div class="cs-r r d5"><div class="rc"><div class="cr"><span>Протоколы</span><b>~1&nbsp;200&nbsp;000&nbsp;₽</b></div><div class="cr"><span>Личная терапия</span><b>~300&nbsp;000&nbsp;₽</b></div><div class="cr tot"><span>Всего</span><b>~1&nbsp;500&nbsp;000&nbsp;₽</b></div></div><p class="yrs r d7"><i><svg viewBox="0 0 24 24"><path d="M6 2h12M6 22h12M7 2v4a5 5 0 0 0 10 0V2M7 22v-4a5 5 0 0 1 10 0v4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></i>И&nbsp;это длилось <u>несколько&nbsp;лет</u></p></div></div>
 </section>
 <!-- 92 -->
 <section class="slide e3 e3-dk e3-yes">
