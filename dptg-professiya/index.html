@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Психолог краткосрочной терапии ДПДГ — Программа Анны Саба</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark:    #1a1a2e;
+      --accent:  #F5A623;
+      --accent2: #d48d0e;
+      --white:   #ffffff;
+      --bg:      #f8f7f4;
+      --text:    #1a1a1a;
+      --muted:   #666666;
+      --shadow:  0 4px 24px rgba(0,0,0,0.09);
+      --radius:  14px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', Arial, sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .btn {
+      display: inline-block; background: var(--accent); color: var(--dark);
+      font-weight: 700; font-size: 16px; padding: 14px 32px;
+      border-radius: 8px; border: none; cursor: pointer; text-decoration: none;
+      transition: background .2s, transform .1s;
+    }
+    .btn:hover { background: var(--accent2); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent; border: 2px solid var(--accent); color: var(--dark);
+    }
+    .btn-outline:hover { background: var(--accent); }
+    .section-title { font-size: clamp(26px, 4vw, 38px); font-weight: 800; line-height: 1.2; margin-bottom: 10px; }
+    .section-sub   { color: var(--muted); font-size: 17px; margin-bottom: 48px; }
+    .program-badge {
+      display: inline-block; background: var(--accent); color: var(--dark);
+      font-size: 11px; font-weight: 800; letter-spacing: .6px; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 20px; margin-bottom: 14px;
+    }
+    .tag {
+      display: inline-block; background: rgba(245,166,35,.12); border: 1px solid var(--accent);
+      color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .6px;
+      padding: 5px 14px; border-radius: 20px; text-transform: uppercase; margin-bottom: 18px;
+    }
+
+    /* HEADER */
+    #site-header {
+      position: sticky; top: 0; z-index: 200;
+      background: var(--white); border-bottom: 1px solid #ececec;
+      padding: 14px 0;
+    }
+    #site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .header-logo { font-size: 17px; font-weight: 800; color: var(--dark); text-decoration: none; }
+    .header-logo span { color: var(--accent); }
+    .header-nav { display: flex; gap: 24px; list-style: none; }
+    .header-nav a { text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500; }
+    .header-nav a:hover { color: var(--accent); }
+    @media (max-width: 768px) { .header-nav { display: none; } }
+
+    /* HERO */
+    #hero { background: var(--bg); color: var(--text); padding: 72px 0 0; overflow: hidden; }
+    #hero .container { display: flex; gap: 48px; align-items: flex-end; }
+    .hero-content { flex: 1; padding-bottom: 72px; }
+    .hero-title { font-size: clamp(28px, 4.2vw, 46px); font-weight: 800; line-height: 1.15; margin-bottom: 22px; }
+    .hero-title span { color: var(--accent); }
+    .hero-desc { font-size: 17px; color: var(--muted); line-height: 1.75; margin-bottom: 36px; max-width: 520px; }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 0; }
+
+    .hero-photo-wrap { flex: 0 0 420px; align-self: flex-start; margin-top: -20px; position: relative; }
+    .hero-photo-wrap img {
+      width: 100%; display: block;
+      max-height: 640px; object-fit: cover; object-position: top center;
+      border-radius: 14px 14px 0 0;
+    }
+    .hero-badge {
+      position: absolute; bottom: 24px; right: -16px;
+      width: 110px; height: 110px; border-radius: 50%;
+      background: var(--accent); color: var(--dark);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; box-shadow: 0 4px 18px rgba(245,166,35,.45);
+      z-index: 10; line-height: 1.15;
+    }
+    .hero-badge .hb-num { font-size: 22px; font-weight: 900; display: block; }
+    .hero-badge .hb-text { font-size: 10px; font-weight: 700; display: block; letter-spacing: .2px; }
+    @media (max-width: 900px) { .hero-photo-wrap { display: none; } }
+    @media (max-width: 768px) {
+      #hero { padding: 52px 0 0; }
+      .hero-content { padding-bottom: 52px; text-align: center; }
+      .hero-desc { max-width: 100%; }
+      .hero-cta { justify-content: center; }
+    }
+
+    /* AUTHORITY */
+    #authority { padding: 80px 0; background: var(--bg); }
+    #authority .container { display: flex; gap: 56px; align-items: center; }
+    .authority-photo { flex: 0 0 300px; }
+    .authority-photo img {
+      width: 100%; height: 420px; object-fit: cover;
+      object-position: center top; border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .authority-content { flex: 1; }
+    .authority-name { font-size: clamp(28px, 3.5vw, 40px); font-weight: 800; margin-bottom: 6px; }
+    .authority-role { font-size: 16px; color: var(--muted); margin-bottom: 28px; }
+    .authority-creds { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .authority-cred  {
+      display: flex; gap: 12px; align-items: flex-start;
+      background: var(--white); border-radius: 10px; padding: 14px 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    }
+    .authority-cred .ic { flex-shrink: 0; margin-top: 2px; width: 22px; height: 22px; color: var(--accent); }
+    .authority-cred .tx { font-size: 15px; font-weight: 600; }
+    .authority-cred .tx small { display: block; font-weight: 400; font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .authority-bio { font-size: 16px; color: var(--muted); line-height: 1.8; }
+    @media (max-width: 860px) { #authority .container { flex-direction: column; } .authority-photo { flex: none; width: 220px; } }
+
+    /* STATS */
+    #stats { background: var(--white); border-top: 1px solid #e8e8e8; border-bottom: 1px solid #e8e8e8; padding: 60px 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; text-align: center; }
+    .stat-item { padding: 16px 8px; border-right: 1px solid #e8e8e8; }
+    .stat-item:last-child { border-right: none; }
+    .stat-item .num { font-size: clamp(34px, 4vw, 50px); font-weight: 800; color: var(--accent); line-height: 1; }
+    .stat-item .unit { font-size: 22px; font-weight: 800; color: var(--accent); }
+    .stat-item .desc { font-size: 13px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+    @media (max-width: 600px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid #e8e8e8; padding: 20px 8px; }
+      .stat-item:nth-child(2n) { border-left: 1px solid #e8e8e8; }
+      .stat-item:last-child { border-bottom: none; }
+    }
+
+    /* REVIEWS */
+    #reviews { padding: 80px 0; background: var(--bg); overflow: hidden; }
+    #reviews .section-title { text-align: center; }
+    #reviews .section-sub   { text-align: center; margin-bottom: 40px; }
+    .carousel-viewport { overflow: hidden; position: relative; }
+    .carousel-track { display: flex; gap: 0; transition: transform .55s cubic-bezier(.4,0,.2,1); will-change: transform; }
+    .rc {
+      flex: 0 0 100%; background: var(--white); border-radius: 18px;
+      box-shadow: 0 6px 32px rgba(0,0,0,.1); padding: 36px 48px;
+      display: grid; grid-template-columns: 200px 1fr; gap: 40px;
+      align-items: start; box-sizing: border-box;
+    }
+    @media (max-width: 700px) { .rc { grid-template-columns: 1fr; padding: 28px 22px; gap: 20px; } }
+    .rc-person { text-align: center; }
+    .rc-photo {
+      width: 110px; height: 110px; border-radius: 50%;
+      background: #e0ddd7; margin: 0 auto 12px; overflow: hidden;
+      border: 3px solid var(--accent);
+    }
+    .rc-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .rc-photo-ph {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; color: #aaa; text-align: center; line-height: 1.3; padding: 8px;
+    }
+    .rc-name   { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .rc-role   { font-size: 12px; color: var(--muted); line-height: 1.4; }
+    .rc-body { display: flex; flex-direction: column; gap: 16px; }
+    .rc-block h4 {
+      font-size: 11px; font-weight: 800; letter-spacing: 1px;
+      text-transform: uppercase; margin-bottom: 10px;
+      padding: 4px 10px; display: inline-block; border-radius: 4px;
+    }
+    .rc-before h4 { background: #f0ece4; color: #888; }
+    .rc-after  h4 { background: #fff3d6; color: #a06500; }
+    .rc-block ul  { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .rc-block li  { font-size: 14px; color: var(--text); line-height: 1.55; padding-left: 16px; position: relative; }
+    .rc-before li::before { content: "·"; position: absolute; left: 4px; color: #bbb; font-weight: 700; }
+    .rc-after  li::before { content: "✦"; position: absolute; left: 0; color: var(--accent); font-size: 11px; top: 3px; }
+    .rc-after  li strong  { color: var(--dark); }
+
+    .carousel-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 32px; }
+    .carousel-btn {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 2px solid var(--accent); background: var(--white);
+      color: var(--dark); font-size: 18px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .carousel-btn:hover { background: var(--accent); }
+    .carousel-dots { display: flex; gap: 8px; }
+    .carousel-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #d0ccc4; cursor: pointer; transition: background .2s, width .2s;
+      border: none;
+    }
+    .carousel-dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .reviews-cta { text-align: center; margin-top: 40px; }
+    .reviews-note { font-size: 14px; color: var(--muted); margin-top: 10px; }
+
+    /* WHAT IS */
+    #what-is { padding: 80px 0; background: var(--bg); }
+    .what-is-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .what-is-text h2 { font-size: clamp(24px, 3.5vw, 36px); font-weight: 800; line-height: 1.25; margin-bottom: 20px; }
+    .what-is-text h2 em { font-style: normal; color: var(--accent); }
+    .what-is-text p  { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
+    .what-is-cards { display: flex; flex-direction: column; gap: 14px; }
+    .what-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 20px; display: flex; gap: 14px; align-items: flex-start;
+      box-shadow: var(--shadow);
+    }
+    .what-card .ic { flex-shrink: 0; margin-top: 2px; width: 22px; height: 22px; color: var(--accent); }
+    .what-card h4  { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .what-card p   { font-size: 13px; color: var(--muted); line-height: 1.55; }
+    @media (max-width: 768px) { .what-is-grid { grid-template-columns: 1fr; } }
+
+    /* FOR WHOM */
+    #for-whom { padding: 80px 0; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+    .card {
+      background: var(--white); border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 26px 22px;
+      border-top: 3px solid transparent; transition: border-color .2s;
+    }
+    .card:hover { border-top-color: var(--accent); }
+    .card-icon { margin-bottom: 14px; width: 26px; height: 26px; color: var(--accent); }
+    .card-icon svg { width: 100%; height: 100%; }
+    .card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .card p  { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* SKILLS */
+    #skills { background: var(--bg); padding: 80px 0; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+    .skill-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: var(--white); border-radius: var(--radius);
+      padding: 18px; box-shadow: var(--shadow);
+    }
+    .skill-check { color: var(--accent); font-size: 20px; flex-shrink: 0; font-weight: 800; }
+    .skill-item h4 { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+    .skill-item p  { font-size: 13px; color: var(--muted); }
+
+    /* PROGRAM */
+    #program { padding: 80px 0; }
+    .accordion { border: 1.5px solid #e8e8e8; border-radius: var(--radius); overflow: hidden; }
+    .accordion-item { border-bottom: 1.5px solid #e8e8e8; }
+    .accordion-item:last-child { border-bottom: none; }
+    .accordion-btn {
+      width: 100%; display: flex; justify-content: space-between; align-items: center;
+      padding: 19px 24px; background: none; border: none; cursor: pointer;
+      font-family: inherit; font-size: 15px; font-weight: 600; color: var(--text); text-align: left;
+    }
+    .accordion-btn:hover { background: var(--bg); }
+    .acc-num { color: var(--accent); font-size: 12px; font-weight: 800; margin-right: 12px; flex-shrink: 0; }
+    .accordion-icon { font-size: 18px; transition: transform .3s; flex-shrink: 0; margin-left: 12px; color: var(--accent); }
+    .accordion-item.open .accordion-icon { transform: rotate(45deg); }
+    .accordion-body { display: none; padding: 0 24px 20px 52px; }
+    .accordion-body ul { list-style: none; }
+    .accordion-body li { padding: 5px 0; font-size: 14px; color: var(--muted); }
+    .accordion-body li::before { content: "→ "; color: var(--accent); font-weight: 700; }
+
+    /* PHOTO BANNER */
+    #photo-banner { width: 100%; height: 440px; overflow: hidden; position: relative; }
+    #photo-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+    #photo-banner .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(26,26,46,.82) 40%, rgba(26,26,46,.2));
+      display: flex; align-items: center;
+    }
+    #photo-banner .overlay-inner { max-width: 560px; padding: 0 56px; color: var(--white); }
+    #photo-banner .overlay-inner p  { font-size: clamp(20px, 2.8vw, 32px); font-weight: 700; line-height: 1.4; margin-bottom: 24px; }
+    #photo-banner .overlay-inner em { color: var(--accent); font-style: normal; }
+    @media (max-width: 600px) {
+      #photo-banner { height: 300px; }
+      #photo-banner .overlay { background: rgba(26,26,46,.7); }
+      #photo-banner .overlay-inner { padding: 0 24px; }
+    }
+
+    /* TIMER */
+    #timer-bar {
+      background: linear-gradient(135deg, #1a1a2e 0%, #2a1a3e 100%);
+      color: var(--white);
+      padding: 28px 0;
+      text-align: center;
+      border-top: 3px solid var(--accent);
+      border-bottom: 3px solid var(--accent);
+    }
+    #timer-bar .timer-title {
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    #timer-bar .timer-title em {
+      font-style: normal;
+      color: var(--accent);
+      font-weight: 800;
+    }
+    .timer-clock {
+      display: inline-flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .timer-unit {
+      background: var(--accent);
+      color: var(--dark);
+      border-radius: 10px;
+      padding: 12px 16px;
+      min-width: 72px;
+      box-shadow: 0 4px 14px rgba(245,166,35,.35);
+    }
+    .timer-unit .tu-num {
+      display: block;
+      font-size: clamp(26px, 3.2vw, 36px);
+      font-weight: 900;
+      line-height: 1;
+    }
+    .timer-unit .tu-label {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-top: 6px;
+      color: var(--dark);
+      opacity: .8;
+    }
+    .timer-hint {
+      font-size: 13px;
+      color: #c8c8d6;
+      margin-top: 14px;
+    }
+
+    /* PRICING */
+    #pricing { padding: 80px 0; background: var(--bg); }
+    .scarcity-badge {
+      display: inline-block;
+      background: #ff4d4d;
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .4px;
+      padding: 5px 12px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      animation: pulse-scarce 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse-scarce {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,77,77,.55); }
+      50%      { box-shadow: 0 0 0 8px rgba(255,77,77,0); }
+    }
+    .pricing-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start;
+      max-width: 820px; margin: 0 auto;
+    }
+    @media (max-width: 760px) { .pricing-grid { grid-template-columns: 1fr; max-width: 460px; } }
+    .pricing-grid.pricing-single { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
+    .pricing-card {
+      background: var(--white); border: 2px solid #e8e8e8;
+      border-radius: var(--radius); padding: 30px 26px; position: relative;
+    }
+    .pricing-card.featured {
+      border-color: var(--accent); padding: 38px 30px;
+      box-shadow: 0 8px 36px rgba(245,166,35,.18);
+    }
+    .pricing-card.featured::before {
+      content: "Полная профессия"; position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: var(--dark); font-size: 11px; font-weight: 800;
+      padding: 4px 16px; border-radius: 20px; white-space: nowrap; letter-spacing: .4px;
+    }
+    .pricing-name  { font-size: 19px; font-weight: 800; margin-bottom: 6px; text-align: center; }
+    .pricing-price {
+      font-size: clamp(26px, 3.2vw, 38px); font-weight: 800; color: var(--dark); margin-bottom: 4px; text-align: center;
+    }
+    .pricing-old {
+      display: block; text-align: center; font-size: 16px; font-weight: 600;
+      color: #a00; text-decoration: line-through; margin-bottom: 6px;
+    }
+    .pricing-note  { font-size: 13px; color: var(--muted); margin-bottom: 20px; text-align: center; }
+    .pricing-features { list-style: none; margin-bottom: 26px; }
+    .pricing-features li { padding: 7px 0; font-size: 14px; border-bottom: 1px solid #f2f2f2; line-height: 1.5; }
+    .pricing-features li::before { content: "✓ "; color: var(--accent); font-weight: 700; }
+    .pricing-card .btn { width: 100%; text-align: center; background: transparent; border: 2px solid var(--accent); color: var(--dark); }
+    .pricing-card .btn:hover { background: var(--accent); }
+    .pricing-card.featured .btn { background: var(--accent); border-color: var(--accent); }
+    .pricing-card.featured .btn:hover { background: var(--accent2); border-color: var(--accent2); }
+
+    /* FORM */
+    #registration { padding: 80px 0; }
+    .form-wrap {
+      max-width: 540px; margin: 0 auto;
+      background: var(--white); border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 48px 40px;
+    }
+    @media (max-width: 600px) { .form-wrap { padding: 32px 20px; } }
+    .form-wrap .section-title { text-align: center; }
+    .form-wrap .section-sub   { text-align: center; }
+    .form-deadline {
+      text-align: center; background: #fff8ec; border: 1px solid #f5c96a;
+      border-radius: 8px; padding: 10px 16px; font-size: 14px; font-weight: 600;
+      color: #7a4800; margin-bottom: 24px;
+    }
+    .reg-form { display: flex; flex-direction: column; gap: 14px; }
+    .reg-form input[type="text"], .reg-form input[type="tel"], .reg-form input[type="email"] {
+      width: 100%; padding: 14px 16px; border: 1.5px solid #ddd; border-radius: 8px;
+      font-size: 16px; font-family: inherit; outline: none; transition: border .2s;
+    }
+    .reg-form input:focus { border-color: var(--accent); }
+    .reg-form .btn { width: 100%; text-align: center; font-size: 17px; padding: 16px; }
+    .form-consent { font-size: 12px; color: var(--muted); text-align: center; line-height: 1.5; }
+    .form-consent a { color: var(--muted); }
+    .reg-success { text-align: center; padding: 12px 0; animation: reg-success-in .4s ease; }
+    .reg-success-icon {
+      width: 64px; height: 64px; margin: 0 auto 18px; border-radius: 50%;
+      background: var(--accent); color: var(--dark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 34px; font-weight: 800;
+    }
+    .reg-success-title { font-size: 24px; font-weight: 800; margin-bottom: 10px; }
+    .reg-success-text { font-size: 16px; color: var(--muted); line-height: 1.6; }
+    @keyframes reg-success-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+    /* MOBILE STICKY CTA */
+    #mobile-cta {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
+      background: var(--dark); padding: 12px 20px;
+      box-shadow: 0 -4px 24px rgba(0,0,0,.25);
+    }
+    #mobile-cta .btn { width: 100%; text-align: center; }
+    @media (max-width: 768px) { #mobile-cta { display: none !important; } }
+
+    /* FOOTER */
+    #site-footer {
+      background: var(--dark); color: #666; padding: 36px 0;
+      font-size: 13px; text-align: center; line-height: 1.9;
+    }
+    #site-footer .brand { color: var(--white); font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+    #site-footer a { color: #666; text-decoration: underline; }
+
+  
+    /* правки первого экрана и переносов */
+    div, span, button, a { text-wrap: balance; }
+    .pricing-price { white-space: nowrap; }
+    .carousel-viewport { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; touch-action: pan-y; }
+    .carousel-viewport::-webkit-scrollbar { display: none; }
+    p, li, h3, h4, .rc-name, .form-deadline, footer p { text-wrap: balance; }
+    h1, h2, .hero-title, .section-title, .section-sub, .hero-desc { text-wrap: balance; }
+    #hero { padding-top: 56px; }
+    .hero-content { padding-bottom: 56px; }
+    @media (max-width: 600px) {
+      #hero { padding-top: 22px; }
+      .hero-content { padding-bottom: 28px; }
+      .hero-title { font-size: 25px; margin-bottom: 12px; }
+      .hero-desc { font-size: 14px; line-height: 1.5; margin-bottom: 14px; }
+      #hero .hero-content > p[style] { margin-top: 0 !important; margin-bottom: 14px !important; font-size: 11px !important; }
+      .hero-cta .btn { padding: 12px 26px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="site-header">
+  <div class="container">
+    <a href="#hero" class="header-logo">Психолог <span>ДПДГ</span></a>
+    <nav>
+      <ul class="header-nav">
+        <li><a href="#authority">Об авторе</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#program">Программа</a></li>
+        <li><a href="#pricing">Стоимость</a></li>
+      </ul>
+    </nav>
+    <a href="#registration" class="btn" style="padding:10px 22px;font-size:14px;">Записаться</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Новая профессия за <span>6 месяцев</span> —<br>
+        психолог краткосрочной<br>
+        терапии <span>ДПДГ</span>
+      </h1>
+      <p class="hero-desc">
+        Дистанционная программа профессиональной переподготовки от врача-психиатра Анны Саба с 7 000+ сессий ДПДГ. По итогам — диплом государственного образца и востребованная специализация, в которой выпускники зарабатывают от 200 000 ₽ в месяц.*
+      </p>
+      <p style="font-size:12px; color:var(--muted); margin-top:-24px; margin-bottom:36px; max-width:520px;">
+        * Средний уровень дохода выпускника программы «Психолог краткосрочной терапии ДПДГ».
+      </p>
+      <div class="hero-cta">
+        <a href="#registration" class="btn">Записаться на программу</a>
+        <a href="#program" class="btn btn-outline">Программа обучения</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <img src="img/1.jpg" alt="Анна Саба" />
+      <div class="hero-badge">
+        <span class="hb-num">6 мес</span>
+        <span class="hb-text">диплом<br>гособразца</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="num">6 <span class="unit" style="font-size:18px;">мес</span></div>
+        <div class="desc">дистанционно, лекции + практика</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">7 000<span class="unit">+</span></div>
+        <div class="desc">сессий ДПДГ у автора программы</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">150<span class="unit">+</span></div>
+        <div class="desc">психологов и врачей уже обучены</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">200<span class="unit"> 000 ₽</span></div>
+        <div class="desc">средний доход выпускников в месяц</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHORITY -->
+<section id="authority">
+  <div class="container">
+    <div class="authority-photo">
+      <img src="img/2.jpg" alt="Анна Саба — автор программы" />
+    </div>
+    <div class="authority-content">
+      <span class="tag">Автор программы</span>
+      <div class="authority-name">Анна Таскалиевна Саба</div>
+      <div class="authority-role">Врач-психиатр, психотерапевт и сексолог</div>
+      <div class="authority-creds">
+        <div class="authority-cred">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 1 0 0 10A5 5 0 0 0 12 2z"></path><path d="M6 21v-1a6 6 0 0 1 12 0v1"></path></svg>
+          <div class="tx">Врач-психиатр, психотерапевт, сексолог
+            <small>ММА им. Сеченова, РУДН, ФГБУ НМИЦ им. В.П. Сербского</small>
+          </div>
+        </div>
+        <div class="authority-cred">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A7.5 7.5 0 0 1 17 9.5c0 3.3-2.1 6.1-5 7.2V18h-2v-1.3C7.1 15.6 5 12.8 5 9.5A7.5 7.5 0 0 1 9.5 2z"></path></svg>
+          <div class="tx">7 000+ лично проведённых сессий ДПДГ
+            <small>Реальная практика с тысячами клиентов, включая сложнейшие случаи</small>
+          </div>
+        </div>
+        <div class="authority-cred">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"></path></svg>
+          <div class="tx">200 000+ подписчиков в социальных сетях
+            <small>Не накрутка, а результат многолетней экспертизы и полной отдачи</small>
+          </div>
+        </div>
+        <div class="authority-cred">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V6a2 2 0 0 1 2-2h13"></path><path d="M4 19a2 2 0 0 0 2 2h13V6"></path></svg>
+          <div class="tx">С 2023 года обучает психологов авторскому методу
+            <small>150+ специалистов по всей России уже изменили свою практику</small>
+          </div>
+        </div>
+      </div>
+      <blockquote class="authority-bio" style="border-left: 3px solid var(--accent); padding-left: 20px; font-style: italic; color: var(--text); font-size: 17px; line-height: 1.8;">
+        «За 6 месяцев человек с высшим образованием может стать практикующим психологом с дипломом гособразца — и реально зарабатывать. ДПДГ — не разговорная терапия, это метод, где клиент получает результат за 3–10 сессий. Поэтому выпускники окупают обучение в первые месяцы практики.»
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="container">
+    <h2 class="section-title">Результаты выпускников</h2>
+    <p class="section-sub">Реальные истории учеников Анны — до и после обучения методу ДПДГ</p>
+
+    <div class="carousel-viewport">
+      <div class="carousel-track" id="carouselTrack">
+
+        <div class="rc">
+          <div class="rc-person">
+            <div class="rc-photo">
+              <img src="img/3.jpg" alt="Анна Маркина" />
+            </div>
+            <div class="rc-name">Анна Маркина</div>
+            <div class="rc-role">Психолог ДПДГ,<br>мама в декрете</div>
+          </div>
+          <div class="rc-body">
+            <div class="rc-block rc-before">
+              <h4>До обучения</h4>
+              <ul>
+                <li>Доход: 0 ₽</li>
+                <li>Подписчики: 124</li>
+                <li>Хотела освоить эффективный и результативный метод работы</li>
+              </ul>
+            </div>
+            <div class="rc-block rc-after">
+              <h4>После обучения</h4>
+              <ul>
+                <li><strong>Доход:</strong> стабильно от 200 000 до 500 000 ₽/мес</li>
+                <li><strong>Подписчики:</strong> было 124 → стало 4 300 живых, активных</li>
+                <li><strong>Личная трансформация:</strong> стала уверена в себе и в своей ценности</li>
+                <li><strong>Самое ценное:</strong> структура курса, метод, скорость работы с клиентами</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="rc">
+          <div class="rc-person">
+            <div class="rc-photo">
+              <img src="img/4.jpg" alt="Надежда Нестерович" />
+            </div>
+            <div class="rc-name">Надежда Нестерович</div>
+            <div class="rc-role">Психолог ДПДГ</div>
+          </div>
+          <div class="rc-body">
+            <div class="rc-block rc-before">
+              <h4>До обучения</h4>
+              <ul>
+                <li>Редкие сессии по минимальной цене</li>
+                <li>Всё нестабильно: ни системы, ни потока клиентов</li>
+                <li>Запрос: перенять опыт и структуру работы у практикующего эксперта</li>
+              </ul>
+            </div>
+            <div class="rc-block rc-after">
+              <h4>После обучения</h4>
+              <ul>
+                <li><strong>Чёткая система работы</strong> и уверенность в каждом этапе</li>
+                <li>Эффективность повысилась, время значительно сократилось</li>
+                <li><strong>Стоимость сессии выросла почти в 10 раз</strong></li>
+                <li>Стабильный поток клиентов по рекомендациям</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="rc">
+          <div class="rc-person">
+            <div class="rc-photo">
+              <img src="img/5.jpg" alt="Кристина Пылёва" />
+            </div>
+            <div class="rc-name">Кристина Пылёва</div>
+            <div class="rc-role">Психолог ДПДГ,<br>1 неделя практики</div>
+          </div>
+          <div class="rc-body">
+            <div class="rc-block rc-before">
+              <h4>До обучения</h4>
+              <ul>
+                <li>Доход: 0 ₽ в сфере психологии</li>
+                <li>Подписчики: 12</li>
+                <li>Запрос: освоить эффективный метод, привлечь стабильный поток клиентов</li>
+              </ul>
+            </div>
+            <div class="rc-block rc-after">
+              <h4>После обучения</h4>
+              <ul>
+                <li><strong>За первую неделю</strong> заработала 16 000 ₽ — закрыла два платежа по рассрочке</li>
+                <li><strong>Канал вырос</strong> с 12 до 735 подписчиков за неделю</li>
+                <li>Начались первые стабильные записи на сессии</li>
+                <li><strong>Самое ценное:</strong> большой объём знаний за небольшую плату</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="carousel-nav">
+      <button class="carousel-btn" id="cPrev" aria-label="Назад">←</button>
+      <div class="carousel-dots" id="cDots"></div>
+      <button class="carousel-btn" id="cNext" aria-label="Вперёд">→</button>
+    </div>
+
+    <div class="reviews-cta">
+      <a href="#registration" class="btn">Хочу такой же результат — записаться</a>
+      <p class="reviews-note">Старт ближайшего потока — 2 декабря 2026</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS -->
+<section id="what-is">
+  <div class="container">
+    <div class="what-is-grid">
+      <div class="what-is-text">
+        <span class="tag">Профессия</span>
+        <h2>Хочешь профессию, которая <em>кормит и не требует 5 лет учёбы?</em></h2>
+        <p>
+          ДПДГ (десенсибилизация и переработка движением глаз) — единственный метод с доказательной базой класса А для лечения ПТСР. Рекомендован ВОЗ, результат виден уже в первой сессии.
+        </p>
+        <p>
+          За 6 месяцев дистанционного обучения вы получаете новую профессию — психолог краткосрочной терапии ДПДГ — с дипломом профессиональной переподготовки государственного образца.
+        </p>
+      </div>
+      <div class="what-is-cards">
+        <div class="what-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2a6.5 6.5 0 0 1 5.5 9.9L21 18l-3 3-6.1-6a6.5 6.5 0 1 1-2.4-13z"></path></svg>
+          <div>
+            <h4>Диплом гособразца</h4>
+            <p>Профессиональная переподготовка — легальный выход на рынок психологических услуг</p>
+          </div>
+        </div>
+        <div class="what-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <div>
+            <h4>Результат за 3–10 сессий</h4>
+            <p>Метод даёт быстрый результат — клиент получает облегчение и приводит других</p>
+          </div>
+        </div>
+        <div class="what-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          <div>
+            <h4>Высокий чек с первых клиентов</h4>
+            <p>Редкая специализация + доказанный результат = возможность ставить чек выше рынка</p>
+          </div>
+        </div>
+        <div class="what-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          <div>
+            <h4>Работа онлайн из любой точки</h4>
+            <p>Метод адаптирован под дистанционный формат — практика без привязки к месту</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHOM -->
+<section id="for-whom">
+  <div class="container">
+    <h2 class="section-title">Для кого эта программа</h2>
+    <p class="section-sub">Нужно высшее образование. Профиль не важен — мы даём всё с нуля до профессии.</p>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        <h3>Ищу новую профессию</h3>
+        <p>Хочу выйти из текущей сферы и освоить дело, которое приносит смысл и стабильный доход</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+        </div>
+        <h3>Уже психолог без метода</h3>
+        <p>Работаю долго, без результата, выгораю. Нужен метод с быстрым эффектом и высоким чеком</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+        </div>
+        <h3>Хочу диплом гособразца</h3>
+        <p>Нужны легальные документы для практики и возможности повышать чек</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title">Что вы умеете после программы</h2>
+    <p class="section-sub">Практические навыки, а не академические знания</p>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <span class="skill-check">✦</span>
+        <div>
+          <h4>Провести полную сессию ДПДГ от начала до конца</h4>
+          <p>Все 8 фаз протокола — от первичной оценки до завершения и переоценки</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-check">✦</span>
+        <div>
+          <h4>Оценить готовность клиента и противопоказания</h4>
+          <p>Диагностика, скрининг травмы, критерии безопасности</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-check">✦</span>
+        <div>
+          <h4>Работать с ПТСР, тревогой и психосоматикой</h4>
+          <p>Специальные протоколы под разные запросы клиентов</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-check">✦</span>
+        <div>
+          <h4>Вести сессии онлайн</h4>
+          <p>Техники билатеральной стимуляции в дистанционном формате</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-check">✦</span>
+        <div>
+          <h4>Привлечь первых клиентов и ставить высокий чек</h4>
+          <p>Финансовые рекомендации и продвижение от Анны лично</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section id="program">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="program-badge">6 месяцев · дистанционно</span>
+    </div>
+    <h2 class="section-title" style="text-align:center; margin-top:14px;">Что внутри программы</h2>
+    <p class="section-sub" style="text-align:center">Лекции + практика, доступ открывается по модулям</p>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span><span class="acc-num">01</span>Введение в краткосрочную терапию и метод ДПДГ</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><ul>
+          <li>История метода и доказательная база (класс А ВОЗ)</li>
+          <li>Нейробиологические механизмы переработки травмы</li>
+          <li>Чем краткосрочная терапия отличается от классической</li>
+        </ul></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span><span class="acc-num">02</span>Диагностика и первая встреча с клиентом</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><ul>
+          <li>Скрининг травматического опыта и оценка ПТСР</li>
+          <li>Критерии готовности и противопоказания</li>
+          <li>Окно толерантности — как не навредить</li>
+        </ul></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span><span class="acc-num">03</span>Полный протокол ДПДГ — 8 фаз</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><ul>
+          <li>Фаза 1: История и концептуализация</li>
+          <li>Фазы 2–3: Подготовка, оценка цели (SUDS, VoC)</li>
+          <li>Фазы 4–6: Десенсибилизация, инсталляция, сканирование тела</li>
+          <li>Фазы 7–8: Завершение и переоценка</li>
+        </ul></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span><span class="acc-num">04</span>Билатеральная стимуляция онлайн и офлайн</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><ul>
+          <li>Виды БС: движения глаз, тэппинг, звуковая</li>
+          <li>Темп, скорость, длина сетов</li>
+          <li>Онлайн-протокол: инструменты и лайфхаки</li>
+        </ul></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span><span class="acc-num">05</span>Сложные случаи: диссоциация, «застрявший» клиент</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><ul>
+          <li>Структурная диссоциация личности</li>
+          <li>Модификации протокола</li>
+          <li>Техники стабилизации</li>
+        </ul></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span><span class="acc-num">06</span>Специальные протоколы: острая травма, горе, дети</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><ul>
+          <li>Протокол для недавних событий (R-TEP)</li>
+          <li>Детский ДПДГ: адаптация под возраст</li>
+          <li>Протокол работы с потерей</li>
+        </ul></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span><span class="acc-num">07</span>Практика с клиентами и супервизии</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><ul>
+          <li>Разборы реальных случаев</li>
+          <li>Работа со сложными клиентами</li>
+          <li>Когда метод не работает и что делать</li>
+        </ul></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span><span class="acc-num">08</span>Запуск практики и выход на доход</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body"><ul>
+          <li>Как ставить высокий чек с первых клиентов</li>
+          <li>Ведение соцсетей и поток заявок</li>
+          <li>Документация и этика</li>
+          <li>Диплом профессиональной переподготовки гособразца</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO BANNER -->
+<div id="photo-banner">
+  <img src="img/1.jpg" alt="Анна Саба" />
+  <div class="overlay">
+    <div class="overlay-inner">
+      <p>«За 6 месяцев — новая профессия с дипломом гособразца. <em>Это не про "ещё одни корочки", это про реальный выход на доход.</em>»</p>
+      <a href="#registration" class="btn">Записаться на программу</a>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center">Стоимость обучения</h2>
+    <p class="section-sub" style="text-align:center">Один тариф: полная программа переподготовки</p>
+    <div class="pricing-grid pricing-single">
+      <div class="pricing-card featured">
+        <div class="pricing-name">Профессия</div>
+        <div class="pricing-price">450 000 ₽</div>
+        <p class="pricing-note">Полная программа переподготовки с дипломом гособразца</p>
+        <ul class="pricing-features">
+          <li><strong>Диплом профпереподготовки гособразца</strong></li>
+          <li>Все модули обучения</li>
+          <li>Практика с клиентами под кураторством</li>
+          <li>Супервизии с Анной</li>
+          <li>Закрытый чат выпускников</li>
+          <li>Финансовый блок: как выйти на доход от 200 000 ₽/мес</li>
+          <li>Доступ к материалам на 1 год</li>
+        </ul>
+        <a href="#registration" class="btn">Записаться на программу</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTRATION -->
+<section id="registration">
+  <div class="container">
+    <div class="form-wrap">
+      <h2 class="section-title">Записаться на программу</h2>
+      <p class="section-sub">Менеджер свяжется в течение 15 минут и ответит на все вопросы</p>
+      <div class="form-deadline">⏰ Старт обучения — 2 декабря 2026.</div>
+      <form class="reg-form" id="reg-form"
+            action="https://ipzdas.ru/pl/lite/block-public/process?id=2236066054"
+            method="post"
+            target="reg-form-sink"
+            data-sequential-request="1">
+        <input type="hidden" name="formParams[setted_offer_id]" value="" />
+        <input type="hidden" name="formParams[willCreatePaidDeal]" value="1" />
+        <input type="hidden" name="formParams[offer_id][]" value="8672734" />
+        <input type="text"  name="formParams[full_name]" placeholder="Ваше имя" required />
+        <input type="tel"   name="formParams[phone]"     placeholder="+7 (___) ___-__-__" required />
+        <input type="email" name="formParams[email]"     placeholder="E-mail" required />
+        <p class="form-offer" style="text-align:center;font-weight:600;margin:0">ПКТ 3 поток (предоплата) — 5 000 ₽</p>
+        <button type="submit" class="btn">Перейти к оплате</button>
+        <p class="form-consent">
+          Нажимая кнопку, вы соглашаетесь с
+          <a href="#">политикой конфиденциальности</a> и
+          <a href="#">обработкой персональных данных</a>
+        </p>
+      </form>
+
+      <div class="reg-success" id="reg-success" hidden>
+        <div class="reg-success-icon">✓</div>
+        <h3 class="reg-success-title">Заявка отправлена!</h3>
+        <p class="reg-success-text">Менеджер свяжется в течение 15 минут и ответит на все вопросы</p>
+      </div>
+
+      <iframe name="reg-form-sink" id="reg-form-sink" style="display:none" title="form"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- MOBILE STICKY CTA -->
+<div id="mobile-cta">
+  <a href="#registration" class="btn">Записаться на программу</a>
+</div>
+
+<!-- FOOTER -->
+<footer id="site-footer">
+  <div class="container">
+    <p class="brand">Психолог краткосрочной терапии ДПДГ — программа Анны Саба</p>
+    <p>
+      © 2026 ИП Саба Анна Таскалиевна · ИНН 631936465850 ·
+      <a href="#">Политика конфиденциальности</a> ·
+      <a href="#">Договор оферты</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Accordion
+  document.querySelectorAll('.accordion-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.accordion-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.accordion-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.accordion-body').style.display = 'none';
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        item.querySelector('.accordion-body').style.display = 'block';
+      }
+    });
+  });
+
+  // Carousel
+  (function () {
+    const track   = document.getElementById('carouselTrack');
+    const dotsWrap = document.getElementById('cDots');
+    if (!track) return;
+    const cards   = track.querySelectorAll('.rc');
+    const total   = cards.length;
+    let   current = 0;
+    let   timer;
+
+    cards.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Слайд ' + (i + 1));
+      d.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(d);
+    });
+
+    function getOffset() { return cards[0].offsetWidth; }
+
+    function goTo(idx) {
+      current = (idx + total) % total;
+      track.style.transform = 'translateX(-' + (current * getOffset()) + 'px)';
+      dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+      resetTimer();
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => goTo(current + 1), 5500);
+    }
+
+    document.getElementById('cPrev').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('cNext').addEventListener('click', () => goTo(current + 1));
+
+    track.addEventListener('mouseenter', () => clearInterval(timer));
+    track.addEventListener('mouseleave', resetTimer);
+
+    let tx = 0;
+    track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].clientX - tx;
+      if (Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1);
+    });
+
+    resetTimer();
+  })();
+
+  // Hide mobile CTA when form visible
+  const mobileCta = document.getElementById('mobile-cta');
+  const regSection = document.getElementById('registration');
+  if (regSection && mobileCta) {
+    new IntersectionObserver(entries => {
+      mobileCta.style.display = entries[0].isIntersecting ? 'none' : '';
+    }, { threshold: 0.05 }).observe(regSection);
+  }
+
+  // Show thank-you message after form submit (submits via hidden iframe)
+  (function () {
+    var form = document.getElementById('reg-form');
+    var sink = document.getElementById('reg-form-sink');
+    var success = document.getElementById('reg-success');
+    if (!form || !sink || !success) return;
+    var submitted = false;
+    form.addEventListener('submit', function () {
+      if (!form.checkValidity()) return;
+      submitted = true;
+    });
+    sink.addEventListener('load', function () {
+      if (!submitted) return; // ignore initial blank load
+      try {
+        var resp = JSON.parse(sink.contentDocument.body.innerText);
+        var url = resp && resp.data && resp.data.redirectUrl;
+        if (url) { window.top.location.href = url; return; }
+      } catch (e) {}
+      form.style.display = 'none';
+      success.hidden = false;
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  })();
+
+</script>
+
+</body>
+</html>
