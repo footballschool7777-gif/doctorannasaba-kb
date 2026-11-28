@@ -4968,6 +4968,15 @@ body.all .deck-controls { display: none !important; }
 .e4-ito .it-to { flex: none; display: flex; align-items: center; gap: 16px; padding: 14px 18px 14px 26px; border-radius: 20px; background: var(--teal); }
 .e4-ito .it-to em { font-style: normal; font-size: 24px; font-weight: 700; color: rgba(255,255,255,.85); }
 .e4-ito .it-to b { font-size: 34px; font-weight: 800; color: #0b3d39; background: var(--sun); border-radius: 12px; padding: 4px 16px; }
+
+/* msg 1956 */
+.e4-dpo .dpo-l { margin-top: 22px; font-size: 32px; line-height: 1.35; font-weight: 600; color: var(--ink); opacity: .78; max-width: 1200px; text-wrap: balance; }
+.e4-dpo .dqs { margin-top: 56px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 22px; width: 100%; max-width: 1720px; }
+.e4-dpo .dq { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; min-height: 300px; padding: 34px 30px 36px; border-radius: 30px; background: #fff; border: 1px solid #e6e2d6; box-shadow: 0 30px 70px -48px rgba(15,60,56,.4); text-align: left; overflow: hidden; }
+.e4-dpo .dq::after { content: ""; position: absolute; left: 30px; right: 30px; top: 0; height: 6px; border-radius: 0 0 6px 6px; background: var(--teal); }
+.e4-dpo .dq:nth-child(even)::after { background: var(--sun); }
+.e4-dpo .dq-n { font-size: 56px; font-weight: 800; letter-spacing: -.03em; color: var(--teal); opacity: .9; line-height: 1; }
+.e4-dpo .dq b { font-size: 32px; line-height: 1.22; font-weight: 800; color: var(--ink); text-wrap: balance; }
 </style>
 </head>
 <body>
@@ -5085,6 +5094,9 @@ body.all .deck-controls { display: none !important; }
 <div class="gl"><div class="kicker r d1">Инструкция</div><h2 class="e3-h r d2">Как активировать&nbsp;ГРАНТ</h2><ol class="gst"><li class="r d3"><b>1</b><p>Перейдите по&nbsp;кнопке&nbsp;под&nbsp;видео</p></li><li class="r d3"><b>2</b><p>Введите данные и&nbsp;нажмите на&nbsp;кнопку АКТИВИРОВАТЬ&nbsp;ГРАНТ</p></li><li class="r d4"><b>3</b><p>Введите кодовое слово <b class="cw">НОЯБРЬ</b> в&nbsp;поле «Знаете&nbsp;промокод?»</p></li><li class="r d4"><b>4</b><p>У&nbsp;вас сократится&nbsp;цена</p></li><li class="r d5"><b>5</b><p>Оплатите 5&nbsp;000&nbsp;рублей</p></li><li class="r d5"><b>6</b><p>Далее вас запишут&nbsp;на&nbsp;адмиссию</p></li><li class="r d6"><b>7</b><p>Если всё пройдёт хорошо, вы&nbsp;получите письмо о&nbsp;зачислении, если нет, предоплата вернется, ГРАНТ аннулируется и&nbsp;перейдёт следующему&nbsp;в&nbsp;очереди</p></li></ol></div><div class="gph r d3"><video src="../praktikum-efir-3/assets/video/grant-gif2.mp4" poster="../praktikum-efir-3/assets/video/grant-gif2.jpg" autoplay="" muted="" loop="" playsinline="" preload="auto"></video></div>
 </section>
 <!-- 24 -->
+<section class="slide e3 e4 e4-dpo">
+<div class="kicker r d1">Ещё программы</div><h2 class="e3-h r d2">Повышение квалификации психологов</h2><p class="dpo-l r d3">Освойте новые методы работы с&nbsp;клиентами и&nbsp;получите удостоверение установленного образца</p><div class="dqs"><div class="dq r d4"><span class="dq-n">01</span><b>Сексология</b></div><div class="dq r d5"><span class="dq-n">02</span><b>Системно-семейная терапия</b></div><div class="dq r d6"><span class="dq-n">03</span><b>Расстройства личности</b></div><div class="dq r d7"><span class="dq-n">04</span><b>ДПДГ (стандартный протокол)</b></div><div class="dq r d8"><span class="dq-n">05</span><b>Помощник психолога в&nbsp;кармане</b></div></div>
+</section>
 <section class="slide e3 e4 e4-g2t">
 <div class="kicker r d1">Группа 2 · ТДО&nbsp;проработан</div><h2 class="e3-h r d2">Если вы&nbsp;уже переработали&nbsp;свой&nbsp;ТДО</h2><div class="gt"><div class="gt-c r d3"><span>Например</span><b>Учились на&nbsp;ПКТ 1‑го&nbsp;или&nbsp;2‑го&nbsp;потока</b></div><i class="gt-a r d4"><svg viewBox="0 0 60 40"><path d="M4 20 H50 M36 6 L52 20 L36 34"></path></svg></i><div class="gt-c hot r d5"><span>Ваш следующий&nbsp;шаг</span><b>Мастер-группа «Интегративный подход в&nbsp;практике&nbsp;психолога»</b></div></div>
 </section>
@@ -5158,7 +5170,7 @@ body.all .deck-controls { display: none !important; }
 
 
 <div class="progress" id="progress"></div>
-<div class="deck-controls" id="controls"><span id="counter">1 / 39</span><span>← → пробел · E правка текста</span></div>
+<div class="deck-controls" id="controls"><span id="counter">1 / 40</span><span>← → пробел · E правка текста</span></div>
 <div class="edit-hotzone"></div>
 <button class="edit-toggle" id="editToggle" title="Правка текста (E)">✎</button>
 <script>
