@@ -4750,6 +4750,44 @@ body.all .deck-controls { display: none !important; }
 .slide.e4-cv .cv4-sub { margin-top: 4px !important; margin-bottom: 0 !important; }
 
 </style>
+<style id="laws-tdo">
+
+.e4-laws .lw { margin-top: 48px; display: grid; grid-template-columns: 1fr 1.08fr; gap: 32px; width: 100%; max-width: 1660px; text-align: left; }
+.e4-laws .lw-l { display: grid; gap: 28px; }
+.e4-laws .lc { padding: 38px 44px; border-radius: 32px; background: #fff; border: 1px solid #e6e2d6; box-shadow: 0 30px 70px -45px rgba(15,60,56,.35); }
+.e4-laws .lc i { font-style: normal; display: inline-block; font-size: 24px; letter-spacing: .12em; text-transform: uppercase; font-weight: 800; color: var(--teal); padding: 8px 18px; border-radius: 999px; background: #eaf3f1; }
+.e4-laws .lc b { display: block; margin-top: 20px; font-size: 38px; line-height: 1.2; font-weight: 800; color: var(--ink); text-wrap: balance; }
+.e4-laws .lc p { margin-top: 12px; font-size: 30px; line-height: 1.3; font-weight: 600; color: var(--grey); }
+.e4-laws .fm { display: flex; flex-direction: column; justify-content: center; padding: 54px 58px; border-radius: 32px; background: var(--teal); box-shadow: 0 30px 70px -35px rgba(13,92,88,.6); }
+.e4-laws .fm i { font-style: normal; align-self: flex-start; font-size: 24px; letter-spacing: .12em; text-transform: uppercase; font-weight: 800; color: #0b3d39; padding: 8px 18px; border-radius: 999px; background: var(--sun); }
+.e4-laws .fm span { display: block; margin-top: 30px; font-size: 30px; font-weight: 700; color: rgba(255,255,255,.8); }
+.e4-laws .fm b { display: block; margin-top: 14px; font-size: 52px; line-height: 1.15; font-weight: 800; color: #fff; text-wrap: balance; }
+.e4-laws .fm b em { font-style: normal; color: var(--sun); }
+
+
+
+.e4-tdo .tq { max-width: 1560px; font-size: 56px; line-height: 1.18; font-weight: 800; color: var(--ink); letter-spacing: -.02em; text-wrap: balance; }
+.e4-tdo .tq em { font-style: normal; color: var(--teal); }
+.e4-tdo .tw { margin-top: 56px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 28px; width: 100%; max-width: 1660px; text-align: left; }
+.e4-tdo .tc { padding: 44px 48px; border-radius: 32px; background: #fff; border: 1px solid #e6e2d6; box-shadow: 0 30px 70px -45px rgba(15,60,56,.35); }
+.e4-tdo .tc i { font-style: normal; display: inline-block; font-size: 24px; letter-spacing: .12em; text-transform: uppercase; font-weight: 800; color: var(--teal); padding: 8px 18px; border-radius: 999px; background: #eaf3f1; }
+.e4-tdo .tc p { margin-top: 24px; font-size: 38px; line-height: 1.3; font-weight: 700; color: var(--ink); text-wrap: balance; }
+.e4-tdo .tc.hot { background: var(--teal); border-color: transparent; box-shadow: 0 30px 70px -35px rgba(13,92,88,.6); }
+.e4-tdo .tc.hot i { background: var(--sun); color: #0b3d39; } .e4-tdo .tc.hot p { color: #fff; }
+.e4-tdo .nw { white-space: nowrap; }
+.e4-tdo .ta { align-self: center; width: 64px; }
+.e4-tdo .ta svg { width: 64px; height: 44px; fill: none; stroke: var(--teal); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+
+.e4-poll .chat4 { align-self: flex-start; }
+.e4-poll .pos { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1660px; }
+.e4-poll .po { position: relative; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 0; padding: 48px 44px 52px; border-radius: 32px; box-shadow: 0 30px 70px -45px rgba(15,60,56,.35); overflow: hidden; }
+.e4-poll .po::after { content: ''; position: absolute; left: 44px; right: 44px; top: 168px; height: 2px; background: #efece4; }
+.e4-poll .po b { width: auto; height: auto; border-radius: 0; background: none !important; color: var(--teal) !important; font-size: 110px; line-height: .9; letter-spacing: -.04em; display: block; }
+.e4-poll .po p { margin-top: 56px; font-size: 36px; line-height: 1.3; font-weight: 700; }
+.e4-poll .po:nth-child(2) { background: var(--teal); border-color: transparent; box-shadow: 0 30px 70px -35px rgba(13,92,88,.6); }
+.e4-poll .po:nth-child(2) b { color: var(--sun) !important; } .e4-poll .po:nth-child(2) p { color: #fff; }
+.e4-poll .po:nth-child(2)::after { background: rgba(255,255,255,.18); }
+</style>
 </head>
 <body>
 <div class="deck-viewport">
@@ -4775,6 +4813,14 @@ body.all .deck-controls { display: none !important; }
 <!-- 3 -->
 <section class="slide e3 e4 e4-recap">
 <div class="kicker r d1">Вспомним главное</div><h2 class="e3-h r d2">Что мы&nbsp;узнали&nbsp;за&nbsp;3&nbsp;дня</h2><div class="rcs"><div class="rc r d3"><div class="rc-img"><img src="../praktikum-efir-3/assets/gen/e2-day1w.jpg" alt=""><span class="rc-ok"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"></path></svg> пройден</span></div><span class="rc-k">День 1</span><ul><li>Как травматический детский опыт влияет на&nbsp;нашу&nbsp;жизнь</li><li>Откуда берутся угнетающие чувства и&nbsp;к&nbsp;чему они&nbsp;приводят</li><li>Сделали практику соединения с&nbsp;собой&nbsp;настоящим</li><li>Формула больших денег</li></ul></div><div class="rc r d4"><div class="rc-img"><img src="../praktikum-efir-3/assets/gen/e2-day2w.jpg" alt=""><span class="rc-ok"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"></path></svg> пройден</span></div><span class="rc-k">День 2</span><ul><li>Куда сливается наша&nbsp;энергия</li><li>Как управлять энергией, чтобы достигать высоких результатов в&nbsp;жизни</li><li>Законы больших денег</li></ul></div><div class="rc r d5"><div class="rc-img"><img src="../praktikum-efir-3/assets/gen/e2-day3w.jpg" alt=""><span class="rc-ok"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"></path></svg> пройден</span></div><span class="rc-k">День 3</span><ul><li>Почему желания не&nbsp;исполняются</li><li>Как проверить своё желание на&nbsp;истинность</li><li>Что делать, если быстро пропадает вдохновение и&nbsp;не&nbsp;получается довести дело до&nbsp;конца</li><li>Практика с&nbsp;Михаилом&nbsp;Саба</li></ul></div></div>
+</section>
+<!-- laws -->
+<section class="slide e3 e4 e4-laws">
+<div class="kicker r d1">Вспомним главное</div><h2 class="e3-h r d2">Законы и&nbsp;формула&nbsp;больших&nbsp;денег</h2><div class="lw"><div class="lw-l"><div class="lc r d3"><i>1-й закон</i><b>Повышение цены за&nbsp;свои услуги всегда ведёт&nbsp;к&nbsp;увеличению&nbsp;дохода</b><p>И&nbsp;это очень&nbsp;легко</p></div><div class="lc r d4"><i>2-й закон</i><b>Там, где большая конкуренция, всегда&nbsp;много&nbsp;денег</b><p>И&nbsp;это прекрасно</p></div></div><div class="fm r d5"><i>Формула больших&nbsp;денег</i><span>Всё начинается с&nbsp;потребности&nbsp;человека</span><b>Решите проблему человека <em>за&nbsp;максимально короткий&nbsp;срок</em>, чтобы он&nbsp;прилагал&nbsp;меньше&nbsp;усилий</b></div></div>
+</section>
+<!-- tdo -->
+<section class="slide e3 e4 e4-tdo">
+<p class="tq r d1">Если у&nbsp;вас много энергии и&nbsp;вы&nbsp;уже её&nbsp;направляете в&nbsp;свой рост, но&nbsp;почему-то не&nbsp;растёте, <em>значит вы&nbsp;делаете что-то не&nbsp;то&nbsp;и&nbsp;что-то&nbsp;не&nbsp;так</em></p><div class="tw"><div class="tc r d3"><i>Причина</i><p>ТДО часто создаёт иллюзию, <span class="nw">из-за</span> которой поведение человека относительно того или иного вопроса становится&nbsp;неадекватным</p></div><div class="ta r d4"><svg viewBox="0 0 60 40"><path d="M4 20 H50 M36 6 L52 20 L36 34"></path></svg></div><div class="tc hot r d5"><i>Итог</i><p>Поэтому люди инвестируют свою энергию в&nbsp;<span class="nw">какое-то</span> дело, но&nbsp;не&nbsp;добиваются в&nbsp;нём&nbsp;результата</p></div></div>
 </section>
 <!-- 4 -->
 <section class="slide t-html s-path2 s-e2-path e4-path">
@@ -4942,7 +4988,7 @@ body.all .deck-controls { display: none !important; }
 
 
 <div class="progress" id="progress"></div>
-<div class="deck-controls" id="controls"><span id="counter">1 / 40</span><span>← → пробел · E правка текста</span></div>
+<div class="deck-controls" id="controls"><span id="counter">1 / 42</span><span>← → пробел · E правка текста</span></div>
 <div class="edit-hotzone"></div>
 <button class="edit-toggle" id="editToggle" title="Правка текста (E)">✎</button>
 <script>
