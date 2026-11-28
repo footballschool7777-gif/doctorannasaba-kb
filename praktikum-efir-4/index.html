@@ -4969,14 +4969,53 @@ body.all .deck-controls { display: none !important; }
 .e4-ito .it-to em { font-style: normal; font-size: 24px; font-weight: 700; color: rgba(255,255,255,.85); }
 .e4-ito .it-to b { font-size: 34px; font-weight: 800; color: #0b3d39; background: var(--sun); border-radius: 12px; padding: 4px 16px; }
 
-/* msg 1956 */
-.e4-dpo .dpo-l { margin-top: 22px; font-size: 32px; line-height: 1.35; font-weight: 600; color: var(--ink); opacity: .78; max-width: 1200px; text-wrap: balance; }
-.e4-dpo .dqs { margin-top: 56px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 22px; width: 100%; max-width: 1720px; }
-.e4-dpo .dq { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; min-height: 300px; padding: 34px 30px 36px; border-radius: 30px; background: #fff; border: 1px solid #e6e2d6; box-shadow: 0 30px 70px -48px rgba(15,60,56,.4); text-align: left; overflow: hidden; }
-.e4-dpo .dq::after { content: ""; position: absolute; left: 30px; right: 30px; top: 0; height: 6px; border-radius: 0 0 6px 6px; background: var(--teal); }
-.e4-dpo .dq:nth-child(even)::after { background: var(--sun); }
-.e4-dpo .dq-n { font-size: 56px; font-weight: 800; letter-spacing: -.03em; color: var(--teal); opacity: .9; line-height: 1; }
-.e4-dpo .dq b { font-size: 32px; line-height: 1.22; font-weight: 800; color: var(--ink); text-wrap: balance; }
+/* msg 1956 v2: institute style */
+.e4-dpo { justify-content: center; }
+.e4-dpo .dpo-top { display: flex; align-items: center; justify-content: space-between; gap: 60px; width: 100%; max-width: 1720px; text-align: left; }
+.e4-dpo .dpo-hd { flex: 1; }
+.e4-dpo .dpo-h { font-size: 76px; line-height: 1.04; font-weight: 800; letter-spacing: -.025em; color: var(--ink); margin-top: 14px; }
+.e4-dpo .dpo-h i { font-family: Lora, Georgia, serif; font-style: italic; font-weight: 500; color: var(--teal); letter-spacing: -.01em; }
+.e4-dpo .dpo-l { margin-top: 22px; font-size: 30px; line-height: 1.4; font-weight: 500; color: #4a5654; max-width: 1000px; }
+.e4-dpo .dpo-doc { flex: none; width: 330px; padding: 14px; background: #fff; border: 1px solid #e6e2d6; border-radius: 22px; box-shadow: 0 30px 70px -40px rgba(15,60,56,.45); transform: rotate(2.5deg); }
+.e4-dpo .dpo-doc img { display: block; width: 100%; border-radius: 12px; }
+.e4-dpo .pcs { margin-top: 48px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; width: 100%; max-width: 1720px; }
+.e4-dpo .pc { display: flex; flex-direction: column; background: #fff; border: 1px solid #e6e2d6; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 70px -50px rgba(15,60,56,.45); text-align: left; }
+.e4-dpo .pc-i { height: 300px; overflow: hidden; background: #efe9df; }
+.e4-dpo .pc-i img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.e4-dpo .pc-t { flex: 1; display: flex; flex-direction: column; gap: 14px; padding: 22px 24px 26px; }
+.e4-dpo .pc-tag { align-self: flex-start; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); border: 1.5px solid var(--teal); border-radius: 999px; padding: 5px 12px; }
+.e4-dpo .pc-t b { font-size: 27px; line-height: 1.22; font-weight: 800; color: var(--ink); text-wrap: balance; }
+.e4-dpo .pc-dark { background: var(--teal); border-color: var(--teal); }
+.e4-dpo .pc-ico { display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 45%, rgba(255,255,255,.14), transparent 65%), #0e4a45; }
+.e4-dpo .pc-ico svg { width: 140px; height: 140px; fill: none; stroke: var(--sun); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.e4-dpo .pc-dark .pc-tag { color: var(--sun); border-color: var(--sun); }
+.e4-dpo .pc-dark .pc-t b { color: #fff; }
+/* msg 1962 */
+.e4-vip .vp { display: flex; align-items: center; gap: 90px; width: 100%; max-width: 1720px; text-align: left; }
+.e4-vip .vp-l { flex: none; }
+.e4-vip .vp-ring { width: 420px; height: 420px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at 35% 30%, #1a6b63, #0b3d39 70%); box-shadow: 0 0 0 18px #fff, 0 0 0 20px #e6e2d6, 0 50px 90px -40px rgba(11,61,57,.6); }
+.e4-vip .vp-ring b { font-size: 170px; line-height: .9; font-weight: 800; letter-spacing: -.05em; color: var(--sun); }
+.e4-vip .vp-ring span { margin-top: 14px; font-size: 24px; line-height: 1.25; font-weight: 600; color: rgba(255,255,255,.85); text-align: center; }
+.e4-vip .vp-r { flex: 1; }
+.e4-vip .vp-h { margin-top: 18px; font-size: 62px; line-height: 1.1; font-weight: 800; letter-spacing: -.02em; color: var(--ink); text-wrap: balance; }
+.e4-vip .vp-go { margin-top: 48px; display: flex; align-items: center; gap: 28px; padding: 26px 34px; border-radius: 28px; background: #fff; border: 1px solid #e6e2d6; box-shadow: 0 30px 70px -45px rgba(15,60,56,.45); }
+.e4-vip .vp-to { flex: none; font-size: 18px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); max-width: 190px; line-height: 1.35; }
+.e4-vip .vp-go svg { flex: none; width: 60px; height: 40px; fill: none; stroke: var(--sun); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.e4-vip .vp-mg { flex: 1; display: flex; flex-direction: column; gap: 6px; padding: 20px 28px; border-radius: 20px; background: var(--teal); }
+.e4-vip .vp-mg b { font-size: 40px; font-weight: 800; color: #fff; }
+.e4-vip .vp-mg em { font-family: Lora, Georgia, serif; font-style: italic; font-size: 28px; color: var(--sun); }
+/* msg 1965 poll v3 */
+.e4-pl2 .pl-w { display: flex; align-items: center; gap: 90px; width: 100%; max-width: 1720px; text-align: left; }
+.e4-pl2 .pl-hd { flex: 0 0 560px; }
+.e4-pl2 .pl-chat { display: inline-flex; align-items: center; gap: 12px; padding: 12px 24px; border-radius: 999px; background: var(--teal); color: #fff; font-weight: 800; font-size: 24px; }
+.e4-pl2 .pl-chat svg { width: 30px; height: 30px; fill: var(--sun); }
+.e4-pl2 .pl-h { margin-top: 30px; font-size: 80px; line-height: 1.04; font-weight: 800; letter-spacing: -.03em; color: var(--ink); }
+.e4-pl2 .pl-h i { font-family: Lora, Georgia, serif; font-style: italic; font-weight: 500; color: var(--teal); letter-spacing: -.01em; }
+.e4-pl2 .prs { flex: 1; display: flex; flex-direction: column; }
+.e4-pl2 .pr { display: flex; align-items: center; gap: 40px; padding: 34px 0; border-top: 1.5px solid #e3ded2; }
+.e4-pl2 .pr:last-child { border-bottom: 1.5px solid #e3ded2; }
+.e4-pl2 .pr b { flex: none; width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center; border: 2px solid var(--teal); color: var(--teal); font-size: 50px; font-weight: 800; }
+.e4-pl2 .pr p { font-size: 34px; line-height: 1.3; font-weight: 700; color: var(--ink); text-wrap: balance; }
 </style>
 </head>
 <body>
@@ -5037,10 +5076,9 @@ body.all .deck-controls { display: none !important; }
 <div class="kicker r d1">ПЕРЕД ТЕМ, КАК ПЕРЕЙТИ К КОНТЕНТУ</div><h2 class="e3-h r d2">О курсе ПКТ, ГРАНТах и Мастер-группе</h2><div class="pre2"><div class="pc r d3"><span class="pc-t">Программа</span><b>ПКТ</b><p>«Психолог краткосрочной&nbsp;терапии и здоровый человек»</p></div><div class="pc pc-hot r d4"><span class="pc-t">Закрытая программа</span><b>Мастер-группа</b><p>Анны&nbsp;Саба</p></div></div><div class="pre-vip r d5"><span class="vip-b">VIP</span><p>Предложение мастер-группы только для&nbsp;VIP-тарифа</p></div>
 </section>
 <!-- 7 -->
-<section class="slide e3 e4 e4-poll">
-<div class="chat4 r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"></path></svg>Напишите в&nbsp;чат&nbsp;цифру</div><h2 class="e3-h r d2">К&nbsp;какой категории вы&nbsp;относитесь?</h2><div class="pos"><div class="po r d3"><b>1</b><p>Вы&nbsp;действующий помогающий практик (психолог,&nbsp;коуч)</p></div><div class="po r d4"><b>2</b><p>У&nbsp;вас есть основная работа, не&nbsp;связанная с&nbsp;психологией и&nbsp;коучингом, и&nbsp;вы&nbsp;не&nbsp;собираетесь её&nbsp;менять, но&nbsp;хотите дополнительный&nbsp;доход</p></div><div class="po r d5"><b>3</b><p>Хотите освоить новую востребованную профессию с&nbsp;доходом от&nbsp;300&nbsp;000&nbsp;₽ и&nbsp;научиться помогать себе и&nbsp;близким</p></div></div>
+<section class="slide e3 e4 e4-pl2">
+<div class="pl-w"><div class="pl-hd"><div class="pl-chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>Напишите в&nbsp;чат&nbsp;цифру</div><h2 class="pl-h r d2">К&nbsp;какой категории <i>вы&nbsp;относитесь?</i></h2></div><div class="prs"><div class="pr r d3"><b>1</b><p>Вы&nbsp;действующий помогающий практик (психолог,&nbsp;коуч)</p></div><div class="pr r d4"><b>2</b><p>У&nbsp;вас есть основная работа, не&nbsp;связанная с&nbsp;психологией и&nbsp;коучингом, и&nbsp;вы&nbsp;не&nbsp;собираетесь её&nbsp;менять, но&nbsp;хотите дополнительный&nbsp;доход</p></div><div class="pr r d5"><b>3</b><p>Хотите освоить новую востребованную профессию с&nbsp;доходом от&nbsp;300&nbsp;000&nbsp;₽ и&nbsp;научиться помогать себе и&nbsp;близким</p></div></div></div>
 </section>
-<!-- 8 -->
 <section class="slide e3 e4 e4-fork">
 <div class="kicker r d1">Категория 1</div><h2 class="e3-h r d2">Помогающие практики делятся&nbsp;на&nbsp;2&nbsp;группы</h2><div class="fk4"><div class="fk-root r d3">Психологи, коучи, специалисты помогающих&nbsp;профессий</div><svg class="fk-ln r d4" viewBox="0 0 1200 170" preserveAspectRatio="none"><path d="M600 0 V50 C600 110 286 80 286 160"></path><path d="M600 0 V50 C600 110 914 80 914 160"></path><path class="hd" d="M268 136 L286 165 L304 136"></path><path class="hd" d="M896 136 L914 165 L932 136"></path></svg><div class="fk-two"><div class="fb fb-a r d5"><span>Группа 1</span><b>ТДО не&nbsp;проработан</b><p>Начнём с&nbsp;курса&nbsp;ПКТ</p></div><div class="fb fb-b r d6"><span>Группа 2</span><b>ТДО проработан</b><p>Выпускники ПКТ 1‑го&nbsp;и&nbsp;2‑го&nbsp;потока →&nbsp;мастер-группа</p></div></div></div>
 </section>
@@ -5095,12 +5133,12 @@ body.all .deck-controls { display: none !important; }
 </section>
 <!-- 24 -->
 <section class="slide e3 e4 e4-dpo">
-<div class="kicker r d1">Ещё программы</div><h2 class="e3-h r d2">Повышение квалификации психологов</h2><p class="dpo-l r d3">Освойте новые методы работы с&nbsp;клиентами и&nbsp;получите удостоверение установленного образца</p><div class="dqs"><div class="dq r d4"><span class="dq-n">01</span><b>Сексология</b></div><div class="dq r d5"><span class="dq-n">02</span><b>Системно-семейная терапия</b></div><div class="dq r d6"><span class="dq-n">03</span><b>Расстройства личности</b></div><div class="dq r d7"><span class="dq-n">04</span><b>ДПДГ (стандартный протокол)</b></div><div class="dq r d8"><span class="dq-n">05</span><b>Помощник психолога в&nbsp;кармане</b></div></div>
+<div class="dpo-top"><div class="dpo-hd"><div class="kicker r d1">Ещё программы</div><h2 class="dpo-h r d2">Повышение квалификации <i>психологов</i></h2><p class="dpo-l r d3">Освойте новые методы работы с&nbsp;клиентами и&nbsp;получите удостоверение установленного образца</p></div><div class="dpo-doc r d3"><img src="a4/ipz-udostoverenie.webp" alt=""></div></div>
+<div class="pcs"><div class="pc r d4"><div class="pc-i"><img src="a4/ipz-v-sex.webp" alt=""></div><div class="pc-t"><span class="pc-tag">повышение квалификации</span><b>Сексология</b></div></div><div class="pc r d5"><div class="pc-i"><img src="a4/ipz-v-sist.webp" alt=""></div><div class="pc-t"><span class="pc-tag">повышение квалификации</span><b>Системно-семейная терапия</b></div></div><div class="pc r d6"><div class="pc-i"><img src="a4/ipz-v-rl.webp" alt=""></div><div class="pc-t"><span class="pc-tag">повышение квалификации</span><b>Расстройства личности</b></div></div><div class="pc r d7"><div class="pc-i"><img src="a4/ipz-v-dpdg.webp" alt=""></div><div class="pc-t"><span class="pc-tag">повышение квалификации</span><b>ДПДГ (стандартный протокол)</b></div></div><div class="pc pc-dark r d8"><div class="pc-i pc-ico"><svg viewBox="0 0 48 48"><rect x="13" y="5" width="22" height="38" rx="5"/><path d="M20 37h8"/><path d="M19 17l3.5 3.5L29 14"/><path d="M19 27h10"/></svg></div><div class="pc-t"><span class="pc-tag">сервис для психолога</span><b>Помощник психолога в&nbsp;кармане</b></div></div></div>
 </section>
-<section class="slide e3 e4 e4-g2t">
-<div class="kicker r d1">ЕСЛИ вы помогающий практик с переработанным ТДО</div><h2 class="e3-h r d2">И хотите войти в 1% востребованных специалистов и научиться работать с VIP-сегментом</h2><div class="gt"><div class="gt-c r d3"><span>То ваш следующий шаг</span><b>Мастер-группа</b></div></div>
+<section class="slide e3 e4 e4-g2t e4-vip">
+<div class="vp"><div class="vp-l r d2"><div class="vp-ring"><b>1%</b><span>востребованных<br>специалистов</span></div></div><div class="vp-r"><div class="kicker r d1">Если вы помогающий практик с&nbsp;переработанным ТДО</div><h2 class="vp-h r d2">И&nbsp;хотите войти в&nbsp;1% востребованных специалистов и&nbsp;научиться работать с&nbsp;VIP-сегментом</h2><div class="vp-go r d4"><span class="vp-to">То ваш следующий шаг</span><svg viewBox="0 0 60 40"><path d="M4 20 H50 M36 6 L52 20 L36 34"/></svg><div class="vp-mg"><b>Мастер-группа</b></div></div></div></div>
 </section>
-<!-- 25 -->
 <section class="slide e3 e4 e4-mg">
 <div class="kicker r d1">Закрытая программа повышения&nbsp;квалификации</div><h2 class="e3-h r d2">Мастер-группа «Интегративный подход&nbsp;в&nbsp;практике&nbsp;психолога»</h2><div class="mg-of r d3">Как стать востребованным психологом с&nbsp;очередью из&nbsp;клиентов и&nbsp;войти в&nbsp;<em>1%</em> успешных&nbsp;психологов</div><div class="mg-ch r d5"><span><b>3</b> месяца</span><span><b>120</b> часов</span><span><b>12</b> модулей</span><span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"></path></svg> удостоверение гос.&nbsp;образца</span></div>
 </section>
