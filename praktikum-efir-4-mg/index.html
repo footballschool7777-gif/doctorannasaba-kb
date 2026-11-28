@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-anim">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex"><title>VIP-клиенты · Анна Саба</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap">
+<style>
+/* ===========================================
+   THEME (palette and type taken from the practicum landing)
+   =========================================== */
+:root {
+    --cream: #f8f7f4;
+    --cream-2: #f4ede1;
+    --line: #e9dfcf;
+    --ink: #23190d;
+    --ink-soft: #4a3f31;
+    --gold-text: #8a5714;
+    --gold-1: #f6dc9e;
+    --gold-2: #e8c27a;
+    --gold-3: #c9953f;
+    --dark: #120f0a;
+    --dark-2: #1a1208;
+    --gold-grad: linear-gradient(135deg, #f6dc9e 0%, #e8c27a 45%, #c9953f 100%);
+    --ft: 'Unbounded', sans-serif;
+    --fb: 'Manrope', sans-serif;
+    --pad-x: 128px;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --stage-bg: #0e0c09;
+    --slide-bg: var(--cream);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===========================================
+   FIXED 16:9 STAGE (viewport-base.css, full copy)
+   =========================================== */
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: var(--stage-bg, #000); }
+.deck-viewport { position: fixed; inset: 0; overflow: hidden; background: var(--stage-bg, #000); }
+.deck-stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden; transform-origin: 0 0; background: var(--slide-bg, #fff); }
+.slide { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; display: block; visibility: hidden; opacity: 0; pointer-events: none; background: var(--slide-bg, #fff); }
+.slide.active, .slide.visible { visibility: visible; opacity: 1; pointer-events: auto; z-index: 1; }
+img, video, canvas, svg { max-width: 100%; max-height: 100%; }
+.deck-controls { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 1000; }
+@media print {
+    html, body { width: 1920px; height: auto; overflow: visible; background: #fff; }
+    .deck-viewport { position: static; overflow: visible; background: #fff; }
+    .deck-stage { position: static; width: auto; height: auto; transform: none !important; background: none; }
+    .slide { position: relative; display: block !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; width: 1920px; height: 1080px; break-after: page; page-break-after: always; }
+    .slide:last-child { break-after: auto; page-break-after: auto; }
+    .deck-controls { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+}
+
+/* ===========================================
+   ALL-SLIDES MODE (?all) – every slide stacked, for checks and contact sheet
+   =========================================== */
+body.all, html.all { overflow: auto; height: auto; }
+body.all .deck-viewport { position: static; overflow: visible; }
+body.all .deck-stage { position: relative; height: auto; overflow: visible; }
+body.all .slide { position: relative; visibility: visible; opacity: 1; }
+body.all .deck-controls, body.all .edit-hotzone, body.all .edit-toggle { display: none; }
+body.all * { transition: none !important; animation: none !important; }
+
+/* ===========================================
+   BASE TYPOGRAPHY
+   =========================================== */
+.slide { font-family: var(--fb); color: var(--ink); }
+h1, h2, h3, p, li, span, div { text-wrap-style: balance; }
+.h1 { font-family: var(--ft); font-weight: 700; font-size: 80px; line-height: 1.08; letter-spacing: -0.02em; }
+.h2 { font-family: var(--ft); font-weight: 700; font-size: 64px; line-height: 1.1; letter-spacing: -0.02em; }
+.gold { color: var(--gold-text); }
+.on-dark .gold { color: var(--gold-1); }
+.kicker { display: inline-flex; align-items: center; gap: 18px; font-family: var(--fb); font-weight: 800; font-size: 22px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-text); }
+.kicker::before { content: ""; width: 56px; height: 2px; background: var(--gold-3); }
+.on-dark .kicker { color: var(--gold-2); }
+.on-dark { --slide-bg: var(--dark); background: radial-gradient(ellipse at 50% 0%, #2a1c06 0%, var(--dark) 60%); color: #1a1a1a; }
+.btn { display: inline-flex; align-items: center; gap: 22px; padding: 26px 30px 26px 44px; border-radius: 999px; background: var(--gold-grad); color: var(--dark-2); font-family: var(--fb); font-weight: 800; font-size: 30px; box-shadow: 0 18px 40px rgba(185, 131, 46, 0.35); }
+.btn i { width: 56px; height: 56px; border-radius: 50%; background: var(--dark-2); color: var(--gold-1); display: grid; place-items: center; font-style: normal; font-size: 28px; }
+
+/* Deck chrome inside each slide: title + page number */
+.foot { position: absolute; left: var(--pad-x); right: var(--pad-x); bottom: 40px; display: flex; justify-content: space-between; font-size: 20px; font-weight: 600; letter-spacing: 0.06em; color: rgba(26, 26, 26, 0.45); }
+.on-dark .foot { color: rgba(245, 166, 35, 0.45); }
+
+/* ===========================================
+   ANIMATIONS (one effect per slide, triggered by .visible)
+   =========================================== */
+.reveal { opacity: 0; transform: translateY(34px); transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo); }
+.slide.visible .reveal { opacity: 1; transform: none; }
+.reveal-blur { opacity: 0; filter: blur(14px); transition: opacity 1.2s ease, filter 1.2s var(--ease-out-expo); }
+.slide.visible .reveal-blur { opacity: 1; filter: none; }
+.reveal-right { opacity: 0; transform: translateX(80px); transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo); }
+.slide.visible .reveal-right { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.1s !important; } .d2 { transition-delay: 0.3s !important; } .d3 { transition-delay: 0.5s !important; }
+.d4 { transition-delay: 0.7s !important; } .d5 { transition-delay: 0.9s !important; } .d6 { transition-delay: 1.1s !important; }
+/* ===========================================
+   DECK CONTROLS (outside the stage) + INLINE EDITING
+   =========================================== */
+.deck-controls { display: flex; align-items: center; gap: 14px; padding: 10px 18px; border-radius: 999px; background: rgba(18, 15, 10, 0.6); color: #f6dc9e; font: 600 14px var(--fb); opacity: 0; transition: opacity 0.3s; }
+.deck-viewport:hover ~ .deck-controls, .deck-controls:hover { opacity: 1; }
+.progress { position: fixed; left: 0; top: 0; height: 3px; background: var(--gold-grad); z-index: 1000; transition: width 0.4s var(--ease-out-expo); }
+.edit-hotzone { position: fixed; top: 0; left: 0; width: 80px; height: 80px; z-index: 10000; cursor: pointer; }
+.edit-toggle { position: fixed; top: 16px; left: 16px; z-index: 10001; width: 48px; height: 48px; border-radius: 50%; border: none; background: var(--gold-grad); font-size: 20px; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.edit-toggle.show, .edit-toggle.active { opacity: 1; pointer-events: auto; }
+[contenteditable="true"] { outline: 2px dashed rgba(201, 149, 63, 0.6); outline-offset: 4px; }
+/* owner's save bar (only with the ?edit= link) */
+#ebar { position: fixed; right: 16px; top: 16px; z-index: 10002; display: flex; gap: 10px; align-items: center; padding: 8px; border-radius: 14px; background: rgba(18, 15, 10, 0.75); font: 600 14px var(--fb); color: #fff; }
+#ebar button { padding: 10px 16px; border: 0; border-radius: 10px; background: var(--gold-grad); color: var(--dark-2); font: 700 14px var(--fb); cursor: pointer; }
+html.viewer .edit-hotzone, html.viewer .edit-toggle, html.viewer #ebar { display: none !important; }
+
+/* ===========================================
+   TEMPLATES FOR THE GRADUATES' LIVE
+   =========================================== */
+.d7 { transition-delay: 1.3s !important; } .d8 { transition-delay: 1.5s !important; } .d9 { transition-delay: 1.7s !important; }
+.r { opacity: 0; transform: translateY(30px); transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo); }
+.slide.visible .r { opacity: 1; transform: none; }
+em { font-style: normal; color: var(--gold-text); }
+.on-dark em { color: var(--gold-1); }
+.slide { padding: 110px var(--pad-x) 120px; display: flex; flex-direction: column; justify-content: center; }
+.slide.active, .slide.visible { display: flex; }
+.head { margin-bottom: 52px; }
+.head .h2 { margin-top: 22px; max-width: 1560px; }
+.lead { margin-top: 24px; font-size: 34px; line-height: 1.35; font-weight: 500; color: var(--ink-soft); max-width: 1500px; }
+.on-dark .lead { color: rgba(26, 26, 26, 0.8); }
+.note { margin-top: 36px; font-size: 26px; line-height: 1.35; color: var(--ink-soft); }
+.on-dark .note { color: rgba(26, 26, 26, 0.7); }
+.src { position: absolute; left: var(--pad-x); right: var(--pad-x); bottom: 82px; font-size: 20px; line-height: 1.3; color: rgba(26, 26, 26, 0.5); }
+.on-dark .src { color: rgba(245, 166, 35, 0.5); }
+
+/* cover */
+.t-cover { flex-direction: row; align-items: center; justify-content: space-between; background: radial-gradient(ellipse at 85% 40%, #ffffff 0%, var(--cream) 55%); }
+.cover-l { width: 1060px; }
+.cover-l .h1 { margin-top: 30px; font-size: 70px; }
+.cover-l .sub { margin-top: 34px; font-family: var(--ft); font-weight: 600; font-size: 40px; line-height: 1.25; color: var(--gold-text); }
+.cover-l .meta { margin-top: 48px; display: flex; gap: 18px; flex-wrap: wrap; }
+.cover-l .meta span { padding: 14px 28px; border-radius: 999px; background: var(--gold-grad); font-weight: 800; font-size: 26px; color: var(--dark-2); }
+.cover-card { position: relative; width: 540px; height: 760px; border-radius: 40px; overflow: hidden; box-shadow: 0 40px 90px rgba(26, 26, 26, 0.35); flex: none; }
+.cover-card img { width: 100%; height: 100%; max-height: none; object-fit: cover; display: block; }
+.cover-card .plate { position: absolute; left: 0; right: 0; bottom: 0; padding: 120px 40px 36px; background: linear-gradient(transparent, rgba(18, 15, 10, 0.92)); color: #fff; }
+.cover-card .plate b { display: block; font-family: var(--ft); font-weight: 600; font-size: 36px; color: var(--gold-1); }
+.cover-card .plate span { display: block; margin-top: 8px; font-size: 24px; line-height: 1.3; opacity: 0.85; }
+
+/* question to the chat */
+.t-ask { align-items: center; text-align: center; }
+.ask-wrap { display: flex; flex-direction: column; align-items: center; max-width: 1560px; }
+.chat { display: inline-flex; align-items: center; gap: 16px; padding: 14px 30px 14px 22px; border-radius: 999px; border: 2px solid var(--gold-3); font-weight: 800; font-size: 26px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-text); }
+.on-dark .chat { color: var(--gold-1); }
+.chat svg { width: 40px; height: 40px; fill: var(--gold-3); }
+.ask-q { margin-top: 44px; font-family: var(--ft); font-weight: 700; font-size: 84px; line-height: 1.12; letter-spacing: -0.02em; }
+.opts { margin-top: 60px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+.opt { min-width: 200px; padding: 22px 40px; border-radius: 28px; background: rgba(245, 166, 35, 0.12); border: 2px solid rgba(201, 149, 63, 0.5); font-family: var(--ft); font-weight: 600; font-size: 40px; white-space: nowrap; }
+.ask-note { margin-top: 44px; font-size: 32px; color: rgba(26, 26, 26, 0.75); }
+
+/* statement */
+.t-statement { justify-content: center; }
+.st-wrap { max-width: 1600px; }
+.st { margin-top: 30px; font-family: var(--ft); font-weight: 700; font-size: 76px; line-height: 1.14; letter-spacing: -0.02em; }
+.st-sub { margin-top: 40px; font-size: 38px; line-height: 1.35; font-weight: 500; color: var(--ink-soft); max-width: 1400px; }
+.on-dark .st-sub { color: rgba(26, 26, 26, 0.8); }
+
+/* list / cards */
+.grid { display: grid; gap: 26px; }
+.grid.c1 { grid-template-columns: 1fr; max-width: 1560px; }
+.grid.c2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid.c3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid.c4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.li { position: relative; padding: 30px 40px 32px 92px; border-radius: 28px; background: #ffffff; border: 1px solid var(--line); box-shadow: 0 14px 34px rgba(26, 26, 26, 0.06); counter-increment: li; }
+.grid { counter-reset: li; }
+.li::before { content: counter(li, decimal-leading-zero); position: absolute; left: 30px; top: 32px; font-family: var(--ft); font-weight: 700; font-size: 26px; color: var(--gold-3); }
+.li b { display: block; font-family: var(--ft); font-weight: 600; font-size: 36px; line-height: 1.2; }
+.li b + p { margin-top: 12px; font-size: 29px; color: var(--ink-soft); }
+.li p { font-size: 33px; line-height: 1.32; }
+.on-dark .li { background: rgba(245, 166, 35, 0.07); border-color: rgba(245, 166, 35, 0.22); box-shadow: none; }
+.on-dark .li b + p { color: rgba(26, 26, 26, 0.78); }
+.grid.dots .li::before { content: ""; top: 46px; left: 38px; width: 18px; height: 18px; border-radius: 50%; background: var(--gold-grad); }
+.grid.dots .li { padding-left: 82px; }
+.grid.bare .li { padding-left: 40px; }
+.grid.bare .li::before { display: none; }
+
+/* custom blocks */
+.big-num { font-family: var(--ft); font-weight: 700; color: var(--gold-text); line-height: 1; }
+.on-dark .big-num { color: var(--gold-1); }
+
+/* ===========================================
+   CUSTOM SLIDES
+   =========================================== */
+/* author */
+.s-author { flex-direction: row; align-items: center; gap: 90px; }
+.au-photo { width: 560px; height: 800px; border-radius: 40px; overflow: hidden; flex: none; box-shadow: 0 40px 90px rgba(26, 26, 26, 0.3); }
+.au-photo img { width: 100%; height: 100%; max-height: none; object-fit: cover; }
+.au-txt .h2 { margin-top: 22px; font-size: 76px; }
+.au-role { margin-top: 22px; font-size: 34px; line-height: 1.35; color: var(--ink-soft); }
+.au-stats { margin-top: 50px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.au-stats > div { padding: 30px; border-radius: 28px; background: #ffffff; border: 1px solid var(--line); }
+.au-stats .big-num { font-size: 72px; }
+.au-stats p { margin-top: 12px; font-size: 26px; font-weight: 600; color: var(--ink-soft); }
+.au-edu { margin-top: 40px; font-size: 26px; font-weight: 600; color: var(--gold-text); }
+
+/* sobriety */
+.sober { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
+.sb { position: relative; padding: 44px 40px 40px; border-radius: 32px; background: rgba(245, 166, 35, 0.07); border: 1px solid rgba(245, 166, 35, 0.22); }
+.sb .arrow { position: absolute; right: 36px; top: 30px; font-size: 64px; font-weight: 800; }
+.sb.up .arrow { color: #8fd18a; } .sb.down .arrow { color: #f08a6c; }
+.sb .big-num { display: block; font-size: 88px; }
+.sb b { display: block; margin-top: 22px; font-size: 32px; line-height: 1.3; font-weight: 600; color: #1a1a1a; }
+.sb i { display: block; margin-top: 22px; font-style: normal; font-size: 21px; color: rgba(245, 166, 35, 0.55); }
+
+/* agents */
+.agents { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+.ag { padding: 40px 44px; border-radius: 32px; background: #ffffff; border: 1px solid var(--line); }
+.ag b { font-family: var(--ft); font-size: 34px; font-weight: 600; color: var(--gold-text); }
+.ag p { margin-top: 12px; font-size: 36px; font-weight: 700; }
+.ag .same { margin-top: 18px; font-size: 26px; color: var(--ink-soft); }
+.ag .bar { margin-top: 30px; height: 26px; border-radius: 13px; background: var(--line); overflow: hidden; }
+.ag .bar span { display: block; height: 100%; background: var(--gold-grad); border-radius: 13px; min-width: 14px; }
+.ag .bar .grow { width: 0; transition: width 1.6s var(--ease-out-expo) 1.2s; }
+.slide.visible .ag .bar .grow { width: 100%; }
+.ag .res { margin-top: 26px; font-size: 64px; }
+
+/* psychologists */
+.s-psy { align-items: center; text-align: center; }
+.s-psy .ask-q { font-size: 70px; }
+.psy { margin-top: 56px; display: flex; align-items: center; gap: 50px; }
+.pc { width: 520px; padding: 40px; border-radius: 32px; background: rgba(245, 166, 35, 0.07); border: 1px solid rgba(245, 166, 35, 0.25); }
+.pc span { font-size: 28px; font-weight: 700; color: rgba(26, 26, 26, 0.7); }
+.pc .clock { margin-top: 14px; font-size: 34px; font-weight: 700; color: #1a1a1a; }
+.pc .big-num { margin-top: 18px; font-size: 80px; }
+.vs { font-family: var(--ft); font-size: 40px; color: var(--gold-2); }
+
+/* venn */
+.s-formula { align-items: center; text-align: center; }
+.s-formula .head { margin-bottom: 10px; }
+.venn { position: relative; width: 900px; height: 640px; }
+.venn svg { width: 900px; height: 640px; }
+.venn circle { fill: rgba(245, 166, 35, 0.22); stroke: var(--gold-3); stroke-width: 3; }
+.venn span { position: absolute; font-family: var(--ft); font-weight: 600; font-size: 32px; }
+.venn .v1 { left: 110px; top: 190px; } .venn .v2 { right: 40px; top: 190px; width: 300px; } .venn .v3 { left: 360px; top: 520px; }
+.venn .vc { left: 395px; top: 290px; padding: 10px 24px; border-radius: 999px; background: var(--gold-grad); font-size: 36px; }
+.venn-note { margin-top: 10px; font-size: 34px; font-weight: 600; }
+
+/* stable donut */
+.stable { display: flex; align-items: center; gap: 100px; }
+.donut { position: relative; width: 520px; height: 520px; flex: none; }
+.donut svg { width: 520px; height: 520px; transform: rotate(-90deg); }
+.donut circle { fill: none; stroke-width: 26; }
+.donut .bg { stroke: var(--line); }
+.donut .fg { stroke: var(--gold-3); stroke-linecap: round; stroke-dasharray: 0 503; transition: stroke-dasharray 1.8s var(--ease-out-expo) 0.4s; }
+.slide.visible .donut .fg { stroke-dasharray: 63 503; }
+.donut .big-num { position: absolute; inset: 0; display: grid; place-items: center; font-size: 76px; }
+.stable-t .h2 { margin-top: 22px; }
+.stable-t .lead { margin-top: 30px; }
+
+/* path */
+.path { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
+.pt { padding: 44px 40px; border-radius: 32px; background: #ffffff; border: 1px solid var(--line); border-top: 8px solid var(--gold-3); }
+.pt .big-num { font-size: 70px; white-space: nowrap; }
+.pt p { margin-top: 20px; font-size: 32px; line-height: 1.32; }
+
+/* cases */
+.cases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.cs { padding: 36px 36px 40px; border-radius: 32px; background: #ffffff; border: 1px solid var(--line); }
+.cs-h { display: flex; align-items: center; gap: 22px; margin-bottom: 26px; }
+.cs-h img, .cs-ph { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; flex: none; }
+.cs-ph { display: grid; place-items: center; background: var(--gold-grad); font-family: var(--ft); font-size: 44px; color: var(--dark-2); }
+.cs-h b { display: block; font-size: 30px; font-weight: 800; }
+.cs-h .big-num { display: block; margin-top: 6px; font-size: 38px; }
+.cs p { font-size: 28px; line-height: 1.34; }
+.cs p.was { margin-bottom: 16px; color: var(--ink-soft); }
+
+/* puzzle */
+.s-puzzle { flex-direction: row; align-items: center; gap: 80px; }
+.puzzle-t { width: 780px; flex: none; }
+.puzzle-t .h2 { margin-top: 22px; }
+.puzzle-t .lead { margin-top: 30px; }
+.puzzle { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; flex: 1; }
+.pz { padding: 28px 32px; border-radius: 26px; background: #ffffff; border: 1px solid var(--line); }
+.pz b { font-family: var(--ft); font-weight: 600; font-size: 32px; color: var(--gold-text); }
+.pz p { margin-top: 8px; font-size: 27px; line-height: 1.3; }
+.pz.core { grid-column: 1 / -1; background: var(--gold-grad); border: none; }
+.pz.core b, .pz.core p { color: var(--dark-2); }
+
+/* rules */
+.rules { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
+.rl { padding: 60px 44px; border-radius: 36px; background: rgba(245, 166, 35, 0.07); border: 1px solid rgba(245, 166, 35, 0.25); text-align: center; }
+.rl .big-num { font-size: 140px; }
+.rl b { display: block; margin-top: 20px; font-family: var(--ft); font-weight: 600; font-size: 44px; }
+
+/* yes / no */
+.vsx { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px; }
+.vsx > div { padding: 46px 48px; border-radius: 32px; }
+.vsx b { font-family: var(--ft); font-weight: 600; font-size: 34px; }
+.vsx p { margin-top: 20px; font-size: 36px; line-height: 1.34; }
+.yes { background: #f0f6e8; border: 2px solid #9cc28a; } .yes b { color: #3f7a2c; }
+.no { background: #fbeee8; border: 2px solid #e2a48f; } .no b { color: #a8442a; }
+
+/* group field */
+.s-field { flex-direction: row; align-items: center; gap: 60px; }
+.field-t { width: 900px; flex: none; }
+.field-t .h2 { margin-top: 22px; }
+.field-t .lead { margin-top: 30px; }
+.net { width: 700px; height: 700px; }
+.net line { stroke: rgba(245, 166, 35, 0.35); stroke-width: 3; stroke-dasharray: 600; stroke-dashoffset: 600; transition: stroke-dashoffset 2s ease 0.6s; }
+.slide.visible .net line { stroke-dashoffset: 0; }
+.net .nodes circle { fill: rgba(245, 166, 35, 0.25); stroke: var(--gold-2); stroke-width: 3; }
+.net .hub { fill: url(#none); fill: #e8c27a; }
+.net text { font: 700 30px var(--ft); fill: #1a1208; }
+
+/* method flow + steps */
+.flow, .steps { display: flex; align-items: stretch; gap: 22px; }
+.fl, .sp { flex: 1; padding: 40px 38px; border-radius: 32px; background: #ffffff; border: 1px solid var(--line); }
+.fl .big-num, .sp .big-num { font-size: 60px; }
+.fl b, .sp b { display: block; margin-top: 18px; font-family: var(--ft); font-weight: 600; font-size: 34px; line-height: 1.2; }
+.fl p, .sp p { margin-top: 14px; font-size: 28px; line-height: 1.32; color: var(--ink-soft); }
+.farr { align-self: center; font-size: 56px; color: var(--gold-3); }
+
+/* person */
+.s-person { flex-direction: row; align-items: center; gap: 80px; }
+.ps-mark { width: 380px; height: 380px; flex: none; }
+.ps-mark svg { width: 380px; height: 380px; }
+.ps-mark circle { fill: rgba(245, 166, 35, 0.18); stroke: var(--gold-3); stroke-width: 4; }
+.ps-mark path { fill: none; stroke: var(--gold-3); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+.ps-t .h2 { margin-top: 22px; }
+.ps-t .lead { margin-top: 26px; }
+.ps-t .grid { margin-top: 36px; }
+
+/* bonus */
+.s-bonus { flex-direction: row; align-items: center; gap: 80px; }
+.gift { width: 400px; height: 400px; flex: none; }
+.gift svg { width: 400px; height: 400px; }
+.gift rect, .gift path { fill: rgba(245, 166, 35, 0.25); stroke: var(--gold-3); stroke-width: 5; stroke-linejoin: round; }
+.gift path { fill: none; }
+.bonus-t .h2 { margin-top: 22px; }
+.bonus-name { margin-top: 30px; font-family: var(--ft); font-weight: 700; font-size: 60px; color: var(--gold-text); }
+.bonus-t .lead { margin-top: 24px; }
+
+/* test */
+.test { display: grid; gap: 18px; max-width: 1600px; }
+.tq { display: flex; align-items: center; gap: 30px; padding: 22px 34px; border-radius: 24px; background: #ffffff; border: 1px solid var(--line); }
+.tq span { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; flex: none; background: var(--gold-grad); font-family: var(--ft); font-weight: 700; font-size: 30px; }
+.tq p { font-size: 34px; line-height: 1.3; }
+
+/* program */
+.s-program { flex-direction: row; align-items: center; gap: 70px; }
+.pg-t { flex: 1; }
+.pg-t .h1 { margin-top: 26px; font-size: 64px; }
+.pg-t .lead { margin-top: 30px; }
+.pg-facts { width: 560px; flex: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.pg-facts > div { padding: 34px 30px; border-radius: 28px; background: #ffffff; border: 1px solid var(--line); }
+.pg-facts .big-num { font-size: 84px; }
+.pg-facts p { margin-top: 10px; font-size: 26px; font-weight: 600; line-height: 1.3; }
+
+/* program map */
+.map { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.mcol { padding: 40px 40px 34px; border-radius: 32px; background: #ffffff; border: 1px solid var(--line); border-top: 8px solid var(--gold-3); }
+.mcol b { display: block; font-family: var(--ft); font-weight: 600; font-size: 32px; line-height: 1.2; }
+.mcol span { display: block; margin-top: 10px; font-size: 24px; font-weight: 700; color: var(--gold-text); }
+.mcol ol { margin-top: 24px; padding-left: 44px; display: grid; gap: 12px; }
+.mcol li { font-size: 29px; line-height: 1.3; }
+.mcol li::marker { font-weight: 800; color: var(--gold-3); }
+
+/* module */
+.s-mod { flex-direction: row; align-items: stretch; gap: 70px; }
+.mod-side { width: 300px; flex: none; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 40px; border-radius: 36px; background: var(--gold-grad); color: var(--dark-2); }
+.mod-n { font-family: var(--ft); font-weight: 700; font-size: 150px; line-height: 1; }
+.mod-of { margin-top: 6px; font-size: 28px; font-weight: 700; }
+.mod-who { margin-top: 40px; font-size: 26px; font-weight: 800; line-height: 1.3; }
+.mod-main { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.mod-main .h2 { margin-top: 20px; font-size: 58px; }
+.mod-main .lead { margin-top: 18px; font-size: 32px; }
+.mod-cols { margin-top: 40px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; align-items: start; }
+.mod-lab { font-size: 22px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-text); margin-bottom: 18px; }
+.mod-cols ul { list-style: none; display: grid; gap: 14px; }
+.mod-cols li { position: relative; padding-left: 34px; font-size: 29px; line-height: 1.32; }
+.mod-cols li::before { content: ""; position: absolute; left: 0; top: 14px; width: 14px; height: 14px; border-radius: 50%; background: var(--gold-3); }
+.mod-res { padding: 34px 36px; border-radius: 28px; background: var(--dark); color: #1a1a1a; }
+.mod-res .mod-lab { color: var(--gold-2); }
+.mod-res p { font-size: 32px; line-height: 1.32; font-weight: 600; }
+
+/* helper phone */
+.s-helper { flex-direction: row; align-items: center; gap: 90px; }
+.phone { width: 400px; height: 760px; flex: none; border-radius: 56px; border: 10px solid #1a1a1a; background: #f8f7f4; padding: 60px 26px; }
+.ph-scr { display: flex; flex-direction: column; gap: 22px; }
+.msg { max-width: 300px; padding: 18px 22px; border-radius: 22px; font-size: 24px; line-height: 1.3; color: var(--ink); }
+.msg.in { align-self: flex-end; background: var(--gold-1); }
+.msg.out { align-self: flex-start; background: #fff; }
+.helper-t .h2 { margin-top: 22px; }
+.helper-t .lead { margin-top: 28px; }
+
+/* 12 summary */
+.m12 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.mg { padding: 44px; border-radius: 32px; background: #ffffff; border: 1px solid var(--line); text-align: center; }
+.mg .dots { font-size: 54px; letter-spacing: 0.12em; color: var(--gold-3); white-space: nowrap; }
+.mg b { display: block; margin-top: 16px; font-family: var(--ft); font-weight: 600; font-size: 38px; }
+.m12-f { margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap; }
+.m12-f span { padding: 16px 30px; border-radius: 999px; background: var(--gold-grad); font-weight: 800; font-size: 28px; }
+
+/* calculator */
+.calc { display: grid; gap: 26px; }
+.cr { display: grid; grid-template-columns: 380px 400px 1fr 380px; align-items: center; gap: 30px; padding: 30px 40px; border-radius: 28px; background: #ffffff; border: 1px solid var(--line); }
+.cr b { font-family: var(--ft); font-weight: 600; font-size: 32px; }
+.cr span { font-size: 28px; color: var(--ink-soft); }
+.cbar { height: 24px; border-radius: 12px; background: var(--line); overflow: hidden; }
+.cbar i { display: block; height: 100%; width: 0; border-radius: 12px; background: var(--gold-grad); transition: width 1.6s var(--ease-out-expo) 0.8s; }
+.slide.visible .cbar i { width: var(--w); }
+.cr em { font-size: 50px; text-align: right; white-space: nowrap; }
+
+/* price */
+.s-price { flex-direction: row; align-items: center; gap: 80px; }
+.price-t { flex: 1; }
+.price-t .h2 { margin-top: 22px; }
+.price { margin: 36px 0 40px; }
+.price .big-num { font-size: 120px; white-space: nowrap; }
+.price p { margin-top: 12px; font-size: 30px; color: rgba(26, 26, 26, 0.8); }
+.seats { width: 420px; flex: none; text-align: center; }
+.seat-grid { width: 420px; height: 420px; }
+.seats p { margin-top: 20px; font-size: 26px; line-height: 1.35; color: rgba(26, 26, 26, 0.8); }
+
+/* cta */
+.s-cta { justify-content: center; }
+.cta-t .h1 { margin-top: 26px; font-size: 76px; color: #ffffff; }
+.cta-t .lead { margin-top: 26px; }
+.cta-t .btn { margin-top: 50px; font-size: 34px; }
+.url { margin-top: 30px; font-size: 30px; font-weight: 700; color: var(--gold-2); }
+
+/* research: people */
+.people { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.pp { padding: 34px 30px; border-radius: 30px; background: rgba(245, 166, 35, 0.07); border: 1px solid rgba(245, 166, 35, 0.25); display: flex; flex-direction: column; }
+.pp .ini { width: 92px; height: 92px; border-radius: 50%; display: grid; place-items: center; background: var(--gold-grad); font-family: var(--ft); font-weight: 700; font-size: 32px; color: var(--dark-2); }
+.pp b { margin-top: 22px; font-family: var(--ft); font-weight: 600; font-size: 32px; }
+.pp i { margin-top: 6px; font-style: normal; font-size: 22px; font-weight: 700; color: var(--gold-2); }
+.pp p { margin-top: 18px; font-size: 26px; line-height: 1.34; color: #1a1a1a; flex: 1; }
+.pp s { margin-top: 18px; text-decoration: none; font-size: 19px; color: rgba(245, 166, 35, 0.5); }
+/* research: loop */
+.s-loop { flex-direction: row; align-items: center; gap: 60px; }
+.loop-t { flex: 1; }
+.loop-t .h2 { margin-top: 22px; }
+.loop-t .lead { margin-top: 30px; }
+.loop { width: 640px; height: 640px; flex: none; }
+.loop .ring { fill: none; stroke: var(--gold-3); stroke-width: 4; stroke-dasharray: 14 12; }
+.loop .lp circle { fill: #ffffff; stroke: var(--gold-3); stroke-width: 4; }
+.loop .lp:nth-child(4) circle { fill: #e8c27a; }
+.loop text { font: 700 24px var(--fb); fill: var(--ink); text-anchor: middle; }
+.loop .lp { opacity: 0; transition: opacity 0.6s ease; }
+.slide.visible .loop .lp { opacity: 1; }
+.slide.visible .loop .lp:nth-of-type(2) { transition-delay: 0.6s; } .slide.visible .loop .lp:nth-of-type(3) { transition-delay: 1.1s; }
+.slide.visible .loop .lp:nth-of-type(4) { transition-delay: 1.6s; } .slide.visible .loop .lp:nth-of-type(5) { transition-delay: 2.1s; }
+/* research: quotes */
+.quotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.qt { padding: 44px 40px; border-radius: 32px; background: rgba(245, 166, 35, 0.07); border-left: 6px solid var(--gold-3); }
+.qt p { font-size: 34px; line-height: 1.32; font-weight: 600; color: #1a1a1a; }
+.qt s { display: block; margin-top: 24px; text-decoration: none; font-size: 21px; line-height: 1.3; color: rgba(245, 166, 35, 0.6); }
+/* research: value table */
+.vt { display: grid; gap: 18px; }
+.vr { display: grid; grid-template-columns: 340px 60px 1fr; align-items: center; padding: 26px 36px; border-radius: 26px; background: #ffffff; border: 1px solid var(--line); }
+.vr b { font-family: var(--ft); font-weight: 600; font-size: 34px; color: var(--gold-text); }
+.vr span { font-size: 40px; color: var(--gold-3); }
+.vr p { font-size: 29px; line-height: 1.32; }
+.s-value .src { position: static; margin-top: 26px; }
+/* research: mind */
+.s-mind { flex-direction: row; align-items: center; gap: 70px; }
+.mind-t { width: 760px; flex: none; }
+.mind-t .h2 { margin-top: 22px; }
+.mind-t .lead { margin-top: 30px; }
+.star { flex: 1; display: grid; gap: 16px; }
+.sx { display: flex; align-items: center; gap: 28px; padding: 22px 32px; border-radius: 24px; background: rgba(245, 166, 35, 0.07); border: 1px solid rgba(245, 166, 35, 0.25); }
+.sx b { font-family: var(--ft); font-size: 34px; color: var(--gold-1); }
+.sx p { font-size: 32px; font-weight: 600; }
+.seat-grid .tk { fill: var(--gold-2); }
+.seat-grid .fr { fill: none; stroke: rgba(245, 166, 35, 0.5); stroke-width: 3; }
+/* fixes after bounds check, round 1 */
+.s-author { gap: 70px; }
+.au-photo { width: 500px; height: 760px; }
+.au-stats p { font-size: 24px; }
+.au-stats .big-num { font-size: 64px; }
+.pc { width: 580px; }
+.pc .big-num { font-size: 66px; white-space: nowrap; }
+.venn .v2 { width: 330px; right: 20px; }
+.li b { font-size: 33px; }
+.pp b { font-size: 29px; }
+.mind-t { width: 880px; }
+.mind-t .h2 { font-size: 58px; }
+.flow, .steps { gap: 16px; }
+.fl, .sp { padding: 36px 30px; }
+.farr { font-size: 46px; }
+.mod-n { font-size: 128px; }
+.cr { grid-template-columns: 420px 380px 1fr 400px; gap: 26px; }
+.cr b { font-size: 30px; }
+.cr em { font-size: 46px; }
+/* round 2 */
+.nw { white-space: nowrap; }
+.sb .big-num { font-size: 74px; }
+.cs-h .big-num { font-size: 32px; white-space: nowrap; }
+.vsx > div { padding: 56px 56px; }
+.vsx b { font-size: 38px; }
+.vsx p { font-size: 42px; }
+.ps-mark { display: grid; place-items: center; border-radius: 50%; background: var(--gold-grad); }
+.ps-mark span { font-family: var(--ft); font-weight: 700; font-size: 120px; color: var(--dark-2); }
+.fl, .sp { flex: 1 1 0; min-width: 0; }
+.fl b, .sp b { font-size: 29px; }
+.vr { grid-template-columns: 370px 60px 1fr; }
+/* round 3: readability from 3 m */
+.li p { font-size: 35px; }
+.li b + p { font-size: 31px; }
+.lead { font-size: 36px; }
+.mod-cols li { font-size: 31px; }
+.mcol li { font-size: 31px; }
+.pp p { font-size: 27px; }
+.src, .sb i, .pp s, .qt s { font-size: 24px; }
+.src-in { margin-top: 18px; font-size: 22px; color: rgba(245, 166, 35, 0.55); }
+.cs p { font-size: 29px; }
+.vr p { font-size: 31px; }
+/* real portraits instead of initials; icons instead of initials */
+.pp img.ini { display: block; width: 110px; height: 110px; border-radius: 50%; object-fit: cover; max-height: none; border: 3px solid var(--gold-2); }
+.ps-mark svg { width: 200px; height: 200px; }
+.ps-mark svg path { fill: none; stroke: var(--dark-2); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.au-photo img { object-position: 30% 50%; }
+/* hyphen-glue spans must not pick up the styles of parent "span" rules (.mcol span etc.) */
+.deck-stage .slide span.nw { display: inline; margin: 0; padding: 0; border: 0; background: none; box-shadow: none; font: inherit; color: inherit; letter-spacing: inherit; text-transform: inherit; min-width: 0; }
+/* kicker is inline-flex: its gap was splitting text around .nw spans */
+.kicker { gap: 0; white-space: pre-wrap; }
+.kicker::before { margin-right: 18px; }
+/* owner msg 871: two lives at the same income */
+.s-find .head { margin-bottom: 40px; }
+.cmp { margin-top: 24px; list-style: none; display: grid; gap: 14px; }
+.cmp li { position: relative; padding-left: 44px; font-size: 28px; line-height: 1.3; color: var(--ink-soft); }
+.cmp li::before { position: absolute; left: 0; top: 0; font-weight: 800; font-size: 30px; }
+.ag.minus .cmp li::before { content: "–"; color: #c0392b; }
+.ag.plus .cmp li::before { content: "+"; color: #2e8b57; }
+.ag.plus { border: 2px solid var(--gold-3); }
+/* owner msg 876: eight long agenda items, green markers as in his text */
+.s-plan { padding-top: 70px; padding-bottom: 90px; }
+.s-plan .head { margin-bottom: 30px; }
+.s-plan .grid { gap: 16px 26px; }
+.s-plan .li { padding: 18px 28px 20px 64px; }
+.s-plan .li p { font-size: 25px; line-height: 1.28; }
+.s-plan .grid.dots .li::before { top: 28px; left: 28px; width: 16px; height: 16px; background: #2fb35a; }
+/* owner edit 13:19: 5-7 % of people – arc ~6% */
+.slide.visible .donut .fg { stroke-dasharray: 30 503; }
+/* owner msg 889: grey paragraph read badly – a dark list instead */
+.st-list { margin-top: 26px; list-style: none; display: grid; gap: 12px; }
+.st-list li { position: relative; padding-left: 40px; font-size: 32px; line-height: 1.3; font-weight: 500; color: var(--ink); }
+.st-list li::before { content: ""; position: absolute; left: 4px; top: 14px; width: 14px; height: 14px; border-radius: 50%; background: var(--gold-3); }
+
+/* ===========================================
+   WHITE THEME after Yu. Muradyan's deck (owner msg 826-827):
+   white slides, Montserrat, indigo text, orange accents, outlined cards
+   =========================================== */
+:root {
+    --cream: #ffffff; --cream-2: #ffffff; --line: #e0ddd7;
+    --ink: #1a1a1a; --ink-soft: #666666;
+    --gold-text: #f5a623; --gold-1: #f5a623; --gold-2: #f5a623; --gold-3: #f5a623;
+    --dark: #1a1a1a; --dark-2: #ffffff;
+    --gold-grad: linear-gradient(135deg, #f7b955 0%, #f5a623 100%);
+    --ft: 'Montserrat', sans-serif; --fb: 'Montserrat', sans-serif;
+    --stage-bg: #ffffff; --slide-bg: #ffffff;
+}
+.slide, .t-cover { background: #ffffff; }
+.h1, .h2, .st, .ask-q { font-weight: 800; letter-spacing: -0.01em; }
+.foot { color: rgba(26, 26, 26, 0.45); }
+.li, .mcol, .cs, .opt { background: #ffffff; box-shadow: none; border: 2px solid #1a1a1a; }
+.grid .li:nth-child(odd), .cases .cs:nth-child(odd) { border-color: #f5a623; }
+.mcol { border-top: 8px solid #f5a623; }
+.cover-card .plate span, .cover-card .plate b { color: #ffffff; }
+.btn i { background: #ffffff; color: #f5a623; }
+#ebar button { color: #ffffff; }
+.slide p, .slide li, .slide b { letter-spacing: -0.02em; }
+
+/* ipzdas.ru accents on top of the Muradyan layout (owner msg 834) */
+:root { --dark-2: #1a1a1a; --gold-text: #c98200; }
+.mod-res, .mod-res p { color: #ffffff; }
+.btn i { background: #1a1a1a; color: #f5a623; }
+.cover-l .meta span, #ebar button { color: #1a1a1a; }
+/* no motion at all on the site copy (owner msg 839): every element shows in its final state */
+.no-anim *, .no-anim *::before, .no-anim *::after { transition: none !important; animation: none !important; }
+
+/* owner msg 862: long cover title */
+.cover-l .h1 { font-size: 54px; line-height: 1.12; }
+.cover-l .sub { font-size: 32px; }
+/* owner msg 865: source captions were amber on the amber card – make them readable */
+.sb i, .pp s, .qt s, .src-in, .src { color: #6f675c; }
+.sb .sb-plus { margin-top: 18px; font-size: 28px; color: #b8432a; }
+/* owner msg 894: no orange strip on the cards */
+.pt { border-top: 1px solid var(--line); }
+/* owner msg 896: slide 19 without cards – a growth line and open figures */
+.grow-line { display: flex; align-items: center; gap: 28px; margin: 6px 0 56px; padding-right: 8px; }
+.grow-line .gl-from { font-family: var(--ft); font-weight: 700; font-size: 40px; color: #8a8a8a; white-space: nowrap; }
+.grow-line .gl-to { font-family: var(--ft); font-weight: 700; font-size: 40px; color: var(--gold-text); white-space: nowrap; }
+.grow-line .gl-bar { position: relative; flex: 1; height: 6px; border-radius: 3px; background: linear-gradient(90deg, #e0ddd7, #f5a623); }
+.grow-line .gl-bar::after { content: ""; position: absolute; right: 0; top: 50%; transform: translateY(-50%); border-left: 22px solid #f5a623; border-top: 14px solid transparent; border-bottom: 14px solid transparent; }
+.path.open .pt { background: none; border: 0; border-radius: 0; padding: 6px 40px 0 0; border-left: 0; }
+.path.open .pt + .pt { border-left: 2px solid #e0ddd7; padding-left: 40px; }
+.path.open .pt .big-num { font-size: 76px; }
+.path.open .pt p { color: var(--ink); }
+/* owner msg 904: the arrow alone carries the slide */
+.s-path .grow-line { margin: 70px 0 0; gap: 40px; }
+.s-path .grow-line .gl-from, .s-path .grow-line .gl-to { font-size: 72px; }
+.s-path .grow-line .gl-bar { height: 10px; border-radius: 5px; }
+.s-path .grow-line .gl-bar::after { border-left-width: 34px; border-top-width: 22px; border-bottom-width: 22px; }
+
+/* owner save 13:48Z: longer labels on the three-cards slide */
+.s-rules .rl { padding: 60px 30px; }
+.s-rules .rl b { font-size: 32px; }
+
+/* owner msg 925: money spreads from the result to every member */
+.s-field .net line { stroke: rgba(245, 166, 35, 0.35); stroke-width: 3; stroke-dashoffset: 0; }
+.s-field .net .nodes circle { fill: #ffffff; stroke: #f5a623; stroke-width: 4; }
+.s-field .net .hub { fill: url(#hubg); }
+.s-field .net .pulse { fill: none; stroke: #f5a623; stroke-width: 3; }
+.s-field .net .coin circle { fill: #f5a623; stroke: #ffffff; stroke-width: 2; }
+.s-field .net .coin text { font: 700 21px var(--ft); fill: #ffffff; }
+.s-field .net .hub-t { font: 700 30px var(--ft); fill: #1a1a1a; }
+
+/* owner msg 926: six requests in two rows */
+.grid.req6 { gap: 22px; }
+.grid.req6 .li { padding: 24px 30px 26px 84px; }
+.grid.req6 .li b + p { font-size: 26px; }
+
+/* owner msg 931: what money buys and what it does not */
+.s-buy .buy { width: 760px; flex: none; display: flex; flex-direction: column; gap: 16px; }
+.s-buy .bl { display: flex; align-items: center; gap: 22px; padding: 20px 28px; border-radius: 22px; background: #f8f7f4; border: 1px solid #e0ddd7; }
+.s-buy .bl b { font: 600 30px var(--ft); color: #1a1a1a; flex: 1; }
+.s-buy .bl i { font-style: normal; font-size: 22px; color: #8a8378; }
+.s-buy .bi { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font: 700 24px var(--ft); flex: none; }
+.s-buy .bi.ok { background: #e6f4ea; color: #2f8a4a; }
+.s-buy .bl.cant { margin-top: 14px; padding: 28px; background: #fff4de; border: 2px solid #f5a623; }
+.s-buy .bl.cant .bi { background: #f5a623; color: #fff; }
+.s-buy .bl.cant b { font-size: 32px; }
+.s-buy .bl.cant i { color: #b8432a; font-weight: 600; }
+
+/* owner msg 935: four real surveys, big numbers */
+.s-polls .polls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 10px; }
+.s-polls .pl { display: grid; grid-template-columns: 210px 1fr; grid-template-rows: 1fr auto; column-gap: 26px; padding: 28px 34px; border-radius: 28px; background: #f8f7f4; border: 1px solid #e0ddd7; }
+.s-polls .pn { grid-row: 1 / 3; align-self: center; }
+.s-polls .pn { font: 800 96px/1 var(--ft); color: #f5a623; letter-spacing: -2px; }
+.s-polls .pl p { align-self: center; font: 600 29px/1.3 var(--ft); color: #1a1a1a; }
+.s-polls .pl s { margin-top: 14px; padding-top: 12px; border-top: 1px solid #e0ddd7; text-decoration: none; font-size: 18px; line-height: 1.35; color: #6f675c; }
+.s-polls .pl.hl { background: #1a1a1a; border-color: #1a1a1a; }
+.s-polls .pl.hl p { color: #ffffff; }
+.s-polls .pl.hl s { color: #bdb6aa; border-top-color: #3a3a3a; }
+.s-polls .src { margin-top: 30px; font-size: 28px; color: #1a1a1a; font-weight: 500; }
+
+/* owner msg 938: thinking habits, stat bars + clean list */
+.s-mind2 .m2 { display: grid; grid-template-columns: 760px 1fr; gap: 56px; margin-top: 16px; align-items: stretch; }
+.s-mind2 .m2-stat { background: #1a1a1a; border-radius: 32px; padding: 44px 44px 36px; display: flex; flex-direction: column; gap: 30px; }
+.s-mind2 .m2-q { font: 600 34px/1.25 var(--ft); color: #ffffff; }
+.s-mind2 .m2-row { display: grid; grid-template-columns: 200px 1fr 110px; align-items: center; gap: 20px; }
+.s-mind2 .m2-lab { font-size: 24px; color: #d8d2c6; }
+.s-mind2 .m2-bar { height: 26px; border-radius: 13px; background: #333333; overflow: hidden; }
+.s-mind2 .m2-bar i { display: block; height: 100%; border-radius: 13px; background: #f5a623; }
+.s-mind2 .m2-row b { font: 800 52px/1 var(--ft); color: #f5a623; text-align: right; }
+.s-mind2 .m2-row.poor .m2-bar i { background: #8a8378; }
+.s-mind2 .m2-row.poor b { color: #bdb6aa; }
+.s-mind2 .m2-stat s { margin-top: auto; text-decoration: none; font-size: 18px; color: #9a9285; line-height: 1.35; }
+.s-mind2 .m2-list { display: flex; flex-direction: column; justify-content: center; }
+.s-mind2 .m2-it { display: flex; align-items: center; gap: 28px; padding: 22px 0; border-bottom: 1px solid #e0ddd7; }
+.s-mind2 .m2-it:last-child { border-bottom: 0; }
+.s-mind2 .m2-it b { font: 800 34px var(--ft); color: #f5a623; width: 56px; flex: none; }
+.s-mind2 .m2-it p { font: 600 36px/1.2 var(--ft); color: #1a1a1a; }
+
+/* owner msg 955: module slides 50-61 */
+.s-mod { padding-top: 150px; padding-bottom: 110px; gap: 60px; align-items: stretch; }
+.s-mod .mtrack { position: absolute; top: 62px; left: var(--pad-x); right: var(--pad-x); display: grid; grid-template-columns: repeat(12, 1fr); gap: 10px; }
+.s-mod .mtrack i { height: 14px; border-radius: 8px; background: #ebe8e1; font-style: normal; }
+.s-mod .mtrack i.done { background: #f5c46e; }
+.s-mod .mtrack i.cur { height: 40px; margin-top: -13px; background: #1a1a1a; color: #f5a623; font: 800 24px/40px var(--fb); text-align: center; }
+.s-mod .mod-side { width: 440px; padding: 56px 48px; border-radius: 40px; background: #1a1a1a; color: #fff; justify-content: space-between; }
+.s-mod .mod-st { font-size: 24px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #f5a623; }
+.s-mod .mod-n { font-size: 260px; line-height: 0.9; color: #f5a623; letter-spacing: -0.04em; margin-top: auto; }
+.s-mod .mod-of { margin-top: 14px; font-size: 28px; color: rgba(255,255,255,0.7); }
+.s-mod .mod-who { margin-top: auto; padding-top: 28px; border-top: 2px solid rgba(255,255,255,0.18); width: 100%; font-size: 30px; color: #fff; }
+.s-mod .mod-main { justify-content: space-between; }
+.s-mod .mod-main .h2 { font-size: 62px; margin-top: 16px; }
+.s-mod .mod-main .lead { font-size: 32px; margin-top: 14px; }
+.s-mod .mtopics { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.s-mod .mt { display: flex; gap: 20px; align-items: flex-start; padding: 24px 26px; border-radius: 24px; background: #f8f7f4; border: 2px solid #ebe8e1; }
+.s-mod .mt b { flex: none; width: 52px; height: 52px; border-radius: 50%; background: #f5a623; color: #1a1a1a; font: 800 22px/52px var(--fb); text-align: center; }
+.s-mod .mt p { font-size: 28px; line-height: 1.3; }
+.s-mod .mod-res { margin-top: 26px; display: flex; align-items: center; gap: 30px; padding: 30px 40px; border-radius: 28px; background: linear-gradient(135deg, #f7b955, #f5a623); color: #1a1a1a; }
+.s-mod .mod-res .mod-lab { flex: none; margin: 0; padding: 10px 20px; border-radius: 999px; background: #1a1a1a; color: #f5a623; font-size: 20px; }
+.s-mod .mod-res p { color: #1a1a1a; font-size: 34px; font-weight: 700; }
+
+/* owner msg 955/958: client path slide */
+.s-path .path { margin-top: 64px; display: grid; grid-template-columns: 1fr 1fr 1fr 1.05fr; gap: 44px; position: relative; }
+.s-path .ps, .s-path .pfin { position: relative; display: flex; flex-direction: column; padding: 40px 36px; border-radius: 32px; background: #f8f7f4; border: 2px solid #ebe8e1; }
+.s-path .ps::after { content: "→"; position: absolute; right: -40px; top: 50%; transform: translateY(-50%); font: 800 36px var(--fb); color: #f5a623; }
+.s-path .pn { font-size: 22px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #b87a10; }
+.s-path .ps b { margin-top: 10px; font: 700 46px/1.1 var(--ft); color: #1a1a1a; }
+.s-path .pm { margin: 30px 0; display: flex; align-items: center; gap: 0; }
+.s-path .pm i { flex: none; width: 58px; height: 58px; border-radius: 50%; background: #f5a623; color: #1a1a1a; font: 800 24px/58px var(--fb); text-align: center; font-style: normal; }
+.s-path .pm i + i { margin-left: 18px; position: relative; }
+.s-path .pm i + i::before { content: ""; position: absolute; right: 100%; top: 27px; width: 18px; height: 4px; background: #f5a623; }
+.s-path .ps p { font-size: 30px; line-height: 1.3; color: #1a1a1a; font-weight: 600; }
+.s-path .pfin { background: #1a1a1a; border-color: #1a1a1a; justify-content: space-between; }
+.s-path .pfin .pn { color: #f5a623; }
+.s-path .pfin .big-num { font-style: normal; font-size: 170px; line-height: 1; color: #f5a623; font-family: var(--ft); font-weight: 800; }
+.s-path .pfin p { font-size: 32px; line-height: 1.3; color: #fff; font-weight: 700; }
+
+/* owner msg 955: program map slide 49 */
+.s-map .map { margin-top: 56px; gap: 32px; }
+.s-map .mcol { padding: 0; overflow: hidden; border: 2px solid #ebe8e1; border-radius: 32px; background: #f8f7f4; }
+.s-map .mcol > b { padding: 40px 40px 6px; background: #1a1a1a; color: #fff; font-size: 38px; }
+.s-map .mcol > span { margin: 0; padding: 0 40px 34px; background: #1a1a1a; color: #f5a623; font-size: 24px; }
+.s-map .mcol ol { margin: 0; padding: 34px 40px 40px 92px; gap: 20px; }
+.s-map .mcol li { font-size: 34px; line-height: 1.25; font-weight: 600; }
+.s-map .mcol li::marker { color: #f5a623; font-weight: 800; }
+.s-path .ps { padding: 40px 30px; }
+.s-path .pm i { width: 50px; height: 50px; font-size: 21px; line-height: 50px; }
+.s-path .pm i + i { margin-left: 14px; }
+.s-path .pm i + i::before { top: 23px; width: 14px; }
+.s-path .path { gap: 40px; }
+.s-path .ps::after { right: -34px; }
+.s-path .path { grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.05fr); } .s-path .ps p { font-size: 28px; } .s-path .ps b { font-size: 42px; }
+.s-path .ps::after { font-size: 48px; }
+/* owner msg 972: old price struck through */
+.price .old-price { display: block; margin-bottom: 6px; font: 700 64px/1 var(--ft); color: #9a9a9a; text-decoration: line-through; text-decoration-color: #e0433a; text-decoration-thickness: 6px; white-space: nowrap; }
+
+/* owner msg 974: tax deduction slide */
+.s-tax { flex-direction: row; align-items: center; gap: 80px; }
+.s-tax .tax-l { flex: none; width: 640px; padding: 64px 56px; border-radius: 40px; background: #1a1a1a; color: #fff; }
+.s-tax .tax-l .kicker { color: #f5a623; }
+.s-tax .tax-l .big-num { display: block; margin-top: 30px; font: 800 220px/1 var(--ft); font-style: normal; color: #f5a623; letter-spacing: -0.04em; }
+.s-tax .tax-l p { margin-top: 24px; font-size: 36px; line-height: 1.3; font-weight: 700; color: #fff; }
+.s-tax .tax-r { flex: 1; display: flex; flex-direction: column; gap: 22px; }
+.s-tax .tax-r .h2 { margin-bottom: 18px; }
+.s-tax .tx { display: flex; gap: 26px; align-items: center; padding: 28px 32px; border-radius: 26px; background: #f8f7f4; border: 2px solid #ebe8e1; }
+.s-tax .tx b { flex: none; width: 60px; height: 60px; border-radius: 50%; background: #f5a623; color: #1a1a1a; font: 800 26px/60px var(--fb); text-align: center; }
+.s-tax .tx p { font-size: 31px; line-height: 1.3; }
+/* owner msg 975: one seamless header of equal height in all three map columns */
+.s-map .mcol > b { display: flex; align-items: flex-end; min-height: 142px; margin: 0; box-shadow: 0 2px 0 #1a1a1a; position: relative; z-index: 1; }
+.s-map .mcol > span { min-height: 100px; margin-top: 0; padding-top: 10px; }
+.s-map .mcol ol { padding-left: 100px; }
+
+/* owner msg 980: price for the live, tax, bonuses, total */
+.price .pr-lab { display: block; font-size: 24px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #8a8a8a; margin-bottom: 8px; }
+.price .pr-lab.hl { margin-top: 22px; color: #b87a10; }
+.price .old-price { font-size: 72px; }
+.price p { font-size: 30px; font-weight: 600; color: #1a1a1a; }
+.s-price .grid.c2 .li p { font-size: 28px; }
+.s-tax2 { align-items: center; }
+.s-tax2 .tax-card { display: flex; align-items: stretch; width: 100%; border-radius: 48px; overflow: hidden; background: #f8f7f4; border: 2px solid #ebe8e1; }
+.s-tax2 .tax-num { flex: none; width: 720px; display: flex; align-items: center; justify-content: center; background: #1a1a1a; padding: 70px 0; }
+.s-tax2 .tax-num .big-num { font: 800 300px/1 var(--ft); font-style: normal; color: #f5a623; letter-spacing: -0.05em; }
+.s-tax2 .tax-txt { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 60px 70px; }
+.s-tax2 .tax-txt .h2 { margin-top: 20px; font-size: 68px; }
+.s-tax2 .tax-lic { margin-top: 44px; display: flex; gap: 28px; align-items: center; }
+.s-tax2 .tax-lic svg { flex: none; width: 92px; height: 92px; }
+.s-tax2 .tax-lic svg path { fill: #f5a623; }
+.s-tax2 .tax-lic svg path.ck { fill: none; stroke: #1a1a1a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.s-tax2 .tax-lic p { font-size: 36px; line-height: 1.3; font-weight: 600; color: #1a1a1a; }
+.s-bon .bon { margin-top: 50px; display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 28px; }
+.s-bon2 .bon { grid-template-columns: 1fr 1fr; }
+.s-bon .bc { display: flex; flex-direction: column; padding: 44px 40px; border-radius: 34px; background: #f8f7f4; border: 2px solid #ebe8e1; }
+.s-bon .bc.main { background: #1a1a1a; border-color: #1a1a1a; }
+.s-bon .bt { font-size: 22px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #b87a10; }
+.s-bon .bc.main .bt { color: #f5a623; }
+.s-bon .bc b { margin-top: 18px; font: 700 40px/1.15 var(--ft); color: #1a1a1a; }
+.s-bon .bc.main b { color: #fff; }
+.s-bon .bc p { margin-top: 18px; font-size: 29px; line-height: 1.32; color: #1a1a1a; }
+.s-bon .bc.main p { color: rgba(255,255,255,0.85); }
+.s-bon .save { margin-top: auto; padding-top: 30px; }
+.s-bon .save .big-num { display: block; font: 800 84px/1 var(--ft); font-style: normal; color: #f5a623; white-space: nowrap; }
+.s-bon .save span { display: block; margin-top: 10px; font-size: 28px; color: #fff; font-weight: 600; }
+.s-bon2 .save .big-num { font-size: 140px; }
+.s-total .tot { margin-top: 44px; display: grid; grid-template-columns: 640px 1fr; gap: 40px; }
+.s-total .tot-l { padding: 44px 46px; border-radius: 34px; background: #1a1a1a; color: #fff; }
+.s-total .bt { font-size: 22px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #f5a623; }
+.s-total .tot-l .big-num { display: block; margin: 14px 0 24px; font: 800 96px/1 var(--ft); font-style: normal; color: #f5a623; white-space: nowrap; }
+.s-total .tl { display: flex; justify-content: space-between; gap: 20px; padding: 14px 0; border-top: 2px solid rgba(255,255,255,0.15); font-size: 28px; }
+.s-total .tl b { color: #f5a623; white-space: nowrap; }
+.s-total .tot-r { list-style: none; display: grid; gap: 16px; align-content: center; }
+.s-total .tot-r li { position: relative; padding: 20px 28px 20px 78px; border-radius: 22px; background: #f8f7f4; border: 2px solid #ebe8e1; font-size: 30px; font-weight: 600; }
+.s-total .tot-r li::before { content: "✓"; position: absolute; left: 24px; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; background: #f5a623; color: #1a1a1a; font: 800 22px/38px var(--fb); text-align: center; }
+.s-total .tot-n { margin-top: 36px; font-size: 32px; line-height: 1.35; font-weight: 700; color: #1a1a1a; border-left: 8px solid #f5a623; padding-left: 28px; }
+.s-bon .bon { grid-template-columns: minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr); } .s-bon2 .bon { grid-template-columns: minmax(0,1fr) minmax(0,1fr); } .s-bon .save .big-num { font-size: 72px; } .s-bon2 .save .big-num { font-size: 140px; } .s-bon .bc b { font-size: 36px; }
+.s-total .tot { margin-top: 34px; } .s-total .tot-r li { padding-top: 16px; padding-bottom: 16px; } .s-total .tot-n { margin-top: 28px; } .s-tax2 .tax-txt .h2 { margin-top: 0; }
+/* owner msg 1003: no button on the CTA slide, the link is in the chat */
+.s-cta .h1 { color: #1a1a1a; }
+.s-cta .cta-chat { display: inline-block; margin-top: 44px; padding: 26px 40px; border-radius: 26px; background: #1a1a1a; color: #f5a623; font: 700 44px/1.2 var(--ft); }
+
+/* owner msg 1008: nicer total slide */
+.s-total2 .t2 { margin-top: 36px; display: grid; grid-template-columns: 600px minmax(0, 1fr); gap: 28px; }
+.s-total2 .t2-l { position: relative; overflow: hidden; display: flex; flex-direction: column; padding: 40px 44px; border-radius: 34px; background: radial-gradient(120% 90% at 100% 0%, rgba(245,166,35,0.35), transparent 60%), #1a1a1a; color: #fff; }
+.s-total2 .bt { font-size: 22px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #f5a623; }
+.s-total2 .t2-l .big-num { display: block; margin-top: 10px; font: 800 104px/1 var(--ft); font-style: normal; color: #f5a623; white-space: nowrap; letter-spacing: -0.03em; }
+.s-total2 .t2-parts { margin-top: auto; padding-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.s-total2 .t2-parts div { padding: 20px 22px; border-radius: 20px; background: rgba(255,255,255,0.08); }
+.s-total2 .t2-parts b { display: block; font: 700 32px/1.1 var(--ft); color: #fff; white-space: nowrap; }
+.s-total2 .t2-parts span { display: block; margin-top: 8px; font-size: 21px; line-height: 1.3; color: rgba(255,255,255,0.75); }
+.s-total2 .t2-r { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.s-total2 .g { display: flex; align-items: center; gap: 20px; padding: 22px 26px; border-radius: 24px; background: #f8f7f4; border: 2px solid #ebe8e1; }
+.s-total2 .g.wide { grid-column: 1 / -1; background: #fff4e0; border-color: #f5c46e; }
+.s-total2 .g i { flex: none; width: 56px; height: 56px; border-radius: 16px; background: #f5a623; color: #1a1a1a; font: 800 22px/56px var(--fb); font-style: normal; text-align: center; }
+.s-total2 .g p { font-size: 27px; line-height: 1.25; font-weight: 700; color: #1a1a1a; }
+.s-total2 .t2-path { margin-top: 26px; display: flex; align-items: stretch; gap: 18px; }
+.s-total2 .t2-path > div { padding: 20px 28px; border-radius: 22px; border: 2px solid #ebe8e1; }
+.s-total2 .t2-path > div:first-child { flex: none; width: 600px; }
+.s-total2 .t2-path > div.fin { flex: 1; background: #1a1a1a; border-color: #1a1a1a; }
+.s-total2 .t2-path span { font-size: 20px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #b87a10; }
+.s-total2 .t2-path .fin span { color: #f5a623; }
+.s-total2 .t2-path p { margin-top: 6px; font-size: 26px; line-height: 1.3; font-weight: 700; color: #1a1a1a; }
+.s-total2 .t2-path .fin p { color: #fff; }
+.s-total2 .t2-path em { align-self: center; font: 800 44px var(--fb); font-style: normal; color: #f5a623; }
+.s-total2 .t2-l .big-num { font-size: 94px; } .s-total2 .t2-path { display: grid; grid-template-columns: 600px minmax(0,1fr); gap: 28px; } .s-total2 .t2-path > div:first-child { width: auto; } .s-total2 .t2-path em { display: none; } .s-total2 .t2-path > div.fin { position: relative; } .s-total2 .t2-path > div.fin::before { content: "→"; position: absolute; left: -26px; top: 50%; transform: translate(-50%,-50%); font: 800 34px var(--fb); color: #f5a623; }
+
+
+/* embedded in praktikum-efir-4 */
+.foot,.deck-controls,.progress,.edit-hotzone,.edit-toggle,#ebar{display:none!important}
+</style>
+</head>
+<body>
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+<!-- 1. cover -->
+<section class="slide t-cover  active">
+<div class="cover-l"><div class="kicker r d1">Эфир для выпускников</div><h1 class="h1 r d2">Как психологу за 3 месяца выйти на новый уровень дохода, привлекать клиентов <em>премиум сегмента</em> и войти в 1% тех, кто обладает уникальными навыками и знаниями</h1>
+<p class="sub r d3">Интегративный метод Анны Саба, состояние и мышление специалиста, работающего с премиум сегментом</p><div class="meta r d4"></div></div>
+<div class="cover-card r d3"><img src="../efir-26-10/assets/anna-v3.jpg" alt="Анна Саба"><div class="plate"><b>Анна Саба</b><span><span class="nw">врач-психиатр</span> и психотерапевт<br>основатель Института психического здоровья</span></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>01</span></div>
+</section>
+<!-- 2. ask -->
+<section class="slide t-ask ">
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>вопрос 1</div>
+<h2 class="ask-q r d2">Напишите, какие мои программы вы проходили</h2><p class="ask-note r d6">Пишите в чате активно</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>02</span></div>
+</section>
+<!-- 3. ask -->
+<section class="slide t-ask ">
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>вопрос 2</div>
+<h2 class="ask-q r d2">Кто ведёт практику?</h2><div class="opts"><span class="opt r d3">Веду</span><span class="opt r d4">Начинаю</span><span class="opt r d5">Пока не веду</span></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>03</span></div>
+</section>
+<!-- 4. ask -->
+<section class="slide t-ask ">
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>вопрос 3</div>
+<h2 class="ask-q r d2">Какой доход от практики у вас сейчас?</h2><div class="opts"><span class="opt r d3">до 100 000 ₽</span><span class="opt r d4">100 000 - 300 000 ₽</span><span class="opt r d5">300 000 - 500 000 ₽</span><span class="opt r d6">500 000 - 1 000 000 ₽</span><span class="opt r d7">1 000 000 ₽ +</span></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>04</span></div>
+</section>
+<!-- 5. ask -->
+<section class="slide t-ask ">
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>вопрос 4</div>
+<h2 class="ask-q r d2">Кто хотел бы поднять чек и удвоить доход без переработки?</h2><p class="ask-note r d6">Пишите «Я» в чат</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>05</span></div>
+</section>
+<!-- 6. author -->
+<section class="slide t-html s-author">
+
+<div class="au-photo r d1"><img src="../efir-26-10/assets/anna-v3.jpg" alt="Анна Саба"></div>
+<div class="au-txt">
+  <div class="kicker r d1">для тех, кто новенький</div>
+  <h2 class="h2 r d2">Анна Таскалиевна&nbsp;Саба</h2>
+  <p class="au-role r d3"><span class="nw">Врач-психиатр</span>, психотерапевт. Основатель Института психического здоровья доктора Анны Саба.</p>
+  <div class="au-stats">
+    <div class="r d4"><span class="big-num"><span class="count" data-to="10">10</span>+</span><p>лет практики</p></div>
+    <div class="r d5"><span class="big-num"><span class="count" data-to="7000">7000</span>+</span><p>клиентов</p></div>
+    <div class="r d6"><span class="big-num"><span class="count" data-to="150">150</span>+</span><p>специалистов обучила</p></div>
+  </div>
+  <p class="au-edu r d7">Сеченовский университет · НМИЦ им. В.П. Сербского · РУДН</p>
+</div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>06</span></div>
+</section>
+<!-- 7. plan -->
+<section class="slide t-list s-plan">
+<div class="head"><h2 class="h2 r d2">Что будет на эфире:</h2></div>
+<div class="grid c2 dots"><div class="li r d3"><p>Как комбинировать EMDR 3.0 с системной терапией и квантовой психологией в одной сессии.</p></div><div class="li r d4"><p>Как поднимать чек на свои консультации и зарабатывать больше.</p></div><div class="li r d5"><p>Где искать <span class="nw">VIP-клиентов</span>, как правильно их вести, чтобы они делились вашим контактом с другими: психология работы с клиентами премиум сегмента.</p></div><div class="li r d6"><p>Маркетинг для <span class="nw">VIP-клиентов</span>: о чём говорить, как позиционироваться, как представлять себя, чтобы к вам записывались клиенты премиум сегмента.</p></div><div class="li r d7"><p>Маркетинг для всех – готовые решения для практиков, которые сами будут приводить платежеспособных клиентов и на 90% снимут с вас рутину.</p></div><div class="li r d8"><p>Как разработать свой авторский метод работы с клиентами.</p></div><div class="li r d9"><p>Как упаковать свои знания в качественный продукт и обучать других своему методу.</p></div><div class="li r d9"><p>Как создать свою <span class="nw">мастер-группу</span> и вести клиентов в групповой динамике – это ваш выход на новый уровень мастерства и дохода.</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>07</span></div>
+</section>
+<!-- 8. sobriety -->
+<section class="slide t-html s-sober">
+
+<div class="head"><div class="kicker r d1">богатые богатеют, бедные беднеют</div><h2 class="h2 r d2">Реальное распределение денег</h2></div>
+<div class="sober">
+  <div class="sb up r d3"><span class="arrow">↑</span><span class="big-num"><span class="count" data-to="105">105</span></span><b>долларовых миллиардеров в России, за год их стало на 16 больше</b><i>Hurun Global Rich List 2026</i></div>
+  <div class="sb up r d4"><span class="arrow">↑</span><span class="big-num">+<span class="count" data-to="5.2" data-dec="1">5,2</span>%</span><b>долларовых миллионеров за 2025 год, Россия в <span class="nw">топ-5</span> по росту</b><i>UBS Global Wealth Report 2026</i></div>
+  <div class="sb down r d5"><span class="arrow">↓</span><span class="big-num"><span class="count" data-to="11.3" data-dec="1">11,3</span> млн</span><b>человек платят сразу по <span class="nw">3-м</span> и более кредитам</b><b class="sb-plus">+33% безнадёжных долгов по кредитам за 2025 год, уже 2,4 трлн ₽</b><i>Финуслуги, «Известия», июнь 2026; ЦБ, «Известия», март 2026</i></div>
+</div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>08</span></div>
+</section>
+<!-- 9. statement -->
+<section class="slide t-statement ">
+<div class="st-wrap"><div class="kicker r d1">Вывод</div><h2 class="st r d2">В кризис платежеспособных клиентов становится <em>больше</em></h2><p class="st-sub r d3">Кредиты и сокращения бьют по тем слоям населения, кто живет от зарплаты до зарплаты. Рискуют потерять практику только те психологи, кто работает с низкими чеками.</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>09</span></div>
+</section>
+<!-- 10. ask -->
+<section class="slide t-ask ">
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>Пишите ваше мнение</div>
+<h2 class="ask-q r d2">Почему работа с <span class="nw">VIP-клиентами</span> – лучший путь для психолога?</h2></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>10</span></div>
+</section>
+<!-- 11. agents -->
+<section class="slide t-html s-agents">
+
+<div class="head"><div class="kicker r d1">Пример из рынка недвижимости</div><h2 class="h2 r d2">Два риелтора, одна и та же работа, но разный доход</h2></div>
+<div class="agents">
+  <div class="ag r d3"><b>Агент 1</b><p>Продаёт квартиру за 5 млн ₽</p><div class="same">Тратит на все 10 часов работы · комиссия 3%</div><div class="bar"><span style="width:1.2%"></span></div><div class="res big-num">150&nbsp;000&nbsp;₽</div></div>
+  <div class="ag r d5"><b>Агент 2</b><p>Продаёт пентхаус за 1 млрд ₽</p><div class="same">Тратит на все 10 часов работы · комиссия 3%</div><div class="bar"><span class="grow"></span></div><div class="res big-num">30&nbsp;000&nbsp;000&nbsp;₽</div></div>
+</div>
+<p class="note r d7">Время то же, процент тот же. Разница только в чеке.</p>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>11</span></div>
+</section>
+<!-- 12. psy -->
+<section class="slide t-html s-psy">
+
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>у нас все то же самое</div>
+<h2 class="ask-q r d2">Вы выбираете, с каким сегментом работать</h2>
+<div class="psy">
+  <div class="pc r d3"><span>Психолог 1</span><div class="clock">Стоимость часа</div><div class="big-num">5&nbsp;000&nbsp;₽</div></div>
+  <div class="vs r d4">vs</div>
+  <div class="pc r d5"><span>Психолог 2</span><div class="clock">Стоимость часа</div><div class="big-num">100&nbsp;000&nbsp;₽</div></div>
+</div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>12</span></div>
+</section>
+<!-- 13. find-q -->
+<section class="slide t-ask ">
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>Пишите в чат</div>
+<h2 class="ask-q r d2">Как вы думаете, что легче?</h2><div class="opts"><span class="opt r d3">Найти 100 клиентов по 5 000 ₽</span><span class="opt r d4">5 клиентов по 100 000 ₽</span></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>13</span></div>
+</section>
+<!-- 14. find -->
+<section class="slide t-html s-find">
+
+<div class="head"><div class="kicker r d1">Сравним</div><h2 class="h2 r d2">Вы как хотите?</h2></div>
+<div class="agents">
+  <div class="ag minus r d3"><b>100 клиентов по 5 000 ₽</b><p>Доход 500 000 ₽</p><ul class="cmp">
+    <li>Вы упахались и выгорели, нет времени на себя</li><li>Вам выносят мозги, клиент постоянно сомневается</li><li>Ощущение, что его прогресс нужен вам больше, чем ему</li></ul></div>
+  <div class="ag plus r d5"><b>5 клиентов по 100 000 ₽</b><p>Доход 500 000 ₽</p><ul class="cmp">
+    <li>Клиент принимает решение быстро и не выносит мозги</li><li>Чётко понимает, зачем пришёл и что ему нужно</li><li>После сессии вы не выжаты как лимон, а у вас прилив энергии</li><li>Много времени на себя и на семью</li></ul></div>
+</div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>14</span></div>
+</section>
+<!-- 15. formula -->
+<section class="slide t-html s-formula">
+
+<div class="head"><div class="kicker r d1">Почему одни психологи зарабатывают много, а другие мало</div><h2 class="h2 r d2">Разница в <span class="nw">3-х</span> аспектах</h2></div>
+<div class="venn">
+  <svg viewBox="0 0 900 640" class="r d3"><circle cx="330" cy="240" r="200"/><circle cx="570" cy="240" r="200"/><circle cx="450" cy="420" r="200"/></svg>
+  <span class="v1 r d4">Инструменты</span><span class="v2 r d5">Внутреннее<br>состояние</span><span class="v3 r d6">Мышление</span>
+  <span class="vc r d7">VIP</span>
+</div>
+<p class="venn-note r d8">И этого не хватает 99% специалистов</p>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>15</span></div>
+</section>
+<!-- 16. why -->
+<section class="slide t-list ">
+<div class="head"><div class="kicker r d1">Почему работа с <span class="nw">VIP-клиентами</span></div><h2 class="h2 r d2">Лучший путь развития для психолога?</h2></div>
+<div class="grid c3 "><div class="li r d3"><b>Вы сами растёте</b><p>Сильный клиент задаёт вам высокую планку, вы повышаете квалификацию и развиваетесь</p></div><div class="li r d4"><b>Высокий чек</b><p>Вы работаете меньше, а денег получаете больше, ваше качество жизни растёт, улучшается и качество окружения и связей</p></div><div class="li r d5"><b>Вы кайфуете от работы</b><p>Работа с целеустремлёнными людьми с высоким уровнем энергии, которые знают, чего хотят</p></div></div><p class="note r d9">ФАКТ: чем больше у человека денег, тем больше он вкладывает в себя. Поэтому у вас всегда будет работа. При этом вы можете работать <span class="nw">2-3</span> дня в неделю.</p>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>16</span></div>
+</section>
+<!-- 17. stable -->
+<section class="slide t-html s-stable">
+
+<div class="stable">
+  <div class="donut r d2"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" class="bg"/><circle cx="100" cy="100" r="80" class="fg"/></svg><span class="big-num">5-7 %</span></div>
+  <div class="stable-t"><div class="kicker r d1">Всегда будут те, кто сохраняет стабильность даже в самое турбулентное время</div>
+  <h2 class="h2 r d3">Платежеспособные клиенты: это <span class="nw">5-7</span> % людей</h2>
+  <ul class="st-list r d4">
+    <li>У которых есть финансовая емкость</li><li>Своя жизненная стратегия</li><li>Сформированная привычка вкладываться в свое развитие</li>
+    <li>Они хотят получать результаты самым коротким и быстрым путем</li><li>Знают ценность времени, поэтому готовы много платить</li></ul>
+  <p class="lead r d5"><em><span class="nw">VIP-клиенты</span> были, есть и будут всегда. Преуспеют те специалисты, кто научатся с ними работать</em></p></div>
+</div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>17</span></div>
+</section>
+<!-- 18. method -->
+<section class="slide t-statement ">
+<div class="st-wrap"><h2 class="st r d2">Работа с <span class="nw">VIP-клиентами</span> – это <em>методология, состоящая из чётких шагов</em></h2><p class="st-sub r d3">И её можно быстро освоить, если делать всё правильно. Дальше дам пошаговый план.</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>18</span></div>
+</section>
+<!-- 19. statement -->
+<section class="slide t-statement ">
+<div class="st-wrap"><h2 class="st r d2">Такие знания <em>не дают в вузах</em></h2><p class="st-sub r d3">Эти знания получают у тех, кто уже прошёл данный путь. Это самый быстрый способ перейти в 1% тех психологов, кто работает в радость, не выгорает и доволен своей жизнью.</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>19</span></div>
+</section>
+<!-- 20. path -->
+<section class="slide t-html s-path">
+
+<div class="head"><div class="kicker r d1">Мой опыт</div><h2 class="h2 r d2">Начинала с 2 500 ₽ за час</h2></div>
+<div class="grow-line r d3"><span class="gl-from">2&nbsp;500&nbsp;₽</span><span class="gl-bar"></span><span class="gl-to">200&nbsp;000&nbsp;₽</span></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>20</span></div>
+</section>
+<!-- 21. statement -->
+<section class="slide t-statement ">
+<div class="st-wrap"><div class="kicker r d1">ВАЖНО</div><h2 class="st r d2">Если у вас нет результата,<br>значит, <em>в вашей методологии есть недочёты</em></h2><p class="st-sub r d3">И вы делаете <span class="nw">что-то</span> не то и <span class="nw">что-то</span> не так.<br>Результат даёт только чёткая методология.</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>21</span></div>
+</section>
+<!-- 22. puzzle -->
+<section class="slide t-html s-puzzle">
+
+<div class="puzzle-t"><div class="kicker r d1">Мой личный пример</div>
+<h2 class="h2 r d2">Человек – это система</h2>
+<p class="lead r d3">Год назад я открыла институт. Силы на это появились тогда, когда остальные сферы перестали забирать энергию. То есть система (методология) моей жизни стала сама работать НА МЕНЯ.</p></div>
+<div class="puzzle">
+  <div class="pz r d3"><b>Отношения</b><p>с мужем – 15 лет пути от ссор к партнёрству</p></div>
+  <div class="pz r d4"><b>Дружба</b><p>с подругами – по 30 лет</p></div>
+  <div class="pz r d5"><b>Тело</b><p>регулярные занятия спортом каждую неделю</p></div>
+  <div class="pz r d6"><b>Семья</b><p>выстроенные процессы в воспитании детей</p></div>
+  <div class="pz core r d7"><b>Фокус на реализации</b><p>выделяется колоссальный ресурс на реализацию всех идей, появляются новые идеи, мечты, цели, нет угнетающих чувств, вся энергия направляется в одну точку</p></div>  <!-- owner save 13:38Z -->
+</div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>22</span></div>
+</section>
+<!-- 23. system-vip -->
+<section class="slide t-list ">
+<div class="head"><div class="kicker r d1">В практике психолога то же самое</div><h2 class="h2 r d2">Работа с <span class="nw">VIP-клиентами</span> – это методология</h2></div>
+<div class="grid c3 "><div class="li r d3"><b>Инструменты</b><p>Метод, который даёт клиенту быстрый результат без откатов</p></div><div class="li r d4"><b>Внутреннее<br>состояние</b><p>Ваша самооценка и право брать дорого, говорить с таким клиентом на равных</p></div><div class="li r d5"><b>Мышление</b><p>Вы думаете как ваш клиент и знаете, что ему действительно нужно</p></div></div><p class="note r d9">Если методологии нет, то результата не будет.</p>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>23</span></div>
+</section>
+<!-- 24. rules -->
+<section class="slide t-html s-rules">
+
+<div class="head"><div class="kicker r d1">3 важные детали</div><h2 class="h2 r d2">Что <span class="nw">VIP-клиенты</span> считывают сразу</h2></div>
+<div class="rules">
+  <div class="rl r d3"><span class="big-num">1</span><b>Вашу уверенность в себе</b></div>
+  <div class="rl r d4"><span class="big-num">2</span><b>Ваш метод работы</b></div>
+  <div class="rl r d5"><span class="big-num">3</span><b>Как вы<br>распоряжаетесь временем</b></div>
+</div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>24</span></div>
+</section>
+<!-- 25. rule1 -->
+<section class="slide t-html s-rule">
+
+<div class="head"><div class="kicker r d1">Сигнал 1</div><h2 class="h2 r d2">Ваша уверенность в себе</h2></div>
+<div class="vsx"><div class="yes r d3"><b>✓ Клиент остаётся</b><p>Вы говорите на равных и опираетесь на себя, свой опыт, свои результаты. С таким специалистом хочется иметь дело.</p></div>
+<div class="no r d4"><b>✕ Клиент уходит</b><p>Заискивание: «вы такой великий, а я тут постою сбоку». Такие люди сразу это считывают и больше не приходят.</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>25</span></div>
+</section>
+<!-- 26. rule2 -->
+<section class="slide t-html s-rule">
+
+<div class="head"><div class="kicker r d1">Сигнал 2</div><h2 class="h2 r d2">Ваш метод работы</h2></div>
+<div class="vsx"><div class="yes r d3"><b>✓ Клиент остаётся</b><p>У вас есть то, чего нет у других.</p><p>* У меня это EMDR 3.0, системная терапия и квантовая психология в одной сессии.</p></div>
+<div class="no r d4"><b>✕ Клиент уходит</b><p><span class="nw">VIP-клиент</span> многое перепробовал. Если у вас те же техники, что у других, то высокая вероятность, что клиент уйдёт.</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>26</span></div>
+</section>
+<!-- 27. rule3 -->
+<section class="slide t-html s-rule">
+
+<div class="head"><div class="kicker r d1">Сигнал 3</div><h2 class="h2 r d2">Как вы распоряжаетесь временем</h2></div>
+<div class="vsx"><div class="yes r d3"><b>✓ Клиент остаётся</b><p>Короткая встреча по делу, и после неё клиент сразу чувствует изменение. Время для него дороже денег.</p></div>
+<div class="no r d4"><b>✕ Клиент уходит</b><p>Долгие разговоры, общие советы. Советчиков у такого клиента и без вас хватает.</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>27</span></div>
+</section>
+<!-- 28. statement -->
+<section class="slide t-statement ">
+<div class="st-wrap"><div class="kicker r d1">Как быстро приблизиться к мышлению <span class="nw">VIP-клиентов</span>?</div><h2 class="st r d2">Стань <span class="nw">VIP-клиентом</span> <em>самому</em></h2><p class="st-sub r d3">Когда вы сами заплатили за свой рост большую сумму, у вас появляется внутреннее право брать такие деньги с других. Вы уже знаете на собственном опыте, что чувствует ваш клиент.</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>28</span></div>
+</section>
+<!-- 29. field -->
+<section class="slide t-html s-field">
+  <!-- owner msg 925: result in the hub, money flows to every node (SMIL, works under no-anim) -->
+<div class="field-t"><div class="kicker r d1">Закон групповой динамики</div>
+<h2 class="h2 r d2">Результат одного участника группы доступен всем</h2>
+<p class="lead r d3">Самый лёгкий способ вырасти – прийти к тому, у кого это уже есть, и учиться рядом. Без кризиса и надрыва</p></div>
+<svg class="net" viewBox="0 0 700 700">
+  <defs><radialGradient id="hubg" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#ffd27a"/><stop offset="1" stop-color="#f5a623"/></radialGradient></defs>
+  <g class="links"><line x1="350" y1="350" x2="350" y2="90"/><line x1="350" y1="350" x2="575" y2="220"/><line x1="350" y1="350" x2="575" y2="480"/><line x1="350" y1="350" x2="350" y2="610"/><line x1="350" y1="350" x2="125" y2="480"/><line x1="350" y1="350" x2="125" y2="220"/>
+  <line x1="350" y1="90" x2="575" y2="220"/><line x1="575" y1="220" x2="575" y2="480"/><line x1="575" y1="480" x2="350" y2="610"/><line x1="350" y1="610" x2="125" y2="480"/><line x1="125" y1="480" x2="125" y2="220"/><line x1="125" y1="220" x2="350" y2="90"/></g>
+  <circle class="pulse" cx="350" cy="350" r="100"><animate attributeName="r" dur="1.3s" repeatCount="indefinite" values="100;170"/><animate attributeName="opacity" dur="1.3s" repeatCount="indefinite" values="0.5;0"/></circle>
+  <g class="coins"><g class="coin"><circle cx="350" cy="350" r="19"/><text x="350" y="357" text-anchor="middle">₽</text><animateMotion dur="2.6s" begin="0.0s" repeatCount="indefinite" path="M0 0 L0 -260" keyTimes="0;1" keySplines="0.4 0 0.6 1" calcMode="spline"/><animate attributeName="opacity" dur="2.6s" begin="0.0s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.15;0.8;1"/></g><g class="coin"><circle cx="350" cy="350" r="19"/><text x="350" y="357" text-anchor="middle">₽</text><animateMotion dur="2.6s" begin="1.3s" repeatCount="indefinite" path="M0 0 L0 -260" keyTimes="0;1" keySplines="0.4 0 0.6 1" calcMode="spline"/><animate attributeName="opacity" dur="2.6s" begin="1.3s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.15;0.8;1"/></g><g class="coin"><circle cx="350" cy="350" r="19"/><text x="350" y="357" text-anchor="middle">₽</text><animateMotion dur="2.6s" begin="0.0s" repeatCount="indefinite" path="M0 0 L225 -130" keyTimes="0;1" keySplines="0.4 0 0.6 1" calcMode="spline"/><animate attributeName="opacity" dur="2.6s" begin="0.0s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.15;0.8;1"/></g><g class="coin"><circle cx="350" cy="350" r="19"/><text x="350" y="357" text-anchor="middle">₽</text><animateMotion dur="2.6s" begin="1.3s" repeatCount="indefinite" path="M0 0 L225 -130" keyTimes="0;1" keySplines="0.4 0 0.6 1" calcMode="spline"/><animate attributeName="opacity" dur="2.6s" begin="1.3s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.15;0.8;1"/></g><g class="coin"><circle cx="350" cy="350" r="19"/><text x="350" y="357" text-anchor="middle">₽</text><animateMotion dur="2.6s" begin="0.0s" repeatCount="indefinite" path="M0 0 L225 130" keyTimes="0;1" keySplines="0.4 0 0.6 1" calcMode="spline"/><animate attributeName="opacity" dur="2.6s" begin="0.0s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.15;0.8;1"/></g><g class="coin"><circle cx="350" cy="350" r="19"/><text x="350" y="357" text-anchor="middle">₽</text><animateMotion dur="2.6s" begin="1.3s" repeatCount="indefinite" path="M0 0 L225 130" keyTimes="0;1" keySplines="0.4 0 0.6 1" calcMode="spline"/><animate attributeName="opacity" dur="2.6s" begin="1.3s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.15;0.8;1"/></g><g class="coin"><circle cx="350" cy="350" r="19"/><text x="350" y="357" text-anchor="middle">₽</text><animateMotion dur="2.6s" begin="0.0s" repeatCount="indefinite" path="M0 0 L0 260" keyTimes="0;1" keySplines="0.4 0 0.6 1" calcMode="spline"/><animate attributeName="opacity" dur="2.6s" begin="0.0s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.15;0.8;1"/></g><g class="coin"><circle cx="350" cy="350" r="19"/><text x="350" y="357" text-anchor="middle">₽</text><animateMotion dur="2.6s" begin="1.3s" repeatCount="indefinite" path="M0 0 L0 260" keyTimes="0;1" keySplines="0.4 0 0.6 1" calcMode="spline"/><animate attributeName="opacity" dur="2.6s" begin="1.3s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.15;0.8;1"/></g><g class="coin"><circle cx="350" cy="350" r="19"/><text x="350" y="357" text-anchor="middle">₽</text><animateMotion dur="2.6s" begin="0.0s" repeatCount="indefinite" path="M0 0 L-225 130" keyTimes="0;1" keySplines="0.4 0 0.6 1" calcMode="spline"/><animate attributeName="opacity" dur="2.6s" begin="0.0s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.15;0.8;1"/></g><g class="coin"><circle cx="350" cy="350" r="19"/><text x="350" y="357" text-anchor="middle">₽</text><animateMotion dur="2.6s" begin="1.3s" repeatCount="indefinite" path="M0 0 L-225 130" keyTimes="0;1" keySplines="0.4 0 0.6 1" calcMode="spline"/><animate attributeName="opacity" dur="2.6s" begin="1.3s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.15;0.8;1"/></g><g class="coin"><circle cx="350" cy="350" r="19"/><text x="350" y="357" text-anchor="middle">₽</text><animateMotion dur="2.6s" begin="0.0s" repeatCount="indefinite" path="M0 0 L-225 -130" keyTimes="0;1" keySplines="0.4 0 0.6 1" calcMode="spline"/><animate attributeName="opacity" dur="2.6s" begin="0.0s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.15;0.8;1"/></g><g class="coin"><circle cx="350" cy="350" r="19"/><text x="350" y="357" text-anchor="middle">₽</text><animateMotion dur="2.6s" begin="1.3s" repeatCount="indefinite" path="M0 0 L-225 -130" keyTimes="0;1" keySplines="0.4 0 0.6 1" calcMode="spline"/><animate attributeName="opacity" dur="2.6s" begin="1.3s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.15;0.8;1"/></g></g>
+  <g class="nodes"><circle cx="350" cy="90" r="30"><animate attributeName="fill" dur="1.3s" begin="0.3s" repeatCount="indefinite" values="#ffffff;#ffe2a8;#ffffff" keyTimes="0;0.55;1"/></circle><circle cx="575" cy="220" r="30"><animate attributeName="fill" dur="1.3s" begin="0.3s" repeatCount="indefinite" values="#ffffff;#ffe2a8;#ffffff" keyTimes="0;0.55;1"/></circle><circle cx="575" cy="480" r="30"><animate attributeName="fill" dur="1.3s" begin="0.3s" repeatCount="indefinite" values="#ffffff;#ffe2a8;#ffffff" keyTimes="0;0.55;1"/></circle><circle cx="350" cy="610" r="30"><animate attributeName="fill" dur="1.3s" begin="0.3s" repeatCount="indefinite" values="#ffffff;#ffe2a8;#ffffff" keyTimes="0;0.55;1"/></circle><circle cx="125" cy="480" r="30"><animate attributeName="fill" dur="1.3s" begin="0.3s" repeatCount="indefinite" values="#ffffff;#ffe2a8;#ffffff" keyTimes="0;0.55;1"/></circle><circle cx="125" cy="220" r="30"><animate attributeName="fill" dur="1.3s" begin="0.3s" repeatCount="indefinite" values="#ffffff;#ffe2a8;#ffffff" keyTimes="0;0.55;1"/></circle></g>
+  <circle class="hub" cx="350" cy="350" r="100"/><text class="hub-t" x="350" y="360" text-anchor="middle">Результат</text>
+</svg>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>29</span></div>
+</section>
+<!-- 30. requests -->
+<section class="slide t-list ">
+<div class="head"><div class="kicker r d1">Из моей практики</div><h2 class="h2 r d2">С чем на самом деле приходят <span class="nw">VIP-клиенты</span></h2></div>
+<div class="grid c3 req6"><div class="li r d3"><b>Бессилие</b><p>Тяжело болеет близкий человек. Деньги уже ничего не решают, и нужно принять то, что изменить нельзя</p></div><div class="li r d4"><b>Отношения</b><p>В бизнесе всё получается, а в паре человек теряется, как подросток</p></div><div class="li r d5"><b>Решения на нервах</b><p>Под давлением он рубит с плеча, и бизнес теряет деньги</p></div><div class="li r d6"><b>Вина за успех</b><p>Сам живёт хорошо, а близким тяжело. Радость от своей жизни уходит</p></div><div class="li r d7"><b>Одиночество</b><p>Вокруг много людей, а открыто поговорить не с кем</p></div><div class="li r d8"><b>Пустота</b><p>Цели достигнуты, а радости и смысла всё меньше</p></div></div><p class="note r d9">Деньги здесь не помогают. Помогает специалист, который говорит с клиентом на равных.</p>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>30</span></div>
+</section>
+<!-- 31. statement -->
+<section class="slide t-statement ">
+<div class="st-wrap"><div class="kicker r d1">Один из начинающих психологов сказал: «<span class="nw">VIP-клиенты</span> не поверят в расстановки»</div><h2 class="st r d2">Чем выше уровень человека, тем <em>шире его сознание, и тем больше он открыт</em> для нового</h2><p class="st-sub r d3">Такие люди не живут шаблонами. Они пробуют, исследуют и ищут методы, которые дают результат.</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>31</span></div>
+</section>
+<!-- 32. research-people -->
+<section class="slide t-html s-people">
+
+<div class="head"><div class="kicker r d1">Богатые ищут методы, которые им подойдут</div><h2 class="h2 r d2">И годами работают со своим менталом</h2></div>
+<div class="people">
+  <div class="pp r d3"><img class="ini" src="../efir-26-10/assets/p-Ray_Dalio.jpg" alt=""><b>Рэй Далио</b><i>Bridgewater, крупнейший <span class="nw">хедж-фонд</span> мира</i><p>Медитирует с 1969 года, дважды в день по 20 минут. «Возможно, это главная причина любого моего успеха»</p><s>CNBC, 2021; Fortune, 2025</s></div>
+  <div class="pp r d4"><img class="ini" src="../efir-26-10/assets/p-Eric_Schmidt.jpg" alt=""><b>Эрик Шмидт</b><i>Google</i><p>15 лет работал с коучем Биллом Кэмпбеллом. Совет директоров сказал ему: «Коуч или психолог нужен каждому».</p><s>Computer History Museum</s></div>
+  <div class="pp r d5"><img class="ini" src="../efir-26-10/assets/p-Marc_Benioff.jpg" alt=""><b>Марк Бениофф</b><i>Salesforce</i><p>Уходя из Oracle и создавая свою компанию, пошёл за поддержкой к Тони Роббинсу.</p><s>Fortune, 2016</s></div>
+  <div class="pp r d6"><img class="ini" src="../efir-26-10/assets/p-Steve_Jobs.jpg" alt=""><b>Стив Джобс</b><i>Apple</i><p>С <span class="nw">1970-х</span> занимался с учителем дзен Кобуном Отогавой.</p><s>Tricycle; У. Айзексон</s></div>
+</div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>32</span></div>
+</section>
+<!-- 33. research-why -->
+<section class="slide t-html s-loop s-buy">
+  <!-- owner msg 931: clearer copy, list of what money buys -->
+<div class="loop-t"><div class="kicker r d1">Почему так происходит</div>
+<h2 class="h2 r d2">Когда всё можно купить за деньги, предел роста – <em>сам человек</em></h2>
+<p class="lead r d3">Деньги, время, связи и лучшие специалисты у них уже есть. Не купить только своё внутреннее состояние. Поэтому дальше они растут через работу с психикой.</p></div>
+<div class="buy">
+  <div class="bl r d3"><span class="bi ok">✓</span><b>Комфорт</b><i>можно купить</i></div>
+  <div class="bl r d4"><span class="bi ok">✓</span><b>Время</b><i>можно купить</i></div>
+  <div class="bl r d5"><span class="bi ok">✓</span><b>Связи</b><i>можно купить</i></div>
+  <div class="bl r d6"><span class="bi ok">✓</span><b>Лучшие специалисты</b><i>можно купить</i></div>
+  <div class="bl cant r d7"><span class="bi">✕</span><b>Спокойствие, уверенность, радость</b><i>не купить, только взрастить</i></div>
+</div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>33</span></div>
+</section>
+<!-- 34. research-value -->
+<section class="slide t-html s-value s-polls">
+  <!-- owner msg 935: real surveys with sources -->
+<div class="head"><div class="kicker r d1">Исследования</div><h2 class="h2 r d2">Что показывают опросы состоятельных людей</h2></div>
+<div class="polls">
+  <div class="pl r d3"><span class="pn">71%</span><p>ходят к психотерапевту хотя бы раз в месяц</p><s>Saltus Wealth Index, Великобритания, 2024. 2 000 человек с капиталом от £250 тыс.</s></div>
+  <div class="pl r d4"><span class="pn">63%</span><p>высоко ценят инструменты, подобранные лично под них</p><s>CEB Client Experience Survey, 2018, по данным SEI</s></div>
+  <div class="pl r d5"><span class="pn">44%</span><p>доверяют своему консультанту настолько, чтобы принять рекомендации без проверки</p><s>SEI и Phoenix Marketing International, США, 2018. 347 состоятельных семей</s></div>
+  <div class="pl hl r d6"><span class="pn">17%</span><p>считают, что с ними работают <span class="nw">по-настоящему</span> индивидуально</p><s>Capgemini World Wealth Report 2026. 6 510 состоятельных инвесторов</s></div>
+</div>
+<p class="src r d7">Спрос на личный подход и доверие огромный, а получают их немногие. Это и есть место для вас.</p>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>34</span></div>
+</section>
+<!-- 35. research-mind -->
+<section class="slide t-html s-mind2">
+  <!-- owner msg 938: new layout, same text -->
+<div class="head"><div class="kicker r d1">Как мыслят <span class="nw">VIP-клиенты</span></div><h2 class="h2 r d2">5 привычек мышления</h2></div>
+<div class="m2">
+  <div class="m2-stat r d3">
+    <p class="m2-q">Каждый день думают о своих целях</p>
+    <div class="m2-row"><span class="m2-lab">Состоятельные</span><div class="m2-bar"><i style="width:62%"></i></div><b>62%</b></div>
+    <div class="m2-row poor"><span class="m2-lab">Бедные</span><div class="m2-bar"><i style="width:6%"></i></div><b>6%</b></div>
+    <s>Томас Корли, «Rich Habits», опрос 233 состоятельных и 128 бедных людей</s>
+  </div>
+  <div class="m2-list">
+    <div class="m2-it r d4"><b>01</b><p>Время дороже денег</p></div>
+    <div class="m2-it r d5"><b>02</b><p>Смело пробуют новое</p></div>
+    <div class="m2-it r d6"><b>03</b><p>Учатся у тех, кто уже прошёл путь</p></div>
+    <div class="m2-it r d7"><b>04</b><p>Платят за окружение и энергию</p></div>
+    <div class="m2-it r d8"><b>05</b><p>Думают на годы вперёд</p></div>
+  </div>
+</div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>35</span></div>
+</section>
+<!-- 36. method -->
+<section class="slide t-html s-method">
+
+<div class="head"><div class="kicker r d1">Интегративный метод Саба</div><h2 class="h2 r d2">Как я соединяю 3 подхода в одну работу</h2></div>
+<div class="flow">
+  <div class="fl r d3"><span class="big-num">01</span><b>EMDR 3.0</b><p>снимаем то, что держит клиента в угнетающих чувствах</p></div>
+  <div class="farr r d4">→</div>
+  <div class="fl r d5"><span class="big-num">02</span><b>Системная терапия</b><p>видим сценарии клиента целиком</p></div>
+  <div class="farr r d6">→</div>
+  <div class="fl r d7"><span class="big-num">03</span><b>Квантовая психология</b><p>собираем всё в одну глобальную работу</p></div>
+</div>
+<p class="note r d8">На <span class="nw">мастер-группе</span> я расскажу, как вы можете создать свой метод.</p>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>36</span></div>
+</section>
+<!-- 37. mikhail -->
+<section class="slide t-html s-person">
+
+<div class="ps-mark r d1"><svg viewBox="0 0 100 100"><path d="M18 30h40a6 6 0 0 1 6 6v18a6 6 0 0 1-6 6H38l-12 10V60h-8a6 6 0 0 1-6-6V36a6 6 0 0 1 6-6z"/><path d="M70 42h12a6 6 0 0 1 6 6v16a6 6 0 0 1-6 6h-4v9l-11-9H56"/></svg></div>
+<div class="ps-t"><div class="kicker r d1">Внутри <span class="nw">мастер-группы</span></div>
+<h2 class="h2 r d2">Михаил Саба: переговоры с <span class="nw">VIP-клиентами</span></h2>
+<p class="lead r d3">Профессиональный переговорщик, работал с гос. структурами. Знает, как говорить с людьми, которые за секунду считывают, кто перед ними</p>
+<div class="grid c2 dots"><div class="li r d4"><p>Невербалика: как держаться, чтобы вас считывали как равного</p></div><div class="li r d5"><p>Речь: как говорить с людьми высокого статуса</p></div></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>37</span></div>
+</section>
+<!-- 38. maria -->
+<section class="slide t-html s-person">
+
+<div class="ps-mark r d1"><svg viewBox="0 0 100 100"><path d="M20 50 50 24l30 26"/><path d="M28 44v32h44V44"/><path d="M44 76V58h12v18"/></svg></div>
+<div class="ps-t"><div class="kicker r d1">Гость <span class="nw">мастер-группы</span></div>
+<h2 class="h2 r d2">Приглашённый спикер: как устроены миллиардеры</h2>
+<p class="lead r d3">Работает с семьями миллиардеров в сфере недвижимости. Расскажет, какими бывают очень богатые люди, как они думают и чего ждут</p>
+<p class="lead r d4"><em>А я переведу это на понятный нам психологический язык</em></p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>38</span></div>
+</section>
+<!-- 39. ceiling -->
+<section class="slide t-list ">
+<div class="head"><div class="kicker r d1">Психологический барьер</div><h2 class="h2 r d2">Что может помешать психологу работать с <span class="nw">VIP-клиентами</span></h2></div>
+<div class="grid c3 bare"><div class="li r d3"><b>Убеждения</b><p>«Я недостоин», «мне откажут», «меня осудят»</p></div><div class="li r d4"><b>Страх</b><p>Работать с людьми «выше себя», синдром самозванца</p></div><div class="li r d5"><b>Сомнение</b><p>«Как я буду помогать богатым, если сам не такой?»</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>39</span></div>
+</section>
+<!-- 40. statement -->
+<section class="slide t-statement ">
+<div class="st-wrap"><div class="kicker r d1">Решение</div><h2 class="st r d2">Участие в <span class="nw">мастер-группе</span> <em>делает вас <span class="nw">VIP-клиентом</span></em></h2><p class="st-sub r d3">Вы проходите этот путь сами, в среде таких же сильных людей.</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>40</span></div>
+</section>
+<!-- 41. faq -->
+<section class="slide t-list ">
+<div class="head"><div class="kicker r d1">Вопросы, которые мне часто задают в личке коллеги</div><h2 class="h2 r d2">Об этом спрашивают коллеги</h2></div>
+<div class="grid c2 dots"><div class="li r d3"><p>Как поднять чек и не потерять клиентов?</p></div><div class="li r d4"><p>Что сказать <span class="nw">VIP-клиенту</span> в первую минуту?</p></div><div class="li r d5"><p>Как не выгореть, когда клиентов много?</p></div><div class="li r d6"><p>Где брать клиентов, которые хорошо платят и не выносят мозги?</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>41</span></div>
+</section>
+<!-- 42. ask -->
+<section class="slide t-ask ">
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>Напишите в чате</div>
+<h2 class="ask-q r d2">Кому кажется, что высокий чек – это не про вас?</h2><p class="ask-note r d6">Поставьте цифру «3» в чате</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>42</span></div>
+</section>
+<!-- 43. bonus-key -->
+<section class="slide t-html s-bonus">
+
+<div class="gift r d1"><svg viewBox="0 0 200 200"><rect x="30" y="80" width="140" height="100" rx="12"/><rect x="20" y="58" width="160" height="34" rx="10"/><path d="M100 58v122M100 58c-20-36-60-30-46-4M100 58c20-36 60-30 46-4"/></svg></div>
+<div class="bonus-t"><div class="kicker r d1">Бонус</div>
+<h2 class="h2 r d2">Тем, кто сегодня забронирует место</h2>
+<p class="bonus-name r d3">«Ключ к высокому чеку»</p>
+<p class="lead r d4">Система практик, которая выведет вас в состояние, где вы спокойно будете называть высокую цену.</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>43</span></div>
+</section>
+<!-- 44. statement -->
+<section class="slide t-statement ">
+<div class="st-wrap"><div class="kicker r d1">Что дальше</div><h2 class="st r d2">Сейчас проведём важный опрос, а потом сделаю <em>объявление</em></h2><p class="st-sub r d3">Покажу закрытую программу, условия поступления и сколько мест осталось. А в конце поговорим о насущном.</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>44</span></div>
+</section>
+<!-- 45. ask -->
+<section class="slide t-ask ">
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>Пишите в чат</div>
+<h2 class="ask-q r d2">Готовы пройти важный опрос прямо сейчас?</h2><p class="ask-note r d6">Ставьте «+» или «–» на каждый вопрос</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>45</span></div>
+</section>
+<!-- 46. test -->
+<section class="slide t-html s-test">
+
+<div class="head"><div class="kicker r d1">Тест</div><h2 class="h2 r d2">Готовы ли вы уже сейчас работать с <span class="nw">VIP-клиентами</span>?</h2></div>
+<div class="test">
+  <div class="tq r d3"><span>1</span><p>Есть ли у вас система привлечения клиентов на регулярной основе?</p></div>
+  <div class="tq r d4"><span>2</span><p>У вас есть свой авторский метод, которого нет у коллег?</p></div>
+  <div class="tq r d5"><span>3</span><p>Вы спокойно без внутреннего дискомфорта называете высокую цену на свои услуги?</p></div>
+  <div class="tq r d6"><span>4</span><p>Есть ли у вас понимание своего пути внутри профессии на ближайшие несколько лет?</p></div>
+  <div class="tq r d7"><span>5</span><p>Если у вас желание работать с <span class="nw">VIP-клиентами</span>?</p></div>
+</div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>46</span></div>
+</section>
+<!-- 47. why2 -->
+<section class="slide t-list ">
+<div class="head"><div class="kicker r d1">Почему работа с <span class="nw">VIP-клиентами</span></div><h2 class="h2 r d2">Лучший путь развития для психолога?</h2></div>
+<div class="grid c3 "><div class="li r d3"><b>Вы сами растёте</b><p>Сильный клиент задаёт вам высокую планку, вы повышаете квалификацию и развиваетесь</p></div><div class="li r d4"><b>Высокий чек</b><p>Вы работаете меньше, а денег получаете больше, ваше качество жизни растёт, улучшается и качество окружения и связей</p></div><div class="li r d5"><b>Вы кайфуете от работы</b><p>Работа с целеустремлёнными людьми с высоким уровнем энергии, которые знают, чего хотят</p></div></div><p class="note r d9">ФАКТ: чем больше у человека денег, тем больше он вкладывает в себя. Поэтому у вас всегда будет работа. При этом вы можете работать <span class="nw">2-3</span> дня в неделю.</p>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>47</span></div>
+</section>
+<!-- 48. program -->
+<section class="slide t-html s-program">
+
+<div class="pg-t"><div class="kicker r d1">Закрытая программа повышения квалификации</div>
+<h2 class="h1 r d2"><span class="nw">Мастер-группа</span> «Интегративный подход в практике психолога»</h2>
+<p class="lead r d3">За 3 месяца вы освоите метод, который выводит на новый уровень навыков и дохода, и уверенно начнёте работать с <span class="nw">VIP-клиентами</span></p></div>
+<div class="pg-facts">
+  <div class="r d4"><span class="big-num">3</span><p>месяца</p></div>
+  <div class="r d5"><span class="big-num">120</span><p>часов</p></div>
+  <div class="r d6"><span class="big-num">12</span><p>модулей</p></div>
+  <div class="r d7"><span class="big-num doc">✓</span><p>удостоверение гос. образца</p></div>
+</div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>48</span></div>
+</section>
+<!-- 49. map -->
+<section class="slide t-html s-map">
+
+<div class="head"><div class="kicker r d1">Карта программы</div><h2 class="h2 r d2">12 модулей за 3 месяца</h2></div>
+<div class="map">
+  <div class="mcol r d3"><b>Метод и <span class="nw">VIP-клиенты</span></b><span>Анна Саба</span><ol start="1"><li>Разбор ваших целей</li><li>Интеграция методик</li><li>Практика метода</li><li>Работа с <span class="nw">VIP-клиентами</span></li></ol></div>
+  <div class="mcol r d4"><b>Переговоры и маркетинг</b><span>Михаил Саба и эксперт по маркетингу</span><ol start="5"><li>Невербалика и переговоры</li><li>Разбор ваших соцсетей</li><li>Готовые решения для клиентов</li><li>Свой <span class="nw">онлайн-продукт</span></li></ol></div>
+  <div class="mcol r d5"><b>Масштаб и стратегия</b><span>Анна Саба, Михаил Саба</span><ol start="9"><li>Групповая работа</li><li>Вопрос – ответ</li><li>Стратегия и трек</li><li>Расширение ёмкости</li></ol></div>
+</div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>49</span></div>
+</section>
+<!-- 50. module-1 -->
+<section class="slide t-module s-mod">
+<div class="mtrack r d1"><i class="cur">1</i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+<div class="mod-side r d1"><span class="mod-st">Этап 1 · Метод</span><span class="mod-n">01</span><span class="mod-of">модуль из 12</span><span class="mod-who">Анна Саба</span></div>
+<div class="mod-main"><div class="kicker r d1">Модуль 1</div><h2 class="h2 r d2">«Разбор ваших целей»</h2><p class="lead r d3">Точка, с которой начинается ваш рост в <span class="nw">мастер-группе</span>.</p>
+<div class="mtopics"><div class="mt r d4"><b>01</b><p>Где вы сейчас: доход, чек, клиенты, загрузка</p></div><div class="mt r d5"><b>02</b><p>Чего вы хотите на самом деле</p></div><div class="mt r d6"><b>03</b><p>Что держит ваш потолок: страхи, убеждения, привычки</p></div><div class="mt r d7"><b>04</b><p>Ваша цель на 3 месяца, к которой мы идём вместе</p></div></div>
+<div class="mod-res r d8"><span class="mod-lab">Результат</span><p>Ясная цель и понимание, что именно мешает до неё дойти</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>50</span></div>
+</section>
+<!-- 51. module-2 -->
+<section class="slide t-module s-mod">
+<div class="mtrack r d1"><i class="done"></i><i class="cur">2</i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+<div class="mod-side r d1"><span class="mod-st">Этап 1 · Метод</span><span class="mod-n">02</span><span class="mod-of">модуль из 12</span><span class="mod-who">Анна Саба</span></div>
+<div class="mod-main"><div class="kicker r d1">Модуль 2</div><h2 class="h2 r d2">«Интеграция методик»</h2><p class="lead r d3">EMDR 3.0, системная терапия и квантовая психология в одной работе.</p>
+<div class="mtopics"><div class="mt r d4"><b>01</b><p>Что даёт каждый метод и где его предел</p></div><div class="mt r d5"><b>02</b><p>Последовательность: снять тяжёлое, увидеть сценарии, собрать целое</p></div><div class="mt r d6"><b>03</b><p>Как вести клиента от первого запроса до глубокой работы</p></div><div class="mt r d7"><b>04</b><p>Частоты и состояние: квантовая психология в практике</p></div></div>
+<div class="mod-res r d8"><span class="mod-lab">Результат</span><p>Свой интегративный метод, который отличает вас от коллег</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>51</span></div>
+</section>
+<!-- 52. module-3 -->
+<section class="slide t-module s-mod">
+<div class="mtrack r d1"><i class="done"></i><i class="done"></i><i class="cur">3</i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+<div class="mod-side r d1"><span class="mod-st">Этап 1 · Метод</span><span class="mod-n">03</span><span class="mod-of">модуль из 12</span><span class="mod-who">Анна Саба</span></div>
+<div class="mod-main"><div class="kicker r d1">Модуль 3</div><h2 class="h2 r d2">«Практика интегративного метода»</h2><p class="lead r d3">Отрабатываем метод на живых сессиях, и я корректирую вас.</p>
+<div class="mtopics"><div class="mt r d4"><b>01</b><p>Сессии в парах и тройках внутри группы</p></div><div class="mt r d5"><b>02</b><p>Разбор ваших сессий: что сработало и что нет</p></div><div class="mt r d6"><b>03</b><p>Корректировка от Анны Саба по каждому участнику</p></div><div class="mt r d7"><b>04</b><p>Сначала метод проходит через вас самих</p></div></div>
+<div class="mod-res r d8"><span class="mod-lab">Результат</span><p>Уверенность в методе: вы видите результат на себе и на клиентах</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>52</span></div>
+</section>
+<!-- 53. module-4 -->
+<section class="slide t-module s-mod">
+<div class="mtrack r d1"><i class="done"></i><i class="done"></i><i class="done"></i><i class="cur">4</i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+<div class="mod-side r d1"><span class="mod-st">Этап 1 · Метод</span><span class="mod-n">04</span><span class="mod-of">модуль из 12</span><span class="mod-who">Анна Саба и <span class="nw">VIP-гость</span></span></div>
+<div class="mod-main"><div class="kicker r d1">Модуль 4</div><h2 class="h2 r d2">«Как работать с <span class="nw">VIP-клиентами</span>»</h2><p class="lead r d3">Психология очень богатых людей из первых рук.</p>
+<div class="mtopics"><div class="mt r d4"><b>01</b><p>Как мыслят миллиардеры и чего им на самом деле надо</p></div><div class="mt r d5"><b>02</b><p>Как не бояться <span class="nw">VIP-клиентов</span> и держаться на равных</p></div><div class="mt r d6"><b>03</b><p>Как найти к ним подход и продавать им свои услуги</p></div><div class="mt r d7"><b>04</b><p>Выступление <span class="nw">VIP-гостя</span>, а я перевожу на психологический язык</p></div></div>
+<div class="mod-res r d8"><span class="mod-lab">Результат</span><p>Вы понимаете <span class="nw">VIP-клиента</span> и знаете, как с ним говорить</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>53</span></div>
+</section>
+<!-- 54. module-5 -->
+<section class="slide t-module s-mod">
+<div class="mtrack r d1"><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="cur">5</i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+<div class="mod-side r d1"><span class="mod-st">Этап 2 · Клиенты</span><span class="mod-n">05</span><span class="mod-of">модуль из 12</span><span class="mod-who">Михаил Саба</span></div>
+<div class="mod-main"><div class="kicker r d1">Модуль 5</div><h2 class="h2 r d2">«Невербалика и переговоры»</h2><p class="lead r d3">Как держаться и говорить с людьми высокого статуса.</p>
+<div class="mtopics"><div class="mt r d4"><b>01</b><p>Невербалика: поза, взгляд, паузы, темп</p></div><div class="mt r d5"><b>02</b><p>Речь, которая звучит уверенно и дорого</p></div><div class="mt r d6"><b>03</b><p>Переговоры о цене без оправданий</p></div><div class="mt r d7"><b>04</b><p>Опыт переговоров с силовыми структурами</p></div></div>
+<div class="mod-res r d8"><span class="mod-lab">Результат</span><p>Вас считывают как равного с первой минуты</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>54</span></div>
+</section>
+<!-- 55. module-6 -->
+<section class="slide t-module s-mod">
+<div class="mtrack r d1"><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="cur">6</i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+<div class="mod-side r d1"><span class="mod-st">Этап 2 · Клиенты</span><span class="mod-n">06</span><span class="mod-of">модуль из 12</span><span class="mod-who">Маркетинг</span></div>
+<div class="mod-main"><div class="kicker r d1">Модуль 6</div><h2 class="h2 r d2">«Разбор ваших соцсетей»</h2><p class="lead r d3">Смотрим ваши соцсети глазами <span class="nw">VIP-клиента</span>.</p>
+<div class="mtopics"><div class="mt r d4"><b>01</b><p>Разбор профиля каждого участника</p></div><div class="mt r d5"><b>02</b><p>Что отталкивает платёжеспособного клиента</p></div><div class="mt r d6"><b>03</b><p>Позиционирование: как говорить о себе</p></div><div class="mt r d7"><b>04</b><p>Стратегия развития на ближайшие месяцы</p></div></div>
+<div class="mod-res r d8"><span class="mod-lab">Результат</span><p>Соцсети, которые привлекают клиентов вашего уровня</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>55</span></div>
+</section>
+<!-- 56. module-7 -->
+<section class="slide t-module s-mod">
+<div class="mtrack r d1"><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="cur">7</i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+<div class="mod-side r d1"><span class="mod-st">Этап 2 · Клиенты</span><span class="mod-n">07</span><span class="mod-of">модуль из 12</span><span class="mod-who">Маркетинг</span></div>
+<div class="mod-main"><div class="kicker r d1">Модуль 7</div><h2 class="h2 r d2">«Готовые решения для привлечения клиентов»</h2><p class="lead r d3">Берёте то, что уже работает, и не тратите время на пробы.</p>
+<div class="mtopics"><div class="mt r d4"><b>01</b><p>Готовые решения для платёжеспособной аудитории</p></div><div class="mt r d5"><b>02</b><p>«Помощник психолога в кармане» подстраивает их под ваш стиль</p></div><div class="mt r d6"><b>03</b><p>Как запустить поток заявок без лишней рутины</p></div><div class="mt r d7"><b>04</b><p>Как довести заявку до оплаты</p></div></div>
+<div class="mod-res r d8"><span class="mod-lab">Результат</span><p>Клиенты приходят по понятной схеме</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>56</span></div>
+</section>
+<!-- 57. module-8 -->
+<section class="slide t-module s-mod">
+<div class="mtrack r d1"><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="cur">8</i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+<div class="mod-side r d1"><span class="mod-st">Этап 2 · Клиенты</span><span class="mod-n">08</span><span class="mod-of">модуль из 12</span><span class="mod-who">Маркетинг</span></div>
+<div class="mod-main"><div class="kicker r d1">Модуль 8</div><h2 class="h2 r d2">«Свой <span class="nw">онлайн-продукт</span>»</h2><p class="lead r d3">Как упаковать знания в продукт, который хотят пройти.</p>
+<div class="mtopics"><div class="mt r d4"><b>01</b><p>Из чего состоит сильный <span class="nw">онлайн-продукт</span></p></div><div class="mt r d5"><b>02</b><p>Как сделать, чтобы люди доходили до конца</p></div><div class="mt r d6"><b>03</b><p>Цена и линейка продуктов</p></div><div class="mt r d7"><b>04</b><p>Как обучать других своему методу</p></div></div>
+<div class="mod-res r d8"><span class="mod-lab">Результат</span><p>Продукт, который можно продавать без ваших часов</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>57</span></div>
+</section>
+<!-- 58. module-9 -->
+<section class="slide t-module s-mod">
+<div class="mtrack r d1"><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="cur">9</i><i class=""></i><i class=""></i><i class=""></i></div>
+<div class="mod-side r d1"><span class="mod-st">Этап 3 · Масштаб</span><span class="mod-n">09</span><span class="mod-of">модуль из 12</span><span class="mod-who">Маркетинг</span></div>
+<div class="mod-main"><div class="kicker r d1">Модуль 9</div><h2 class="h2 r d2">«Групповая работа»</h2><p class="lead r d3">Как собрать свою группу. Разбираем на примере нашей <span class="nw">мастер-группы</span>.</p>
+<div class="mtopics"><div class="mt r d4"><b>01</b><p>Как мы собрали эту <span class="nw">мастер-группу</span>: шаг за шагом</p></div><div class="mt r d5"><b>02</b><p>Как набрать участников в свою групповую работу</p></div><div class="mt r d6"><b>03</b><p>Как вести групповую динамику</p></div><div class="mt r d7"><b>04</b><p>Как назначить цену групповой работы</p></div></div>
+<div class="mod-res r d8"><span class="mod-lab">Результат</span><p>Своя групповая работа: новый уровень мастерства и дохода</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>58</span></div>
+</section>
+<!-- 59. module-10 -->
+<section class="slide t-module s-mod">
+<div class="mtrack r d1"><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="cur">10</i><i class=""></i><i class=""></i></div>
+<div class="mod-side r d1"><span class="mod-st">Этап 3 · Масштаб</span><span class="mod-n">10</span><span class="mod-of">модуль из 12</span><span class="mod-who">Анна Саба</span></div>
+<div class="mod-main"><div class="kicker r d1">Модуль 10</div><h2 class="h2 r d2">«Вопрос – ответ»</h2><p class="lead r d3">Ваши живые случаи и вопросы, разобранные со мной.</p>
+<div class="mtopics"><div class="mt r d4"><b>01</b><p>Сложные клиенты и запросы</p></div><div class="mt r d5"><b>02</b><p>Ситуации с ценой и отказами</p></div><div class="mt r d6"><b>03</b><p>Что делать, когда сессия «не идёт»</p></div><div class="mt r d7"><b>04</b><p>Вопросы, которые копятся по ходу программы</p></div></div>
+<div class="mod-res r d8"><span class="mod-lab">Результат</span><p>Ответы на ваши живые вопросы</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>59</span></div>
+</section>
+<!-- 60. module-11 -->
+<section class="slide t-module s-mod">
+<div class="mtrack r d1"><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="cur">11</i><i class=""></i></div>
+<div class="mod-side r d1"><span class="mod-st">Этап 3 · Масштаб</span><span class="mod-n">11</span><span class="mod-of">модуль из 12</span><span class="mod-who">Анна Саба</span></div>
+<div class="mod-main"><div class="kicker r d1">Модуль 11</div><h2 class="h2 r d2">«Ваша стратегия и трек»</h2><p class="lead r d3">План, с которым вы выходите из <span class="nw">мастер-группы</span>.</p>
+<div class="mtopics"><div class="mt r d4"><b>01</b><p>Ваш новый чек и путь к нему</p></div><div class="mt r d5"><b>02</b><p>Какие клиенты ваши и где их искать</p></div><div class="mt r d6"><b>03</b><p>Продукты на ближайший год</p></div><div class="mt r d7"><b>04</b><p>Личный трек развития на 3–5 лет</p></div></div>
+<div class="mod-res r d8"><span class="mod-lab">Результат</span><p>Понятная стратегия на годы вперёд</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>60</span></div>
+</section>
+<!-- 61. module-12 -->
+<section class="slide t-module s-mod">
+<div class="mtrack r d1"><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="cur">12</i></div>
+<div class="mod-side r d1"><span class="mod-st">Этап 3 · Масштаб</span><span class="mod-n">12</span><span class="mod-of">модуль из 12</span><span class="mod-who">Михаил Саба</span></div>
+<div class="mod-main"><div class="kicker r d1">Модуль 12</div><h2 class="h2 r d2">«Расширение ёмкости»</h2><p class="lead r d3">Финальная практика <span class="nw">мастер-группы</span>.</p>
+<div class="mtopics"><div class="mt r d4"><b>01</b><p>Внутренняя и финансовая ёмкость: почему без неё деньги не держатся</p></div><div class="mt r d5"><b>02</b><p>Синхронизация энергии души и тонкого плана</p></div><div class="mt r d6"><b>03</b><p>Практика, которую Михаил ведёт лично с Анной</p></div><div class="mt r d7"><b>04</b><p>Закрепление нового уровня</p></div></div>
+<div class="mod-res r d8"><span class="mod-lab">Результат</span><p>Вы готовы удерживать новый уровень дохода и задач</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>61</span></div>
+</section>
+<!-- 62. path -->
+<section class="slide t-html s-path">
+
+<div class="head"><div class="kicker r d1">Ваш путь по программе</div><h2 class="h2 r d2">12 модулей, которые ведут вас в 1% лучших</h2></div>
+<div class="path">
+  <div class="ps r d3"><span class="pn">Этап 1</span><b>Метод</b><div class="pm"><i>1</i><i>2</i><i>3</i><i>4</i></div><p>Свой интегративный метод и уверенность с <span class="nw">VIP-клиентами</span></p></div>
+  <div class="ps r d4"><span class="pn">Этап 2</span><b>Клиенты</b><div class="pm"><i>5</i><i>6</i><i>7</i><i>8</i></div><p>Клиенты вашего уровня приходят по понятной схеме</p></div>
+  <div class="ps r d5"><span class="pn">Этап 3</span><b>Масштаб</b><div class="pm"><i>9</i><i>10</i><i>11</i><i>12</i></div><p>Своя группа, стратегия на годы и доход нового уровня</p></div>
+  <div class="pfin r d6"><span class="pn">Финиш</span><em class="big-num">1%</em><p>Вы среди тех, кто много зарабатывает и кайфует от жизни</p></div>
+</div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>62</span></div>
+</section>
+<!-- 63. ask -->
+<section class="slide t-ask ">
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>Как вам программа?</div>
+<h2 class="ask-q r d2">Ставьте 🔥, если хотите пройти все 12 модулей</h2></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>63</span></div>
+</section>
+<!-- 64. calc -->
+<section class="slide t-html s-calc">
+
+<div class="head"><div class="kicker r d1">Давайте посчитаем</div><h2 class="h2 r d2">Те же 20 сессий в месяц, другой доход</h2></div>
+<div class="calc">
+  <div class="cr r d3"><b>Обычный клиент</b><span>20 сессий × 5 000 ₽</span><div class="cbar"><i style="--w:5%"></i></div><em class="big-num">100&nbsp;000&nbsp;₽</em></div>
+  <div class="cr r d4"><b>Чек выше</b><span>20 сессий × 30 000 ₽</span><div class="cbar"><i style="--w:30%"></i></div><em class="big-num">600&nbsp;000&nbsp;₽</em></div>
+  <div class="cr r d5"><b><span class="nw">VIP-клиент</span></b><span>20 сессий × 100 000 ₽</span><div class="cbar"><i style="--w:100%"></i></div><em class="big-num">2&nbsp;000&nbsp;000&nbsp;₽</em></div>
+</div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>64</span></div>
+</section>
+<!-- 65. ask -->
+<section class="slide t-ask ">
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>Пишите в чат</div>
+<h2 class="ask-q r d2">Кого вдохновляет такой подсчет?</h2><p class="ask-note r d6">Ставьте ❤ в чат</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>65</span></div>
+</section>
+<!-- 66. how -->
+<section class="slide t-html s-how">
+
+<div class="head"><div class="kicker r d1">Как попасть на программу</div><h2 class="h2 r d2">3 шага до <span class="nw">мастер-группы</span></h2></div>
+<div class="steps">
+  <div class="sp r d3"><span class="big-num">1</span><b>Внести бронь 10 000 ₽</b><p>прямо сейчас, ссылка в чате</p></div>
+  <div class="farr r d4">→</div>
+  <div class="sp r d5"><span class="big-num">2</span><b>Пройти собеседование</b><p>мы позвоним и поговорим о ваших целях</p></div>
+  <div class="farr r d6">→</div>
+  <div class="sp r d7"><span class="big-num">3</span><b>Получить приглашение</b><p>и зачисление в группу</p></div>
+</div>
+<p class="note r d8">Зачисление только после собеседования</p>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>66</span></div>
+</section>
+<!-- 67. price-full -->
+<section class="slide t-html s-price">
+
+<div class="price-t"><div class="kicker r d1">Условия <span class="nw">мастер-группы</span></div>
+<h2 class="h2 r d2">Стоимость программы перед стартом обучения</h2>
+<div class="price r d3"><span class="big-num">800&nbsp;000&nbsp;₽</span><p>3 месяца, 12 модулей, удостоверение гос. образца</p></div></div>
+<div class="seats r d4"><svg viewBox="0 0 300 300" class="seat-grid"><circle cx="30" cy="40" r="18" class="tk"/><circle cx="78" cy="40" r="18" class="tk"/><circle cx="126" cy="40" r="18" class="tk"/><circle cx="174" cy="40" r="18" class="tk"/><circle cx="222" cy="40" r="18" class="tk"/><circle cx="270" cy="40" r="18" class="tk"/><circle cx="30" cy="95" r="18" class="tk"/><circle cx="78" cy="95" r="18" class="tk"/><circle cx="126" cy="95" r="18" class="tk"/><circle cx="174" cy="95" r="18" class="tk"/><circle cx="222" cy="95" r="18" class="tk"/><circle cx="270" cy="95" r="18" class="fr"/><circle cx="30" cy="150" r="18" class="fr"/><circle cx="78" cy="150" r="18" class="fr"/><circle cx="126" cy="150" r="18" class="fr"/><circle cx="174" cy="150" r="18" class="fr"/><circle cx="222" cy="150" r="18" class="fr"/><circle cx="270" cy="150" r="18" class="fr"/><circle cx="30" cy="205" r="18" class="fr"/><circle cx="78" cy="205" r="18" class="fr"/><circle cx="126" cy="205" r="18" class="fr"/><circle cx="174" cy="205" r="18" class="fr"/><circle cx="222" cy="205" r="18" class="fr"/><circle cx="270" cy="205" r="18" class="fr"/><circle cx="30" cy="260" r="18" class="fr"/><circle cx="78" cy="260" r="18" class="fr"/><circle cx="126" cy="260" r="18" class="fr"/><circle cx="174" cy="260" r="18" class="fr"/><circle cx="222" cy="260" r="18" class="fr"/><circle cx="270" cy="260" r="18" class="fr"/></svg><p>Всего 30&nbsp;мест, 11&nbsp;уже заняты по&nbsp;личным приглашениям</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>67</span></div>
+</section>
+<!-- 68. price -->
+<section class="slide t-html s-price">
+
+<div class="price-t"><div class="kicker r d1">Условия эфира</div>
+<h2 class="h2 r d2">СТОИМОСТЬ ДЛЯ ВАС НИЖЕ</h2>
+<div class="price r d3"><span class="pr-lab">Вместо</span><s class="old-price">800&nbsp;000&nbsp;₽</s><span class="pr-lab hl">ДЛЯ ВАС</span><span class="big-num">600&nbsp;000&nbsp;₽</span><p>К старту программы цена будет 800 000 ₽</p></div>
+<div class="grid c2 dots"><div class="li r d4"><p>Чтобы записаться: забронируйте условия, оставив предоплату 10 000 ₽</p></div><div class="li r d5"><p>Остаток оплаты можно внести полностью или в рассрочку до старта обучения</p></div></div></div>
+<div class="seats r d4"><svg viewBox="0 0 300 300" class="seat-grid"><circle cx="30" cy="40" r="18" class="tk"/><circle cx="78" cy="40" r="18" class="tk"/><circle cx="126" cy="40" r="18" class="tk"/><circle cx="174" cy="40" r="18" class="tk"/><circle cx="222" cy="40" r="18" class="tk"/><circle cx="270" cy="40" r="18" class="tk"/><circle cx="30" cy="95" r="18" class="tk"/><circle cx="78" cy="95" r="18" class="tk"/><circle cx="126" cy="95" r="18" class="tk"/><circle cx="174" cy="95" r="18" class="tk"/><circle cx="222" cy="95" r="18" class="tk"/><circle cx="270" cy="95" r="18" class="fr"/><circle cx="30" cy="150" r="18" class="fr"/><circle cx="78" cy="150" r="18" class="fr"/><circle cx="126" cy="150" r="18" class="fr"/><circle cx="174" cy="150" r="18" class="fr"/><circle cx="222" cy="150" r="18" class="fr"/><circle cx="270" cy="150" r="18" class="fr"/><circle cx="30" cy="205" r="18" class="fr"/><circle cx="78" cy="205" r="18" class="fr"/><circle cx="126" cy="205" r="18" class="fr"/><circle cx="174" cy="205" r="18" class="fr"/><circle cx="222" cy="205" r="18" class="fr"/><circle cx="270" cy="205" r="18" class="fr"/><circle cx="30" cy="260" r="18" class="fr"/><circle cx="78" cy="260" r="18" class="fr"/><circle cx="126" cy="260" r="18" class="fr"/><circle cx="174" cy="260" r="18" class="fr"/><circle cx="222" cy="260" r="18" class="fr"/><circle cx="270" cy="260" r="18" class="fr"/></svg><p>Всего 30&nbsp;мест, 11&nbsp;уже заняты по&nbsp;личным приглашениям</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>68</span></div>
+</section>
+<!-- 69. tax -->
+<section class="slide t-html s-tax2">
+
+<div class="tax-card r d2"><div class="tax-num"><em class="big-num">13%</em></div>
+<div class="tax-txt"><h2 class="h2 r d3">Налоговый вычет 13%</h2>
+<div class="tax-lic r d4"><svg viewBox="0 0 48 48"><path d="M24 4l16 6v12c0 10-7 18-16 22C15 40 8 32 8 22V10z"/><path d="M17 24l5 5 9-10" class="ck"/></svg><p>Программа повышения квалификации института с образовательной лицензией</p></div></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>69</span></div>
+</section>
+<!-- 70. bonus-a -->
+<section class="slide t-html s-bon">
+
+<div class="head"><div class="kicker r d1">Бонусы для тех, кто внесёт бронь на эфире</div><h2 class="h2 r d2">Система привлечения <span class="nw">VIP-клиентов</span> за 3 месяца</h2></div>
+<div class="bon">
+  <div class="bc main r d3"><span class="bt">Бонус 1 · доступ на 3 месяца</span><b>«Помощник психолога в кармане»</b><p>Ведёт ваш маркетинг вместо <span class="nw">SMM-специалиста</span>. Средняя цена SMM – 50 000 ₽ в месяц</p><div class="save"><em class="big-num">150&nbsp;000&nbsp;₽</em><span>вы экономите за 3 месяца</span></div></div>
+  <div class="bc r d4"><span class="bt">Бонус 2 · на 3 месяца</span><b>Маркетинговое<br>сопровождение</b><p>Вырабатываем вашу стратегию, и после обучения она продолжает работать в вашей практике</p></div>
+  <div class="bc r d5"><span class="bt">Бонус 3</span><b>«Ключ к высокому чеку»</b><p>Система практик: вы спокойно называете высокую цену</p></div>
+</div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>70</span></div>
+</section>
+<!-- 71. bonus-b -->
+<section class="slide t-html s-bon s-bon2">
+
+<div class="head"><div class="kicker r d1">Бонусы для тех, кто внесёт бронь на эфире</div><h2 class="h2 r d2">К старту у вас уже 2 метода</h2></div>
+<div class="bon">
+  <div class="bc r d3"><span class="bt">Бонус 4 · в подарок</span><b>EMDR 3.0 «Стандарт»</b><p>Если у вас его ещё нет в арсенале: 5 уроков в записи и повышение квалификации на 72 часа</p></div>
+  <div class="bc main r d4"><span class="bt">Бонус 5</span><b>Системная терапия</b><div class="save"><em class="big-num">−50%</em><span>скидка на обучение методу</span></div></div>
+</div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>71</span></div>
+</section>
+<!-- 72. bonus-total -->
+<section class="slide t-html s-total2">
+
+<div class="head"><div class="kicker r d1">Итого</div><h2 class="h2 r d2">Что вы получаете, бронируя место на эфире</h2></div>
+<div class="t2">
+  <div class="t2-l r d3"><span class="bt">выгода</span><em class="big-num">450&nbsp;000&nbsp;₽</em>
+    <div class="t2-parts"><div><b>300 000 ₽</b><span>Цена для эфира</span></div><div><b>150 000 ₽</b><span>Помощник психолога в кармане вместо SMM</span></div></div></div>
+  <div class="t2-r">
+    <div class="g r d4"><i>01</i><p>«Помощник психолога в кармане» на 3 месяца</p></div>
+    <div class="g r d4"><i>02</i><p>Маркетинговое сопровождение 3 месяца</p></div>
+    <div class="g r d5"><i>03</i><p>«Ключ к высокому чеку»</p></div>
+    <div class="g r d5"><i>04</i><p>EMDR 3.0 «Стандарт» в подарок</p></div>
+    <div class="g wide r d6"><i>05</i><p>Скидка 50% на системную терапию</p></div>
+  </div>
+</div>
+<div class="t2-path r d7"><div><span>К старту</span><p>вы придёте с двумя методами</p></div><em>→</em><div class="fin"><span>К концу обучения</span><p>пошаговая система привлечения платёжеспособных клиентов, полный инструментарий и своя методология</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>72</span></div>
+</section>
+<!-- 73. installment -->
+<section class="slide t-html s-inst">
+
+<div class="head"><div class="kicker r d1">если нет всей суммы сразу</div><h2 class="h2 r d2">Есть рассрочка</h2></div>
+<div class="grid c2"><div class="li r d3"><b>Наша внутренняя рассрочка</b><p>на 3 месяца</p></div><div class="li r d4"><b>Рассрочка от банка</b><p>до 12 месяцев</p></div></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>73</span></div>
+</section>
+<!-- 74. statement -->
+<section class="slide t-statement ">
+<div class="st-wrap"><div class="kicker r d1">«Боюсь тратить»</div><h2 class="st r d2">Это <em>вложение в себя = ваш актив</em></h2><p class="st-sub r d3">Вы получаете метод и навыки, которые могут приносить доход годами. А чтобы деньги не стали препятствием, есть рассрочка.</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>74</span></div>
+</section>
+<!-- 75. statement -->
+<section class="slide t-statement ">
+<div class="st-wrap"><div class="kicker r d1">«А если у меня не получится?»</div><h2 class="st r d2">Вас ведет <em>методология и навыки</em></h2><p class="st-sub r d3">Их можно освоить за 3 месяца, если делать всё правильно. Я буду рядом весь путь.</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>75</span></div>
+</section>
+<!-- 76. statement -->
+<section class="slide t-statement ">
+<div class="st-wrap"><div class="kicker r d1">«Я только начинаю, мой час стоит 5 000 ₽»</div><h2 class="st r d2">Именно поэтому <em>вам сюда</em></h2><p class="st-sub r d3">Сам факт участия в <span class="nw">мастер-группе</span> делает вас <span class="nw">VIP-клиентом</span>. Вы проживаете этот уровень на себе, и потом вам легче работать с другими.</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>76</span></div>
+</section>
+<!-- 77. cta -->
+<section class="slide t-html s-cta">
+
+<div class="cta-t"><div class="kicker r d1">Действуйте прямо сейчас</div>
+<h2 class="h1 r d2">Зафиксируйте условия: бронь 10 000 ₽</h2>
+<p class="lead r d3">После брони с вами свяжутся и пригласят на собеседование</p>
+<p class="cta-chat r d4">Ссылка для бронирования места в чате</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>77</span></div>
+</section>
+<!-- 78. ask -->
+<section class="slide t-ask ">
+<div class="ask-wrap"><div class="chat r d1"><svg viewBox="0 0 48 48"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/></svg>Ответы на вопросы</div>
+<h2 class="ask-q r d2">Задавайте вопросы<br>в чат прямо сейчас</h2></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>78</span></div>
+</section>
+<!-- 79. statement -->
+<section class="slide t-statement ">
+<div class="st-wrap"><h2 class="st r d2">Спасибо, что были <em>с нами</em> ❤</h2><p class="st-sub r d3">Ссылка на бронь – в чате</p></div>
+<div class="foot"><span>Анна Саба · эфир для выпускников</span><span>79</span></div>
+</section>
+</main>
+</div>
+<div class="progress" id="progress"></div>
+<div class="deck-controls" id="controls"><span id="counter">1 / 79</span><span>← → пробел · E правка текста</span></div>
+<div class="edit-hotzone"></div>
+<button class="edit-toggle" id="editToggle" title="Правка текста (E)">✎</button>
+<script>
+/* ===========================================
+   SLIDE PRESENTATION CONTROLLER
+   =========================================== */
+class SlidePresentation {
+    constructor() {
+        this.slides = document.querySelectorAll('.slide');
+        this.stage = document.getElementById('deckStage');
+        this.all = new URLSearchParams(location.search).has('all');
+        if (this.all) { this.setupAllMode(); return; }
+        this.current = 0;
+        this.setupStageScale();
+        this.setupNav();
+        const start = parseInt(location.hash.slice(1), 10);
+        this.show(Number.isFinite(start) ? start - 1 : 0);
+    }
+
+    // ?all: every slide stacked and fully revealed (used for checks and the contact sheet)
+    setupAllMode() {
+        document.documentElement.classList.add('all');
+        document.body.classList.add('all');
+        this.slides.forEach(s => s.classList.add('visible', 'active'));
+        const scale = () => {
+            const f = window.innerWidth / 1920;
+            this.stage.style.transform = `scale(${f})`;
+            this.stage.parentElement.style.height = (1080 * this.slides.length * f) + 'px';
+        };
+        scale();
+        window.addEventListener('resize', scale);
+    }
+
+    setupStageScale() {
+        const scale = () => {
+            const f = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+            const x = (window.innerWidth - 1920 * f) / 2;
+            const y = (window.innerHeight - 1080 * f) / 2;
+            this.stage.style.transform = `translate(${x}px, ${y}px) scale(${f})`;
+        };
+        scale();
+        window.addEventListener('resize', scale);
+    }
+
+    setupNav() {
+        document.addEventListener('keydown', e => {
+            if (e.target.isContentEditable) return;
+            if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); this.show(this.current + 1); }
+            if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); this.show(this.current - 1); }
+            if (e.key === 'Home') this.show(0);
+            if (e.key === 'End') this.show(this.slides.length - 1);
+        });
+        let lock = false;
+        window.addEventListener('wheel', e => {
+            if (lock || Math.abs(e.deltaY) < 20) return;
+            lock = true; setTimeout(() => lock = false, 700);
+            this.show(this.current + (e.deltaY > 0 ? 1 : -1));
+        }, { passive: true });
+        let x0 = null;
+        window.addEventListener('touchstart', e => x0 = e.touches[0].clientX, { passive: true });
+        window.addEventListener('touchend', e => {
+            if (x0 === null) return;
+            const dx = e.changedTouches[0].clientX - x0;
+            if (Math.abs(dx) > 40) this.show(this.current + (dx < 0 ? 1 : -1));
+            x0 = null;
+        });
+    }
+
+    show(i) {
+        this.current = Math.max(0, Math.min(i, this.slides.length - 1));
+        this.slides.forEach((s, k) => {
+            const on = k === this.current;
+            s.classList.toggle('active', on);
+            s.classList.toggle('visible', on);
+        });
+        history.replaceState(null, '', '#' + (this.current + 1));
+        document.getElementById('counter').textContent = `${this.current + 1} / ${this.slides.length}`;
+        document.getElementById('progress').style.width = ((this.current + 1) / this.slides.length * 100) + '%';
+        this.slides[this.current].querySelectorAll('.count').forEach(countUp);
+    }
+}
+
+/* ===========================================
+   NUMBER COUNT-UP (author and proof slides)
+   Static HTML already holds the final value; animation only replays it.
+   =========================================== */
+function fmt(v, dec) {
+    const s = dec ? v.toFixed(dec).replace('.', ',') : Math.round(v).toString();
+    // group thousands only from 10 000, as on the landing ("7000+", "250 000")
+    return v >= 10000 ? s.replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0') : s;
+}
+function countUp(el) {
+    // site copy runs without motion (owner msg 839): the static number is already final
+    if (document.documentElement.classList.contains('no-anim')) return;
+    const to = parseFloat(el.dataset.to), from = parseFloat(el.dataset.from || '0'), dec = +(el.dataset.dec || 0);
+    const t0 = performance.now(), dur = 1600;
+    const step = t => {
+        const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(from + (to - from) * e, dec);
+        if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+}
+
+/* ===========================================
+   INLINE EDITING (E key or top-left corner), saved to localStorage
+   =========================================== */
+const editor = {
+    isActive: false,
+    key: 'vip-efir-2610-edits',
+    targets() { return document.querySelectorAll('.slide h1, .slide h2, .slide p, .slide b, .slide .opt, .slide .kicker, .slide .meta span, .slide .ed'); },
+    toggleEditMode() {
+        this.isActive = !this.isActive;
+        // the whole stage is editable: list items, labels and numbers too (owner msg 842)
+        document.getElementById('deckStage').contentEditable = this.isActive;
+        document.getElementById('editToggle').classList.toggle('active', this.isActive);
+        if (!this.isActive) this.save();
+    },
+    save() {
+        try { localStorage.setItem(this.key, JSON.stringify([...this.targets()].map(el => el.innerHTML))); } catch (e) {}
+    },
+    // Ctrl+S: save a copy of the deck with the edits baked in
+    download() {
+        const was = this.isActive; if (was) this.toggleEditMode();
+        const doc = document.documentElement.cloneNode(true);
+        doc.querySelectorAll('.slide').forEach((s, i) => { s.classList.toggle('active', i === 0); s.classList.remove('visible'); });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob(['<!DOCTYPE html>\n' + doc.outerHTML], { type: 'text/html' }));
+        a.download = 'vip-efir-anna-saba.html'; a.click();
+        if (was) this.toggleEditMode();
+    },
+    load() {
+        try {
+            const saved = JSON.parse(localStorage.getItem(this.key) || 'null');
+            if (saved) this.targets().forEach((el, i) => { if (saved[i] != null) el.innerHTML = saved[i]; });
+        } catch (e) {}
+    }
+};
+
+/* ===========================================
+   SAVE TO THE SITE (owner msg 826): the owner's link ?edit=<token> saves the deck
+   straight to doctorannasaba.ru through the pkt-edit service; without it Ctrl+S downloads a file
+   =========================================== */
+const SITE_PAGE = 'efir-26-10';
+const site = {
+    tok: null,
+    readTok() {
+        const m = (location.search + location.hash).match(/edit=([\w-]+)/);
+        try { if (m) sessionStorage.setItem('efir-edit', m[1]); this.tok = sessionStorage.getItem('efir-edit'); } catch (e) { if (m) this.tok = m[1]; }
+    },
+    note(t) { const n = document.getElementById('ebar-msg'); if (n) n.textContent = t; },
+    // slide html as loaded: a save sends only the slides changed in this tab, the rest comes from the server
+    orig: [...document.querySelectorAll('.slide')].map(s => s.innerHTML),
+    merge(serverHtml) {
+        const doc = new DOMParser().parseFromString(serverHtml, 'text/html');
+        const srv = doc.querySelectorAll('.slide'), mine = document.querySelectorAll('.slide');
+        if (srv.length !== mine.length || mine.length !== this.orig.length) return null;
+        let pulled = 0;
+        mine.forEach((s, i) => {
+            if (s.innerHTML !== this.orig[i]) srv[i].innerHTML = s.innerHTML;
+            else if (srv[i].innerHTML !== this.orig[i]) pulled++;
+        });
+        const eb = doc.querySelector('#ebar'); if (eb) eb.remove();
+        doc.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+        doc.querySelectorAll('.slide').forEach((s, i) => { s.classList.toggle('active', i === 0); s.classList.remove('visible'); });
+        return { html: '<!DOCTYPE html>\n' + doc.documentElement.outerHTML, pulled };
+    },
+    save() {
+        if (editor.isActive) editor.toggleEditMode();
+        this.note('Сохраняю…');
+        fetch(location.origin + location.pathname, { cache: 'no-store' }).then(r => r.text()).then(srv => {
+            const m = this.merge(srv);
+            if (!m) { this.note('На сайте изменилось число слайдов: скопируйте правку, обновите страницу и вставьте'); return; }
+            return fetch('https://baza.serenkov.com/pkt-edit/api/save', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ page: SITE_PAGE, token: this.tok, html: m.html }) })
+                .then(r => {
+                    if (!r.ok) { this.note('Не сохранилось, нажмите ещё раз'); return; }
+                    this.orig = [...document.querySelectorAll('.slide')].map(s => s.innerHTML);
+                    // someone else changed other slides meanwhile: show the merged page
+                    if (m.pulled) location.reload(); else this.note('Сохранено. На сайте через 1–2 минуты');
+                });
+        }).catch(() => this.note('Нет связи, нажмите ещё раз'));
+    },
+    bar() {
+        if (!this.tok || document.getElementById('ebar')) return;
+        const b = document.createElement('div'); b.id = 'ebar';
+        b.innerHTML = '<button id="eb-e">Править текст</button><button id="eb-s">Сохранить на сайт</button><span id="ebar-msg"></span>';
+        document.body.appendChild(b);
+        b.addEventListener('click', e => { e.stopPropagation(); if (e.target.id === 'eb-e') editor.toggleEditMode(); if (e.target.id === 'eb-s') this.save(); });
+    }
+};
+site.readTok();
+// the owner edits the server copy: Pages lags a minute, and a stale reload there would wipe a newer save
+if (false)
+    location.replace('https://baza.serenkov.com/pkt-edit/api/live/' + SITE_PAGE + '/?edit=' + site.tok + (/^#\d+$/.test(location.hash) ? location.hash : ''));
+// live update for viewers: a newly published version reloads on the same slide
+if (false) {
+    let v = null;
+    setInterval(() => fetch(location.origin + location.pathname, { method: 'HEAD', cache: 'no-store' }).then(r => {
+        const t = r.headers.get('etag') || r.headers.get('last-modified'); if (!t) return;
+        if (v && t !== v && !editor.isActive) location.reload(); v = t;
+    }).catch(() => {}), 15000);
+}
+
+if (!new URLSearchParams(location.search).has('all')) {
+    // local edits are kept only for the offline file; on the site the saved page is the truth
+    if (location.protocol === 'file:') editor.load();
+    site.bar();
+}
+// owner msg 950: viewers and Anna (plain link, no token) get no editing at all, only the owner's link edits
+const canEdit = !!site.tok || location.protocol === 'file:';
+if (!canEdit) {
+    document.documentElement.classList.add('viewer');
+    const c = document.querySelector('#controls span:last-child'); if (c) c.textContent = '← → пробел';
+}
+if (canEdit && !new URLSearchParams(location.search).has('all')) {
+    const hot = document.querySelector('.edit-hotzone'), tog = document.getElementById('editToggle');
+    let hide = null;
+    const later = () => { hide = setTimeout(() => { if (!editor.isActive) tog.classList.remove('show'); }, 400); };
+    hot.addEventListener('mouseenter', () => { clearTimeout(hide); tog.classList.add('show'); });
+    hot.addEventListener('mouseleave', later);
+    tog.addEventListener('mouseenter', () => clearTimeout(hide));
+    tog.addEventListener('mouseleave', later);
+    hot.addEventListener('click', () => editor.toggleEditMode());
+    tog.addEventListener('click', () => editor.toggleEditMode());
+    document.addEventListener('keydown', e => {
+        if (['e', 'E', 'у', 'У'].includes(e.key) && !e.target.isContentEditable) editor.toggleEditMode();
+        if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); if (site.tok) site.save(); else { editor.save(); editor.download(); } }
+    });
+}
+
+new SlidePresentation();
+
+</script>
+</body>
+</html>
